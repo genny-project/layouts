@@ -1,225 +1,136 @@
 {
-    "layout": [
-      {
-        "Grid": {
-          "cols": 1,
-          "rows": 2,
-          "children": [
-            {
-              "Grid": {
-                "cols": [
-                  1,
-                  4
-                ],
-                "rows": 2,
-                "position": [
-                  0,
-                  0
-                ],
-                "style": {
-                  "height": "calc(100% - 200px)"
-                },
-                "children": [
-                  {
-                    "Sidebar": {
-                      "position": [
-                        0,
-                        0
-                      ],
-                      "children": [
-                        {
-                         "GennyTreeView": {
-                           "style": {
-                              "marginTop": "50px"
-                           },
-                           "root": "GRP_ROOT"
-                          }
-                        }
-                      ],
-                      "style": {
-                        "backgroundColor": "#1f1f1f",
-                        "boxShadow": "5px 0px 5px 0px rgba(0,0,0,0.25)",
-                        "zIndex": "1000",
-                        "position": "relative",
-                        "color": "white",
-                        "textAlign": "center"
-                      },
-                     
-                      "hasImage": true,
-                      "caption": "MEMBER HUB",
-                      "src": "https://raw.githubusercontent.com/genny-project/keycloak-themes/master/themes/memberhub/login/resources/img/logo.png"
-                    }
-                  },
-                  {
-                    "div": {
-                      "position": [
-                        0,
-                        1
-                      ],
-                      "style": {
-                        "background": "#00A453",
-                        "color": "#FFF",
-                        "padding": "20px",
-                        "fontFamily": "Helvetica",
-                        "fontWeight": "400"
-                      },
-                      "children": [
-                        {
-                          "img": {
-                            "style": {
-                              "marginBottom": "10px",
-                              "width": "50px",
-                              "border-radius": "10%",
-                              "display":"inline",
-                              "float": "left",
-                              "margin-right" : "10px"
-                            },
-                            "src": "https://raw.githubusercontent.com/genny-project/keycloak-themes/master/themes/memberhub/login/resources/img/logo.png"
-                          }
-                        },
-                        {
-                          "h3": {
-                            "children": "MEMBER HUB",
-                            "style": {
-                              "marginBottom": "10px",
-                              "display":"inline-block"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "div": {
-                      "position": [
-                        0,
-                        1
-                      ],
-                      "style": {
-                        "height": "calc(100% - 102px)"
-                      },
-                      "children": [
-                        {
-                          "BucketView": {
-                            "buckets": [
-                              {
-                                "title": "PRE APPROVED"
-                              },
-                              {
-                                "title": "AWAITING QUOTES"
-                              },              
-                              {
-                                "title": "PAID"
-                              }
-                            ],
-                            "style": {
-                              "height": "100%"
-                            },
-                            "children": [
-                              {
-                                "Card": {
-                                  "index": 0,
-                                  "text1": "CAT Digger",
-                                  "text2": "Melbourne, Victoria",
-                                  "level": "urgent",
-                                  "buttons": [
-                                    {
-                                      "name": "Save",
-                                      "icon": "check_circle",
-                                      "value": "QUOTE",
-                                      "class": "confirm small"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "Card": {
-                                  "index": 0,
-                                  "text1": "CAT Digger",
-                                  "text2": "Melbourne, Victoria",
-                                  "level": "warning",
-                                  "buttons": [
-                                    {
-                                      "name": "Save",
-                                      "icon": "check_circle",
-                                      "value": "QUOTE",
-                                      "class": "confirm small"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "Card": {
-                                  "index": 1,
-                                  "text1": "Wooden Beams",
-                                  "text2": "Carlton, Victoria",
-                                  "buttons": [
-                                    {
-                                      "name": "Cancel",
-                                      "icon": "cancel",
-                                      "value": "CANCEL",
-                                      "class": "cancel small"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "Card": {
-                                  "index": 3,
-                                  "text1": "Bulk Beer",
-                                  "text2": "Carlton, Victoria",
-                                  "buttons": [
-                                    {
-                                      "name": "Cancel",
-                                      "icon": "gps_fixed",
-                                      "value": "TRACK",
-                                      "class": "small"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "Card": {
-                                  "index": 3,
-                                  "text1": "Bulk Cornflakes",
-                                  "text2": "Carlton, Victoria",
-                                  "buttons": [
-                                    {
-                                      "name": "Cancel",
-                                      "icon": "gps_fixed",
-                                      "value": "TRACK",
-                                      "class": "small"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "Card": {
-                                  "index": 3,
-                                  "text1": "Electronic Supplies",
-                                  "text2": "Sydney, New South Wales",
-                                  "buttons": [
-                                    {
-                                      "name": "Cancel",
-                                      "icon": "gps_fixed",
-                                      "value": "TRACK",
-                                      "class": "small"
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+  "layout": [
+    {
+      "AppHolder": {
+        "sidebar": {
+          "style": {
+            "backgroundColor": "PROJECT.PRI_COLOR",
+            "color": "white",
+            "textAlign": "center"
+          },
+          "caption": "MemberHub",
+          "src": "https://raw.githubusercontent.com/genny-project/keycloak-themes/master/themes/memberhub/login/resources/img/logo.png"
+        },
+        "header": {
+          "style": {
+            "backgroundColor": "PROJECT.PRI_COLOR",
+            "color": "white"
+          },
+          "projectTitle" : "Member Hub",
+          "userName" : "MemberHub",
+          "userImage" : "http://www.terry.uga.edu/digitalmarketing/images/icons/user.jpg"
+        },
+        "footer" : {
+          "style": {
+            "backgroundColor": "PROJECT.PRI_COLOR"
+          },
+          "version" : "0.0.0.1",
+          "poweredBy" : {
+            "caption" : "Outcome.life"
+          }
+        },
+        "children": [
+          {
+            "div": {
             }
-          ]
-        }
+          },
+          {
+            "div": {
+              "children": [
+                {
+                  "div": {
+                    "style": {
+                      "background": "#fff",
+                      "color": "#000",
+                      "padding": "20px",
+                      "fontFamily": "Helvetica",
+                      "fontWeight": "400"
+                    },
+                    "className" : "sticky",
+                    "children": [
+                      {
+                        "h3": {
+                          "children": "MemberHub",
+                          "style": {
+                            "marginBottom": "10px",
+                            "marginTop": "10px"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Grid": {
+                    "cols": [1,1],
+                    "rows": 3,
+                    "children": [
+                      {
+                        "div": {
+                          "position": [0, 0],
+                          "children": [
+                            {
+                              "h1": {
+                                "children": "Questions"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "div": {
+                          "position": [0, 1],
+                          "children": [
+                            {
+                              "h1": {
+                                "children": "Attributes"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "div": {
+                          "position": [1,0],
+                          "children": [
+                            {
+                              "GennyForm": {
+                                "itemsPerPage" : 10,
+                                "showProgress" : true,
+                                "style" : "default",
+                                "asks" : [
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "div": {
+                          "position": [1, 1],
+                          "children": [
+                            {
+                              "GennyTable": {
+                                "itemsPerPage" : 10,
+                                "root": "PER_USER1",
+                                "showBaseEntity": true,
+                                "columns" : [
+                                ],
+                                "data" : [
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
-    ]
-  }
-  
+    }
+  ]
+}
