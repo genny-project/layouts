@@ -8,7 +8,16 @@
           {
             "Grid": {
               "cols": 1,
-              "rows": ["90px", "auto", "30px"],
+              "rows": [
+                { "style": 
+                  {
+                    "flex": "0 0 90px",
+                    "position": "relative"
+                  }
+                },
+                "auto",
+                "30px"
+              ],
               "position": [0,0],
               "children": [
                 {
@@ -17,7 +26,9 @@
                     "hideSubheader": true,
                     "style": {
                       "backgroundColor": "PROJECT.PRI_COLOR",
-                      "color": "white"
+                      "color": "red !important",
+                      "boxShadow": "-10px -10px 30px rgba(0, 0, 0, 0.05), 10px 10px 20px rgba(0, 0, 0, 0.05)",
+                      "zIndex": "100"
                     },
                     "projectTitle" : "PROJECT.PRI_NAME",
                     "projectGreeting" : "PROJECT.PRI_GREETING",
@@ -28,6 +39,9 @@
                 {
                   "AppContent": {
                     "position": [1,0],
+                    "style": {
+                      "overflow": "scroll"
+                    },
                     "children" : [
                       {
                         "div": {
@@ -47,7 +61,8 @@
                                         "color": "#212121",
                                         "padding": "10px",
                                         "fontFamily": "Helvetica",
-                                        "fontWeight": "400"
+                                        "fontWeight": "400",
+                                        "maxWidth": "30%"
                                       },
                                       "children": [
                                         {
@@ -66,7 +81,8 @@
                                             "showProgress": true,
                                             "root": "QUE_MEMBERHUB_GRP",
                                             "style": {
-                                              "color": "PROJECT.PRIMARY_COLOR"
+                                              "color": "PROJECT.PRIMARY_COLOR",
+                                              "boxShadow": "0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)"
                                             }
                                           }
                                         }
@@ -82,7 +98,8 @@
                                         "padding": "10px",
                                         "fontFamily": "Helvetica",
                                         "fontWeight": "400",
-                                        "flexGrow": "1"
+                                        "flexGrow": "1",
+                                        "maxWidth": "40%"
                                       },
                                       "children": [
                                         {
@@ -99,7 +116,13 @@
                                           "GennyTable": {
                                             "root": "PER_USER1",
                                             "showBaseEntity": true,
-                                            "itemsPerPage": 30
+                                            "itemsPerPage": 25,
+                                            "style": {                          
+                                              
+                                              "boxShadow": "-10px -10px 30px rgba(0, 0, 0, 0.05), 10px 10px 20px rgba(0, 0, 0, 0.05)",
+                                              "padding" : "0px",
+                                              "margin" : "0px"
+                                            }
                                           }
                                         }
                                       ]
@@ -113,7 +136,8 @@
                                         "padding": "10px",
                                         "fontFamily": "Helvetica",
                                         "fontWeight": "400",
-                                        "flexGrow": "1"
+                                        "flexGrow": "1",
+                                        "maxWidth": "30%"
                                       },
                                       "children": [{
                                           "h1": {
@@ -131,7 +155,12 @@
                                             "showBaseEntity": true,
                                             "itemsPerPage": 1,
                                             "style": {
-                                              "height": "20%"
+                                              "height": "20%",
+                                              "boxShadow": "-10px -10px 30px rgba(0, 0, 0, 0.05), 10px 10px 20px rgba(0, 0, 0, 0.05)",
+                                              "padding" : "0px",
+                                              "margin" : "0px",
+                                              "marginBottom" : "30px"
+
                                             }
                                           }
                                         },
@@ -141,7 +170,10 @@
                                             "showBaseEntity": true,
                                             "itemsPerPage": 1,
                                             "style": {
-                                              "height": "20%"
+                                              "height": "20%",
+                                              "boxShadow": "-10px -10px 30px rgba(0, 0, 0, 0.05), 10px 10px 20px rgba(0, 0, 0, 0.05)",
+                                              "padding" : "0px",
+                                              "margin" : "0px"
                                             }
                                           }
                                         },
