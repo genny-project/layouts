@@ -20,7 +20,7 @@
                 "Grid": {  
                 "position": [0,0],
                 "cols": 1,
-                "rows": 5,
+                "rows": [1,1,1,1,{ "style": { "flexGrow":1, "paddingTop": "20px" } }],
                 "children": [  
                     {  
                         "Grid": {  
@@ -266,20 +266,11 @@
                             ]
                         }
                     },
-                    
-                    {
-                      "MapDisplay" : {
-                        "style": {
-                          "margin": "20px"
-                        },
-                        "position": [2,0], 
-                        "routes": [
-                          {
-                            "origin" : "BEG.PRI_FULL_PICKUP_ADDRESS",
-                            "dest" : "BEG.PRI_FULL_DROPOFF_ADDRESS"
-                          }
-                        ]
-                      }
+                    {  
+                        "p": {
+                            "position": [2,0], 
+                            "children": "BEG.PRI_DESCRIPTION"
+                        }
                     },
                     {
                         "GennyList": {
@@ -293,8 +284,7 @@
                     {
                       "MapDisplay" : {
                         "style": {
-                          "margin": "20px",
-                           "height": "400px"
+                          "height": "400px"
                         },
                         "position": [4,0], 
                         "routes": [
