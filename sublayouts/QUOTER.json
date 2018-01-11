@@ -1,50 +1,135 @@
 {
     "Grid": {
-        "rows": 1,
-        "cols": [1,4],
+        "rows": 2,
+        "cols": 1,
         "className": "bucket-card",
         "children": [
             {
-                "ImageView": {
+                "Grid": {
                     "position": [0,0],
-                    "rounded": true,
-                    "style": {
-                        "width": "20px"
-                    },
-                    "src": "BE.PRI_IMAGE_URL"
+                    "rows": 1,
+                    "cols": [1,4],
+                    "children": [
+                        {
+                            "ImageView": {
+                                "position": [0,0],
+                                "rounded": true,
+                                "style": {
+                                    "width": "20px"
+                                },
+                                "src": "BE.PRI_IMAGE_URL"
+                            }
+                        },
+                        {
+                            "Grid": {
+                                "position": [0,1],
+                                "rows": 4,
+                                "cols": 1,
+                                "children": [
+                                    {
+                                        "span": {
+                                            "position": [0,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children": "OFFER"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "position": [1,0],
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_OFFER_PRICE"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "position": [2,0],
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_FIRSTNAME"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "position": [2,0],
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_LASTNAME"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 }
             },
             {
                 "Grid": {
-                    "position": [0,1],
-                    "rows": 2,
-                    "cols": 1,
+                    "position": [1,0],
+                    "rows": 1,
+                    "cols": 2,
+                    "style": {
+                        "paddingTop": "5px"
+                    },
                     "children": [
                         {
-                            "span": {
+                            "GennyButton": {
                                 "position": [0,0],
-                                "style": {
-                                    "fontSize": "0.8em"
+                                "buttonCode": "BTN_ACCEPT_OFFER",
+                                "value": {
+                                    "itemCode": "ITEMCODE",
+                                    "hint": "ROOT"
                                 },
-                                "children": "QUOTER"
+                                "style": {
+                                    "paddingRight": "2.5px" 
+                                },
+                                "buttonComponentStyle": {
+                                    "height": "30px"
+                                },
+                                "buttonStyle": {
+                                    "backgroundColor": "#000"
+                                },
+                                "children": [
+                                    {
+                                        "IconSmall" : {
+                                            "name": "check_circle",
+                                            "style": {
+                                                "color": "white"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
-                            "span": {
-                                "position": [1,0],
-                                "style": {
-                                    "fontSize": "0.75em"
+                            "GennyButton": {
+                                "position": [0,1],
+                                "buttonCode": "BTN_COUNTER_OFFER",
+                                "value": {
+                                    "itemCode": "ITEMCODE",
+                                    "hint": "ROOT"
                                 },
-                                "children": "BE.PRI_FIRSTNAME"
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [1,0],
                                 "style": {
-                                    "fontSize": "0.75em"
+                                    "paddingLeft": "2.5px" 
                                 },
-                                "children": "BE.PRI_LASTNAME"
+                                "buttonComponentStyle": {
+                                    "height": "30px"
+                                },
+                                "children": [
+                                    {
+                                        "IconSmall" : {
+                                            "name": "cancel",
+                                            "style": {
+                                                "color": "white"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
@@ -53,3 +138,4 @@
         ]
     }
 }
+
