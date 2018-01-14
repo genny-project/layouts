@@ -28,40 +28,105 @@
                     {  
                         "Grid": {  
                             "position": [0,0],
-                            "cols": [
-                                {
-                                    "style": {
-                                        "flexGrow": 1,
-                                        "display": "flex",
-                                        "alignItems": "center"
-                                    }
-                                },
-                                5
-                            ],
-                            "rows": 1,
+                            "cols": 2,
+                            "rows": 3,
                             "children": [  
                                 {
                                     "ImageView": {
                                         "position": [0,0],
+                                        "rounded": true,
                                         "style": {
-                                            "width": "75px"
+                                            "width": "30px",
+                                            "marginRight": "5px"
                                         },
                                         "src": "BEG.PRI_IMAGE_URL"
                                     }
                                 },
-                                {  
-                                    "h1": {  
-                                        "position": [0, 1],
+                                {
+                                    "span": {
+                                        "position": [0,1],
+                                        "style": {
+                                            "fontSize": "0.75em"
+                                        },
                                         "children": "BEG.PRI_TITLE"
                                     }
                                 },
-                                {  
-                                    "h3": {  
-                                        "position": [0, 1],
-                                        "style": {  
-                                            "color": "PROJECT.PRI_COLOR"
+                                {
+                                    "span": {
+                                        "position": [1,1],
+                                        "style": {
+                                            "fontSize": "0.75em"
                                         },
-                                        "children": "Owner name"
+                                        "children": "BEG.PRI_PRICE"
+                                    }
+                                },
+                                {
+                                    "div": {
+                                        "position": [2, 1],
+                                        "style": {
+                                            "display": "flex",
+                                            "flexDirection": "row"
+                                        },
+                                        "children": [
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "BEG.PRI_PICKUP_ADDRESS_SUBURB"
+                                                }
+                                            },
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em",
+                                                        "marginRight": "5px"
+                                                    },
+                                                    "children": ","
+                                                }
+                                            },
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "BEG.PRI_PICKUP_ADDRESS_STATE"
+                                                }
+                                            },
+                                            {
+                                                "IconSmall": {
+                                                    "name": "arrow_right",
+                                                    "style": {
+                                                     "marginTop": "-5px"   
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "BEG.PRI_DROPOFF_ADDRESS_SUBURB"
+                                                }
+                                            },
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em",
+                                                        "marginRight": "5px"
+                                                    },
+                                                    "children": ","
+                                                }
+                                            },
+                                            {
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "BEG.PRI_DROPOFF_ADDRESS_STATE"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
