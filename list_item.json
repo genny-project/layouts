@@ -1,106 +1,125 @@
 {
-    "Grid": {
-        "cols": [ {"style" : {"flexgrow": 1, "display": "flex", "alignItems": "center" } }, 7, {"style":{"flex": "0 0 0%", "display": "flex", "alignItems": "flex-end"}}],
-        "rows": 1,
-        "className": "bucket-card",
+    "div": {
         "children": [
             {
-                "ImageView": {
-                    "style": {
-                        "width": "50px",
-                        "margin": "10px"
-                    },
-                    "src": "http://www.terry.uga.edu/digitalmarketing/images/icons/user.jpg",
-                    "position": [0, 0]
-                }
-            },
-            {
-                "span": {
-                    "position": [0,1],
-                    "children": "BE.PRI_TITLE"
-                }
-            },
-            {
-                "Device": {
-                    "isMobile": true,
-                    "position": [0,1],
+                "Grid": {
+                    "rows": [
+                        {
+                            "style": {
+                               "flexGrow": 1,
+                                "flexWrap": "nowrap"
+                            }
+                        },
+                        1
+                    ],
+                    "cols": [
+                        0.1, 
+                        {
+                            "style": { 
+                                "display" : "flex",
+                                "flexDirection" : "column",
+                                "flexWrap": "no-wrap",
+                                "flexGrow" : 1,
+                                "paddingRight": "10px",
+                                "justifyContent": "space-evenly"
+                            }
+                        },
+                        "10px"
+                    ],
                     "children": [
                         {
-                            "Grid": {
-                                "rows": 5,
-                                "cols": 1,
+                            "ImageView": {
+                                "position": [0,0],
+                                "rounded": true,
                                 "style": {
-                                    "fontSize": "0.75em",
-                                    "height": "initial",
-                                    "marginTop": "5px"
+                                    "width": "30px",
+                                    "marginRight": "5px"
+                                },
+                                "src": "BEG.PRI_IMAGE_URL"
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [0,1],
+                                "style": {
+                                    "fontSize": "0.75em"
+                                },
+                                "children": "BEG.PRI_TITLE"
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [0,1],
+                                "style": {
+                                    "fontSize": "0.75em"
+                                },
+                                "children": "$BEG.PRI_PRICE"
+                            }
+                        },
+                        {
+                            "div": {
+                                "position": [0, 1],
+                                "style": {
+                                    "display": "flex",
+                                    "flexDirection": "row"
                                 },
                                 "children": [
                                     {
-                                        "IconSmall": {
-                                            "position": [0,0],
+                                        "span": {
                                             "style": {
-                                                "marginLeft": "5px"
+                                                "fontSize": "0.75em"
                                             },
-                                            "text": "BE.PRI_PICKUP_ADDRESS_ADDRESS1",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [1,0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_PICKUP_DATE",
-                                            "name": "place"
+                                            "children": "BEG.PRI_PICKUP_ADDRESS_SUBURB"
                                         }
                                     },
                                     {
                                         "span": {
-                                            "position": [1,0],
                                             "style": {
-                                                "marginLeft": "5px"
+                                                "fontSize": "0.75em",
+                                                "marginRight": "5px"
                                             },
-                                            "children": "BE.PRI_PICKUP_TIME"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [2,0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_DROPOFF_ADDRESS_ADDRESS1",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [3,0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_DROPOFF_DATE",
-                                            "name": "place"
+                                            "children": ","
                                         }
                                     },
                                     {
                                         "span": {
-                                            "position": [3,0],
                                             "style": {
-                                                "marginLeft": "5px"
+                                                "fontSize": "0.75em"
                                             },
-                                            "children": "BE.PRI_DROPOFF_TIME"
+                                            "children": "BEG.PRI_PICKUP_ADDRESS_STATE"
                                         }
                                     },
                                     {
                                         "IconSmall": {
-                                            "position": [4,0],
+                                            "name": "arrow_right",
                                             "style": {
-                                                "marginLeft": "5px"
+                                             "marginTop": "-5px"   
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
                                             },
-                                            "text": "BE.PRI_PRICE",
-                                            "name": "attach_money"
+                                            "children": "BEG.PRI_DROPOFF_ADDRESS_SUBURB"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em",
+                                                "marginRight": "5px"
+                                            },
+                                            "children": ","
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BEG.PRI_DROPOFF_ADDRESS_STATE"
                                         }
                                     }
                                 ]
@@ -110,102 +129,137 @@
                 }
             },
             {
-                "Device": {
-                   "position": [0,1],
-                    "isDesktop" : true,
+                "Grid": {
+                    "rows": 5,
+                    "cols": [2,4],
+                    "style": {
+                        "marginBottom": "10px"
+                    },
                     "children": [
                         {
-                            "Grid": {
-                                "rows": 1,
-                                "cols": 3,
+                            "span": {
+                                "position": [0,0],
                                 "style": {
-                                    "fontSize": "0.75em",
-                                    "height": "initial"
+                                    "fontSize" : "0.75em"
                                 },
-                                
+                                "children": "PICKUP: "
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [0,1],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
                                 "children": [
                                     {
-                                        "IconSmall": {
-                                            "position": [0, 0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_PICKUP_ADDRESS_ADDRESS1",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [0, 0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_PICKUP_DATE",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
                                         "span": {
-                                            "position": [0,0],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "children": "BE.PRI_PICKUP_TIME"
+                                            "children": "BEG.PRI_PICKUP_ADDRESS_FULL"
                                         }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [0, 1],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_DROPOFF_ADDRESS_ADDRESS1",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [0, 1],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_DROPOFF_DATE",
-                                            "name": "place"
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "position": [0,1],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "children": "BE.PRI_DROPOFF_TIME"
-                                        }
-                                    },
-                                    {
-                                        "IconSmall": {
-                                            "position": [0, 2],
-                                            "style": {
-                                                "marginLeft": "5px"
-                                            },
-                                            "text": "BE.PRI_PRICE",
-                                            "name": "attach_money"
-                                        }
-                                    }
+                                    } 
                                 ]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [1,1],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "children": "BEG.PRI_PICKUP_DATE"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "children": ", "
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "children": "BEG.PRI_PICKUP_TIME"
+                                        }
+                                    }  
+                                ]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [2,0],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": "DROPOFF: "
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [2,1],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "children": "BEG.PRI_DROPOFF_ADDRESS_FULL"
+                                        }
+                                    } 
+                                ]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [3,1],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "children": "BEG.PRI_DROPOFF_DATE"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "children": ", "
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "children": "BEG.PRI_DROPOFF_TIME"
+                                        }
+                                    }  
+                                ]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [4,0],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": "PRICE: "
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [4,1],
+                                "style": {
+                                    "fontSize" : "0.75em",
+                                    "marginBottom": "5px"
+                                },
+                                "children": "BEG.PRI_PRICE"
                             }
                         }
                     ]
-                }
-            },
-            {
-                "span": {
-                    "style": {
-                        "fontSize": "0.75em",
-                        "marginBottom": "5px"
-                    },
-                    "position": [0, 1],
-                    "children": "BE.PRI_DESCRIPTION"
                 }
             },
             {
