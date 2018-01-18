@@ -21,8 +21,7 @@
                                 "flexWrap": "no-wrap",
                                 "flexGrow" : 1,
                                 "paddingRight": "10px",
-                                "justifyContent": "space-evenly",
-                                "position": "relative"
+                                "justifyContent": "space-evenly"
                             }
                         },
                         "10px"
@@ -69,37 +68,6 @@
                                     }    
                                 ]
                             }
-                        },
-                        {
-                            "GennyButton": {
-                                "buttonCode": "BTN_LOAD_SEE_MORE",
-                                "value": {
-                                    "itemCode": "BE.ITEM_CODE",
-                                    "hint": "ROOT"
-                                },
-                                "position": [0,1],
-                                "style": {
-                                    "height": "20px",
-                                    "width": "20px",
-                                    "background": "#fff",
-                                    "position": "absolute",
-                                    "top": "0",
-                                    "right": "2px"
-                                },
-                                "buttonStyle": {
-                                    "background": "#fff"
-                                },
-                                "children": [
-                                    {
-                                       "IconSmall": {
-                                           "style": {
-                                               "fontSize": "20px"
-                                           },
-                                           "name": "info_outline"
-                                       }
-                                    }
-                                ]
-                            } 
                         },
                         {
                             "div": {
@@ -183,9 +151,26 @@
                 }
             },
             {
+                "Selector": {
+                    "checkValues": "ROOT",
+                    "showValues": "GRP_IN_TRANSIT",
+                    "children": [
+                        {
+                            "ProgressBar": {
+                                "style": {
+                                    "marginTop": "10px"   
+                                },
+                                "type": 2,
+                                "progressTotal": 50,
+                                "progressCurrent": 0
+                            }
+                        }
+                    ]
+                }
+            },
+            {
                 "GennyDropdown" : {
                     "inline": true,
-                    "position": [1, 1],
                     "contentStyle": {
                         "backgroundColor": "white",
                         "padding": "0"
@@ -307,11 +292,35 @@
                             }
                         },
                         {
+                            "GennyButton": {
+                                "buttonCode": "BTN_LOAD_SEE_MORE",
+                                "value": {
+                                    "itemCode": "BE.ITEM_CODE",
+                                    "hint": "ROOT"
+                                },
+                                "position": [0,1],
+                                "style": {
+                                    "height": "30px"
+                                },
+                                "buttonStyle": {
+                                    "backgroundColor": "#000"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children": "View Full Job Details"
+                                        }
+                                    }
+                                ]
+                            } 
+                        },
+                        {
                             "Selector": {
-                                "checkValues": [
-                                    "ROOT"
-                                 ],
-                                "showValues": "GRP_IN_TRANSIT",
+                                "checkValues": "ROOT",
+                                "showValues": "GRP_APPROVED",
                                 "children": [
                                     {
                                         "ProgressBar": {
@@ -320,7 +329,25 @@
                                             },
                                             "type": 2,
                                             "progressTotal": 100,
-                                            "progressCurrent": 10
+                                            "progressCurrent": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "ROOT",
+                                "showValues": "GRP_DELIVERED",
+                                "children": [
+                                    {
+                                        "ProgressBar": {
+                                            "style": {
+                                                "marginTop": "10px"   
+                                            },
+                                            "type": 2,
+                                            "progressTotal": 100,
+                                            "progressCurrent": 100
                                         }
                                     }
                                 ]
