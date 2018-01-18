@@ -14,7 +14,7 @@
                     "style": {
                         "minHeight": "fit-content"
                     },
-                    "cols": 1,
+                    "cols": 2,
                     "rows": [
                         { "style": { "flexGrow": 1, "padding": "20px 0" } },
                         { "style": { "flexGrow": 1, "padding": "20px 0" } },
@@ -567,17 +567,45 @@
                                 }
                             },
                             {
-                                "MapDisplay" : {
-                                    "style": {
-                                        "height": "400px"
-                                    },
-                                    "position": [4,0], 
-                                    "routes": [
+                                "Device": {
+                                    "isDesktop": true,
+                                    "position": [4, 1],
+                                    "children": [
                                         {
-                                            "origin" : "BE.PRI_PICKUP_ADDRESS_FULL",
-                                            "dest" : "BE.PRI_DROPOFF_ADDRESS_FULL"
+                                            "MapDisplay" : {
+                                                "style": {
+                                                    "height": "400px"
+                                                },
+                                                "routes": [
+                                                    {
+                                                        "origin" : "BE.PRI_PICKUP_ADDRESS_FULL",
+                                                        "dest" : "BE.PRI_DROPOFF_ADDRESS_FULL"
+                                                    }
+                                                ]
+                                            }
                                         }
-                                    ]
+                                     ]
+                                }
+                            },
+                            {
+                                "Device": {
+                                    "isMobile": true,
+                                    "position": [4, 0],
+                                    "children": [
+                                        {
+                                            "MapDisplay" : {
+                                                "style": {
+                                                    "height": "400px"
+                                                },
+                                                "routes": [
+                                                    {
+                                                        "origin" : "BE.PRI_PICKUP_ADDRESS_FULL",
+                                                        "dest" : "BE.PRI_DROPOFF_ADDRESS_FULL"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                     ]
                                 }
                             },
                             {  
