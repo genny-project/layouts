@@ -21,7 +21,8 @@
                                 "flexWrap": "no-wrap",
                                 "flexGrow" : 1,
                                 "paddingRight": "10px",
-                                "justifyContent": "space-evenly"
+                                "justifyContent": "space-evenly",
+                                "position": "relative"
                             }
                         },
                         "10px"
@@ -69,6 +70,37 @@
                                     }    
                                 ]
                             }
+                        },
+                        {
+                            "GennyButton": {
+                                "buttonCode": "BTN_LOAD_SEE_MORE",
+                                "value": {
+                                    "itemCode": "BE.ITEM_CODE",
+                                    "hint": "ROOT"
+                                },
+                                "position": [0,1],
+                                "style": {
+                                    "height": "20px",
+                                    "width": "20px",
+                                    "background": "#fff",
+                                    "position": "absolute",
+                                    "top": "0",
+                                    "right": "2px"
+                                },
+                                "buttonStyle": {
+                                    "background": "#fff"
+                                },
+                                "children": [
+                                    {
+                                       "IconSmall": {
+                                           "style": {
+                                               "fontSize": "20px"
+                                           },
+                                           "name": "info_outline"
+                                       }
+                                    }
+                                ]
+                            } 
                         },
                         {
                             "div": {
@@ -140,35 +172,13 @@
                             }
                         },
                         {
-                            "GennyButton": {
-                                "buttonCode": "BTN_LOAD_SEE_MORE",
-                                "value": {
-                                    "itemCode": "BE.ITEM_CODE",
-                                    "hint": "ROOT"
-                                },
-                                "position": [0, 2],
+                            "Status": {
+                                "position": [0,2],   
+                                "color": "success",
                                 "style": {
-                                    "height": "100%",
-                                    "width": "10px",
-                                    "background": "none"
-                                },
-                                "buttonStyle": {
-                                    "background": "none",
-                                    "padding": "none",
                                     "height": "100%"
-                                },
-                                "children": [
-                                    {
-                                        "Status": {
-                                            "position": [0,2],   
-                                            "color": "success",
-                                            "style": {
-                                                "height": "46px"
-                                            }
-                                        }
-                                    }
-                                ]
-                            } 
+                                }
+                            }
                         }
                     ]
                 }
