@@ -462,6 +462,7 @@
                                             "value":{  
                                                 "itemCode":"BE.ITEM_CODE"
                                             },
+                                            "type": "confirm",
                                             "style":{  
                                                 "marginBottom":"5px",
                                                 "height":"30px",
@@ -653,13 +654,56 @@
                                                         "flexGrow":1,
                                                         "padding":"10px 0"
                                                     }
+                                                },
+                                                {  
+                                                    "style":{  
+                                                        "flexGrow":1,
+                                                        "padding":"10px 0"
+                                                    }
                                                 }
                                             ],
-                                            "children":[  
+                                            "children":[
+                                                {  
+                                                    "GennyButton":{  
+                                                        "position":[  
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "style":{  
+                                                            "marginTop":"-35px"
+                                                        },
+                                                        "buttonStyle":{  
+                                                            "background":"white"
+                                                        },
+                                                        "buttonCode":"BTN_GO_BACK_JOB_DETAIL",
+                                                        "hint":{  
+                                                            "itemCode":"BE.PRI_CODE"
+                                                        },
+                                                        "children":[  
+                                                            {  
+                                                                "IconSmall":{  
+                                                                    "style":{  
+                                                                        "fontSize":"34px"
+                                                                    },
+                                                                    "name":"arrow_back"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "style":{  
+                                                                        "background":"white",
+                                                                        "color":"lightgray"
+                                                                    },
+                                                                    "children":"BACK"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
                                                 {  
                                                     "Grid":{  
                                                         "position":[  
-                                                            0,
+                                                            1,
                                                             0
                                                         ],
                                                         "style":{  
@@ -677,43 +721,6 @@
                                                         ],
                                                         "rows":1,
                                                         "children":[  
-                                                            {  
-                                                                "GennyButton":{  
-                                                                    "position":[  
-                                                                        0,
-                                                                        0
-                                                                    ],
-                                                                    "style":{  
-                                                                        "marginTop":"-35px"
-                                                                    },
-                                                                    "buttonStyle":{  
-                                                                        "background":"white"
-                                                                    },
-                                                                    "buttonCode":"BTN_GO_BACK_JOB_DETAIL",
-                                                                    "hint":{  
-                                                                        "itemCode":"BE.PRI_CODE"
-                                                                    },
-                                                                    "children":[  
-                                                                        {  
-                                                                            "IconSmall":{  
-                                                                                "style":{  
-                                                                                    "fontSize":"34px"
-                                                                                },
-                                                                                "name":"arrow_back"
-                                                                            }
-                                                                        },
-                                                                        {  
-                                                                            "span":{  
-                                                                                "style":{  
-                                                                                    "background":"white",
-                                                                                    "color":"lightgray"
-                                                                                },
-                                                                                "children":"BACK"
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            },
                                                             {  
                                                                 "ImageView":{  
                                                                     "position":[  
@@ -846,11 +853,12 @@
                                                 },
                                                 {  
                                                     "GennyButton":{
-                                                        "position": [1,0],
+                                                        "position": [2,0],
                                                         "buttonCode":"BTN_ACCEPT_JOB",
                                                         "value":{  
                                                             "itemCode":"BE.ITEM_CODE"
                                                         },
+                                                        "type": "confirm",
                                                         "style":{  
                                                             "marginBottom":"5px",
                                                             "height":"30px",
@@ -874,7 +882,7 @@
                                                 },
                                                 {  
                                                     "GennyButton":{
-                                                        "position": [1,0],
+                                                        "position": [2,0],
                                                         "buttonCode":"BTN_MAKE_OFFER",
                                                         "value":{  
                                                             "itemCode":"BE.ITEM_CODE"
@@ -902,7 +910,7 @@
                                                 },
                                                 {  
                                                     "GennyButton":{
-                                                        "position": [1,0],
+                                                        "position": [2,0],
                                                         "buttonCode":"BE.ITEM_CODE",
                                                         "style":{  
                                                             "marginBottom":"5px",
@@ -927,7 +935,7 @@
                                                 },
                                                 {  
                                                     "MapDirectionsButton":{
-                                                        "position": [1,0],
+                                                        "position": [2,0],
                                                         "addressPickup": "BE.PRI_PICKUP_ADDRESS_FULL",
                                                         "addressDropoff": "BE.PRI_DROPOFF_ADDRESS_FULL",
                                                         "style":{  
@@ -952,12 +960,9 @@
                                                 },
                                                 {  
                                                     "Grid":{
-                                                        "position": [2,0],
-                                                        "cols":[  
-                                                            1,
-                                                            3
-                                                        ],
-                                                        "rows":5,
+                                                        "position": [3,0],
+                                                        "cols":[1,3],
+                                                        "rows":4,
                                                         "style":{  
                                                             "marginTop":"20px",
                                                             "height":"initial"
@@ -1036,43 +1041,19 @@
                                                                     },
                                                                     "children":"BE.PRI_DROPOFF_DATETIME"
                                                                 }
-                                                            },
-                                                            {  
-                                                                "span":{  
-                                                                    "position":[  
-                                                                        4,
-                                                                        0
-                                                                    ],
-                                                                    "style":{  
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":"PRICE: "
-                                                                }
-                                                            },
-                                                            {  
-                                                                "span":{  
-                                                                    "position":[  
-                                                                        4,
-                                                                        1
-                                                                    ],
-                                                                    "style":{  
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":"BE.PRI_PRICE"
-                                                                }
                                                             }
                                                         ]
                                                     }
                                                 },
                                                 {  
                                                     "div":{  
-                                                        "position": [3,0],
+                                                        "position": [4,0],
                                                         "children":[  
                                                             {  
-                                                                "p":{  
+                                                                "span":{  
                                                                     "children":"Description: "
                                                                 },
-                                                                "p":{  
+                                                                "span":{  
                                                                     "children":"BE.PRI_DESCRIPTION"
                                                                 }
                                                             }
@@ -1081,7 +1062,7 @@
                                                 },
                                                 {  
                                                     "GennyList":{
-                                                        "position": [4,0],
+                                                        "position": [5,0],
                                                         "root":"BE.PRI_CODE",
                                                         "showLinks":true,
                                                         "hideHeader":true,
@@ -1090,7 +1071,7 @@
                                                 },
                                                 {  
                                                     "MapDisplay":{
-                                                        "position": [5,0],
+                                                        "position": [6,0],
                                                         "style":{  
                                                             "height":"400px"
                                                         },
