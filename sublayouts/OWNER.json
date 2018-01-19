@@ -25,13 +25,13 @@
             },
             {
                 "Grid": {
-                    "position": [0,1],
+                    "position": [0, 1],
                     "rows": 2,
-                    "cols": 1,
+                    "cols": 2,
                     "children": [
                         {
                             "span": {
-                                "position": [0,0],
+                                "position": [0, 0],
                                 "style": {
                                     "fontSize": "0.8em"
                                 },
@@ -40,7 +40,7 @@
                         },
                         {
                             "span": {
-                                "position": [1,0],
+                                "position": [1, 0],
                                 "style": {
                                     "fontSize": "0.75em"
                                 },
@@ -49,11 +49,29 @@
                         },
                         {
                             "span": {
-                                "position": [1,0],
+                                "position": [1, 0],
                                 "style": {
                                     "fontSize": "0.75em"
                                 },
                                 "children": "BE.PRI_LASTNAME"
+                            }
+                        },
+                        {
+                            "Grid": {
+                               "cols": 2,
+                                "rows": 1,
+                                "children": [
+                                    {
+                                        "SMSButton": {
+                                           "phone_number": "BE.PRI_PHONE_NUMBER"
+                                         }
+                                    },
+                                    {
+                                        "PhoneButton": {
+                                           "phone_number": "BE.PRI_PHONE_NUMBER"
+                                         }
+                                    }
+                                ]
                             }
                         }
                     ]
