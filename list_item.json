@@ -26,7 +26,7 @@
                         }
                     ],
                     "cols": [
-                        0.1, 
+                        "50px", 
                         {
                             "style": { 
                                 "display" : "flex",
@@ -37,7 +37,8 @@
                                 "justifyContent": "space-evenly"
                             }
                         },
-                        "10px"
+                        1,
+                        1
                     ],
                     "children": [
                         {
@@ -55,18 +56,40 @@
                             "span": {
                                 "position": [0,1],
                                 "style": {
-                                    "fontSize": "0.75em"
+                                    "fontSize": "1em"
                                 },
                                 "children": "BE.PRI_TITLE"
                             }
                         },
                         {
-                            "span": {
-                                "position": [0,1],
-                                "style": {
-                                    "fontSize": "0.75em"
-                                },
-                                "children": "$BE.PRI_PRICE"
+                            "div": {
+                                "position": [0,2],
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "1em"
+                                            },
+                                            "children": "$"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "1em"
+                                            },
+                                            "children": "BE.PRI_PRICE"
+                                        }
+                                    },
+                                    {  
+                                        "span":{  
+                                            "style":{  
+                                                "fontSize":"1em"
+                                            },
+                                            "children": "  (price including GST)"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
@@ -139,13 +162,31 @@
                             }
                         },
                         {
-                            "Status": {
-                                "position": [0,2],   
-                                "color": "success",
+                            "GennyButton": {
+                                "buttonCode": "BTN_LOAD_SEE_MORE",
+                                "value": {
+                                    "itemCode": "BE.ITEM_CODE",
+                                    "hint": "ROOT"
+                                },
+                                "position": [0,3],
                                 "style": {
-                                    "height": "100%"
-                                }
-                            }
+                                    "height": "30px",
+                                    "marginTop": "10px"
+                                },
+                                "buttonStyle": {
+                                    "backgroundColor": "#000"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children": "View Full Job Details"
+                                        }
+                                    }
+                                ]
+                            } 
                         }
                     ]
                 }
@@ -199,33 +240,6 @@
                         }
                     ]
                 }
-            },
-            {
-                "GennyButton": {
-                    "buttonCode": "BTN_LOAD_SEE_MORE",
-                    "value": {
-                        "itemCode": "BE.ITEM_CODE",
-                        "hint": "ROOT"
-                    },
-                    "position": [2,0],
-                    "style": {
-                        "height": "30px",
-                        "marginTop": "10px"
-                    },
-                    "buttonStyle": {
-                        "backgroundColor": "#000"
-                    },
-                    "children": [
-                        {
-                            "span": {
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children": "View Full Job Details"
-                            }
-                        }
-                    ]
-                } 
             }
         ]
     }
