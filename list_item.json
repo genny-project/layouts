@@ -23,8 +23,7 @@
                                "flexGrow": 1,
                                 "flexWrap": "nowrap"
                             }
-                        },
-                        1
+                        }
                     ],
                     "cols": [
                         0.1, 
@@ -138,6 +137,15 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "Status": {
+                                "position": [0,2],   
+                                "color": "success",
+                                "style": {
+                                    "height": "100%"
+                                }
+                            }
                         }
                     ]
                 }
@@ -161,117 +169,32 @@
                             }
                         },
                         {
-                            "span": {
+                            "DateLabel": {
                                 "position": [0,1],
+                                "format": "YYY-MM-dd HH:mm",
                                 "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
+                                    "fontSize" : "0.75em"
                                 },
-                                "children": [
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_PICKUP_ADDRESS_FULL"
-                                        }
-                                    } 
-                                ]
+                                "children": "BE.PRI_PICKUP_DATETIME"
                             }
                         },
                         {
                             "span": {
+                                "position": [1,0],
+                                "style": {
+                                    "fontSize" : "0.75em"
+                                },
+                                "children": "DELIVERY: "
+                            }
+                        },
+                        {
+                            "DateLabel": {
                                 "position": [1,1],
+                                "format": "YYY-MM-dd HH:mm",
                                 "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
+                                    "fontSize" : "0.75em"
                                 },
-                                "children": [
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_PICKUP_DATE"
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "children": ", "
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_PICKUP_TIME"
-                                        }
-                                    }  
-                                ]
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [2,0],
-                                "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
-                                },
-                                "children": "DROPOFF: "
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [2,1],
-                                "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
-                                },
-                                "children": [
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_DROPOFF_ADDRESS_FULL"
-                                        }
-                                    } 
-                                ]
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [3,1],
-                                "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
-                                },
-                                "children": [
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_DROPOFF_DATE"
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "children": ", "
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "children": "BE.PRI_DROPOFF_TIME"
-                                        }
-                                    }  
-                                ]
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [4,0],
-                                "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
-                                },
-                                "children": "PRICE: "
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [4,1],
-                                "style": {
-                                    "fontSize" : "0.75em",
-                                    "marginBottom": "5px"
-                                },
-                                "children": "BE.PRI_PRICE"
+                                "children": "BE.PRI_DROPOFF_DATETIME"
                             }
                         }
                     ]
@@ -279,34 +202,30 @@
             },
             {
                 "GennyButton": {
-                    "style": {
-                        "fontSize": "0.8em",
-                        "width": "initial",
-                        "height": "30px"
-                    },
-                    "buttonStyle": {
-                        "backgroundColor": "green",
-                        "height": "30px",
-                        "padding": "0 5px"
-                    },
-                    "position": [2, 0],
                     "buttonCode": "BTN_LOAD_SEE_MORE",
                     "value": {
-                        "itemCode": "ITEMCODE",
+                        "itemCode": "BE.ITEM_CODE",
                         "hint": "ROOT"
+                    },
+                    "position": [2,0],
+                    "style": {
+                        "height": "30px",
+                        "marginTop": "10px"
+                    },
+                    "buttonStyle": {
+                        "backgroundColor": "#000"
                     },
                     "children": [
                         {
-                            "IconSmall": {
+                            "span": {
                                 "style": {
-                                    "color": "white"
+                                    "fontSize": "0.8em"
                                 },
-                                "text": "MORE",
-                                "name": "zoom_in"
+                                "children": "View Full Job Details"
                             }
-                        }  
+                        }
                     ]
-                }
+                } 
             }
         ]
     }
