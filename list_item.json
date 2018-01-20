@@ -43,7 +43,6 @@
                                 "justifyContent": "space-evenly"
                             }
                         },
-                        3,
                         1
                     ],
                     "children": [
@@ -68,36 +67,47 @@
                                         "span": {
                                             "position": [0,0],
                                             "style": {
-                                                "fontSize": "1em"
+                                                "fontSize": "2em"
                                             },
                                             "children": "BE.PRI_TITLE"
                                         }
                                     },
                                     {
-                                        "span": {
+                                        "div": {
                                             "position": [0,0],
                                             "style": {
-                                                "fontSize": "1em"
+                                                "display": "flex",
+                                                "flexDirection": "row"
                                             },
-                                            "children": "$"
-                                        }
-                                    },
-                                    {
-                                        "span": {
-                                            "position": [0,0],
-                                            "style": {
-                                                "fontSize": "1em"
-                                            },
-                                            "children": "BE.PRI_PRICE"
-                                        }
-                                    },
-                                    {  
-                                        "span":{  
-                                            "position": [0,0],
-                                            "style":{  
-                                                "fontSize":"1em"
-                                            },
-                                            "children": "  (Incl. GST)"
+                                            "children": [
+                                                {
+                                                    "span": {
+                                                        "position": [0,0],
+                                                        "style": {
+                                                            "fontSize": "2em"
+                                                        },
+                                                        "children": "$"
+                                                    }
+                                                },
+                                                {
+                                                    "span": {
+                                                        "position": [0,0],
+                                                        "style": {
+                                                            "fontSize": "2em"
+                                                        },
+                                                        "children": "BE.PRI_PRICE"
+                                                    }
+                                                },
+                                                {  
+                                                    "span":{  
+                                                        "position": [0,0],
+                                                        "style":{  
+                                                            "fontSize":"2em"
+                                                        },
+                                                        "children": "  (Incl. GST)"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     },
                                     {
@@ -168,6 +178,45 @@
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        "div": {
+                                            "position": [1,0],
+                                            "style": {
+                                                "display": "flex",
+                                                "flexDirection": "row"
+                                            },
+                                            "children": [
+                                                {
+                                                    "DateLabel": {
+                                                        "position": [0,1],
+                                                        "format": "YYY-MM-dd HH:mm",
+                                                        "style": {
+                                                            "fontSize" : "0.75em"
+                                                        },
+                                                        "children": "BE.PRI_PICKUP_DATETIME"
+                                                    }
+                                                },
+                                                {
+                                                    "IconSmall": {
+                                                        "name": "arrow_right",
+                                                        "style": {
+                                                         "marginTop": "-5px"   
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "DateLabel": {
+                                                        "position": [1,1],
+                                                        "format": "YYY-MM-dd HH:mm",
+                                                        "style": {
+                                                            "fontSize" : "0.75em"
+                                                        },
+                                                        "children": "BE.PRI_DROPOFF_DATETIME"
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]
                             }
@@ -179,7 +228,7 @@
                                     "itemCode": "BE.ITEM_CODE",
                                     "hint": "ROOT"
                                 },
-                                "position": [0,3],
+                                "position": [0,2],
                                 "style": {
                                     "height": "30px",
                                     "marginTop": "10px"
@@ -205,50 +254,13 @@
             {
                 "Grid": {
                     "position": [1, 0],
-                    "rows": 5,
-                    "cols": [2,4],
+                    "rows": 1,
+                    "cols": [1,4],
                     "style": {
                         "marginBottom": "10px"
                     },
                     "children": [
-                        {
-                            "span": {
-                                "position": [0,0],
-                                "style": {
-                                    "fontSize" : "0.75em"
-                                },
-                                "children": "PICKUP: "
-                            }
-                        },
-                        {
-                            "DateLabel": {
-                                "position": [0,1],
-                                "format": "YYY-MM-dd HH:mm",
-                                "style": {
-                                    "fontSize" : "0.75em"
-                                },
-                                "children": "BE.PRI_PICKUP_DATETIME"
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [1,0],
-                                "style": {
-                                    "fontSize" : "0.75em"
-                                },
-                                "children": "DELIVERY: "
-                            }
-                        },
-                        {
-                            "DateLabel": {
-                                "position": [1,1],
-                                "format": "YYY-MM-dd HH:mm",
-                                "style": {
-                                    "fontSize" : "0.75em"
-                                },
-                                "children": "BE.PRI_DROPOFF_DATETIME"
-                            }
-                        }
+                        
                     ]
                 }
             }
