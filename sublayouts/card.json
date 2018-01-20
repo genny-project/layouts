@@ -1,0 +1,325 @@
+{
+    "div": {
+        "children": [
+            {
+                "Grid": {
+                    "rows": [
+                        {
+                            "style": {
+                               "flexGrow": 1,
+                               "flexWrap": "nowrap"
+                            }
+                        },
+                        1
+                    ],
+                    "cols": [
+                        0.1, 
+                        {
+                            "style": { 
+                                "display" : "flex",
+                                "flexDirection" : "column",
+                                "flexWrap": "no-wrap",
+                                "flexGrow" : 1,
+                                "paddingRight": "10px",
+                                "justifyContent": "space-evenly"
+                            }
+                        },
+                        "10px"
+                    ],
+                    "children": [
+                        {
+                            "ImageView": {
+                                "position": [0,0],
+                                "style": {
+                                    "width": "30px",
+                                    "marginRight": "5px"
+                                },
+                                "src": "BE.PRI_IMAGE_URL"
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [0,1],
+                                "style": {
+                                    "fontSize": "0.75em"
+                                },
+                                "children": "BE.PRI_TITLE"
+                            }
+                        },
+                        {
+                            "div": {
+                                "position": [0, 1],
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "$"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_PRICE"
+                                        }
+                                    }    
+                                ]
+                            }
+                        },
+                        {
+                            "div": {
+                                "position": [0, 1],
+                                "style": {
+                                    "display": "flex",
+                                    "flexDirection": "row"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_PICKUP_ADDRESS_SUBURB"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em",
+                                                "marginRight": "5px"
+                                            },
+                                            "children": ","
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_PICKUP_ADDRESS_STATE"
+                                        }
+                                    },
+                                    {
+                                        "IconSmall": {
+                                            "name": "arrow_right",
+                                            "style": {
+                                             "marginTop": "-5px"   
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_DROPOFF_ADDRESS_SUBURB"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em",
+                                                "marginRight": "5px"
+                                            },
+                                            "children": ","
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "BE.PRI_DROPOFF_ADDRESS_STATE"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Status": {
+                                "position": [0,2],   
+                                "color": "success",
+                                "style": {
+                                    "height": "100%"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "GennyDropdown" : {
+                    "inline": true,
+                    "isSlide": true,
+                    "contentStyle": {
+                        "backgroundColor": "white",
+                        "padding": "0"
+                    },
+                    "header": [
+                        {
+                            "IconSmall": {
+                                "name": "expand_more"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "Grid": {
+                                "rows": 2,
+                                "cols": [
+                                    2,
+                                    { 
+                                        "style" : {
+                                            "flexGrow": 4,
+                                            "display": "flex",
+                                            "alignItems": "center"
+                                        }
+                                    }
+                                ],
+                                "style": {
+                                    "marginBottom": "10px"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "position": [0,0],
+                                            "style": {
+                                                "fontSize" : "0.75em"
+                                            },
+                                            "children": "PICKUP: "
+                                        }
+                                    },
+                                    {
+                                        "DateLabel": {
+                                            "position": [0,1],
+                                            "format": "YYY-MM-dd HH:mm",
+                                            "style": {
+                                                "fontSize" : "0.75em"
+                                            },
+                                            "children": "BE.PRI_PICKUP_DATETIME"
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "position": [1,0],
+                                            "style": {
+                                                "fontSize" : "0.75em"
+                                            },
+                                            "children": "DELIVERY: "
+                                        }
+                                    },
+                                    {
+                                        "DateLabel": {
+                                            "position": [1,1],
+                                            "format": "YYYY-MM-dd HH:mm",
+                                            "style": {
+                                                "fontSize" : "0.75em"
+                                            },
+                                            "children": "BE.PRI_DROPOFF_DATETIME"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "GennyList": {
+                                "root": "BE.PRI_CODE",
+                                "showLinks": true,
+                                "itemsPerPage": 10,
+                                "hideHeader": true,
+                                "hideCount": true,
+                                "style": {
+                                    "padding": "0"   
+                                }
+                            }
+                        },
+                        {
+                            "GennyButton": {
+                                "buttonCode": "BTN_LOAD_SEE_MORE",
+                                "value": {
+                                    "itemCode": "BE.ITEM_CODE",
+                                    "hint": "ROOT"
+                                },
+                                "position": [0,1],
+                                "style": {
+                                    "height": "30px",
+                                    "marginTop": "10px"
+                                },
+                                "buttonStyle": {
+                                    "backgroundColor": "#000"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children": "View Full Job Details"
+                                        }
+                                    }
+                                ]
+                            } 
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "ROOT",
+                                "showValues": "GRP_APPROVED",
+                                "children": [
+                                    {
+                                        "ProgressBar": {
+                                            "style": {
+                                                "marginTop": "10px"   
+                                            },
+                                            "type": 2,
+                                            "progressTotal": 100,
+                                            "progressCurrent": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "ROOT",
+                                "showValues": "GRP_IN_TRANSIT",
+                                "children": [
+                                    {
+                                        "ProgressBar": {
+                                            "style": {
+                                                "marginTop": "10px"   
+                                            },
+                                            "type": 2,
+                                            "progressTotal": 100,
+                                            "progressCurrent": 25
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "ROOT",
+                                "showValues": "GRP_DELIVERED",
+                                "children": [
+                                    {
+                                        "ProgressBar": {
+                                            "style": {
+                                                "marginTop": "10px"   
+                                            },
+                                            "type": 2,
+                                            "progressTotal": 100,
+                                            "progressCurrent": 100
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
