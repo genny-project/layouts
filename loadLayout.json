@@ -603,48 +603,98 @@
                                             ]
                                         }
                                      },
-                                    {
-                                        "MapDirectionsButton":{
+                                     {
+                                        "Selector":{
                                             "position":[
                                                 0,
                                                 1
                                             ],
-                                            "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
-                                            "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
-                                            "style":{
-                                                "height":"30px",
-                                                "fontSize":"0.9em"
-                                            },
-                                            "buttonStyle":{
-                                                "height":"30px",
-                                                "padding":"0 5px"
-                                            },
+                                            "checkValues": "ROOT",
+                                            "hideValues": "GRP_NEW_ITEMS",
                                             "children":[
                                                 {
-                                                    "span":{
+                                                    "MapDirectionsButton":{
+                                                        "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
+                                                        "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
                                                         "style":{
+                                                            "height":"30px",
                                                             "fontSize":"0.9em"
                                                         },
-                                                        "children":"Get Directions"
+                                                        "buttonStyle":{
+                                                            "height":"30px",
+                                                            "padding":"0 5px"
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"0.9em"
+                                                                    },
+                                                                    "children":"Get Directions"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                     },
+                                    {
+                                        "Selector":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "checkValues": "ROOT",
+                                            "hideValues": "GRP_NEW_ITEMS",
+                                            "children":[
+                                                 {
+                                                    "MapDisplay":{
+                                                        "position":[
+                                                            0,
+                                                            1
+                                                        ],
+                                                        "style":{
+                                                            "height":"400px",
+                                                            "marginTop":"10px"
+                                                        },
+                                                        "routes":[
+                                                            {
+                                                                "origin":"BE.PRI_PICKUP_ADDRESS_FULL",
+                                                                "dest":"BE.PRI_DROPOFF_ADDRESS_FULL"
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
                                         }
                                     },
-                                    {
-                                        "MapDisplay":{
+                                     {
+                                        "Selector":{
                                             "position":[
                                                 0,
                                                 1
                                             ],
-                                            "style":{
-                                                "height":"400px",
-                                                "marginTop":"10px"
-                                            },
-                                            "routes":[
-                                                {
-                                                    "origin":"BE.PRI_PICKUP_ADDRESS_FULL",
-                                                    "dest":"BE.PRI_DROPOFF_ADDRESS_FULL"
+                                            "checkValues": "ROOT",
+                                            "showValues": "GRP_NEW_ITEMS",
+                                            "children":[
+                                                 {
+                                                    "MapDisplay":{
+                                                        "position":[
+                                                            0,
+                                                            1
+                                                        ],
+                                                        "style":{
+                                                            "height":"400px",
+                                                            "marginTop":"10px"
+                                                        },
+                                                        "markers":[
+                                                            {
+                                                                "lat": "BE.PRI_PICKUP_ADDRESS_LATITUDE",
+                                                                "lng": "BE.PRI_PICKUP_ADDRESS_LONGITUDE"
+                                                            }
+                                                        ]
+                                                    }
                                                 }
                                             ]
                                         }
