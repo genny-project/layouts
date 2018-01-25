@@ -3,7 +3,7 @@
         "children":[
             {
                 "Grid": {
-                    "rows": 2,
+                    "rows": 1,
                     "cols": 2,
                     "style": {
                         "background": "white",
@@ -12,19 +12,28 @@
                     },
                     "children": [
                         {
-                            "div": {
+                            "Grid": {
                                 "position": [0, 0],
-                                "children": "BE.PRI_TITLE"
-                            }
-                        },
-                        {
-                            "DateLabel": {
-                                "format": "DD/MM/YYYY",
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "position": [1, 0],
-                                "children": "BE.PRI_DATE_LAST_MESSAGE"
+                                "rows": 2,
+                                "cols": 1,
+                                "children": [
+                                    {
+                                        "div": {
+                                            "position": [0, 0],
+                                            "children": "BE.PRI_TITLE"
+                                        }
+                                    },
+                                    {
+                                        "DateLabel": {
+                                            "format": "DD/MM/YYYY",
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "position": [1, 0],
+                                            "children": "BE.PRI_DATE_LAST_MESSAGE"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
