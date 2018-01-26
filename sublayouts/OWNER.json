@@ -11,7 +11,8 @@
                     "height": ""
                 }
             },
-            1
+            1,
+            "30px"
         ],
         "className": "bucket-card",
         "children": [
@@ -27,7 +28,7 @@
             {
                 "Grid": {
                     "position": [0, 1],
-                    "rows": 3,
+                    "rows": 2,
                     "cols": 1,
                     "children": [
                         {
@@ -65,88 +66,33 @@
                                 },
                                 "children": "BE.PRI_LASTNAME"
                             }
-                        },
-                        {
-                            "div" :{
-                                "position": [2, 0],
-                                "children" : [
-                                    {
-                                        "Device" : {
-                                            "isDesktop" : "true",
-                                            "isTablet" : "true",
-                                            "children": [
-                                                {
-                                                    "div" : {
-                                                        "style": {
-                                                            "display": "flex",
-                                                            "alignItems": "center",
-                                                            "padding" : "5px 0"
-                                                        },
-                                                        "children": [
-                                                            {
-                                                                "IconSmall": {
-                                                                    "name": "phone"
-                                                                 }
-                                                            },
-                                                            {
-                                                                "span": {
-                                                                    "style" : {
-                                                                        "fontSize": "0.75em"
-                                                                    },
-                                                                    "children" : "BE.PRI_MOBILE"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                } 
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Device" : {
-                                            "isMobile" : "true",
-                                            "children": [
-                                                {
-                                                    "div" : {
-                                                        "style": {
-                                                            "display": "flex",
-                                                            "alignItems": "center",
-                                                            "padding" : "5px 0"
-                                                        },
-                                                        "children": [
-                                                            {
-                                                                "ContactButton": {
-                                                                    "style": {
-                                                                          "display": "flex",
-                                                                          "alignItems": "center",
-                                                                          "justifyContent": "center"
-                                                                    },
-                                                                    "type": "sms",
-                                                                    "icon": "message",
-                                                                    "link": "BE.PRI_MOBILE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "ContactButton": {
-                                                                    "style": {
-                                                                          "display": "flex",
-                                                                          "alignItems": "center",
-                                                                          "justifyContent": "center"
-                                                                    },
-                                                                    "link": "BE.PRI_MOBILE"
-                                                                 }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
                         }
                     ]
                 }
+            },
+            {
+                "ContactButton": {
+                    "position": [0,2],
+                    "style": {
+                          "display": "flex",
+                          "alignItems": "center",
+                          "justifyContent": "center"
+                    },
+                    "type": "sms",
+                    "icon": "message",
+                    "link": "BE.PRI_MOBILE"
+                }
+            },
+            {
+                "ContactButton": {
+                    "position": [0,2],
+                    "style": {
+                          "display": "flex",
+                          "alignItems": "center",
+                          "justifyContent": "center"
+                    },
+                    "link": "BE.PRI_MOBILE"
+                 }
             }
         ]
     }
