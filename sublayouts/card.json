@@ -339,40 +339,32 @@
                     "children":[
                          {
                             "Selector":{
-                                "checkValues": "BE.PRI_DRIVER_CONFIRMED_DELIVERY",
+                                "checkValues":"USER.PRI_OWNER",
                                 "showValues": "true",
                                 "children":[
                                     {
-                                        "Selector":{
-                                            "checkValues":"USER.PRI_OWNER",
-                                            "showValues": "true",
-                                            "children":[
-                                                {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_CONFIRM_ARRIVAL_OWNER",
-                                                        "value":{
-                                                            "itemCode":"BE.PRI_CODE",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "children":"CONFIRM DELIVERY",
-                                                        "style":{
-                                                            "margin":"0 auto",
-                                                            "width":"80%",
-                                                            "height":"40px",
-                                                            "fontSize":"13px"
-                                                        },
-                                                        "buttonStyle":{
-                                                            "height":"40px",
-                                                            "background":"green"
-                                                        }
-                                                    }
-                                                }
-                                            ]
+                                        "GennyButton":{
+                                            "buttonCode":"BTN_CONFIRM_ARRIVAL_OWNER",
+                                            "value":{
+                                                "itemCode":"BE.PRI_CODE",
+                                                "hint":"ROOT"
+                                            },
+                                            "children":"CONFIRM DELIVERY",
+                                            "style":{
+                                                "margin":"0 auto",
+                                                "width":"80%",
+                                                "height":"40px",
+                                                "fontSize":"13px"
+                                            },
+                                            "buttonStyle":{
+                                                "height":"40px",
+                                                "background":"green"
+                                            }
                                         }
                                     }
                                 ]
                             }
-                        }
+                         }
                     ]
                 }
             },
@@ -415,31 +407,75 @@
             {
                 "Selector":{
                     "checkValues":"ROOT",
-                    "showValues":"GRP_COMPLETED",
+                    "showValues": "GRP_COMPLETED",
                     "children":[
-                        {
+                         {
                             "Selector":{
-                                "checkValues":"USER.PRI_OWNER",
+                                "checkValues": "BE.PRI_DRIVER_CONFIRMED_DELIVERY",
                                 "showValues": "true",
                                 "children":[
                                     {
-                                        "GennyButton":{
-                                            "buttonCode":"BTN_CONFIRM_DELIVERY",
-                                            "value":{
-                                                "itemCode":"BE.PRI_CODE",
-                                                "hint":"ROOT"
-                                            },
-                                            "children":"CONFIRM DELIVERY",
-                                            "style":{
-                                                "margin":"5px auto 0",
-                                                "width":"80%",
-                                                "height":"40px",
-                                                "fontSize":"13px"
-                                            },
-                                            "buttonStyle":{
-                                                "height":"40px",
-                                                "background":"green"
-                                            }
+                                        "Selector":{
+                                            "checkValues": "USER.PRI_OWNER",
+                                            "showValues": "true",
+                                            "children":[
+                                                {
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_CONFIRM_DELIVERY_OWNER",
+                                                        "value":{
+                                                            "itemCode":"BE.PRI_CODE",
+                                                            "hint":"ROOT"
+                                                        },
+                                                        "children":"CONFIRM DELIVERY",
+                                                        "style":{
+                                                            "margin":"0 auto",
+                                                            "width":"80%",
+                                                            "height":"40px",
+                                                            "fontSize":"13px"
+                                                        },
+                                                        "buttonStyle":{
+                                                            "height":"40px",
+                                                            "background":"green"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector":{
+                                "checkValues": "BE.PRI_DRIVER_CONFIRMED_DELIVERY",
+                                "showValues": "false",
+                                "children":[
+                                    {
+                                        "Selector":{
+                                            "checkValues": "USER.PRI_DRIVER",
+                                            "showValues": "true",
+                                            "children":[
+                                                {
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_CONFIRM_DELIVERY_DRIVER",
+                                                        "value":{
+                                                            "itemCode":"BE.PRI_CODE",
+                                                            "hint":"ROOT"
+                                                        },
+                                                        "children":"CONFIRM DELIVERY",
+                                                        "style":{
+                                                            "margin":"0 auto",
+                                                            "width":"80%",
+                                                            "height":"40px",
+                                                            "fontSize":"13px"
+                                                        },
+                                                        "buttonStyle":{
+                                                            "height":"40px",
+                                                            "background":"green"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
