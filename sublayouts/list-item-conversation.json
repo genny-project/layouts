@@ -1,72 +1,50 @@
 {
-    "GennyButton": {
-        "buttonCode": "BTN_SEE_CONVERSATION",
-        "value": {
-            "hint": "ROOT",
-            "itemCode": "BE.PRI_CODE"
-        },
+    "Grid": {
+        "rows": 1,
+        "cols": [1, {
+            "style": {
+                 "flex": 0.1,
+                 "display": "flex"
+            }
+         }],
         "style": {
             "background": "white",
-            "border": "none",
-            "height": "100%"
+            "padding": "10px",
+            "textAlign": "left",
+            "color": "black",
+            "height": "100%",
+            "width": "100%"
         },
-        "buttonComponentStyle": {
-            "background": "transparent",
-            "height": "100%"
-        },
-        "buttonStyle": {
-            "background": "white",
-             "height": "100%"
-        },
-        "children":[
+        "children": [
             {
                 "Grid": {
-                    "rows": 1,
-                    "cols": [1, {
-                        "style": {
-                             "flex": 0.1,
-                             "display": "flex"
-                        }
-                     }],
-                    "style": {
-                        "background": "white",
-                        "padding": "10px",
-                        "textAlign": "left",
-                        "color": "black"
-                    },
+                    "position": [0, 0],
+                    "rows": 2,
+                    "cols": 1,
                     "children": [
                         {
-                            "Grid": {
+                            "div": {
                                 "position": [0, 0],
-                                "rows": 2,
-                                "cols": 1,
-                                "children": [
-                                    {
-                                        "div": {
-                                            "position": [0, 0],
-                                            "children": "BE.PRI_TITLE"
-                                        }
-                                    },
-                                    {
-                                        "DateLabel": {
-                                            "format": "DD/MM/YYYY",
-                                            "style": {
-                                                "fontSize": "0.8em"
-                                            },
-                                            "position": [1, 0],
-                                            "children": "BE.PRI_DATE_LAST_MESSAGE"
-                                        }
-                                    }
-                                ]
+                                "children": "BE.PRI_TITLE"
                             }
                         },
                         {
-                            "IconSmall": {
-                                "position": [0, 1],
-                                "name": "arrow_right"
+                            "DateLabel": {
+                                "format": "DD/MM/YYYY",
+                                "style": {
+                                    "fontSize": "0.8em"
+                                },
+                                "position": [1, 0],
+                                "children": "BE.PRI_DATE_LAST_MESSAGE"
                             }
                         }
                     ]
+                }
+            },
+            {
+                "IconSmall": {
+                    "position": [0, 1],
+                    "name": "arrow_right"
                 }
             }
         ]
