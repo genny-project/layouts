@@ -79,18 +79,30 @@
                 }
             },
             {
-                "ContactButton": {
-                    "position": [0,2],
+                "GennyButton": {
+                   "position": [0, 2],
                     "style": {
                           "display": "flex",
                           "alignItems": "center",
                           "justifyContent": "center",
                           "paddingRight": "10px"
                     },
-                    "type": "sms",
-                    "icon": "message",
-                    "link": "BE.PRI_MOBILE"
-                }
+                    "buttonStyle": {
+                           "background": "none"
+                    },
+                    "buttonCode": "BTN_CREATE_CONVERSATION",
+                    "value": {
+                        "itemCode": "BE.PRI_CODE",
+                        "hint": "ROOT"
+                    },
+                    "children": [
+                        {
+                            "IconSmall": {
+                                "name": "message"
+                            }
+                        }
+                    ]
+                 }
             },
             {
                 "ContactButton": {
