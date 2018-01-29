@@ -29,10 +29,7 @@
                     "children":[
                         {
                             "ImageView":{
-                                "position":[
-                                    0,
-                                    0
-                                ],
+                                "position":[0,0],
                                 "style":{
                                     "width":"30px",
                                     "marginRight":"5px"
@@ -72,11 +69,19 @@
                                         }
                                     },
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_PRICE"
+                                        "Selector":{
+                                            "checkValues":"USER.PRI_OWNER",
+                                            "showValues":"true",
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.75em"
+                                                        },
+                                                        "children":"BE.PRI_OWNER_PRICE"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     },
                                     {
@@ -90,6 +95,22 @@
                                                             "fontSize":"0.75em"
                                                         },
                                                         "children":"(Incl GST)"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector":{
+                                            "checkValues":"USER.PRI_DRIVER",
+                                            "showValues":"true",
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.75em"
+                                                        },
+                                                        "children":"BE.PRI_DRIVER_PRICE"
                                                     }
                                                 }
                                             ]
