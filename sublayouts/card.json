@@ -579,16 +579,45 @@
                             }
                         },
                         {
-                            "GennyList":{
-                                "root":"BE.PRI_CODE",
-                                "showLinks":true,
-                                "hideLinks": ["OWNER"],
-                                "itemsPerPage":10,
-                                "hideHeader":true,
-                                "hideCount":true,
-                                "style":{
-                                    "padding":"0"
-                                }
+                            "Selector": {
+                                "checkValues": "USER.PRI_OWNER",
+                                "showValues": "true",
+                                "children": [
+                                     {
+                                        "GennyList":{
+                                            "root": "BE.PRI_CODE",
+                                            "showLinks": true,
+                                            "hideLinks": ["OWNER"],
+                                            "itemsPerPage": 10,
+                                            "hideHeader": true,
+                                            "hideCount": true,
+                                            "style": {
+                                                "padding":"0"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "USER.PRI_DRIVER",
+                                "showValues": "true",
+                                "children": [
+                                     {
+                                        "GennyList":{
+                                            "root": "BE.PRI_CODE",
+                                            "showLinks": true,
+                                            "hideLinks": ["DRIVER"],
+                                            "itemsPerPage": 10,
+                                            "hideHeader": true,
+                                            "hideCount": true,
+                                            "style": {
+                                                "padding":"0"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
