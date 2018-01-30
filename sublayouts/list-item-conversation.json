@@ -2,12 +2,16 @@
     "Grid": {
         "className": "list-item-conversation",
         "rows": 1,
-        "cols": [1, {
-            "style": {
-                 "flex": 0.1,
-                 "display": "flex"
+        "cols": [ 
+            "50px",
+            1, 
+            {
+                "style": {
+                     "flex": 0.1,
+                     "display": "flex"
+                }
             }
-         }],
+        ],
         "style": {
             "padding": "10px",
             "textAlign": "left",
@@ -17,14 +21,35 @@
         },
         "children": [
             {
-                "Grid": {
+                "ImageView" : {
                     "position": [0, 0],
-                    "rows": 2,
+                    "style": {
+                        "margin": "5px"
+                    },
+                    "src": "CONTACT.PRI_IMAGE_URL"
+                }
+            },
+            {
+                "Grid": {
+                    "position": [0, 1],
+                    "rows": 3,
                     "cols": 1,
                     "children": [
                         {
                             "div": {
                                 "position": [0, 0],
+                                "children": "BE.PRI_TITLE"
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [1, 0],
+                                "children": "Conversation with: "
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [1, 0],
                                 "children": "CONTACT.PRI_FIRSTNAME"
                             }
                         },
@@ -34,7 +59,7 @@
                                 "style": {
                                     "fontSize": "0.8em"
                                 },
-                                "position": [1, 0],
+                                "position": [2, 0],
                                 "children": "BE.PRI_DATE_LAST_MESSAGE"
                             }
                         }
@@ -43,7 +68,7 @@
             },
             {
                 "IconSmall": {
-                    "position": [0, 1],
+                    "position": [0, 2],
                     "name": "arrow_right"
                 }
             }
