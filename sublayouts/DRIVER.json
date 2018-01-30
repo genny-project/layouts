@@ -16,8 +16,16 @@
             {
                 "Grid": {
                     "position": [0,1],
-                    "rows": 2,
-                    "cols": 1,
+                    "rows": 3,
+                    "cols": [
+                        {
+                            "style": {
+                                "flexGrow": 1,
+                                "display": "flex",
+                                "alignItems": "center"
+                            }
+                        }
+                    ],
                     "children": [
                         {
                             "span": {
@@ -45,15 +53,29 @@
                                 },
                                 "children": "BE.PRI_LASTNAME"
                             }
+                        },
+                        {
+                            "RatingDisplay": {
+                                "position": [2,0]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [2,0],
+                                "style": {
+                                    "fontSize": "0.75em"
+                                },
+                                "children": "This user has no rating yet."
+                            }
                         }
                     ]
                 }
             },
             {
                 "Grid": {
-                   "position": [0, 2],
-                   "cols": 2,
-                    "rows": 1,
+                    "position": [0, 2],
+                    "cols": 1,
+                    "rows": 2,
                     "children": [
                         {
                             "GennyButton": {
@@ -64,7 +86,8 @@
                                       "justifyContent": "center"
                                 },
                                 "buttonStyle": {
-                                        "background": "none"
+                                        "background": "none",
+                                        "height": "fit-content"
                                 },
                                 "buttonCode": "BTN_CREATE_CONVERSATION",
                                 "value": {
@@ -82,7 +105,7 @@
                         },
                         {
                             "ContactButton": {
-                                "position": [0, 1],
+                                "position": [1,0],
                                 "style": {
                                       "display": "flex",
                                       "alignItems": "center",
