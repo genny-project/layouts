@@ -85,28 +85,12 @@
                                 },
                                 "children":[
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_PICKUP_ADDRESS_SUBURB"
-                                        }
-                                    },
-                                    {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em",
-                                                "marginRight":"5px"
-                                            },
-                                            "children":","
-                                        }
-                                    },
-                                    {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_PICKUP_ADDRESS_STATE"
+                                        "SublayoutLoader" : {
+                                            "layoutCode": "address-pickup-display",
+                                            "aliases": {
+                                                "BE": "BE.PRI_CODE",
+                                                "ROOT": "ROOT"
+                                            }
                                         }
                                     },
                                     {
@@ -115,28 +99,12 @@
                                         }
                                     },
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_DROPOFF_ADDRESS_SUBURB"
-                                        }
-                                    },
-                                    {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em",
-                                                "marginRight":"5px"
-                                            },
-                                            "children":","
-                                        }
-                                    },
-                                    {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_DROPOFF_ADDRESS_STATE"
+                                        "SublayoutLoader" : {
+                                            "layoutCode": "address-droffoff-display",
+                                            "aliases": {
+                                                "BE": "BE.PRI_CODE",
+                                                "ROOT": "ROOT"
+                                            }
                                         }
                                     }
                                 ]
@@ -381,48 +349,6 @@
                                         }
                                     },
                                     {
-                                        "Selector":{
-                                            "position":[0,1],
-                                            "checkValues":"USER.PRI_OWNER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"BE.PRI_PICKUP_ADDRESS_FULL"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[0,1],
-                                            "checkValues":"USER.PRI_DRIVER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "Selector":{
-                                                        "checkValues":"ROOT",
-                                                        "hideValues":"GRP_NEW_ITEMS",
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em"
-                                                                    },
-                                                                    "children":"BE.PRI_PICKUP_ADDRESS_FULL"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
                                         "DateLabel":{
                                             "position":[
                                                 0,
@@ -445,48 +371,6 @@
                                                 "fontSize":"0.75em"
                                             },
                                             "children":"DELIVERY: "
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[0,1],
-                                            "checkValues":"USER.PRI_OWNER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"BE.PRI_DROPOFF_ADDRESS_FULL"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[1,1],
-                                            "checkValues":"USER.PRI_DRIVER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "Selector":{
-                                                        "checkValues":"ROOT",
-                                                        "hideValues":"GRP_NEW_ITEMS",
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em"
-                                                                    },
-                                                                    "children":"BE.PRI_DROPOFF_ADDRESS_FULL"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
                                         }
                                     },
                                     {
