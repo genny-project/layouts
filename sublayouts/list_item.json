@@ -85,7 +85,7 @@
                                                             {
                                                                 "style":{
                                                                     "display":"flex",
-                                                                    "alignItems": "center",
+                                                                    "alignItems":"center",
                                                                     "flexGrow":1
                                                                 }
                                                             }
@@ -105,20 +105,29 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader" : {
-                                                                    "position":[0,0],
-                                                                    "layoutCode": "price-display",
-                                                                    "aliases": {
-                                                                        "BE": "BE.PRI_CODE",
-                                                                        "ROOT": "ROOT"
+                                                                "SublayoutLoader":{
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
+                                                                    "layoutCode":"price-display",
+                                                                    "aliases":{
+                                                                        "BE":"BE.PRI_CODE",
+                                                                        "ROOT":"ROOT"
                                                                     }
                                                                 }
                                                             },
                                                             {
-                                                                "div":{
+                                                                "Grid":{
                                                                     "position":[
                                                                         1,
                                                                         0
+                                                                    ],
+                                                                    "rows":1,
+                                                                    "cols":[
+                                                                        1,
+                                                                        "30px",
+                                                                        1
                                                                     ],
                                                                     "style":{
                                                                         "display":"flex",
@@ -127,47 +136,45 @@
                                                                     },
                                                                     "children":[
                                                                         {
-                                                                            "SublayoutLoader" : {
-                                                                                "layoutCode": "address-pickup-display",
-                                                                                "aliases": {
-                                                                                    "BE": "BE.PRI_CODE",
-                                                                                    "ROOT": "ROOT"
+                                                                            "SublayoutLoader":{
+                                                                                "position":[
+                                                                                    0,
+                                                                                    0
+                                                                                ],
+                                                                                "layoutCode":"address-pickup-display",
+                                                                                "aliases":{
+                                                                                    "BE":"BE.PRI_CODE",
+                                                                                    "ROOT":"ROOT"
                                                                                 }
                                                                             }
                                                                         },
                                                                         {
                                                                             "IconSmall":{
+                                                                                "position":[
+                                                                                    0,
+                                                                                    1
+                                                                                ],
                                                                                 "name":"arrow_right"
                                                                             }
                                                                         },
                                                                         {
-                                                                            "SublayoutLoader" : {
-                                                                                "layoutCode": "address-dropoff-display",
-                                                                                "aliases": {
-                                                                                    "BE": "BE.PRI_CODE",
-                                                                                    "ROOT": "ROOT"
+                                                                            "SublayoutLoader":{
+                                                                                "position":[
+                                                                                    0,
+                                                                                    2
+                                                                                ],
+                                                                                "layoutCode":"address-dropoff-display",
+                                                                                "aliases":{
+                                                                                    "BE":"BE.PRI_CODE",
+                                                                                    "ROOT":"ROOT"
                                                                                 }
                                                                             }
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "div":{
-                                                                    "position":[
-                                                                        2,
-                                                                        0
-                                                                    ],
-                                                                    "style":{
-                                                                        "display":"flex",
-                                                                        "flexDirection":"row"
-                                                                    },
-                                                                    "children":[
+                                                                        },
                                                                         {
                                                                             "DateLabel":{
                                                                                 "position":[
-                                                                                    0,
-                                                                                    1
+                                                                                    1,
+                                                                                    0
                                                                                 ],
                                                                                 "format":"DD/MM/YY HH:mm",
                                                                                 "style":{
@@ -178,6 +185,10 @@
                                                                         },
                                                                         {
                                                                             "IconSmall":{
+                                                                                "position":[
+                                                                                    1,
+                                                                                    1
+                                                                                ],
                                                                                 "name":"arrow_right",
                                                                                 "style":{
                                                                                     "marginTop":"-5px"
@@ -188,7 +199,7 @@
                                                                             "DateLabel":{
                                                                                 "position":[
                                                                                     1,
-                                                                                    1
+                                                                                    2
                                                                                 ],
                                                                                 "format":"DD/MM/YY HH:mm",
                                                                                 "style":{
@@ -198,6 +209,18 @@
                                                                             }
                                                                         }
                                                                     ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{
+                                                                    "position":[
+                                                                        2,
+                                                                        0
+                                                                    ],
+                                                                    "style":{
+                                                                        "fontSize":"0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_DESCRIPTION"
                                                                 }
                                                             }
                                                         ]
@@ -231,27 +254,6 @@
                                                                 }
                                                             }
                                                         ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "div":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
-                                            "style":{
-                                                "marginBottom":"10px"
-                                            },
-                                            "children":[
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.8em"
-                                                        },
-                                                        "children":"BE.PRI_DESCRIPTION"
                                                     }
                                                 }
                                             ]
@@ -343,7 +345,10 @@
                                                         "children":[
                                                             {
                                                                 "span":{
-                                                                    "position":[0,0],
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
                                                                     "style":{
                                                                         "fontSize":"1em",
                                                                         "marginRight":"15px"
@@ -352,12 +357,15 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader" : {
-                                                                    "position":[1,0],
-                                                                    "layoutCode": "price-display",
-                                                                    "aliases": {
-                                                                        "BE": "BE.PRI_CODE",
-                                                                        "ROOT": "ROOT"
+                                                                "SublayoutLoader":{
+                                                                    "position":[
+                                                                        1,
+                                                                        0
+                                                                    ],
+                                                                    "layoutCode":"price-display",
+                                                                    "aliases":{
+                                                                        "BE":"BE.PRI_CODE",
+                                                                        "ROOT":"ROOT"
                                                                     }
                                                                 }
                                                             }
@@ -374,42 +382,42 @@
                                                 0
                                             ],
                                             "style":{
-                                                "paddingBottom": "5px"
+                                                "paddingBottom":"5px"
                                             },
                                             "children":[
                                                 {
-                                                    "h6": {
-                                                        "style": {
-                                                            "fontSize": "0.75em",
-                                                            "margin": "0"
+                                                    "h6":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "margin":"0"
                                                         },
-                                                        "children": "PICKUP"
+                                                        "children":"PICKUP"
                                                     }
                                                 },
                                                 {
-                                                    "SublayoutLoader" : {
-                                                        "layoutCode": "address-pickup-display",
-                                                        "aliases": {
-                                                            "BE": "BE.PRI_CODE",
-                                                            "ROOT": "ROOT"
+                                                    "SublayoutLoader":{
+                                                        "layoutCode":"address-pickup-display",
+                                                        "aliases":{
+                                                            "BE":"BE.PRI_CODE",
+                                                            "ROOT":"ROOT"
                                                         }
                                                     }
                                                 },
                                                 {
-                                                    "h6": {
-                                                        "style": {
-                                                            "fontSize": "0.75em",
-                                                            "margin": "0"
+                                                    "h6":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "margin":"0"
                                                         },
-                                                        "children": "DELIVERY"
+                                                        "children":"DELIVERY"
                                                     }
                                                 },
                                                 {
-                                                    "SublayoutLoader" : {
-                                                        "layoutCode": "address-dropoff-display",
-                                                        "aliases": {
-                                                            "BE": "BE.PRI_CODE",
-                                                            "ROOT": "ROOT"
+                                                    "SublayoutLoader":{
+                                                        "layoutCode":"address-dropoff-display",
+                                                        "aliases":{
+                                                            "BE":"BE.PRI_CODE",
+                                                            "ROOT":"ROOT"
                                                         }
                                                     }
                                                 }
