@@ -1,121 +1,160 @@
 {
-    "Grid": {
-        "rows": 1,
-        "cols": [1,4, 1],
-        "className": "bucket-card",
-        "children": [
+    "Grid":{
+        "rows":1,
+        "cols":[
+            1,
+            4,
+            1
+        ],
+        "className":"bucket-card",
+        "children":[
             {
-                "ImageView": {
-                    "position": [0,0],
-                    "style": {
-                        "width": "20px"
+                "ImageView":{
+                    "position":[
+                        0,
+                        0
+                    ],
+                    "style":{
+                        "width":"20px"
                     },
-                    "src": "BE.PRI_IMAGE_URL"
+                    "src":"BE.PRI_IMAGE_URL"
                 }
             },
             {
-                "Grid": {
-                    "position": [0,1],
-                    "rows": 3,
-                    "cols": 1,
-                    "children": [
+                "Grid":{
+                    "position":[
+                        0,
+                        1
+                    ],
+                    "rows":3,
+                    "cols":1,
+                    "children":[
                         {
-                            "span": {
-                                "position": [0,0],
-                                "style": {
-                                    "fontSize": "0.8em"
+                            "span":{
+                                "position":[
+                                    0,
+                                    0
+                                ],
+                                "style":{
+                                    "fontSize":"0.8em"
                                 },
-                                "children": "DRIVER"
+                                "children":"DRIVER"
                             }
                         },
                         {
-                            "span": {
-                                "position": [1,0],
-                                "style": {
-                                    "display": "flex",
-                                    "alignItems": "center"
+                            "span":{
+                                "position":[
+                                    1,
+                                    0
+                                ],
+                                "style":{
+                                    "display":"flex",
+                                    "alignItems":"center"
                                 },
-                                "children": [
+                                "children":[
                                     {
-                                        "span": {
-                                            "style": {
-                                                "fontSize": "0.75em"
+                                        "span":{
+                                            "style":{
+                                                "fontSize":"0.75em"
                                             },
-                                            "children": "BE.PRI_FIRSTNAME"
+                                            "children":"BE.PRI_FIRSTNAME"
                                         }
                                     },
                                     {
-                                        "span": {
-                                            "style": {
-                                                "fontSize": "0.75em"
+                                        "span":{
+                                            "style":{
+                                                "fontSize":"0.75em"
                                             },
-                                            "children": "BE.PRI_LASTNAME"
+                                            "children":"BE.PRI_LASTNAME"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "RatingDisplay": {
-                                "position": [2,0],
-                                "value": "BE.PRI_RATING"
+                            "RatingDisplay":{
+                                "position":[
+                                    2,
+                                    0
+                                ],
+                                "value":"BE.PRI_RATING"
                             }
                         },
                         {
-                            "span": {
-                                "position": [2,0],
-                                "style": {
-                                    "fontSize": "0.75em"
-                                },
-                                "children": "This user has no rating yet."
+                            "Selector":{
+                                "position":[
+                                    2,
+                                    0
+                                ],
+                                "checkValues":"BE.PRI_RATING",
+                                "showValues":"0",
+                                "children":[
+                                    {
+                                        "span":{
+                                            "style":{
+                                                "fontSize":"0.75em"
+                                            },
+                                            "children":"This user has no rating yet."
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
                 }
             },
             {
-                "Grid": {
-                    "position": [0, 2],
-                    "cols": 1,
-                    "rows": 2,
-                    "children": [
+                "Grid":{
+                    "position":[
+                        0,
+                        2
+                    ],
+                    "cols":1,
+                    "rows":2,
+                    "children":[
                         {
-                            "GennyButton": {
-                               "position": [0, 0],
-                                "style": {
-                                      "display": "flex",
-                                      "alignItems": "center",
-                                      "justifyContent": "center"
+                            "GennyButton":{
+                                "position":[
+                                    0,
+                                    0
+                                ],
+                                "style":{
+                                    "display":"flex",
+                                    "alignItems":"center",
+                                    "justifyContent":"center"
                                 },
-                                "buttonStyle": {
-                                        "background": "none",
-                                        "height": "fit-content"
+                                "buttonStyle":{
+                                    "background":"none",
+                                    "height":"fit-content"
                                 },
-                                "buttonCode": "BTN_CREATE_CONVERSATION",
-                                "value": {
-                                    "itemCode": "BE.PRI_CODE",
-                                    "hint": "ROOT"
+                                "buttonCode":"BTN_CREATE_CONVERSATION",
+                                "value":{
+                                    "itemCode":"BE.PRI_CODE",
+                                    "hint":"ROOT"
                                 },
-                                "children": [
+                                "children":[
                                     {
-                                        "IconSmall": {
-                                            "name": "message"
+                                        "IconSmall":{
+                                            "name":"message"
                                         }
                                     }
                                 ]
-                             }
+                            }
                         },
                         {
-                            "ContactButton": {
-                                "position": [1,0],
-                                "style": {
-                                      "display": "flex",
-                                      "alignItems": "center",
-                                      "justifyContent": "center"
+                            "ContactButton":{
+                                "position":[
+                                    1,
+                                    0
+                                ],
+                                "style":{
+                                    "display":"flex",
+                                    "alignItems":"center",
+                                    "justifyContent":"center"
                                 },
-                                "link": "BE.PRI_MOBILE"
-                             }
-                        } 
+                                "link":"BE.PRI_MOBILE"
+                            }
+                        }
                     ]
                 }
             }
