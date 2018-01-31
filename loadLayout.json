@@ -186,7 +186,6 @@
                                                             {
                                                                 "DateLabel":{
                                                                     "position":[0,1],
-                                                                    "format":"DD/MM/YY HH:mm",
                                                                     "fromNow": true,
                                                                     "style":{
                                                                         "fontSize":"0.8em"
@@ -664,10 +663,12 @@
                                                             0
                                                         ],
                                                         "style":{
-                                                            "width":"100px"
+                                                            "width":"100px",
+                                                            "height":"30px"
                                                         },
                                                         "buttonStyle":{
-                                                            "background":"white"
+                                                            "height":"30px",
+                                                            "padding":"0"
                                                         },
                                                         "buttonCode":"BTN_GO_BACK_JOB_DETAIL",
                                                         "hint":{
@@ -677,16 +678,17 @@
                                                             {
                                                                 "IconSmall":{
                                                                     "style":{
-                                                                        "fontSize":"28px"
+                                                                        "fontSize":"28px",
+                                                                        "transform": "rotate(90deg)",
+                                                                        "color":"white"
                                                                     },
-                                                                    "name":"arrow_back"
+                                                                    "name":"arrow_drop_down"
                                                                 }
                                                             },
                                                             {
                                                                 "span":{
                                                                     "style":{
-                                                                        "background":"white",
-                                                                        "color":"lightgray"
+                                                                        "color":"white"
                                                                     },
                                                                     "children":"BACK"
                                                                 }
@@ -753,361 +755,25 @@
                                                                     },
                                                                     "children":[
                                                                         {
-                                                                            "span":{
-                                                                                "style":{
-                                                                                    "fontSize":"0.75em"
-                                                                                },
-                                                                                "children":"$"
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_OWNER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"BE.PRI_OWNER_PRICE_INC_GST"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_OWNER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"(Incl GST)"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_DRIVER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"BE.PRI_DRIVER_PRICE_EXC_GST"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_DRIVER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"(Excl GST)"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"ROOT",
-                                                                                "showValues":"GRP_NEW_ITEMS",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"BE.PRI_OFFER_COUNT",
-                                                                                            "hideValues":"0",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "Selector":{
-                                                                                                        "checkValues":"USER.PRI_OWNER",
-                                                                                                        "showValues":"true",
-                                                                                                        "children":[
-                                                                                                            {
-                                                                                                                "div":{
-                                                                                                                    "className":"badge",
-                                                                                                                    "children":[
-                                                                                                                        {
-                                                                                                                            "span":{
-                                                                                                                                "style":{
-                                                                                                                                    "fontSize":"1em",
-                                                                                                                                    "fontWeight":"700",
-                                                                                                                                    "color":"red"
-                                                                                                                                },
-                                                                                                                                "children":"BE.PRI_OFFER_COUNT"
-                                                                                                                            }
-                                                                                                                        },
-                                                                                                                        {
-                                                                                                                            "Selector":{
-                                                                                                                                "checkValues":"BE.PRI_OFFER_COUNT",
-                                                                                                                                "showValues":"1",
-                                                                                                                                "children":[
-                                                                                                                                    {
-                                                                                                                                        "span":{
-                                                                                                                                            "style":{
-                                                                                                                                                "marginLeft":"5px",
-                                                                                                                                                "fontSize":"1em",
-                                                                                                                                                "fontWeight":"700",
-                                                                                                                                                "color":"red"
-                                                                                                                                            },
-                                                                                                                                            "children":" QUOTE"
-                                                                                                                                        }
-                                                                                                                                    }
-                                                                                                                                ]
-                                                                                                                            }
-                                                                                                                        },
-                                                                                                                        {
-                                                                                                                            "Selector":{
-                                                                                                                                "checkValues":"BE.PRI_OFFER_COUNT",
-                                                                                                                                "hideValues":"1",
-                                                                                                                                "children":[
-                                                                                                                                    {
-                                                                                                                                        "span":{
-                                                                                                                                            "style":{
-                                                                                                                                                "marginLeft":"5px",
-                                                                                                                                                "fontSize":"1em",
-                                                                                                                                                "fontWeight":"700",
-                                                                                                                                                "color":"red"
-                                                                                                                                            },
-                                                                                                                                            "children":" QUOTES"
-                                                                                                                                        }
-                                                                                                                                    }
-                                                                                                                                ]
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    ]
-                                                                                                                }
-                                                                                                            }
-                                                                                                        ]
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    },
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"BE.PRI_OFFER_COUNT",
-                                                                                            "showValues":"0",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "Selector":{
-                                                                                                        "checkValues":"USER.PRI_OWNER",
-                                                                                                        "showValues":"true",
-                                                                                                        "children":[
-                                                                                                            {
-                                                                                                                "div":{
-                                                                                                                    "className":"badge",
-                                                                                                                    "style":{
-                                                                                                                        "borderColor":"#BBB"
-                                                                                                                    },
-                                                                                                                    "children":[
-                                                                                                                        {
-                                                                                                                            "span":{
-                                                                                                                                "style":{
-                                                                                                                                    "fontSize":"1em",
-                                                                                                                                    "fontWeight":"700",
-                                                                                                                                    "color":"#BBB"
-                                                                                                                                },
-                                                                                                                                "children":"0 QUOTES"
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    ]
-                                                                                                                }
-                                                                                                            }
-                                                                                                        ]
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    }
-                                                                                ]
+                                                                            "SublayoutLoader" : {
+                                                                                "layoutCode": "price-display",
+                                                                                "aliases": {
+                                                                                    "BE": "BE.PRI_CODE",
+                                                                                    "GROUP": "ROOT"
+                                                                                }
                                                                             }
                                                                         }
                                                                     ]
                                                                 }
                                                             },
                                                             {
-                                                                "div":{
-                                                                    "position":[
-                                                                        0,
-                                                                        1
-                                                                    ],
+                                                                "DateLabel":{
+                                                                    "position":[0,1],
+                                                                    "fromNow": true,
                                                                     "style":{
-                                                                        "display":"flex",
-                                                                        "flexDirection":"row"
+                                                                        "fontSize":"0.8em"
                                                                     },
-                                                                    "children":[
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_OWNER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"BE.PRI_PICKUP_ADDRESS_FULL"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_DRIVER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"ROOT",
-                                                                                            "hideValues":"GRP_NEW_ITEMS",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_PICKUP_ADDRESS_FULL"
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    },
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"ROOT",
-                                                                                            "showValues":"GRP_NEW_ITEMS",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_PICKUP_ADDRESS_SUBURB"
-                                                                                                    }
-                                                                                                },
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em",
-                                                                                                            "marginRight":"5px"
-                                                                                                        },
-                                                                                                        "children":","
-                                                                                                    }
-                                                                                                },
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_PICKUP_ADDRESS_STATE"
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "IconSmall":{
-                                                                                "name":"arrow_right",
-                                                                                "style":{
-                                                                                    "marginTop":"-5px"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_OWNER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"BE.PRI_DROPOFF_ADDRESS_FULL"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "checkValues":"USER.PRI_DRIVER",
-                                                                                "showValues":"true",
-                                                                                "children":[
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"ROOT",
-                                                                                            "hideValues":"GRP_NEW_ITEMS",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_DROPOFF_ADDRESS_FULL"
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    },
-                                                                                    {
-                                                                                        "Selector":{
-                                                                                            "checkValues":"ROOT",
-                                                                                            "showValues":"GRP_NEW_ITEMS",
-                                                                                            "children":[
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_DROPOFF_ADDRESS_SUBURB"
-                                                                                                    }
-                                                                                                },
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em",
-                                                                                                            "marginRight":"5px"
-                                                                                                        },
-                                                                                                        "children":","
-                                                                                                    }
-                                                                                                },
-                                                                                                {
-                                                                                                    "span":{
-                                                                                                        "style":{
-                                                                                                            "fontSize":"0.75em"
-                                                                                                        },
-                                                                                                        "children":"BE.PRI_DROPOFF_ADDRESS_STATE"
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        }
-                                                                    ]
+                                                                    "children":"BE.PRI_CODE"
                                                                 }
                                                             }
                                                         ]
@@ -1286,10 +952,10 @@
                                                             {
                                                                 "display":"flex",
                                                                 "alignItems":"center",
-                                                                "flexGrow":3
+                                                                "flexGrow":4
                                                             }
                                                         ],
-                                                        "rows":2,
+                                                        "rows":4,
                                                         "style":{
                                                             "marginTop":"20px",
                                                             "height":"initial"
@@ -1297,22 +963,57 @@
                                                         "children":[
                                                             {
                                                                 "span":{
-                                                                    "position":[
-                                                                        0,
-                                                                        0
-                                                                    ],
+                                                                    "position":[0,0],
                                                                     "style":{
-                                                                        "fontSize":"0.8em"
+                                                                        "fontSize":"0.8em",
+                                                                        "fontWeight":"bold"
                                                                     },
-                                                                    "children":"PICKUP: "
+                                                                    "children":"PICKUP"
+                                                                }
+                                                            },
+                                                            {
+                                                                "SublayoutLoader" : {
+                                                                    "position":[0,0],
+                                                                    "layoutCode": "address-pickup-display",
+                                                                    "aliases": {
+                                                                        "BE": "BE.PRI_CODE",
+                                                                        "GROUP": "ROOT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{
+                                                                    "position":[1,0],
+                                                                    "style":{
+                                                                        "fontSize":"0.8em",
+                                                                        "fontWeight":"bold"
+                                                                    },
+                                                                    "children":"DELIVERY"
+                                                                }
+                                                            },
+                                                            {
+                                                                "SublayoutLoader" : {
+                                                                    "position":[1,1],
+                                                                    "layoutCode": "address-dropoff-display",
+                                                                    "aliases": {
+                                                                        "BE": "BE.PRI_CODE",
+                                                                        "GROUP": "ROOT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{
+                                                                    "position":[2,0],
+                                                                    "style":{
+                                                                        "fontSize":"0.8em",
+                                                                        "fontWeight":"bold"
+                                                                    },
+                                                                    "children":"AVAILABLE FOR PICKUP FROM"
                                                                 }
                                                             },
                                                             {
                                                                 "DateLabel":{
-                                                                    "position":[
-                                                                        0,
-                                                                        1
-                                                                    ],
+                                                                    "position":[2,1],
                                                                     "format":"DD/MM/YY HH:mm",
                                                                     "style":{
                                                                         "fontSize":"0.8em"
@@ -1322,22 +1023,17 @@
                                                             },
                                                             {
                                                                 "span":{
-                                                                    "position":[
-                                                                        1,
-                                                                        0
-                                                                    ],
+                                                                    "position":[3,0],
                                                                     "style":{
-                                                                        "fontSize":"0.8em"
+                                                                        "fontSize":"0.8em",
+                                                                        "fontWeight":"bold"
                                                                     },
-                                                                    "children":"DELIVERY: "
+                                                                    "children":"DELIVERY REQUIRED BEFORE"
                                                                 }
                                                             },
                                                             {
                                                                 "DateLabel":{
-                                                                    "position":[
-                                                                        1,
-                                                                        1
-                                                                    ],
+                                                                    "position":[3,1],
                                                                     "format":"DD/MM/YY HH:mm",
                                                                     "style":{
                                                                         "fontSize":"0.8em"
@@ -1382,7 +1078,7 @@
                                                         ],
                                                         "root":"BE.PRI_CODE",
                                                         "showLinks":true,
-                                                        "hideLinks": ["OWNER"],
+                                                        "hideLinks": ["OWNER", "LOAD"],
                                                         "hideHeader":true,
                                                         "hideCount":true
                                                     }
