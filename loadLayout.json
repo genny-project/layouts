@@ -549,24 +549,59 @@
                                             "showValues":"GRP_NEW_ITEMS",
                                             "children":[
                                                 {
-                                                    "MapDisplay":{
+                                                    "Selector": {
                                                         "position":[
                                                             0,
                                                             1
                                                         ],
-                                                        "style":{
-                                                            "height":"400px",
-                                                            "marginTop":"10px"
-                                                        },
-                                                        "zoom":15,
-                                                        "markers":[
+                                                        "checkValues":"USER.PRI_OWNER",
+                                                        "showValues":"true",
+                                                        "children":[
                                                             {
-                                                                "lat":"BE.PRI_PICKUP_ADDRESS_LATITUDE",
-                                                                "lng":"BE.PRI_PICKUP_ADDRESS_LONGITUDE"
+                                                                "MapDisplay":{
+                                                                    "style":{
+                                                                        "height":"400px",
+                                                                        "marginTop":"10px"
+                                                                    },
+                                                                    "zoom":15,
+                                                                    "routes":[
+                                                                        {
+                                                                            "origin":"BE.PRI_PICKUP_ADDRESS_FULL",
+                                                                            "dest":"BE.PRI_PICKUP_ADDRESS_FULL"
+                                                                        }
+                                                                    ]
+                                                                }
                                                             }
-                                                        ]
-                                                    }
-                                                }
+                                                         ]
+                                                     }
+                                                 },
+                                                {
+                                                    "Selector": {
+                                                        "checkValues":"USER.PRI_DRIVER",
+                                                        "showValues":"true",
+                                                        "position":[
+                                                            0,
+                                                            1
+                                                        ],
+                                                        "children":[
+                                                            {
+                                                                "MapDisplay":{
+                                                                    "style":{
+                                                                        "height":"400px",
+                                                                        "marginTop":"10px"
+                                                                    },
+                                                                    "zoom":15,
+                                                                    "markers":[
+                                                                        {
+                                                                            "lat":"BE.PRI_PICKUP_ADDRESS_LATITUDE",
+                                                                            "lng":"BE.PRI_PICKUP_ADDRESS_LONGITUDE"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                         ]
+                                                     }
+                                                 } 
                                             ]
                                         }
                                     }
