@@ -1,56 +1,112 @@
 {
-    "div": {
-        "style": {
-            "height": "100%"
+    "div":{
+        "style":{
+            "height":"100%"
         },
-        "children": [
+        "children":[
             {
-                "Selector": {
-                    "showValues": "USER.PRI_OWNER",
-                    "checkValues": "true",
-                    "children": [
+                "Selector":{
+                    "showValues":"USER.PRI_OWNER",
+                    "checkValues":"true",
+                    "children":[
                         {
-                            "Grid": {
-                                "rows": [ { "style": { "height": "60px", "flexGrow": 0 } },  { "style": { "flexGrow": 1 } }],
-                                "cols": [{ "style": { "flexGrow": 1, "width": "100%" } }],
-                                "children": [
+                            "Grid":{
+                                "rows":[
                                     {
-                                        "div": {
-                                            "position": [0, 0],
-                                            "style": {
-                                                "backgroundColor": "#555",
-                                                "width": "100%",
-                                                "position": "fixed",
-                                                "height": "60px",
-                                                "display": "flex",
-                                                "alignItems": "center",
-                                                "padding": "0 10px",
-                                                "justifyContent": "flex-start"
+                                        "style":{
+                                            "height":"60px",
+                                            "flexGrow":0
+                                        }
+                                    },
+                                    {
+                                        "style":{
+                                            "flexGrow":1
+                                        }
+                                    }
+                                ],
+                                "cols":[
+                                    {
+                                        "style":{
+                                            "flexGrow":1,
+                                            "width":"100%"
+                                        }
+                                    }
+                                ],
+                                "children":[
+                                    {
+                                        "div":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "style":{
+                                                "backgroundColor":"#555",
+                                                "width":"100%",
+                                                "position":"fixed",
+                                                "height":"60px",
+                                                "display":"flex",
+                                                "alignItems":"center",
+                                                "padding":"0 10px",
+                                                "justifyContent":"flex-start"
                                             },
-                                            "children": [
+                                            "children":[
                                                 {
-                                                    "GennyButton": {
-                                                        "buttonCode": "GRP_NEW_ITEMS",
-                                                        "value": "ADD_NEW_LOAD",
-                                                        "style": {
-                                                            "width": "200px",
-                                                            "marginTop": "10px",
-                                                            "fontSize": "16px"
-                                                        },
-                                                        "buttonStyle": {
-                                                            "background": "#5cb85c",
-                                                            "height": "40px"
-                                                        },
-                                                        "children": "ADD LOAD"
+                                                    "Device":{
+                                                        "isMobile":true,
+                                                        "children":[
+                                                            {
+                                                                "GennyButton":{
+                                                                    "buttonCode":"GRP_NEW_ITEMS",
+                                                                    "value":"ADD_NEW_LOAD",
+                                                                    "style":{
+                                                                        "width":"100vw",
+                                                                        "marginTop":"10px",
+                                                                        "fontSize":"16px"
+                                                                    },
+                                                                    "buttonStyle":{
+                                                                        "background":"#5cb85c",
+                                                                        "height":"40px"
+                                                                    },
+                                                                    "children":"ADD LOAD"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Device":{
+                                                        "isDesktop":true,
+                                                        "isTablet":true,
+                                                        "children":[
+                                                            {
+                                                                "GennyButton":{
+                                                                    "buttonCode":"GRP_NEW_ITEMS",
+                                                                    "value":"ADD_NEW_LOAD",
+                                                                    "style":{
+                                                                        "width":"200px",
+                                                                        "marginTop":"10px",
+                                                                        "fontSize":"16px"
+                                                                    },
+                                                                    "buttonStyle":{
+                                                                        "background":"#5cb85c",
+                                                                        "height":"40px"
+                                                                    },
+                                                                    "children":"ADD LOAD"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
                                         }
                                     },
                                     {
-                                        "GennyBucketView": {
-                                            "position": [1, 0],
-                                            "root": "GRP_DASHBOARD"
+                                        "GennyBucketView":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "root":"GRP_DASHBOARD"
                                         }
                                     }
                                 ]
@@ -60,19 +116,35 @@
                 }
             },
             {
-                "Selector": {
-                    "showValues": "USER.PRI_DRIVER",
-                    "checkValues": "true",
-                    "children": [
+                "Selector":{
+                    "showValues":"USER.PRI_DRIVER",
+                    "checkValues":"true",
+                    "children":[
                         {
-                            "Grid": {
-                                "rows": [  { "style": { "flexGrow": 1 } }],
-                                "cols": [{ "style": { "flexGrow": 1, "width": "100%" } }],
-                                "children": [
+                            "Grid":{
+                                "rows":[
                                     {
-                                        "GennyBucketView": {
-                                            "position": [0, 0],
-                                            "root": "GRP_DASHBOARD"
+                                        "style":{
+                                            "flexGrow":1
+                                        }
+                                    }
+                                ],
+                                "cols":[
+                                    {
+                                        "style":{
+                                            "flexGrow":1,
+                                            "width":"100%"
+                                        }
+                                    }
+                                ],
+                                "children":[
+                                    {
+                                        "GennyBucketView":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "root":"GRP_DASHBOARD"
                                         }
                                     }
                                 ]
