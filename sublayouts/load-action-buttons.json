@@ -1,85 +1,122 @@
 {
-    "Selector":{
-        "checkValues": "ROOT",
-        "showValues": "GRP_NEW_ITEMS",
+    "div": {
         "children": [
             {
-                "Selector": {
-                    "checkValues": "USER.PRI_OWNER",
-                    "showValues": "true",
+                "Selector":{
+                    "checkValues": "ROOT",
+                    "showValues": "GRP_NEW_ITEMS",
                     "children": [
                         {
-                            "GennyButton": {
-                                "buttonCode":"BE.ITEM_CODE",
-                                "style":{
-                                    "marginBottom": "5px",
-                                    "height": "30px",
-                                    "fontSize":"0.9em"
-                                },
-                                "buttonStyle":{
-                                    "height": "30px",
-                                    "padding":"0 5px"
-                                },
-                                "children":[
+                            "Selector": {
+                                "checkValues": "USER.PRI_OWNER",
+                                "showValues": "true",
+                                "children": [
                                     {
-                                        "span":{
+                                        "GennyButton": {
+                                            "buttonCode":"BE.ITEM_CODE",
                                             "style":{
+                                                "marginBottom": "5px",
+                                                "height": "30px",
                                                 "fontSize":"0.9em"
                                             },
-                                            "children":"Edit Load"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "Selector": {
-                    "checkValues": "USER.PRI_DRIVER",
-                    "showValues": "true",
-                    "children": [
-                        {
-                            "GennyButton":{
-                                "buttonCode":"BTN_ACCEPT_JOB",
-                                "value":{
-                                    "itemCode":"BE.ITEM_CODE"
-                                },
-                                "type":"confirm",
-                                "style":{
-                                    "marginBottom":"5px",
-                                    "height":"30px",
-                                    "fontSize":"0.9em"
-                                },
-                                "buttonStyle":{
-                                    "height":"30px",
-                                    "padding":"0 5px"
-                                },
-                                "children":[
-                                    {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.9em"
+                                            "buttonStyle":{
+                                                "height": "30px",
+                                                "padding":"0 5px"
                                             },
-                                            "children":"Accept"
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.9em"
+                                                        },
+                                                        "children":"Edit Load"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "GennyButton":{
-                                "position":[
-                                    0,
-                                    1
-                                ],
-                                "buttonCode":"BTN_MAKE_OFFER",
-                                "value":{
-                                    "itemCode":"BE.ITEM_CODE"
-                                },
+                            "Selector": {
+                                "checkValues": "USER.PRI_DRIVER",
+                                "showValues": "true",
+                                "children": [
+                                    {
+                                        "GennyButton":{
+                                            "buttonCode":"BTN_ACCEPT_JOB",
+                                            "value":{
+                                                "itemCode":"BE.ITEM_CODE"
+                                            },
+                                            "type":"confirm",
+                                            "style":{
+                                                "marginBottom":"5px",
+                                                "height":"30px",
+                                                "fontSize":"0.9em"
+                                            },
+                                            "buttonStyle":{
+                                                "height":"30px",
+                                                "padding":"0 5px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.9em"
+                                                        },
+                                                        "children":"Accept"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "GennyButton":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "buttonCode":"BTN_MAKE_OFFER",
+                                            "value":{
+                                                "itemCode":"BE.ITEM_CODE"
+                                            },
+                                            "style":{
+                                                "marginBottom":"5px",
+                                                "height":"30px",
+                                                "fontSize":"0.9em"
+                                            },
+                                            "buttonStyle":{
+                                                "height":"30px",
+                                                "padding":"0 5px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.9em"
+                                                        },
+                                                        "children":"Submit Quote"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                
+                "Selector": {
+                    "checkValues": "ROOT",
+                    "hideValues": "GRP_NEW_ITEMS",
+                    "children": [
+                        {
+                            "MapDirectionsButton":{
+                                "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
+                                "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
                                 "style":{
-                                    "marginBottom":"5px",
                                     "height":"30px",
                                     "fontSize":"0.9em"
                                 },
@@ -93,41 +130,10 @@
                                             "style":{
                                                 "fontSize":"0.9em"
                                             },
-                                            "children":"Submit Quote"
+                                            "children":"Get Directions"
                                         }
                                     }
                                 ]
-                            }
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-
-    "Selector": {
-        "checkValues": "ROOT",
-        "hideValues": "GRP_NEW_ITEMS",
-        "children": [
-            {
-                "MapDirectionsButton":{
-                    "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
-                    "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
-                    "style":{
-                        "height":"30px",
-                        "fontSize":"0.9em"
-                    },
-                    "buttonStyle":{
-                        "height":"30px",
-                        "padding":"0 5px"
-                    },
-                    "children":[
-                        {
-                            "span":{
-                                "style":{
-                                    "fontSize":"0.9em"
-                                },
-                                "children":"Get Directions"
                             }
                         }
                     ]
