@@ -1,15 +1,12 @@
 {
     "Grid":{
-        "rows":2,
-        "cols":1,
+        "rows":1,
+        "cols":2,
         "className":"bucket-card",
         "children":[
             {
                 "Grid":{
-                    "position":[
-                        0,
-                        0
-                    ],
+                    "position":[0,0],
                     "rows":1,
                     "cols":[
                         {
@@ -19,15 +16,12 @@
                                 "alignItems":"center"
                             }
                         },
-                        2
+                        1
                     ],
                     "children":[
                         {
                             "ImageView":{
-                                "position":[
-                                    0,
-                                    0
-                                ],
+                                "position":[0,0],
                                 "style":{
                                     "width":"100%",
                                     "marginRight":"5px"
@@ -37,19 +31,13 @@
                         },
                         {
                             "Grid":{
-                                "position":[
-                                    0,
-                                    1
-                                ],
-                                "rows":4,
-                                "cols":1,
+                                "position":[0,1],
+                                "rows":1,
+                                "cols":3,
                                 "children":[
                                     {
                                         "Selector":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
+                                            "position":[0,0],
                                             "checkValues":"USER.PRI_OWNER",
                                             "showValues":"true",
                                             "children":[
@@ -66,10 +54,7 @@
                                     },
                                     {
                                         "Selector":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
+                                            "position":[0,0],
                                             "checkValues":"USER.PRI_OWNER",
                                             "showValues":"true",
                                             "children":[
@@ -86,10 +71,7 @@
                                     },
                                     {
                                         "Selector":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
+                                            "position":[0,0],
                                             "checkValues":"USER.PRI_DRIVER",
                                             "showValues":"true",
                                             "children":[
@@ -106,10 +88,7 @@
                                     },
                                     {
                                         "Selector":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
+                                            "position":[0,0],
                                             "checkValues":"USER.PRI_DRIVER",
                                             "showValues":"true",
                                             "children":[
@@ -126,10 +105,7 @@
                                     },
                                     {
                                         "span":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
+                                            "position":[0,1],
                                             "style":{
                                                 "fontSize":"0.75em"
                                             },
@@ -138,10 +114,7 @@
                                     },
                                     {
                                         "span":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
+                                            "position":[0,1],
                                             "style":{
                                                 "fontSize":"0.75em"
                                             },
@@ -150,24 +123,8 @@
                                     },
                                     {
                                         "RatingDisplay":{
-                                            "position":[
-                                                2,
-                                                0
-                                            ],
+                                            "position":[0,2],
                                             "value":"BE.links.CREATOR.PRI_RATING"
-                                        }
-                                    },
-                                    {
-                                        "DateLabel":{
-                                            "position":[
-                                                3,
-                                                0
-                                            ],
-                                            "format":"DD/MM/YY HH:mm",
-                                            "style":{
-                                                "fontSize":"0.75em"
-                                            },
-                                            "children":"BE.PRI_OFFER_DATE"
                                         }
                                     }
                                 ]
@@ -177,33 +134,24 @@
                 }
             },
             {
-                "Selector":{
-                    "checkValues":"USER.PRI_OWNER",
-                    "showValues":"true",
-                    "position":[
-                        1,
-                        0
-                    ],
+                "Grid":{
+                    "position":[0,1],
+                    "rows":1,
+                    "cols":3,
                     "children":[
                         {
                             "Selector":{
-                                "checkValues":"BE.PRI_NEXT_ACTION",
-                                "showValues":"OWNER",
+                                "checkValues":"USER.PRI_OWNER",
+                                "showValues":"true",
+                                "position":[0,0],
                                 "children":[
                                     {
-                                        "Grid":{
-                                            "rows":3,
-                                            "cols":1,
-                                            "style":{
-                                                "paddingTop":"5px"
-                                            },
+                                        "Selector":{
+                                            "checkValues":"BE.PRI_NEXT_ACTION",
+                                            "showValues":"OWNER",
                                             "children":[
                                                 {
                                                     "GennyButton":{
-                                                        "position":[
-                                                            0,
-                                                            0
-                                                        ],
                                                         "buttonCode":"BTN_CONFIRM_OFFER",
                                                         "value":{
                                                             "itemCode":"BE.PRI_CODE",
@@ -226,7 +174,24 @@
                                                             }
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector":{
+                                "checkValues":"USER.PRI_OWNER",
+                                "showValues":"true",
+                                "position":[0,1],
+                                "children":[
+                                    {
+                                        "Selector":{
+                                            "checkValues":"BE.PRI_NEXT_ACTION",
+                                            "showValues":"OWNER",
+                                            "children":[
                                                 {
                                                     "GennyButton":{
                                                         "position":[
@@ -265,28 +230,37 @@
                             }
                         },
                         {
-                            "GennyButton":{
-                                "position":[
-                                    2,
-                                    0
-                                ],
-                                "buttonCode":"BTN_CANCEL_OFFER",
-                                "value":{
-                                    "itemCode":"BE.PRI_CODE",
-                                    "hint":"ROOT"
-                                },
-                                "style":{
-                                    "height":"30px"
-                                },
-                                "type":"cancel",
+                            "Selector":{
+                                "checkValues":"USER.PRI_OWNER",
+                                "showValues":"true",
+                                "position":[0,2],
                                 "children":[
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"0.75em",
-                                                "color":"white"
+                                        "GennyButton":{
+                                            "position":[
+                                                2,
+                                                0
+                                            ],
+                                            "buttonCode":"BTN_CANCEL_OFFER",
+                                            "value":{
+                                                "itemCode":"BE.PRI_CODE",
+                                                "hint":"ROOT"
                                             },
-                                            "children":"HIDE"
+                                            "style":{
+                                                "height":"30px"
+                                            },
+                                            "type":"cancel",
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "color":"white"
+                                                        },
+                                                        "children":"HIDE"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
