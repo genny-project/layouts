@@ -125,50 +125,50 @@
                 }
             },
             {
-                "Grid":{
+                "Selector":{
+                    "checkValues":"USER.PRI_OWNER",
+                    "showValues":"true",
                     "position":[0,1],
-                    "rows":[
-                        {
-                            "style":{
-                                "flexGrow": 1,
-                                "margin": "0 -5px"
-                            }
-                        }
-                    ],
-                    "cols":[
-                        {
-                            "style":{
-                                "flexGrow": 1,
-                                "minWidth": "100px",
-                                "margin": "0 5px"
-                            }
-                        },
-                        {
-                            "style":{
-                                "flexGrow": 1,
-                                "minWidth": "100px",
-                                "margin": "0 5px"
-                            }
-                        },
-                        {
-                            "style":{
-                                "flexGrow": 1,
-                                "minWidth": "100px",
-                                "margin": "0 5px"
-                            }
-                        }
-                    ],
                     "children":[
                         {
-                            "Selector":{
-                                "checkValues":"USER.PRI_OWNER",
-                                "showValues":"true",
-                                "position":[0,0],
+                            "Grid":{
+                                "rows":[
+                                    {
+                                        "style":{
+                                            "flexGrow": 1,
+                                            "margin": "0 -5px"
+                                        }
+                                    }
+                                ],
+                                "cols":[
+                                    {
+                                        "style":{
+                                            "flexGrow": 1,
+                                            "minWidth": "100px",
+                                            "margin": "0 5px"
+                                        }
+                                    },
+                                    {
+                                        "style":{
+                                            "flexGrow": 1,
+                                            "minWidth": "100px",
+                                            "margin": "0 5px"
+                                        }
+                                    },
+                                    {
+                                        "style":{
+                                            "flexGrow": 1,
+                                            "minWidth": "100px",
+                                            "margin": "0 5px"
+                                        }
+                                    }
+                                ],
                                 "children":[
                                     {
                                         "Selector":{
                                             "checkValues":"BE.PRI_NEXT_ACTION",
                                             "showValues":"OWNER",
+                                            "position":[0,0],
                                             "children":[
                                                 {
                                                     "GennyButton":{
@@ -197,27 +197,15 @@
                                                 }
                                             ]
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector":{
-                                "checkValues":"USER.PRI_OWNER",
-                                "showValues":"true",
-                                "position":[0,1],
-                                "children":[
+                                    },
                                     {
                                         "Selector":{
                                             "checkValues":"BE.PRI_NEXT_ACTION",
                                             "showValues":"OWNER",
+                                            "position":[0,1],
                                             "children":[
                                                 {
                                                     "GennyButton":{
-                                                        "position":[
-                                                            1,
-                                                            0
-                                                        ],
                                                         "buttonCode":"BTN_COUNTER_OFFER",
                                                         "value":{
                                                             "itemCode":"BE.PRI_CODE",
@@ -245,39 +233,35 @@
                                                 }
                                             ]
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector":{
-                                "checkValues":"USER.PRI_OWNER",
-                                "showValues":"true",
-                                "position":[0,2],
-                                "children":[
+                                    },
                                     {
-                                        "GennyButton":{
-                                            "position":[
-                                                2,
-                                                0
-                                            ],
-                                            "buttonCode":"BTN_CANCEL_OFFER",
-                                            "value":{
-                                                "itemCode":"BE.PRI_CODE",
-                                                "hint":"ROOT"
-                                            },
-                                            "style":{
-                                                "height":"30px"
-                                            },
-                                            "type":"cancel",
+                                        "Selector":{
+                                            "checkValues":"USER.PRI_OWNER",
+                                            "showValues":"true",
+                                            "position":[0,2],
                                             "children":[
                                                 {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em",
-                                                            "color":"white"
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_CANCEL_OFFER",
+                                                        "value":{
+                                                            "itemCode":"BE.PRI_CODE",
+                                                            "hint":"ROOT"
                                                         },
-                                                        "children":"HIDE"
+                                                        "style":{
+                                                            "height":"30px"
+                                                        },
+                                                        "type":"cancel",
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"0.75em",
+                                                                        "color":"white"
+                                                                    },
+                                                                    "children":"HIDE"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
@@ -293,10 +277,7 @@
                 "Selector":{
                     "checkValues":"USER.PRI_DRIVER",
                     "showValues":"true",
-                    "position":[
-                        1,
-                        0
-                    ],
+                    "position":[0,1],
                     "children":[
                         {
                             "Selector":{
@@ -305,18 +286,34 @@
                                 "children":[
                                     {
                                         "Grid":{
-                                            "rows":2,
-                                            "cols":1,
-                                            "style":{
-                                                "paddingTop":"5px"
-                                            },
+                                            "rows":[
+                                                {
+                                                    "style":{
+                                                        "flexGrow": 1,
+                                                        "margin": "0 -5px"
+                                                    }
+                                                }
+                                            ],
+                                            "cols":[
+                                                {
+                                                    "style":{
+                                                        "flexGrow": 1,
+                                                        "minWidth": "100px",
+                                                        "margin": "0 5px"
+                                                    }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow": 1,
+                                                        "minWidth": "100px",
+                                                        "margin": "0 5px"
+                                                    }
+                                                }
+                                            ],
                                             "children":[
                                                 {
                                                     "GennyButton":{
-                                                        "position":[
-                                                            0,
-                                                            0
-                                                        ],
+                                                        "position":[0,0],
                                                         "buttonCode":"BTN_CONFIRM_OFFER",
                                                         "value":{
                                                             "itemCode":"BE.PRI_CODE",
@@ -342,10 +339,7 @@
                                                 },
                                                 {
                                                     "GennyButton":{
-                                                        "position":[
-                                                            1,
-                                                            0
-                                                        ],
+                                                        "position":[0,1],
                                                         "buttonCode":"BTN_COUNTER_OFFER",
                                                         "value":{
                                                             "itemCode":"BE.PRI_CODE",
