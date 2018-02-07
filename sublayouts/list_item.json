@@ -1,386 +1,233 @@
 {
-    "Grid":{
-        "rows":1,
-        "cols":[
-            {
-                "style": {
-                    "flexGrow":1
-                }
-            },
-            {
-                "style": {
-                    "flexGrow":2
-                }
-            }
-        ],
-        "className":"bucket-card",
-        "style": {
-            "padding": "5px 10px"
-        },
+    "div":{
         "children":[
             {
-                "Grid":{
-                    "position":[0,0],
-                    "rows":1,
-                    "cols":[
-                        {
-                            "style":{
-                                "flex":"0 0 40px",
-                                "display":"flex",
-                                "alignItems":"center"
-                            }
-                        },
-                        1
-                    ],
-                    "children":[
-                        {
-                            "ImageView":{
-                                "position":[0,0],
-                                "style":{
-                                    "width":"100%",
-                                    "marginRight":"5px"
-                                },
-                                "src":"BE.PRI_IMAGE_URL"
-                            }
-                        },
-                        {
-                            "Grid":{
-                                "position":[0,1],
-                                "rows": [
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "margin": "0 -5px"
-                                        }
-                                    }
-                                ],
-                                "cols":[
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px",
-                                            "display": "flex",
-                                            "alignItems": "center",
-                                            "justifyContent": "center"
-                                        }
-                                    }
-                                ],
-                                "children":[
-                                    {
-                                        "Selector":{
-                                            "position":[0,0],
-                                            "checkValues":"USER.PRI_OWNER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em",
-                                                            "marginRight": "5px"
-                                                        },
-                                                        "children":"BE.PRI_OFFER_OWNER_PRICE_INC_GST"
-                                                    }
-                                                },
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"(incl GST)"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[0,0],
-                                            "checkValues":"USER.PRI_DRIVER",
-                                            "showValues":"true",
-                                            "children":[
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em",
-                                                            "marginRight": "5px"
-                                                        },
-                                                        "children":"BE.PRI_OFFER_DRIVER_PRICE_EXC_GST"
-                                                    }
-                                                },
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"(ex GST)"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "span":{
-                                            "position":[0,1],
-                                            "children": [
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em",
-                                                            "marginRight": "5px"
-                                                        },
-                                                        "children":"BE.links.CREATOR.PRI_FIRSTNAME"
-                                                    }
-                                                },
-                                                {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"BE.links.CREATOR.PRI_LASTNAME"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "RatingDisplay":{
-                                            "position":[0,2],
-                                            "fontSize" : "18px",
-                                            "value":"BE.links.CREATOR.PRI_RATING"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "Selector":{
-                    "checkValues":"USER.PRI_OWNER",
-                    "showValues":"true",
-                    "position":[0,1],
+                "Device":{
+                    "isDesktop":true,
+                    "isTablet":true,
                     "children":[
                         {
                             "Grid":{
+                                "cols":1,
                                 "rows":[
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "margin": "0px -5px"
-                                        }
-                                    }
+                                    1,
+                                    1
                                 ],
-                                "cols":[
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "display": "flex",
-                                            "alignItems": "center",
-                                            "minWidth": "100px",
-                                            "margin": "2.5px 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "display": "flex",
-                                            "alignItems": "center",
-                                            "minWidth": "100px",
-                                            "margin": "2.5px 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "display": "flex",
-                                            "alignItems": "center",
-                                            "minWidth": "100px",
-                                            "margin": "2.5px 5px"
-                                        }
-                                    }
-                                ],
-                                "children":[
-                                    {
-                                        "Selector":{
-                                            "checkValues":"BE.PRI_NEXT_ACTION",
-                                            "showValues":"OWNER",
-                                            "position":[0,0],
-                                            "children":[
-                                                {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_CONFIRM_OFFER",
-                                                        "value":{
-                                                            "itemCode":"BE.PRI_CODE",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "style":{
-                                                            "height":"30px"
-                                                        },
-                                                        "type":"confirm",
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "color":"white"
-                                                                    },
-                                                                    "children":"ACCEPT"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "checkValues":"BE.PRI_NEXT_ACTION",
-                                            "showValues":"OWNER",
-                                            "position":[0,1],
-                                            "children":[
-                                                {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_COUNTER_OFFER",
-                                                        "value":{
-                                                            "itemCode":"BE.PRI_CODE",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "style":{
-                                                            "height":"30px"
-                                                        },
-                                                        "buttonStyle":{
-                                                            "backgroundColor":"#000"
-                                                        },
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "color":"white"
-                                                                    },
-                                                                    "children":"COUNTER QUOTE"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "checkValues":"USER.PRI_OWNER",
-                                            "showValues":"true",
-                                            "position":[0,2],
-                                            "children":[
-                                                {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_CANCEL_OFFER",
-                                                        "value":{
-                                                            "itemCode":"BE.PRI_CODE",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "style":{
-                                                            "height":"30px"
-                                                        },
-                                                        "type":"cancel",
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "color":"white"
-                                                                    },
-                                                                    "children":"HIDE"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "Selector":{
-                    "checkValues":"USER.PRI_DRIVER",
-                    "showValues":"true",
-                    "position":[0,1],
-                    "children":[
-                        {
-                            "Selector":{
-                                "checkValues":"BE.PRI_NEXT_ACTION",
-                                "showValues":"QUOTER",
+                                "style":{
+                                    "backgroundColor":"white",
+                                    "borderRadius":"5px",
+                                    "margin":"5px",
+                                    "padding":"15px"
+                                },
                                 "children":[
                                     {
                                         "Grid":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
                                             "rows":[
                                                 {
                                                     "style":{
-                                                        "flexGrow": 1,
-                                                        "margin": "0 -5px"
+                                                        "flexGrow":1,
+                                                        "flexWrap":"nowrap"
                                                     }
                                                 }
                                             ],
                                             "cols":[
                                                 {
                                                     "style":{
-                                                        "flexGrow": 1,
-                                                        "minWidth": "100px",
-                                                        "margin": "2.5px 5px"
+                                                        "flex":"0 0 50px",
+                                                        "display":"flex"
                                                     }
                                                 },
                                                 {
                                                     "style":{
-                                                        "flexGrow": 1,
-                                                        "minWidth": "100px",
-                                                        "margin": "2.5px 5px"
+                                                        "display":"flex",
+                                                        "flexDirection":"column",
+                                                        "flexWrap":"no-wrap",
+                                                        "flexGrow":3,
+                                                        "paddingRight":"10px",
+                                                        "justifyContent":"space-evenly"
                                                     }
-                                                }
+                                                },
+                                                1
                                             ],
                                             "children":[
                                                 {
-                                                    "GennyButton":{
-                                                        "position":[0,0],
-                                                        "buttonCode":"BTN_CONFIRM_OFFER",
-                                                        "value":{
-                                                            "itemCode":"BE.PRI_CODE",
-                                                            "hint":"ROOT"
-                                                        },
+                                                    "ImageView":{
+                                                        "position":[
+                                                            0,
+                                                            0
+                                                        ],
                                                         "style":{
-                                                            "height":"30px"
+                                                            "width":"80px",
+                                                            "paddingRight":"10px"
                                                         },
-                                                        "type":"confirm",
+                                                        "src":"BE.PRI_IMAGE_URL"
+                                                    }
+                                                },
+                                                {
+                                                    "Grid":{
+                                                        "position":[
+                                                            0,
+                                                            1
+                                                        ],
+                                                        "rows":[
+                                                            {
+                                                                "style" : {
+                                                                    "flexGrow": 1,
+                                                                    "paddingBottom": "5px"
+                                                                }   
+                                                            },
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "cols":[
+                                                            {
+                                                                "style":{
+                                                                    "display":"flex",
+                                                                    "alignItems": "center",
+                                                                    "flexGrow": 1
+                                                                }
+                                                            }
+                                                        ],
                                                         "children":[
                                                             {
                                                                 "span":{
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
                                                                     "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "color":"white"
+                                                                        "fontSize":"1em",
+                                                                        "marginRight":"15px"
                                                                     },
-                                                                    "children":"ACCEPT"
+                                                                    "children":"BE.PRI_TITLE"
+                                                                }
+                                                            },
+                                                            {
+                                                                "SublayoutLoader" : {
+                                                                    "position":[0,0],
+                                                                    "layoutCode": "price-display",
+                                                                    "aliases": {
+                                                                        "BE": "BE.PRI_CODE",
+                                                                        "GROUP": "ROOT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "DateLabel":{
+                                                                    "position":[0,0],
+                                                                    "fromNow": true,
+                                                                    "style":{
+                                                                        "fontSize":"0.8em",
+                                                                        "marginLeft": "5px"
+                                                                    },
+                                                                    "children":"BE.PRI_CODE"
+                                                                }
+                                                            },
+                                                            {
+                                                                "Grid":{
+                                                                    "position":[
+                                                                        1,
+                                                                        0
+                                                                    ],
+                                                                    "rows":3,
+                                                                    "cols":[
+                                                                        1,1
+                                                                    ],
+                                                                    "style":{
+                                                                        "display":"flex",
+                                                                        "marginRight":"15px",
+                                                                        "width": "100%"
+                                                                    },
+                                                                    "children":[
+                                                                        {
+                                                                            "h6": {
+                                                                                "position":[0,0],
+                                                                                "style": {
+                                                                                    "fontSize": "0.75em",
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "PICKUP"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "h6": {
+                                                                                "position":[0,1],
+                                                                                "style": {
+                                                                                    "fontSize": "0.75em",
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "DELIVERY"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "SublayoutLoader" : {
+                                                                                "position":[1,0],
+                                                                                "layoutCode": "address-pickup-display",
+                                                                                "aliases": {
+                                                                                    "BE": "BE.code",
+                                                                                    "GROUP": "ROOT"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "SublayoutLoader" : {
+                                                                                "position":[1,1],
+                                                                                "layoutCode": "address-dropoff-display",
+                                                                                "aliases": {
+                                                                                    "BE": "BE.code",
+                                                                                    "GROUP": "ROOT"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "DateLabel":{
+                                                                                "position":[2,0],
+                                                                                "format":"DD/MM/YY HH:mm",
+                                                                                "style":{
+                                                                                    "fontSize":"0.75em"
+                                                                                },
+                                                                                "children":"BE.PRI_PICKUP_DATETIME"
+                                                                            }
+                                                                        },
+                                                                       {
+                                                                            "DateLabel":{
+                                                                                "position":[2,1],
+                                                                                "format":"DD/MM/YY HH:mm",
+                                                                                "style":{
+                                                                                    "fontSize":"0.75em"
+                                                                                },
+                                                                                "children":"BE.PRI_DROPOFF_DATETIME"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "div": {
+                                                                    "position":[2,0],
+                                                                    "style": {
+                                                                        "width" : "100%",
+                                                                        "paddingBottom": "10px"
+                                                                    },
+                                                                    "children": [
+                                                                        {
+                                                                            "div": {
+                                                                                "className": "line-break"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "span":{
+                                                                                "style":{
+                                                                                    "fontSize":"0.8em"
+                                                                                },
+                                                                                "children":"BE.PRI_DESCRIPTION"
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -388,14 +235,18 @@
                                                 },
                                                 {
                                                     "GennyButton":{
-                                                        "position":[0,1],
-                                                        "buttonCode":"BTN_COUNTER_OFFER",
+                                                        "buttonCode":"BTN_LOAD_SEE_MORE",
                                                         "value":{
-                                                            "itemCode":"BE.PRI_CODE",
+                                                            "itemCode":"BE.ITEM_CODE",
                                                             "hint":"ROOT"
                                                         },
+                                                        "position":[
+                                                            0,
+                                                            2
+                                                        ],
                                                         "style":{
-                                                            "height":"30px"
+                                                            "height":"30px",
+                                                            "marginTop":"10px"
                                                         },
                                                         "buttonStyle":{
                                                             "backgroundColor":"#000"
@@ -404,13 +255,294 @@
                                                             {
                                                                 "span":{
                                                                     "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "color":"white"
+                                                                        "fontSize":"0.8em"
                                                                     },
-                                                                    "children":"COUNTER QUOTE"
+                                                                    "children":"View Full Load Details"
                                                                 }
                                                             }
                                                         ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector": {
+                                            "position":[1,0],
+                                            "checkValues": "USER.PRI_OWNER",
+                                            "showValues": "true",
+                                            "children": [
+                                                 {
+                                                    "GennyList":{
+                                                        "root": "BE.PRI_CODE",
+                                                        "showLinks": true,
+                                                        "hideLinks": ["OWNER", "LOAD"],
+                                                        "itemsPerPage": 10,
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "style": {
+                                                            "padding":"0 0 0 80px"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector": {
+                                            "position":[1,0],
+                                            "checkValues": "USER.PRI_DRIVER",
+                                            "showValues": "true",
+                                            "children": [
+                                                 {
+                                                    "GennyList":{
+                                                        "root": "BE.PRI_CODE",
+                                                        "showLinks": true,
+                                                        "hideLinks": ["DRIVER", "LOAD"],
+                                                        "itemsPerPage": 10,
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "style": {
+                                                            "padding":"0 0 0 80px"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Device":{
+                    "isMobile":true,
+                    "children":[
+                        {
+                            "Grid":{
+                                "cols":1,
+                                "rows":4,
+                                "style":{
+                                    "backgroundColor":"white",
+                                    "borderRadius":"5px",
+                                    "margin":"5px",
+                                    "padding":"15px"
+                                },
+                                "children":[
+                                    {
+                                        "Grid":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "rows":[
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "flexWrap":"nowrap"
+                                                    }
+                                                }
+                                            ],
+                                            "cols":[
+                                                {
+                                                    "style":{
+                                                        "flex":"0 0 50px",
+                                                        "display":"flex",
+                                                        "alignItems":"center"
+                                                    }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "display":"flex",
+                                                        "flexDirection":"column",
+                                                        "flexWrap":"no-wrap",
+                                                        "flexGrow":1,
+                                                        "paddingRight":"10px",
+                                                        "justifyContent":"space-evenly"
+                                                    }
+                                                }
+                                            ],
+                                            "children":[
+                                                {
+                                                    "ImageView":{
+                                                        "position":[
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "style":{
+                                                            "width":"30px",
+                                                            "marginRight":"5px"
+                                                        },
+                                                        "src":"BE.PRI_IMAGE_URL"
+                                                    }
+                                                },
+                                                {
+                                                    "Grid":{
+                                                        "position":[
+                                                            0,
+                                                            1
+                                                        ],
+                                                        "rows":3,
+                                                        "cols":[
+                                                            {
+                                                                "style":{
+                                                                    "display":"flex",
+                                                                    "flexGrow":1
+                                                                }
+                                                            }
+                                                        ],
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "position":[0,0],
+                                                                    "style":{
+                                                                        "fontSize":"1em",
+                                                                        "marginRight":"15px"
+                                                                    },
+                                                                    "children":"BE.PRI_TITLE"
+                                                                }
+                                                            },
+                                                            {
+                                                                "SublayoutLoader" : {
+                                                                    "position":[1,0],
+                                                                    "layoutCode": "price-display",
+                                                                    "aliases": {
+                                                                        "BE": "BE.PRI_CODE",
+                                                                        "GROUP": "ROOT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "DateLabel":{
+                                                                    "position":[2,0],
+                                                                    "fromNow": true,
+                                                                    "style":{
+                                                                        "fontSize":"0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_CODE"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "div":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "style":{
+                                                "paddingBottom": "5px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "h6": {
+                                                        "style": {
+                                                            "fontSize": "0.75em",
+                                                            "margin": "0"
+                                                        },
+                                                        "children": "PICKUP"
+                                                    }
+                                                },
+                                                {
+                                                    "SublayoutLoader" : {
+                                                        "layoutCode": "address-pickup-display",
+                                                        "aliases": {
+                                                            "BE": "BE.PRI_CODE",
+                                                            "GROUP": "ROOT"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "DateLabel":{
+                                                        "format":"DD/MM/YY HH:mm",
+                                                        "style":{
+                                                            "fontSize":"0.75em"
+                                                        },
+                                                        "children":"BE.PRI_PICKUP_DATETIME"
+                                                    }
+                                                },
+                                                {
+                                                    "h6": {
+                                                        "style": {
+                                                            "fontSize": "0.75em",
+                                                            "margin": "0"
+                                                        },
+                                                        "children": "DELIVERY"
+                                                    }
+                                                },
+                                                {
+                                                    "SublayoutLoader" : {
+                                                        "layoutCode": "address-dropoff-display",
+                                                        "aliases": {
+                                                            "BE": "BE.PRI_CODE",
+                                                            "GROUP": "ROOT"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "DateLabel":{
+                                                        "format":"DD/MM/YY HH:mm",
+                                                        "style":{
+                                                            "fontSize":"0.75em"
+                                                        },
+                                                        "children":"BE.PRI_DROPOFF_DATETIME"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "div":{
+                                            "position":[
+                                                2,
+                                                0
+                                            ],
+                                            "style":{
+                                                "marginBottom":"10px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.8em"
+                                                        },
+                                                        "children":"BE.PRI_DESCRIPTION"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "GennyButton":{
+                                            "buttonCode":"BTN_LOAD_SEE_MORE",
+                                            "value":{
+                                                "itemCode":"BE.ITEM_CODE",
+                                                "hint":"ROOT"
+                                            },
+                                            "position":[
+                                                3,
+                                                0
+                                            ],
+                                            "style":{
+                                                "height":"30px",
+                                                "marginTop":"10px"
+                                            },
+                                            "buttonStyle":{
+                                                "backgroundColor":"#000"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.8em"
+                                                        },
+                                                        "children":"View Full Load Details"
                                                     }
                                                 }
                                             ]
