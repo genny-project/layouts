@@ -70,6 +70,18 @@
                                                         "flexGrow":1,
                                                         "paddingTop":"10px"
                                                     }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "paddingTop":"10px"
+                                                    }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "paddingTop":"10px"
+                                                    }
                                                 }
                                             ],
                                             "children":[
@@ -362,20 +374,247 @@
                                                     }
                                                 },
                                                 {
-                                                    "GennyList":{
-                                                        "position":[
-                                                            4,
-                                                            0
-                                                        ],
+                                                    "Grid":{
+                                                        "position":[4,0],
+                                                        "cols":[3,3],
+                                                        "rows":3,
                                                         "style":{
-                                                            "margin":"0",
-                                                            "maxWidth": "700px"
+                                                            "marginTop":"20px",
+                                                            "height":"initial"
                                                         },
-                                                        "root":"BE.PRI_CODE",
-                                                        "showLinks":true,
-                                                        "hideLinks": ["OWNER", "LOAD"],
-                                                        "hideHeader":true,
-                                                        "hideCount":true
+                                                        "children":[
+                                                            {  
+                                                                "span":{
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"L: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.links.LOAD.PRI_LOAD_LENGTH"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"W: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.links.LOAD.PRI_LOAD_WIDTH"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"H: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.links.LOAD.PRI_LOAD_HEIGHT"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"W: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.links.LOAD.PRI_LOAD_WIDTH"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" kg"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span": {
+                                                                    "position": [2,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children": "BE.links.LOAD.PRI_LOAD_TYPE"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[5,0],
+                                                        "checkValues": "USER.PRI_OWNER",
+                                                        "showValues": "true",
+                                                        "children": [
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.PRI_CODE",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["OWNER", "LOAD", "QUOTES"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[5,0],
+                                                        "checkValues": "USER.PRI_DRIVER",
+                                                        "showValues": "true",
+                                                        "children": [
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.PRI_CODE",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["DRIVER", "LOAD", "QUOTES"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[6,0],
+                                                        "checkValues": "USER.PRI_OWNER",
+                                                        "showValues": "true",
+                                                        "children": [
+                                                            {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
+                                                                "h4" : {
+                                                                    "style": {
+                                                                        "margin": "0"
+                                                                    },
+                                                                    "children": "QUOTES RECEIVED"
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.PRI_CODE",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["OWNER", "LOAD", "DRIVER"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[6,0],
+                                                        "checkValues": "USER.PRI_DRIVER",
+                                                        "showValues": "true",
+                                                        "children": [
+                                                            {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
+                                                                "h4" : {
+                                                                    "style": {
+                                                                        "margin": "0"
+                                                                    },
+                                                                    "children": "YOUR QUOTES"
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.PRI_CODE",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["DRIVER", "LOAD", "OWNER"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
