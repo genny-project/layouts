@@ -193,14 +193,22 @@
                                                                                 "children":"BE.PRI_PICKUP_DATETIME"
                                                                             }
                                                                         },
-                                                                       {
-                                                                            "DateLabel":{
+                                                                        {
+                                                                            "Selector":{
                                                                                 "position":[2,1],
-                                                                                "format":"DD/MM/YY HH:mm",
-                                                                                "style":{
-                                                                                    "fontSize":"0.75em"
-                                                                                },
-                                                                                "children":"BE.PRI_DROPOFF_DATETIME"
+                                                                                "checkValues": ["BE.PRI_DROPOFF_DATETIME],
+                                                                                "showIfNotNull": true,
+                                                                                "children":[
+                                                                                   {
+                                                                                        "DateLabel":{
+                                                                                            "format":"DD/MM/YY HH:mm",
+                                                                                            "style":{
+                                                                                                "fontSize":"0.75em"
+                                                                                            },
+                                                                                            "children":"BE.PRI_DROPOFF_DATETIME"
+                                                                                        }
+                                                                                    }
+                                                                                ]
                                                                             }
                                                                         }
                                                                     ]
@@ -486,12 +494,20 @@
                                                     }
                                                 },
                                                 {
-                                                    "DateLabel":{
-                                                        "format":"DD/MM/YY HH:mm",
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"BE.PRI_DROPOFF_DATETIME"
+                                                    "Selector":{
+                                                        "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
+                                                        "showIfNotNull": true,
+                                                        "children":[
+                                                            {
+                                                                "DateLabel":{
+                                                                    "format":"DD/MM/YY HH:mm",
+                                                                    "style":{
+                                                                        "fontSize":"0.75em"
+                                                                    },
+                                                                    "children":"BE.PRI_DROPOFF_DATETIME"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
