@@ -75,10 +75,10 @@
                                                         ],
                                                         "rows":[
                                                             {
-                                                                "style" : {
-                                                                    "flexGrow": 1,
-                                                                    "paddingBottom": "5px"
-                                                                }   
+                                                                "style":{
+                                                                    "flexGrow":1,
+                                                                    "paddingBottom":"5px"
+                                                                }
                                                             },
                                                             1,
                                                             1
@@ -87,8 +87,8 @@
                                                             {
                                                                 "style":{
                                                                     "display":"flex",
-                                                                    "alignItems": "center",
-                                                                    "flexGrow": 1
+                                                                    "alignItems":"center",
+                                                                    "flexGrow":1
                                                                 }
                                                             }
                                                         ],
@@ -107,22 +107,28 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader" : {
-                                                                    "position":[0,0],
-                                                                    "layoutCode": "price-display",
-                                                                    "aliases": {
-                                                                        "BE": "BE.code",
-                                                                        "GROUP": "ROOT"
+                                                                "SublayoutLoader":{
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
+                                                                    "layoutCode":"price-display",
+                                                                    "aliases":{
+                                                                        "BE":"BE.code",
+                                                                        "GROUP":"ROOT"
                                                                     }
                                                                 }
                                                             },
                                                             {
                                                                 "DateLabel":{
-                                                                    "position":[0,0],
-                                                                    "fromNow": true,
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
+                                                                    "fromNow":true,
                                                                     "style":{
                                                                         "fontSize":"0.8em",
-                                                                        "marginLeft": "5px"
+                                                                        "marginLeft":"5px"
                                                                     },
                                                                     "children":"BE.code"
                                                                 }
@@ -135,57 +141,73 @@
                                                                     ],
                                                                     "rows":3,
                                                                     "cols":[
-                                                                        1,1
+                                                                        1,
+                                                                        1
                                                                     ],
                                                                     "style":{
                                                                         "display":"flex",
                                                                         "marginRight":"15px",
-                                                                        "width": "100%"
+                                                                        "width":"100%"
                                                                     },
                                                                     "children":[
                                                                         {
-                                                                            "h6": {
-                                                                                "position":[0,0],
-                                                                                "style": {
-                                                                                    "fontSize": "0.75em",
-                                                                                    "margin": "0"
+                                                                            "h6":{
+                                                                                "position":[
+                                                                                    0,
+                                                                                    0
+                                                                                ],
+                                                                                "style":{
+                                                                                    "fontSize":"0.75em",
+                                                                                    "margin":"0"
                                                                                 },
-                                                                                "children": "PICKUP"
+                                                                                "children":"PICKUP"
                                                                             }
                                                                         },
                                                                         {
-                                                                            "h6": {
-                                                                                "position":[0,1],
-                                                                                "style": {
-                                                                                    "fontSize": "0.75em",
-                                                                                    "margin": "0"
+                                                                            "h6":{
+                                                                                "position":[
+                                                                                    0,
+                                                                                    1
+                                                                                ],
+                                                                                "style":{
+                                                                                    "fontSize":"0.75em",
+                                                                                    "margin":"0"
                                                                                 },
-                                                                                "children": "DELIVERY"
+                                                                                "children":"DELIVERY"
                                                                             }
                                                                         },
                                                                         {
-                                                                            "SublayoutLoader" : {
-                                                                                "position":[1,0],
-                                                                                "layoutCode": "address-pickup-display",
-                                                                                "aliases": {
-                                                                                    "BE": "BE.code",
-                                                                                    "GROUP": "ROOT"
+                                                                            "SublayoutLoader":{
+                                                                                "position":[
+                                                                                    1,
+                                                                                    0
+                                                                                ],
+                                                                                "layoutCode":"address-pickup-display",
+                                                                                "aliases":{
+                                                                                    "BE":"BE.code",
+                                                                                    "GROUP":"ROOT"
                                                                                 }
                                                                             }
                                                                         },
                                                                         {
-                                                                            "SublayoutLoader" : {
-                                                                                "position":[1,1],
-                                                                                "layoutCode": "address-dropoff-display",
-                                                                                "aliases": {
-                                                                                    "BE": "BE.code",
-                                                                                    "GROUP": "ROOT"
+                                                                            "SublayoutLoader":{
+                                                                                "position":[
+                                                                                    1,
+                                                                                    1
+                                                                                ],
+                                                                                "layoutCode":"address-dropoff-display",
+                                                                                "aliases":{
+                                                                                    "BE":"BE.code",
+                                                                                    "GROUP":"ROOT"
                                                                                 }
                                                                             }
                                                                         },
                                                                         {
                                                                             "DateLabel":{
-                                                                                "position":[2,0],
+                                                                                "position":[
+                                                                                    2,
+                                                                                    0
+                                                                                ],
                                                                                 "format":"DD/MM/YY HH:mm",
                                                                                 "style":{
                                                                                     "fontSize":"0.75em"
@@ -195,11 +217,16 @@
                                                                         },
                                                                         {
                                                                             "Selector":{
-                                                                                "position":[2,1],
-                                                                                "checkValues": ["BE.PRI_DROPOFF_DATETIME],
-                                                                                "showIfNotNull": true,
+                                                                                "position":[
+                                                                                    2,
+                                                                                    1
+                                                                                ],
+                                                                                "checkValues":[
+                                                                                    "BE.PRI_DROPOFF_DATETIME"
+                                                                                ],
+                                                                                "showIfNotNull":true,
                                                                                 "children":[
-                                                                                   {
+                                                                                    {
                                                                                         "DateLabel":{
                                                                                             "format":"DD/MM/YY HH:mm",
                                                                                             "style":{
@@ -215,16 +242,19 @@
                                                                 }
                                                             },
                                                             {
-                                                                "div": {
-                                                                    "position":[2,0],
-                                                                    "style": {
-                                                                        "width" : "100%",
-                                                                        "paddingBottom": "10px"
+                                                                "div":{
+                                                                    "position":[
+                                                                        2,
+                                                                        0
+                                                                    ],
+                                                                    "style":{
+                                                                        "width":"100%",
+                                                                        "paddingBottom":"10px"
                                                                     },
-                                                                    "children": [
+                                                                    "children":[
                                                                         {
-                                                                            "div": {
-                                                                                "className": "line-break"
+                                                                            "div":{
+                                                                                "className":"line-break"
                                                                             }
                                                                         },
                                                                         {
@@ -275,20 +305,30 @@
                                         }
                                     },
                                     {
-                                        "Selector": {
-                                            "position":[1,0],
-                                            "checkValues": ["USER.PRI_OWNER"],
-                                            "showValues": ["true"],
-                                            "children": [
-                                                 {
+                                        "Selector":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "checkValues":[
+                                                "USER.PRI_OWNER"
+                                            ],
+                                            "showValues":[
+                                                "true"
+                                            ],
+                                            "children":[
+                                                {
                                                     "GennyList":{
-                                                        "root": "BE.code",
-                                                        "showLinks": true,
-                                                        "hideLinks": ["OWNER", "LOAD"],
-                                                        "itemsPerPage": 10,
-                                                        "hideHeader": true,
-                                                        "hideCount": true,
-                                                        "style": {
+                                                        "root":"BE.code",
+                                                        "showLinks":true,
+                                                        "hideLinks":[
+                                                            "OWNER",
+                                                            "LOAD"
+                                                        ],
+                                                        "itemsPerPage":10,
+                                                        "hideHeader":true,
+                                                        "hideCount":true,
+                                                        "style":{
                                                             "padding":"0 0 0 80px"
                                                         }
                                                     }
@@ -297,20 +337,30 @@
                                         }
                                     },
                                     {
-                                        "Selector": {
-                                            "position":[1,0],
-                                            "checkValues": ["USER.PRI_DRIVER"],
-                                            "showValues": ["true"],
-                                            "children": [
-                                                 {
+                                        "Selector":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "checkValues":[
+                                                "USER.PRI_DRIVER"
+                                            ],
+                                            "showValues":[
+                                                "true"
+                                            ],
+                                            "children":[
+                                                {
                                                     "GennyList":{
-                                                        "root": "BE.code",
-                                                        "showLinks": true,
-                                                        "hideLinks": ["DRIVER", "LOAD"],
-                                                        "itemsPerPage": 10,
-                                                        "hideHeader": true,
-                                                        "hideCount": true,
-                                                        "style": {
+                                                        "root":"BE.code",
+                                                        "showLinks":true,
+                                                        "hideLinks":[
+                                                            "DRIVER",
+                                                            "LOAD"
+                                                        ],
+                                                        "itemsPerPage":10,
+                                                        "hideHeader":true,
+                                                        "hideCount":true,
+                                                        "style":{
                                                             "padding":"0 0 0 80px"
                                                         }
                                                     }
@@ -404,7 +454,10 @@
                                                         "children":[
                                                             {
                                                                 "span":{
-                                                                    "position":[0,0],
+                                                                    "position":[
+                                                                        0,
+                                                                        0
+                                                                    ],
                                                                     "style":{
                                                                         "fontSize":"1em",
                                                                         "marginRight":"15px"
@@ -413,19 +466,25 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader" : {
-                                                                    "position":[1,0],
-                                                                    "layoutCode": "price-display",
-                                                                    "aliases": {
-                                                                        "BE": "BE.code",
-                                                                        "GROUP": "ROOT"
+                                                                "SublayoutLoader":{
+                                                                    "position":[
+                                                                        1,
+                                                                        0
+                                                                    ],
+                                                                    "layoutCode":"price-display",
+                                                                    "aliases":{
+                                                                        "BE":"BE.code",
+                                                                        "GROUP":"ROOT"
                                                                     }
                                                                 }
                                                             },
                                                             {
                                                                 "DateLabel":{
-                                                                    "position":[2,0],
-                                                                    "fromNow": true,
+                                                                    "position":[
+                                                                        2,
+                                                                        0
+                                                                    ],
+                                                                    "fromNow":true,
                                                                     "style":{
                                                                         "fontSize":"0.8em"
                                                                     },
@@ -445,24 +504,24 @@
                                                 0
                                             ],
                                             "style":{
-                                                "paddingBottom": "5px"
+                                                "paddingBottom":"5px"
                                             },
                                             "children":[
                                                 {
-                                                    "h6": {
-                                                        "style": {
-                                                            "fontSize": "0.75em",
-                                                            "margin": "0"
+                                                    "h6":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "margin":"0"
                                                         },
-                                                        "children": "PICKUP"
+                                                        "children":"PICKUP"
                                                     }
                                                 },
                                                 {
-                                                    "SublayoutLoader" : {
-                                                        "layoutCode": "address-pickup-display",
-                                                        "aliases": {
-                                                            "BE": "BE.code",
-                                                            "GROUP": "ROOT"
+                                                    "SublayoutLoader":{
+                                                        "layoutCode":"address-pickup-display",
+                                                        "aliases":{
+                                                            "BE":"BE.code",
+                                                            "GROUP":"ROOT"
                                                         }
                                                     }
                                                 },
@@ -476,27 +535,29 @@
                                                     }
                                                 },
                                                 {
-                                                    "h6": {
-                                                        "style": {
-                                                            "fontSize": "0.75em",
-                                                            "margin": "0"
+                                                    "h6":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "margin":"0"
                                                         },
-                                                        "children": "DELIVERY"
+                                                        "children":"DELIVERY"
                                                     }
                                                 },
                                                 {
-                                                    "SublayoutLoader" : {
-                                                        "layoutCode": "address-dropoff-display",
-                                                        "aliases": {
-                                                            "BE": "BE.code",
-                                                            "GROUP": "ROOT"
+                                                    "SublayoutLoader":{
+                                                        "layoutCode":"address-dropoff-display",
+                                                        "aliases":{
+                                                            "BE":"BE.code",
+                                                            "GROUP":"ROOT"
                                                         }
                                                     }
                                                 },
                                                 {
                                                     "Selector":{
-                                                        "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
-                                                        "showIfNotNull": true,
+                                                        "checkValues":[
+                                                            "BE.PRI_DROPOFF_DATETIME"
+                                                        ],
+                                                        "showIfNotNull":true,
                                                         "children":[
                                                             {
                                                                 "DateLabel":{
