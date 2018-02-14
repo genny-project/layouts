@@ -44,28 +44,36 @@
                                 "showValues": ["true"],
                                 "children": [
                                     {
-                                        "GennyButton":{
-                                            "buttonCode":"BTN_ACCEPT_JOB",
-                                            "value":{
-                                                "itemCode":"BE.ITEM_CODE"
-                                            },
-                                            "type":"confirm",
-                                            "style":{
-                                                "marginBottom":"5px",
-                                                "height":"30px",
-                                                "fontSize":"0.9em"
-                                            },
-                                            "buttonStyle":{
-                                                "height":"30px",
-                                                "padding":"0 5px"
-                                            },
+                                        "Selector":{
+                                            "checkValues": ["BE.PRI_PRICE"],
+                                            "showIfNotNull": true,
                                             "children":[
                                                 {
-                                                    "span":{
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_ACCEPT_JOB",
+                                                        "value":{
+                                                            "itemCode":"BE.ITEM_CODE"
+                                                        },
+                                                        "type":"confirm",
                                                         "style":{
+                                                            "marginBottom":"5px",
+                                                            "height":"30px",
                                                             "fontSize":"0.9em"
                                                         },
-                                                        "children":"Accept"
+                                                        "buttonStyle":{
+                                                            "height":"30px",
+                                                            "padding":"0 5px"
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"0.9em"
+                                                                    },
+                                                                    "children":"Accept"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
@@ -106,28 +114,36 @@
             },
             {
                 "Selector": {
-                    "checkValues": ["ROOT"],
-                    "hideValues": ["GRP_NEW_ITEMS"],
+                    "checkValues": ["USER.PRI_DRIVER"],
+                    "showValues": ["true"],
                     "children": [
                         {
-                            "MapDirectionsButton":{
-                                "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
-                                "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
-                                "style":{
-                                    "height":"30px",
-                                    "fontSize":"0.9em"
-                                },
-                                "buttonStyle":{
-                                    "height":"30px",
-                                    "padding":"0 5px"
-                                },
-                                "children":[
+                            "Selector": {
+                                "checkValues": ["ROOT"],
+                                "hideValues": ["GRP_NEW_ITEMS"],
+                                "children": [
                                     {
-                                        "span":{
+                                        "MapDirectionsButton":{
+                                            "addressPickup":"BE.PRI_PICKUP_ADDRESS_FULL",
+                                            "addressDropoff":"BE.PRI_DROPOFF_ADDRESS_FULL",
                                             "style":{
+                                                "height":"30px",
                                                 "fontSize":"0.9em"
                                             },
-                                            "children":"Get Directions"
+                                            "buttonStyle":{
+                                                "height":"30px",
+                                                "padding":"0 5px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.9em"
+                                                        },
+                                                        "children":"Get Directions"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
