@@ -217,6 +217,23 @@
                                                                         },
                                                                         {
                                                                             "Selector":{
+                                                                                "position":[2,1],
+                                                                                "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
+                                                                                "showIfNull": true,
+                                                                                "children":[
+                                                                                    {
+                                                                                        "span":{  
+                                                                                            "style": {
+                                                                                                "fontSize": "0.75em"
+                                                                                            },
+                                                                                            "children":"TBC"
+                                                                                        }
+                                                                                    }
+                                                                                ]   
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "Selector":{
                                                                                 "position":[
                                                                                     2,
                                                                                     1
@@ -272,30 +289,68 @@
                                                     }
                                                 },
                                                 {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_LOAD_SEE_MORE",
-                                                        "value":{
-                                                            "itemCode":"BE.ITEM_CODE",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "position":[
-                                                            0,
-                                                            2
-                                                        ],
-                                                        "style":{
-                                                            "height":"30px",
-                                                            "marginTop":"10px"
-                                                        },
-                                                        "buttonStyle":{
-                                                            "backgroundColor":"#000"
-                                                        },
+                                                    "Selector":{
+                                                        "position":[0,2],
+                                                        "checkValues":["ROOT"],
+                                                        "hideValues":["GRP_DRAFTS"],
                                                         "children":[
                                                             {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.8em"
+                                                                "GennyButton":{
+                                                                    "buttonCode":"BTN_LOAD_SEE_MORE",
+                                                                    "value":{
+                                                                        "itemCode":"BE.ITEM_CODE",
+                                                                        "hint":"ROOT"
                                                                     },
-                                                                    "children":"View Full Load Details"
+                                                                    "style":{
+                                                                        "height":"30px",
+                                                                        "marginTop":"10px"
+                                                                    },
+                                                                    "buttonStyle":{
+                                                                        "backgroundColor":"#000"
+                                                                    },
+                                                                    "children":[
+                                                                        {
+                                                                            "span":{
+                                                                                "style":{
+                                                                                    "fontSize":"0.8em"
+                                                                                },
+                                                                                "children":"View Full Load Details"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector":{
+                                                        "position":[0,2],
+                                                        "checkValues":["ROOT"],
+                                                        "showValues":["GRP_DRAFTS"],
+                                                        "children":[
+                                                            {
+                                                                "GennyButton":{
+                                                                    "buttonCode":"BTN_SHOW_DRAFT",
+                                                                    "value":{
+                                                                        "itemCode":"BE.ITEM_CODE",
+                                                                        "hint":"ROOT"
+                                                                    },
+                                                                    "style":{
+                                                                        "height":"30px",
+                                                                        "marginTop":"10px"
+                                                                    },
+                                                                    "type": "confirm",
+                                                                    "children":[
+                                                                        {
+                                                                            "span":{
+                                                                                "style":{
+                                                                                    "fontSize":"0.8em"
+                                                                                },
+                                                                                "children":"EDIT DRAFT"
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -554,6 +609,22 @@
                                                 },
                                                 {
                                                     "Selector":{
+                                                        "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
+                                                        "showIfNull": true,
+                                                        "children":[
+                                                            {
+                                                                "span":{  
+                                                                    "style": {
+                                                                        "fontSize": "0.75em"
+                                                                    },
+                                                                    "children":"TBC"
+                                                                }
+                                                            }
+                                                        ]   
+                                                    }
+                                                },
+                                                {
+                                                    "Selector":{
                                                         "checkValues":[
                                                             "BE.PRI_DROPOFF_DATETIME"
                                                         ],
@@ -596,30 +667,68 @@
                                         }
                                     },
                                     {
-                                        "GennyButton":{
-                                            "buttonCode":"BTN_LOAD_SEE_MORE",
-                                            "value":{
-                                                "itemCode":"BE.ITEM_CODE",
-                                                "hint":"ROOT"
-                                            },
-                                            "position":[
-                                                3,
-                                                0
-                                            ],
-                                            "style":{
-                                                "height":"30px",
-                                                "marginTop":"10px"
-                                            },
-                                            "buttonStyle":{
-                                                "backgroundColor":"#000"
-                                            },
+                                        "Selector":{
+                                            "position":[3,0],
+                                            "checkValues":["ROOT"],
+                                            "hideValues":["GRP_DRAFTS"],
                                             "children":[
                                                 {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"0.8em"
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_LOAD_SEE_MORE",
+                                                        "value":{
+                                                            "itemCode":"BE.ITEM_CODE",
+                                                            "hint":"ROOT"
                                                         },
-                                                        "children":"View Full Load Details"
+                                                        "style":{
+                                                            "height":"30px",
+                                                            "marginTop":"10px"
+                                                        },
+                                                        "buttonStyle":{
+                                                            "backgroundColor":"#000"
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"0.8em"
+                                                                    },
+                                                                    "children":"View Full Load Details"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector":{
+                                            "position":[3,0],
+                                            "checkValues":["ROOT"],
+                                            "showValues":["GRP_DRAFTS"],
+                                            "children":[
+                                                {
+                                                    "GennyButton":{
+                                                        "buttonCode":"BTN_SHOW_DRAFT",
+                                                        "value":{
+                                                            "itemCode":"BE.ITEM_CODE",
+                                                            "hint":"ROOT"
+                                                        },
+                                                        "style":{
+                                                            "height":"30px",
+                                                            "marginTop":"10px"
+                                                        },
+                                                        "type": "confirm",
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"0.8em"
+                                                                    },
+                                                                    "children":"EDIT DRAFT"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
