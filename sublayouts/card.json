@@ -524,17 +524,46 @@
                                             "checkValues": ["USER.PRI_OWNER"],
                                             "showValues": ["true"],
                                             "children": [
-                                                 {
-                                                    "GennyList":{
-                                                        "root": "BE.code",
-                                                        "showLinks": true,
-                                                        "hideLinks": ["OWNER", "LOAD"],
-                                                        "itemsPerPage": 10,
-                                                        "hideHeader": true,
-                                                        "hideCount": true,
-                                                        "style": {
-                                                            "padding":"0"
-                                                        }
+                                                {
+                                                    "Selector":{
+                                                        "checkValues": ["ROOT"],
+                                                        "showValues": ["GRP_ITEMS"],
+                                                        "children":[
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.code",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["OWNER", "LOAD", "DRIVER"],
+                                                                    "itemsPerPage": 10,
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style": {
+                                                                        "padding":"0"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector":{
+                                                        "checkValues": ["ROOT"],
+                                                        "hideValues": ["GRP_ITEMS"],
+                                                        "children":[
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.code",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["OWNER", "LOAD", "OFFER"],
+                                                                    "itemsPerPage": 10,
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "style": {
+                                                                        "padding":"0"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
