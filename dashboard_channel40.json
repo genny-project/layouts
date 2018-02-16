@@ -42,7 +42,6 @@
                                             "style":{
                                                 "backgroundColor":"#555",
                                                 "width":"100%",
-                                                "position":"fixed",
                                                 "height":"60px",
                                                 "display":"flex",
                                                 "alignItems":"center",
@@ -101,12 +100,26 @@
                                         }
                                     },
                                     {
-                                        "GennyBucketView":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
-                                            "root":"GRP_DASHBOARD"
+                                        "TabContainer": {
+                                            "position":[1,0],
+                                            "views": [
+                                                {
+                                                    "title" : "Bucket View",
+                                                    "layout" : {
+                                                        "GennyBucketView":{
+                                                            "root":"GRP_DASHBOARD"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "title" : "Map View",
+                                                    "layout" : {
+                                                        "GennyMapView":{
+                                                            "root":"GRP_DASHBOARD"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
@@ -139,12 +152,26 @@
                                 ],
                                 "children":[
                                     {
-                                        "GennyBucketView":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
-                                            "root":"GRP_DASHBOARD"
+                                        "TabContainer": {
+                                            "position":[0,0],
+                                            "views": [
+                                                {
+                                                    "title" : "Bucket View",
+                                                    "layout" : {
+                                                        "GennyBucketView":{
+                                                            "root":"GRP_DASHBOARD"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "title" : "Map View",
+                                                    "layout" : {
+                                                        "GennyMapView":{
+                                                            "root":"GRP_DASHBOARD"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
