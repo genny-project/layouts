@@ -1,5 +1,43 @@
 {
-  "div": {
-      "children": "Who are you ?" 
+  "Grid": {
+    "rows": 3,
+    "cols": 1,
+    "children": [
+      {
+        "h1": {
+          "position": [0, 0],
+          "children": "Welcome to MentorMatch. Please select your role."
+        }
+      },
+      {
+        "Grid": {
+          "position": [1, 0],
+          "rows": 1,
+          "cols": 2,
+          "children": [
+            {
+              "GennyButton": {
+                "position": [0, 0],
+                "buttonCode": "BTN_SELECT_ROLE",
+                "value": {
+                 "itemCode": "MENTOR" 
+                },
+                "children": "I am a mentor"
+              }
+            },
+            {
+              "GennyButton": {
+                "position": [0, 1],
+                "buttonCode": "BTN_SELECT_ROLE",
+                "value": {
+                 "itemCode": "MENTEE" 
+                },
+                "children": "I am a mentee"
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }
