@@ -832,6 +832,18 @@
                                                         "flexGrow":1,
                                                         "paddingTop":"10px"
                                                     }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "paddingTop":"10px"
+                                                    }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "paddingTop":"10px"
+                                                    }
                                                 }
                                             ],
                                             "children":[
@@ -1004,10 +1016,7 @@
                                                 },
                                                 {
                                                     "SublayoutLoader" : {
-                                                        "position":[
-                                                            2,
-                                                            0
-                                                        ],
+                                                        "position":[2,0],
                                                         "layoutCode": "load-action-buttons",
                                                         "aliases": {
                                                             "BE": "BE.code",
@@ -1017,10 +1026,7 @@
                                                 },
                                                 {
                                                     "Grid":{
-                                                        "position":[
-                                                            3,
-                                                            0
-                                                        ],
+                                                        "position":[3,0],
                                                         "cols":[
                                                             {
                                                                 "style": {
@@ -1060,8 +1066,12 @@
                                                                 "style": {
                                                                     "flexGrow": 1
                                                                 }
+                                                            },
+                                                            { 
+                                                                "style": {
+                                                                    "flexGrow": 1
+                                                                }
                                                             }
-
                                                         ],
                                                         "style":{
                                                             "marginTop":"20px",
@@ -1173,23 +1183,201 @@
                                                                         }
                                                                     ]
                                                                 }
+                                                            },
+                                                            {
+                                                                "span":{
+                                                                    "position":[4,0],
+                                                                    "style":{
+                                                                        "fontSize":"1em",
+                                                                        "fontWeight":"bold"
+                                                                    },
+                                                                    "children":"TOTAL DISTANCE"
+                                                                }
+                                                            },
+                                                            {
+                                                                "MeasurementLabel":{
+                                                                    "position":[4,1],
+                                                                    "style":{
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_TOTAL_DISTANCE_M"
+                                                                }
                                                             }
                                                         ]
                                                     }
                                                 },
                                                 {
                                                     "div":{
-                                                        "position":[
-                                                            4,
-                                                            0
-                                                        ],
+                                                        "position":[4,0],
                                                         "children":[
                                                             {
                                                                 "span":{
-                                                                    "children":"Description: "
-                                                                },
+                                                                    "children":"LOAD INFORMATION"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "div":{
+                                                        "position":[5,0],
+                                                        "children":[
+                                                            {
                                                                 "span":{
+                                                                    "style":{
+                                                                        "fontSize": "0.8em"
+                                                                    },
                                                                     "children":"BE.PRI_DESCRIPTION"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "div":{
+                                                        "position":[6,0],
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "children":"LOAD DIMENSIONS"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Grid":{
+                                                        "position":[7,0],
+                                                        "cols":[3,3],
+                                                        "rows":3,
+                                                        "style":{
+                                                            "height":"initial"
+                                                        },
+                                                        "children":[
+                                                            {  
+                                                                "span":{
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"L: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_LOAD_LENGTH_MM"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"W: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_LOAD_WIDTH_MM"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [0,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"H: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_LOAD_HEIGHT_MM"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" mm"
+                                                                }
+                                                            },
+                                                            {  
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"W: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":"BE.PRI_LOAD_WEIGHT_KG"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{  
+                                                                    "position": [1,1],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children":" kg"
+                                                                }
+                                                            },
+                                                            {
+                                                                "span": {
+                                                                    "position": [2,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children": "Load Type: "
+                                                                }
+                                                            },
+                                                            {
+                                                                "span": {
+                                                                    "position": [2,0],
+                                                                    "style": {
+                                                                        "fontSize": "0.8em"
+                                                                    },
+                                                                    "children": "BE.links.LOAD.PRI_LOAD_TYPE"
                                                                 }
                                                             }
                                                         ]
@@ -1199,18 +1387,12 @@
                                                     "GennyCarousel":{
                                                         "root": "BE.links.LOAD.code",
                                                         "attributeCode": "PRI_LOAD_IMAGE",
-                                                        "position":[
-                                                            5,
-                                                            0
-                                                        ]
+                                                        "position":[8,0]
                                                     }
                                                 },
                                                 {
                                                     "GennyList":{
-                                                        "position":[
-                                                            6,
-                                                            0
-                                                        ],
+                                                        "position":[9,0],
                                                         "root":"BE.code",
                                                         "showLinks":true,
                                                         "hideLinks": ["OWNER", "LOAD"],
@@ -1220,7 +1402,7 @@
                                                 },
                                                 {
                                                     "SublayoutLoader" : {
-                                                        "position":[7,0],
+                                                        "position":[10,0],
                                                         "layoutCode": "map-display",
                                                         "aliases": {
                                                             "BE": "BE.code",
