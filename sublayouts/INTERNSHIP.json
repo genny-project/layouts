@@ -64,7 +64,7 @@
                                                             "width":"80px",
                                                             "paddingRight":"10px"
                                                         },
-                                                        "src":"BE.links.LOAD.PRI_IMAGE_URL"
+                                                        "src":"BE.links.COMPANY.PRI_IMAGE_URL"
                                                     }
                                                 },
                                                 {
@@ -107,39 +107,12 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader":{
-                                                                    "position":[
-                                                                        0,
-                                                                        0
-                                                                    ],
-                                                                    "layoutCode":"price-display",
-                                                                    "aliases":{
-                                                                        "BE":"BE.code",
-                                                                        "GROUP":"ROOT"
-                                                                    }
-                                                                }
-                                                            },
-                                                            {
-                                                                "DateLabel":{
-                                                                    "position":[
-                                                                        0,
-                                                                        0
-                                                                    ],
-                                                                    "fromNow":true,
-                                                                    "style":{
-                                                                        "fontSize":"0.8em",
-                                                                        "marginLeft":"5px"
-                                                                    },
-                                                                    "children":"BE.code"
-                                                                }
-                                                            },
-                                                            {
                                                                 "Grid":{
                                                                     "position":[
                                                                         1,
                                                                         0
                                                                     ],
-                                                                    "rows":3,
+                                                                    "rows": 3,
                                                                     "cols":[
                                                                         1,
                                                                         1
@@ -160,7 +133,7 @@
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
                                                                                 },
-                                                                                "children":"PICKUP"
+                                                                                "children":"BE.links.COMPANY.PRI_TITLE"
                                                                             }
                                                                         },
                                                                         {
@@ -173,86 +146,21 @@
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
                                                                                 },
-                                                                                "children":"DELIVERY"
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "SublayoutLoader":{
-                                                                                "position":[
-                                                                                    1,
-                                                                                    0
-                                                                                ],
-                                                                                "layoutCode":"address-pickup-display",
-                                                                                "aliases":{
-                                                                                    "BE":"BE.code",
-                                                                                    "GROUP":"ROOT"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "SublayoutLoader":{
-                                                                                "position":[
-                                                                                    1,
-                                                                                    1
-                                                                                ],
-                                                                                "layoutCode":"address-dropoff-display",
-                                                                                "aliases":{
-                                                                                    "BE":"BE.code",
-                                                                                    "GROUP":"ROOT"
-                                                                                }
+                                                                                "children":"BE.PRI_LOCATION"
                                                                             }
                                                                         },
                                                                         {
                                                                             "DateLabel":{
                                                                                 "position":[
-                                                                                    2,
-                                                                                    0
-                                                                                ],
-                                                                                "format":"DD/MM/YY HH:mm",
-                                                                                "style":{
-                                                                                    "fontSize":"0.75em"
-                                                                                },
-                                                                                "children":"BE.PRI_PICKUP_DATETIME"
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "position":[2,1],
-                                                                                "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
-                                                                                "showIfNull": true,
-                                                                                "children":[
-                                                                                    {
-                                                                                        "span":{  
-                                                                                            "style": {
-                                                                                                "fontSize": "0.75em"
-                                                                                            },
-                                                                                            "children":"TBC"
-                                                                                        }
-                                                                                    }
-                                                                                ]   
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Selector":{
-                                                                                "position":[
-                                                                                    2,
+                                                                                    0,
                                                                                     1
                                                                                 ],
-                                                                                "checkValues":[
-                                                                                    "BE.PRI_DROPOFF_DATETIME"
-                                                                                ],
-                                                                                "showIfNotNull":true,
-                                                                                "children":[
-                                                                                    {
-                                                                                        "DateLabel":{
-                                                                                            "format":"DD/MM/YY HH:mm",
-                                                                                            "style":{
-                                                                                                "fontSize":"0.75em"
-                                                                                            },
-                                                                                            "children":"BE.PRI_DROPOFF_DATETIME"
-                                                                                        }
-                                                                                    }
-                                                                                ]
+                                                                                "fromNow":true,
+                                                                                "style":{
+                                                                                    "fontSize":"0.8em",
+                                                                                    "marginLeft":"5px"
+                                                                                },
+                                                                                "children":"BE.code"
                                                                             }
                                                                         }
                                                                     ]
@@ -453,7 +361,7 @@
                                                             "width":"30px",
                                                             "marginRight":"5px"
                                                         },
-                                                        "src":"BE.links.LOAD.PRI_IMAGE_URL"
+                                                        "src":"BE.links.COMPANY.PRI_IMAGE_URL"
                                                     }
                                                 },
                                                 {
@@ -484,32 +392,6 @@
                                                                     },
                                                                     "children":"BE.PRI_TITLE"
                                                                 }
-                                                            },
-                                                            {
-                                                                "SublayoutLoader":{
-                                                                    "position":[
-                                                                        1,
-                                                                        0
-                                                                    ],
-                                                                    "layoutCode":"price-display",
-                                                                    "aliases":{
-                                                                        "BE":"BE.code",
-                                                                        "GROUP":"ROOT"
-                                                                    }
-                                                                }
-                                                            },
-                                                            {
-                                                                "DateLabel":{
-                                                                    "position":[
-                                                                        2,
-                                                                        0
-                                                                    ],
-                                                                    "fromNow":true,
-                                                                    "style":{
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":"BE.code"
-                                                                }
                                                             }
                                                         ]
                                                     }
@@ -533,78 +415,20 @@
                                                             "fontSize":"0.75em",
                                                             "margin":"0"
                                                         },
-                                                        "children":"START DATE"
-                                                    }
-                                                },
-                                                {
-                                                    "SublayoutLoader":{
-                                                        "layoutCode":"address-pickup-display",
-                                                        "aliases":{
-                                                            "BE":"BE.code",
-                                                            "GROUP":"ROOT"
-                                                        }
+                                                        "children":"BE.links.COMPANY.PRI_TITLE"
                                                     }
                                                 },
                                                 {
                                                     "DateLabel":{
-                                                        "format":"DD/MM/YY HH:mm",
-                                                        "style":{
-                                                            "fontSize":"0.75em"
-                                                        },
-                                                        "children":"BE.PRI_PICKUP_DATETIME"
-                                                    }
-                                                },
-                                                {
-                                                    "h6":{
-                                                        "style":{
-                                                            "fontSize":"0.75em",
-                                                            "margin":"0"
-                                                        },
-                                                        "children":"END DATE"
-                                                    }
-                                                },
-                                                {
-                                                    "SublayoutLoader":{
-                                                        "layoutCode":"address-dropoff-display",
-                                                        "aliases":{
-                                                            "BE":"BE.code",
-                                                            "GROUP":"ROOT"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
-                                                        "showIfNull": true,
-                                                        "children":[
-                                                            {
-                                                                "span":{  
-                                                                    "style": {
-                                                                        "fontSize": "0.75em"
-                                                                    },
-                                                                    "children":"TBC"
-                                                                }
-                                                            }
-                                                        ]   
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues":[
-                                                            "BE.PRI_DROPOFF_DATETIME"
+                                                        "position":[
+                                                            2,
+                                                            0
                                                         ],
-                                                        "showIfNotNull":true,
-                                                        "children":[
-                                                            {
-                                                                "DateLabel":{
-                                                                    "format":"DD/MM/YY HH:mm",
-                                                                    "style":{
-                                                                        "fontSize":"0.75em"
-                                                                    },
-                                                                    "children":"BE.PRI_DROPOFF_DATETIME"
-                                                                }
-                                                            }
-                                                        ]
+                                                        "fromNow":true,
+                                                        "style":{
+                                                            "fontSize":"0.8em"
+                                                        },
+                                                        "children":"BE.code"
                                                     }
                                                 }
                                             ]
