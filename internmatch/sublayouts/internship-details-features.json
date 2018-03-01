@@ -75,17 +75,24 @@
           "children": [
             {
               "IconSmall": {
-                "name": "location_on",
+                "name": "attach_money",
                 "style": {
                   "marginRight": "10px"
                 }
               }
             },
             {
-              "GennyAddressLabel": {
-                "root": "BE.code",
-                "attributePrefix": "PRI_ADDRESS",
-                "hideStreetAddress": true
+              "Selector": {
+                "showValues": ["BE.PRI_IS_PAID"],
+                "checkValues": ["true", true],
+                "children": "Paid"
+              }
+            },
+            {
+              "Selector": {
+                "showValues": ["BE.PRI_IS_UNPAID"],
+                "checkValues": ["true", true],
+                "children": "Unpaid"
               }
             }
           ]
