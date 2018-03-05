@@ -207,6 +207,16 @@
                                             "margin": "2.5px 5px"
                                         }
                                     }
+                                    ,
+                                    {
+                                        "style":{
+                                            "flexGrow": 1,
+                                            "display": "flex",
+                                            "alignItems": "center",
+                                            "minWidth": "100px",
+                                            "margin": "2.5px 5px"
+                                        }
+                                    }
                                 ],
                                 "children":[
                                     {
@@ -280,15 +290,40 @@
                                     {
                                         "GennyButton":{
                                             "position":[0,2],
+                                            "buttonCode":"BTN_CREATE_CONVERSATION",
+                                            "value":{
+                                                "itemCode":"BE.code",
+                                                "hint":"ROOT"
+                                            },
+                                            "type":"confirm",
+                                            "style":{
+                                                "height":"30px"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.75em",
+                                                            "color":"white"
+                                                        },
+                                                        "children":"MESSAGE"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "GennyButton":{
+                                            "position":[0,3],
                                             "buttonCode":"BTN_CANCEL_OFFER",
                                             "value":{
                                                 "itemCode":"BE.code",
                                                 "hint":"ROOT"
                                             },
                                             "style":{
-                                                "height":"30px"
+                                                "height":"30px",
+                                                "backgroundColor": "#DD8800"
                                             },
-                                            "type":"cancel",
                                             "children":[
                                                 {
                                                     "span":{

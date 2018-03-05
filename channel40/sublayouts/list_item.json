@@ -46,7 +46,7 @@
                                                         "display":"flex",
                                                         "flexDirection":"column",
                                                         "flexWrap":"no-wrap",
-                                                        "flexGrow":3,
+                                                        "flexGrow":4,
                                                         "paddingRight":"10px",
                                                         "justifyContent":"space-evenly"
                                                     }
@@ -139,9 +139,8 @@
                                                                         1,
                                                                         0
                                                                     ],
-                                                                    "rows":3,
+                                                                    "rows":4,
                                                                     "cols":[
-                                                                        1,
                                                                         1
                                                                     ],
                                                                     "style":{
@@ -152,10 +151,7 @@
                                                                     "children":[
                                                                         {
                                                                             "h6":{
-                                                                                "position":[
-                                                                                    0,
-                                                                                    0
-                                                                                ],
+                                                                                "position":[0,0],
                                                                                 "style":{
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
@@ -164,11 +160,32 @@
                                                                             }
                                                                         },
                                                                         {
+                                                                            "SublayoutLoader":{
+                                                                                "position":[1,0],
+                                                                                "layoutCode":"address-pickup-display",
+                                                                                "style":{
+                                                                                    "marginRight":"5px"
+                                                                                },
+                                                                                "aliases":{
+                                                                                    "BE":"BE.code",
+                                                                                    "GROUP":"ROOT"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "DateLabel":{
+                                                                                "position":[1,0],
+                                                                                "format":"DD/MM/YY HH:mm",
+                                                                                "style":{
+                                                                                    "fontSize":"0.75em"
+                                                                                },
+                                                                                "children":"BE.PRI_PICKUP_DATETIME"
+                                                                            }
+                                                                        },
+                                                                        
+                                                                        {
                                                                             "h6":{
-                                                                                "position":[
-                                                                                    0,
-                                                                                    1
-                                                                                ],
+                                                                                "position":[2,0],
                                                                                 "style":{
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
@@ -178,46 +195,20 @@
                                                                         },
                                                                         {
                                                                             "SublayoutLoader":{
-                                                                                "position":[
-                                                                                    1,
-                                                                                    0
-                                                                                ],
-                                                                                "layoutCode":"address-pickup-display",
-                                                                                "aliases":{
-                                                                                    "BE":"BE.code",
-                                                                                    "GROUP":"ROOT"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "SublayoutLoader":{
-                                                                                "position":[
-                                                                                    1,
-                                                                                    1
-                                                                                ],
+                                                                                "position":[3,0],
                                                                                 "layoutCode":"address-dropoff-display",
+                                                                                "style":{
+                                                                                    "marginRight":"5px"
+                                                                                },
                                                                                 "aliases":{
                                                                                     "BE":"BE.code",
                                                                                     "GROUP":"ROOT"
                                                                                 }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "DateLabel":{
-                                                                                "position":[
-                                                                                    2,
-                                                                                    0
-                                                                                ],
-                                                                                "format":"DD/MM/YY HH:mm",
-                                                                                "style":{
-                                                                                    "fontSize":"0.75em"
-                                                                                },
-                                                                                "children":"BE.PRI_PICKUP_DATETIME"
                                                                             }
                                                                         },
                                                                         {
                                                                             "Selector":{
-                                                                                "position":[2,1],
+                                                                                "position":[3,0],
                                                                                 "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
                                                                                 "showIfNull": true,
                                                                                 "children":[
@@ -234,10 +225,7 @@
                                                                         },
                                                                         {
                                                                             "Selector":{
-                                                                                "position":[
-                                                                                    2,
-                                                                                    1
-                                                                                ],
+                                                                                "position":[3,0],
                                                                                 "checkValues":[
                                                                                     "BE.PRI_DROPOFF_DATETIME"
                                                                                 ],
@@ -312,7 +300,7 @@
                                                                         {
                                                                             "span":{
                                                                                 "style":{
-                                                                                    "fontSize":"0.8em"
+                                                                                    "fontSize":"0.6em"
                                                                                 },
                                                                                 "children":"View Full Load Details"
                                                                             }
@@ -354,72 +342,6 @@
                                                                 }
                                                             }
                                                         ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
-                                            "checkValues":[
-                                                "USER.PRI_OWNER"
-                                            ],
-                                            "showValues":[
-                                                "true"
-                                            ],
-                                            "children":[
-                                                {
-                                                    "GennyList":{
-                                                        "root":"BE.code",
-                                                        "showLinks":true,
-                                                        "hideLinks":[
-                                                            "OWNER",
-                                                            "LOAD"
-                                                        ],
-                                                        "itemsPerPage":10,
-                                                        "hideHeader":true,
-                                                        "hideCount":true,
-                                                        "showEmpty": false,
-                                                        "style":{
-                                                            "padding":"0 0 0 80px"
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "position":[
-                                                1,
-                                                0
-                                            ],
-                                            "checkValues":[
-                                                "USER.PRI_DRIVER"
-                                            ],
-                                            "showValues":[
-                                                "true"
-                                            ],
-                                            "children":[
-                                                {
-                                                    "GennyList":{
-                                                        "root":"BE.code",
-                                                        "showLinks":true,
-                                                        "hideLinks":[
-                                                            "DRIVER",
-                                                            "LOAD"
-                                                        ],
-                                                        "itemsPerPage":10,
-                                                        "hideHeader":true,
-                                                        "hideCount":true,
-                                                        "showEmpty": false,
-                                                        "style":{
-                                                            "padding":"0 0 0 80px"
-                                                        }
                                                     }
                                                 }
                                             ]
