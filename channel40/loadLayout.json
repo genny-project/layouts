@@ -1072,6 +1072,12 @@
                                                             },
                                                             { 
                                                                 "style": {
+                                                                    "flexGrow": 1,
+                                                                    "paddingBottom" : "5px"
+                                                                }
+                                                            },
+                                                            { 
+                                                                "style": {
                                                                     "flexGrow": 1
                                                                 }
                                                             }
@@ -1088,17 +1094,16 @@
                                                                         "fontSize":"0.8em",
                                                                         "fontWeight":"bold"
                                                                     },
-                                                                    "children":"PICKUP"
+                                                                    "children":"JOB ID:"
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader" : {
-                                                                    "position":[0,1],
-                                                                    "layoutCode": "address-pickup-display",
-                                                                    "aliases": {
-                                                                        "BE": "BE.code",
-                                                                        "GROUP": "ROOT"
-                                                                    }
+                                                                "span":{
+                                                                    "position":[0,0],
+                                                                    "style":{
+                                                                        "fontSize":"0.8em",
+                                                                    },
+                                                                    "children":"BE.PRI_JOB_ID"
                                                                 }
                                                             },
                                                             {
@@ -1108,13 +1113,13 @@
                                                                         "fontSize":"0.8em",
                                                                         "fontWeight":"bold"
                                                                     },
-                                                                    "children":"DELIVERY"
+                                                                    "children":"PICKUP"
                                                                 }
                                                             },
                                                             {
                                                                 "SublayoutLoader" : {
                                                                     "position":[1,1],
-                                                                    "layoutCode": "address-dropoff-display",
+                                                                    "layoutCode": "address-pickup-display",
                                                                     "aliases": {
                                                                         "BE": "BE.code",
                                                                         "GROUP": "ROOT"
@@ -1128,12 +1133,32 @@
                                                                         "fontSize":"0.8em",
                                                                         "fontWeight":"bold"
                                                                     },
+                                                                    "children":"DELIVERY"
+                                                                }
+                                                            },
+                                                            {
+                                                                "SublayoutLoader" : {
+                                                                    "position":[2,1],
+                                                                    "layoutCode": "address-dropoff-display",
+                                                                    "aliases": {
+                                                                        "BE": "BE.code",
+                                                                        "GROUP": "ROOT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "span":{
+                                                                    "position":[3,0],
+                                                                    "style":{
+                                                                        "fontSize":"0.8em",
+                                                                        "fontWeight":"bold"
+                                                                    },
                                                                     "children":"AVAILABLE FOR PICKUP FROM"
                                                                 }
                                                             },
                                                             {
                                                                 "DateLabel":{
-                                                                    "position":[2,1],
+                                                                    "position":[3,1],
                                                                     "format":"DD/MM/YY HH:mm",
                                                                     "style":{
                                                                         "fontSize":"0.8em"
@@ -1143,7 +1168,7 @@
                                                             },
                                                             {
                                                                 "span":{
-                                                                    "position":[3,0],
+                                                                    "position":[4,0],
                                                                     "style":{
                                                                         "fontSize":"0.8em",
                                                                         "fontWeight":"bold"
@@ -1154,7 +1179,7 @@
                                                             },
                                                             {
                                                                 "Selector":{
-                                                                    "position":[3,1],
+                                                                    "position":[4,1],
                                                                     "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
                                                                     "showIfNull": true,
                                                                     "children":[
@@ -1173,7 +1198,7 @@
                                                                 "Selector":{
                                                                     "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
                                                                     "showIfNotNull": true,
-                                                                    "position":[3,1],
+                                                                    "position":[4,1],
                                                                     "children":[
                                                                         {
                                                                             "DateLabel":{
@@ -1189,7 +1214,7 @@
                                                             },
                                                             {
                                                                 "span":{
-                                                                    "position":[4,0],
+                                                                    "position":[5,0],
                                                                     "style":{
                                                                         "fontSize":"0.8em",
                                                                         "fontWeight":"bold"
@@ -1199,7 +1224,7 @@
                                                             },
                                                             {
                                                                 "MeasurementLabel":{
-                                                                    "position":[4,1],
+                                                                    "position":[5,1],
                                                                     "style":{
                                                                         "fontSize": "0.8em"
                                                                     },
