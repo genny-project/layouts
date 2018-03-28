@@ -258,7 +258,7 @@
                                      {
                                         "Selector":{
                                             "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                                            "showValues": ["true"],
+                                            "showValues": ["true", true],
                                             "children":[
                                                 {
                                                     "GennyButton":{
@@ -286,7 +286,7 @@
                                     {
                                         "Selector":{
                                             "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                            "showValues": ["true"],
+                                            "showValues": ["true", true],
                                             "children":[
                                                 {
                                                     "Label":{
@@ -553,7 +553,30 @@
                                                         "root": "BE.code",
                                                         "showLinks": ["OFFER"],
                                                         "itemsPerPage": 1,
-                                                        "hideLinks": ["LOAD", "OWNER", "QUOTER"],
+                                                        "hideLinks": ["OWNER", "LOAD", "QUOTER"],
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "hideNav": true,
+                                                        "showEmpty" : false,
+                                                        "style": {
+                                                            "padding":"0"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector":{
+                                            "checkValues": ["ROOT"],
+                                            "hideValues": ["GRP_NEW_ITEMS"],
+                                            "children":[
+                                                {
+                                                    "GennyList":{
+                                                        "root": "BE.code",
+                                                        "showLinks": ["DRIVER"],
+                                                        "itemsPerPage": 1,
+                                                        "hideLinks": ["OWNER", "LOAD", "QUOTER", "OFFER"],
                                                         "hideHeader": true,
                                                         "hideCount": true,
                                                         "hideNav": true,
