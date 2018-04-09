@@ -1,83 +1,127 @@
-{
-    "Grid": {
-        "cols": 1,
-        "rows": 3,
-        "children": [
-            {
-                "Grid": {
-                    "position": [0, 0],
-                    "rows": 1,
-                    "cols": [1, 2],
-                    "children": [
-                        {
-                            "ImageView": {
-                                "position": [0, 0],
-                                "src": "BE.links.COMPANY.PRI_IMAGE_URL",
-                                "style": {
-                                    "width": "50px"
-                                }
-                            }
-                        },
-                        {
-                            "h3": {
-                                "position": [0, 1],
-                                "children": "BE.links.INTERNSHIP.PRI_TITLE"
-                            }
-                        },
-                        {
-                            "p": {
-                                "position": [0, 1],
-                                "children": "BE.links.INTERNSHIP.PRI_DESCRIPTION"
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "GennyButton":{
-                    "position": [1, 0],
-                    "buttonCode": "BTN_VIEW_INTERNSHIP_DETAILS",
-                    "value":{
-                        "itemCode":"BE.code",
-                        "hint":"ROOT"
-                    },
-                    "style":{
-                        "height":"30px",
-                        "marginTop":"10px"
-                    },
-                    "buttonStyle":{
-                        "backgroundColor":"#4eb9aa"
-                    },
-                    "children":[
-                        {
-                            "span":{
-                                "style":{
-                                    "fontSize":"0.6em"
-                                },
-                                "children":"View More"
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "GennyDropdown": {
-                    "position": [2, 0],
-                    "children": [
-                        {
-                            "GennyList": {
-                                "root": "BE.code",
-                                "style":{
-                                    "marginTop":"10px"
-                                },
-                                "showLinks": ["APPLICATION"],
-                                "showEmpty": "true",
-                                "itemsPerPage": 10
-                            }
-                        }
-                    ]
-                }
+{  
+   "GennyDropdown":{  
+      "inline":true,
+      "isSlide":false,
+      "animateHeader":false,
+      "animateFooter":true,
+      "contentStyle":{  
+         "backgroundColor":"white",
+         "padding":"0"
+      },
+      "header":[  
+         {  
+            "Grid":{  
+               "cols":1,
+               "rows":3,
+               "children":[  
+                  {  
+                     "Grid":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "rows":1,
+                        "cols":[  
+                           1,
+                           2
+                        ],
+                        "children":[  
+                           {  
+                              "ImageView":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "src":"BE.links.COMPANY.PRI_IMAGE_URL",
+                                 "style":{  
+                                    "width":"50px"
+                                 }
+                              }
+                           },
+                           {  
+                              "h3":{  
+                                 "position":[  
+                                    0,
+                                    1
+                                 ],
+                                 "children":"BE.links.INTERNSHIP.PRI_TITLE"
+                              }
+                           },
+                           {  
+                              "p":{  
+                                 "position":[  
+                                    0,
+                                    1
+                                 ],
+                                 "children":"BE.links.INTERNSHIP.PRI_DESCRIPTION"
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         }
+      ],
+      "footer":[  
+         {  
+            "IconSmall":{  
+               "name":"arrow_drop_down",
+               "fontSize":"2em",
+               "style":{  
+                  "padding":"0"
+               }
+            }
+         }
+      ],
+      "children":[  
+         {  
+            "GennyButton":{  
+               "position":[  
+                  1,
+                  0
+               ],
+               "buttonCode":"BTN_VIEW_INTERNSHIP_DETAILS",
+               "value":{  
+                  "itemCode":"BE.code",
+                  "hint":"ROOT"
+               },
+               "style":{  
+                  "height":"30px",
+                  "marginTop":"10px"
+               },
+               "buttonStyle":{  
+                  "backgroundColor":"#4eb9aa"
+               },
+               "children":[  
+                  {  
+                     "span":{  
+                        "style":{  
+                           "fontSize":"0.6em"
+                        },
+                        "children":"View More"
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "GennyList":{  
+               "root":"BE.code",
+               "position":[  
+                  2,
+                  0
+               ],
+               "style":{  
+                  "marginTop":"10px"
+               },
+               "showLinks":[  
+                  "APPLICATION"
+               ],
+               "showEmpty":"true",
+               "itemsPerPage":10
+            }
+         }
+      ]
+   }
 }
