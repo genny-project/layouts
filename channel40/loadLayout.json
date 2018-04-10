@@ -458,7 +458,7 @@
                                                         "position":[3,0],
                                                         "children":[
                                                             {
-                                                                "DisplayHTML":{
+                                                                "span":{
                                                                     "style":{
                                                                         "fontSize": "0.8em"
                                                                     },
@@ -1453,6 +1453,41 @@
                                                                         "fontSize": "0.8em"
                                                                     },
                                                                     "children": "BE.links.LOAD.PRI_LOAD_TYPE"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[8,0],
+                                                        "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                                        "showValues": ["true"],
+                                                        "children": [
+                                                            {
+                                                                "Selector": {
+                                                                    "checkValues": ["ROOT"],
+                                                                    "hideValues": ["GRP_NEW_ITEMS"],
+                                                                    "children": [
+                                                                        {
+                                                                            "GennyList":{
+                                                                                "root": "BE.code",
+                                                                                "showLinks": true,
+                                                                                "hideLinks": ["OWNER", "LOAD", "OFFER", "QUOTER"],
+                                                                                "hideHeader": true,
+                                                                                "hideCount": true,
+                                                                                "showEmpty" : false,
+                                                                                "gennyListStyle": {
+                                                                                    "maxWidth": "700px"
+                                                                                },
+                                                                                "style":{
+                                                                                    "margin":"0",
+                                                                                    "maxWidth": "700px",
+                                                                                    "background": "none"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
