@@ -1,9 +1,9 @@
 {
     "GennyDropdown":{
         "inline":true,
-        "isSlide": false,
-        "animateHeader": false,
-        "animateFooter": true,
+        "isSlide":false,
+        "animateHeader":false,
+        "animateFooter":true,
         "contentStyle":{
             "backgroundColor":"white",
             "padding":"0"
@@ -11,8 +11,8 @@
         "header":[
             {
                 "div":{
-                    "style": {
-                        "marginBottom" : "5px"
+                    "style":{
+                        "marginBottom":"5px"
                     },
                     "children":[
                         {
@@ -43,7 +43,10 @@
                                 "children":[
                                     {
                                         "ImageView":{
-                                            "position":[0,0],
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
                                             "style":{
                                                 "width":"30px",
                                                 "marginRight":"5px"
@@ -59,7 +62,7 @@
                                             ],
                                             "style":{
                                                 "fontSize":"0.85em",
-                                                "margin": "0"
+                                                "margin":"0"
                                             },
                                             "children":"BE.PRI_TITLE"
                                         }
@@ -73,7 +76,7 @@
                                                 0,
                                                 1
                                             ],
-                                            "children": [  
+                                            "children": [
                                                 {
                                                     "h5":{
                                                         "style":{
@@ -93,7 +96,38 @@
                                                     }
                                                 }
                                             ]
-                                        } 
+                                        }
+                                    },
+                                    {
+                                        "div":{
+                                            "style":{
+                                                "display":"flex"
+                                            },
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "children":[
+                                                {
+                                                    "h5":{
+                                                        "style":{
+                                                            "fontSize":"0.85em",
+                                                            "margin":"0"
+                                                        },
+                                                        "children":" #"
+                                                    }
+                                                },
+                                                {
+                                                    "h5":{
+                                                        "style":{
+                                                            "fontSize":"0.85em",
+                                                            "margin":"0"
+                                                        },
+                                                        "children":"BE.PRI_JOB_ID"
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
                                         "div":{
@@ -103,15 +137,15 @@
                                             ],
                                             "style":{
                                                 "display":"flex",
-                                                "alignItems": "center"
+                                                "alignItems":"center"
                                             },
                                             "children":[
                                                 {
-                                                    "SublayoutLoader" : {
-                                                        "layoutCode": "price-display",
-                                                        "aliases": {
-                                                            "BE": "BE.code",
-                                                            "GROUP": "ROOT"
+                                                    "SublayoutLoader":{
+                                                        "layoutCode":"price-display",
+                                                        "aliases":{
+                                                            "BE":"BE.code",
+                                                            "GROUP":"ROOT"
                                                         }
                                                     }
                                                 }
@@ -120,28 +154,34 @@
                                     },
                                     {
                                         "GennyAddressLabel":{
-                                            "position":[0,1],
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
                                             "style":{
                                                 "fontSize":"0.75em"
                                             },
-                                            "attributePrefix": "PRI_PICKUP_ADDRESS",
+                                            "attributePrefix":"PRI_PICKUP_ADDRESS",
                                             "root":"BE.code",
-                                            "hideStreetAddress": true,
-                                            "hidePostcode": true,
-                                            "hideCountry": true
+                                            "hideStreetAddress":true,
+                                            "hidePostcode":true,
+                                            "hideCountry":true
                                         }
                                     },
                                     {
                                         "GennyAddressLabel":{
-                                            "position":[0,1],
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
                                             "style":{
                                                 "fontSize":"0.75em"
                                             },
-                                            "attributePrefix": "PRI_DROPOFF_ADDRESS",
+                                            "attributePrefix":"PRI_DROPOFF_ADDRESS",
                                             "root":"BE.code",
-                                            "hideStreetAddress": true,
-                                            "hidePostcode": true,
-                                            "hideCountry": true
+                                            "hideStreetAddress":true,
+                                            "hidePostcode":true,
+                                            "hideCountry":true
                                         }
                                     },
                                     {
@@ -150,14 +190,14 @@
                                                 0,
                                                 2
                                             ],
-                                            "root": "BE.code",
-                                            "style": {
+                                            "root":"BE.code",
+                                            "style":{
                                                 "height":"100%",
-                                                "maxHeight": "40px"
+                                                "maxHeight":"40px"
                                             },
-                                            "statusStyle": {
+                                            "statusStyle":{
                                                 "height":"100%",
-                                                "maxHeight": "40px"
+                                                "maxHeight":"40px"
                                             }
                                         }
                                     }
@@ -166,8 +206,12 @@
                         },
                         {
                             "Selector":{
-                                "checkValues":["ROOT"],
-                                "showValues":["GRP_IN_TRANSIT"],
+                                "checkValues":[
+                                    "ROOT"
+                                ],
+                                "showValues":[
+                                    "GRP_IN_TRANSIT"
+                                ],
                                 "children":[
                                     {
                                         "ProgressBar":{
@@ -183,8 +227,12 @@
                         },
                         {
                             "Selector":{
-                                "checkValues":["ROOT"],
-                                "showValues":["GRP_IN_TRANSIT"],
+                                "checkValues":[
+                                    "ROOT"
+                                ],
+                                "showValues":[
+                                    "GRP_IN_TRANSIT"
+                                ],
                                 "children":[
                                     {
                                         "Selector":{
@@ -198,7 +246,7 @@
                                                             "itemCode":"BE.code",
                                                             "hint":"ROOT"
                                                         },
-                                                        "children": "LOCATE DRIVER",
+                                                        "children":"LOCATE DRIVER",
                                                         "style":{
                                                             "margin":"0 auto",
                                                             "width":"80%",
@@ -213,8 +261,8 @@
                                                 }
                                             ]
                                         }
-                                     },
-                                     {
+                                    },
+                                    {
                                         "Selector":{
                                             "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
                                             "showValues": ["true"],
@@ -226,14 +274,14 @@
                                                             "itemCode":"BE.code",
                                                             "hint":"ROOT"
                                                         },
-                                                        "children": "Mark as Delivered",
+                                                        "children":"Mark as Delivered",
                                                         "style":{
                                                             "margin":"0 auto",
                                                             "width":"80%",
                                                             "height":"30px",
                                                             "fontSize":"13px"
                                                         },
-                                                        "type" : "confirm",
+                                                        "type":"confirm",
                                                         "buttonStyle":{
                                                             "height":"30px"
                                                         }
@@ -241,14 +289,18 @@
                                                 }
                                             ]
                                         }
-                                     }
+                                    }
                                 ]
                             }
                         },
                         {
                             "Selector":{
-                                "checkValues":["ROOT"],
-                                "showValues":["GRP_APPROVED"],
+                                "checkValues":[
+                                    "ROOT"
+                                ],
+                                "showValues":[
+                                    "GRP_APPROVED"
+                                ],
                                 "children":[
                                     {
                                         "Selector":{
@@ -269,7 +321,7 @@
                                                             "height":"30px",
                                                             "fontSize":"13px"
                                                         },
-                                                        "type" : "confirm",
+                                                        "type":"confirm",
                                                         "buttonStyle":{
                                                             "height":"30px"
                                                         }
@@ -283,10 +335,14 @@
                         },
                         {
                             "Selector":{
-                                "checkValues":["ROOT"],
-                                "showValues": ["GRP_COMPLETED"],
+                                "checkValues":[
+                                    "ROOT"
+                                ],
+                                "showValues":[
+                                    "GRP_COMPLETED"
+                                ],
                                 "children":[
-                                     {
+                                    {
                                         "Selector":{
                                             "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
                                             "showValues": ["true", true],
@@ -305,7 +361,7 @@
                                                             "height":"30px",
                                                             "fontSize":"13px"
                                                         },
-                                                        "type" : "confirm",
+                                                        "type":"confirm",
                                                         "buttonStyle":{
                                                             "height":"30px"
                                                         }
@@ -323,14 +379,14 @@
                                                     "Label":{
                                                         "text":"AWAITING OWNER CONFIRMATION",
                                                         "style":{
-                                                            "textAlign": "center",
-                                                            "padding": "20px"
+                                                            "textAlign":"center",
+                                                            "padding":"20px"
                                                         },
                                                         "textStyle":{
                                                             "fontSize":"14px",
                                                             "fontWeight":"1000",
-                                                            "color": "#5cb85c",
-                                                            "textAlign": "center"
+                                                            "color":"#5cb85c",
+                                                            "textAlign":"center"
                                                         }
                                                     }
                                                 }
@@ -344,47 +400,47 @@
                 }
             }
         ],
-        "footer": [
+        "footer":[
             {
                 "IconSmall":{
                     "name":"arrow_drop_down",
                     "fontSize":"2em",
-                    "style": {
-                        "padding": "0"
+                    "style":{
+                        "padding":"0"
                     }
                 }
             }
         ],
         "children":[
             {
-                "div": {
-                    "style": {
-                        "borderRadius": "10px",
-                        "padding": "10px",
-                        "background": "#ddd"
+                "div":{
+                    "style":{
+                        "borderRadius":"10px",
+                        "padding":"10px",
+                        "background":"#ddd"
                     },
-                    "children": [
+                    "children":[
                         {
                             "div":{
                                 "style":{
-                                    "paddingBottom": "5px"
+                                    "paddingBottom":"5px"
                                 },
                                 "children":[
                                     {
-                                        "h6": {
-                                            "style": {
-                                                "fontSize": "0.75em",
-                                                "margin": "0"
+                                        "h6":{
+                                            "style":{
+                                                "fontSize":"0.75em",
+                                                "margin":"0"
                                             },
-                                            "children": "PICKUP"
+                                            "children":"PICKUP"
                                         }
                                     },
                                     {
-                                        "SublayoutLoader" : {
-                                            "layoutCode": "address-pickup-display",
-                                            "aliases": {
-                                                "BE": "BE.code",
-                                                "GROUP": "ROOT"
+                                        "SublayoutLoader":{
+                                            "layoutCode":"address-pickup-display",
+                                            "aliases":{
+                                                "BE":"BE.code",
+                                                "GROUP":"ROOT"
                                             }
                                         }
                                     },
@@ -398,45 +454,55 @@
                                         }
                                     },
                                     {
-                                        "h6": {
-                                            "style": {
-                                                "fontSize": "0.75em",
-                                                "margin": "0"
+                                        "h6":{
+                                            "style":{
+                                                "fontSize":"0.75em",
+                                                "margin":"0"
                                             },
-                                            "children": "DELIVERY"
+                                            "children":"DELIVERY"
                                         }
                                     },
                                     {
-                                        "SublayoutLoader" : {
-                                            "layoutCode": "address-dropoff-display",
-                                            "aliases": {
-                                                "BE": "BE.code",
-                                                "GROUP": "ROOT"
+                                        "SublayoutLoader":{
+                                            "layoutCode":"address-dropoff-display",
+                                            "aliases":{
+                                                "BE":"BE.code",
+                                                "GROUP":"ROOT"
                                             }
                                         }
                                     },
                                     {
                                         "Selector":{
-                                            "position":[1,1],
-                                            "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
-                                            "showIfNull": true,
+                                            "position":[
+                                                1,
+                                                1
+                                            ],
+                                            "checkValues":[
+                                                "BE.PRI_DROPOFF_DATETIME"
+                                            ],
+                                            "showIfNull":true,
                                             "children":[
                                                 {
-                                                    "span":{  
-                                                        "style": {
-                                                            "fontSize": "0.75em"
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.75em"
                                                         },
                                                         "children":"TBC"
                                                     }
                                                 }
-                                            ]   
+                                            ]
                                         }
                                     },
                                     {
                                         "Selector":{
-                                            "checkValues": ["BE.PRI_DROPOFF_DATETIME"],
-                                            "showIfNotNull": true,
-                                            "position":[1,1],
+                                            "checkValues":[
+                                                "BE.PRI_DROPOFF_DATETIME"
+                                            ],
+                                            "showIfNotNull":true,
+                                            "position":[
+                                                1,
+                                                1
+                                            ],
                                             "children":[
                                                 {
                                                     "DateLabel":{
@@ -454,114 +520,150 @@
                             }
                         },
                         {
-                            "Grid": {
-                                "cols": 2,
-                                "rows": 2,
-                                "children": [
-                                    {  
+                            "Grid":{
+                                "cols":2,
+                                "rows":2,
+                                "children":[
+                                    {
                                         "span":{
-                                            "position": [0,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"L: "
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [0,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"BE.PRI_LOAD_LENGTH_MM"
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [0,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":" mm"
                                         }
                                     },
-                                    {  
-                                        "span":{  
-                                            "position": [0,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                    {
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"W: "
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [0,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"BE.PRI_LOAD_WIDTH_MM"
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [0,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":" mm"
                                         }
                                     },
-                                    {  
-                                        "span":{  
-                                            "position": [1,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                    {
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"H: "
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [1,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"BE.PRI_LOAD_HEIGHT_MM"
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [1,0],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                0
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":" mm"
                                         }
                                     },
-                                    {  
-                                        "span":{  
-                                            "position": [1,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                    {
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"W: "
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [1,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":"BE.PRI_LOAD_WEIGHT_KG"
                                         }
                                     },
                                     {
-                                        "span":{  
-                                            "position": [1,1],
-                                            "style": {
-                                                "fontSize": "0.8em"
+                                        "span":{
+                                            "position":[
+                                                1,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.8em"
                                             },
                                             "children":" kg"
                                         }
@@ -576,8 +678,12 @@
                                 "children": [
                                     {
                                         "Selector":{
-                                            "checkValues": ["ROOT"],
-                                            "showValues": ["GRP_NEW_ITEMS"],
+                                            "checkValues":[
+                                                "ROOT"
+                                            ],
+                                            "showValues":[
+                                                "GRP_NEW_ITEMS"
+                                            ],
                                             "children":[
                                                 {
                                                     "GennyList":{
@@ -599,8 +705,12 @@
                                     },
                                     {
                                         "Selector":{
-                                            "checkValues": ["ROOT"],
-                                            "hideValues": ["GRP_NEW_ITEMS"],
+                                            "checkValues":[
+                                                "ROOT"
+                                            ],
+                                            "hideValues":[
+                                                "GRP_NEW_ITEMS"
+                                            ],
                                             "children":[
                                                 {
                                                     "GennyList":{
@@ -624,20 +734,28 @@
                             }
                         },
                         {
-                            "Selector": {
-                                "checkValues": ["USER.PRI_DRIVER"],
-                                "showValues": ["true"],
-                                "children": [
-                                        {
+                            "Selector":{
+                                "checkValues":[
+                                    "USER.PRI_DRIVER"
+                                ],
+                                "showValues":[
+                                    "true"
+                                ],
+                                "children":[
+                                    {
                                         "GennyList":{
-                                            "root": "BE.code",
-                                            "showLinks": true,
-                                            "hideLinks": ["DRIVER", "LOAD", "QUOTER"],
-                                            "itemsPerPage": 10,
-                                            "hideHeader": true,
-                                            "hideCount": true,
-                                            "showEmpty" : false,
-                                            "style": {
+                                            "root":"BE.code",
+                                            "showLinks":true,
+                                            "hideLinks":[
+                                                "DRIVER",
+                                                "LOAD",
+                                                "QUOTER"
+                                            ],
+                                            "itemsPerPage":10,
+                                            "hideHeader":true,
+                                            "hideCount":true,
+                                            "showEmpty":false,
+                                            "style":{
                                                 "padding":"0"
                                             }
                                         }
@@ -680,8 +798,12 @@
             },
             {
                 "Selector":{
-                    "checkValues": ["ROOT"],
-                    "showValues": ["GRP_APPROVED"],
+                    "checkValues":[
+                        "ROOT"
+                    ],
+                    "showValues":[
+                        "GRP_APPROVED"
+                    ],
                     "children":[
                         {
                             "ProgressBar":{
@@ -698,8 +820,12 @@
             },
             {
                 "Selector":{
-                    "checkValues": ["ROOT"],
-                    "showValues": ["GRP_DELIVERED"],
+                    "checkValues":[
+                        "ROOT"
+                    ],
+                    "showValues":[
+                        "GRP_DELIVERED"
+                    ],
                     "children":[
                         {
                             "ProgressBar":{
