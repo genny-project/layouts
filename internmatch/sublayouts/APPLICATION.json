@@ -1,32 +1,33 @@
 {
     "Grid": {
         "rows": 2,
-        "cols": 1,
+        "cols": 2,
         "style": {
             "padding": "10px",
             "background": "white",
-            "fontSize": "10px",
-            "maxWidth": "50px"
+            "fontSize": "10px" 
         },
         "children": [
             {
               "ImageView": {
                 "position": [0, 0],
                 "style": {
-                    "margin": "0px"
+                    "margin": "0px",
+                    "maxWidth": "40px",
+                    "width": "40px"
                 },
                 "children": "BE.links.APPLICANT.PRI_IMAGE_URL"
               }
             },
             {
                 "Grid": {
-                    "position": [0, 0],
-                    "rows": 1,
-                    "cols": 2,
+                    "position": [0, 1],
+                    "rows": 2,
+                    "cols": 1,
                     "children": [
                         {
                           "p": {
-                            "position": [0, 1],
+                            "position": [0, 0],
                             "style": {
                                 "margin": "0px"
                             },
@@ -35,7 +36,7 @@
                         },
                         {
                           "p": {
-                            "position": [0, 1],
+                            "position": [0, 0],
                             "style": {
                                 "margin": "0px"
                             },
@@ -44,7 +45,7 @@
                         },
                         {
                           "p": {
-                            "position": [1, 1],
+                            "position": [1, 0],
                             "style": {
                                 "margin": "0px"
                             },
@@ -57,18 +58,17 @@
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
-                        "ROOT"
-                    ],
-                    "showValues":[
-                        "GRP_AVAILABLE"
-                    ],
+                    "checkValues":["USER.PRI_IS_HOST_COMPANY"],
+                    "showValues":["true"],
                     "children":[
                         {
                             "GennyButton": {
-                                "buttonStyle": {
-                                    "background": "green"
+                                "style": {
+                                    "height": "30px"
                                 },
+                                "buttonStyle": {  
+                                  "backgroundColor": "PROJECT.PRI_COLOR"
+                               },
                                 "children": "Shortlist",
                                 "buttonCode": "BTN_SHORTLIST_INTERN",
                                 "value": {
