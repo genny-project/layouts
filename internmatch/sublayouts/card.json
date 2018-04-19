@@ -92,13 +92,44 @@
                                                    ]
                                                 }
                                              },
-                                              {  
-                                                "span":{  
-                                                   "position":[  
-                                                      0,
-                                                      1
-                                                   ],
-                                                   "children":"BE.link.HOSTCOMPANY.PRI_NAME"
+                                             {
+                                                "Selector": {
+                                                   "position":[0, 1],
+                                                   "checkValues": ["ROOT"],
+                                                   "showValues": ["GRP_SHORTLISTED"],
+                                                   "children": [
+                                                      {
+                                                         "Selector": {
+                                                            "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
+                                                            "showValues": ["true"],
+                                                            "children": [
+                                                               {  
+                                                                  "span": {
+                                                                     "children":"BE.link.INTERN.PRI_FIRSTNAME"
+                                                                  }
+                                                               },
+                                                               {  
+                                                                  "span": {
+                                                                     "children":"BE.link.INTERN.PRI_LASTNAME"
+                                                                  }
+                                                               }
+                                                            ]
+                                                         }
+                                                      },
+                                                      {
+                                                         "Selector": {
+                                                            "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
+                                                            "showValues": ["false"],
+                                                            "children": [
+                                                               {  
+                                                                  "span":{  
+                                                                     "children":"BE.link.HOSTCOMPANY.PRI_NAME"
+                                                                  }
+                                                               }
+                                                            ]
+                                                         }
+                                                      }
+                                                   ]
                                                 }
                                              },
                                              {  
