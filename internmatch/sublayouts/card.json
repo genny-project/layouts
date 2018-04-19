@@ -6,6 +6,29 @@
                "checkValues": ["USER.PRI_IS_EDU_PROVIDER"],
                "showValues": ["false"],
                "children": [
+                   {
+                     "Selector": {
+                        "checkValues": ["ROOT"],
+                        "showValues": ["GRP_OFFERED"],
+                        "children": [
+                           {
+                               "GennyStatus": {
+                                   "root":"BE.code",
+                                   "style":{
+                                       "height":"25px",
+                                       "position": "absolute",
+                                       "right": "0px",
+                                       "top": "0px"
+                                   },
+                                   "statusStyle":{
+                                       "height":"100%",
+                                       "maxHeight":"40px"
+                                   }
+                               }
+                           }
+                        ]
+                     }
+                  },
                   {  
                      "GennyDropdown":{  
                         "inline":true,
@@ -17,40 +40,14 @@
                            "padding": "0"
                         },
                         "header":[ 
-                           {
-                              "Selector": {
-                                 "checkValues": ["ROOT"],
-                                 "showValues": ["GRP_OFFERED"],
-                                 "children": [
-                                    {
-                                        "GennyStatus": {
-                                            "root":"BE.code",
-                                            "style":{
-                                                "height":"25px",
-                                                "position": "absolute",
-                                                "right": "0px",
-                                                "top": "0px"
-                                            },
-                                            "statusStyle":{
-                                                "height":"100%",
-                                                "maxHeight":"40px"
-                                            }
-                                        }
-                                    }
-                                 ]
-                              }
-                           },
                            {  
                               "Grid":{  
                                  "cols": 1,
                                  "rows": 2,
-                                 "children":[  
+                                 "children":[
                                     {  
                                        "Grid":{  
-                                          "position":[  
-                                             0,
-                                             0
-                                          ],
+                                          "position":[0,0],
                                           "rows":1,
                                           "cols":[  
                                              1,
