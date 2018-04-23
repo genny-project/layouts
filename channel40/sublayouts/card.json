@@ -790,7 +790,39 @@
                         {
                             "Selector":{
                                 "checkValues":[
-                                    "USER.PRI_DRIVER"
+                                    "USER.PRI_OWNER",
+                                    "USER.PRI_IS_ADMIN"
+                                ],
+                                "showValues":[
+                                    "true"
+                                ],
+                                "children":[
+                                    {
+                                        "GennyList":{
+                                            "root":"BE.code",
+                                            "showLinks":true,
+                                            "hideLinks":[
+                                                "OWNER",
+                                                "LOAD",
+                                                "QUOTER"
+                                            ],
+                                            "itemsPerPage":10,
+                                            "hideHeader":true,
+                                            "hideCount":true,
+                                            "showEmpty":false,
+                                            "style":{
+                                                "padding":"0"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector":{
+                                "checkValues":[
+                                    "USER.PRI_DRIVER",
+                                    "USER.PRI_IS_ADMIN"
                                 ],
                                 "showValues":[
                                     "true"
