@@ -100,32 +100,38 @@
                                 "hideValues": [ "", 0.0, "0.0"],
                                 "children":[
                                     {
-                                        "Selector":{
-                                            "checkValues": ["USER.PRI_IS_ADMIN"],
-                                            "showValues": ["true"],
+                                        "span": {
                                             "children":[
                                                 {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"1em"
-                                                        },
-                                                        "children":"DRIVER PRICE: "
+                                                    "Selector":{
+                                                        "checkValues": ["USER.PRI_IS_ADMIN"],
+                                                        "showValues": ["true"],
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"1em"
+                                                                    },
+                                                                    "children":"Driver Price: "
+                                                                }
+                                                            }
+                                                        ]
                                                     }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Selector":{
-                                            "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                            "showValues": ["true"],
-                                            "children":[
+                                                },
                                                 {
-                                                    "span":{
-                                                        "style":{
-                                                            "fontSize":"1em"
-                                                        },
-                                                        "children":"${BE.PRI_DRIVER_PRICE_EXC_GST} (excl GST)"
+                                                    "Selector":{
+                                                        "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
+                                                        "showValues": ["true"],
+                                                        "children":[
+                                                            {
+                                                                "span":{
+                                                                    "style":{
+                                                                        "fontSize":"1em"
+                                                                    },
+                                                                    "children":"${BE.PRI_DRIVER_PRICE_EXC_GST} (excl GST)"
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
