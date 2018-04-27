@@ -23,63 +23,13 @@
                "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
                "showValues": ["true"],
                "children": [
-                  {  
-                     "GennyDropdown":{  
-                        "inline":true,
-                        "isSlide":false,
-                        "animateHeader":false,
-                        "animateFooter":true,
-                        "contentStyle":{  
-                           "backgroundColor": "white",
-                           "padding": "0"
-                        },
-                        "header":[ 
-                           {
-                              "SublayoutLoader": {
-                                 "layoutCode": "card-content",
-                                 "aliases": {
-                                    "BE": "BE.code",
-                                    "GROUP": "ROOT"
-                                 }
-                              }
-                           }
-                        ],
-                        "footer":[
-                           {  
-                              "IconSmall":{ 
-                                 "position": [1, 0],
-                                 "name":"arrow_drop_down",
-                                 "fontSize":"2em",
-                                 "style":{  
-                                    "padding":"0"
-                                 }
-                              }
-                           }
-                        ],
-                        "children": [
-                           {
-                              "Selector": {
-                                 "position":[2, 0],
-                                 "checkValues": ["ROOT"],
-                                 "showValues": ["GRP_AVAILABLE"],
-                                 "children": [
-                                     {  
-                                       "GennyList":{  
-                                          "root":"BE.code",
-                                          "style":{  
-                                             "marginTop":"10px"
-                                          },
-                                          "showLinks":[  
-                                             "APPLICATION"
-                                          ],
-                                          "showEmpty":"false",
-                                          "itemsPerPage":10
-                                       }
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
+                  {
+                     "SublayoutLoader": {
+                        "layoutCode": "card-host-company",
+                        "aliases": {
+                           "BE": "BE.code",
+                           "GROUP": "ROOT"
+                        }
                      }
                   }
                ]
