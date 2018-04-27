@@ -3,8 +3,34 @@
       "children": [
          {
             "Selector": {
-               "checkValues": ["USER.PRI_IS_EDU_PROVIDER"],
-               "showValues": ["false"],
+               "checkValues": ["USER.PRI_IS_INTERN"],
+               "showValues": ["true"],
+               "children": [
+                  {
+                     "Grid": {
+                        "rows": 2,
+                        "cols": 1,
+                        "children": [
+                           {
+                              "SublayoutLoader": {
+                                 "position": [0, 0],
+                                 "layoutCode": "card-content",
+                                 "aliases": {
+                                    "BE": "BE.code",
+                                    "ROOT": "ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }  
+                  }
+               ]
+            }
+         },
+         {
+            "Selector": {
+               "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
+               "showValues": ["true"],
                "children": [
                   {  
                      "GennyDropdown":{  
