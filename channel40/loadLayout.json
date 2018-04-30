@@ -665,6 +665,55 @@
                                                 {
                                                     "Selector": {
                                                         "position":[6,0],
+                                                        "checkValues": ["ROOT"],
+                                                        "hideValues": ["GRP_NEW_ITEMS"],
+                                                        "children": [
+                                                            {
+                                                                "Selector": {
+                                                                    "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                                                    "showValues": ["true"],
+                                                                    "children": [
+                                                                        {
+                                                                            "div": {
+                                                                                "className": "line-break"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "h4" : {
+                                                                                "style": {
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "ACCEPTED QUOTE"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "GennyList":{
+                                                                                "root": "BE.code",
+                                                                                "showLinks": true,
+                                                                                "hideLinks": ["OWNER", "LOAD", "DRIVER", "QUOTER"],
+                                                                                "itemsPerPage":1,
+                                                                                "hideHeader": true,
+                                                                                "hideCount": true,
+                                                                                "hideNav": true,
+                                                                                "gennyListStyle": {
+                                                                                    "maxWidth": "700px"
+                                                                                },
+                                                                                "style":{
+                                                                                    "margin":"0",
+                                                                                    "maxWidth": "700px",
+                                                                                    "background": "none"
+                                                                                }
+                                                                            }
+                                                                        }                                                            
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[6,0],
                                                         "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
                                                         "showValues": ["true"],
                                                         "children": [
@@ -811,6 +860,12 @@
                                                     "style":{
                                                         "flexGrow":1,
                                                         "padding":"0"
+                                                    }
+                                                },
+                                                {
+                                                    "style":{
+                                                        "flexGrow":1,
+                                                        "paddingTop":"10px"
                                                     }
                                                 },
                                                 {
@@ -1473,7 +1528,7 @@
                                                                             "GennyList":{
                                                                                 "root": "BE.code",
                                                                                 "showLinks": true,
-                                                                                "hideLinks": ["LOAD", "OFFER", "QUOTER"],
+                                                                                "hideLinks": ["OWNER", "LOAD", "OFFER", "QUOTER"],
                                                                                 "hideHeader": true,
                                                                                 "hideCount": true,
                                                                                 "showEmpty" : false,
@@ -1494,25 +1549,171 @@
                                                     }
                                                 },
                                                 {
-                                                    "GennyCarousel":{
-                                                        "root": "BE.link.LOAD.code",
-                                                        "attributeCode": "PRI_LOAD_IMAGE",
-                                                        "position":[8,0]
+                                                    "Selector": {
+                                                        "position":[8,0],
+                                                        "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
+                                                        "showValues": ["true"],
+                                                        "children": [
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.code",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["DRIVER", "LOAD", "OFFER", "QUOTER"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "showEmpty" : false,
+                                                                    "gennyListStyle": {
+                                                                        "maxWidth": "700px"
+                                                                    },
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px",
+                                                                        "background": "none"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 },
                                                 {
-                                                    "GennyList":{
+                                                    "Selector": {
                                                         "position":[9,0],
-                                                        "root":"BE.code",
-                                                        "showLinks":true,
-                                                        "hideLinks": ["OWNER", "LOAD"],
-                                                        "hideHeader":true,
-                                                        "hideCount":true
+                                                        "checkValues": ["ROOT"],
+                                                        "hideValues": ["GRP_NEW_ITEMS"],
+                                                        "children": [
+                                                            {
+                                                                "Selector": {
+                                                                    "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                                                    "showValues": ["true"],
+                                                                    "children": [
+                                                                        {
+                                                                            "div": {
+                                                                                "className": "line-break"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "h4" : {
+                                                                                "style": {
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "ACCEPTED QUOTE"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "GennyList":{
+                                                                                "root": "BE.code",
+                                                                                "showLinks": true,
+                                                                                "hideLinks": ["OWNER", "LOAD", "DRIVER", "QUOTER"],
+                                                                                "itemsPerPage":1,
+                                                                                "hideHeader": true,
+                                                                                "hideCount": true,
+                                                                                "hideNav": true,
+                                                                                "gennyListStyle": {
+                                                                                    "maxWidth": "700px"
+                                                                                },
+                                                                                "style":{
+                                                                                    "margin":"0",
+                                                                                    "maxWidth": "700px",
+                                                                                    "background": "none"
+                                                                                }
+                                                                            }
+                                                                        }                                                            
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[9,0],
+                                                        "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                                        "showValues": ["true"],
+                                                        "children": [
+                                                            {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
+                                                                "h4" : {
+                                                                    "style": {
+                                                                        "margin": "0"
+                                                                    },
+                                                                    "children": "QUOTES RECEIVED"
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.code",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["OWNER", "LOAD", "DRIVER", "QUOTER"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "showEmpty" : true,
+                                                                    "gennyListStyle": {
+                                                                        "maxWidth": "700px"
+                                                                    },
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px",
+                                                                        "background": "none"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "position":[9,0],
+                                                        "checkValues": ["USER.PRI_DRIVER"],
+                                                        "showValues": ["true"],
+                                                        "children": [
+                                                            {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
+                                                                "h4" : {
+                                                                    "style": {
+                                                                        "margin": "0"
+                                                                    },
+                                                                    "children": "YOUR QUOTES"
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyList":{
+                                                                    "root": "BE.code",
+                                                                    "showLinks": true,
+                                                                    "hideLinks": ["DRIVER", "LOAD", "OWNER", "QUOTER"],
+                                                                    "hideHeader": true,
+                                                                    "hideCount": true,
+                                                                    "showEmpty" : true,
+                                                                    "gennyListStyle": {
+                                                                        "maxWidth": "700px"
+                                                                    },
+                                                                    "style":{
+                                                                        "margin":"0",
+                                                                        "maxWidth": "700px",
+                                                                        "background": "none"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "GennyCarousel":{
+                                                        "root": "BE.link.LOAD.code",
+                                                        "attributeCode": "PRI_LOAD_IMAGE",
+                                                        "position":[10,0]
                                                     }
                                                 },
                                                 {
                                                     "SublayoutLoader" : {
-                                                        "position":[10,0],
+                                                        "position":[11,0],
                                                         "layoutCode": "map-display",
                                                         "aliases": {
                                                             "BE": "BE.code",
