@@ -28,9 +28,73 @@
         }
       },
       {
-        "GennyBucketView": {
+        "TabContainer": {
+          "contentStyle": {"backgroundColor": "#fff"},
           "position": [1, 0],
-          "root": "GRP_DASHBOARD"
+          "views": [
+            {
+              "title": "Bucket View",
+              "icon": "dashboard",
+              "layout": {
+                "layout": [
+                  {
+                    "GennyBucketView": {
+                        "root": "GRP_DASHBOARD"
+                      }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "Dashboard",
+              "style": {"marginTop": 60},
+              "icon": "pie_chart",
+              "layout": {
+                "layout": [
+                  {
+                    "Grid": {
+                      "cols":5,
+                      "rows": 1,
+                      "children": [
+                          {
+                              "GennyCounter" : {
+                                "position": [0, 0],
+                                "root": "GRP_INTERVIEWS",
+                                "title": "Interns Interviewed"
+                            }
+                         },
+                        {
+                              "GennyCounter" : {
+                                "position": [0, 1],
+                                "root": "GRP_IN_PROGRESS",
+                                "title": "In progress"
+                            }
+                         },
+                        {
+                              "GennyCounter" : {
+                                "position": [0, 2],
+                                "root": "GRP_SHORTLISTED",
+                                "title": "Interns Shortlisted"
+                            }
+                         },
+                        
+                        {
+                          "GennyPieChart": {
+                          "position": [0,3],
+                          "root": "GRP_DASHBOARD",
+                          "only": ["GRP_PLACED", "GRP_OFFERED", "GRP_INTERVIEWS"],
+                          "colors": ["red", "blue"],
+                          "containerHeight":200,
+                          "containerWidth": 300
+                        }
+                        }
+                       ]
+                     }
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
