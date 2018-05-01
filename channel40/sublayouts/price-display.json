@@ -28,81 +28,40 @@
                     "showIfNotNull": true,
                     "children":[
                         {
-                            "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
-                                "hideValues": [ "", 0.0, "0.0"],
+                            "span": {
                                 "children":[
                                     {
-                                        "span": {
+                                        "Selector":{
+                                            "checkValues": ["USER.PRI_IS_ADMIN"],
+                                            "showValues": ["true"],
                                             "children":[
                                                 {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.8em",
-                                                                        "paddingRight": "5px"
-                                                                    },
-                                                                    "children":"Owner: "
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"1em",
-                                                                        "paddingRight": "5px"
-                                                                    },
-                                                                    "children":"${BE.PRI_OWNER_PRICE_INC_GST}"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_OWNER", "PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":" (incl GST)"
-                                                                }
-                                                            }
-                                                        ]
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.8em",
+                                                            "paddingRight": "5px"
+                                                        },
+                                                        "children":"Owner: "
                                                     }
                                                 }
                                             ]
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
-                                "showValues": [ "", 0.0, "0.0"],
-                                "children":[
+                                    },
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"1em",
-                                                "paddingRight": "5px"
-                                            },
-                                            "children":"Negotiable"
+                                        "Selector":{
+                                            "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                            "showValues": ["true"],
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"1em",
+                                                            "paddingRight": "5px"
+                                                        },
+                                                        "children":"${BE.PRI_OWNER_PRICE_INC_GST} (incl GST)"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
@@ -113,83 +72,42 @@
             },
             {
                 "Selector":{
-                    "checkValues": ["BE.PRI_OWNER_PRICE_INC_GST"],
+                    "checkValues": ["BE.PRI_DRIVER_PRICE_EXC_GST"],
                     "showIfNotNull": true,
                     "children":[
                         {
-                            "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
-                                "hideValues": [ "", 0.0, "0.0"],
+                            "span": {
                                 "children":[
                                     {
-                                        "span": {
+                                        "Selector":{
+                                            "checkValues": ["USER.PRI_IS_ADMIN"],
+                                            "showValues": ["true"],
                                             "children":[
                                                 {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":"Driver: "
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"1em"
-                                                                    },
-                                                                    "children":"${BE.PRI_DRIVER_PRICE_EXC_GST}"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "Selector":{
-                                                        "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
-                                                        "children":[
-                                                            {
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.8em"
-                                                                    },
-                                                                    "children":" (excl GST)"
-                                                                }
-                                                            }
-                                                        ]
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.8em"
+                                                        },
+                                                        "children":"Driver: "
                                                     }
                                                 }
                                             ]
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
-                                "showValues": [ "", 0.0, "0.0"],
-                                "children":[
+                                    },
                                     {
-                                        "span":{
-                                            "style":{
-                                                "fontSize":"1em",
-                                                "paddingRight": "5px"
-                                            },
-                                            "children":"Negotiable"
+                                        "Selector":{
+                                            "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
+                                            "showValues": ["true"],
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"1em"
+                                                        },
+                                                        "children":"${BE.PRI_DRIVER_PRICE_EXC_GST} (excl GST)"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
