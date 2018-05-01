@@ -7,7 +7,7 @@
         "children":[
             {
                 "Selector":{
-                    "checkValues": ["BE.PRI_OWNER_PRICE_INC_GST"],
+                    "checkValues": "BE.PRI_OWNER_PRICE_INC_GST",
                     "showIfNull": true,
                     "children":[
                         {
@@ -24,21 +24,21 @@
             },
             {
                 "Selector":{
-                    "checkValues": ["BE.PRI_OWNER_PRICE_INC_GST"],
+                    "checkValues": "BE.PRI_OWNER_PRICE_INC_GST",
                     "showIfNotNull": true,
                     "children":[
                         {
                             "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
-                                "hideValues": [ "", 0.0, "0.0"],
+                                "checkValues": "USER.PRI_OWNER_PRICE_INC_GST",
+                                "hideValues": ["", 0.0, "0.0"],
                                 "children":[
                                     {
                                         "span": {
                                             "children":[
                                                 {
                                                     "Selector":{
-                                                        "checkValues": ["USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "checkValues": "USER.PRI_IS_ADMIN",
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -55,7 +55,7 @@
                                                 {
                                                     "Selector":{
                                                         "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -72,7 +72,7 @@
                                                 {
                                                     "Selector":{
                                                         "checkValues": ["USER.PRI_OWNER", "PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -93,7 +93,7 @@
                         },
                         {
                             "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
+                                "checkValues": "USER.PRI_OWNER_PRICE_INC_GST",
                                 "showValues": [ "", 0.0, "0.0"],
                                 "children":[
                                     {
@@ -113,12 +113,12 @@
             },
             {
                 "Selector":{
-                    "checkValues": ["BE.PRI_OWNER_PRICE_INC_GST"],
+                    "checkValues": "BE.PRI_OWNER_PRICE_INC_GST",
                     "showIfNotNull": true,
                     "children":[
                         {
                             "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
+                                "checkValues": "USER.PRI_OWNER_PRICE_INC_GST",
                                 "hideValues": [ "", 0.0, "0.0"],
                                 "children":[
                                     {
@@ -126,8 +126,8 @@
                                             "children":[
                                                 {
                                                     "Selector":{
-                                                        "checkValues": ["USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "checkValues": "USER.PRI_IS_ADMIN",
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -143,7 +143,7 @@
                                                 {
                                                     "Selector":{
                                                         "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -159,7 +159,7 @@
                                                 {
                                                     "Selector":{
                                                         "checkValues": ["USER.PRI_DRIVER", "USER.PRI_IS_ADMIN"],
-                                                        "showValues": ["true"],
+                                                        "showValues": true,
                                                         "children":[
                                                             {
                                                                 "span":{
@@ -180,7 +180,7 @@
                         },
                         {
                             "Selector":{
-                                "checkValues": ["USER.PRI_OWNER_PRICE_INC_GST"],
+                                "checkValues": "USER.PRI_OWNER_PRICE_INC_GST",
                                 "showValues": [ "", 0.0, "0.0"],
                                 "children":[
                                     {
@@ -200,18 +200,18 @@
             },
             {
                 "Selector":{
-                    "checkValues":["ROOT"],
-                    "showValues":["GRP_NEW_ITEMS"],
+                    "checkValues":"ROOT",
+                    "showValues":"GRP_NEW_ITEMS",
                     "children":[
                         {
                             "Selector":{
-                                "checkValues":["BE.PRI_OFFER_COUNT"],
-                                "hideValues":["0"],
+                                "checkValues":"BE.PRI_OFFER_COUNT",
+                                "hideValues":0,
                                 "children":[
                                     {
                                         "Selector":{
                                             "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                                            "showValues": ["true"],
+                                            "showValues": true,
                                             "children":[
                                                 {
                                                     "span":{
