@@ -83,7 +83,36 @@
                                 "children": [
                                     {
                                         "div": {
-                                            "children": "BE.link.HOSTCOMPANY.PRI_NAME"
+                                            "style":{
+                                                "display":"flex",
+                                                "justifyContent":"flex-start",
+                                                "alignItems":"center"
+                                            },
+                                            "children": [
+                                                {
+                                                    "span":{
+                                                        "children": "BE.link.HOSTCOMPANY.PRI_NAME"
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "checkValues": ["ROOT"],
+                                                        "showValues": ["GRP_AVAILABLE"],
+                                                        "children": [
+                                                            {
+                                                                "span":{
+                                                                    "className":"badge error",
+                                                                    "style":{
+                                                                        "marginLeft":"5px",
+                                                                        "fontSize":"12px"
+                                                                    },
+                                                                    "children":"BE.links.APPLICATION.count"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
                                         }
                                     },
                                     {
