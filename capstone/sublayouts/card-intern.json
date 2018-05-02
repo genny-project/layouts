@@ -1,23 +1,53 @@
 {
-   "Grid": {
-      "rows": 2,
-      "cols": 1,
-      "children": [
-         {
-            "SublayoutLoader": {
-               "position": [0, 0],
-               "layoutCode": "card-content",
-               "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-               }
+    "GennyDropdown": {
+        "inline": true,
+        "isSlide": false,
+        "animateHeader": false,
+        "animateFooter": true,
+        "contentStyle": {
+            "backgroundColor": "white",
+            "padding": "0"
+        },
+        "header": [
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-content",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
+                }
             }
-         },
-         {
-            "br": {
-               "position": [0, 0]
+        ],
+        "footer": [
+            {
+                "IconSmall": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "name": "arrow_drop_down",
+                    "fontSize": "2em",
+                    "style": {
+                        "padding": "0"
+                    }
+                }
             }
-         }
-      ]
-   }  
+        ],
+        "children": [
+           {
+                "GennyList": {
+                    "root": "BE.code",
+                    "style": {
+                        "marginTop": "10px"
+                    },
+                    "showLinks": [
+                        "APPLICATION"
+                    ],
+                    "showEmpty": "false",
+                    "itemsPerPage": 10
+                }
+            }
+        ]
+    }
 }
