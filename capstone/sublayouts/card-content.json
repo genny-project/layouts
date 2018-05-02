@@ -5,6 +5,24 @@
         "children": [
             {
                 "Selector": {
+                    "position": [0,0],
+                    "checkValues": ["ROOT"],
+                    "showValues": ["GRP_AVAILABLE"],
+                    "children": [
+                        {
+                            "span":{
+                                "className":"badge error",
+                                "style":{
+                                    "fontSize":"12px"
+                                },
+                                "children":"BE.links.APPLICATION.count"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Selector": {
                     "position": [
                         0,
                         0
@@ -81,39 +99,6 @@
                                     "ROOT"
                                 ],
                                 "showValues": [
-                                    "GRP_SHORTLISTED"
-                                ],
-                                "children": [
-                                    {
-                                        "Selector": {
-                                            "checkValues": [
-                                                "USER.PRI_IS_HOST_COMPANY"
-                                            ],
-                                            "showValues": [
-                                                "false"
-                                            ],
-                                            "children": [
-                                                {
-                                                    "span": {
-                                                        "children": "BE.link.HOSTCOMPANY.PRI_NAME"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector": {
-                                "position": [
-                                    0,
-                                    1
-                                ],
-                                "checkValues": [
-                                    "ROOT"
-                                ],
-                                "showValues": [
                                     "GRP_APPLIED",
                                     "GRP_SHORTLISTED",
                                     "GRP_INTERVIEWS",
@@ -122,12 +107,12 @@
                                 ],
                                 "children": [
                                     {
-                                        "span": {
+                                        "div": {
                                             "children": "BE.link.HOSTCOMPANY.PRI_NAME"
                                         }
                                     },
                                     {
-                                        "span": {
+                                        "div": {
                                             "children": "BE.link.INTERNSHIP.PRI_NAME"
                                         }
                                     }
