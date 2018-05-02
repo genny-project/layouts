@@ -8,74 +8,111 @@
             "backgroundColor": "white",
             "padding": "0"
         },
-        "header": [{
-            "SublayoutLoader": {
-                "layoutCode": "card-content",
-                "aliases": {
-                    "BE": "BE.code",
-                    "GROUP": "ROOT"
+        "header": [
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-content",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
                 }
             }
-        }],
-        "footer": [{
-            "IconSmall": {
-                "position": [1, 0],
-                "name": "arrow_drop_down",
-                "fontSize": "2em",
-                "style": {
-                    "padding": "0"
+        ],
+        "footer": [
+            {
+                "IconSmall": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "name": "arrow_drop_down",
+                    "fontSize": "2em",
+                    "style": {
+                        "padding": "0"
+                    }
                 }
             }
-        }],
-        "children": [{
+        ],
+        "children": [
+            {
                 "Selector": {
-                    "checkValues": ["ROOT"],
-                    "showValues": ["GRP_AVAILABLE"],
-                    "children": [{
-                        "GennyList": {
-                            "root": "BE.code",
-                            "style": {
-                                "marginTop": "10px"
-                            },
-                            "showLinks": [
-                                "APPLICATION"
-                            ],
-                            "showEmpty": "false",
-                            "itemsPerPage": 10
+                    "checkValues": [
+                        "ROOT"
+                    ],
+                    "showValues": [
+                        "GRP_AVAILABLE"
+                    ],
+                    "children": [
+                        {
+                            "GennyList": {
+                                "root": "BE.code",
+                                "style": {
+                                    "marginTop": "10px"
+                                },
+                                "showLinks": [
+                                    "APPLICATION"
+                                ],
+                                "showEmpty": "false",
+                                "itemsPerPage": 10
+                            }
                         }
-                    }]
+                    ]
                 }
             },
             {
                 "Selector": {
-                    "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
-                    "showValues": ["true"],
-                    "children": [{
-                        "Selector": {
-                            "checkValues": ["BE.PRI_APPLICATION_LIMIT_FULL"],
-                            "showValues": ["true"],
-                            "children": [{
-                                "GennyButton": {
-                                    "style": {
-                                        "height": "30px",
-                                        "marginTop": "10px",
-                                        "marginLeft": "25%",
-                                        "width": "50%"
-                                    },
-                                    "buttonStyle": {
-                                        "backgroundColor": "PROJECT.PRI_COLOR"
-                                    },
-                                    "children": "Shortlist",
-                                    "buttonCode": "BTN_SHORTLIST_INTERN",
-                                    "value": {
-                                        "itemCode": "BE.code",
-                                        "hint": "ROOT"
+                    "checkValues": [
+                        "USER.PRI_IS_HOST_COMPANY"
+                    ],
+                    "showValues": [
+                        "true"
+                    ],
+                    "children": [
+                        {
+                            "Selector": {
+                                "checkValues": [
+                                    "ROOT"
+                                ],
+                                "showValues": [
+                                    "GRP_AVAILABLE"
+                                ],
+                                "children": [
+                                    {
+                                        "Selector": {
+                                            "checkValues": [
+                                                "BE.PRI_APPLICATION_LIMIT_FULL"
+                                            ],
+                                            "showValues": [
+                                                "true"
+                                            ],
+                                            "children": [
+                                                {
+                                                    "GennyButton": {
+                                                        "style": {
+                                                            "height": "30px",
+                                                            "marginTop": "10px",
+                                                            "marginLeft": "25%",
+                                                            "width": "50%"
+                                                        },
+                                                        "buttonStyle": {
+                                                            "backgroundColor": "PROJECT.PRI_COLOR"
+                                                        },
+                                                        "children": "Approve",
+                                                        "buttonCode": "BTN_SHORTLIST_INTERN",
+                                                        "value": {
+                                                            "itemCode": "BE.code",
+                                                            "hint": "ROOT"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
-                                }
-                            }]
-
+                                ]
+                            }
                         }
-                    }]
+                    ]
                 }
             }
         ]
