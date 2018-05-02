@@ -350,23 +350,49 @@
                                             "showValues": true,
                                             "children":[
                                                 {
-                                                    "GennyButton":{
-                                                        "buttonCode":"BTN_CONFIRM_DELIVERY_OWNER",
-                                                        "value":{
-                                                            "itemCode":"BE.code",
-                                                            "hint":"ROOT"
-                                                        },
-                                                        "children":"CONFIRM DELIVERY",
-                                                        "style":{
-                                                            "margin":"0 auto",
-                                                            "width":"80%",
-                                                            "height":"30px",
-                                                            "fontSize":"13px"
-                                                        },
-                                                        "type":"confirm",
-                                                        "buttonStyle":{
-                                                            "height":"30px"
-                                                        }
+                                                    "Selector": {
+                                                        "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                                        "showValues": "Payment has been deposited and held at escrow",
+                                                        "children": [
+                                                            {
+                                                                "GennyButton":{
+                                                                    "buttonCode":"BTN_CONFIRM_DELIVERY_OWNER",
+                                                                    "value":{
+                                                                        "itemCode":"BE.code",
+                                                                        "hint":"ROOT"
+                                                                    },
+                                                                    "children":"CONFIRM DELIVERY",
+                                                                    "style":{
+                                                                        "margin":"0 auto",
+                                                                        "width":"80%",
+                                                                        "height":"30px",
+                                                                        "fontSize":"13px"
+                                                                    },
+                                                                    "type":"confirm",
+                                                                    "buttonStyle":{
+                                                                        "height":"30px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "Selector": {
+                                                        "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                                        "hideValues": "Payment has been deposited and held at escrow",
+                                                        "children": [
+                                                            {
+                                                                "div":{
+                                                                    "children":"BE.PRI_PAYMENT_STATUS",
+                                                                    "style":{
+                                                                        "color":"PROJECT.PRI_COLOR",
+                                                                        "width":"100%",
+                                                                        "textAlign": "center",
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
