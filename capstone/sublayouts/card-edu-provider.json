@@ -1,136 +1,53 @@
 {
-   "div": {
-      "children": [
-         {
-            "Selector": {
-               "checkValues": ["ROOT"],
-               "showValues": ["GRP_INTERNS"],
-               "children": [
-                  {  
-                     "Grid":{  
-                        "cols": 1,
-                        "rows": 2,
-                        "children":[  
-                           {  
-                              "Grid":{  
-                                 "position":[  
-                                    0,
-                                    0
-                                 ],
-                                 "rows":1,
-                                 "cols":[  
-                                    1,
-                                    {
-                                       "style": {
-                                          "flexGrow": 2,
-                                          "paddingTop": "5px"
-                                       }
-                                    }
-                                 ],
-                                 "children":[  
-                                    {  
-                                       "ImageView":{  
-                                          "position":[  
-                                             0,
-                                             0
-                                          ],
-                                          "src": "BE.PRI_IMAGE_URL",
-                                          "style":{  
-                                             "maxWidth": "40px",
-                                             "width": "40px"
-                                          }
-                                       }
-                                    },
-                                    {  
-                                       "span":{  
-                                          "position":[  
-                                             0,
-                                             1
-                                          ],
-                                          "style": {
-                                             "fontWeight": "bold"
-                                          },
-                                          "children":"BE.PRI_FIRSTNAME"
-                                       }
-                                    },
-                                    {  
-                                       "span":{  
-                                          "position":[  
-                                             0,
-                                             1
-                                          ],
-                                          "style": {
-                                             "fontWeight": "bold"
-                                          },
-                                          "children":" "
-                                       }
-                                    },
-                                     {  
-                                       "span":{  
-                                          "position":[  
-                                             0,
-                                             1
-                                          ],
-                                          "style": {
-                                             "fontWeight": "bold"
-                                          },
-                                          "children":"BE.PRI_LASTNAME"
-                                       }
-                                    },
-                                    {
-                                       "br": {
-                                           "position":[0, 1]
-                                       }
-                                    },
-                                    {  
-                                       "span":{  
-                                          "position":[  
-                                             0,
-                                             1
-                                          ],
-                                          "children":"BE.PRI_EMAIL"
-                                       }
-                                    },
-                                     {
-                                       "br": {
-                                           "position":[0, 1]
-                                       }
-                                    },
-                                    {  
-                                       "span":{  
-                                          "position":[  
-                                             0,
-                                             1
-                                          ],
-                                          "children":"BE.PRI_MOBILE"
-                                       }
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
-                     }
-                  }
-               ]
+    "GennyDropdown": {
+        "inline": true,
+        "isSlide": false,
+        "animateHeader": false,
+        "animateFooter": true,
+        "contentStyle": {
+            "backgroundColor": "white",
+            "padding": "0"
+        },
+        "header": [
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-content",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
+                }
             }
-         },
-         {
-            "Selector": {
-               "checkValues": ["ROOT"],
-               "hideValues": ["GRP_INTERNS"],
-               "children": [
-                   {
-                     "SublayoutLoader": {
-                        "layoutCode": "card-content",
-                        "aliases": {
-                           "BE": "BE.code",
-                           "GROUP": "ROOT"
-                        }
-                     }
-                  }
-               ]
+        ],
+        "footer": [
+            {
+                "IconSmall": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "name": "arrow_drop_down",
+                    "fontSize": "2em",
+                    "style": {
+                        "padding": "0"
+                    }
+                }
             }
-         }
-      ]
-   }
+        ],
+        "children": [
+           {
+                "GennyList": {
+                    "root": "BE.code",
+                    "style": {
+                        "marginTop": "10px"
+                    },
+                    "showLinks": [
+                        "APPLICATION"
+                    ],
+                    "showEmpty": "false",
+                    "itemsPerPage": 10
+                }
+            }
+        ]
+    }
 }
