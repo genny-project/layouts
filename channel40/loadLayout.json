@@ -606,6 +606,11 @@
                                                         "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
                                                         "showValues": true,
                                                         "children": [
+                                                             {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
                                                             {
                                                                 "Selector": {
                                                                     "checkValues": "ROOT",
@@ -614,8 +619,7 @@
                                                                         {
                                                                             "GennyList":{
                                                                                 "root": "BE.code",
-                                                                                "showLinks": true,
-                                                                                "hideLinks": ["OWNER", "LOAD", "OFFER", "QUOTER"],
+                                                                                "showLinks": ["DRIVER"],
                                                                                 "hideHeader": true,
                                                                                 "hideCount": true,
                                                                                 "showEmpty" : false,
@@ -642,10 +646,14 @@
                                                         "showValues": true,
                                                         "children": [
                                                             {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
                                                                 "GennyList":{
                                                                     "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["DRIVER", "LOAD", "OFFER", "QUOTER"],
+                                                                    "showLinks": ["OWNER"],
                                                                     "hideHeader": true,
                                                                     "hideCount": true,
                                                                     "showEmpty" : false,
@@ -703,6 +711,35 @@
                                                                                     "background": "none"
                                                                                 }
                                                                             }
+                                                                        },
+                                                                        {
+                                                                            "div": {
+                                                                                "className": "line-break"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "h4" : {
+                                                                                "style": {
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "QUOTES RECEIVED"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "GennyList":{
+                                                                                "root": "BE.code",
+                                                                                "showLinks": ["OFFER"],
+                                                                                "hideHeader": true,
+                                                                                "hideCount": true,
+                                                                                "gennyListStyle": {
+                                                                                    "maxWidth": "700px"
+                                                                                },
+                                                                                "style":{
+                                                                                    "margin":"0",
+                                                                                    "maxWidth": "700px",
+                                                                                    "background": "none"
+                                                                                }
+                                                                            }
                                                                         }
                                                                     ]
                                                                 }
@@ -713,37 +750,44 @@
                                                 {
                                                     "Selector": {
                                                         "position":[6,0],
-                                                        "checkValues": ["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
+                                                        "checkValues": "USER.PRI_OWNER",
                                                         "showValues": true,
                                                         "children": [
                                                             {
-                                                                "div": {
-                                                                    "className": "line-break"
-                                                                }
-                                                            },
-                                                            {
-                                                                "h4" : {
-                                                                    "style": {
-                                                                        "margin": "0"
-                                                                    },
-                                                                    "children": "QUOTES RECEIVED"
-                                                                }
-                                                            },
-                                                            {
-                                                                "GennyList":{
-                                                                    "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["OWNER", "LOAD", "DRIVER", "QUOTER"],
-                                                                    "hideHeader": true,
-                                                                    "hideCount": true,
-                                                                    "gennyListStyle": {
-                                                                        "maxWidth": "700px"
-                                                                    },
-                                                                    "style":{
-                                                                        "margin":"0",
-                                                                        "maxWidth": "700px",
-                                                                        "background": "none"
-                                                                    }
+                                                                "Selector": {
+                                                                    "checkValues": "ROOT",
+                                                                    "showValues": "GRP_NEW_ITEMS",
+                                                                    "children": [  
+                                                                        {
+                                                                            "div": {
+                                                                                "className": "line-break"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "h4" : {
+                                                                                "style": {
+                                                                                    "margin": "0"
+                                                                                },
+                                                                                "children": "QUOTES RECEIVED"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "GennyList":{
+                                                                                "root": "BE.code",
+                                                                                "showLinks": ["OFFER"],
+                                                                                "hideHeader": true,
+                                                                                "hideCount": true,
+                                                                                "gennyListStyle": {
+                                                                                    "maxWidth": "700px"
+                                                                                },
+                                                                                "style":{
+                                                                                    "margin":"0",
+                                                                                    "maxWidth": "700px",
+                                                                                    "background": "none"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -771,8 +815,7 @@
                                                             {
                                                                 "GennyList":{
                                                                     "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["DRIVER", "LOAD", "OWNER", "QUOTER"],
+                                                                    "showLinks": ["OFFER"],
                                                                     "hideHeader": true,
                                                                     "hideCount": true,
                                                                     "gennyListStyle": {
@@ -1519,6 +1562,11 @@
                                                         "showValues": true,
                                                         "children": [
                                                             {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
                                                                 "Selector": {
                                                                     "checkValues": "ROOT",
                                                                     "hideValues": "GRP_NEW_ITEMS",
@@ -1526,8 +1574,7 @@
                                                                         {
                                                                             "GennyList":{
                                                                                 "root": "BE.code",
-                                                                                "showLinks": true,
-                                                                                "hideLinks": ["OWNER", "LOAD", "OFFER", "QUOTER"],
+                                                                                "showLinks": ["DRIVER"],
                                                                                 "hideHeader": true,
                                                                                 "hideCount": true,
                                                                                 "showEmpty" : false,
@@ -1554,10 +1601,14 @@
                                                         "showValues": true,
                                                         "children": [
                                                             {
+                                                                "div": {
+                                                                    "className": "line-break"
+                                                                }
+                                                            },
+                                                            {
                                                                 "GennyList":{
                                                                     "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["DRIVER", "LOAD", "OFFER", "QUOTER"],
+                                                                    "showLinks": ["OWNER"],
                                                                     "hideHeader": true,
                                                                     "hideCount": true,
                                                                     "showEmpty" : false,
@@ -1644,8 +1695,7 @@
                                                             {
                                                                 "GennyList":{
                                                                     "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["OWNER", "LOAD", "DRIVER", "QUOTER"],
+                                                                    "showLinks": ["OFFER"],
                                                                     "hideHeader": true,
                                                                     "hideCount": true,
                                                                     "showEmpty" : true,
@@ -1684,8 +1734,7 @@
                                                             {
                                                                 "GennyList":{
                                                                     "root": "BE.code",
-                                                                    "showLinks": true,
-                                                                    "hideLinks": ["DRIVER", "LOAD", "OWNER", "QUOTER"],
+                                                                    "showLinks": ["OFFER"],
                                                                     "hideHeader": true,
                                                                     "hideCount": true,
                                                                     "showEmpty" : true,

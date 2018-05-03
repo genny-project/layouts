@@ -723,17 +723,55 @@
                                 "showValues": "GRP_NEW_ITEMS",
                                 "children":[
                                     {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["OFFER", "DRIVER"],
-                                            "itemsPerPage":1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
+                                        "Selector": {
+                                            "checkValues": "ROOT",
+                                            "hideValues": "GRP_NEW_ITEMS",
+                                            "children": [
+                                                 {
+                                                    "GennyList":{
+                                                        "root":"BE.code",
+                                                        "showLinks":["ACCEPTED_OFFER", "DRIVER"],
+                                                        "itemsPerPage":1,
+                                                        "hideHeader":true,
+                                                        "hideCount":true,
+                                                        "hideNav":true,
+                                                        "showEmpty":false,
+                                                        "style":{
+                                                            "padding":"0"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                         {
+                            "Selector":{
+                                "checkValues":["USER.PRI_OWNER", "USER.PRI_IS_ADMIN", "USER.PRI_DRIVER"],
+                                "showValues": true,
+                                "children":[
+                                    {
+                                        "Selector": {
+                                            "checkValues": "ROOT",
+                                            "showValues": "GRP_NEW_ITEMS",
+                                            "children": [
+                                                 {
+                                                    "GennyList":{
+                                                        "root":"BE.code",
+                                                        "showLinks":["OFFER"],
+                                                        "itemsPerPage":1,
+                                                        "hideHeader":true,
+                                                        "hideCount":true,
+                                                        "hideNav":true,
+                                                        "showEmpty":false,
+                                                        "style":{
+                                                            "padding":"0"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
