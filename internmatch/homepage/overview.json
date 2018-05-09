@@ -1,0 +1,112 @@
+{
+    "Grid": {
+        "rows": [
+            {
+                "style": {
+                    "height": "70px",
+                    "flexGrow": 0,
+                    "background": "PROJECT.PRI_COLOR"
+                }
+            },
+            20
+        ],
+        "cols": 1,
+        "children": [
+            {
+                "GennyButton": {
+                    "position": [
+                        0,
+                        0
+                    ],
+                    "buttonCode": "BTN_CREATE_INTERNSHIP",
+                    "style": {
+                        "padding": "10px",
+                        "width": "250px"
+                    },
+                    "buttonStyle": {
+                        "background": "PROJECT.PRI_COLOR",
+                        "border": "1px solid white"
+                    },
+                    "value": {},
+                    "children": "ADD NEW INTERNSHIP"
+                }
+            },
+            {
+                "SplitView" : {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "children": [
+                        {
+                            "GennyList" : {
+                                "root": "GRP_DASHBOARD"
+                            }
+                        },
+                        {
+                            "TabContainer": {
+                                "contentStyle": {
+                                    "backgroundColor": "#fff"
+                                },
+                                "views": [
+                                    {
+                                        "title": "Overview",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyBucketView": {
+                                                        "root": "GRP_DASHBOARD"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Table View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyTable": {
+                                                        "root": "GRP_DASHBOARD"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "List View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyList": {
+                                                        "root": "GRP_DASHBOARD"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Detail View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyBucketView": {
+                                                        "root": "GRP_DASHBOARD"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
