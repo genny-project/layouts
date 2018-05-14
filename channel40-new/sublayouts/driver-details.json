@@ -1,24 +1,36 @@
 {
   "sublayout": {
-    "title": "DRIVER",
+    "title": "Driver-Details",
     "appColor": "dark"
   },
   "children": [
-     {
+    {
       "component": "Box",
       "props": {
       },
       "children": [
         {
-          "component": "Sublayout",
+          "component": "Label",
           "props": {
-            "code": "driver-details"
+            "text": "DRIVER"
           }
         },
         {
-          "component": "Sublayout",
+          "component": "Label",
           "props": {
-            "code": "driver-actions"
+            "text": "{{BE.PRI_FIRSTNAME}}"
+          }
+        },
+        {
+          "component": "Label",
+          "props": {
+            "text": "{{BE.PRI_LASTNAME}}"
+          }
+        },
+        {
+          "component": "Rating",
+          "props": {
+            "rating": "{{BE.PRI_DRIVER_RATING}}"
           }
         }
       ]
