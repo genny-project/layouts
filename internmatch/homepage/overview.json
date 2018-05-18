@@ -13,22 +13,30 @@
         "cols": 1,
         "children": [
             {
-                "GennyButton": {
-                    "position": [
+                "Selector": {
+                   "position": [
                         0,
                         0
                     ],
-                    "buttonCode": "BTN_CREATE_INTERNSHIP",
-                    "style": {
-                        "padding": "10px",
-                        "width": "250px"
-                    },
-                    "buttonStyle": {
-                        "background": "PROJECT.PRI_COLOR",
-                        "border": "1px solid white"
-                    },
-                    "value": {},
-                    "children": "ADD NEW INTERNSHIP"
+                    "checkValues": ["USER.PRI_IS_INTERN"],
+                   "hideValues": ["true"],
+                   "children": [
+                        {
+                            "GennyButton": {
+                                "buttonCode": "BTN_ADD_PRODUCT",
+                                "style": {
+                                    "padding": "10px",
+                                    "width": "250px"
+                                },
+                                "buttonStyle": {
+                                    "background": "PROJECT.PRI_COLOR",
+                                    "border": "1px solid white"
+                                },
+                                "value": {},
+                                "children": "ADD NEW INTERNSHIP"
+                            }
+                        }
+                    ]
                 }
             },
             {
