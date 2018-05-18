@@ -77,8 +77,8 @@
                                     {
                                         "Selector":{
                                             "position":[0,0],
-                                            "checkValues":["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                                            "showValues": true,
+                                            "checkValues":["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN"],
+                                            "showValues": [true, "TRUE"],
                                             "children":[
                                                 {
                                                     "span":{
@@ -103,8 +103,8 @@
                                     {
                                         "Selector":{
                                             "position":[0,0],
-                                            "checkValues": "USER.PRI_DRIVER",
-                                            "showValues": true,
+                                            "checkValues": "USER.PRI_IS_SELLER",
+                                            "showValues": [true, "TRUE"],
                                             "children":[
                                                 {
                                                     "span":{
@@ -165,7 +165,7 @@
                                                 "fontSize":"0.8em",
                                                 "marginRight": "5px"
                                             },
-                                            "children":"BE.created"
+                                            "children":"Quote Submitted: ${BE.created}"
                                         }
                                     }
                                 ]
@@ -176,8 +176,8 @@
             },
             {
                 "Selector":{
-                    "checkValues": "USER.PRI_OWNER",
-                    "showValues": true,
+                    "checkValues": "USER.PRI_IS_BUYER",
+                    "showValues": [true, "TRUE"],
                     "position":[0,1],
                     "children":[
                         {
@@ -321,8 +321,8 @@
             },
             {
                 "Selector":{
-                    "checkValues": "USER.PRI_DRIVER",
-                    "showValues": true,
+                    "checkValues": "USER.PRI_IS_SELLER",
+                    "showValues": [true, "TRUE"],
                     "position":[0,1],
                     "children":[
                         {

@@ -3,8 +3,8 @@
         "children": [
             {
                 "Selector":{
-                    "checkValues":["USER.PRI_OWNER", "USER.PRI_IS_ADMIN"],
-                    "showValues": true,
+                    "checkValues":["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN"],
+                    "showValues": [true, "TRUE"],
                     "children":[
                         {
                             "Selector": {
@@ -55,13 +55,13 @@
             },
             {
                 "Selector":{
-                    "checkValues":["USER.PRI_DRIVER"],
-                    "showValues": true,
+                    "checkValues": "USER.PRI_IS_SELLER",
+                    "showValues": [true, "TRUE"],
                     "children":[
                         {
                             "Selector": {
                                 "checkValues": "ROOT",
-                                "showValues": ["GRP_NEW_ITEMS"],
+                                "showValues": "GRP_NEW_ITEMS",
                                 "children": [
                                     {
                                         "GennyList":{

@@ -1,0 +1,121 @@
+{
+    "Grid": {
+        "rows": [
+            {
+                "style": {
+                    "height": "70px",
+                    "flexGrow": 0,
+                    "background": "PROJECT.PRI_COLOR"
+                }
+            },
+            20
+        ],
+        "cols": 1,
+        "children": [
+            {
+                "Selector": {
+                   "position": [
+                        0,
+                        0
+                    ],
+                    "checkValues": ["USER.PRI_IS_BUYER"],
+                   "hideValues": ["true"],
+                   "children": [
+                        {
+                            "GennyButton": {
+                                "buttonCode": "BTN_ADD_PRODUCT",
+                                "style": {
+                                    "padding": "10px",
+                                    "width": "250px"
+                                },
+                                "buttonStyle": {
+                                    "background": "PROJECT.PRI_COLOR",
+                                    "border": "1px solid white"
+                                },
+                                "value": {},
+                                "children": "ADD NEW INTERNSHIP"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "SplitView" : {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "children": [
+                        {
+                            "GennyList" : {
+                                "root": "GRP_AVAILABLE",
+                                "showTitle": true
+                            }
+                        },
+                        {
+                            "TabContainer": {
+                                "contentStyle": {
+                                    "backgroundColor": "#fff"
+                                },
+                                "views": [
+                                    {
+                                        "title": "Overview",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyBucketView": {
+                                                        "root": "GRP_APPLICATIONS"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Table View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyTable": {
+                                                        "root": "GRP_APPLICATIONS"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "List View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyList": {
+                                                        "root": "GRP_APPLICATIONS"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Detail View",
+                                        "icon": "dashboard",
+                                        "layout": {
+                                            "layout": [
+                                                {
+                                                    "GennyBucketView": {
+                                                        "root": "GRP_APPLICATIONS"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
