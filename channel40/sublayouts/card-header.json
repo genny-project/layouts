@@ -378,7 +378,7 @@
                                                         "children": [
                                                             {
                                                                 "span": {
-                                                                    "children": "Payment release has started."
+                                                                    "children": "Payment release has started"
                                                                 }
                                                             }
                                                         ]
@@ -394,7 +394,7 @@
                                             "children": [
                                                 {
                                                     "div": {
-                                                        "children": "Pending Escrow Clearance.",
+                                                        "children": "Pending Escrow Clearance",
                                                         "style": {
                                                             "color": "PROJECT.PRI_COLOR",
                                                             "width": "100%",
@@ -414,18 +414,39 @@
                                 "showValues": [true, "TRUE"],
                                 "children": [
                                     {
-                                        "Label": {
-                                            "text": "AWAITING OWNER CONFIRMATION",
-                                            "style": {
-                                                "textAlign": "center",
-                                                "padding": "20px"
-                                            },
-                                            "textStyle": {
-                                                "fontSize": "14px",
-                                                "fontWeight": "1000",
-                                                "color": "#5cb85c",
-                                                "textAlign": "center"
-                                            }
+                                        "Selector": {
+                                            "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                            "hideValues": ["Payment has been deposited and held at escrow", "ITEM_PAYMENT_DEPOSITED"],
+                                            "children": [
+                                                {
+                                                    "div": {
+                                                        "children": "Pending Escrow Clearance",
+                                                        "style": {
+                                                            "color": "PROJECT.PRI_COLOR",
+                                                            "width": "100%",
+                                                            "textAlign": "center"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector": {
+                                            "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                            "showValues": ["Payment has been deposited and held at escrow", "ITEM_PAYMENT_DEPOSITED"],
+                                            "children": [
+                                                {
+                                                    "div": {
+                                                        "children": "Awaiting Owner Confirmation",
+                                                        "style": {
+                                                            "color": "PROJECT.PRI_COLOR",
+                                                            "width": "100%",
+                                                            "textAlign": "center"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
