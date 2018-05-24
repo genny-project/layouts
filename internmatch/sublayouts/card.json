@@ -7,47 +7,44 @@
             "background": "white",
             "fontSize": "10px"
         },
-        "children": [
-            {
+        "children": [{
                 "Grid": {
                     "position": [0, 0],
                     "rows": 1,
                     "cols": 2,
-                    "children": [
-                        {
-                          "ImageView": {
-                            "position": [0, 0],
-                            "style": {
-                                "margin": "0px",
-                                "maxWidth": "40px",
-                                "width": "40px"
-                            },
-                            "src": "BE.link.APPLICANT.PRI_IMAGE_URL"
-                          }
+                    "children": [{
+                            "ImageView": {
+                                "position": [0, 0],
+                                "style": {
+                                    "margin": "0px",
+                                    "maxWidth": "40px",
+                                    "width": "40px"
+                                },
+                                "src": "BE.link.APPLICANT.PRI_IMAGE_URL"
+                            }
                         },
                         {
                             "Grid": {
                                 "position": [0, 1],
                                 "rows": 2,
                                 "cols": 1,
-                                "children": [
-                                    {
-                                      "p": {
-                                        "position": [0, 0],
-                                        "style": {
-                                            "margin": "0px"
-                                        },
-                                        "children": "BE.PRI_APPLICANT_FULLNAME"
-                                      }
+                                "children": [{
+                                        "p": {
+                                            "position": [0, 0],
+                                            "style": {
+                                                "margin": "0px"
+                                            },
+                                            "children": "BE.PRI_APPLICANT_FULLNAME"
+                                        }
                                     },
                                     {
-                                      "p": {
-                                        "position": [1, 0],
-                                        "style": {
-                                            "margin": "0px"
-                                        },
-                                        "children": "BE.PRI_APPLICANT_USERNAME"
-                                      }
+                                        "p": {
+                                            "position": [1, 0],
+                                            "style": {
+                                                "margin": "0px"
+                                            },
+                                            "children": "BE.PRI_APPLICANT_USERNAME"
+                                        }
                                     }
                                 ]
                             }
@@ -66,7 +63,7 @@
                         "background": "PROJECT.PRI_COLOR"
                     },
                     "children": "View Applicant Profile",
-                    "buttonCode": "BTN_VIEW_PROFILE_INTERN",
+                    "buttonCode": "BTN_VIEW_APPLICANT",
                     "value": {
                         "itemCode": "BE.code",
                         "hint": "ROOT"
@@ -76,177 +73,165 @@
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":["USER.PRI_IS_HOST_COMPANY"],
-                    "showValues":["true"],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                  "backgroundColor": "PROJECT.PRI_COLOR"
-                               },
-                                "children": "Interview",
-                                "buttonCode": "BTN_INTERVIEW_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
+                    "showValues": ["true"],
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "backgroundColor": "PROJECT.PRI_COLOR"
+                            },
+                            "children": "Interview",
+                            "buttonCode": "BTN_INTERVIEW_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             },
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
+                    "checkValues": [
                         "ROOT"
                     ],
-                    "showValues":[
+                    "showValues": [
                         "GRP_SHORTLISTED"
                     ],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                    "background": "red"
-                                },
-                                "children": "Decline",
-                                "buttonCode": "BTN_DECLINE_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "background": "red"
+                            },
+                            "children": "Decline",
+                            "buttonCode": "BTN_DECLINE_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             },
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
+                    "checkValues": [
                         "ROOT"
                     ],
-                    "showValues":[
+                    "showValues": [
                         "GRP_INTERVIEWS"
                     ],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                    "background": "orange"
-                                },
-                                "children": "Interview",
-                                "buttonCode": "BTN_INTERVIEW_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "background": "orange"
+                            },
+                            "children": "Interview",
+                            "buttonCode": "BTN_INTERVIEW_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             },
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
+                    "checkValues": [
                         "ROOT"
                     ],
-                    "showValues":[
+                    "showValues": [
                         "GRP_OFFERED"
                     ],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                    "background": "green"
-                                },
-                                "children": "Offer",
-                                "buttonCode": "BTN_OFFER_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "background": "green"
+                            },
+                            "children": "Offer",
+                            "buttonCode": "BTN_OFFER_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             },
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
+                    "checkValues": [
                         "ROOT"
                     ],
-                    "showValues":[
+                    "showValues": [
                         "GRP_PLACED"
                     ],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                    "background": "red"
-                                },
-                                "children": "Place",
-                                "buttonCode": "BTN_PLACE_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "background": "red"
+                            },
+                            "children": "Place",
+                            "buttonCode": "BTN_PLACE_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             },
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues":[
+                    "checkValues": [
                         "ROOT"
                     ],
-                    "showValues":[
+                    "showValues": [
                         "GRP_IN_PROGRESS"
                     ],
-                    "children":[
-                        {
-                            "GennyButton": {
-                                "style": {
-                                    "height": "30px",
-                                    "marginTop": "10px"
-                                },
-                                "buttonStyle": {
-                                    "background": "orange"
-                                },
-                                "children": "In Progress",
-                                "buttonCode": "BTN_IN_PROGRESS_INTERN",
-                                "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                }
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                                "background": "orange"
+                            },
+                            "children": "In Progress",
+                            "buttonCode": "BTN_IN_PROGRESS_APPLICANT",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "hint": "ROOT"
                             }
                         }
-                    ]
+                    }]
                 }
             }
         ]
