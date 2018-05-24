@@ -73,8 +73,12 @@
             {
                 "Selector": {
                     "position": [1, 0],
-                    "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
-                    "showValues": ["true"],
+                    "checkValues": [
+                        "ROOT"
+                    ],
+                    "showValues": [
+                        "GRP_APPLIED"
+                    ],
                     "children": [{
                         "GennyButton": {
                             "style": {
@@ -82,16 +86,56 @@
                                 "marginTop": "10px"
                             },
                             "buttonStyle": {
-                                "backgroundColor": "PROJECT.PRI_COLOR"
+                                "background": "orange"
                             },
-                            "children": "Interview",
-                            "buttonCode": "BTN_INTERVIEW_APPLICANT",
+                            "children": "Shortlist",
+                            "buttonCode": "BTN_SHORTLIST_APPLICATION",
                             "value": {
                                 "itemCode": "BE.code",
                                 "hint": "ROOT"
                             }
                         }
                     }]
+                }
+            },
+            {
+                "Selector": {
+                    "position": [1, 0],
+                    "checkValues": ["USER.PRI_IS_HOST_COMPANY"],
+                    "showValues": ["true"],
+                    "children": [
+                        
+                        {
+                            "Selector": {
+                                "position": [1, 0],
+                                "checkValues": [
+                                    "ROOT"
+                                ],
+                                "showValues": [
+                                    "GRP_SHORTLISTED"
+                                ],
+                                "children": [
+                                    {
+                                        "GennyButton": {
+                                            "style": {
+                                                "height": "30px",
+                                                "marginTop": "10px"
+                                            },
+                                            "buttonStyle": {
+                                                "backgroundColor": "PROJECT.PRI_COLOR"
+                                            },
+                                            "children": "Interview",
+                                            "buttonCode": "BTN_INTERVIEW_APPLICATION",
+                                            "value": {
+                                                "itemCode": "BE.code",
+                                                "hint": "ROOT"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 }
             },
             {
