@@ -23,7 +23,7 @@
                    "children": [
                         {
                             "GennyButton": {
-                                "buttonCode": "BTN_ADD_PRODUCT",
+                                "buttonCode": "BTN_ADD_BEG",
                                 "style": {
                                     "padding": "10px",
                                     "width": "250px"
@@ -33,7 +33,7 @@
                                     "border": "1px solid white"
                                 },
                                 "value": {},
-                                "children": "ADD NEW INTERNSHIP"
+                                "children": "+ NEW INTERNSHIP"
                             }
                         }
                     ]
@@ -72,39 +72,30 @@
                                         }
                                     },
                                     {
-                                        "title": "Table View",
-                                        "icon": "dashboard",
+                                         "title": "Table View",
+                                        "icon": "view_list",
                                         "layout": {
                                             "layout": [
                                                 {
-                                                    "GennyTable": {
-                                                        "root": "GRP_APPLICATIONS"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "List View",
-                                        "icon": "dashboard",
-                                        "layout": {
-                                            "layout": [
-                                                {
-                                                    "GennyList": {
-                                                        "root": "GRP_APPLICATIONS"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Detail View",
-                                        "icon": "dashboard",
-                                        "layout": {
-                                            "layout": [
-                                                {
-                                                    "GennyBucketView": {
-                                                        "root": "GRP_APPLICATIONS"
+                                                    "SplitView" : {
+                                                        "children": [
+                                                            {
+                                                                "GennyList" : {
+                                                                    "root": "GRP_APPLICATIONS",
+                                                                    "showTitle": true
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyTable": {
+                                                                    "root": null,
+                                                                    "columns": [
+                                                                        "PRI_APPLICANT_FULLNAME",
+                                                                        "PRI_APPLICANT_USERNAME",
+                                                                        "PRI_DESCRIPTION"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
