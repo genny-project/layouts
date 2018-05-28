@@ -1,0 +1,60 @@
+{
+  "Grid": {
+    "cols": [0.6, 2],
+    "rows": [
+      {
+        "style": {
+          "flexGrow": 1,
+          "flexWrap": "nowrap"
+        }
+      }
+    ],
+    "style": {
+      "padding": "50px",
+      "paddingLeft": "0px"
+    },
+    "children": [
+      {
+        "ImageView": {
+          "position": [0, 0],
+          "src": "BE.link.APPLICANT.PRI_IMAGE_URL",
+          "style": {
+            "maxWidth": "150px",
+            "minWidth": "50px"
+          }
+        }
+      },
+      {
+        "Grid": {
+        "position": [0, 1],
+        "cols": 1,
+        "rows": 2,
+        "children": [
+          {
+            "h2": {
+              "position": [0, 0],
+              "children": "${BE.link.APPLICANT.PRI_FIRSTNAME} ${BE.link.APPLICANT.PRI_LASTNAME}",
+              "style": {
+                "margin": "0px",
+                "fontFamily": "Akkurat",
+                "fontWeight": "400",
+                "fontSize": "29px",
+                "color": "rgb(72,84,98)"
+              }
+            }
+          },
+          {
+            "DateLabel": {
+              "position": [1, 0],
+              "children": "Posted on ${BE.created}",
+              "style": {
+                "margin": "0px"
+              }
+            }
+          }
+        ]
+      }
+      }
+    ]
+  }
+}
