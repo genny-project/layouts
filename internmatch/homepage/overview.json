@@ -72,17 +72,29 @@
                                         }
                                     },
                                     {
-                                        "title": "Table View",
-                                        "icon": "dashboard",
+                                         "title": "Table View",
+                                        "icon": "view_list",
                                         "layout": {
                                             "layout": [
                                                 {
-                                                    "GennyTable": {
-                                                        "root": "GRP_APPLICATIONS",
-                                                        "columns": [
-                                                            "PRI_APPLICANT_FULLNAME",
-                                                            "PRI_APPLICANT_USERNAME",
-                                                            "PRI_DESCRIPTION"
+                                                    "SplitView" : {
+                                                        "children": [
+                                                            {
+                                                                "GennyList" : {
+                                                                    "root": "GRP_APPLICATIONS",
+                                                                    "showTitle": true
+                                                                }
+                                                            },
+                                                            {
+                                                                "GennyTable": {
+                                                                    "root": null,
+                                                                    "columns": [
+                                                                        "PRI_APPLICANT_FULLNAME",
+                                                                        "PRI_APPLICANT_USERNAME",
+                                                                        "PRI_DESCRIPTION"
+                                                                    ]
+                                                                }
+                                                            }
                                                         ]
                                                     }
                                                 }
