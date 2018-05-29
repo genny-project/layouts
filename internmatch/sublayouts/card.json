@@ -18,7 +18,7 @@
                     "cols": [
                         1,
                         1,
-                        "20"
+                        "10px"
                     ],
                     "children": [
                         {
@@ -80,11 +80,11 @@
                                 "root": "BE.code",
                                 "style": {
                                     "height": "25px",
-                                    "position": "absolute",
-                                    "right": "0px"
+                                    "width": "10px"
                                 },
                                 "statusStyle": {
                                     "height": "100%",
+                                    "width": "10px",
                                     "maxHeight": "40px"
                                 }
                             }
@@ -93,24 +93,69 @@
                 }
             },
             {
-                "GennyButton": {
+                "Selector": {
                     "position": [
                         1,
                         0
                     ],
-                    "style": {
-                        "height": "30px",
-                        "marginTop": "10px"
-                    },
-                    "buttonStyle": {
-                        "background": "PROJECT.PRI_COLOR"
-                    },
-                    "children": "View Applicant Profile",
-                    "buttonCode": "BTN_VIEW_APPLICANT",
-                    "value": {
-                        "itemCode": "BE.code",
-                        "hint": "ROOT"
-                    }
+                    "checkValues": [
+                        "BE.PRI_IS_BUYER"
+                    ],
+                    "showValues": [
+                        true
+                    ],
+                    "children": [
+                        {
+                            "GennyButton": {
+                                "style": {
+                                    "height": "30px",
+                                    "marginTop": "10px"
+                                },
+                                "buttonStyle": {
+                                    "background": "PROJECT.PRI_COLOR"
+                                },
+                                "children": "View My Application",
+                                "buttonCode": "BTN_VIEW_APPLICATION",
+                                "value": {
+                                    "itemCode": "BE.code",
+                                    "hint": "ROOT"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Selector": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "checkValues": [
+                        "BE.PRI_IS_SELLER"
+                    ],
+                    "showValues": [
+                        true
+                    ],
+                    "children": [
+                        {
+                            "GennyButton": {
+                                "style": {
+                                    "height": "30px",
+                                    "marginTop": "10px"
+                                },
+                                "buttonStyle": {
+                                    "background": "PROJECT.PRI_COLOR"
+                                },
+                                "children": "View Application",
+                                "buttonCode": "BTN_VIEW_APPLICATION",
+                                "value": {
+                                    "itemCode": "BE.code",
+                                    "hint": "ROOT"
+                                }
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -133,7 +178,7 @@
                                     "marginTop": "10px"
                                 },
                                 "buttonStyle": {
-                                    "background": "orange"
+                                    "background": "PROJECT.PRI_COLOR"
                                 },
                                 "children": "Shortlist",
                                 "buttonCode": "BTN_SHORTLIST_APPLICATION",
@@ -367,7 +412,7 @@
                         0
                     ],
                     "checkValues": [
-                        "PRI_IS_DEACTIVATED"
+                        "BE.PRI_IS_DEACTIVATED"
                     ],
                     "showValues": [
                         true
@@ -400,10 +445,10 @@
                         0
                     ],
                     "checkValues": [
-                        "PRI_IS_DEACTIVATED"
+                        "BE.PRI_IS_DEACTIVATED"
                     ],
-                    "hideValues": [
-                        true
+                    "showValues": [
+                        false
                     ],
                     "children": [
                         {
@@ -413,9 +458,9 @@
                                     "marginTop": "10px"
                                 },
                                 "buttonStyle": {
-                                    "background": "red"
+                                    "background": "black"
                                 },
-                                "children": "Deactivate",
+                                "children": "On Hold",
                                 "buttonCode": "BTN_DEACTIVATE_APPLICATION",
                                 "value": {
                                     "itemCode": "BE.code",
