@@ -21,20 +21,35 @@
             "component": "List",
             "repeat": "_repeater.items",
             "props": {
-              "headerText": "{{repeater.name}}"
+              "headerText": "{{repeater.code}}"
             },
             "children": {
-              "component": "Card",
+              "component": "Link",
               "props": {
-                "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
-                "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                "to": "job/{{repeater.item.code}}"
               },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Card",
                   "props": {
-                    "text": "{{repeater.item.name}}"
-                  }
+                    "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                    "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                  },
+                  "children": [
+                    {
+                      "component": "Label",
+                      "props": {
+                        "text": "{{repeater.item.name}}"
+                      }
+                    },
+                    {
+                      "component": "Label",
+                      "props": {
+                        "size": "xxs",
+                        "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                      }
+                    }
+                  ]
                 }
               ]
             }
