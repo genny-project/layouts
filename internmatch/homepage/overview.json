@@ -63,43 +63,27 @@
                                 },
                                 "views": [
                                     {
-                                        "title": "Overview",
-                                        "icon": "dashboard",
+                                        "title": "List View",
+                                        "icon": "view_agenda",
                                         "layout": {
                                             "layout": [
                                                 {
-                                                    "GennyBucketView": {
-                                                        "root": "GRP_APPLICATIONS"
+                                                    "GennyList": {
+                                                        "root": "GRP_NEW_ITEMS",
+                                                        "showTitle": true
                                                     }
                                                 }
                                             ]
                                         }
                                     },
                                     {
-                                         "title": "Table View",
-                                        "icon": "view_list",
+                                        "title": "Bucket View",
+                                        "icon": "view_module",
                                         "layout": {
                                             "layout": [
                                                 {
-                                                    "SplitView" : {
-                                                        "children": [
-                                                            {
-                                                                "GennyList" : {
-                                                                    "root": "GRP_APPLICATIONS",
-                                                                    "showTitle": true
-                                                                }
-                                                            },
-                                                            {
-                                                                "GennyTable": {
-                                                                    "root": null,
-                                                                    "columns": [
-                                                                        "PRI_APPLICANT_FULLNAME",
-                                                                        "PRI_APPLICANT_USERNAME",
-                                                                        "PRI_DESCRIPTION"
-                                                                    ]
-                                                                }
-                                                            }
-                                                        ]
+                                                    "GennyBucketView": {
+                                                        "root": "GRP_APPLICATIONS"
                                                     }
                                                 }
                                             ]
