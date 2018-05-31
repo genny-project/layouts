@@ -1,5 +1,7 @@
 {
-    "div": {
+    "Grid": {
+        "rows": 1,
+        "cols": ["110px",1,"100px"],
         "style": {
             "fontSize": "1em",
             "borderBottom": "1px solid #bbb",
@@ -16,7 +18,86 @@
                 }
             },
             {
+                "Grid": {
+                    "position": [0, 1],
+                    "cols": 1,
+                    "rows": 2,
+                    "style": {
+                        "height": "initial"
+                    },
+                    "children": [
+
+                        {
+                            "span": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "display": "flex",
+                                    "alignItems": "center"
+                                },
+                                "children": [
+                                   {
+                                       "h3": {
+                                            "style": {
+                                                "marginRight": "5px"
+                                            },
+                                            "children": "BE.PRI_NAME"
+                                        }
+                                    },
+                                    {
+                                        "p": {
+                                            "children": "BE.link.COMPANY.PRI_NAME"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [
+                                    1,
+                                    0
+                                ],
+                                "style": {
+                                    "display": "flex",
+                                    "alignItems": "center"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "marginRight": "5px"
+                                            },
+                                            "children": "Posted on:"
+                                        }
+                                    },
+                                    {
+                                        "DateLabel": {
+                                            "children": "${BE.created}",
+                                            "format": "DD MMM YYYY"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "SublayoutLoader" : {
+                    "position":[0, 1],
+                    "layoutCode": "internship-details-features",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                  }
+               }
+            },
+            {
                 "Selector": {
+                    "position": [0, 2],
                     "checkValues": ["USER.PRI_IS_BUYER"],
                     "showValues": ["true"],
                     "children": [
@@ -37,15 +118,17 @@
                                 },
                                 "children": "Apply"
                             }
-                        }    
+                        }
                     ]
                 }
             },
             {
                 "GennyButton": {
+                    "position": [0, 2],
                     "style": {
                       "width": "100px",
-                      "height": "30px"
+                      "height": "30px",
+                      "marginTop":"10px"
                     },
                     "buttonStyle": {
                       "background": "PROJECT.PRI_COLOR",

@@ -5,6 +5,7 @@
                 "style": {
                     "height": "70px",
                     "flexGrow": 0,
+                    "flexShrink": 0,
                     "background": "PROJECT.PRI_COLOR"
                 }
             },
@@ -44,16 +45,27 @@
                 }
             },
             {
-                "SplitView" : {
+                "TabContainer": {
                     "position": [
                         1,
                         0
                     ],
-                    "children": [
+                    "contentStyle": {
+                        "backgroundColor": "#fff"
+                    },
+                    "views": [
                         {
-                            "GennyList" : {
-                                "root": "GRP_NEW_ITEMS",
-                                "showTitle": true
+                            "title": "List View",
+                            "icon": "view_agenda",
+                            "layout": {
+                                "layout": [
+                                    {
+                                        "GennyList": {
+                                            "root": "GRP_NEW_ITEMS",
+                                            "showTitle": true
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
