@@ -1,62 +1,67 @@
 {
-    "div": {
+    "Grid": {
+        "rows": 1,
+        "cols": 3,
         "style": {
-            "fontSize": "1em",
-            "borderBottom": "1px solid #bbb",
-            "borderRadius": 0,
-            "padding": "5px",
-            "display": "flex",
-            "alignItems": "center",
-            "justifyContent": "space-around"
+            "padding": "30px",
+            "background": "white"
         },
         "children": [
             {
-                "span": {
-                    "children": "BE.PRI_NAME"
+                "ImageView": {
+                    "position": [0, 0],
+                    "src": "BE.link.COMPANY.PRI_IMAGE_URL",
+                    "style": {
+                        "width": "50px"
+                    }
                 }
             },
             {
-                "Selector": {
-                    "checkValues": ["USER.PRI_IS_BUYER"],
-                    "showValues": ["true"],
+                "Grid": {
+                    "position": [0, 1],
+                    "cols": 1,
+                    "rows": 2,
                     "children": [
                         {
-                            "GennyButton": {
-                                "style": {
-                                  "width": "100px",
-                                  "height": "30px"
-                                },
-                                "buttonStyle": {
-                                  "background": "PROJECT.PRI_COLOR",
-                                  "color": "white"
-                                },
-                                "buttonCode": "BTN_APPLY_BEG",
-                                "value": {
-                                  "itemCode": "BE.code",
-                                  "root": "ROOT"
-                                },
-                                "children": "Apply"
+                            "h3": {
+                                "position": [0, 0],
+                                "children": "BE.link.INTERNSHIP.PRI_TITLE"
                             }
-                        }    
+                        },
+                        {
+                            "p": {
+                                "position": [1, 0],
+                                "children": "BE.link.INTERNSHIP.PRI_DESCRIPTION"
+                            }
+                        }
                     ]
-                }
+                }   
             },
             {
-                "GennyButton": {
-                    "style": {
-                      "width": "100px",
-                      "height": "30px"
+                "GennyButton":{
+                    "position": [0, 2],
+                    "buttonCode": "BTN_VIEW_INTERNSHIP_DETAILS",
+                    "value":{
+                        "itemCode":"BE.code",
+                        "hint":"ROOT"
                     },
-                    "buttonStyle": {
-                      "background": "PROJECT.PRI_COLOR",
-                      "color": "white"
+                    "style":{
+                        "height":"30px",
+                        "marginTop":"10px"
                     },
-                    "buttonCode": "BTN_VIEW_BEG",
-                    "value": {
-                      "itemCode": "BE.code",
-                      "root": "ROOT"
+                    "buttonStyle":{
+                        "backgroundColor":"PROJECT.PRI_COLOR"
                     },
-                    "children": "View"
+                    "children":[
+                        {
+                            "span":{
+                                "style":{
+                                    "fontSize":"0.6em"
+                                },
+                                "children":"View More"
+                            }
+                        }
+                    ]
                 }
             }
         ]
