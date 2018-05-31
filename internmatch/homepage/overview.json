@@ -44,49 +44,37 @@
                 }
             },
             {
-                "SplitView" : {
+                "TabContainer": {
                     "position": [
                         1,
                         0
                     ],
-                    "children": [
+                    "contentStyle": {
+                        "backgroundColor": "#fff"
+                    },
+                    "views": [
                         {
-                            "GennyList" : {
-                                "root": "GRP_NEW_ITEMS",
-                                "showTitle": true
+                            "title": "List View",
+                            "icon": "view_agenda",
+                            "layout": {
+                                "layout": [
+                                    {
+                                        "GennyList": {
+                                            "root": "GRP_NEW_ITEMS",
+                                            "showTitle": true
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
-                            "TabContainer": {
-                                "contentStyle": {
-                                    "backgroundColor": "#fff"
-                                },
-                                "views": [
+                            "title": "Bucket View",
+                            "icon": "view_module",
+                            "layout": {
+                                "layout": [
                                     {
-                                        "title": "List View",
-                                        "icon": "view_agenda",
-                                        "layout": {
-                                            "layout": [
-                                                {
-                                                    "GennyList": {
-                                                        "root": "GRP_NEW_ITEMS",
-                                                        "showTitle": true
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Bucket View",
-                                        "icon": "view_module",
-                                        "layout": {
-                                            "layout": [
-                                                {
-                                                    "GennyBucketView": {
-                                                        "root": "GRP_APPLICATIONS"
-                                                    }
-                                                }
-                                            ]
+                                        "GennyBucketView": {
+                                            "root": "GRP_APPLICATIONS"
                                         }
                                     }
                                 ]
