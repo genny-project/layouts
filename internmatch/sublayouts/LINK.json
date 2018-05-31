@@ -17,14 +17,53 @@
                 }
             },
             {
-                "SublayoutLoader" : {
-                    "position":[0, 1],
-                    "layoutCode": "internship-details-title",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                  }
-               }
+                "Grid": {
+                    "position": [0, 1],
+                    "cols": 1,
+                    "rows": 2,
+                    "children": [
+                        {
+                            "h3": {
+                                "position": [0, 0],
+                                "children": "BE.PRI_NAME"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [1, 0],
+                                "children": "BE.link.COMPANY.PRI_NAME"
+                            }
+                        },
+                        {
+                            "span": {
+                                "position": [
+                                    2,
+                                    0
+                                ],
+                                "style": {
+                                    "display": "flex",
+                                    "alignItems": "center"
+                                },
+                                "children": [
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "marginRight": "5px"
+                                            },
+                                            "children": "Posted on:"
+                                        }
+                                    },
+                                    {
+                                        "DateLabel": {
+                                            "children": "${BE.created}",
+                                            "format": "DD MMM YYYY"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }   
             },
             {
                 "SublayoutLoader" : {
