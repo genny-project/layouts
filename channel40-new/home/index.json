@@ -21,7 +21,7 @@
             "component": "List",
             "repeat": "_repeater.items",
             "props": {
-              "headerText": "{{repeater.code}}"
+              "headerText": "{{repeater.name}}"
             },
             "children": {
               "component": "Card",
@@ -35,27 +35,6 @@
                   "props": {
                     "text": "{{repeater.item.name}}"
                   }
-                },
-                {
-                  "component": "Label",
-                  "props": {
-                    "size": "xxs",
-                    "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                  }
-                },
-                {
-                  "component": "EventLink",
-                  "props": {
-                    "buttonCode": "BTN_LOAD_SEE_MORE",
-                    "value": "{{repeater.item.code}}",
-                    "hint": "{{parentRepeater.code}}"
-                  },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "children": "View Details"
-                    }
-                  ]
                 }
               ]
             }
