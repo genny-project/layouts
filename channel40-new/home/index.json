@@ -4,7 +4,7 @@
     "appColor": "dark"
   },
   "children": [
-      {
+    {
       "component": "Box",
       "props": {
         "flexDirection": "column",
@@ -18,37 +18,28 @@
           "component": "BucketView",
           "repeat": "_query",
           "children": {
-              "component": "List",
-              "repeat": "_repeater.items",
+            "component": "List",
+            "repeat": "_repeater.items",
+            "props": {
+              "headerText": "{{repeater.name}}"
+            },
+            "children": {
+              "component": "Card",
               "props": {
-                "headerText": "{{repeater.name}}"
+                "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
               },
-              "children": 
+              "children": [
                 {
-                  "component": "Card",
+                  "component": "Label",
                   "props": {
-                    "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
-                    "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
-                  },
-                  "children": [
-                    {
-                      "component": "Label",
-                      "props": {
-                        "text": "{{repeater.item.name}}"
-                      }
-                    },
-                    {
-                      "component": "Label",
-                      "props": {
-                        "size": "xxs",
-                        "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                      }
-                    }
-                  ]
+                    "text": "{{repeater.item.name}}"
+                  }
                 }
-              
+              ]
             }
           }
+        }
       ]
     }
   ],
@@ -81,64 +72,65 @@
       "operator": "map",
       "fields": "be"
     },
-      {
-        "operator": "scope",
-        "path": "links",
-        "scope": {
-          "operator": "getBE",
-          "basePath": "baseEntities.data",
-          "as": "be",
-          "id": "{{link.targetCode}}"
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": {
+        "name": "name",
+        "code": "code",
+        "items": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be": {
+            "$exists": true
+          }
         }
-      },
-      {
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "map",
         "fields": {
-          "name": "name",
-          "items": "links"
+          "linkValue": "link.linkValue",
+          "item": "be"
         }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "find",
-          "query": {
-            "be": {
-              "$exists": true
-            }
-          }
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "map",
-          "fields": {
-            "linkValue": "link.linkValue",
-            "item": "be"
-          }
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateLinkValues",
-          "field": "item",
-          "as": "links"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateAttributes",
-          "path": "links"
-        }
-      },
-      {
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateLinkValues",
+        "field": "item",
+        "as": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "links"
+      }
+    },
+    {
       "operator": "scope",
       "path": "items",
       "scope": {
