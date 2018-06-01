@@ -11,7 +11,8 @@
           {
               "style": {
                   "display":"flex",
-                  "alignItems":"center",
+                  "alignItems":"right",
+                  "textAlign": "right",
                   "flexGrow":1
               }
           }
@@ -57,6 +58,16 @@
               "style": {
                   "flexGrow": 1,
                   "paddingBottom" : "5px"
+              }
+          },
+          {
+              "style": {
+                  "flexGrow": 1
+              }
+          },
+          {
+              "style": {
+                  "flexGrow": 1
               }
           },
           {
@@ -313,19 +324,41 @@
                               },
                               "children":"W: ${BE.link.LOAD.PRI_LOAD_WEIGHT_KG}kg"
                           }
-                      },
+                      }
+                  ]
+              }
+          },
+          {
+              "div":{
+                  "position":[10, 0],
+                  "children":[
                       {
-                          "span": {
-                              "position": [2,0],
-                              "style": {
-                                  "fontSize": "0.8em"
+                          "span":{
+                              "style":{
+                                  "fontSize":"0.8em",
+                                  "fontWeight":"bold"
                               },
-                              "children": "Load Type: ${BE.link.LOAD.PRI_LOAD_TYPE}"
+                              "children":"Load Type"
                           }
                       }
                   ]
               }
-          }
+          },
+          {
+              "div":{
+                  "position":[11, 0],
+                  "children":[
+                      {
+                          "DisplayHTML":{
+                              "style":{
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"BE.link.LOAD.PRI_LOAD_TYPE"
+                          }
+                      }
+                  ]
+              }
+          },
       ]
   }
 }
