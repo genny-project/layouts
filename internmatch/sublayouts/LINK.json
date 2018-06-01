@@ -1,20 +1,19 @@
 {
     "Grid": {
         "rows": 1,
-        "cols": ["110px",1,"100px"],
+        "cols": ["50px",1,1],
         "style": {
-            "fontSize": "1em",
-            "borderBottom": "1px solid #bbb",
-            "borderRadius": 0,
-            "padding": "5px",
-            "display": "flex",
-            "alignItems": "center",
-            "justifyContent": "space-around"
+            "padding": "30px",
+            "background": "white"
         },
         "children": [
             {
-                "span": {
-                    "children": "BE.PRI_NAME"
+                "ImageView": {
+                    "position": [0, 0],
+                    "src": "BE.link.COMPANY.PRI_IMAGE_URL",
+                    "style": {
+                        "width": "50px"
+                    }
                 }
             },
             {
@@ -26,7 +25,7 @@
                         "height": "initial"
                     },
                     "children": [
-
+                       
                         {
                             "span": {
                                 "position": [
@@ -38,7 +37,7 @@
                                     "alignItems": "center"
                                 },
                                 "children": [
-                                   {
+                                   {    
                                        "h3": {
                                             "style": {
                                                 "marginRight": "5px"
@@ -83,7 +82,17 @@
                             }
                         }
                     ]
-                }
+                }   
+            },
+            {
+                "SublayoutLoader" : {
+                    "position":[0, 1],
+                    "layoutCode": "internship-details-features",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                  }
+               }
             },
             {
                 "Selector": {
@@ -94,7 +103,6 @@
                         {
                             "GennyButton": {
                                 "style": {
-                                  "width": "100px",
                                   "height": "30px"
                                 },
                                 "buttonStyle": {
@@ -108,7 +116,7 @@
                                 },
                                 "children": "Apply"
                             }
-                        }
+                        }    
                     ]
                 }
             },
@@ -116,7 +124,6 @@
                 "GennyButton": {
                     "position": [0, 2],
                     "style": {
-                      "width": "100px",
                       "height": "30px",
                       "marginTop":"10px"
                     },
