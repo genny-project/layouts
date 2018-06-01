@@ -39,23 +39,59 @@
           "position": [0, 0],
           "children": [
             {
-              "GennyButton": {
-                "style": {
-                  "width": "150px",
-                  "height": "40px",
-                  "marginBottom": "15px"
-                },
-                "buttonStyle": {
-                  "background": "red",
-                  "color": "white"
-                },
-                "buttonCode": "BTN_DELETE_BEG",
-                "value": {
-                  "itemCode": "BE.code",
-                  "root": "ROOT"
-                },
-                "confirmation": "Are you sure you would like to delete this internship? This action is not reversible.",
-                "children": "Delete"
+              "Selector": {
+                "checkValues": ["ROOT"],
+                "hideValues": ["GRP_BIN"],
+                "children": [
+                  {
+                    "GennyButton": {
+                      "style": {
+                        "width": "150px",
+                        "height": "40px",
+                        "marginBottom": "15px"
+                      },
+                      "buttonStyle": {
+                        "background": "red",
+                        "color": "white"
+                      },
+                      "buttonCode": "BTN_DELETE_BEG",
+                      "value": {
+                        "itemCode": "BE.code",
+                        "root": "ROOT"
+                      },
+                      "confirmation": "Are you sure you would like to delete this internship?",
+                      "children": "Delete"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["ROOT"],
+                "showValues": ["GRP_BIN"],
+                "children": [
+                  {
+                    "GennyButton": {
+                      "style": {
+                        "width": "150px",
+                        "height": "40px",
+                        "marginBottom": "15px"
+                      },
+                      "buttonStyle": {
+                        "background": "red",
+                        "color": "white"
+                      },
+                      "buttonCode": "BTN_RECOVER_BEG",
+                      "value": {
+                        "itemCode": "BE.code",
+                        "root": "ROOT"
+                      },
+                      "confirmation": "Are you sure you would like to recover this internship?",
+                      "children": "Recover"
+                    }
+                  }
+                ]
               }
             }
           ]
