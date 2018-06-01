@@ -45,40 +45,21 @@
                 }
             },
             {
-                "TabContainer": {
+                "SplitView": {
                     "position": [
                         1,
                         0
                     ],
-                    "contentStyle": {
-                        "backgroundColor": "#fff"
-                    },
-                    "views": [
+                    "children": [
                         {
-                            "title": "List View",
-                            "icon": "view_agenda",
-                            "layout": {
-                                "layout": [
-                                    {
-                                        "GennyList": {
-                                            "root": "GRP_NEW_ITEMS",
-                                            "showTitle": true
-                                        }
-                                    }
-                                ]
+                            "GennyList": {
+                                "root": "GRP_NEW_ITEMS",
+                                "showTitle": true
                             }
                         },
                         {
-                            "title": "Bucket View",
-                            "icon": "view_module",
-                            "layout": {
-                                "layout": [
-                                    {
-                                        "GennyBucketView": {
-                                            "root": "GRP_APPLICATIONS"
-                                        }
-                                    }
-                                ]
+                            "GennyBucketView": {
+                                "root": "GRP_APPLICATIONS"
                             }
                         }
                     ]
