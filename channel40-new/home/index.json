@@ -30,32 +30,24 @@
               },
               "children": [
                 {
-                  "component": "Touchable",
+                  "component": "Card",
                   "props": {
-                    "withFeedback": true
+                    "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                    "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
                   },
                   "children": [
                     {
-                      "component": "Card",
+                      "component": "Text",
                       "props": {
-                        "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
-                        "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "text": "{{repeater.item.name}}"
-                          }
-                        },
-                        {
-                          "component": "Text",
-                          "props": {
-                            "size": "xxs",
-                            "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                          }
-                        }
-                      ]
+                        "text": "{{repeater.item.name}}"
+                      }
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs",
+                        "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                      }
                     }
                   ]
                 }
