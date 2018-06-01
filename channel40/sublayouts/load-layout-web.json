@@ -1,0 +1,821 @@
+{
+    "Grid":{
+        "cols":[
+            2,
+            {
+                "style" : {
+                    "flexGrow": 1,
+                    "maxWidth": "400px"
+                }
+            }
+        ],
+        "rows":1,
+        "style":{
+            "padding":"20px 20px 20px 60px",
+            "height":"initial"
+        },
+        "children":[
+            {
+                "Grid":{
+                    "position":[
+                        0,
+                        0
+                    ],
+                    "style":{
+                        "minHeight":"fit-content",
+                        "height": "auto"
+                    },
+                    "cols":1,
+                    "rows":[
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "padding":"0"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow":1,
+                                "paddingTop":"10px"
+                            }
+                        }
+                    ],
+                    "children":[
+                        {
+                            "GennyButton":{
+                                "position":[
+                                    0,
+                                    0
+                                ],
+                                "style":{
+                                    "width":"100px",
+                                    "height":"30px"
+                                },
+                                "buttonStyle":{
+                                    "height":"30px",
+                                    "padding":"0"
+                                },
+                                "buttonCode":"BTN_GO_BACK_JOB_DETAIL",
+                                "hint":{
+                                    "itemCode":"BE.code"
+                                },
+                                "children":[
+                                    {
+                                        "IconSmall":{
+                                            "style":{
+                                                "fontSize":"28px",
+                                                "transform": "rotate(90deg)",
+                                                "color":"white"
+                                            },
+                                            "name":"arrow_drop_down"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "style":{
+                                                "color":"white"
+                                            },
+                                            "children":"BACK"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Grid":{
+                                "position":[
+                                    1,
+                                    0
+                                ],
+                                "style":{
+                                    "minHeight":"fit-content"
+                                },
+                                "cols":[
+                                    {
+                                        "style":{
+                                            "flexGrow":0.1,
+                                            "display":"flex",
+                                            "alignItems":"center"
+                                        }
+                                    },
+                                    {
+                                        "style":{
+                                            "flexGrow":1,
+                                            "marginLeft":"20px",
+                                            "fontSize":"30px"
+                                        }
+                                    }
+                                ],
+                                "rows":1,
+                                "children":[
+                                    {
+                                        "ImageView":{
+                                            "position":[
+                                                0,
+                                                0
+                                            ],
+                                            "style":{
+                                                "width":"75px",
+                                                "marginRight":"5px"
+                                            },
+                                            "src":"BE.link.LOAD.PRI_IMAGE_URL"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "fontSize":"0.75em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_NAME"
+                                        }
+                                    },
+                                    {
+                                        "div":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "display":"flex",
+                                                "flexDirection":"row",
+                                                "alignItems":"center"
+                                            },
+                                            "children":[
+                                                {
+                                                    "SublayoutLoader" : {
+                                                        "layoutCode": "price-display",
+                                                        "aliases": {
+                                                            "BE": "BE.code",
+                                                            "GROUP": "ROOT"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "div":{
+                                            "position":[
+                                                0,
+                                                1
+                                            ],
+                                            "style":{
+                                                "display":"flex",
+                                                "flexDirection":"row",
+                                                "alignItems":"center"
+                                            },
+                                            "children":[
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.5em",
+                                                            "marginRight": "5px"
+                                                        },
+                                                        "children":"Posted"
+                                                    }
+                                                },
+                                                {
+                                                    "DateLabel":{
+                                                        "format":"DD/MM/YY",
+                                                        "style":{
+                                                            "fontSize":"0.5em",
+                                                            "marginRight": "5px"
+                                                        },
+                                                        "children":"BE.created"
+                                                    }
+                                                },
+                                                {
+                                                    "span":{
+                                                        "style":{
+                                                            "fontSize":"0.5em",
+                                                            "marginRight": "5px"
+                                                        },
+                                                        "children":"at"
+                                                    }
+                                                },
+                                                {
+                                                    "DateLabel":{
+                                                        "format":"HH:mm",
+                                                        "style":{
+                                                            "fontSize":"0.5em"
+                                                        },
+                                                        "children":"BE.created"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Grid":{
+                                "position":[
+                                    2,
+                                    0
+                                ],
+                                "cols":[
+                                    3,
+                                    3
+                                ],
+                                "rows":[
+                                    1,
+                                    {
+                                        "style" : {
+                                            "flexGrow": 1,
+                                            "marginTop": "10px"
+                                        }
+                                    },
+                                    {
+                                        "style" : {
+                                            "flexGrow": 1,
+                                            "marginTop": "10px"
+                                        }
+                                    },
+                                    {
+                                        "style" : {
+                                            "flexGrow": 1,
+                                            "marginTop": "10px"
+                                        }
+                                    }
+                                ],
+                                "style":{
+                                    "marginTop":"20px",
+                                    "height":"initial"
+                                },
+                                "children":[
+                                    {
+                                        "span":{
+                                            "position":[0,0],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"JOB ID: "
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[0,0],
+                                            "style":{
+                                                "fontSize":"1em"
+                                            },
+                                            "children":"BE.PRI_JOB_ID"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[1,0],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"PICKUP"
+                                        }
+                                    },
+                                    {
+                                        "SublayoutLoader" : {
+                                            "position":[1,0],
+                                            "layoutCode": "address-pickup-display",
+                                            "aliases": {
+                                                "BE": "BE.code",
+                                                "GROUP": "ROOT"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[1,1],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"DELIVERY"
+                                        }
+                                    },
+                                    {
+                                        "SublayoutLoader" : {
+                                            "position":[1,1],
+                                            "layoutCode": "address-dropoff-display",
+                                            "aliases": {
+                                                "BE": "BE.code",
+                                                "GROUP": "ROOT"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[2,0],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"AVAILABLE FOR PICKUP FROM"
+                                        }
+                                    },
+                                    {
+                                        "DateLabel":{
+                                            "position":[2,0],
+                                            "format":"DD/MM/YY HH:mm",
+                                            "style":{
+                                                "fontSize":"0.8em"
+                                            },
+                                            "children":"BE.PRI_PICKUP_DATETIME"
+                                        }
+                                    },
+                                    {
+
+                                        "span":{
+                                            "position": [2,1],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"DELIVERY REQUIRED BEFORE"
+                                        }
+
+                                    },
+                                    {
+                                        "Selector":{
+                                            "position":[2,1],
+                                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
+                                            "showIfNull": true,
+                                            "children":[
+                                                {
+                                                    "br": {}
+                                                },
+                                                {
+                                                    "span":{
+                                                        "style": {
+                                                            "fontSize": "0.8em"
+                                                        },
+                                                        "children":"TBC"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Selector":{
+                                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
+                                            "showIfNotNull": true,
+                                            "position":[2,1],
+                                            "children":[
+                                                {
+                                                    "DateLabel":{
+                                                        "format":"DD/MM/YY HH:mm",
+                                                        "style":{
+                                                            "fontSize":"0.8em"
+                                                        },
+                                                        "children":"BE.PRI_DROPOFF_DATETIME"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position":[3,0],
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold"
+                                            },
+                                            "children":"TOTAL DISTANCE"
+                                        }
+                                    },
+                                    {
+                                        "MeasurementLabel":{
+                                            "showDecimal": 2,
+                                            "position":[3,0],
+                                            "style":{
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.PRI_TOTAL_DISTANCE_M"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "div":{
+                                "position":[3,0],
+                                "children":[
+                                    {
+                                        "span":{
+                                            "children":"LOAD INFORMATION"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "div":{
+                                "position":[3,0],
+                                "children":[
+                                    {
+                                        "DisplayHTML":{
+                                            "style":{
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_DESCRIPTION"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "div":{
+                                "position":[4,0],
+                                "children":[
+                                    {
+                                        "span":{
+                                            "children":"LOAD DIMENSIONS"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Grid":{
+                                "position":[4,0],
+                                "cols":[3,3],
+                                "rows":3,
+                                "style":{
+                                    "height":"initial"
+                                },
+                                "children":[
+                                    {
+                                        "span":{
+                                            "position": [0,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"L: "
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [0,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_LOAD_LENGTH_MM"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [0,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":" mm"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [0,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"W: "
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [0,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_LOAD_WIDTH_MM"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [0,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":" mm"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"H: "
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_LOAD_HEIGHT_MM"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,0],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":" mm"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"W: "
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":"BE.link.LOAD.PRI_LOAD_WEIGHT_KG"
+                                        }
+                                    },
+                                    {
+                                        "span":{
+                                            "position": [1,1],
+                                            "style": {
+                                                "fontSize": "0.8em"
+                                            },
+                                            "children":" kg"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "position":[5,0],
+                                "checkValues": ["USER.PRI_IS_SELLER", "USER.PRI_IS_ADMIN"],
+                                "showValues": [true, "TRUE"],
+                                "children": [
+                                    {
+                                        "div": {
+                                            "className": "line-break"
+                                        }
+                                    },
+                                    {
+                                        "GennyList":{
+                                            "root": "BE.code",
+                                            "showLinks": ["OWNER"],
+                                            "hideHeader": true,
+                                            "hideCount": true,
+                                            "showEmpty" : false,
+                                            "gennyListStyle": {
+                                                "maxWidth": "700px"
+                                            },
+                                            "style":{
+                                                "margin":"0",
+                                                "maxWidth": "700px",
+                                                "background": "none"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "div": {
+                                            "className": "line-break"
+                                        }
+                                    },
+                                    {
+                                        "h4" : {
+                                            "style": {
+                                                "margin": "0"
+                                            },
+                                            "children": "YOUR QUOTES"
+                                        }
+                                    },
+                                    {
+                                        "GennyList":{
+                                            "root": "BE.code",
+                                            "showLinks": ["OFFER"],
+                                            "hideHeader": true,
+                                            "hideCount": true,
+                                            "showEmpty" : true,
+                                            "gennyListStyle": {
+                                                "maxWidth": "700px"
+                                            },
+                                            "style":{
+                                                "margin":"0",
+                                                "maxWidth": "700px",
+                                                "background": "none"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "position":[6,0],
+                                "checkValues": "ROOT",
+                                "showValues": ["GRP_APPROVED", "GRP_COMPLETED", "GRP_IN_TRANSIT", "GRP_PAID"],
+                                "children": [
+                                    {
+                                        "Selector": {
+                                            "checkValues": ["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN"],
+                                            "showValues": [true, "TRUE"],
+                                            "children": [
+                                                {
+                                                    "div": {
+                                                        "className": "line-break"
+                                                    }
+                                                },
+                                                {
+                                                    "h4" : {
+                                                        "style": {
+                                                            "margin": "0"
+                                                        },
+                                                        "children": "ACCEPTED QUOTE"
+                                                    }
+                                                },
+                                                {
+                                                    "GennyList":{
+                                                        "root": "BE.code",
+                                                        "showLinks": ["ACCEPTED_OFFER"],
+                                                        "itemsPerPage":1,
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "hideNav": true,
+                                                        "gennyListStyle": {
+                                                            "maxWidth": "700px"
+                                                        },
+                                                        "style":{
+                                                            "margin":"0",
+                                                            "maxWidth": "700px",
+                                                            "background": "none"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "div": {
+                                                        "className": "line-break"
+                                                    }
+                                                },
+                                                {
+                                                    "h4" : {
+                                                        "style": {
+                                                            "margin": "0"
+                                                        },
+                                                        "children": "QUOTES RECEIVED"
+                                                    }
+                                                },
+                                                {
+                                                    "GennyList":{
+                                                        "root": "BE.code",
+                                                        "showLinks": ["OFFER"],
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "gennyListStyle": {
+                                                            "maxWidth": "700px"
+                                                        },
+                                                        "style":{
+                                                            "margin":"0",
+                                                            "maxWidth": "700px",
+                                                            "background": "none"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "position":[6,0],
+                                "checkValues": "USER.PRI_IS_BUYER",
+                                "showValues": [true, "TRUE"],
+                                "children": [
+                                    {
+                                        "Selector": {
+                                            "checkValues": "ROOT",
+                                            "showValues": "GRP_NEW_ITEMS",
+                                            "children": [  
+                                                {
+                                                    "div": {
+                                                        "className": "line-break"
+                                                    }
+                                                },
+                                                {
+                                                    "h4" : {
+                                                        "style": {
+                                                            "margin": "0"
+                                                        },
+                                                        "children": "QUOTES RECEIVED"
+                                                    }
+                                                },
+                                                {
+                                                    "GennyList":{
+                                                        "root": "BE.code",
+                                                        "showLinks": ["OFFER"],
+                                                        "hideHeader": true,
+                                                        "hideCount": true,
+                                                        "gennyListStyle": {
+                                                            "maxWidth": "700px"
+                                                        },
+                                                        "style":{
+                                                            "margin":"0",
+                                                            "maxWidth": "700px",
+                                                            "background": "none"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "SublayoutLoader" : {
+                    "position":[0,1],
+                    "layoutCode": "load-action-buttons",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
+                }
+            },
+            {
+                "SublayoutLoader" : {
+                    "position":[0,1],
+                    "layoutCode": "map-display",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
+                }
+            },
+            {
+                "GennyCarousel":{
+                    "position":[0,1],
+                    "imageHeight":"250px",
+                    "root": "BE.link.LOAD.code",
+                    "attributeCode": "PRI_LOAD_IMAGE",
+                    "style":{
+                        "width": "100%",
+                        "marginTop": "10px",
+                        "padding":"0",
+                        "borderRadius":"5px"
+                    }
+                }
+            }
+        ]
+    }
+}
