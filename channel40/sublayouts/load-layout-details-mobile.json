@@ -12,7 +12,7 @@
               "style": {
                   "display":"flex",
                   "alignItems":"center",
-                  "flexGrow":2
+                  "flexGrow":1
               }
           }
       ],
@@ -63,6 +63,16 @@
               "style": {
                   "flexGrow": 1
               }
+          },
+          {
+              "style": {
+                  "flexGrow": 1
+              }
+          },
+          {
+              "style": {
+                  "flexGrow": 1
+              }
           }
       ],
       "style":{
@@ -72,21 +82,12 @@
       "children":[
           {
               "span":{
-                  "position":[0,0],
+                  "position":[0, 0],
                   "style":{
                       "fontSize":"1em",
                       "fontWeight":"bold"
                   },
-                  "children":"JOB ID: "
-              }
-          },
-          {
-              "span":{
-                  "position":[0,0],
-                  "style":{
-                      "fontSize":"1em"
-                  },
-                  "children":"BE.PRI_JOB_ID"
+                  "children":"JOB ID: ${BE.PRI_JOB_ID}"
               }
           },
           {
@@ -101,7 +102,7 @@
           },
           {
               "SublayoutLoader" : {
-                  "position":[1,1],
+                  "position":[1, 1],
                   "layoutCode": "address-pickup-display",
                   "aliases": {
                       "BE": "BE.code",
@@ -121,7 +122,7 @@
           },
           {
               "SublayoutLoader" : {
-                  "position":[2,1],
+                  "position":[2, 1],
                   "layoutCode": "address-dropoff-display",
                   "aliases": {
                       "BE": "BE.code",
@@ -141,7 +142,7 @@
           },
           {
               "DateLabel":{
-                  "position":[3,1],
+                  "position":[3, 1],
                   "format":"DD/MM/YY HH:mm",
                   "style":{
                       "fontSize":"0.8em"
@@ -151,7 +152,7 @@
           },
           {
               "span":{
-                  "position":[4,0],
+                  "position":[4, 0],
                   "style":{
                       "fontSize":"0.8em",
                       "fontWeight":"bold"
@@ -159,45 +160,50 @@
                   "children":"DELIVERY REQUIRED BEFORE"
               }
 
-          },
+          },  
           {
-              "Selector":{
-                  "position":[4,1],
-                  "checkValues": "BE.PRI_DROPOFF_DATETIME",
-                  "showIfNull": true,
-                  "children":[
-                      {
-                          "span":{
-                              "style": {
-                                  "fontSize": "0.8em"
-                              },
-                              "children":"TBC"
+            "span": {
+              "position": [4, 1],
+              "children": [
+              {
+                  "Selector":{
+                      "checkValues": "BE.PRI_DROPOFF_DATETIME",
+                      "showIfNull": true,
+                      "children":[
+                          {
+                              "span":{
+                                  "style": {
+                                      "fontSize": "0.8em"
+                                  },
+                                  "children":"TBC"
+                              }
                           }
-                      }
-                  ]
-              }
-          },
-          {
-              "Selector":{
-                  "checkValues": "BE.PRI_DROPOFF_DATETIME",
-                  "showIfNotNull": true,
-                  "position":[4,1],
-                  "children":[
-                      {
-                          "DateLabel":{
-                              "format":"DD/MM/YY HH:mm",
-                              "style":{
-                                  "fontSize":"0.8em"
-                              },
-                              "children":"BE.PRI_DROPOFF_DATETIME"
+                      ]
+                  }
+              },
+              {
+                  "Selector":{
+                      "showIfNotNull": true,
+                      "position":[4, 1],
+                      "children":[
+                          {
+                              "DateLabel":{
+                                  "format":"DD/MM/YY HH:mm",
+                                  "style":{
+                                      "fontSize":"0.8em"
+                                  },
+                                  "children":"BE.PRI_DROPOFF_DATETIME"
+                              }
                           }
-                      }
-                  ]
-              }
+                      ]
+                  }
+               }
+              ]
+            }
           },
           {
               "span":{
-                  "position":[5,0],
+                  "position":[5, 0],
                   "style":{
                       "fontSize":"0.8em",
                       "fontWeight":"bold"
@@ -213,6 +219,110 @@
                       "fontSize": "0.8em"
                   },
                   "children":"BE.PRI_TOTAL_DISTANCE_M"
+              }
+          },
+          {
+              "div":{
+                  "position":[6, 0],
+                  "children":[
+                      {
+                          "span":{
+                              "style":{
+                                  "fontSize":"0.8em",
+                                  "fontWeight":"bold"
+                              },
+                              "children":"LOAD INFORMATION"
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "div":{
+                  "position":[7, 0],
+                  "children":[
+                      {
+                          "DisplayHTML":{
+                              "style":{
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"BE.PRI_DESCRIPTION"
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "div":{
+                  "position":[8, 0],
+                  "children":[
+                      {
+                          "span":{
+                              "style":{
+                                  "fontSize":"0.8em",
+                                  "fontWeight":"bold"
+                              },
+                              "children":"LOAD DIMENSIONS"
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "Grid":{
+                  "position":[9, 0],
+                  "cols":[3,3],
+                  "rows":3,
+                  "style":{
+                      "height":"initial"
+                  },
+                  "children":[
+                      {
+                          "span":{
+                              "position": [0,0],
+                              "style": {
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"L: ${BE.link.LOAD.PRI_LOAD_LENGTH_MM}mm"
+                          }
+                      },
+                      {
+                          "span":{
+                              "position": [0, 1],
+                              "style": {
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"W: ${BE.link.LOAD.PRI_LOAD_WIDTH_MM}mm"
+                          }
+                      },
+                      {
+                          "span":{
+                              "position": [1,0],
+                              "style": {
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"H: ${BE.link.LOAD.PRI_LOAD_HEIGHT_MM}mm"
+                          }
+                      },
+                      {
+                          "span":{
+                              "position": [1,1],
+                              "style": {
+                                  "fontSize": "0.8em"
+                              },
+                              "children":"W: ${BE.link.LOAD.PRI_LOAD_WEIGHT_KG}kg"
+                          }
+                      },
+                      {
+                          "span": {
+                              "position": [2,0],
+                              "style": {
+                                  "fontSize": "0.8em"
+                              },
+                              "children": "Load Type: ${BE.link.LOAD.PRI_LOAD_TYPE}"
+                          }
+                      }
+                  ]
               }
           }
       ]
