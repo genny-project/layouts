@@ -1,49 +1,10 @@
 {
-  "Grid": {
-    "rows": [
-      {
-        "style": {
-          "height": "70px",
-          "flexGrow": 0,
-          "flexShrink": 0,
-          "background": "PROJECT.PRI_COLOR"
-        }
-      },
-      20
-    ],
-    "cols": 1,
+  "div": {
+    "style": {
+      "width": "100%",
+      "height": "100%"
+    },
     "children": [
-      {
-        "Selector": {
-          "position": [
-            0,
-            0
-          ],
-          "checkValues": [
-            "USER.PRI_IS_SELLER"
-          ],
-          "showValues": [
-            true
-          ],
-          "children": [
-            {
-              "GennyButton": {
-                "buttonCode": "BTN_ADD_BEG",
-                "style": {
-                  "padding": "10px",
-                  "width": "250px"
-                },
-                "buttonStyle": {
-                  "background": "PROJECT.PRI_COLOR",
-                  "border": "1px solid white"
-                },
-                "value": {},
-                "children": "+ NEW INTERNSHIP"
-              }
-            }
-          ]
-        }
-      },
       {
         "Selector": {
           "position": [
@@ -58,21 +19,70 @@
           ],
           "children": [
             {
-              "SplitView": {
-                "position": [
-                  1,
-                  0
+              "Grid": {
+                "rows": [
+                  {
+                    "style": {
+                      "height": "70px",
+                      "flexGrow": 0,
+                      "flexShrink": 0,
+                      "background": "PROJECT.PRI_COLOR"
+                    }
+                  },
+                  20
                 ],
+                "cols": 1,
                 "children": [
                   {
-                    "GennyList": {
-                      "root": "GRP_NEW_ITEMS",
-                      "showTitle": true
+                    "Selector": {
+                      "position": [
+                        0,
+                        0
+                      ],
+                      "checkValues": [
+                        "USER.PRI_IS_SELLER"
+                      ],
+                      "showValues": [
+                        true
+                      ],
+                      "children": [
+                        {
+                          "GennyButton": {
+                            "buttonCode": "BTN_ADD_BEG",
+                            "style": {
+                              "padding": "10px",
+                              "width": "250px"
+                            },
+                            "buttonStyle": {
+                              "background": "PROJECT.PRI_COLOR",
+                              "border": "1px solid white"
+                            },
+                            "value": {},
+                            "children": "+ NEW INTERNSHIP"
+                          }
+                        }
+                      ]
                     }
                   },
                   {
-                    "GennyBucketView": {
-                      "root": "GRP_APPLICATIONS"
+                    "SplitView": {
+                      "position": [
+                        1,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "GennyList": {
+                            "root": "GRP_NEW_ITEMS",
+                            "showTitle": true
+                          }
+                        },
+                        {
+                          "GennyBucketView": {
+                            "root": "GRP_APPLICATIONS"
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
