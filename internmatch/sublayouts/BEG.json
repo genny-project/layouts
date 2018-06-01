@@ -1,144 +1,97 @@
 {
-    "Grid": {
-        "rows": 1,
-        "cols": ["50px",1,1],
-        "style": {
-            "padding": "30px",
-            "background": "white"
-        },
-        "children": [
+  "div": {
+    "style": {
+      "fontSize": "1em",
+      "borderBottom": "1px solid #bbb",
+      "borderRadius": 0,
+      "padding": "5px",
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-around"
+    },
+    "children": [
+      {
+        "Grid": {
+          "cols": 1,
+          "rows": 2,
+          "style": {
+            "height": "initial"
+          },
+          "children": [
             {
-                "ImageView": {
-                    "position": [0, 0],
-                    "src": "BE.link.COMPANY.PRI_IMAGE_URL",
-                    "style": {
-                        "width": "50px"
+              "span": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "display": "flex",
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "h3": {
+                      "style": {
+                        "marginRight": "5px"
+                      },
+                      "children": "BE.PRI_NAME"
                     }
-                }
-            },
-            {
-                "Grid": {
-                    "position": [0, 1],
-                    "cols": 1,
-                    "rows": 2,
-                    "style": {
-                        "height": "initial"
-                    },
-                    "children": [
-                       
-                        {
-                            "span": {
-                                "position": [
-                                    0,
-                                    0
-                                ],
-                                "style": {
-                                    "display": "flex",
-                                    "alignItems": "center"
-                                },
-                                "children": [
-                                   {    
-                                       "h3": {
-                                            "style": {
-                                                "marginRight": "5px"
-                                            },
-                                            "children": "BE.PRI_NAME"
-                                        }
-                                    },
-                                    {
-                                        "p": {
-                                            "children": "BE.link.COMPANY.PRI_NAME"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "span": {
-                                "position": [
-                                    1,
-                                    0
-                                ],
-                                "style": {
-                                    "display": "flex",
-                                    "alignItems": "center"
-                                },
-                                "children": [
-                                    {
-                                        "span": {
-                                            "style": {
-                                                "marginRight": "5px"
-                                            },
-                                            "children": "Posted on:"
-                                        }
-                                    },
-                                    {
-                                        "DateLabel": {
-                                            "children": "${BE.created}",
-                                            "format": "DD MMM YYYY"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }   
-            },
-            {
-                "SublayoutLoader" : {
-                    "position":[0, 1],
-                    "layoutCode": "internship-details-features",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
+                  },
+                  {
+                    "p": {
+                      "children": "BE.link.COMPANY.PRI_NAME"
+                    }
                   }
-               }
+                ]
+              }
             },
             {
-                "Selector": {
-                    "position": [0, 2],
-                    "checkValues": ["USER.PRI_IS_BUYER"],
-                    "showValues": ["true"],
-                    "children": [
-                        {
-                            "GennyButton": {
-                                "style": {
-                                  "height": "30px"
-                                },
-                                "buttonStyle": {
-                                  "background": "PROJECT.PRI_COLOR",
-                                  "color": "white"
-                                },
-                                "buttonCode": "BTN_APPLY_BEG",
-                                "value": {
-                                  "itemCode": "BE.code",
-                                  "root": "ROOT"
-                                },
-                                "children": "Apply"
-                            }
-                        }    
-                    ]
-                }
-            },
-            {
-                "GennyButton": {
-                    "position": [0, 2],
-                    "style": {
-                      "height": "30px",
-                      "marginTop":"10px"
-                    },
-                    "buttonStyle": {
-                      "background": "PROJECT.PRI_COLOR",
-                      "color": "white"
-                    },
-                    "buttonCode": "BTN_VIEW_BEG",
-                    "value": {
-                      "itemCode": "BE.code",
-                      "root": "ROOT"
-                    },
-                    "children": "View"
-                }
+              "span": {
+                "position": [
+                  1,
+                  0
+                ],
+                "style": {
+                  "display": "flex",
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "span": {
+                      "style": {
+                        "marginRight": "5px"
+                      },
+                      "children": "Posted on:"
+                    }
+                  },
+                  {
+                    "DateLabel": {
+                      "children": "${BE.created}",
+                      "format": "DD MMM YYYY"
+                    }
+                  }
+                ]
+              }
             }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "GennyButton": {
+          "style": {
+            "height": "30px"
+          },
+          "buttonStyle": {
+            "background": "PROJECT.PRI_COLOR"
+          },
+          "children": "View",
+          "buttonCode": "BTN_VIEW_BEG",
+          "value": {
+            "itemCode": "BE.code",
+            "hint": "ROOT"
+          }
+        }
+      }
+    ]
+  }
 }
