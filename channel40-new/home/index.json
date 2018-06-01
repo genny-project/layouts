@@ -26,29 +26,36 @@
             "children": {
               "component": "Link",
               "props": {
-                "to": "job/{{repeater.item.code}}",
-                "withFeedback": true
+                "to": "job/{{repeater.item.code}}"
               },
               "children": [
                 {
-                  "component": "Card",
+                  "component": "Touchable",
                   "props": {
-                    "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
-                    "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                    "withFeedback": true
                   },
                   "children": [
                     {
-                      "component": "Label",
+                      "component": "Card",
                       "props": {
-                        "text": "{{repeater.item.name}}"
-                      }
-                    },
-                    {
-                      "component": "Label",
-                      "props": {
-                        "size": "xxs",
-                        "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                      }
+                        "status": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                        "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{repeater.item.name}}"
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "size": "xxs",
+                            "text": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
