@@ -14,8 +14,7 @@
             "alignItems": "center",
             "justifyContent": "flex-start",
             "padding": 10,
-            "height": "100%",
-            "flex": 1
+            "height": "100%"
           },
           "children": [
             {
@@ -36,14 +35,13 @@
                 "width": "100%",
                 "flexDirection": "column",
                 "justifyContent": "space-between",
-                "flex": 1,
                 "paddingY": 10
               },
               "children": [
                 {
                   "component": "Box",
                   "props": {
-                    "flex": 1
+                    "marginBottom": 5
                   },
                   "children": [
                     {
@@ -59,7 +57,7 @@
                 {
                   "component": "Box",
                   "props": {
-                    "flex": 1
+                    "marginBottom": 5
                   },
                   "children": [
                     {
@@ -75,7 +73,7 @@
                 {
                   "component": "Box",
                   "props": {
-                    "flex": 1
+                    "marginBottom": 5
                   },
                   "children": [
                     {
@@ -87,6 +85,27 @@
                       }
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Delivery Details"
                 }
               ]
             },
@@ -196,10 +215,13 @@
             {
               "component": "Box",
               "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
                 "width": "100%",
-                "flexDirection": "column",
-                "alignItems": "center",
-                "paddingY": 10
+                "padding": 5,
+                "justifyContent": "center"
               },
               "children": [
                 {
@@ -208,7 +230,18 @@
                     "size": "sm"
                   },
                   "children": "Load Information"
-                },
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
                 {
                   "component": "Text",
                   "props": {
@@ -219,21 +252,21 @@
               ]
             },
             {
+              "component": "Heading",
+              "props": {
+                "size": "xs"
+              },
+              "children": "Load Type"
+            },
+            {
               "component": "Box",
               "props": {
                 "width": "100%",
-                "flexDirection": "column",
-                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
                 "paddingY": 10
               },
               "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "sm"
-                  },
-                  "children": "Load Type"
-                },
                 {
                   "component": "Text",
                   "props": {
@@ -246,7 +279,7 @@
             {
               "component": "Heading",
               "props": {
-                "size": "sm"
+                "size": "xs"
               },
               "children": "Load Dimensions"
             },
@@ -290,19 +323,33 @@
               ]
             },
             {
-              "component": "Heading",
+              "component": "Box",
               "props": {
-                "size": "sm"
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
               },
-              "children": "Job Owner"
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Job Owner"
+                }
+              ]
             },
             {
               "component": "Box",
               "props": {
-                "flex": 1,
                 "flexDirection": "column",
                 "justifyContent": "center",
-                "alignItems": "center"
+                "alignItems": "center",
+                "paddingY": 10
               },
               "children": [
                 {
@@ -325,21 +372,125 @@
               ]
             },
             {
-              "component": "Heading",
+              "component": "Box",
               "props": {
-                "size": "sm"
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
               },
-              "children": "All Quotes"
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "All Quotes"
+                }
+              ]
             },
             {
               "component": "Box",
               "props": {
-                "flex": 1,
                 "flexDirection": "column",
                 "justifyContent": "center",
-                "alignItems": "center"
+                "alignItems": "center",
+                "paddingY": 10
               },
               "children": [
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
                 {
                   "component": "Media",
                   "props": {
@@ -397,11 +548,25 @@
               ]
             },
             {
-              "component": "Heading",
+              "component": "Box",
               "props": {
-                "size": "sm"
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
               },
-              "children": "All Quotes"
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Attached Images"
+                }
+              ]
             },
             {
               "component": "ScrollView",
@@ -412,11 +577,10 @@
                 {
                   "component": "Box",
                   "props": {
-                    "height": 200,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
                     "flexShrink": 0,
-                    "flexGrow": 1
+                    "paddingY": 10
                   },
                   "children": [
                     {
