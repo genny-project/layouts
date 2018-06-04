@@ -52,7 +52,11 @@
                   "style" : {
                     "width" : "100%"
                   },
-                  "to": "load/{{repeater.item.code}}"
+                  "key": "{{repeater.item.code}}",
+                  "to": "load/{{repeater.item.code}}",
+                  "params": {
+                    "loadID": "{{repeater.item.code}}"
+                  }
                 },
                 "children": [
                   {
