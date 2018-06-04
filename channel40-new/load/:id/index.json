@@ -4,23 +4,675 @@
     "appColor": "dark"
   },
   "children": [
-      {
-      "component": "Container",
-      "props": {
-        "flexDirection": "column",
-        "alignItems": "center",
-        "justifyContent": "center",
-        "flex": 1,
-        "height": "100%"
-      },
+    {
+      "component": "ScrollView",
       "children": [
         {
-          "component": "Text",
-          "children": "Load Details"
-        },
-        {
-          "component": "Text",
-          "children": "{{navigation.loadID}}"
+          "component": "Container",
+          "props": {
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "flex-start",
+            "padding": 10,
+            "height": "100%"
+          },
+          "children": [
+            {
+              "component": "Media",
+              "props": {
+                "image": "undefined",
+                "imageSize": "md",
+                "header": "Load Name Adasd a sda asda asd ",
+                "description": [
+                  "$PRICE (incl GST)",
+                  "Posted on DD MMM YYYY at HH:MM:xm"
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "column",
+                "justifyContent": "space-between",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Submit Quote",
+                        "size": "sm",
+                        "shape": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Edit Job",
+                        "size": "sm",
+                        "shape": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Delete Job",
+                        "size": "sm",
+                        "shape": "rounded"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Delivery Details"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "alignItems": "center",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "size": "sm"
+                      },
+                      "children": "Pick Up"
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs"
+                      },
+                      "children": "Carlton, VIC"
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs"
+                      },
+                      "children": "13 APR 18 18:30"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexGrow": 0,
+                    "flexShrink": 0,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "color": "black",
+                        "size": "lg",
+                        "name": "trending-flat"
+                      }
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs"
+                      },
+                      "children": "756.1 km"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "size": "sm"
+                      },
+                      "children": "Delivery"
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs"
+                      },
+                      "children": "Archerfield, QLD"
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "xxs"
+                      },
+                      "children": "TBC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Load Information"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "ASdasd ash dkja hd asd asd ahdjahda has jd a ka dhasdkja ha akhsdahsdk asdhh a sk a kahs k kasd aks asdk haskdhahs kah kda"
+                }
+              ]
+            },
+            {
+              "component": "Heading",
+              "props": {
+                "size": "xs"
+              },
+              "children": "Load Type"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "Boat"
+                }
+              ]
+            },
+            {
+              "component": "Heading",
+              "props": {
+                "size": "xs"
+              },
+              "children": "Load Dimensions"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs"
+                  },
+                  "children": "L: XXXmm "
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs"
+                  },
+                  "children": "W: XXXmm "
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs"
+                  },
+                  "children": "H: XXXmm "
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs"
+                  },
+                  "children": "W: XXXkg "
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Job Owner"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Owner Name",
+                    "headerProps": {
+                      "size": "xxs"
+                    },
+                    "description": [
+                      "Email Address",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "All Quotes"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                },
+                {
+                  "component": "Media",
+                  "props": {
+                    "image": "undefined",
+                    "header": "Quoter Name",
+                    "headerProps": {
+                      "size": "xs"
+                    },
+                    "description": [
+                      "$Price",
+                      "Rating",
+                      "Mobile Number"
+                    ],
+                    "descriptionProps": {
+                      "size": "xxs"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "borderStyle": "solid",
+                "borderColor": "black",
+                "borderBottomWidth": 2,
+                "borderTopWidth": 2,
+                "width": "100%",
+                "padding": 5,
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm"
+                  },
+                  "children": "Attached Images"
+                }
+              ]
+            },
+            {
+              "component": "ScrollView",
+              "props": {
+                "horizontal": true
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "flexShrink": 0,
+                    "paddingY": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "paddingX": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "undefined",
+                            "height": 100,
+                            "width": 100
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "paddingX": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "undefined",
+                            "height": 100,
+                            "width": 100
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "paddingX": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "undefined",
+                            "height": 100,
+                            "width": 100
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "paddingX": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "undefined",
+                            "height": 100,
+                            "width": 100
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "paddingX": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "undefined",
+                            "height": 100,
+                            "width": 100
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
