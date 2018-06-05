@@ -20,12 +20,12 @@
                 {
                   "component": "Media",
                   "props": {
-                    "image": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "image": "{{query.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}",
                     "imageSize": "md",
                     "header": "{{query.name}}",
                     "description": [
                       "$PRICE (incl GST)",
-                      "Posted on {{query.attributes.PRI_IMAGE_URL.valueDateTime}}"
+                      "Posted on {{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
                     ]
                   }
                 },
@@ -286,7 +286,7 @@
                           "props": {
                             "size": "xxs"
                           },
-                          "children": "13 APR 18 18:30"
+                          "children": "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
                         }
                       ]
                     },
@@ -345,7 +345,7 @@
                           "props": {
                             "size": "xxs"
                           },
-                          "children": "TBC"
+                          "children": "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
                         }
                       ]
                     }
@@ -386,7 +386,7 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "ASdasd ash dkja hd asd asd ahdjahda has jd a ka dhasdkja ha akhsdahsdk asdhh a sk a kahs k kasd aks asdk haskdhahs kah kda"
+                      "children": "{{query.attributes.PRI_DESCRIPTION.valueString}}"
                     }
                   ]
                 },
@@ -436,7 +436,7 @@
                       "props": {
                         "size": "xs"
                       },
-                      "children": "L: XXXmm "
+                      "children": "L: {{query.attributes.PRI_DESCRIPTION.valueDouble}}mm "
                     },
                     {
                       "component": "Text",
@@ -830,6 +830,13 @@
           "operator": "populateAttributes",
           "code": "{{navigation.loadID}}",
           "as": "attributes"
+        },
+        {
+          "operator": "scope",
+          "path": "links",
+          "scope": {
+            "operator": "populateLinkValues"
+          }
         }
       ]
     }
