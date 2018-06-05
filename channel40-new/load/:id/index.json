@@ -836,7 +836,24 @@
       "path": "links",
       "scope": {
         "operator": "populateLinkValues",
-        "as": "linkBEs"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "linkValue": "link.linkValue",
+          "item": "be"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "populateLinkValues"
       }
     }
   ]
