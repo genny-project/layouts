@@ -25,7 +25,7 @@
                     "header": "{{query.name}}",
                     "description": [
                       "$PRICE (incl GST)",
-                      "Posted on {{load.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
+                      "Posted on {{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
                     ]
                   }
                 },
@@ -825,12 +825,18 @@
         {
           "operator": "map",
           "fields": "load"
-        },
-        
+        },     
         {
           "operator": "populateAttributes",
           "code": "{{navigation.loadID}}",
           "as": "attributes"
-        }
+        },
+        {
+          "operator": "scope",
+          "path": "load.links",
+          "scope": {
+            "operator": "populateLinkValues"
+          }
+        } 
       ]
     }
