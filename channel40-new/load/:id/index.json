@@ -20,11 +20,11 @@
             {
               "component": "Media",
               "props": {
-                "image": "{{query.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}",
+                "image": "{{query.load.attributes.PRI_IMAGE_URL.valueString}}",
                 "imageSize": "md",
                 "header": "{{query.attributes.PRI_TITLE.valueString}}",
                 "description": [
-                  "$PRICE (incl GST)",
+                  "${{query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount}} (incl GST)",
                   "Posted on {{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
                 ]
               }
@@ -411,7 +411,32 @@
                   "props": {
                     "size": "xxs"
                   },
-                  "children": "Boat"
+                  "children": "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}"
+                }
+              ]
+            },
+            {
+              "component": "Heading",
+              "props": {
+                "size": "xs"
+              },
+              "children": "Equipment Reference Number"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}"
                 }
               ]
             },
@@ -457,7 +482,7 @@
                   "props": {
                     "size": "xs"
                   },
-                  "children": "W: {{query.attributes.PRI_LOAD_WEIGHT_MM.valueDouble}}kg "
+                  "children": "W: {{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg "
                 }
               ]
             },
@@ -484,31 +509,30 @@
             },
             {
               "component": "Box",
+              "repeat": "_query.owner",
               "props": {
                 "flexDirection": "column",
                 "justifyContent": "center",
                 "alignItems": "center",
                 "paddingY": 10
               },
-              "children": [
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Owner Name",
-                    "headerProps": {
-                      "size": "xxs"
-                    },
-                    "description": [
-                      "Email Address",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
+              "children": {
+                "component": "Media",
+                "props": {
+                  "image": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
+                  "header": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+                  "headerProps": {
+                    "size": "xxs"
+                  },
+                  "description": [
+                    "{{repeater.attributes.PRI_EMAIL.valueString}}",
+                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
+                  ],
+                  "descriptionProps": {
+                    "size": "xxs"
                   }
                 }
-              ]
+              }
             },
             {
               "component": "Box",
@@ -533,7 +557,7 @@
             },
             {
               "component": "Box",
-              "repeat": "_query",
+              "repeat": "_query.offers",
               "props": {
                 "flexDirection": "column",
                 "justifyContent": "center",
@@ -543,15 +567,14 @@
               "children": {
                 "component": "Media",
                 "props": {
-                  "image": "undefined",
-                  "header": "Quoter Name",
+                  "image": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                  "header": "{{repeater.attributes.PRI_CREATOR.valueString}}",
                   "headerProps": {
                     "size": "xs"
                   },
                   "description": [
-                    "$Price",
-                    "Rating",
-                    "Mobile Number"
+                    "${{repeater.attributes.PRI_OFFER_PRICE.valueString}}",
+                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
                   ],
                   "descriptionProps": {
                     "size": "xxs"
@@ -707,7 +730,41 @@
     {
       "operator": "populateLinkValues",
       "multiple": true,
-      "as": "result"
+      "as": "linkBEs"
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "populateAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "owner",
+      "scope": {
+        "operator": "find",
+        "query": { "linkValue": { "$eq": "OWNER" }}
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "load",
+      "scope": {
+        "operator": "findOne",
+        "query": { "linkValue": { "$eq": "LOAD" }}
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "offers",
+      "scope": {
+        "operator": "find",
+        "query": { "linkValue": { "$eq": "OFFER" }}
+      }
     }
   ]
 }
