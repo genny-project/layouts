@@ -6,7 +6,9 @@
     ],
     "rows": 1,
     "style": {
-      "height": "initial"
+      "height": "initial",
+      "backgroundColor": "white",
+      "marginBottom": "10px"
     },
     "children": [
       {
@@ -16,31 +18,41 @@
             0
           ],
           "style": {
+            "marginLeft":"5px",
             "marginRight": "5px"
           },
           "children": "BE.PRI_NAME"
         }
       },
       {
-        "GennyButton": {
+        "div":{
           "position": [
             0,
             1
           ],
           "style": {
-            "height": "30px"
+            "display":"flex",
+            "justifyContent": "center",
+            "alignItems": "center"
           },
-          "buttonStyle": {
-            "background": "PROJECT.PRI_COLOR"
-          },
-          "children": "View",
-          "buttonCode": "BTN_VIEW_BEG",
-          "value": {
-            "itemCode": "BE.code",
-            "hint": "ROOT"
+          "children":{
+            "GennyButton": {
+              "style": {
+                "height": "30px"
+              },
+              "buttonStyle": {
+                "background": "PROJECT.PRI_COLOR"
+              },
+              "children": "View",
+              "buttonCode": "BTN_VIEW_BEG",
+              "value": {
+                "itemCode": "BE.code",
+                "hint": "ROOT"
+              }
+            }
           }
         }
-      }
+      }      
     ]
   }
 }
