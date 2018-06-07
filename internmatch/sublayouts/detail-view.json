@@ -1,116 +1,138 @@
 {
-    "Grid":{
-        "cols":[
-            2,
+  "Grid": {
+    "rows": 1,
+    "cols": [2, 1],
+    "style": {
+        "height": "initial",
+        "backgroundColor": "white"
+    },
+    "children": [
+      {
+        "Grid": {
+          "position": [0, 0],
+          "style": {
+            "color": "rgb(72,84,98)",
+            "height": "initial",
+            "paddingBottom": "50px"
+          },
+          "rows": [0.1, 1],
+          "cols": [
             {
-                "style" : {
-                    "flexGrow": 1,
-                    "maxWidth": "400px"
-                }
+              "style": {
+                "flexGrow": 1,
+                "marginLeft": "10%"
+              }
             }
-        ],
-        "rows":1,
-        "style":{
-            "padding":"20px 20px 20px 60px",
-            "height":"initial"
-        },
-        "children":[
+          ],
+          "children": [
             {
-                "Grid":{
-                    "position":[0,0],
-                    "style":{
-                        "minHeight":"fit-content",
-                        "height": "auto"
-                    },
-                    "cols": 1,
-                    "rows":[
-                        {
-                            "style":{
-                                "flexGrow":1,
-                                "padding":"0"
-                            }
-                        },
-                        {
-                            "style":{
-                                "flexGrow":1,
-                                "paddingTop":"10px"
-                            }
-                        },
-                        {
-                            "style":{
-                                "flexGrow":1,
-                                "paddingTop":"10px"
-                            }
-                        }
-                    ],
-                    "children":[
-                        {
-                            "SublayoutLoader": {
-                                "position": [0, 0],
-                                "layoutCode": "load-layout-header",
-                                "aliases": {
-                                    "BE": "BE.code",
-                                    "GROUP": "ROOT"
-                                }
-                            }
-                        },
-                        {
-                            "SublayoutLoader": {
-                                "position": [1, 0],
-                                "layoutCode": "load-layout-details-web",
-                                "aliases": {
-                                    "BE": "BE.code",
-                                    "GROUP": "ROOT"
-                                }
-                            }
-                        },
-                        {
-                            "SublayoutLoader": {
-                                "position": [2, 0],
-                                "layoutCode": "load-layout-lists",
-                                "aliases": {
-                                    "BE": "BE.code",
-                                    "GROUP": "ROOT"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
+              "div" : {
+                 "position": [0, 0],
+                  "style" : {
+                      "width" : "100%",
+                      "padding": "10px 0"
+                  },
+                  "children": [
+                      {
+                          "GennyButton": {
+                              "style": {
+                                  "width": "100px",
+                                  "height": "30px"
+                              },
+                              "buttonStyle": {
+                                  "background": "PROJECT.PRI_COLOR",
+                                  "height": "30px",
+                                  "padding": "0"
+                              },
+                              "buttonCode": "BTN_BACK_BUTTON",
+                              "hint": {
+                                  "itemCode": "BE.code"
+                              },
+                              "children": [
+                                  {
+                                      "IconSmall": {
+                                          "style": {
+                                              "fontSize": "28px",
+                                              "transform": "rotate(90deg)",
+                                              "color": "white"
+                                          },
+                                          "name": "arrow_drop_down"
+                                      }
+                                  },
+                                  {
+                                      "span": {
+                                          "style": {
+                                              "color": "white"
+                                          },
+                                          "children": "BACK"
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+
             {
                 "SublayoutLoader" : {
-                    "position":[0,1],
-                    "layoutCode": "load-action-buttons",
+                    "position":[0, 0],
+                    "layoutCode": "internship-details-title",
                     "aliases": {
                         "BE": "BE.code",
                         "GROUP": "ROOT"
-                    }
-                }
+                  }
+               }
             },
             {
                 "SublayoutLoader" : {
-                    "position":[0,1],
-                    "layoutCode": "map-display",
+                    "position":[0, 0],
+                    "layoutCode": "internship-details-features",
                     "aliases": {
                         "BE": "BE.code",
                         "GROUP": "ROOT"
-                    }
-                }
+                  }
+               }
             },
             {
-                "GennyCarousel":{
-                    "position":[0,1],
-                    "imageHeight":"250px",
-                    "root": "BE.link.LOAD.code",
-                    "attributeCode": "PRI_LOAD_IMAGE",
-                    "style":{
-                        "width": "100%",
-                        "marginTop": "10px",
-                        "padding":"0",
-                        "borderRadius":"5px"
-                    }
+              "SublayoutLoader": {
+                "position":[1, 0],
+                "layoutCode": "internship-details-required-skills",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
                 }
+              }
             }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "Grid": {
+          "position":[0, 1],
+          "cols": 1,
+          "rows": 2,
+          "style": {
+            "height": "50%"
+          },
+          "children": [
+            {
+              "SublayoutLoader": {
+                  "style": {
+                    "float": "right",
+                    "marginRight": "50px"
+                  },
+                  "position": [1, 0],
+                  "layoutCode": "internship-details-button-actions",
+                  "aliases": {
+                     "BE": "BE.code",
+                     "GROUP": "ROOT"
+                  }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
