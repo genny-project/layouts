@@ -1,0 +1,74 @@
+{
+    "GennyDropdown":{
+        "inline":true,
+        "isSlide":false,
+        "animateHeader":false,
+        "animateFooter":true,
+        "contentStyle":{
+            "backgroundColor":"white",
+            "padding":"0"
+        },
+        "header":[
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-header",
+                    "aliases": {
+                        "GROUP": "ROOT",
+                        "BE": "BE.code"
+                    }
+                }
+            }
+        ],
+        "footer":[
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-footer",
+                    "aliases": {
+                        "GROUP": "ROOT",
+                        "BE": "BE.code"
+                    }
+                }
+            }
+        ],
+        "children":[
+            {
+                "div":{
+                    "style":{
+                        "borderRadius":"10px",
+                        "padding":"10px",
+                        "background":"#ddd"
+                    },
+                    "children":[
+                        {
+                            "SublayoutLoader": {
+                                "layoutCode": "card-job-detail",
+                                "aliases": {
+                                    "BE": "BE.code",
+                                    "GROUP": "ROOT"
+                                }
+                            }
+                        },
+                        {
+                            "SublayoutLoader": {
+                                "layoutCode": "card-job-lists",
+                                "aliases": {
+                                    "BE":"BE.code",
+                                    "GROUP": "ROOT"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "SublayoutLoader": {
+                    "layoutCode": "card-job-accessories",
+                    "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                    }
+                }
+            }
+        ]
+    }
+}
