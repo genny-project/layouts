@@ -105,40 +105,19 @@
               }
             },
             {
-              "Selector": {
+              "SublayoutLoader" : {
                 "position": [
-                    1,
-                    0
+                  1,
+                  0
                 ],
-                "checkValues": [
-                    "USER.PRI_IS_BUYER"
-                ],
-                "showValues": [
-                    false
-                ],
-                "children": [
-                  {
-                    "Selector": {
-                      "checkValues": [
-                          "BE.link.REPRESENTATIVE.PRI_NAME"
-                      ],
-                      "showIfNotNull":true,
-                      "children": [
-                        {
-                          "SublayoutLoader" : {
-                              "layoutCode": "internship-details-representative",
-                              "aliases": {
-                                  "BE": "BE.code",
-                                  "GROUP": "ROOT"
-                              }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "layoutCode": "internship-details-representative",
+                "aliases": {
+                    "BE": "BE.code",
+                    "GROUP": "ROOT"
+                }
               }
             }
+            
           ]
         }
       },
