@@ -1,6 +1,14 @@
 {
   "Grid": {
-    "rows": [{"width": 10},{}],
+    "rows": [
+      {
+        "width": 10
+      },
+      {
+        "margin":0,
+        "padding":0
+      }
+    ],
     "cols": 1,
     "style": {
       "background": "white",
@@ -40,12 +48,12 @@
           "cols": 1,
           "children": [
             {
-            "GennyDropdown": {
-              "inline": false,
+              "GennyDropdown": {
+              "position":[0,0],
+              "inline": true,
               "isSlide": false,
               "animateHeader": false,
               "animateFooter": true,
-              "position":[0,0],
               "contentStyle": {
                 "backgroundColor": "white",
                 "padding": "0"
@@ -53,9 +61,10 @@
               "header": [
                 {
                 "Grid": {
-                  "rows": 2,
-                  "cols": 1,
-                  "children": [{
+                  "rows": 1,
+                  "cols": 2,
+                  "children": [
+                    {
                       "ImageView": {
                         "position": [
                           0,
@@ -71,13 +80,11 @@
                     },
                     {
                       "Grid": {
-                        "position": [
-                          0,
-                          1
-                        ],
+                        "position": [0,1],
                         "rows": 2,
                         "cols": 1,
-                        "children": [{
+                        "children": [
+                          {
                             "p": {
                               "position": [
                                 0,
@@ -106,7 +113,8 @@
                     }
                   ]
                 }
-              }],
+              }
+            ],
               "footer": [
                 {
                 "IconSmall": {
@@ -141,7 +149,8 @@
                 }
               ]
             }
-          }]
+          }
+        ]
         }
       }
     ]
