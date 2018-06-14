@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Job Details",
+    "title": "Load Details",
     "appColor": "dark"
   },
   "children": [
@@ -20,12 +20,12 @@
             {
               "component": "Media",
               "props": {
-                "image": "undefined",
+                "image": "{{query.load.attributes.PRI_IMAGE_URL.valueString}}",
                 "imageSize": "md",
-                "header": "Load Name Adasd a sda asda asd ",
+                "header": "{{query.attributes.PRI_TITLE.valueString}}",
                 "description": [
-                  "$PRICE (incl GST)",
-                  "Posted on DD MMM YYYY at HH:MM:xm"
+                  "${{query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount}} (incl GST)",
+                  "Posted on {{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
                 ]
               }
             },
@@ -33,23 +33,29 @@
               "component": "Box",
               "props": {
                 "width": "100%",
-                "flexDirection": "column",
-                "justifyContent": "space-between",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "flexWrap": "wrap",
                 "paddingY": 10
               },
               "children": [
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 5
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
                   },
                   "children": [
                     {
                       "component": "Button",
                       "props": {
                         "text": "Submit Quote",
-                        "size": "sm",
-                        "shape": "rounded"
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "green"
                       }
                     }
                   ]
@@ -57,15 +63,20 @@
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 5
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
                   },
                   "children": [
                     {
                       "component": "Button",
                       "props": {
-                        "text": "Edit Job",
-                        "size": "sm",
-                        "shape": "rounded"
+                        "text": "Accept",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "green"
                       }
                     }
                   ]
@@ -73,15 +84,143 @@
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 5
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
                   },
                   "children": [
                     {
                       "component": "Button",
                       "props": {
-                        "text": "Delete Job",
-                        "size": "sm",
-                        "shape": "rounded"
+                        "text": "Edit Load",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Delete Load",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "red"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Get Directions",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Locate Driver",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Confirm Pickup",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "green"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Confirm Delivery",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "green"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 5,
+                    "flexBasis": "30%",
+                    "height": 100,
+                    "flexGrow": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Button",
+                      "props": {
+                        "text": "Complete",
+                        "size": "md",
+                        "shape": "rounded",
+                        "height": "100%",
+                        "color": "green"
                       }
                     }
                   ]
@@ -140,14 +279,14 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "Carlton, VIC"
+                      "children": "{{query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}}"
                     },
                     {
                       "component": "Text",
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "13 APR 18 18:30"
+                      "children": "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
                     }
                   ]
                 },
@@ -174,7 +313,7 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "756.1 km"
+                      "children": "{{query.attributes.PRI_TOTAL_DISTANCE_M.valueDouble}}m"
                     }
                   ]
                 },
@@ -199,14 +338,14 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "Archerfield, QLD"
+                      "children": "{{query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
                     },
                     {
                       "component": "Text",
                       "props": {
                         "size": "xxs"
                       },
-                      "children": "TBC"
+                      "children": "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
                     }
                   ]
                 }
@@ -247,7 +386,7 @@
                   "props": {
                     "size": "xxs"
                   },
-                  "children": "ASdasd ash dkja hd asd asd ahdjahda has jd a ka dhasdkja ha akhsdahsdk asdhh a sk a kahs k kasd aks asdk haskdhahs kah kda"
+                  "children": "{{query.attributes.PRI_DESCRIPTION.valueString}}"
                 }
               ]
             },
@@ -272,7 +411,32 @@
                   "props": {
                     "size": "xxs"
                   },
-                  "children": "Boat"
+                  "children": "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}"
+                }
+              ]
+            },
+            {
+              "component": "Heading",
+              "props": {
+                "size": "xs"
+              },
+              "children": "Equipment Reference Number"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "paddingY": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}"
                 }
               ]
             },
@@ -297,28 +461,28 @@
                   "props": {
                     "size": "xs"
                   },
-                  "children": "L: XXXmm "
+                  "children": "L: {{query.attributes.PRI_LOAD_LENGTH_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children": "W: XXXmm "
+                  "children": "W: {{query.attributes.PRI_LOAD_WIDTH_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children": "H: XXXmm "
+                  "children": "H: {{query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children": "W: XXXkg "
+                  "children": "W: {{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg "
                 }
               ]
             },
@@ -345,31 +509,30 @@
             },
             {
               "component": "Box",
+              "repeat": "_query.owner",
               "props": {
                 "flexDirection": "column",
                 "justifyContent": "center",
                 "alignItems": "center",
                 "paddingY": 10
               },
-              "children": [
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Owner Name",
-                    "headerProps": {
-                      "size": "xxs"
-                    },
-                    "description": [
-                      "Email Address",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
+              "children": {
+                "component": "Media",
+                "props": {
+                  "image": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
+                  "header": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+                  "headerProps": {
+                    "size": "xxs"
+                  },
+                  "description": [
+                    "{{repeater.attributes.PRI_EMAIL.valueString}}",
+                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
+                  ],
+                  "descriptionProps": {
+                    "size": "xxs"
                   }
                 }
-              ]
+              }
             },
             {
               "component": "Box",
@@ -394,158 +557,30 @@
             },
             {
               "component": "Box",
+              "repeat": "_query.offers",
               "props": {
                 "flexDirection": "column",
                 "justifyContent": "center",
                 "alignItems": "center",
                 "paddingY": 10
               },
-              "children": [
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
-                  }
-                },
-                {
-                  "component": "Media",
-                  "props": {
-                    "image": "undefined",
-                    "header": "Quoter Name",
-                    "headerProps": {
-                      "size": "xs"
-                    },
-                    "description": [
-                      "$Price",
-                      "Rating",
-                      "Mobile Number"
-                    ],
-                    "descriptionProps": {
-                      "size": "xxs"
-                    }
+              "children": {
+                "component": "Media",
+                "props": {
+                  "image": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                  "header": "{{repeater.attributes.PRI_CREATOR.valueString}}",
+                  "headerProps": {
+                    "size": "xs"
+                  },
+                  "description": [
+                    "${{repeater.attributes.PRI_OFFER_PRICE.valueString}}",
+                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
+                  ],
+                  "descriptionProps": {
+                    "size": "xxs"
                   }
                 }
-              ]
+              }
             },
             {
               "component": "Box",
@@ -675,6 +710,61 @@
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.loadID}}",
+      "as": "load"
+    },
+    {
+      "operator": "map",
+      "fields": "load"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{navigation.loadID}}",
+      "as": "attributes"
+    },
+    {
+      "operator": "populateLinkValues",
+      "multiple": true,
+      "as": "linkBEs"
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "populateAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "owner",
+      "scope": {
+        "operator": "find",
+        "query": { "linkValue": { "$eq": "OWNER" }}
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "load",
+      "scope": {
+        "operator": "findOne",
+        "query": { "linkValue": { "$eq": "LOAD" }}
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "as": "offers",
+      "scope": {
+        "operator": "find",
+        "query": { "linkValue": { "$eq": "OFFER" }}
+      }
     }
   ]
 }
