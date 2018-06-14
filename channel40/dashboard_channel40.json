@@ -51,45 +51,19 @@
                                             },
                                             "children":[
                                                 {
-                                                    "Device":{
-                                                        "isMobile":true,
-                                                        "children":[
+                                                    "Capability": {
+                                                        "capabilities": ["CAP_ADD_ITEM"],
+                                                        "children": [
                                                             {
-                                                                "GennyButton":{
-                                                                    "buttonCode":"GRP_NEW_ITEMS",
-                                                                    "value":"ADD_NEW_LOAD",
-                                                                    "style":{
-                                                                        "width":"100%",
-                                                                        "marginTop":"10px",
-                                                                        "fontSize":"16px"
-                                                                    },
-                                                                    "buttonStyle":{
-                                                                        "background":"#5cb85c",
-                                                                        "height":"40px"
-                                                                    },
-                                                                    "children":"ADD LOAD"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "Device":{
-                                                        "isDesktop":true,
-                                                        "isTablet":true,
-                                                        "children":[
-                                                            {
-                                                                "Grid": {
-                                                                    "cols": 2,
-                                                                    "rows": 1,
-                                                                    "children": [
+                                                                "Device":{
+                                                                    "isMobile":true,
+                                                                    "children":[
                                                                         {
                                                                             "GennyButton":{
-                                                                                "position": [0, 0],
                                                                                 "buttonCode":"GRP_NEW_ITEMS",
                                                                                 "value":"ADD_NEW_LOAD",
                                                                                 "style":{
-                                                                                    "width":"200px",
+                                                                                    "width":"100%",
                                                                                     "marginTop":"10px",
                                                                                     "fontSize":"16px"
                                                                                 },
@@ -99,35 +73,68 @@
                                                                                 },
                                                                                 "children":"ADD LOAD"
                                                                             }
-                                                                        },
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Device":{
+                                                                    "isDesktop":true,
+                                                                    "isTablet":true,
+                                                                    "children":[
                                                                         {
-                                                                            "Selector": {
-                                                                                "position": [0, 1],
-                                                                                "checkValues": "USER.PRI_IS_COMPANY",
-                                                                                "showValues": [true, "TRUE"],
+                                                                            "Grid": {
+                                                                                "cols": 2,
+                                                                                "rows": 1,
                                                                                 "children": [
-                                                                                     {
+                                                                                    {
                                                                                         "GennyButton":{
-                                                                                            "buttonCode": "BTN_CPY_ADD_STAFF",
-                                                                                            "value":"ADD_STAFF",
+                                                                                            "position": [0, 0],
+                                                                                            "buttonCode":"GRP_NEW_ITEMS",
+                                                                                            "value":"ADD_NEW_LOAD",
                                                                                             "style":{
                                                                                                 "width":"200px",
                                                                                                 "marginTop":"10px",
-                                                                                                "fontSize":"16px",
-                                                                                                "position": "absolute",
-                                                                                                "right": "20px"
+                                                                                                "fontSize":"16px"
                                                                                             },
                                                                                             "buttonStyle":{
                                                                                                 "background":"#5cb85c",
                                                                                                 "height":"40px"
                                                                                             },
-                                                                                            "children":"ADD STAFF"
+                                                                                            "children":"ADD LOAD"
                                                                                         }
                                                                                     }
                                                                                 ]
                                                                             }
                                                                         }
                                                                     ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                 {
+                                                    "Selector": {
+                                                        "position": [0, 1],
+                                                        "checkValues": "USER.PRI_IS_COMPANY",
+                                                        "showValues": [true, "TRUE"],
+                                                        "children": [
+                                                             {
+                                                                "GennyButton":{
+                                                                    "buttonCode": "BTN_CPY_ADD_STAFF",
+                                                                    "value":"ADD_STAFF",
+                                                                    "style":{
+                                                                        "width":"200px",
+                                                                        "marginTop":"10px",
+                                                                        "fontSize":"16px",
+                                                                        "position": "absolute",
+                                                                        "right": "20px"
+                                                                    },
+                                                                    "buttonStyle":{
+                                                                        "background":"#5cb85c",
+                                                                        "height":"40px"
+                                                                    },
+                                                                    "children":"ADD STAFF"
                                                                 }
                                                             }
                                                         ]
@@ -185,20 +192,7 @@
                     "children":[
                         {
                             "Grid":{
-                                 "rows":[
-                                    {
-                                        "style":{
-                                            "height":"60px",
-                                            "flexGrow":0,
-                                            "flexShrink":0
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow":1
-                                        }
-                                    }
-                                ],
+                                 "rows": 1,
                                 "cols":[
                                     {
                                         "style":{
@@ -209,54 +203,8 @@
                                 ],
                                 "children":[
                                      {
-                                        "div":{
-                                            "position":[
-                                                0,
-                                                0
-                                            ],
-                                            "style":{
-                                                "backgroundColor":"#555",
-                                                "width":"100%",
-                                                "height":"60px",
-                                                "display":"flex",
-                                                "alignItems":"center",
-                                                "padding":"0 10px",
-                                                "justifyContent":"flex-start"
-                                            },
-                                            "children":[
-                                               {
-                                                    "Grid": {
-                                                        "cols": 1,
-                                                        "rows": 1,
-                                                        "children": [
-                                                            {
-                                                                "GennyButton":{
-                                                                    "position": [0, 0],
-                                                                    "buttonCode": "BTN_ADD_DAILY_SHEET",
-                                                                    "value": {},
-                                                                    "style":{
-                                                                        "width":"100%",
-                                                                        "marginTop":"10px",
-                                                                        "fontSize":"16px",
-                                                                        "position": "absolute",
-                                                                        "right": "20px"
-                                                                    },
-                                                                    "buttonStyle":{
-                                                                        "background":"#5cb85c",
-                                                                        "height":"40px"
-                                                                    },
-                                                                    "children": "Create New Daily Sheet"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
                                         "TabContainer": {
-                                            "position":[1, 0],
+                                            "position":[0, 0],
                                             "views": [
                                                 {
                                                     "title" : "Bucket View",

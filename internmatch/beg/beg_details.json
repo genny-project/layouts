@@ -103,6 +103,49 @@
                   "GROUP": "ROOT"
                 }
               }
+            },
+            {
+              "Selector": {
+                "position": [
+                    1,
+                    0
+                ],
+                "checkValues": [
+                    "USER.PRI_IS_BUYER"
+                ],
+                "hideValues": [
+                    true
+                ],
+                "children": [
+                  {
+                    "Selector": {
+                      "position": [
+                        1,
+                        0
+                      ],
+                      "checkValues": [
+                          "BE.link.REPRESENTATIVE.PRI_NAME"
+                      ],
+                      "showIfNotNull":true,
+                      "children": [
+                        {
+                          "SublayoutLoader" : {
+                              "position": [
+                                1,
+                                0
+                              ],
+                              "layoutCode": "internship-details-representative",
+                              "aliases": {
+                                  "BE": "BE.code",
+                                  "GROUP": "ROOT"
+                              }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

@@ -303,23 +303,67 @@
                                 "showValues": [true, "TRUE"],
                                 "children": [
                                     {
-                                        "GennyButton": {
-                                            "buttonCode": "BTN_CONFIRM_PICKUP",
-                                            "value": {
-                                                "itemCode": "BE.code",
-                                                "hint": "ROOT"
-                                            },
-                                            "children": "MARKED AS PICKUP",
-                                            "style": {
-                                                "margin": "0 auto",
-                                                "width": "80%",
-                                                "height": "30px",
-                                                "fontSize": "13px"
-                                            },
-                                            "type": "confirm",
-                                            "buttonStyle": {
-                                                "height": "30px"
-                                            }
+                                        "Selector": {
+                                            "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                            "hideValues": ["FAILED"],
+                                            "children": [
+                                                {
+                                                    "GennyButton": {
+                                                        "buttonCode": "BTN_CONFIRM_PICKUP",
+                                                        "value": {
+                                                            "itemCode": "BE.code",
+                                                            "hint": "ROOT"
+                                                        },
+                                                        "children": "MARKED AS PICKUP",
+                                                        "style": {
+                                                            "margin": "0 auto",
+                                                            "width": "80%",
+                                                            "height": "30px",
+                                                            "fontSize": "13px"
+                                                        },
+                                                        "type": "confirm",
+                                                        "buttonStyle": {
+                                                            "height": "30px"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": "USER.PRI_IS_BUYER",
+                                "showValues": [true, "TRUE"],
+                                "children": [
+                                    {
+                                        "Selector": {
+                                            "checkValues": "BE.PRI_PAYMENT_STATUS",
+                                            "showValues": ["FAILED"],
+                                            "children": [
+                                                {
+                                                    "GennyButton": {
+                                                        "buttonCode": "BTN_CONFIRM_OFFER",
+                                                        "value": {
+                                                            "itemCode": "BE.link.ACCEPTED_OFFER.code",
+                                                            "hint": "BE.code"
+                                                        },
+                                                        "children": "MAKE PAYMENT",
+                                                        "style": {
+                                                            "margin": "0 auto",
+                                                            "width": "80%",
+                                                            "height": "30px",
+                                                            "fontSize": "13px"
+                                                        },
+                                                        "type": "confirm",
+                                                        "buttonStyle": {
+                                                            "height": "30px"
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
