@@ -611,99 +611,30 @@
               "children": [
                 {
                   "component": "Box",
+                  "repeat": "_query.images",
                   "props": {
                     "flexDirection": "row",
                     "justifyContent": "space-between",
                     "flexShrink": 0,
                     "paddingY": 10
                   },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "flex": 1,
+                      "paddingX": 10
                     },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
+                    "children": [
+                      {
+                        "component": "Image",
+                        "props": {
+                          "source": "{{repeater.uploadURL}}",
+                          "height": 100,
+                          "width": 100
                         }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    }
-                  ]
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -764,6 +695,15 @@
       "scope": {
         "operator": "find",
         "query": { "linkValue": { "$eq": "OFFER" }}
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "load.attributes.PRI_LOAD_IMAGE.value",
+      "as": "images",
+      "scope": {
+        "operator": "find",
+        "query": { "name": { "$exists": true }}
       }
     }
   ]
