@@ -1,130 +1,249 @@
-
 {
-  "Grid": {
-    "rows": 5,
-    "cols": 1,
-    "children": [
-      {
-        "Selector": {
-          "checkValues": ["USER.PRI_IS_SELLER"],
-          "showValues": ["true", true],
-          "position": [0, 0],
-          "children": [
-            {
-              "GennyButton": {
-                "style": {
-                  "width": "150px",
-                  "height": "40px",
-                  "marginBottom": "15px"
-                },
-                "buttonStyle": {
-                  "background": "PROJECT.PRI_COLOR",
-                  "color": "white"
-                },
-                "buttonCode": "BTN_EDIT_BEG",
-                "value": {
-                  "itemCode": "BE.code",
-                  "root": "ROOT"
-                },
-                "children": "Edit"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "Selector": {
-          "checkValues": ["USER.PRI_IS_SELLER"],
-          "showValues": ["true", true],
-          "position": [0, 0],
-          "children": [
-            {
-              "Selector": {
-                "checkValues": ["ROOT"],
-                "hideValues": ["GRP_BIN"],
-                "children": [
-                  {
-                    "GennyButton": {
-                      "style": {
-                        "width": "150px",
-                        "height": "40px",
-                        "marginBottom": "15px"
-                      },
-                      "buttonStyle": {
-                        "background": "red",
-                        "color": "white"
-                      },
-                      "buttonCode": "BTN_DELETE_BEG",
-                      "value": {
-                        "itemCode": "BE.code",
-                        "root": "ROOT"
-                      },
-                      "confirmation": "Are you sure you would like to delete this internship?",
-                      "children": "Delete"
-                    }
-                  }
-                ]
-              }
+    "Grid": {
+        "rows": 5,
+        "cols": 1,
+        "children": [{
+                "Selector": {
+                    "checkValues": ["USER.PRI_IS_SELLER"],
+                    "showValues": ["true", true],
+                    "position": [0, 0],
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "width": "150px",
+                                "height": "40px",
+                                "marginBottom": "15px"
+                            },
+                            "buttonStyle": {
+                                "background": "#28a745",
+                                "color": "white",
+                                "boxShadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
+                            },
+                            "buttonCode": "BTN_FILL_BEG",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "root": "ROOT"
+                            },
+                            "children": [
+                                {
+                                    "IconSmall": {
+                                        "name": "done_all",
+                                        "fontSize": "2em",
+                                        "style": {
+                                            "padding": "0",
+                                            "marginRight": "0.3em",
+                                            "color": "#fff"
+                                        }
+                                    }
+                                },
+                                {
+                                    "p": {
+                                        "style": {
+                                            "margin": "0"
+                                        },
+                                        "children": "Mark as Filled"
+                                    }
+                                }
+                            ]
+                        }
+                    }]
+                }
             },
             {
-              "Selector": {
-                "checkValues": ["ROOT"],
-                "showValues": ["GRP_BIN"],
-                "children": [
-                  {
-                    "GennyButton": {
-                      "style": {
-                        "width": "150px",
-                        "height": "40px",
-                        "marginBottom": "15px"
-                      },
-                      "buttonStyle": {
-                        "background": "red",
-                        "color": "white"
-                      },
-                      "buttonCode": "BTN_RECOVER_BEG",
-                      "value": {
-                        "itemCode": "BE.code",
-                        "root": "ROOT"
-                      },
-                      "confirmation": "Are you sure you would like to recover this internship?",
-                      "children": "Recover"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "Selector": {
-          "checkValues": ["USER.PRI_IS_BUYER"],
-          "showValues": ["true", true],
-          "position": [0, 0],
-          "children": [
+                "Selector": {
+                    "checkValues": ["USER.PRI_IS_SELLER"],
+                    "showValues": ["true", true],
+                    "position": [0, 0],
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "width": "150px",
+                                "height": "40px",
+                                "marginBottom": "15px"
+                            },
+                            "buttonStyle": {
+                                "background": "#17a2b8",
+                                "color": "white",
+                                "boxShadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
+                            },
+                            "buttonCode": "BTN_EDIT_BEG",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "root": "ROOT"
+                            },
+                            "children": [
+                                {
+                                    "IconSmall": {
+                                        "name": "edit",
+                                        "fontSize": "2em",
+                                        "style": {
+                                            "padding": "0",
+                                            "marginRight": "0.3em",
+                                            "color": "#fff"
+                                        }
+                                    }
+                                },
+                                {
+                                    "p": {
+                                        "style": {
+                                            "margin": "0"
+                                        },
+                                        "children": "Edit"
+                                    }
+                                }
+                            ]
+                        }
+                    }]
+                }
+            },
             {
-              "GennyButton": {
-                "style": {
-                  "width": "150px",
-                  "height": "40px",
-                  "marginBottom": "15px"
-                },
-                "buttonStyle": {
-                  "background": "PROJECT.PRI_COLOR",
-                  "color": "white"
-                },
-                "buttonCode": "BTN_APPLY_BEG",
-                "value": {
-                  "itemCode": "BE.code",
-                  "root": "ROOT"
-                },
-                "children": "APPLY"
-              }
+                "Selector": {
+                    "checkValues": ["USER.PRI_IS_SELLER"],
+                    "showValues": ["true", true],
+                    "position": [0, 0],
+                    "children": [{
+                            "Selector": {
+                                "checkValues": ["ROOT"],
+                                "hideValues": ["GRP_BIN"],
+                                "children": [{
+                                    "GennyButton": {
+                                        "style": {
+                                            "width": "150px",
+                                            "height": "40px",
+                                            "marginBottom": "15px"
+                                        },
+                                        "buttonStyle": {
+                                            "background": "#c82333",
+                                            "color": "white",
+                                            "boxShadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
+                                        },
+                                        "buttonCode": "BTN_DELETE_BEG",
+                                        "value": {
+                                            "itemCode": "BE.code",
+                                            "root": "ROOT"
+                                        },
+                                        "confirmation": "Are you sure you would like to delete this internship?",
+                                        "children": [{
+                                                "IconSmall": {
+                                                    "name": "delete",
+                                                    "fontSize": "2em",
+                                                    "style": {
+                                                        "padding": "0",
+                                                        "marginRight": "0.3em",
+                                                        "color": "#fff"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "p": {
+                                                    "style": {
+                                                        "margin": "0"
+                                                    },
+                                                    "children": "Delete"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }]
+                            }
+                        },
+                        {
+                            "Selector": {
+                                "checkValues": ["ROOT"],
+                                "showValues": ["GRP_BIN"],
+                                "children": [{
+                                    "GennyButton": {
+                                        "style": {
+                                            "width": "150px",
+                                            "height": "40px",
+                                            "marginBottom": "15px"
+                                        },
+                                        "buttonStyle": {
+                                            "background": "red",
+                                            "color": "white",
+                                            "boxShadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
+                                        },
+                                        "buttonCode": "BTN_RECOVER_BEG",
+                                        "value": {
+                                            "itemCode": "BE.code",
+                                            "root": "ROOT"
+                                        },
+                                        "confirmation": "Are you sure you would like to recover this internship?",
+                                        "children": [
+                                            {
+                                                "IconSmall": {
+                                                    "name": "refresh",
+                                                    "fontSize": "2em",
+                                                    "style": {
+                                                        "padding": "0",
+                                                        "marginRight": "0.3em",
+                                                        "color": "#fff"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "p": {
+                                                    "style": {
+                                                        "margin": "0"
+                                                    },
+                                                    "children": "Recover"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Selector": {
+                    "checkValues": ["USER.PRI_IS_BUYER"],
+                    "showValues": ["true", true],
+                    "position": [0, 0],
+                    "children": [{
+                        "GennyButton": {
+                            "style": {
+                                "width": "150px",
+                                "height": "40px",
+                                "marginBottom": "15px"
+                            },
+                            "buttonStyle": {
+                                "background": "PROJECT.PRI_COLOR",
+                                "color": "white",
+                                "boxShadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
+                            },
+                            "buttonCode": "BTN_APPLY_BEG",
+                            "value": {
+                                "itemCode": "BE.code",
+                                "root": "ROOT"
+                            },
+                            "children": [
+                                {
+                                    "IconSmall": {
+                                        "name": "touch_app",
+                                        "fontSize": "2em",
+                                        "style": {
+                                            "padding": "0",
+                                            "marginRight": "0.3em",
+                                            "color": "#fff"
+                                        }
+                                    }
+                                },
+                                {
+                                    "p": {
+                                        "style": {
+                                            "margin": "0"
+                                        },
+                                        "children": "Apply"
+                                    }
+                                }
+                            ]
+                        }
+                    }]
+                }
             }
-          ]
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
