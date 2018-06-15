@@ -1,0 +1,118 @@
+{
+  "layout": {
+    "title": "Bank Account",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Container",
+      "props": {
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Payments",
+          "props": {
+            "title": "Add a Bank Account",
+            "initialValues": {
+              "accountNickname": "",
+              "bankName": "",
+              "accountName": "",
+              "routingNumber": "",
+              "accountNumber": "",
+              "accountType": "",
+              "holderType": ""
+            }
+          },
+          "children": [
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "Account Nickname",
+                "name": "accountNickname",
+                "prefixIcon": "face"
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "Bank Name",
+                "name": "bankName",
+                "prefixIcon": "business"
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "Account Name",
+                "name": "accountName",
+                "prefixIcon": "person"
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "BSB Number",
+                "name": "routingNumber",
+                "prefixIcon": "account-balance"
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "Account Number",
+                "name": "accountNumber",
+                "prefixIcon": "hash",
+                "prefixIconType": "feather"
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "dropdown",
+                "label": "Account Type",
+                "name": "accountType",
+                "prefixIcon": "attach-money",
+                "items": [
+                  {
+                    "label": "Checking",
+                    "value": "checking"
+                  },
+                  {
+                    "label": "Savings",
+                    "value": "savings"
+                  }
+                ]
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "dropdown",
+                "label": "Holder Type",
+                "name": "holderType",
+                "prefixIcon": "tag",
+                "prefixIconType": "material-icons-community",
+                "items": [
+                  {
+                    "label": "Personal",
+                    "value": "personal"
+                  },
+                  {
+                    "label": "Business",
+                    "value": "business"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
