@@ -1,84 +1,105 @@
 {
-  "layout": {
+  "layout":
+  {
     "title": "Bank Account",
     "appColor": "dark"
   },
-  "children": [
+  "children":
+  [
     {
       "component": "Container",
-      "props": {
+      "props":
+      {
         "flex": 1
       },
-      "children": [
+      "children":
+      [
         {
           "component": "Payments",
-          "props": {
+          "props":
+          {
+            "type": "bank",
             "title": "Add a Bank Account",
-            "initialValues": {
-              "accountNickname": "",
-              "bankName": "",
-              "accountName": "",
-              "routingNumber": "",
-              "accountNumber": "",
-              "accountType": "",
-              "holderType": ""
+            "initialValues":
+            {
+              "account_nickname": "",
+              "bank_name": "",
+              "account_name": "",
+              "routing_number": "",
+              "account_number": "",
+              "account_type": "",
+              "holder_type": ""
             }
           },
-          "children": [
+          "children":
+          [
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "text",
                 "label": "Account Nickname",
-                "name": "accountNickname",
-                "prefixIcon": "face"
+                "name": "account_nickname",
+                "prefixIcon": "face",
+                "required": true
               }
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "text",
                 "label": "Bank Name",
-                "name": "bankName",
-                "prefixIcon": "business"
+                "name": "bank_name",
+                "prefixIcon": "business",
+                "required": true
               }
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "text",
                 "label": "Account Name",
-                "name": "accountName",
-                "prefixIcon": "person"
+                "name": "account_name",
+                "prefixIcon": "person",
+                "required": true
               }
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "text",
                 "label": "BSB Number",
-                "name": "routingNumber",
-                "prefixIcon": "account-balance"
+                "name": "routing_number",
+                "prefixIcon": "account-balance",
+                "required": true
               }
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "text",
                 "label": "Account Number",
-                "name": "accountNumber",
+                "name": "account_number",
                 "prefixIcon": "hash",
-                "prefixIconType": "feather"
+                "prefixIconType": "feather",
+                "required": true
               }
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "dropdown",
                 "label": "Account Type",
-                "name": "accountType",
+                "name": "account_type",
                 "prefixIcon": "attach-money",
-                "items": [
+                "required": true,
+                "items":
+                [
                   {
                     "label": "Checking",
                     "value": "checking"
@@ -92,13 +113,16 @@
             },
             {
               "component": "InputWithLabel",
-              "props": {
+              "props":
+              {
                 "type": "dropdown",
                 "label": "Holder Type",
-                "name": "holderType",
+                "name": "holder_type",
                 "prefixIcon": "tag",
                 "prefixIconType": "material-icons-community",
-                "items": [
+                "required": true,
+                "items":
+                [
                   {
                     "label": "Personal",
                     "value": "personal"
