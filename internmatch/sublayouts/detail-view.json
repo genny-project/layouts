@@ -1,21 +1,30 @@
 {
   "Grid": {
     "rows": 1,
-    "cols": [2, 1],
+    "cols": [
+      2,
+      1
+    ],
     "style": {
-        "height": "initial",
-        "backgroundColor": "white"
+      "height": "initial",
+      "backgroundColor": "white"
     },
     "children": [
       {
         "Grid": {
-          "position": [0, 0],
+          "position": [
+            0,
+            0
+          ],
           "style": {
             "color": "rgb(72,84,98)",
             "height": "initial",
             "paddingBottom": "50px"
           },
-          "rows": [0.1, 1],
+          "rows": [
+            0.1,
+            1
+          ],
           "cols": [
             {
               "style": {
@@ -26,33 +35,85 @@
           ],
           "children": [
             {
-                "SublayoutLoader" : {
-                    "position":[0, 0],
-                    "layoutCode": "internship-details-title",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                  }
-               }
-            },
-            {
-                "SublayoutLoader" : {
-                    "position":[0, 0],
-                    "layoutCode": "internship-details-features",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                  }
-               }
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "internship-details-title",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
             },
             {
               "SublayoutLoader": {
-                "position":[1, 0],
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "internship-details-features",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  1,
+                  0
+                ],
                 "layoutCode": "internship-details-required-skills",
                 "aliases": {
                   "BE": "BE.code",
                   "GROUP": "ROOT"
                 }
+              }
+            },
+            {
+              "Selector": {
+                "position": [
+                  1,
+                  0
+                ],
+                "checkValues": [
+                  "USER.PRI_IS_BUYER"
+                ],
+                "hideValues": [
+                  true
+                ],
+                "children": [
+                  {
+                    "Selector": {
+                      "position": [
+                        1,
+                        0
+                      ],
+                      "checkValues": [
+                        "BE.link.REPRESENTATIVE.PRI_NAME"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "SublayoutLoader": {
+                            "position": [
+                              1,
+                              0
+                            ],
+                            "layoutCode": "internship-details-representative",
+                            "aliases": {
+                              "BE": "BE.code",
+                              "GROUP": "ROOT"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -60,7 +121,10 @@
       },
       {
         "Grid": {
-          "position":[0, 1],
+          "position": [
+            0,
+            1
+          ],
           "cols": 1,
           "rows": 2,
           "style": {
@@ -69,16 +133,19 @@
           "children": [
             {
               "SublayoutLoader": {
-                  "style": {
-                    "float": "right",
-                    "marginRight": "50px"
-                  },
-                  "position": [1, 0],
-                  "layoutCode": "internship-details-button-actions",
-                  "aliases": {
-                     "BE": "BE.code",
-                     "GROUP": "ROOT"
-                  }
+                "style": {
+                  "float": "right",
+                  "marginRight": "50px"
+                },
+                "position": [
+                  1,
+                  0
+                ],
+                "layoutCode": "internship-details-button-actions",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
               }
             }
           ]

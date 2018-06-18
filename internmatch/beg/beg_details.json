@@ -1,147 +1,45 @@
 {
-  "Grid": {
-    "rows": 1,
-    "cols": [2, 1],
-    "style": {
-        "height": "initial",
-        "backgroundColor": "white"
-    },
+  "div": {
     "children": [
       {
-        "Grid": {
-          "position": [0, 0],
+        "div": {
           "style": {
-            "color": "rgb(72,84,98)",
-            "height": "initial",
-            "paddingBottom": "50px"
+            "width": "100%",
+            "padding": "20px 50px 10px"
           },
-          "rows": [0.1, 1],
-          "cols": [
-            {
-              "style": {
-                "flexGrow": 1,
-                "marginLeft": "10%"
-              }
-            }
-          ],
           "children": [
             {
-              "div" : {
-                 "position": [0, 0],
-                  "style" : {
-                      "width" : "100%",
-                      "padding": "10px 0"
-                  },
-                  "children": [
-                      {
-                          "GennyButton": {
-                              "style": {
-                                  "width": "100px",
-                                  "height": "30px"
-                              },
-                              "buttonStyle": {
-                                  "background": "PROJECT.PRI_COLOR",
-                                  "height": "30px",
-                                  "padding": "0"
-                              },
-                              "buttonCode": "BTN_BACK_BUTTON",
-                              "hint": {
-                                  "itemCode": "BE.code"
-                              },
-                              "children": [
-                                  {
-                                      "IconSmall": {
-                                          "style": {
-                                              "fontSize": "28px",
-                                              "transform": "rotate(90deg)",
-                                              "color": "white"
-                                          },
-                                          "name": "arrow_drop_down"
-                                      }
-                                  },
-                                  {
-                                      "span": {
-                                          "style": {
-                                              "color": "white"
-                                          },
-                                          "children": "BACK"
-                                      }
-                                  }
-                              ]
-                          }
-                      }
-                  ]
-              }
-          },
-
-            {
-                "SublayoutLoader" : {
-                    "position":[0, 0],
-                    "layoutCode": "internship-details-title",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                  }
-               }
-            },
-            {
-                "SublayoutLoader" : {
-                    "position":[0, 0],
-                    "layoutCode": "internship-details-features",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                  }
-               }
-            },
-            {
-              "SublayoutLoader": {
-                "position":[1, 0],
-                "layoutCode": "internship-details-required-skills",
-                "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-                }
-              }
-            },
-            {
-              "Selector": {
-                "position": [
-                    1,
-                    0
-                ],
-                "checkValues": [
-                    "USER.PRI_IS_BUYER"
-                ],
-                "hideValues": [
-                    true
-                ],
+              "GennyButton": {
+                "style": {
+                  "width": "100px",
+                  "height": "30px"
+                },
+                "buttonStyle": {
+                  "background": "PROJECT.PRI_COLOR",
+                  "height": "30px",
+                  "padding": "0"
+                },
+                "buttonCode": "BTN_BACK_BUTTON",
+                "hint": {
+                  "itemCode": "BE.code"
+                },
                 "children": [
                   {
-                    "Selector": {
-                      "position": [
-                        1,
-                        0
-                      ],
-                      "checkValues": [
-                          "BE.link.REPRESENTATIVE.PRI_NAME"
-                      ],
-                      "showIfNotNull":true,
-                      "children": [
-                        {
-                          "SublayoutLoader" : {
-                              "position": [
-                                1,
-                                0
-                              ],
-                              "layoutCode": "internship-details-representative",
-                              "aliases": {
-                                  "BE": "BE.code",
-                                  "GROUP": "ROOT"
-                              }
-                          }
-                        }
-                      ]
+                    "IconSmall": {
+                      "style": {
+                        "fontSize": "28px",
+                        "transform": "rotate(90deg)",
+                        "color": "white"
+                      },
+                      "name": "arrow_drop_down"
+                    }
+                  },
+                  {
+                    "span": {
+                      "style": {
+                        "color": "white"
+                      },
+                      "children": "BACK"
                     }
                   }
                 ]
@@ -151,29 +49,12 @@
         }
       },
       {
-        "Grid": {
-          "position":[0, 1],
-          "cols": 1,
-          "rows": 2,
-          "style": {
-            "height": "50%"
-          },
-          "children": [
-            {
-              "SublayoutLoader": {
-                  "style": {
-                    "float": "right",
-                    "marginRight": "50px"
-                  },
-                  "position": [1, 0],
-                  "layoutCode": "internship-details-button-actions",
-                  "aliases": {
-                     "BE": "BE.code",
-                     "GROUP": "ROOT"
-                  }
-              }
-            }
-          ]
+        "SublayoutLoader": {
+          "layoutCode": "detail-view",
+          "aliases": {
+            "BE": "BE.code",
+            "GROUP": "ROOT"
+          }
         }
       }
     ]
