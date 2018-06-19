@@ -16,7 +16,12 @@
             1
           ],
           "cols": [
-            0.1,
+            {
+              "style": {
+                "flexGrow": 0.1,
+                "paddingRight": "10px"
+              }
+            },
             {
               "style": {
                 "display": "flex",
@@ -37,11 +42,11 @@
                   0
                 ],
                 "style": {
-                  "width": "30px",
+                  "width": "50px",
                   "marginRight": "5px"
                 },
-                "height": 30,
-                "width": 30,
+                "height": 50,
+                "width": 50,
                 "address": "BE.PRI_ADDRESS_FULL"
               }
             },
@@ -79,20 +84,28 @@
         }
       },
       {
-        "GennyButton": {
-          "style": {
-            "height": "30px",
-            "marginTop": "10px"
-          },
-          "buttonStyle": {
-            "background": "green"
-          },
-          "children": "Send Email",
-          "buttonCode": "BTN_SEND_EMAIL",
-          "value": {
-            "itemCode": "BE.code",
-            "hint": "ROOT"
-          }
+        "Selector": {
+          "checkValues": ["ROOT"],
+          "showValues": ["GRP_NEW_ITEMS"],
+          "children": [
+            {
+              "GennyButton": {
+                "style": {
+                  "height": "30px",
+                  "marginTop": "10px"
+                },
+                "buttonStyle": {
+                  "background": "green"
+                },
+                "children": "Send Email",
+                "buttonCode": "BTN_SEND_EMAIL",
+                "value": {
+                  "itemCode": "BE.code",
+                  "hint": "ROOT"
+                }
+              }
+            }
+          ]
         }
       }
     ]
