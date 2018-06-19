@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Card Details",
+    "title": "Add Card",
     "appColor": "dark"
   },
   "children": [
@@ -13,8 +13,37 @@
         {
           "component": "Payments",
           "props": {
-            "title": "Add a Credit Card"
-          }
+            "type": "card",
+            "title": "Add a Card Account",
+            "initialValues": {
+              "nickname": "",
+              "isCardValid": false
+            }
+          },
+          "children": [
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "credit-card",
+                "label": "Card Details",
+                "name": "isCardValid",
+                "required": true,
+                "marginBottom": 20,
+                "marginX": -20,
+                "hideErrorMessage": true
+              }
+            },
+            {
+              "component": "InputWithLabel",
+              "props": {
+                "type": "text",
+                "label": "Card Nickname",
+                "name": "nickname",
+                "prefixIcon": "face",
+                "required": true
+              }
+            }
+          ]
         }
       ]
     }
