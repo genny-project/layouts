@@ -1,0 +1,166 @@
+{
+  "layout": {
+    "title": "Payments",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Container",
+          "props": {
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "paddingX": 20,
+                "width": "100%"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginTop": 40,
+                    "marginBottom": 20,
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "size": "lg",
+                        "bold": true,
+                        "align": "center"
+                      },
+                      "children": "Payment Details"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 40,
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "align": "center"
+                      },
+                      "children": "My payment accounts:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "repeat": "_query.attributes.PRI_USER_PAYMENT_METHODS.value",
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "paddingY": 30,
+                      "paddingX": 20,
+                      "borderRadius": 10,
+                      "borderWidth": 2,
+                      "borderColor": "#DDD",
+                      "borderStyle": "solid",
+                      "width": "100%",
+                      "justifyContent": "space-between",
+                      "marginBottom": 20
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                          "flexDirection": "column"
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "marginBottom": 10
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "bold": true,
+                                  "text": "{{repeater.nickname}}"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "marginBottom": 10
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "text": "{{repeater.name}}"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "{{repeater.number}}"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "children": [
+                          {
+                            "component": "Icon",
+                            "props": {
+                              "size": "md",
+                              "name": "delete",
+                              "color": "#DDD"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component": "LinkButton",
+                  "props": {
+                    "to": "payments/accounts/add",
+                    "color": "green"
+                  },
+                  "children": "Add account"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "USER"
+    },
+    {
+      "operator": "populateBEGAttributes",
+      "as": "attributes"
+    }
+  ]
+}
