@@ -39,7 +39,7 @@
                     "style": {
                       "marginRight": "5px"
                     },
-                    "children": "${BE.link.APPLICANT.PRI_FIRSTNAME} ${BE.link.APPLICANT.PRI_LASTNAME}"
+                    "children": "${BE.link.APPLICANT.PRI_FIRSTNAME}"
                   }
                 },
                 {
@@ -58,12 +58,34 @@
             }
           },
           {
-            "DateLabel": {
-              "position": [1, 0],
-              "format": "DD MMM YYYY",
-              "children": "${BE.created}",
+            "h2": {
+              "position": [0, 0],
+              "children": [
+                {
+                  "span": {
+                    "style": {
+                      "marginRight": "5px"
+                    },
+                    "children": "Submitted at: "
+                  }
+                },
+                {
+                  "DateLabel": {
+                    "position": [1, 0],
+                    "format": "DD MMM YYYY",
+                    "children": "${BE.created}",
+                    "style": {
+                      "margin": "0px"
+                    }
+                  }
+                }
+              ],
               "style": {
-                "margin": "0px"
+                "margin": "0px",
+                "fontFamily": "Akkurat",
+                "fontWeight": "400",
+                "fontSize": "29px",
+                "color": "rgb(72,84,98)"
               }
             }
           }
