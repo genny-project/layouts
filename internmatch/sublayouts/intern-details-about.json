@@ -33,7 +33,7 @@
                         },
                         {
                             "span": {
-                                "children": "email@email.com"
+                                "children": "${BE.PRI_EMAIL}"
                             }
                         }
                     ]
@@ -53,7 +53,7 @@
                         },
                         {
                             "span": {
-                                "children": "XX XXXX XXXX"
+                                "children": "${BE.PRI_MOBILE}"
                             }
                         }
                     ]
@@ -72,8 +72,9 @@
                             }
                         },
                         {
-                            "span": {
-                                "children": "XX MMM YYYY"
+                            "DateLabel":{
+                                "format":"DD MMM YYYY",
+                                "children":"${BE.PRI_DOB}"
                             }
                         }
                     ]
@@ -93,19 +94,10 @@
                         },
                         {
                             "span": {
-                                "children": "SUBURB, STATE, COUNTRY"
+                                "children": "${BE.PRI_ADDRESS_SUBURB}, ${BE.PRI_ADDRESS_STATE}, ${BE.PRI_ADDRESS_COUNTRY}"
                             }
                         }
                     ]
-                }
-            },
-            {
-                "div": {
-                    "position": [
-                        5,
-                        0
-                    ],
-                    "children": "personal description"
                 }
             }
         ]

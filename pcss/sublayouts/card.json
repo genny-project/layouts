@@ -31,7 +31,7 @@
           ],
           "children": [
             {
-              "ImageView": {
+              "ImageMapView": {
                 "position": [
                   0,
                   0
@@ -40,20 +40,9 @@
                   "width": "30px",
                   "marginRight": "5px"
                 },
-                "src": "BE.PRI_IMAGE_URL"
-              }
-            },
-            {
-              "h5": {
-                "position": [
-                  0,
-                  1
-                ],
-                "style": {
-                  "fontSize": "0.85em",
-                  "margin": "0"
-                },
-                "children": "BE.PRI_NAME"
+                "height": 30,
+                "width": 30,
+                "address": "BE.PRI_ADDRESS"
               }
             },
             {
@@ -87,6 +76,23 @@
               }
             }
           ]
+        }
+      },
+      {
+        "GennyButton": {
+          "style": {
+            "height": "30px",
+            "marginTop": "10px"
+          },
+          "buttonStyle": {
+            "background": "green"
+          },
+          "children": "Send Email",
+          "buttonCode": "BTN_SEND_EMAIL",
+          "value": {
+            "itemCode": "BE.code",
+            "hint": "ROOT"
+          }
         }
       }
     ]
