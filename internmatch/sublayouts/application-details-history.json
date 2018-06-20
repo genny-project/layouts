@@ -19,6 +19,10 @@
             0,
             0
           ],
+          "style": {
+            "borderBottom": "2px solid #485461",
+            "borderTop": "2px solid #485461"
+          },
           "children": "APPLICATION HISTORY"
         }
       },
@@ -30,7 +34,7 @@
           ],
           "style": {
             "height": "calc(100% - 30px)",
-            "borderLeft": "4px solid darkslateblue",
+            "borderLeft": "4px solid ${PROJECT.PRI_COLOR}",
             "width": 0,
             "position": "absolute",
             "top": 15,
@@ -67,23 +71,64 @@
             }
           ],
           "children": [
+
+
             {
-              "div": {
+              "Selector": {
                 "position": [
                   0,
                   0
                 ],
-                "style": {
-                  "height": 14,
-                  "width": 14,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "darkslateblue",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_APPLIED_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  0,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_APPLIED_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "div": {
+                      "style": {
+                        "height": 26,
+                        "width": 26,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "white",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            
             {
               "span": {
                 "position": [
@@ -93,7 +138,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "Applied Date"
+                "children": "Applied"
               }
             },
             {
@@ -102,29 +147,105 @@
                   0,
                   2
                 ],
-                "children": "${BE.PRI_GRP_APPLIED_DATE}",
+                "format": "DD MMM YYYY",
+                "children": "BE.PRI_GRP_APPLIED_DATE",
                 "style": {
                   "margin": "0px"
                 }
               }
             },
+
+
             {
-              "div": {
+              "Selector": {
                 "position": [
                   1,
                   0
                 ],
-                "style": {
-                  "height": 26,
-                  "width": 26,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "white",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_SHORTLISTED_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  1,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_SHORTLISTED_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_APPLIED_DATE"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 26,
+                              "width": 26,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_APPLIED_DATE"
+                      ],
+                      "showIfNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 14,
+                              "width": 14,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            
+
             {
               "span": {
                 "position": [
@@ -134,7 +255,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "Shortlisted Date"
+                "children": "Shortlisted"
               }
             },
             {
@@ -143,29 +264,105 @@
                   1,
                   2
                 ],
+                "format": "DD MMM YYYY",
                 "children": "${BE.PRI_GRP_SHORTLISTED_DATE}",
                 "style": {
                   "margin": "0px"
                 }
               }
             },
+
+
             {
-              "div": {
+              "Selector": {
                 "position": [
                   2,
                   0
                 ],
-                "style": {
-                  "height": 14,
-                  "width": 14,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "white",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_INTERVIEWS_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  2,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_INTERVIEWS_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_SHORTLISTED_DATE"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 26,
+                              "width": 26,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_SHORTLISTED_DATE"
+                      ],
+                      "showIfNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 14,
+                              "width": 14,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            
+
             {
               "span": {
                 "position": [
@@ -175,7 +372,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "Interviewed Date"
+                "children": "Interviewed"
               }
             },
             {
@@ -184,29 +381,105 @@
                   2,
                   2
                 ],
+                "format": "DD MMM YYYY",
                 "children": "${BE.PRI_GRP_INTERVIEWS_DATE}",
                 "style": {
                   "margin": "0px"
                 }
               }
             },
+            
+
             {
-              "div": {
+              "Selector": {
                 "position": [
                   3,
                   0
                 ],
-                "style": {
-                  "height": 14,
-                  "width": 14,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "white",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_OFFERED_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  3,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_OFFERED_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_INTERVIEWS_DATE"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 26,
+                              "width": 26,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_INTERVIEWS_DATE"
+                      ],
+                      "showIfNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 14,
+                              "width": 14,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+
+
             {
               "span": {
                 "position": [
@@ -216,7 +489,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "Offered Date"
+                "children": "Offered"
               }
             },
             {
@@ -225,29 +498,104 @@
                   3,
                   2
                 ],
+                "format": "DD MMM YYYY",
                 "children": "${BE.PRI_GRP_OFFERED_DATE}",
                 "style": {
                   "margin": "0px"
                 }
               }
             },
+
+            
             {
-              "div": {
+              "Selector": {
                 "position": [
                   4,
                   0
                 ],
-                "style": {
-                  "height": 14,
-                  "width": 14,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "white",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_PLACED_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  4,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_PLACED_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_OFFERED_DATE"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 26,
+                              "width": 26,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_OFFERED_DATE"
+                      ],
+                      "showIfNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 14,
+                              "width": 14,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+
             {
               "span": {
                 "position": [
@@ -257,7 +605,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "Placed Date"
+                "children": "Placed"
               }
             },
             {
@@ -266,29 +614,106 @@
                   4,
                   2
                 ],
+                "format": "DD MMM YYYY",
                 "children": "${BE.PRI_GRP_PLACED_DATE}",
                 "style": {
                   "margin": "0px"
                 }
               }
             },
+            
+            
+
             {
-              "div": {
+              "Selector": {
                 "position": [
                   5,
                   0
                 ],
-                "style": {
-                  "height": 14,
-                  "width": 14,
-                  "borderRadius": "50%",
-                  "border": "4px solid darkslateblue",
-                  "backgroundColor": "white",
-                  "position": "relative",
-                  "z-index": 5
-                }
+                "checkValues": [
+                  "BE.PRI_GRP_IN_PROGRESS_DATE"
+                ],
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "div": {
+                     
+                      "style": {
+                        "height": 14,
+                        "width": 14,
+                        "borderRadius": "50%",
+                        "border": "4px solid ${PROJECT.PRI_COLOR}",
+                        "backgroundColor": "PROJECT.PRI_COLOR",
+                        "position": "relative",
+                        "z-index": 5
+                      }
+                    }
+                  }
+                ]
               }
             },
+            {
+              "Selector": {
+                "position": [
+                  5,
+                  0
+                ],
+                "checkValues": [
+                  "BE.PRI_GRP_IN_PROGRESS_DATE"
+                ],
+                "showIfNull": true,
+                "children": [
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_PLACED_DATE"
+                      ],
+                      "showIfNotNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 26,
+                              "width": 26,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "BE.PRI_GRP_PLACED_DATE"
+                      ],
+                      "showIfNull": true,
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "height": 14,
+                              "width": 14,
+                              "borderRadius": "50%",
+                              "border": "4px solid ${PROJECT.PRI_COLOR}",
+                              "backgroundColor": "white",
+                              "position": "relative",
+                              "z-index": 5
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+
+
             {
               "span": {
                 "position": [
@@ -298,7 +723,7 @@
                 "style": {
                   "marginRight": "5px"
                 },
-                "children": "In Progress Date"
+                "children": "In Progress"
               }
             },
             {
@@ -307,6 +732,7 @@
                   5,
                   2
                 ],
+                "format": "DD MMM YYYY",
                 "children": "${BE.PRI_GRP_IN_PROGRESS_DATE}",
                 "style": {
                   "margin": "0px"
