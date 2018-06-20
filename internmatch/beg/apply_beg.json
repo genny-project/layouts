@@ -1,76 +1,89 @@
 {
-    "Grid": {
-        "rows": 3,
-        "cols": 1,
-        "children": [
+  "Grid": {
+    "rows": 3,
+    "cols": 1,
+    "children": [
+      {
+        "h2": {
+          "position": [
+            0,
+            0
+          ],
+          "style": {
+            "color": "PROJECT.PRI_COLOR",
+            "text-align": "center",
+            "marginBottom": "10px"
+          },
+          "children": "APPLY FOR INTERNSHIP"
+        }
+      },
+      {
+        "div": {
+          "position": [
+            1,
+            0
+          ],
+          "style": {
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center"
+          },
+          "children": [
             {
-                "h2": {
-                    "position": [
+              "div": {
+                "style": {
+                  "textAlign": "center",
+                  "fontSize": "24px",
+                  "margin": "20px 0"
+                },
+                "children": "INTERNSHIP DETAILS"
+              }
+            },
+            {
+              "div": {
+                "style": {
+                  "backgroundColor": "#DDD",
+                  "padding": "10px"
+                },
+                "children": [
+                  {
+                    "div": {
+                      "children": "BE.PRI_NAME"
+                    }
+                  },
+                  {
+                    "div": {
+                      "children": "BE.link.COMPANY.PRI_NAME"
+                    }
+                  },
+                  {
+                    "SublayoutLoader": {
+                      "position": [
                         0,
                         0
-                    ],
-                    "style": {
-                        "color": "PROJECT.PRI_COLOR",
-                        "text-align": "center",
-                        "marginBottom": "10px"
-                    },
-                    "children": "APPLY FOR INTERNSHIP"
-                }
-            },
-            {
-                "div" : {
-                    "position": [
-                        1,
-                        0
-                    ],
-                    "style": {
-                        "flexDirection": "column",
-                        "alignItems": "center",
-                        "justifyContent": "center"
-                    },
-                    "children": [
-                        {
-                            "div": {
-                                "style": {
-                                    "textAlign": "center",
-                                    "fontSize": "24px",
-                                    "margin": "20px 0"
-                                },
-                                "children": "INTERNSHIP DETAILS"
-                            }
-                        },
-                        {
-                            "div": {
-                                "children": "BE.PRI_NAME"
-                            }
-                        },
-                        {
-                            "div": {
-                                "children": "BE.link.COMPANY.PRI_NAME"
-                            }
-                        },
-                        {
-                            "SublayoutLoader" : {
-                                "position":[0, 0],
-                                "layoutCode": "internship-details-features",
-                                "aliases": {
-                                    "BE": "BE.code",
-                                    "GROUP": "ROOT"
-                              }
-                           }
-                        }
-                    ]
-                }
-            },
-            {
-                "GennyForm": {
-                    "position": [
-                        2,
-                        0
-                    ],
-                    "root": "QUE_APPLY_BEG_GRP"
-                }
+                      ],
+                      "layoutCode": "internship-details-features",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
             }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "GennyForm": {
+          "position": [
+            2,
+            0
+          ],
+          "root": "QUE_APPLY_BEG_GRP"
+        }
+      }
+    ]
+  }
 }
