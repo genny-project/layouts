@@ -94,6 +94,54 @@
               }
             },
             {
+              "div": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "backgroundColor": "#DDD",
+                  "padding": "20px",
+                  "width": "560px",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "display": "flex",
+                  "flexDirection": "column"
+                },
+                "children": [
+                  {
+                    "h2": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.PRI_NAME"
+                    }
+                  },
+                  {
+                    "h3": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.link.COMPANY.PRI_NAME"
+                    }
+                  },
+                  {
+                    "SublayoutLoader": {
+                      "position": [
+                        0,
+                        0
+                      ],
+                      "layoutCode": "internship-details-features",
+                      "aliases": {
+                        "BE": "${BE.parent.code}",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "SublayoutLoader": {
                 "position": [
                   0,

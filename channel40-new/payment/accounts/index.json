@@ -7,146 +7,210 @@
     {
       "component": "ScrollView",
       "props": {
-        "flex": 1
+        "padding": 20
       },
       "children": [
         {
-          "component": "Container",
+          "component": "Box",
           "props": {
-            "flex": 1
+            "flexDirection": "column",
+            "width": "100%"
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "paddingX": 20,
-                "width": "100%"
+                "marginTop": 20,
+                "marginBottom": 20,
+                "justifyContent": "center"
               },
               "children": [
                 {
-                  "component": "Box",
+                  "component": "Heading",
                   "props": {
-                    "marginTop": 40,
-                    "marginBottom": 20,
-                    "justifyContent": "center"
+                    "size": "lg",
+                    "bold": true,
+                    "align": "center"
                   },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "size": "lg",
-                        "bold": true,
-                        "align": "center"
-                      },
-                      "children": "Payment Details"
-                    }
-                  ]
-                },
+                  "children": "Payment Details"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 40,
+                "justifyContent": "center"
+              },
+              "children": [
                 {
-                  "component": "Box",
+                  "component": "Text",
                   "props": {
-                    "marginBottom": 40,
-                    "justifyContent": "center"
+                    "align": "center"
                   },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "props": {
-                        "align": "center"
-                      },
-                      "children": "My payment accounts:"
-                    }
-                  ]
-                },
+                  "children": "My payment accounts:"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "marginBottom": 40
+              },
+              "dontShowIf": {
+                "user.PRI_USER_PAYMENT_METHODS.value": {
+                  "$exists": true,
+                  "$size": {
+                    "$gte": 0
+                  }
+                }
+              },
+              "children": [
                 {
-                  "component": "Box",
+                  "component": "Text",
                   "props": {
-                    "flexDirection": "column"
-                  },
-                  "repeat": "_query.attributes.PRI_USER_PAYMENT_METHODS.value",
-                  "children": {
+                    "align": "center",
+                    "text": "You have no payment methods yet.\nPlease add one below."
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "onlyShowIf": {
+                "user.PRI_USER_PAYMENT_METHODS.value": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "repeat": "_query.attributes.PRI_USER_PAYMENT_METHODS.value",
+              "children": {
+                "component": "Box",
+                "props": {
+                  "paddingY": 30,
+                  "paddingX": 20,
+                  "borderRadius": 10,
+                  "borderWidth": 2,
+                  "borderColor": "#DDD",
+                  "borderStyle": "solid",
+                  "width": "100%",
+                  "justifyContent": "space-between",
+                  "marginBottom": 20,
+                  "maxWidth": 400,
+                  "marginX": "auto"
+                },
+                "children": [
+                  {
                     "component": "Box",
                     "props": {
-                      "paddingY": 30,
-                      "paddingX": 20,
-                      "borderRadius": 10,
-                      "borderWidth": 2,
-                      "borderColor": "#DDD",
-                      "borderStyle": "solid",
-                      "width": "100%",
-                      "justifyContent": "space-between",
-                      "marginBottom": 20
+                      "flexDirection": "column"
                     },
                     "children": [
                       {
                         "component": "Box",
                         "props": {
-                          "flexDirection": "column"
+                          "marginBottom": 10
                         },
                         "children": [
                           {
-                            "component": "Box",
-                            "props": {
-                              "marginBottom": 10
-                            },
-                            "children": [
-                              {
-                                "component": "Text",
-                                "props": {
-                                  "bold": true,
-                                  "text": "{{repeater.nickname}}"
-                                }
-                              }
-                            ]
-                          },
-                          {
-                            "component": "Box",
-                            "props": {
-                              "marginBottom": 10
-                            },
-                            "children": [
-                              {
-                                "component": "Text",
-                                "props": {
-                                  "text": "{{repeater.name}}"
-                                }
-                              }
-                            ]
-                          },
-                          {
                             "component": "Text",
                             "props": {
-                              "text": "{{repeater.number}}"
+                              "bold": true,
+                              "text": "{{repeater.nickname}}"
                             }
                           }
                         ]
                       },
                       {
                         "component": "Box",
+                        "props": {
+                          "marginBottom": 10
+                        },
                         "children": [
                           {
-                            "component": "Icon",
-                            "props": {
-                              "size": "md",
-                              "name": "delete",
-                              "color": "#DDD"
+                            "component": "Text",
+                            "conditional": {
+                              "if": {
+                                "repeater.type": {
+                                  "$eq": "BANK_ACCOUNT"
+                                }
+                              },
+                              "then": {
+                                "text": "BSB: {{repeater.bsb}}"
+                              },
+                              "else": {
+                                "text": "{{repeater.name}}"
+                              }
                             }
                           }
                         ]
+                      },
+                      {
+                        "component": "Text",
+                        "conditional": {
+                          "if": {
+                            "repeater.type": {
+                              "$eq": "BANK_ACCOUNT"
+                            }
+                          },
+                          "then": {
+                            "text": "Acc#: {{repeater.accountNumber}}"
+                          },
+                          "else": {
+                            "text": "{{repeater.number}}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Box",
+                    "children": [
+                      {
+                        "component": "EventButton",
+                        "props": {
+                          "confirmation": {
+                            "title": "Delete payment method",
+                            "message": "Are you sure you want to delete this payment method?\nThis cannot be undone.",
+                            "buttons": [
+                              {
+                                "type": "ok",
+                                "text": "Delete",
+                                "style": "destructive"
+                              },
+                              {
+                                "type": "cancel",
+                                "text": "Cancel",
+                                "style": "cancel"
+                              }
+                            ]
+                          },
+                          "icon": "delete",
+                          "textColor": "lightgrey",
+                          "color": "transparent",
+                          "size": "md",
+                          "eventType": "PAYMENT_SUBMIT",
+                          "buttonCode": "USER_DELETE_NEW_PAYMENT_METHOD",
+                          "value": "{{repeater.id}}"
+                        }
                       }
                     ]
                   }
-                },
-                {
-                  "component": "LinkButton",
-                  "props": {
-                    "to": "payments/accounts/add",
-                    "color": "green"
-                  },
-                  "children": "Add account"
-                }
-              ]
+                ]
+              }
+            },
+            {
+              "component": "LinkButton",
+              "props": {
+                "to": "payment/accounts/add",
+                "color": "green"
+              },
+              "children": "Add account"
             }
           ]
         }

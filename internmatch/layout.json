@@ -57,7 +57,8 @@
                       0
                     ],
                     "checkValues": [
-                      "USER.PRI_IS_SELLER"
+                      "USER.PRI_IS_SELLER",
+                      "USER.PRI_IS_AGENT"
                     ],
                     "showValues": [
                       true
@@ -73,20 +74,61 @@
                           },
                           "children": [
                             {
-                              "GennyButton": {
-                                "buttonCode": "BTN_ADD_BEG",
-                                "style": {
-                                  "padding": "5px",
-                                  "width": "initial",
-                                  "height": "30px"
-                                },
-                                "buttonStyle": {
-                                  "background": "#3f617f",
-                                  "border": "1px solid white",
-                                  "fontSize": "0.8em"
-                                },
-                                "value": {},
-                                "children": "+ NEW INTERNSHIP"
+                              "Selector": {
+                                "checkValues": [
+                                  "USER.PRI_IS_SELLER"
+                                ],
+                                "showValues": [
+                                  true
+                                ],
+                                "children": [
+                                  {
+                                    "GennyButton": {
+                                      "buttonCode": "BTN_ADD_BEG",
+                                      "style": {
+                                        "padding": "5px",
+                                        "width": "initial",
+                                        "height": "30px"
+                                      },
+                                      "buttonStyle": {
+                                        "background": "#3f617f",
+                                        "border": "1px solid white",
+                                        "fontSize": "0.8em"
+                                      },
+                                      "value": {},
+                                      "children": "+ NEW INTERNSHIP"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Selector": {
+                                "checkValues": [
+                                  "USER.PRI_IS_AGENT"
+                                ],
+                                "showValues": [
+                                  true
+                                ],
+                                "children": [
+                                  {
+                                    "GennyButton": {
+                                      "buttonCode": "BTN_ADD_BEG_AGENT",
+                                      "style": {
+                                        "padding": "5px",
+                                        "width": "initial",
+                                        "height": "30px"
+                                      },
+                                      "buttonStyle": {
+                                        "background": "#3f617f",
+                                        "border": "1px solid white",
+                                        "fontSize": "0.8em"
+                                      },
+                                      "value": {},
+                                      "children": "+ NEW INTERNSHIP"
+                                    }
+                                  }
+                                ]
                               }
                             },
                             {
@@ -105,6 +147,35 @@
                                 "value": {},
                                 "children": "+ NEW HOST COMPANY"
                               }
+                            },
+                            {
+                              "Selector": {
+                                "checkValues": [
+                                  "USER.PRI_IS_AGENT"
+                                ],
+                                "showValues": [
+                                  true
+                                ],
+                                "children": [
+                                  {
+                                    "GennyButton": {
+                                      "buttonCode": "BTN_ADD_INTERN",
+                                      "style": {
+                                        "padding": "5px",
+                                        "width": "initial",
+                                        "height": "30px"
+                                      },
+                                      "buttonStyle": {
+                                        "background": "#3f617f",
+                                        "border": "1px solid white",
+                                        "fontSize": "0.8em"
+                                      },
+                                      "value": {},
+                                      "children": "+ INTERN"
+                                    }
+                                  }
+                                ]
+                              }
                             }
                           ]
                         }
@@ -116,7 +187,8 @@
                   "Selector": {
                     "position": [1,0],
                     "checkValues": [
-                      "USER.PRI_IS_SELLER"
+                      "USER.PRI_IS_SELLER",
+                      "USER.PRI_IS_AGENT"
                     ],
                     "showValues": [
                       true
@@ -142,7 +214,8 @@
                   "Selector": {
                     "position": [1,0],
                     "checkValues": [
-                      "USER.PRI_IS_SELLER"
+                      "USER.PRI_IS_SELLER",
+                      "USER.PRI_IS_AGENT"
                     ],
                     "hideValues": [
                       true
