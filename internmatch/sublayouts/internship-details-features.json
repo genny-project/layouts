@@ -1,69 +1,109 @@
 {
-    "Grid": {
-      "rows": [
-        {
+  "Grid": {
+    "rows": [
+      {
+        "style": {
+          "flexGrow": 1,
+          "margin": "10px"
+        }
+      }
+    ],
+    "cols": 3,
+    "children": [
+      {
+        "div": {
+          "position": [
+            0,
+            0
+          ],
           "style": {
-            "flexGrow": 1,
-            "margin": "10px"
-          }
-        }
-      ],
-      "cols": 2,
-      "children": [
-        {
-          "div": {
-            "style": {
-              "display": "flex",
-              "alignItems": "center",
-              "height": "100%"
-            },
-            "position": [0, 0],
-            "children": [
-              {
-                "IconSmall": {
-                  "name": "location_on",
-                  "style": {
-                    "marginRight": "10px"
-                  }
-                }
-              },
-              {
-                "GennyAddressLabel": {
-                  "root": "BE.code",
-                  "attributePrefix": "PRI_ADDRESS",
-                  "hideStreetAddress": false
+            "display": "flex",
+            "alignItems": "center",
+            "height": "100%"
+          },
+          "children": [
+            {
+              "IconSmall": {
+                "name": "location_on",
+                "style": {
+                  "marginRight": "10px",
+                  "color": "PROJECT.PRI_COLOR"
                 }
               }
-            ]
-          }
-        },
-        {
-          "div": {
-            "style": {
-              "display": "flex",
-              "alignItems": "center",
-              "height": "100%"
             },
-            "position": [0, 1],
-            "children": [
-              {
-                "IconSmall": {
-                  "name": "date_range",
-                  "style": {
-                    "marginRight": "10px"
-                  }
-                }
-              },
-              {
-                "DateLabel": {
-                  "date": "BE.PRI_START_DATE",
-                  "format": "DD/MM/YYYY"
+            {
+              "GennyAddressLabel": {
+                "root": "BE.code",
+                "attributePrefix": "PRI_ADDRESS",
+                "hideStreetAddress": false
+              }
+            }
+          ]
+        }
+      },
+      {
+        "div": {
+          "position": [
+            0,
+            1
+          ],
+          "style": {
+            "display": "flex",
+            "alignItems": "center",
+            "height": "100%"
+          },
+          "children": [
+            {
+              "IconSmall": {
+                "name": "date_range",
+                "style": {
+                  "marginRight": "10px",
+                  "color": "PROJECT.PRI_COLOR"
                 }
               }
-            ]
-          }
+            },
+            {
+              "DateLabel": {
+                "date": "BE.PRI_START_DATE",
+                "format": "DD MMM YYYY"
+              }
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "div": {
+          "position": [
+            0,
+            2
+          ],
+          "style": {
+            "display": "flex",
+            "alignItems": "center",
+            "height": "100%"
+          },
+          "children": [
+            {
+              "IconSmall": {
+                "name": "schedule",
+                "style": {
+                  "marginRight": "10px",
+                  "color": "PROJECT.PRI_COLOR"
+                }
+              }
+            },
+            {
+              "span": {
+                "style": {
+                  "marginRight": "10px",
+                  "color": "PROJECT.PRI_COLOR"
+                },
+                "children": "BE.LNK_INTERNSHIP_DURATION.name"
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
-  
+}
