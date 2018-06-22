@@ -1,0 +1,74 @@
+{
+  "Grid": {
+    "cols": [
+      "150",
+      2
+    ],
+    "rows": [
+      {
+        "style": {
+          "flexGrow": 1,
+          "flexWrap": "nowrap"
+        }
+      }
+    ],
+    "style": {
+      "padding": "20px 50px 30px 0px"
+    },
+    "children": [
+      {
+        "ImageMapView": {
+          "position": [
+            0,
+            0
+          ],
+          "style": {
+            "width": "30px",
+            "marginRight": "5px"
+          },
+          "height": 150,
+          "width": 150,
+          "address": "BE.PRI_ADDRESS"
+        }
+      },
+      {
+        "Grid": {
+          "position": [
+            0,
+            1
+          ],
+          "cols": 1,
+          "rows": 2,
+          "children": [
+            {
+              "GennyAddressLabel": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "fontSize": "2em"
+                },
+                "attributePrefix": "PRI_ADDRESS",
+                "root": "BE.code"
+              }
+            },
+            {
+              "span": {
+                "position": [
+                  0,
+                  1
+                ],
+                "style": {
+                  "color": "black",
+                  "fontSize": "2em"
+                },
+                "children": "BE.LNK_PROPERTY_TYPE_SELECT.name"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
