@@ -49,12 +49,44 @@
         }
       },
       {
-        "SublayoutLoader": {
-          "layoutCode": "detail-view",
-          "aliases": {
-            "BE": "BE.code",
-            "GROUP": "ROOT"
-          }
+        "Grid": {
+          "rows": 1,
+          "cols": [
+            2,
+            1
+          ],
+          "style": {
+            "height": "initial",
+            "backgroundColor": "white"
+          },
+          "children": [
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "property-details-header",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  1
+                ],
+                "layoutCode": "property-details-button-actions",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            }
+          ]
         }
       }
     ]
