@@ -1,66 +1,91 @@
 {
-    "Grid": {
-        "rows": 1,
-        "cols": ["40px", 1],
-        "style": {
-            "padding": "10px",
-            "background": "white",
-            "fontSize": "10px"
-        },
-        "children": [
+  "Grid": {
+    "rows": 1,
+    "cols": [
+      "40px",
+      1
+    ],
+    "style": {
+      "padding": "10px",
+      "background": "white",
+      "fontSize": "10px"
+    },
+    "children": [
+      {
+        "div": {
+          "position": [
+            0,
+            0
+          ],
+          "style": {
+            "paddingRight": "10px",
+            "paddingBottom": "5px"
+          },
+          "children": [
             {
               "ImageView": {
-                "position": [0, 0],
                 "style": {
-                    "margin": "0px",
-                    "maxWidth": "40px",
-                    "width": "40px"
+                  "margin": "0px",
+                  "maxWidth": "40px",
+                  "width": "40px"
                 },
                 "src": "BE.PRI_IMAGE_URL"
               }
-            },
+            }
+          ]
+        }
+      },
+      {
+        "div": {
+          "position": [
+            0,
+            1
+          ],
+          "style": {
+            "display": "flex",
+            "alignItems": "center"
+          },
+          "children": [
             {
-              "div": {
-                "position": [0, 1],
+              "span": {
                 "style": {
-                    "display": "flex",
-                    "alignItems": "center"
+                  "marginRight": "5px"
                 },
-                "children": [
-                    {
-                        "span": {
-                            "style": {
-                                "marginRight": "5px"
-                            },
-                            "children":"BE.PRI_FIRSTNAME"   
-                        }
-                    },
-                    {
-                        "span": {
-                            "children":"BE.PRI_LASTNAME"   
-                        }
-                    }
-                ]
+                "children": "BE.PRI_FIRSTNAME"
               }
             },
             {
-              "p": {
-                "position": [0, 1],
-                "style": {
-                    "margin": "0px"
-                },
-                "children": "BE.PRI_EMAIL"
-              }
-            },
-            {
-              "p": {
-                "position": [0, 1],
-                "style": {
-                    "margin": "0px"
-                },
-                "children": "BE.PRI_MOBILE"
+              "span": {
+                "children": "BE.PRI_LASTNAME"
               }
             }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "p": {
+          "position": [
+            0,
+            1
+          ],
+          "style": {
+            "margin": "0px"
+          },
+          "children": "BE.PRI_EMAIL"
+        }
+      },
+      {
+        "p": {
+          "position": [
+            0,
+            1
+          ],
+          "style": {
+            "margin": "0px"
+          },
+          "children": "BE.PRI_MOBILE"
+        }
+      }
+    ]
+  }
 }

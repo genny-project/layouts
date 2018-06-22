@@ -94,6 +94,54 @@
               }
             },
             {
+              "div": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "backgroundColor": "#DDD",
+                  "padding": "20px",
+                  "width": "560px",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "display": "flex",
+                  "flexDirection": "column"
+                },
+                "children": [
+                  {
+                    "h2": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.PRI_NAME"
+                    }
+                  },
+                  {
+                    "h3": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.link.COMPANY.PRI_NAME"
+                    }
+                  },
+                  {
+                    "SublayoutLoader": {
+                      "position": [
+                        0,
+                        0
+                      ],
+                      "layoutCode": "internship-details-features",
+                      "aliases": {
+                        "BE": "${BE.parent.code}",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "SublayoutLoader": {
                 "position": [
                   0,
@@ -116,6 +164,49 @@
                 "aliases": {
                   "BE": "BE.code",
                   "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "h4": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "borderBottom": "2px solid #485461",
+                  "borderTop": "2px solid #485461"
+                },
+                "children": "RESUME FILES"
+              }
+            },
+            {
+              "FileViewer":{
+                "position":[0,0],
+                "root": "BE.link.APPLICANT.code",
+                "attribute":"PRI_RESUME"
+              }
+            },
+            {
+              "h4": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "borderBottom": "2px solid #485461",
+                  "borderTop": "2px solid #485461"
+                },
+                "children": "ADDITIONAL FILES"
+              }
+            },
+            {
+              "FileViewer":{
+                "position":[0,0],
+                "root": "BE.code",
+                "attribute":"PRI_UPLOAD_DOC",
+                 "style":{
+                  "paddingBottom": "20px" 
                 }
               }
             }
