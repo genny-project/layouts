@@ -1,35 +1,43 @@
 {
-  "div": {
-    "style": {
-      "fontSize": "1em",
-      "background": "#fff",
-      "borderRadius": 0,
-      "padding": "5px",
-      "display": "flex",
-      "flexDirection": "column"
+  "GennyDropdown": {
+    "inline": true,
+    "isSlide": false,
+    "animateHeader": false,
+    "animateFooter": true,
+    "contentStyle": {
+      "backgroundColor": "white",
+      "padding": "5"
     },
-    "children": [
+    "header": [
       {
         "div": {
           "style": {
+            "padding": "5px",
+            "display": "flex",
+            "justifyContent": "space-between"
           },
           "children": [
             {
-              "MapDisplay": {
-                "routes": [
-                  {
-                    "origin": "BE.PRI_PICKUP_ADDRESS_FULL",
-                    "dest": "BE.PRI_DROPOFF_ADDRESS_FULL"
-                  }
-                ],
+              "h3": {
                 "style": {
-                  "height": "200px"
-                }
+                  "margin": "0"
+                },
+                "children": "BE.PRI_TITLE"
+              }
+            },
+            {
+              "h3": {
+                "style": {
+                  "margin": "0"
+                },
+                "children": "BE.PRI_JOB_PAYMENT_PRICE"
               }
             }
           ]
         }
-      },
+      }
+    ],
+    "children": [
       {
         "div": {
           "style": {
@@ -41,25 +49,19 @@
             {
               "div": {
                 "style": {
-                  "padding": "5px",
-                  "display": "flex",
-                  "justifyContent": "space-between"
                 },
                 "children": [
                   {
-                    "h3": {
+                    "MapDisplay": {
+                      "routes": [
+                        {
+                          "origin": "BE.PRI_PICKUP_ADDRESS_FULL",
+                          "dest": "BE.PRI_DROPOFF_ADDRESS_FULL"
+                        }
+                      ],
                       "style": {
-                        "margin": "0"
-                      },
-                      "children": "BE.PRI_TITLE"
-                    }
-                  },
-                  {
-                    "h3": {
-                      "style": {
-                        "margin": "0"
-                      },
-                      "children": "BE.PRI_JOB_PAYMENT_PRICE"
+                        "height": "200px"
+                      }
                     }
                   }
                 ]
