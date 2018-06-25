@@ -2,7 +2,7 @@
   "div": {
     "style": {
       "fontSize": "1em",
-      "borderBottom": "1px solid #bbb",
+      "background": "#fff",
       "borderRadius": 0,
       "padding": "5px",
       "display": "flex",
@@ -40,41 +40,109 @@
           },
           "children": [
             {
-              "span": {
-                "style": {},
-                "children": "BE.PRI_TITLE"
+              "div": {
+                "style": {
+                  "padding": "5px",
+                  "display": "flex",
+                  "justifyContent": "space-between"
+                },
+                "children": [
+                  {
+                    "span": {
+                      "style": {},
+                      "children": "BE.PRI_TITLE"
+                    }
+                  },
+                  {
+                    "span": {
+                      "style": {},
+                      "children": "BE.PRI_JOB_PAYMENT_PRICE"
+                    }
+                  }
+                ]
               }
             },
             {
-              "span": {
-                "style": {},
-                "children": "BE.PRI_JOB_PAYMENT_PRICE"
-              }
-            },
-            {
-              "span": {
-                "style": {},
-                "children": "BE.PRI_PICKUP_ADDRESS_FULL"
-              }
-            },
-            {
-              "DateLabel": {
-                "format": "DD MMM YYYY",
-                "style": {},
-                "children": "BE.PRI_PICKUP_DATETIME"
-              }
-            },
-            {
-              "span": {
-                "style": {},
-                "children": "BE.PRI_DROPOFF_ADDRESS_FULL"
-              }
-            },
-            {
-              "DateLabel": {
-                "format": "DD MMM YYYY",
-                "style": {},
-                "children": "BE.PRI_PICKUP_DATETIME"
+              "div": {
+                "style": {
+                  "padding": "5px",
+                  "display": "flex",
+                  "justifyContent": "space-between"
+                },
+                "children": [
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column"
+                      },
+                      "children": [
+                        {
+                          "span": {
+                            "style": {},
+                            "children": "BE.PRI_PICKUP_ADDRESS_FULL"
+                          }
+                        },
+                        {
+                          "DateLabel": {
+                            "format": "DD MMM YYYY",
+                            "style": {},
+                            "children": "BE.PRI_PICKUP_DATETIME"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column"
+                      },
+                      "children": [
+                        {
+                          "IconSmall": {
+                            "style": {},
+                            "name": "trending_flat"
+                          }
+                        },
+                        {
+                          "MeasurementLabel": {
+                            "showDecimal": 2,
+                            "style": {},
+                            "children": "BE.PRI_TOTAL_DISTANCE_M"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column"
+                      },
+                      "children": [
+                        {
+                          "span": {
+                            "style": {},
+                            "children": "BE.PRI_DROPOFF_ADDRESS_FULL"
+                          }
+                        },
+                        {
+                          "DateLabel": {
+                            "format": "DD MMM YYYY",
+                            "style": {},
+                            "children": "BE.PRI_DROPOFF_DATETIME"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]
