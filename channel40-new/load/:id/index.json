@@ -512,7 +512,8 @@
                         "buttonCode": "BTN_MAKE_OFFER",
                         "value": {
                           "itemCode": "{{navigation.loadID}}"
-                        }
+                        },
+                        "showSpinnerOnClick": true
                       }
                     }
                   ]
@@ -1042,22 +1043,31 @@
           "component": "Box",
           "children": [
             {
-              "component": "Map",
+              "component": "ToggleButton",
               "props": {
-                "showDirections": true,
-                "markers": [
-                  {
-                    "key": "pickup",
-                    "latitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LATITUDE.valueDouble}}",
-                    "longitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LONGITUDE.valueDouble}}"
-                  },
-                  {
-                    "key": "dropoff",
-                    "latitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LATITUDE.valueDouble}}",
-                    "longitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LONGITUDE.valueDouble}}"
+                "text": "Press to open map",
+                "color": "green"
+              },
+              "children": [
+                {
+                  "component": "Map",
+                  "props": {
+                    "showDirections": true,
+                    "markers": [
+                      {
+                        "key": "pickup",
+                        "latitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LATITUDE.valueDouble}}",
+                        "longitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LONGITUDE.valueDouble}}"
+                      },
+                      {
+                        "key": "dropoff",
+                        "latitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LATITUDE.valueDouble}}",
+                        "longitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LONGITUDE.valueDouble}}"
+                      }
+                    ]
                   }
-                ]
-              }
+                }
+              ]
             }
           ]
         },
