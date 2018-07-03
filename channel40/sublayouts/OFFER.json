@@ -275,24 +275,32 @@
                             ],
                             "children": [
                               {
-                                "GennyButton": {
-                                  "buttonCode": "BTN_CONFIRM_OFFER",
-                                  "value": {
-                                    "itemCode": "BE.code",
-                                    "hint": "ROOT"
-                                  },
-                                  "style": {
-                                    "height": "30px"
-                                  },
-                                  "type": "confirm",
+                                "Selector": {
+                                  "checkValues": "USER.PRI_EMAIL",
+                                  "hideValues": ["admin@emsgroup.com.au"],
                                   "children": [
                                     {
-                                      "span": {
-                                        "style": {
-                                          "fontSize": "0.75em",
-                                          "color": "white"
+                                      "GennyButton": {
+                                        "buttonCode": "BTN_CONFIRM_OFFER",
+                                        "value": {
+                                          "itemCode": "BE.code",
+                                          "hint": "ROOT"
                                         },
-                                        "children": "ACCEPT"
+                                        "style": {
+                                          "height": "30px"
+                                        },
+                                        "type": "confirm",
+                                        "children": [
+                                          {
+                                            "span": {
+                                              "style": {
+                                                "fontSize": "0.75em",
+                                                "color": "white"
+                                              },
+                                              "children": "ACCEPT"
+                                            }
+                                          }
+                                        ]
                                       }
                                     }
                                   ]
