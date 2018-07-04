@@ -113,7 +113,7 @@
                                 "animateHeader": false,
                                 "animateFooter": true,
                                 "contentStyle": {
-                                  "backgroundColor": "#ddd",
+                                  "backgroundColor": "rgba(0,0,0,0.5)",
                                   "display": "flex",
                                   "flexDirection": "column",
                                   "width": "200px",
@@ -121,7 +121,8 @@
                                   "padding": "5px 5px 0"
                                 },
                                 "tagStyle": {
-                                  "left": "25%"
+                                  "left": "25%",
+                                  "background": "none"
                                 },
                                 "header": [
                                   {
@@ -163,7 +164,35 @@
                                   {
                                     "Selector": {
                                       "checkValues": [
-                                        "USER.PRI_IS_AGENT",
+                                        "USER.PRI_IS_AGENT"
+                                      ],
+                                      "showValues": [
+                                        true
+                                      ],
+                                      "children": [
+                                        {
+                                          "GennyButton": {
+                                            "buttonCode": "BTN_ADD_BEG_AGENT",
+                                            "style": {
+                                              "width": "initial",
+                                              "height": "30px",
+                                              "marginBottom": "5px"
+                                            },
+                                            "buttonStyle": {
+                                              "background": "#3f617f",
+                                              "border": "1px solid white",
+                                              "fontSize": "0.8em"
+                                            },
+                                            "value": {},
+                                            "children": "NEW INTERNSHIP"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "Selector": {
+                                      "checkValues": [
                                         "USER.PRI_IS_SELLER"
                                       ],
                                       "showValues": [
@@ -172,7 +201,7 @@
                                       "children": [
                                         {
                                           "GennyButton": {
-                                            "buttonCode": "BTN_ADD_INTERNSHIP",
+                                            "buttonCode": "BTN_ADD_BEG",
                                             "style": {
                                               "width": "initial",
                                               "height": "30px",
