@@ -1,25 +1,35 @@
 {
-    "div": {
-      "style": {
-        "display": "flex",
-        "flexDirection": "column"
+  "div": {
+    "style": {
+      "display": "flex",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    "children": [
+      {
+        "span": {
+           "style": {
+              "fontSize": "24px" ,
+              "textAlign": "center"
+           },
+          "children": "Agreement Document"
+        }
       },
-      "children": [
-        {
-          "FileViewer":{
-            "root": "BE.code",
-            "attribute":"PRI_S3_AGREEMENT_LINK",
-             "style":{
-              "paddingBottom": "20px" 
-            }
-          }
-        },
-         {
-          "GennyForm": {
-            "root": "QUE_DEFAULT_AGREEMENT_HOST_CPY_REP_GRP"
+      {
+        "FileViewer":{
+          "root": "BE.code",
+          "attribute":"PRI_S3_AGREEMENT_LINK",
+            "style":{
+            "paddingBottom": "20px",
+            "width": "600px"
           }
         }
-      ]
-    }
+      },
+       {
+        "GennyForm": {
+          "root": "QUE_DEFAULT_AGREEMENT_HOST_CPY_REP_GRP"
+        }
+      }
+    ]
+  }
 }
-  
