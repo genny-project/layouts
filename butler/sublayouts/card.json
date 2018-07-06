@@ -31,22 +31,21 @@
           ],
           "children": [
             {
-              "ImageMapView": {
+              "ImageView": {
                 "position": [
                   0,
                   0
                 ],
+                "src": "",
                 "style": {
                   "width": "30px",
+                  "height": "30px",
                   "marginRight": "5px"
-                },
-                "height": 30,
-                "width": 30,
-                "address": "BE.PRI_ADDRESS"
+                }
               }
             },
             {
-              "GennyAddressLabel": {
+              "span": {
                 "position": [
                   0,
                   1
@@ -54,8 +53,50 @@
                 "style": {
                   "fontSize": "0.85em"
                 },
-                "attributePrefix": "PRI_ADDRESS",
-                "root": "BE.code"
+                "children": "BE.PRI_COMPANY_NAME"
+              }
+            },
+            {
+              "span": {
+                "position": [
+                  0,
+                  1
+                ],
+                "style": {
+                  "fontSize": "0.85em"
+                },
+                "children": "Rel: ${BE.PRI_RELEASE_NUMBER}"
+              }
+            },
+            {
+              "span": {
+                "position": [
+                  0,
+                  1
+                ],
+                "style": {
+                  "fontSize": "0.85em"
+                },
+                "children": [
+                  {
+                    "span": {
+                      "style": {
+                        "fontSize": "0.85em",
+                        "marginRight": "5px"
+                      },
+                      "children": "Date: "
+                    }
+                  },
+                  {
+                    "DateLabel": {
+                      "format": "DD/MM/YY",
+                      "style": {
+                        "fontSize": "0.85em"
+                      },
+                      "children": "BE.PRI_RELEASE_DATE"
+                    }
+                  }
+                ]
               }
             },
             {
