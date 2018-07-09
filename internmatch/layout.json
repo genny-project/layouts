@@ -1,412 +1,224 @@
 {
-  "layout": [
-    {
-      "AppHolder": {
-        "cols": [
-          0,
-          5
-        ],
-        "rows": 1,
-        "children": [
-          {
-            "Sidebar": {
-              "position": [
-                0,
-                0
-              ],
+  "Grid": {
+    "rows": 2,
+    "cols": 1,
+    "style": {
+      "padding": "0",
+      "background": "white",
+      "fontSize": "10px"
+    },
+    "children": [
+      {
+        "Grid": {
+          "position": [
+            0,
+            0
+          ],
+          "rows": 1,
+          "cols": [
+            "50px",
+            1,
+            {
               "style": {
-                "backgroundColor": "PROJECT.PRI_COLOR",
-                "color": "white",
-                "textAlign": "center"
-              },
-              "closeOnItemClick": false,
-              "hasImage": true,
-              "src": "PROJECT.PRI_LOGO",
-              "children": [
-                {
-                  "GennyTreeView": {
-                    "position": [
-                      1,
-                      0
-                    ],
-                    "style": {
-                      "marginTop": "50px"
-                    },
-                    "root": "GRP_ROOT"
-                  }
-                }
-              ]
+                "flex": "0 0 10px",
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "flex-end"
+              }
             }
-          },
-          {
-            "Grid": {
-              "cols": [
-                {
-                  "style": {
-                    "flexGrow": 1,
-                    "width": "100%"
-                  }
-                }
-              ],
-              "rows": [
-                "45px",
-                {
-                  "style": {
-                    "flex": "1 1 auto",
-                    "overflow": "hidden"
-                  }
+          ],
+          "children": [
+            {
+              "ImageView": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "margin": "0px",
+                  "maxWidth": "40px",
+                  "width": "40px"
                 },
-                "30px"
-              ],
-              "position": [
-                0,
-                1
-              ],
-              "className": "app-main",
-              "children": [
-                {
-                  "GennyHeader": {
-                    "position": [
-                      0,
-                      0
-                    ],
-                    "hideSubheader": true,
-                    "style": {
-                      "backgroundColor": "PROJECT.PRI_COLOR",
-                      "color": "white"
-                    },
-                    "projectTitle": "PROJECT.PRI_NAME",
-                    "projectGreeting": "PROJECT.PRI_GREETING",
-                    "userName": "USER.PRI_FIRSTNAME",
-                    "userImage": "USER.PRI_IMAGE_URL"
-                  }
-                },
-                {
-                  "Selector": {
-                    "position": [
-                      1,
-                      0
-                    ],
-                    "checkValues": [
-                      "USER.PRI_IS_AGENT",
-                      "USER.PRI_IS_SELLER",
-                      "USER.PRI_IS_EDU_PROVIDER"
-                    ],
-                    "showValues": [
-                      true
-                    ],
-                    "children": [
-                      {
-                        "div": {
-                          "style": {
-                            "display": "flex",
-                            "width": "100%",
-                            "height": "40px",
-                            "background": "#3f617f",
-                            "padding": "5px"
-                          },
-                          "children": [
-                            {
-                              "GennyDropdown": {
-                                "inline": false,
-                                "isSlide": false,
-                                "animateHeader": false,
-                                "animateFooter": true,
-                                "contentStyle": {
-                                  "backgroundColor": "#ddd",
-                                  "boxShadow": "0px 0px 10px 0px rgba(0, 0, 0, 0.25)",
-                                  "display": "flex",
-                                  "flexDirection": "column",
-                                  "width": "200px",
-                                  "left": "100%",
-                                  "padding": "5px 5px 0"
-                                },
-                                "tagStyle": {
-                                  "left": "25%",
-                                  "background": "none"
-                                },
-                                "header": [
-                                  {
-                                    "div": {
-                                      "style": {
-                                        "border": "1px solid white",
-                                        "borderRadius": "5px",
-                                        "height": "30px",
-                                        "width": "100px",
-                                        "display": "flex",
-                                        "justifyContent": "center",
-                                        "alignItems": "center"
-                                      },
-                                      "children": [
-                                        {
-                                          "span": {
-                                            "style": {
-                                              "fontSize": "1em",
-                                              "fontWeight": "400",
-                                              "color": "white"
-                                            },
-                                            "children": "ADD "
-                                          }
-                                        },
-                                        {
-                                          "IconSmall": {
-                                            "name": "arrow_drop_down",
-                                            "style": {
-                                              "color": "white",
-                                              "marginLeft": "5px"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                ],
-                                "children": [
-                                  {
-                                    "Selector": {
-                                      "checkValues": [
-                                        "USER.PRI_IS_AGENT"
-                                      ],
-                                      "showValues": [
-                                        true
-                                      ],
-                                      "children": [
-                                        {
-                                          "GennyButton": {
-                                            "buttonCode": "BTN_ADD_BEG_AGENT",
-                                            "style": {
-                                              "width": "initial",
-                                              "height": "30px",
-                                              "marginBottom": "5px"
-                                            },
-                                            "buttonStyle": {
-                                              "background": "#3f617f",
-                                              "border": "1px solid white",
-                                              "fontSize": "0.8em"
-                                            },
-                                            "value": {},
-                                            "children": "NEW INTERNSHIP"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "Selector": {
-                                      "checkValues": [
-                                        "USER.PRI_IS_SELLER"
-                                      ],
-                                      "showValues": [
-                                        true
-                                      ],
-                                      "children": [
-                                        {
-                                          "GennyButton": {
-                                            "buttonCode": "BTN_ADD_BEG",
-                                            "style": {
-                                              "width": "initial",
-                                              "height": "30px",
-                                              "marginBottom": "5px"
-                                            },
-                                            "buttonStyle": {
-                                              "background": "#3f617f",
-                                              "border": "1px solid white",
-                                              "fontSize": "0.8em"
-                                            },
-                                            "value": {},
-                                            "children": "NEW INTERNSHIP"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "Selector": {
-                                      "checkValues": [
-                                        "USER.PRI_IS_AGENT"
-                                      ],
-                                      "showValues": [
-                                        true
-                                      ],
-                                      "children": [
-                                        {
-                                          "GennyButton": {
-                                            "buttonCode": "BTN_ADD_COMPANY",
-                                            "style": {
-                                              "width": "initial",
-                                              "height": "30px",
-                                              "marginBottom": "5px"
-                                            },
-                                            "buttonStyle": {
-                                              "background": "#3f617f",
-                                              "border": "1px solid white",
-                                              "fontSize": "0.8em"
-                                            },
-                                            "value": {},
-                                            "children": "NEW COMPANY"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "Selector": {
-                                      "checkValues": [
-                                        "USER.PRI_IS_AGENT"
-                                      ],
-                                      "showValues": [
-                                        true
-                                      ],
-                                      "children": [
-                                        {
-                                          "GennyButton": {
-                                            "buttonCode": "BTN_ADD_HOST_COMPANY",
-                                            "style": {
-                                              "width": "initial",
-                                              "height": "30px",
-                                              "marginBottom": "5px"
-                                            },
-                                            "buttonStyle": {
-                                              "background": "#3f617f",
-                                              "border": "1px solid white",
-                                              "fontSize": "0.8em"
-                                            },
-                                            "value": {},
-                                            "children": "NEW HOST COMPANY"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "Selector": {
-                                      "checkValues": [
-                                        "USER.PRI_IS_AGENT",
-                                        "USER.PRI_IS_SELLER",
-                                        "USER.PRI_IS_EDU_PROVIDER"
-                                      ],
-                                      "showValues": [
-                                        true
-                                      ],
-                                      "children": [
-                                        {
-                                          "GennyButton": {
-                                            "buttonCode": "BTN_ADD_PEOPLE",
-                                            "style": {
-                                              "width": "initial",
-                                              "height": "30px",
-                                              "marginBottom": "5px"
-                                            },
-                                            "buttonStyle": {
-                                              "background": "#3f617f",
-                                              "border": "1px solid white",
-                                              "fontSize": "0.8em"
-                                            },
-                                            "value": {},
-                                            "children": "NEW PEOPLE"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                ]
-                              }
-                            }
-                          ]
+                "src": "BE.link.APPLICANT.PRI_IMAGE_URL"
+              }
+            },
+            {
+              "Grid": {
+                "position": [
+                  0,
+                  1
+                ],
+                "rows": 2,
+                "cols": 1,
+                "children": [
+                  {
+                    "p": {
+                      "position": [
+                        0,
+                        0
+                      ],
+                      "style": {
+                        "margin": "0px"
+                      },
+                      "children": [
+                        {
+                          "span": {
+                            "children": "BE.PRI_APPLICANT_FIRSTNAME"
+                          }
+                        },
+                        {
+                          "span": {
+                            "children": "BE.PRI_APPLICANT_LASTNAME"
+                          }
                         }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "Selector": {
-                    "position": [
-                      1,
-                      0
-                    ],
-                    "checkValues": [
-                      "USER.PRI_IS_SELLER",
-                      "USER.PRI_IS_AGENT"
-                    ],
-                    "showValues": [
-                      true
-                    ],
-                    "children": [
-                      {
-                        "AppContent": {
-                          "position": [
-                            1,
-                            0
-                          ],
-                          "showSidebar": true,
-                          "style": {
-                            "height": "calc(100% - 40px)"
-                          },
-                          "children": [
-                            {
-                              "div": {
-                                "children": ""
-                              }
-                            }
-                          ]
+                      ]
+                    }
+                  },
+                  {
+                    "p": {
+                      "position": [
+                        1,
+                        0
+                      ],
+                      "style": {
+                        "margin": "0px"
+                      },
+                      "children": "BE.PRI_APPLICANT_USERNAME"
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "position": [
+                        1,
+                        0
+                      ],
+                      "checkValues": [
+                        "USER.PRI_IS_EDU_PROVIDER"
+                      ],
+                      "showValues": [
+                        true
+                      ],
+                      "children": [
+                        {
+                          "p": {
+                            "position": [
+                              1,
+                              0
+                            ],
+                            "style": {
+                              "margin": "0px"
+                            },
+                            "children": "BE.parent.PRI_NAME"
+                          }
                         }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "Selector": {
-                    "position": [
-                      1,
-                      0
-                    ],
-                    "checkValues": [
-                      "USER.PRI_IS_SELLER",
-                      "USER.PRI_IS_AGENT"
-                    ],
-                    "hideValues": [
-                      true
-                    ],
-                    "children": [
-                      {
-                        "AppContent": {
-                          "position": [
-                            1,
-                            0
-                          ],
-                          "children": [
-                            {
-                              "div": {
-                                "children": ""
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "Footer": {
-                    "position": [
-                      2,
-                      0
-                    ],
-                    "style": {
-                      "backgroundColor": "PROJECT.PRI_COLOR",
-                      "color": "white"
-                    },
-                    "version": "PROJECT.PRI_VERSION",
-                    "poweredBy": {
-                      "caption": "PROJECT.PRI_POWERED_BY"
+                      ]
                     }
                   }
+                ]
+              }
+            },
+            {
+              "GennyDropdown": {
+                "position": [
+                  0,
+                  2
+                ],
+                "inline": false,
+                "isSlide": false,
+                "animateHeader": false,
+                "animateFooter": true,
+                "open": true,
+                "style": {
+                  "paddingBottom": "2px",
+                  "margin": "-5px -5px 0"
+                },
+                "contentStyle": {
+                  "backgroundColor": "#ddd",
+                  "boxShadow": "0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "width": "120px",
+                  "left": "100%",
+                  "padding": "5px",
+                  "transform": "translate(-100%)",
+                  "top": "20px"
+                },
+                "tagStyle": {
+                  "display": "none"
+                },
+                "header": [
+                  {
+                    "IconSmall":{
+                      "name": "more_horiz",
+                      "style": {
+                        "padding": "0"
+                      }
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "span": {
+                      "children":"ITEM"
+                    }
+                  },
+                  {
+                    "span": {
+                      "children":"ITEM"
+                    }
+                  },
+                  {
+                    "span": {
+                      "children":"ITEM"
+                    }
+                  },
+                  {
+                    "span": {
+                      "children":"ITEM"
+                    }
+                  },
+                  {
+                    "span": {
+                      "children":"ITEM"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "GennyStatus": {
+                "position": [
+                  0,
+                  2
+                ],
+                "root": "BE.code",
+                "style": {
+                  "height": "25px",
+                  "width": "10px"
+                },
+                "statusStyle": {
+                  "height": "100%",
+                  "width": "10px",
+                  "maxHeight": "40px"
                 }
-              ]
+              }
             }
+          ]
+        }
+      },
+      {
+        "SublayoutLoader": {
+          "position": [
+            1,
+            0
+          ],
+          "layoutCode": "card-button-actions",
+          "aliases": {
+            "BE": "BE.code",
+            "GROUP": "ROOT"
           }
-        ]
+        }
       }
-    }
-  ]
+    ]
+  }
 }
