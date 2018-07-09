@@ -127,12 +127,13 @@
                 "isSlide": false,
                 "animateHeader": false,
                 "animateFooter": true,
+                "open": true,
                 "style": {
                   "paddingBottom": "2px",
                   "margin": "-5px -5px 0"
                 },
                 "contentStyle": {
-                  "backgroundColor": "#ddd",
+                  "backgroundColor": "#fff",
                   "boxShadow": "0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
                   "display": "flex",
                   "flexDirection": "column",
@@ -157,28 +158,12 @@
                 ],
                 "children": [
                   {
-                    "span": {
-                      "children":"ITEM"
-                    }
-                  },
-                  {
-                    "span": {
-                      "children":"ITEM"
-                    }
-                  },
-                  {
-                    "span": {
-                      "children":"ITEM"
-                    }
-                  },
-                  {
-                    "span": {
-                      "children":"ITEM"
-                    }
-                  },
-                  {
-                    "span": {
-                      "children":"ITEM"
+                    "SublayoutLoader": {
+                      "layoutCode": "card-button-actions",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
                     }
                   }
                 ]
@@ -203,19 +188,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "SublayoutLoader": {
-          "position": [
-            1,
-            0
-          ],
-          "layoutCode": "card-button-actions",
-          "aliases": {
-            "BE": "BE.code",
-            "GROUP": "ROOT"
-          }
         }
       }
     ]
