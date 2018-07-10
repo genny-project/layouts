@@ -3,7 +3,7 @@
     "rows": 2,
     "cols": 1,
     "style": {
-      "padding": "10px",
+      "padding": "0",
       "background": "white",
       "fontSize": "10px"
     },
@@ -18,7 +18,14 @@
           "cols": [
             "50px",
             1,
-            "10px"
+            {
+              "style": {
+                "flex": "0 0 10px",
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "flex-end"
+              }
+            }
           ],
           "children": [
             {
@@ -55,12 +62,12 @@
                       },
                       "children": [
                         {
-                          "span" : {
+                          "span": {
                             "children": "BE.PRI_APPLICANT_FIRSTNAME"
                           }
                         },
                         {
-                          "span" : {
+                          "span": {
                             "children": "BE.PRI_APPLICANT_LASTNAME"
                           }
                         }
@@ -111,6 +118,58 @@
               }
             },
             {
+              "GennyDropdown": {
+                "position": [
+                  0,
+                  2
+                ],
+                "inline": false,
+                "isSlide": false,
+                "animateHeader": false,
+                "animateFooter": true,
+                "stopPropagationOnClick": true,
+                "style": {
+                  "paddingBottom": "2px",
+                  "margin": "-5px -5px 0"
+                },
+                "contentStyle": {
+                  "backgroundColor": "#fff",
+                  "boxShadow": "0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "width": "120px",
+                  "left": "100%",
+                  "padding": "5px 5px 0",
+                  "transform": "translate(-100%)",
+                  "top": "20px"
+                },
+                "tagStyle": {
+                  "display": "none"
+                },
+                "header": [
+                  {
+                    "IconSmall":{
+                      "name": "more_horiz",
+                      "style": {
+                        "padding": "0"
+                      }
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-button-actions",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "GennyStatus": {
                 "position": [
                   0,
@@ -129,19 +188,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "SublayoutLoader": {
-          "position": [
-            1,
-            0
-          ],
-          "layoutCode": "card-button-actions",
-          "aliases": {
-            "BE": "BE.code",
-            "GROUP": "ROOT"
-          }
         }
       }
     ]
