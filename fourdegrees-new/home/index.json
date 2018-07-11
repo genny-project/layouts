@@ -1,0 +1,221 @@
+{
+  "layout": {
+    "title": "Loads",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1,
+        "height": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "position": "absolute",
+            "bottom": 80,
+            "right": 10,
+            "zIndex": 10
+          },
+          "children": [
+            {
+              "component": "EventButtonLink",
+              "props": {
+                "buttonCode": "GRP_NEW_ITEMS",
+                "value": "ADD_NEW_LOAD",
+                "size": "lg",
+                "icon": "add",
+                "shape": "circle",
+                "boxShadow": "light",
+                "color": "green",
+                "to": "load/add"
+              }
+            }
+          ]
+        },
+        {
+          "component": "BucketView",
+          "repeat": "_query",
+          "children": {
+            "component": "List",
+            "repeat": "_repeater.items",
+            "props": {
+              "headerText": "{{repeater.name}}"
+            },
+            "children":
+              {
+                "component": "Link",
+                "props": {
+                  "style" : {
+                    "width" : "100%"
+                  },
+                  "key": "{{repeater.item.code}}",
+                  "to": "load/{{repeater.item.code}}",
+                  "params": {
+                    "loadID": "{{repeater.item.code}}"
+                  }
+                },
+                "children": [
+                  {
+                    "component": "Card",
+                    "children": [
+                      {
+                        "component": "Media",
+                        "props": {
+                          "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "children": [
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "flex": 1,
+                                  "width": "100%",
+                                  "flexDirection": "column",
+                                  "justifyContent": "flex-start",
+                                  "paddingRight": 15
+                                },
+                                "children": [
+                                  {
+                                    "component": "Text",
+                                    "children": "{{repeater.item.name}}"
+                                  },
+                                  {
+                                    "component": "Text",
+                                    "props": {
+                                      "size": "xxs"
+                                    },
+                                    "children": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                                  }
+                                ]
+                              },
+                              {
+                                "component": "Box",
+                                "children": [
+                                  {
+                                    "component": "Status",
+                                    "props": {
+                                      "color": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                                      "height": 40
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_DASHBOARD",
+      "as": "dashboard"
+    },
+    {
+      "operator": "scope",
+      "path": "dashboard.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "dashboard.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
+    },
+    {
+      "operator": "map",
+      "fields": "be"
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": {
+        "name": "name",
+        "code": "code",
+        "items": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "linkValue": "link.linkValue",
+          "item": "be"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateLinkValues",
+        "field": "item",
+        "as": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "item",
+        "single": true
+      }
+    }
+  ]
+}
