@@ -2,16 +2,47 @@
   "div": {
     "style": {
       "display": "flex",
-      "flexDirection": "column"
+      "flexDirection": "column",
+      "alignItems": "center"
     },
     "children": [
       {
-        "FileViewer":{
+        "span": {
+          "style": {
+            "fontSize": "24px",
+            "textAlign": "center",
+            "margin": "30px 0"
+          },
+          "children": "Agreement Document"
+        }
+      },
+      {
+        "span": {
+          "style": {
+            "fontSize": "16px",
+            "textAlign": "center",
+            "marginBottom": "15px"
+          },
+          "children": "Click to download and view document"
+        }
+      },
+      {
+        "FileViewer": {
           "root": "BE.code",
-          "attribute":"PRI_AGREEMENT_PDF",
-            "style":{
-            "paddingBottom": "20px" 
+          "attribute": "PRI_S3_AGREEMENT_LINK",
+          "style": {
+            "width": "600px"
           }
+        }
+      },
+      {
+        "span": {
+          "style": {
+            "fontSize": "16px",
+            "textAlign": "center",
+            "marginBottom": "15px"
+          },
+          "children": "By clicking submit, you agree to the terms in the document"
         }
       },
         {

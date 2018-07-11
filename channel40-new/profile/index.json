@@ -4,7 +4,7 @@
     "appColor": "dark"
   },
   "children": [
-      {
+    {
       "component": "Container",
       "props": {
         "flexDirection": "column",
@@ -15,10 +15,91 @@
       },
       "children": [
         {
-          "component": "Form",
+          "component": "Tabs",
           "props": {
-            "questionGroupCode": "QUE_USER_PROFILE_GRP"
-          }
+            "scrollEnabled": true,
+            "tabs": [
+              {
+                "key": 0,
+                "title": "Personal"
+              },
+              {
+                "key": 1,
+                "title": "Company"
+              },
+              {
+                "key": 2,
+                "title": "Payments"
+              },
+              {
+                "key": 3,
+                "title": "Documents"
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "height": "100%"
+              },
+              "children": [
+                {
+                  "component": "Form",
+                  "conditional": {
+                    "if": {
+                      "user.attributes.PRI_IS_SELLER.value": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "questionGroupCode": "QUE_SELLER_GRP"
+                    },
+                    "else": {
+                      "questionGroupCode": "QUE_BUYER_GRP"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "height": "100%"
+              },
+              "children": [
+                {
+                  "component": "Form",
+                  "props": {
+                    "questionGroupCode": "QUE_USER_COMPANY_GRP"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "LinkButton",
+              "props": {
+                "to": "payment/accounts",
+                "color": "green",
+                "size": "lg",
+                "text": "View my payment accounts"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "height": "100%"
+              },
+              "children": [
+                {
+                  "component": "Form",
+                  "props": {
+                    "questionGroupCode": "QUE_USER_DOCUMENTS_GRP"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }
