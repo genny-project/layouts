@@ -8,14 +8,15 @@
             "USER.PRI_IS_BUYER"
           ],
           "showValues": [
-            true, "true"
+            true,
+            "true"
           ],
           "children": [
             {
               "GennyButton": {
                 "style": {
                   "height": "30px",
-                  "marginTop": "10px"
+                  "marginBottom": "5px"
                 },
                 "buttonStyle": {
                   "background": "PROJECT.PRI_COLOR"
@@ -34,7 +35,9 @@
       {
         "Selector": {
           "checkValues": [
-            "USER.PRI_IS_SELLER", "USER.PRI_IS_EDU_PROVIDER", "USER.PRI_IS_AGENT"
+            "USER.PRI_IS_SELLER",
+            "USER.PRI_IS_EDU_PROVIDER",
+            "USER.PRI_IS_AGENT"
           ],
           "showValues": [
             true
@@ -45,7 +48,7 @@
               "GennyButton": {
                 "style": {
                   "height": "30px",
-                  "marginTop": "10px"
+                  "marginBottom": "5px"
                 },
                 "buttonStyle": {
                   "background": "PROJECT.PRI_COLOR"
@@ -68,7 +71,8 @@
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
-            true, "true"
+            true,
+            "true"
           ],
           "identifier": "shortlist",
           "children": [
@@ -84,7 +88,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -94,7 +99,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "PROJECT.PRI_COLOR"
@@ -119,6 +124,7 @@
       {
         "Selector": {
           "checkValues": [
+            "BE.PRI_IS_DEACTIVATED",
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
@@ -128,7 +134,8 @@
             {
               "Selector": {
                 "checkValues": [
-                  "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                  "USER.PRI_IS_SELLER",
+                  "USER.PRI_IS_AGENT"
                 ],
                 "showValues": [
                   "true"
@@ -147,7 +154,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "backgroundColor": "PROJECT.PRI_COLOR"
@@ -190,7 +197,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -200,7 +208,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "#cb4b16"
@@ -225,6 +233,7 @@
       {
         "Selector": {
           "checkValues": [
+            "BE.PRI_IS_DEACTIVATED",
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
@@ -243,7 +252,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -253,7 +263,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "PROJECT.PRI_COLOR"
@@ -278,6 +288,7 @@
       {
         "Selector": {
           "checkValues": [
+            "BE.PRI_IS_DEACTIVATED",
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
@@ -294,20 +305,127 @@
                 ],
                 "children": [
                   {
-                    "GennyButton": {
-                      "style": {
-                        "height": "30px",
-                        "marginTop": "10px"
-                      },
-                      "buttonStyle": {
-                        "background": "green"
-                      },
-                      "children": "View Internship Offer",
-                      "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                      "value": {
-                        "itemCode": "BE.code",
-                        "hint": "ROOT"
-                      }
+                    "Selector": {
+                      "checkValues": [
+                        "USER.PRI_IS_BUYER"
+                      ],
+                      "showValues": [
+                        true
+                      ],
+                      "children": [
+                        {
+                          "Selector": {
+                            "checkValues": [
+                              "USER.PRI_INTERN_ACCEPTED"
+                            ],
+                            "hideValues": [
+                              true
+                            ],
+                            "children": [
+                              {
+                                "GennyButton": {
+                                  "style": {
+                                    "height": "30px",
+                                    "marginBottom": "5px"
+                                  },
+                                  "buttonStyle": {
+                                    "background": "green"
+                                  },
+                                  "children": "View Internship Offer",
+                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "value": {
+                                    "itemCode": "BE.code",
+                                    "hint": "ROOT"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "USER.PRI_IS_SELLER"
+                      ],
+                      "showValues": [
+                        true
+                      ],
+                      "children": [
+                        {
+                          "Selector": {
+                            "checkValues": [
+                              "USER.PRI_HOST_COMPANY_ACCEPTED"
+                            ],
+                            "hideValues": [
+                              true
+                            ],
+                            "children": [
+                              {
+                                "GennyButton": {
+                                  "style": {
+                                    "height": "30px",
+                                    "marginBottom": "5px"
+                                  },
+                                  "buttonStyle": {
+                                    "background": "green"
+                                  },
+                                  "children": "View Internship Offer",
+                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "value": {
+                                    "itemCode": "BE.code",
+                                    "hint": "ROOT"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Selector": {
+                      "checkValues": [
+                        "USER.PRI_IS_AGENT",
+                        "USER.PRI_IS_EDU_PROVIDER"
+                      ],
+                      "showValues": [
+                        true
+                      ],
+                      "children": [
+                        {
+                          "Selector": {
+                            "checkValues": [
+                              "USER.PRI_EDU_PROVIDER_ACCEPTED"
+                            ],
+                            "hideValues": [
+                              true
+                            ],
+                            "children": [
+                              {
+                                "GennyButton": {
+                                  "style": {
+                                    "height": "30px",
+                                    "marginBottom": "5px"
+                                  },
+                                  "buttonStyle": {
+                                    "background": "green"
+                                  },
+                                  "children": "View Internship Offer",
+                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "value": {
+                                    "itemCode": "BE.code",
+                                    "hint": "ROOT"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -319,6 +437,7 @@
       {
         "Selector": {
           "checkValues": [
+            "BE.PRI_IS_DEACTIVATED",
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
@@ -337,7 +456,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -347,7 +467,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "blue"
@@ -372,6 +492,7 @@
       {
         "Selector": {
           "checkValues": [
+            "BE.PRI_IS_DEACTIVATED",
             "BE.PRI_IS_REJECTED"
           ],
           "hideValues": [
@@ -390,7 +511,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -400,7 +522,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "orange"
@@ -435,7 +557,8 @@
             {
               "Selector": {
                 "checkValues": [
-                  "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                  "USER.PRI_IS_SELLER",
+                  "USER.PRI_IS_AGENT"
                 ],
                 "showValues": [
                   true
@@ -445,7 +568,7 @@
                     "GennyButton": {
                       "style": {
                         "height": "30px",
-                        "marginTop": "10px"
+                        "marginBottom": "5px"
                       },
                       "buttonStyle": {
                         "background": "green"
@@ -485,7 +608,8 @@
                   {
                     "Selector": {
                       "checkValues": [
-                        "USER.PRI_IS_SELLER", "USER.PRI_IS_AGENT"
+                        "USER.PRI_IS_SELLER",
+                        "USER.PRI_IS_AGENT"
                       ],
                       "showValues": [
                         true
@@ -495,7 +619,7 @@
                           "GennyButton": {
                             "style": {
                               "height": "30px",
-                              "marginTop": "10px"
+                              "marginBottom": "5px"
                             },
                             "buttonStyle": {
                               "background": "#444444"
