@@ -1,20 +1,71 @@
 {
   "layout": {
-    "title": "Home",
-    "appColor": "dark"
+    "title": "Test",
+    "appColor": "dark",
+    "hideHeaderRight": true
   },
   "children": [
     {
-      "component": "Box",
+      "component": "Tabs", 
       "props": {
-        "flexDirection": "column",
-        "alignItems": "center",
-        "justifyContent": "center",
-        "flex": 1,
-        "height": "100%"
+        "bottomTabs": true,
+        "tabBarBackground": "lightgray",
+        "activeTabBackground": "gray",
+        "textColor": "white",
+        "tabs": [
+          { 
+            "key": 0,
+            "route": "Search",
+            "title": "Search",
+            "icon": "search" 
+          },
+          {
+            "key": 1,
+            "route": "alerts/",
+            "title": "Alerts",
+            "icon": "notifications"
+          },
+          {
+            "key": 2,
+            "route": "profile/",
+            "title": "Profile",   
+            "icon": "people"
+          },
+          { 
+            "key": 3,
+            "route": "more/",
+            "title": "More",
+            "icon": "settings"
+          }
+        ]
       },
       "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "search/"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "alerts/"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "profile/"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "more/"
+          }
+        }
       ]
     }
   ]
 }
+
