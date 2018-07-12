@@ -1,25 +1,52 @@
 {
-  "component": "Header",
-  "props": {
-    "barStyle": "light-content",
-    "backgroundColor": "#202532",
-    "paddingX": 5,
-    "height": 60,
-    "headerLeft": {
-      "showTitle": true,
-      "showLogo": true,
-      "logoSource": "{{todo}}",
-      "alwaysHideBack": true,
-      "title": "Four Degrees Platinum"
-    },
-    "headerRight": {
-      "items": [
-        {
-          "id": "chat",
-          "icon": "chat",
-          "href": "chat"
-        }
-      ]
-    }
+  "barStyle": "light-content",
+  "backgroundColor": "#232323",
+  "paddingX": 5,
+  "height": 60,
+  "headerLeft": {
+    "showTitle": true,
+    "showMenu": true,
+    "showBack": true
+  },
+  "headerRight": {
+    "items": [
+      {
+        "id": "chat",
+        "icon": "chat",
+        "href": "chat",
+        "platforms": ["ios"]
+      },
+      {
+        "id": "profile",
+        "icon": "account-circle",
+        "href": "/profile",
+        "eventType": "PROFILE",
+        "buttonCode": "PROFILE",
+        "platforms": ["ios"]
+      },
+      {
+        "id": "dropdown",
+        "dropdown": true,
+        "text": "Hi, {{user.attributes.PRI_FIRST_NAME.value}}!",
+        "platforms": [
+          "android",
+          "web"
+        ],
+        "items": [
+          {
+            "id": "profile",
+            "href": "/profile",
+            "icon": "person",
+            "text": "Profile"
+          },
+          {
+            "id": "logout",
+            "icon": "power-settings-new",
+            "href": "/logout",
+            "text": "Logout"
+          }
+        ]
+      }
+    ]
   }
 }
