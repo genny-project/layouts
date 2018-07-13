@@ -1,114 +1,162 @@
 {
-  "Grid":{
-      "position":[0,0],
-      "style":{
-          "width": "1000px",
-          "margin": "0 auto",
-          "minHeight":"fit-content",
-          "height": "auto",
-          "padding": "30px 0"
+  "Grid": {
+    "position": [
+      0,
+      0
+    ],
+    "style": {
+      "width": "1000px",
+      "margin": "0 auto",
+      "minHeight": "fit-content",
+      "height": "auto",
+      "padding": "30px 0"
+    },
+    "cols": 1,
+    "rows": [
+      {
+        "style": {
+          "flexGrow": 1,
+          "padding": "0"
+        }
       },
-      "cols": 1,
-      "rows":[
-          {
-              "style":{
-                  "flexGrow":1,
-                  "padding":"0"
-              }
-          },
-          {
-              "style":{
-                  "flexGrow":1,
-                  "paddingTop":"10px"
-              }
-          },
-          {
-              "style":{
-                  "flexGrow":1,
-                  "paddingTop":"10px"
-              }
+      {
+        "style": {
+          "flexGrow": 1,
+          "paddingTop": "10px"
+        }
+      },
+      {
+        "style": {
+          "flexGrow": 1,
+          "paddingTop": "10px"
+        }
+      }
+    ],
+    "children": [
+      {
+        "SublayoutLoader": {
+          "position": [
+            0,
+            0
+          ],
+          "layoutCode": "back-button",
+          "aliases": {
+            "BE": "BE.code",
+            "GROUP": "ROOT"
           }
-      ],
-      "children":[
-        {
-              "SublayoutLoader" : {
-                  "position":[0,0],
-                  "layoutCode": "back-button",
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
+        }
+      },
+      {
+        "SublayoutLoader": {
+          "position": [
+            0,
+            0
+          ],
+          "layoutCode": "map-display",
+          "style": {
+            "marginBottom": "20px"
           },
-         {
-              "SublayoutLoader" : {
-                  "position":[0,0],
-                  "layoutCode": "map-display",
-                "style": {
-                   "marginBottom": "20px"
-                },
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
-          },
-          {
-              "SublayoutLoader": {
-                  "position": [0, 0],
-                  "layoutCode": "load-layout-header",
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
-          },
-          {
-              "SublayoutLoader": {
-                  "position": [1, 0],
-                  "layoutCode": "load-layout-details-web",
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
-          },
-          {
-              "SublayoutLoader": {
-                  "position": [2, 0],
-                  "layoutCode": "load-layout-lists",
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
-          },
-          {
-              "SublayoutLoader" : {
-                  "position":[0,1],
-                  "layoutCode": "load-action-buttons",
-                  "aliases": {
-                      "BE": "BE.code",
-                      "GROUP": "ROOT"
-                  }
-              }
-          },
-          {
-              "FileViewer":{
-                  "position":[2,0],
-                  "root": "BE.link.LOAD.code",
-                  "attribute": "PRI_LOAD_IMAGE",
-                  "displayColumn": true
-              }
-          },
-          {
-              "FileViewer":{
-                  "position":[2,0],
-                  "root": "BE.code",
-                  "attribute": "PRI_LOAD_DOCUMENTS",
-                  "displayColumn": true
-              }
+          "aliases": {
+            "BE": "BE.code",
+            "GROUP": "ROOT"
           }
-      ]
+        }
+      },
+      {
+        "SublayoutLoader": {
+          "position": [
+            0,
+            0
+          ],
+          "layoutCode": "load-layout-header",
+          "aliases": {
+            "BE": "BE.code",
+            "GROUP": "ROOT"
+          }
+        }
+      },
+      {
+        "Grid": {
+          "position": [
+            1,
+            0
+          ],
+          "style": {
+            "padding": "30px 0"
+          },
+          "cols": [
+            {
+              "style": {
+                "flex": "0 1 500px"
+              }
+            } 
+          ],
+          "rows": 1,
+          "children": [
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "load-layout-details-web",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "load-layout-lists",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  1
+                ],
+                "layoutCode": "load-action-buttons",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "FileViewer": {
+                "position": [
+                  0,
+                  1
+                ],
+                "root": "BE.link.LOAD.code",
+                "attribute": "PRI_LOAD_IMAGE",
+                "displayColumn": true
+              }
+            },
+            {
+              "FileViewer": {
+                "position": [
+                  0,
+                  1
+                ],
+                "root": "BE.code",
+                "attribute": "PRI_LOAD_DOCUMENTS",
+                "displayColumn": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }
