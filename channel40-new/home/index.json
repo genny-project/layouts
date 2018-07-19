@@ -1,7 +1,10 @@
 {
   "layout": {
     "title": "Loads",
-    "appColor": "dark"
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
@@ -16,6 +19,11 @@
       "children": [
         {
           "component": "Box",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_BUYER.valueBoolean": {
+              "$eq": true
+            }
+          },
           "props": {
             "position": "absolute",
             "bottom": 80,
@@ -40,6 +48,18 @@
         },
         {
           "component": "BucketView",
+          "props": {
+            "minHeight": 50,
+            "tabBarSize": "md",
+            "tabBarBackground": "#3f3f3f",
+            "activeTabBackground": "#232323",
+            "iconColor": "white",
+            "iconSize": "md",
+            "labelColor": "white",
+            "labelProps": {
+              "transform": "upperCase"
+            }
+          },
           "repeat": "_query",
           "children": {
             "component": "List",

@@ -1,0 +1,82 @@
+{
+  "layout": {
+    "title": "Add Account",
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": 40,
+        "marginBottom": 20,
+        "justifyContent": "center"
+      },
+      "children": [
+        {
+          "component": "Heading",
+          "props": {
+            "size": "lg",
+            "bold": true,
+            "align": "center"
+          },
+          "children": "Add a Payment Account"
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginBottom": 40,
+        "marginX": 20,
+        "justifyContent": "center"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "align": "center"
+          },
+          "children": "Please select which type of payment account you would like to create"
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "paddingX": 20
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "LinkButton",
+              "props": {
+                "to": "payment/accounts/add/bank",
+                "text": "Add a Bank Account",
+                "color": "green",
+                "size": "lg"
+              }
+            }
+          ]
+        },
+        {
+          "component": "LinkButton",
+          "props": {
+            "to": "payment/accounts/add/card",
+            "text": "Add a Credit Card",
+            "color": "green",
+            "size": "lg"
+          }
+        }
+      ]
+    }
+  ]
+}

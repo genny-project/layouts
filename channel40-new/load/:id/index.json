@@ -1,704 +1,1514 @@
 {
   "layout": {
     "title": "Load Details",
-    "appColor": "dark"
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
-      "component": "ScrollView",
+      "component": "Tabs",
+      "props": {
+        "tabBarSize": "md",
+        "tabBarBackground": "#3f3f3f",
+        "activeTabBackground": "#232323",
+        "iconColor": "white",
+        "iconSize": "md",
+        "labelColor": "white",
+        "labelProps": {
+          "transform": "upperCase"
+        },
+        "tabs": [
+          {
+            "key": 0,
+            "title": "Details"
+          },
+          {
+            "key": 1,
+            "title": "Map"
+          },
+          {
+            "key": 2,
+            "title": "Quotes"
+          }
+        ]
+      },
       "children": [
         {
-          "component": "Container",
-          "props": {
-            "flexDirection": "column",
-            "alignItems": "center",
-            "justifyContent": "flex-start",
-            "padding": 10,
-            "height": "100%"
-          },
+          "component": "ScrollView",
           "children": [
             {
-              "component": "Media",
+              "component": "Container",
               "props": {
-                "image": "{{query.load.attributes.PRI_IMAGE_URL.valueString}}",
-                "imageSize": "md",
-                "header": "{{query.attributes.PRI_TITLE.valueString}}",
-                "description": [
-                  "${{query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount}} (incl GST)",
-                  "Posted on {{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
-                ]
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "flexWrap": "wrap",
-                "paddingY": 10
+                "flexDirection": "column",
+                "alignItems": "center",
+                "justifyContent": "flex-start",
+                "height": "100%"
               },
               "children": [
                 {
                   "component": "Box",
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
+                    "position": "relative",
                     "height": 100,
-                    "flexGrow": 1
+                    "width": "100%",
+                    "backgroundColor": "grey"
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "Box",
+                      "onlyShowIf": {
+                        "query.images": {
+                          "$size": {
+                            "$gt": 0
+                          }
+                        }
+                      },
+                      "props": {
+                        "position": "absolute",
+                        "top": 0,
+                        "left": 0,
+                        "width": "100%",
+                        "height": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "{{query.images.0.uploadURL}}",
+                            "height": "100%",
+                            "width": "100%"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "position": "absolute",
+                        "right": 0,
+                        "bottom": 0,
+                        "transform": [
+                          {
+                            "translateY": 30
+                          }
+                        ],
+                        "height": 55,
+                        "backgroundColor": "#F5F7F9",
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "alignItems": "center",
+                        "paddingX": 20,
+                        "minWidth": 150
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "${{query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount}}"
+                            },
+                            "else": {
+                              "text": "Negotiable"
+                            }
+                          },
+                          "props": {
+                            "size": "md",
+                            "bold": true
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "onlyShowIf": {
+                            "query.attributes.PRI_JOB_PAYMENT_PRICE.valueMoney.amount": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "size": "xs",
+                            "text": "incl GST"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "paddingX": 20,
+                    "paddingY": 30,
+                    "flexDirection": "column",
+                    "marginBottom": 20,
+                    "width": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 5
+                      },
+                      "children": [
+                        {
+                          "component": "Date",
+                          "props": {
+                            "format": "calendar",
+                            "size": "xs",
+                            "color": "#BDBDBD",
+                            "date": "{{query.attributes.PRI_JOB_CREATED_DATETIME.valueDateTime}}"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_TITLE.valueString": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.attributes.PRI_TITLE.valueString}}"
+                            },
+                            "else": {
+                              "text": "Untitled Load"
+                            }
+                          },
+                          "props": {
+                            "text": "Volvo A40D Dump Truck",
+                            "size": "xl",
+                            "color": "black",
+                            "bold": true
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "query.attributes.PRI_DESCRIPTION.valueString": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "{{query.attributes.PRI_DESCRIPTION.valueString}}"
+                        },
+                        "else": {
+                          "text": "No description available"
+                        }
+                      },
+                      "props": {
+                        "size": "md",
+                        "color": "#8D8D8D"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "paddingX": 20,
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "paddingX": 10,
+                        "paddingTop": 5,
+                        "paddingBottom": 10,
+                        "backgroundColor": "#F5F6F7",
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "justifyContent": "space-between",
+                            "alignItems": "center",
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xs",
+                                "bold": true,
+                                "text": "Pick up"
+                              }
+                            },
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "trending-flat",
+                                "color": "black",
+                                "size": "lg"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "alignItems": "center",
+                            "marginBottom": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginRight": 5
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "place",
+                                    "color": "red",
+                                    "size": "md"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Text",
+                              "conditional": {
+                                "if": {
+                                  "query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString": {
+                                    "$exists": true
+                                  },
+                                  "query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString": {
+                                    "$exists": true
+                                  }
+                                },
+                                "then": {
+                                  "text": "{{query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}}"
+                                },
+                                "else": {
+                                  "text": "No address specified"
+                                }
+                              },
+                              "props": {
+                                "size": "md"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "alignItems": "center",
+                            "marginBottom": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginRight": 5
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "schedule",
+                                    "color": "#F1BD2C",
+                                    "size": "md"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Date",
+                              "onlyShowIf": {
+                                "query.attributes.PRI_PICKUP_DATETIME.valueDateTime": {
+                                  "$exists": true
+                                }
+                              },
+                              "props": {
+                                "size": "md",
+                                "format": "h:mma dddd Do MMMM",
+                                "date": "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
+                              }
+                            },
+                            {
+                              "component": "Text",
+                              "onlyShowIf": {
+                                "query.attributes.PRI_PICKUP_DATETIME.valueDateTime": {
+                                  "$exists": false
+                                }
+                              },
+                              "props": {
+                                "size": "md",
+                                "text": "No time specified"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "paddingX": 20,
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "paddingX": 10,
+                        "paddingTop": 5,
+                        "paddingBottom": 10,
+                        "backgroundColor": "#F5F6F7",
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "justifyContent": "space-between",
+                            "alignItems": "center",
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xs",
+                                "bold": true,
+                                "text": "Delivery"
+                              }
+                            },
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "trending-flat",
+                                "color": "black",
+                                "size": "lg"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "alignItems": "center",
+                            "marginBottom": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginRight": 5
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "place",
+                                    "color": "red",
+                                    "size": "md"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Text",
+                              "conditional": {
+                                "if": {
+                                  "query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString": {
+                                    "$exists": true
+                                  },
+                                  "query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString": {
+                                    "$exists": true
+                                  }
+                                },
+                                "then": {
+                                  "text": "{{query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                                },
+                                "else": {
+                                  "text": "No address specified"
+                                }
+                              },
+                              "props": {
+                                "size": "md"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "alignItems": "center",
+                            "marginBottom": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginRight": 5
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "schedule",
+                                    "color": "#F1BD2C",
+                                    "size": "md"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Date",
+                              "onlyShowIf": {
+                                "query.attributes.PRI_DROPOFF_DATETIME.valueDateTime": {
+                                  "$exists": true
+                                }
+                              },
+                              "props": {
+                                "size": "md",
+                                "format": "h:mma dddd Do MMMM",
+                                "date": "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
+                              }
+                            },
+                            {
+                              "component": "Text",
+                              "onlyShowIf": {
+                                "query.attributes.PRI_DROPOFF_DATETIME.valueDateTime": {
+                                  "$exists": false
+                                }
+                              },
+                              "props": {
+                                "size": "md",
+                                "text": "No time specified"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "user.attributes.PRI_IS_SELLER.value": {
+                      "$eq": true
+                    },
+                    "user.capabilities.CAP_ADD_QUOTE": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "marginBottom": 20,
+                    "paddingX": 20
+                  },
+                  "children": [
+                    {
+                      "component": "EventButton",
                       "props": {
                         "text": "Submit Quote",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "green"
+                        "size": "lg",
+                        "color": "green",
+                        "buttonCode": "BTN_MAKE_OFFER",
+                        "value": {
+                          "itemCode": "{{navigation.loadID}}"
+                        },
+                        "showSpinnerOnClick": true
                       }
                     }
                   ]
                 },
                 {
                   "component": "Box",
-                  "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
-                  },
-                  "children": [
-                    {
-                      "component": "Button",
-                      "props": {
-                        "text": "Accept",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "green"
-                      }
+                  "onlyShowIf": {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    },
+                    "user.capabilities.CAP_UPDATE_ITEM": {
+                      "$eq": true
                     }
-                  ]
-                },
-                {
-                  "component": "Box",
+                  },
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "marginBottom": 20,
+                    "paddingX": 20
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "EventButton",
                       "props": {
                         "text": "Edit Load",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%"
+                        "size": "lg",
+                        "color": "green",
+                        "buttonCode": "{{navigation.loadID}}",
+                        "showSpinnerOnClick": true
                       }
                     }
                   ]
                 },
                 {
                   "component": "Box",
+                  "onlyShowIf": {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    },
+                    "user.capabilities.CAP_DELETE_ITEM": {
+                      "$eq": true
+                    }
+                  },
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "marginBottom": 20,
+                    "paddingX": 20
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "EventButton",
                       "props": {
                         "text": "Delete Load",
                         "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "red"
+                        "color": "red",
+                        "buttonCode": "BTN_DELETE_BEG",
+                        "value": {
+                          "itemCode": "{{navigation.loadID}}"
+                        },
+                        "confirmation": {
+                          "title": "Delete load?",
+                          "message": "Are you sure you want to delete this load?\nThis action cannot be undone.",
+                          "buttons": [
+                            {
+                              "type": "cancel",
+                              "text": "Cancel",
+                              "style": "default"
+                            },
+                            {
+                              "type": "ok",
+                              "text": "Delete",
+                              "style": "destructive"
+                            }
+                          ]
+                        }
                       }
                     }
                   ]
                 },
                 {
                   "component": "Box",
+                  "onlyShowIf": {
+                    "query.attributes.PRI_DROPOFF_DATETIME.valueString": {
+                      "$exists": true
+                    }
+                  },
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "paddingX": 20,
+                    "marginBottom": 20,
+                    "width": "100%"
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "Box",
                       "props": {
-                        "text": "Get Directions",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%"
-                      }
+                        "flexDirection": "column",
+                        "width": "100%",
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Total distance",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "bold": true,
+                            "text": "{{query.attributes.PRI_TOTAL_DISTANCE_M.valueDouble}}m",
+                            "size": "md"
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "component": "Box",
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "width": "100%",
+                    "paddingX": 20,
+                    "marginBottom": 20
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "Box",
                       "props": {
-                        "text": "Locate Driver",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%"
+                        "flexDirection": "column",
+                        "flex": 1,
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Length",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_LOAD_LENGTH_MM.valueDouble": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.attributes.PRI_LOAD_LENGTH_MM.valueDouble}}mm"
+                            },
+                            "else": {
+                              "text": "Unknown"
+                            }
+                          },
+                          "props": {
+                            "bold": true,
+                            "size": "md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "width": 20
                       }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "flex": 1,
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Width",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_LOAD_WIDTH_MM.valueDouble": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.attributes.PRI_LOAD_WIDTH_MM.valueDouble}}mm"
+                            },
+                            "else": {
+                              "text": "Unknown"
+                            }
+                          },
+                          "props": {
+                            "bold": true,
+                            "size": "md"
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "component": "Box",
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "width": "100%",
+                    "paddingX": 20,
+                    "marginBottom": 20
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "Box",
                       "props": {
-                        "text": "Confirm Pickup",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "green"
+                        "flexDirection": "column",
+                        "flex": 1,
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Height",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble}}mm"
+                            },
+                            "else": {
+                              "text": "Unknown"
+                            }
+                          },
+                          "props": {
+                            "bold": true,
+                            "size": "md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "width": 20
                       }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "flex": 1,
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Weight",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg"
+                            },
+                            "else": {
+                              "text": "Unknown"
+                            }
+                          },
+                          "props": {
+                            "bold": true,
+                            "size": "md"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.load.attributes.PRI_LOAD_TYPE.valueString": {
+                      "$exists": true
+                    }
+                  },
+                  "props": {
+                    "paddingX": 20,
+                    "marginBottom": 20,
+                    "width": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "width": "100%",
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Type",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "bold": true,
+                            "text": "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}",
+                            "size": "md"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString": {
+                      "$exists": true
+                    }
+                  },
+                  "props": {
+                    "paddingX": 20,
+                    "marginBottom": 20,
+                    "width": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "width": "100%",
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Equipment reference number",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "bold": true,
+                            "text": "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}",
+                            "size": "md"
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "component": "Box",
                   "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
+                    "paddingX": 20,
+                    "marginBottom": 20,
+                    "width": "100%"
                   },
                   "children": [
                     {
-                      "component": "Button",
+                      "component": "Box",
                       "props": {
-                        "text": "Confirm Delivery",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "green"
-                      }
+                        "flexDirection": "column",
+                        "width": "100%",
+                        "backgroundColor": "#F5F6F7",
+                        "padding": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Posted by",
+                                "size": "xs"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "repeat": "_query.owners",
+                          "children": {
+                            "component": "Box",
+                            "props": {
+                              "alignItems": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "marginRight": 10
+                                },
+                                "children": [
+                                  {
+                                    "component": "Image",
+                                    "props": {
+                                      "shape": "circle",
+                                      "height": 40,
+                                      "width": 40,
+                                      "fallbackIcon": "person",
+                                      "fallbackIconSize": "md",
+                                      "fallbackColor": "#D8D8D8",
+                                      "source": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "flexDirection": "column"
+                                },
+                                "children": [
+                                  {
+                                    "component": "Text",
+                                    "conditional": {
+                                      "if": {
+                                        "repeater.attributes.PRI_NAME.valueString": {
+                                          "$exists": true
+                                        }
+                                      },
+                                      "then": {
+                                        "text": "{{repeater.attributes.PRI_NAME.valueString}}"
+                                      },
+                                      "else": {
+                                        "text": "Unknown User"
+                                      }
+                                    },
+                                    "props": {
+                                      "bold": true,
+                                      "size": "md"
+                                    }
+                                  },
+                                  {
+                                    "component": "PhoneNumber",
+                                    "onlyShowIf": {
+                                      "repeater.attributes.PRI_MOBILE.valueString": {
+                                        "$exists": true
+                                      }
+                                    },
+                                    "props": {
+                                      "number": "{{repeater.attributes.PRI_MOBILE.valueString}}",
+                                      "size": "sm",
+                                      "mobile": true
+                                    }
+                                  },
+                                  {
+                                    "component": "Text",
+                                    "onlyShowIf": {
+                                      "repeater.attributes.PRI_EMAIL.valueString": {
+                                        "$exists": true
+                                      }
+                                    },
+                                    "props": {
+                                      "text": "{{repeater.attributes.PRI_EMAIL.valueString}}",
+                                      "size": "sm"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "component": "Box",
-                  "props": {
-                    "padding": 5,
-                    "flexBasis": "30%",
-                    "height": 100,
-                    "flexGrow": 1
-                  },
-                  "children": [
-                    {
-                      "component": "Button",
-                      "props": {
-                        "text": "Complete",
-                        "size": "md",
-                        "shape": "rounded",
-                        "height": "100%",
-                        "color": "green"
+                  "onlyShowIf": {
+                    "query.images": {
+                      "$size": {
+                        "$gt": 0
                       }
                     }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "borderStyle": "solid",
-                "borderColor": "black",
-                "borderBottomWidth": 2,
-                "borderTopWidth": 2,
-                "width": "100%",
-                "padding": 5,
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "sm"
                   },
-                  "children": "Delivery Details"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "alignItems": "center",
-                "paddingY": 10
-              },
-              "children": [
-                {
-                  "component": "Box",
+                  "repeat": "_query.images",
                   "props": {
-                    "flex": 1,
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "alignItems": "center"
+                    "width": "100%"
                   },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "size": "sm"
-                      },
-                      "children": "Pick Up"
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "backgroundColor": "grey",
+                      "height": 150,
+                      "width": "100%"
                     },
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xxs"
-                      },
-                      "children": "{{query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}}"
-                    },
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xxs"
-                      },
-                      "children": "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "flexGrow": 0,
-                    "flexShrink": 0,
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "alignItems": "center"
-                  },
-                  "children": [
-                    {
-                      "component": "Icon",
-                      "props": {
-                        "color": "black",
-                        "size": "lg",
-                        "name": "trending-flat"
+                    "children": [
+                      {
+                        "component": "Image",
+                        "props": {
+                          "source": "{{repeater.uploadURL}}",
+                          "width": "100%",
+                          "height": "100%"
+                        }
                       }
-                    },
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xxs"
-                      },
-                      "children": "{{query.attributes.PRI_TOTAL_DISTANCE_M.valueDouble}}m"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "flex": 1,
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "alignItems": "center"
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "size": "sm"
-                      },
-                      "children": "Delivery"
-                    },
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xxs"
-                      },
-                      "children": "{{query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                    },
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xxs"
-                      },
-                      "children": "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "borderStyle": "solid",
-                "borderColor": "black",
-                "borderBottomWidth": 2,
-                "borderTopWidth": 2,
-                "width": "100%",
-                "padding": 5,
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "sm"
-                  },
-                  "children": "Load Information"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
-                "paddingY": 10
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xxs"
-                  },
-                  "children": "{{query.attributes.PRI_DESCRIPTION.valueString}}"
-                }
-              ]
-            },
-            {
-              "component": "Heading",
-              "props": {
-                "size": "xs"
-              },
-              "children": "Load Type"
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
-                "paddingY": 10
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xxs"
-                  },
-                  "children": "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}"
-                }
-              ]
-            },
-            {
-              "component": "Heading",
-              "props": {
-                "size": "xs"
-              },
-              "children": "Equipment Reference Number"
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
-                "paddingY": 10
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xxs"
-                  },
-                  "children": "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}"
-                }
-              ]
-            },
-            {
-              "component": "Heading",
-              "props": {
-                "size": "xs"
-              },
-              "children": "Load Dimensions"
-            },
-            {
-              "component": "Box",
-              "props": {
-                "width": "100%",
-                "flexDirection": "row",
-                "justifyContent": "space-around",
-                "paddingY": 10
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xs"
-                  },
-                  "children": "L: {{query.attributes.PRI_LOAD_LENGTH_MM.valueDouble}}mm "
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xs"
-                  },
-                  "children": "W: {{query.attributes.PRI_LOAD_WIDTH_MM.valueDouble}}mm "
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xs"
-                  },
-                  "children": "H: {{query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble}}mm "
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "size": "xs"
-                  },
-                  "children": "W: {{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg "
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "borderStyle": "solid",
-                "borderColor": "black",
-                "borderBottomWidth": 2,
-                "borderTopWidth": 2,
-                "width": "100%",
-                "padding": 5,
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "sm"
-                  },
-                  "children": "Job Owner"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "repeat": "_query.owner",
-              "props": {
-                "flexDirection": "column",
-                "justifyContent": "center",
-                "alignItems": "center",
-                "paddingY": 10
-              },
-              "children": {
-                "component": "Media",
-                "props": {
-                  "image": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
-                  "header": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
-                  "headerProps": {
-                    "size": "xxs"
-                  },
-                  "description": [
-                    "{{repeater.attributes.PRI_EMAIL.valueString}}",
-                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
-                  ],
-                  "descriptionProps": {
-                    "size": "xxs"
+                    ]
                   }
                 }
-              }
-            },
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "children": [
             {
-              "component": "Box",
+              "component": "ToggleButton",
               "props": {
-                "borderStyle": "solid",
-                "borderColor": "black",
-                "borderBottomWidth": 2,
-                "borderTopWidth": 2,
-                "width": "100%",
-                "padding": 5,
-                "justifyContent": "center"
+                "text": "Press to open map",
+                "color": "green"
               },
               "children": [
                 {
-                  "component": "Heading",
+                  "component": "Map",
                   "props": {
-                    "size": "sm"
-                  },
-                  "children": "All Quotes"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "repeat": "_query.offers",
-              "props": {
-                "flexDirection": "column",
-                "justifyContent": "center",
-                "alignItems": "center",
-                "paddingY": 10
-              },
-              "children": {
-                "component": "Media",
-                "props": {
-                  "image": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
-                  "header": "{{repeater.attributes.PRI_CREATOR.valueString}}",
-                  "headerProps": {
-                    "size": "xs"
-                  },
-                  "description": [
-                    "${{repeater.attributes.PRI_OFFER_PRICE.valueString}}",
-                    "{{repeater.attributes.PRI_MOBILE.valueString}}"
-                  ],
-                  "descriptionProps": {
-                    "size": "xxs"
+                    "showDirections": true,
+                    "markers": [
+                      {
+                        "key": "pickup",
+                        "latitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LATITUDE.valueDouble}}",
+                        "longitude": "{{query.attributes.PRI_PICKUP_ADDRESS_LONGITUDE.valueDouble}}"
+                      },
+                      {
+                        "key": "dropoff",
+                        "latitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LATITUDE.valueDouble}}",
+                        "longitude": "{{query.attributes.PRI_DROPOFF_ADDRESS_LONGITUDE.valueDouble}}"
+                      }
+                    ]
                   }
                 }
-              }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Text",
+              "dontShowIf": {
+                "query.offers": {
+                  "$exists": true,
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "children": "No quotes to show"
             },
             {
               "component": "Box",
-              "props": {
-                "borderStyle": "solid",
-                "borderColor": "black",
-                "borderBottomWidth": 2,
-                "borderTopWidth": 2,
-                "width": "100%",
-                "padding": 5,
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "sm"
-                  },
-                  "children": "Attached Images"
+              "onlyShowIf": {
+                "query.offers": {
+                  "$exists": true,
+                  "$size": {
+                    "$gt": 0
+                  }
                 }
-              ]
-            },
-            {
-              "component": "ScrollView",
+              },
               "props": {
-                "horizontal": true
+                "height": "100%",
+                "width": "100%"
               },
               "children": [
                 {
-                  "component": "Box",
+                  "component": "ScrollView",
                   "props": {
-                    "flexDirection": "row",
-                    "justifyContent": "space-between",
-                    "flexShrink": 0,
-                    "paddingY": 10
+                    "height": "100%",
+                    "flex": 1
                   },
                   "children": [
                     {
-                      "component": "Box",
+                      "component": "Container",
                       "props": {
-                        "flex": 1,
-                        "paddingX": 10
+                        "flexDirection": "column"
                       },
                       "children": [
                         {
-                          "component": "Image",
+                          "component": "Box",
                           "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
+                            "marginY": 30,
+                            "width": "100%",
+                            "justifyContent": "center"
+                          },
+                          "children": [
+                            {
+                              "component": "Heading",
+                              "props": {
+                                "size": "lg",
+                                "align": "center"
+                              },
+                              "children": "All quotes"
+                            }
+                          ]
+                        },
                         {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "paddingX": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Image",
-                          "props": {
-                            "source": "undefined",
-                            "height": 100,
-                            "width": 100
+                          "component": "Box",
+                          "repeat": "_query.offers",
+                          "children": {
+                            "component": "Box",
+                            "props": {
+                              "paddingX": 20,
+                              "marginBottom": 20,
+                              "width": "100%"
+                            },
+                            "children": [
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "width": "100%",
+                                  "backgroundColor": "#F5F6F7",
+                                  "padding": 15
+                                },
+                                "children": [
+                                  {
+                                    "component": "Box",
+                                    "props": {
+                                      "marginBottom": 5
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "Date",
+                                        "props": {
+                                          "color": "grey",
+                                          "date": "{{repeater.attributes.PRI_OFFER_DATE.value}}",
+                                          "format": "calendar"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "props": {
+                                      "alignItems": "center",
+                                      "marginBottom": 20
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "Box",
+                                        "props": {
+                                          "marginRight": 10
+                                        },
+                                        "children": [
+                                          {
+                                            "component": "Image",
+                                            "props": {
+                                              "shape": "circle",
+                                              "height": 40,
+                                              "width": 40,
+                                              "fallbackIcon": "person",
+                                              "fallbackIconSize": "md",
+                                              "fallbackColor": "#D8D8D8",
+                                              "source": "{{repeater.attributes.PRI_QUOTER_IMAGE_URL.valueString}}"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "component": "Box",
+                                        "props": {
+                                          "flexDirection": "column"
+                                        },
+                                        "children": [
+                                          {
+                                            "component": "Text",
+                                            "conditional": {
+                                              "if": {
+                                                "repeater.attributes.PRI_QUOTER_FULLNAME.valueString": {
+                                                  "$exists": true
+                                                }
+                                              },
+                                              "then": {
+                                                "text": "{{repeater.attributes.PRI_QUOTER_FULLNAME.valueString}}"
+                                              },
+                                              "else": {
+                                                "text": "Unknown User"
+                                              }
+                                            },
+                                            "props": {
+                                              "bold": true,
+                                              "size": "md"
+                                            }
+                                          },
+                                          {
+                                            "component": "PhoneNumber",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_QUOTER_MOBILE.valueString": {
+                                                "$exists": true
+                                              }
+                                            },
+                                            "props": {
+                                              "number": "{{repeater.attributes.PRI_QUOTER_MOBILE.valueString}}",
+                                              "size": "sm",
+                                              "mobile": true
+                                            }
+                                          },
+                                          {
+                                            "component": "Text",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_QUOTER_USERNAME.valueString": {
+                                                "$exists": true
+                                              }
+                                            },
+                                            "props": {
+                                              "text": "{{repeater.attributes.PRI_QUOTER_USERNAME.valueString}}",
+                                              "size": "sm"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "props": {
+                                      "marginBottom": 30,
+                                      "width": "100%",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "flexDirection": "column"
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "Text",
+                                        "conditional": {
+                                          "if": {
+                                            "user.attributes.PRI_IS_SELLER.value": {
+                                              "$eq": true
+                                            }
+                                          },
+                                          "then": {
+                                            "text": "{{repeater.attributes.PRI_OFFER_DRIVER_PRICE_EXC_GST.value}}"
+                                          },
+                                          "else": {
+                                            "text": "{{repeater.attributes.PRI_OFFER_OWNER_PRICE_INC_GST.value}}"
+                                          }
+                                        },
+                                        "props": {
+                                          "size": "xxl",
+                                          "align": "center",
+                                          "bold": true
+                                        }
+                                      },
+                                      {
+                                        "component": "Text",
+                                        "conditional": {
+                                          "if": {
+                                            "user.attributes.PRI_IS_SELLER.value": {
+                                              "$eq": true
+                                            }
+                                          },
+                                          "then": {
+                                            "text": "excl GST"
+                                          },
+                                          "else": {
+                                            "text": "incl GST"
+                                          }
+                                        },
+                                        "props": {
+                                          "size": "sm",
+                                          "align": "center",
+                                          "color": "grey"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "onlyShowIf": {
+                                      "user.attributes.PRI_IS_BUYER.value": {
+                                        "$eq": true
+                                      },
+                                      "user.capabilities.CAP_ACCEPT_QUOTE": {
+                                        "$exists": true
+                                      }
+                                    },
+                                    "props": {
+                                      "marginBottom": 10
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "EventButton",
+                                        "props": {
+                                          "buttonCode": "BTN_CONFIRM_OFFER",
+                                          "value": {
+                                            "itemCode": "{{repeater.code}}",
+                                            "hint": "{{repeater.parentCode}}"
+                                          },
+                                          "size": "md",
+                                          "text": "Accept quote",
+                                          "color": "green"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "onlyShowIf": {
+                                      "user.attributes.PRI_IS_BUYER.value": {
+                                        "$eq": true
+                                      },
+                                      "repeater.attributes.PRI_NEXT_ACTION.value": {
+                                        "$eq": "OWNER"
+                                      },
+                                      "user.capabilities.CAP_UPDATE_QUOTE": {
+                                        "$eq": true
+                                      }
+                                    },
+                                    "props": {
+                                      "marginBottom": 10
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "EventButton",
+                                        "props": {
+                                          "buttonCode": "BTN_COUNTER_OFFER",
+                                          "value": {
+                                            "itemCode": "{{repeater.code}}",
+                                            "hint": "{{repeater.parentCode}}"
+                                          },
+                                          "size": "md",
+                                          "text": "Counter offer",
+                                          "color": "black"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "onlyShowIf": {
+                                      "user.attributes.PRI_IS_BUYER.value": {
+                                        "$eq": true
+                                      },
+                                      "user.capabilities.CAP_ADD_CHAT_MESSAGE": {
+                                        "$eq": true
+                                      }
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "EventButton",
+                                        "props": {
+                                          "buttonCode": "BTN_CREATE_CONVERSATION",
+                                          "value": {
+                                            "itemCode": "{{repeater.code}}",
+                                            "hint": "{{repeater.parentCode}}"
+                                          },
+                                          "size": "md",
+                                          "text": "Message",
+                                          "color": "green"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "onlyShowIf": {
+                                      "repeater.attributes.PRI_QUOTER_CODE.value": {
+                                        "$eq": "{{user.data.code}}"
+                                      }
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "EventButton",
+                                        "props": {
+                                          "buttonCode": "BTN_DELETE_OFFER",
+                                          "value": {
+                                            "itemCode": "{{repeater.code}}",
+                                            "hint": "{{repeater.parentCode}}"
+                                          },
+                                          "size": "md",
+                                          "text": "Delete offer",
+                                          "color": "red"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
                           }
                         }
                       ]
@@ -742,10 +1552,14 @@
     {
       "operator": "scope",
       "path": "linkBEs",
-      "as": "owner",
+      "as": "owners",
       "scope": {
         "operator": "find",
-        "query": { "linkValue": { "$eq": "OWNER" }}
+        "query": {
+          "linkValue": {
+            "$eq": "OWNER"
+          }
+        }
       }
     },
     {
@@ -754,7 +1568,11 @@
       "as": "load",
       "scope": {
         "operator": "findOne",
-        "query": { "linkValue": { "$eq": "LOAD" }}
+        "query": {
+          "linkValue": {
+            "$eq": "LOAD"
+          }
+        }
       }
     },
     {
@@ -763,7 +1581,24 @@
       "as": "offers",
       "scope": {
         "operator": "find",
-        "query": { "linkValue": { "$eq": "OFFER" }}
+        "query": {
+          "linkValue": {
+            "$eq": "OFFER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "load.attributes.PRI_LOAD_IMAGE.value",
+      "as": "images",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "name": {
+            "$exists": true
+          }
+        }
       }
     }
   ]
