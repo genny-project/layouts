@@ -179,8 +179,7 @@
                   }
                ]
             }
-         },
-         {
+         },{
             "Selector":{
                "checkValues":[
                   "USER.PRI_IS_BUYER",
@@ -211,6 +210,49 @@
                                  },
                                  "children":"Delivered",
                                  "buttonCode":"BTN_ORDER_DELIVERED",
+                                 "value":{
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "Selector":{
+               "checkValues":[
+                  "USER.PRI_IS_BUYER",
+                  "USER.PRI_IS_SELLER"
+               ],
+               "showValues":[
+                  true,
+                  "true"
+               ],
+               "children":[
+                  {
+                     "Selector":{
+                        "checkValues":[
+                           "ROOT"
+                        ],
+                        "showValues":[
+                           "GRP_ORDER_ACTIVE_INTRANSIT"
+                        ],
+                        "children":[
+                           {
+                              "GennyButton":{
+                                 "style":{
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{
+                                    "background":"green"
+                                 },
+                                 "children":"Completed",
+                                 "buttonCode":"BTN_ORDER_COMPLETED",
                                  "value":{
                                     "itemCode":"BE.code",
                                     "hint":"ROOT"
