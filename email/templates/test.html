@@ -8,13 +8,14 @@
             <tr><td height="24" style="font-size: 0; line-height: 24px;">&nbsp;</td></tr>
             <tr>
                 <td align="left" valign="top" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:24px;">
-                    The driver [DRIVER.PRI_FIRSTNAME] [DRIVER.PRI_LASTNAME] is 20km away from the delivery address, <a href="" style="text-decoration:none; color: #000000">[JOB.PRI_DROPOFF_ADDRESS_FULL]</a>.
+                    The driver [DRIVER.PRI_FIRSTNAME] [DRIVER.PRI_LASTNAME] is 20km away from the delivery address, <a href="" style="text-decoration:none; color: #000000">[JOB.PRI_DROPOFF_
+                        _FULL]</a>.
                 </td>
             </tr>
             <tr><td height="13" style="font-size: 0; line-height: 13px;">&nbsp;</td></tr>
             <tr>
                 <td align="left" valign="top" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:24px;">
-                    Please ensure someone is available to meet the driver and receive the load “[JOB.PRI_TITLE]”.
+                    Please ensure someone is available to meet the driver and receive the load “[JOB.PRI_TITLE] #[JOB.PRI_JOB_ID]”.
                 </td>
             </tr>
             <tr>
@@ -51,6 +52,43 @@
                                             [DRIVER.PRI_FIRSTNAME] [DRIVER.PRI_LASTNAME]
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td align="center" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:21px; color: #252525;">
+                                                <a href="" style="text-decoration:none; color: #000000">[JOB.PRI_DRIVER_CONFIRM_PICKUP_DATETIME.((time,space,ampm,comma,space,dayofweekstring,comma,space,dd,space,monthstring,space,yy))]</a>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                      <td align="center" valign="top" style="font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; mso-line-height-rule:exactly; line-height:12px; color: #000000;">
+                                          INTERNAL REFERENCE
+
+                                      </td>
+                                  </tr>
+                                  <tr><td height="5" style="font-size: 0; line-height: 5px;">&nbsp;</td></tr>
+                                  <tr>
+                                      <td align="center" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:21px; color: #252525;">
+                                          [LOAD.PRI_EQUIPMENT_REF_NO]
+                                      </td>
+                                  </tr>
+                                  <!-- END OF REFERENCE INFO -->
+                                    <tr><td height="8" style="font-size: 0; line-height: 8px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td align="center" valign="top" style="font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; mso-line-height-rule:exactly; line-height:12px; color: #000000;">
+                                            DELIVERY TIME
+                                        </td>
+                                    </tr>
+                                    <tr><td height="5" style="font-size: 0; line-height: 5px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td align="center" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:21px; color: #252525;">
+                                            [JOB.PRI_DROPOFF_DATETIME.((dd,/,mm,/,yy,space,hours,:,minutes,:,seconds))]
+                                        </td>
+                                    </tr>
+                                    <tr><td height="8" style="font-size: 0; line-height: 8px;">&nbsp;</td></tr>
+                                    <tr>
+                            <td align="left" valign="top" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:24px;">
+                                $[OFFER.PRI_OFFER_OWNER_PRICE_INC_GST] (incl GST) has been withdrawn from your nominated account. Payment will only be released from your account once you confirm delivery of the load.
+If the load is not delivered, or if the driver breaches the terms and conditions of the exchange, contact channel40 staff immediately.
+                            </td>
+                        </tr>
                                 </table>
                             </td>
                             <td width="17">&nbsp;</td>
