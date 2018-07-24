@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Commons",
+    "title": "Search - Category Refinement",
     "appColor": "dark",
     "hideHeaderRight": true
   },
@@ -9,33 +9,28 @@
       "component": "Box",
       "props": {
         "flex": 1,
-        "height": "100%"
+        "height": "100%",
+        "backgroundColor": "lightgrey",
+        "flexDirection": "column"
       },
-
       "children": [
         {
-          "component": "ScrollView",
+          "component": "Box",
           "props": {
-            "flex": 1,
-            "height": "100%",
-            "backgroundColor": "lightgray"
+            "padding": 20,
+            "flexDirection": "column"
           },
-
           "children": [
             {
               "component": "Box",
-              "props": {
-                "flex": 1,
-                "marginTop": 20,
-                "marginLeft": 20
-              },
+              "props": {},
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Label",
                   "props": {
                     "text": "Services",
-                    "color": "white",
-                    "size": "sm"
+                    "color": "gray",
+                    "size": "xs"
                   }
                 }
               ]
@@ -43,37 +38,38 @@
             {
               "component": "Box",
               "props": {
-                "marginLeft": 20,
-                "flex": 2
+                "marginBottom": 20
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Heading",
                   "props": {
-                    "text": "Acccounting",
-                    "size": "xxl"
+                    "text": "Accounting",
+                    "size": "xl"
                   }
                 }
               ]
             },
             {
               "component": "Box",
-              "props": {
-                "marginLeft": 20,
-                "marginTop": 20,
-                "flex": 1
-              },
+              "props": {},
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Label",
                   "props": {
                     "text": "Select a Sub Category",
-                    "size": "sm",
-                    "color": "white"
+                    "color": "gray",
+                    "size": "xxs"
                   }
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "component": "ScrollView",
+          "props": {},
+          "children": [
             {
               "component": "Box",
               "props": {
@@ -171,18 +167,32 @@
               }
             },
             {
-              "component": "Box",
+              "component": "Link",
               "props": {
-                "flex": 4,
-                "marginTop": 50
+                "style": {
+                  "width": "100%"
+                },
+                "to": "search/search-results/",
+                "params": {}
               },
               "children": [
                 {
-                  "component": "Button",
+                  "component": "Box",
                   "props": {
-                    "text": "Search My Network",
-                    "size": "md"
-                  }
+                    "marginTop": 50,
+                    "padding": 20,
+                    "backgroundColor": "#202532"
+                  },
+                  "children": [
+                    {
+                      "component": "Label",
+                      "props": {
+                        "text": "Search My Network",
+                        "color": "white",
+                        "size": "md"
+                      }
+                    }
+                  ]
                 }
               ]
             }
