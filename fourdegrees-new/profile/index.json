@@ -21,8 +21,7 @@
               "component": "Box", 
               "props": {
                 "flex": 1, 
-                "flexDirection": "column",
-                "backgroundColor": "green"
+                "flexDirection": "column"
               },
               "children": [
                 {
@@ -107,52 +106,66 @@
                   },
                   "children": [
                     {
-                      "component": "Box", 
+                      "component": "Link",
                       "props": {
-                        "flexDirection": "row",
-                        "alignItems": "center",
-                        "backgroundColor": "white",
-                        "paddingX": 10,
-                        "paddingY": 20
+                        "style" : {
+                          "width" : "100%"
+                        },
+                        "to": "introduction/",
+                        "params": {
+                          "loadID": ".{{repeater.item.code}}"
+                        }
                       },
                       "children": [
                         {
                           "component": "Box", 
                           "props": {
-                            "marginRight": 10
+                            "flexDirection": "row",
+                            "alignItems": "center",
+                            "backgroundColor": "white",
+                            "paddingX": 10,
+                            "paddingY": 20
                           },
                           "children": [
                             {
-                              "component": "Icon",
+                              "component": "Box", 
                               "props": {
-                                "name": "hdr-strong",
-                                "color": "black",
-                                "size": "sm"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "component": "Label",
-                          "props": {
-                            "text": "Introduce Matthew",
-                            "color": "black",
-                            "size": "xs"
-                          }
-                        },
-                        {
-                          "component": "Box", 
-                          "props": {
-                            "marginLeft": "auto"
-                          },
-                          "children": [
+                                "marginRight": 10
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "hdr-strong",
+                                    "color": "black",
+                                    "size": "sm"
+                                  }
+                                }
+                              ]
+                            },
                             {
-                              "component": "Icon",
+                              "component": "Label",
                               "props": {
-                                "name": "chevron-right",
+                                "text": "Introduce Matthew",
                                 "color": "black",
-                                "size": "md"
+                                "size": "xs"
                               }
+                            },
+                            {
+                              "component": "Box", 
+                              "props": {
+                                "marginLeft": "auto"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "chevron-right",
+                                    "color": "black",
+                                    "size": "md"
+                                  }
+                                }
+                              ]
                             }
                           ]
                         }
@@ -202,19 +215,33 @@
                       ]
                     },
                     {
-                      "component": "Box", 
+                      "component": "Link",
                       "props": {
-                        "marginBottom": 10
+                        "style" : {
+                          "width" : "100%"
+                        },
+                        "to": "profile/profile-bio",
+                        "params": {
+                          "loadID": ".{{repeater.item.code}}"
+                        }
                       },
                       "children": [
                         {
-                          "component": "Label",
+                          "component": "Box", 
                           "props": {
-                            "text": "Read Full Bio",
-                            "color": "black",
-                            "fontWeight": "bold",
-                            "size": "xs"
-                          }
+                            "marginBottom": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Label",
+                              "props": {
+                                "text": "Read Full Bio",
+                                "color": "black",
+                                "fontWeight": "bold",
+                                "size": "xs"
+                              }
+                            }
+                          ]
                         }
                       ]
                     }
@@ -282,51 +309,54 @@
                   "component": "Tabs", 
                   "props": {
                     "scrollEnabled": true,
+                    "restrictSceneHeights": true,
+                    "activeTabBackground": "#202532",
                     "tabBarBackground": "white",
-                    "activeTabBackground": "white",
-                    "textColor": "black",
+                    "labelColor": "#202532",
+                    "labelProps": {
+                      "fontWeight": "bold"
+                    },
+                    "indicatorProps": {
+                      "height": 5
+                    },
+                    "sceneProps": {
+                      "marginTop": 10
+                    },
                     "tabs": [
                       { 
                         "key": 0,
                         "route": "Search",
-                        "title": "Services",
-                        "icon": "search" 
+                        "title": "Services"
                       },
                       {
                         "key": 1,
                         "route": "alerts/",
-                        "title": "Products",
-                        "icon": "notifications"
+                        "title": "Products"
                       },
                       {
                         "key": 2,
                         "route": "profile/",
-                        "title": "Interests",   
-                        "icon": "people"
+                        "title": "Interests"
                       },
                       { 
                         "key": 3,
                         "route": "more/",
-                        "title": "Groups & Associations",
-                        "icon": "settings"
+                        "title": "Groups & Associations"
                       },
                       {
                         "key": 4,
                         "route": "alerts/",
-                        "title": "Employment",
-                        "icon": "notifications"
+                        "title": "Employment"
                       },
                       {
                         "key": 5,
                         "route": "profile/",
-                        "title": "Education",   
-                        "icon": "people"
+                        "title": "Education"   
                       },
                       { 
                         "key": 6,
                         "route": "more/",
-                        "title": "Contact",
-                        "icon": "settings"
+                        "title": "Contact"
                       }
                     ]
                   },
