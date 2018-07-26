@@ -1,0 +1,149 @@
+{
+  "layout": {
+    "title": "Search - Categories",
+    "appColor": "dark",
+    "hideHeaderRight": true
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "height": "100%",
+        "backgroundColor": "lightgrey",
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "padding": 20,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Search By",
+                    "color": "gray",
+                    "size": "xs"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "text": "Services",
+                    "size": "xl"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Select a Category",
+                    "color": "gray",
+                    "size": "xxs"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "ScrollView",
+          "props": {},
+          "repeat": "_query",
+          "children": {
+            "component": "EventLink",
+            "props": {
+              "style": {
+                "width": "100%"
+              },
+              "to": "search/category-refinement",
+              "value": "{{repeater.code}}",
+              "params": {}
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "padding": 20,
+                  "marginBottom": 2,
+                  "backgroundColor": "white"
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater.name}}",
+                      "size": "sm"
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginLeft": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "props": {
+                          "name": "chevron-right",
+                          "color": "black"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_SERVICES",
+      "as": "services"
+    },
+    {
+      "operator": "scope",
+      "path": "services.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "services.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
+    }
+  ]
+}
