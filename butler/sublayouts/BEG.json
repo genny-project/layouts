@@ -138,7 +138,7 @@
                                                                                     "fontSize":"0.8em",
                                                                                     "marginRight": "5px"
                                                                                 },
-                                                                                "children":"Posted"
+                                                                                "children":"Created"
                                                                             }
                                                                         },
                                                                         {
@@ -157,7 +157,7 @@
                                                                                     "fontSize":"0.8em",
                                                                                     "marginRight": "5px"
                                                                                 },
-                                                                                "children":"at"
+                                                                                "children":"at :"
                                                                             }
                                                                         },
                                                                         {
@@ -200,20 +200,7 @@
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
                                                                                 },
-                                                                                "children":"PICKUP"
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "SublayoutLoader":{
-                                                                                "position":[1,0],
-                                                                                "layoutCode":"address-pickup-display",
-                                                                                "style":{
-                                                                                    "marginRight":"10px"
-                                                                                },
-                                                                                "aliases":{
-                                                                                    "BE":"BE.code",
-                                                                                    "GROUP":"ROOT"
-                                                                                }
+                                                                                "children":"Client Name"
                                                                             }
                                                                         },
                                                                         {
@@ -223,10 +210,9 @@
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
                                                                                 },
-                                                                                "children":"DELIVERY"
+                                                                                "children":"BE.PRI_COMPANY_NAME"
                                                                             }
                                                                         },
-                                                                        
                                                                         {
                                                                             "h6":{
                                                                                 "position":[2,0],
@@ -234,8 +220,46 @@
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
                                                                                 },
-                                                                                "children":"DELIVERY"
+                                                                                "children":"Release Number"
                                                                             }
+                                                                        },  
+                                                                        {
+                                                                             "Selector":{
+                                                                                "position":[3,0],
+                                                                                "checkValues": "BE.PRI_RELEASE_NUMBER",
+                                                                                "showIfNotNull": true,
+                                                                                "children":[
+                                                                                    {
+                                                                                       "span":{
+                                                                                            "position":[2,0],
+                                                                                             "style":{
+                                                                                             "fontSize":"0.75em",
+                                                                                             "margin":"0"
+                                                                                                 },
+                                                                                         "children":"BE.PRI_RELEASE_NUMBER"
+                                                                                            }
+                                                                                     } 
+                                                                                 ]   
+                                                                             }
+                                                                        },
+                                                                         {
+                                                                             "Selector":{
+                                                                                "position":[3,0],
+                                                                                "checkValues": "BE.PRI_RELEASE_NUMBER",
+                                                                                "showIfNull": true,
+                                                                                "children":[
+                                                                                    {
+                                                                                       "span":{
+                                                                                            "position":[2,0],
+                                                                                             "style":{
+                                                                                             "fontSize":"0.75em",
+                                                                                             "margin":"0"
+                                                                                                 },
+                                                                                         "children":"N/A"
+                                                                                            }
+                                                                                     } 
+                                                                                 ]   
+                                                                             }
                                                                         },
                                                                         {
                                                                             "SublayoutLoader":{
@@ -261,7 +285,7 @@
                                                                                             "style": {
                                                                                                 "fontSize": "0.75em"
                                                                                             },
-                                                                                            "children":"TBC"
+                                                                                            "children":"Draft Release"
                                                                                         }
                                                                                     }
                                                                                 ]   
