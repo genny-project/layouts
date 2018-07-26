@@ -107,16 +107,16 @@
                                                                 }
                                                             },
                                                             {
-                                                                "SublayoutLoader":{
+                                                                "span":{
                                                                     "position":[
                                                                         0,
                                                                         0
                                                                     ],
-                                                                    "layoutCode":"price-display",
-                                                                    "aliases":{
-                                                                        "BE":"BE.code",
-                                                                        "GROUP":"ROOT"
-                                                                    }
+                                                                    "style":{
+                                                                        "fontSize":"1em",
+                                                                        "marginRight":"15px"
+                                                                    },
+                                                                    "children":"Incomplete"
                                                                 }
                                                             },
                                                             {
@@ -203,19 +203,47 @@
                                                                                 "children":"Client Name"
                                                                             }
                                                                         },
-                                                                        {
-                                                                            "h6":{
-                                                                                "position":[2,0],
-                                                                                "style":{
-                                                                                    "fontSize":"0.75em",
-                                                                                    "margin":"0"
-                                                                                },
-                                                                                "children":"BE.PRI_COMPANY_NAME"
-                                                                            }
+                                                                         {
+                                                                             "Selector":{
+                                                                                "position":[0,0],
+                                                                                "checkValues": "BE.PRI_COMPANY_NAME",
+                                                                                "showIfNotNull": true,
+                                                                                "children":[
+                                                                                    {
+                                                                                       "span":{
+                                                                                            "position":[2,0],
+                                                                                             "style":{
+                                                                                             "fontSize":"0.75em",
+                                                                                             "margin":"0"
+                                                                                                 },
+                                                                                         "children":"BE.PRI_COMPANY_NAME"
+                                                                                            }
+                                                                                     } 
+                                                                                 ]   
+                                                                             }
+                                                                        },
+                                                                         {
+                                                                             "Selector":{
+                                                                                "position":[0,0],
+                                                                                "checkValues": "BE.PRI_COMPANY_NAME",
+                                                                                "showIfNull": true,
+                                                                                "children":[
+                                                                                    {
+                                                                                       "span":{
+                                                                                            "position":[2,0],
+                                                                                             "style":{
+                                                                                             "fontSize":"0.75em",
+                                                                                             "margin":"0"
+                                                                                                 },
+                                                                                         "children":"N/A"
+                                                                                            }
+                                                                                     } 
+                                                                                 ]   
+                                                                             }
                                                                         },
                                                                         {
                                                                             "h6":{
-                                                                                "position":[2,0],
+                                                                                "position":[1,0],
                                                                                 "style":{
                                                                                     "fontSize":"0.75em",
                                                                                     "margin":"0"
@@ -225,7 +253,7 @@
                                                                         },  
                                                                         {
                                                                              "Selector":{
-                                                                                "position":[3,0],
+                                                                                "position":[1,0],
                                                                                 "checkValues": "BE.PRI_RELEASE_NUMBER",
                                                                                 "showIfNotNull": true,
                                                                                 "children":[
@@ -244,7 +272,7 @@
                                                                         },
                                                                          {
                                                                              "Selector":{
-                                                                                "position":[3,0],
+                                                                                "position":[1,0],
                                                                                 "checkValues": "BE.PRI_RELEASE_NUMBER",
                                                                                 "showIfNull": true,
                                                                                 "children":[
