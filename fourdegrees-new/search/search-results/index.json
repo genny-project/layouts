@@ -55,40 +55,44 @@
         {
           "component": "ScrollView",
           "props": {},
-          "children": [
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "sublayouts/contact-card/",
-                "contactImage": "undefined",
-                "contactName": "Cambell Wilson",
-                "contactCompany": "Digital Strategey - Relacion",
-                "contactDegree": "1st Degree"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "sublayouts/contact-card/",
-                "contactImage": "undefined",
-                "contactName": "Dom Hynes",
-                "contactCompany": "Finger Snappers",
-                "contactDegree": "3st Degree"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "sublayouts/contact-card/",
-                "contactImage": "undefined",
-                "contactName": "Hugh Man",
-                "contactCompany": "Definitely Real Company",
-                "contactDegree": "4th Degree"
-              }
+          "repeat": "_query",
+          "children": {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "sublayouts/contact-card/",
+              "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
+              "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+              "contactCompany": "{{repeater.attributes.PRI_COMPANY_NAME.valueString}}",
+              "contactDegree": "{{repeater.attributes.PRI_DEGREE.valueString}}"
             }
-          ]
+          }
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS",
+      "as": "results"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "results.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
     }
   ]
 }
