@@ -51,7 +51,17 @@
                     "span":{
                         "position":[0, 0],
                         "style":{
-                            "fontSize":"1em",
+                            "fontSize":"1.0em",
+                            "fontWeight":"bold"
+                        },
+                        "children":"Client Name :  ${BE.PRI_COMPANY_NAME}"
+                    }
+                },
+                {
+                    "span":{
+                        "position":[0, 0],
+                        "style":{
+                            "fontSize":"0.8em",
                             "fontWeight":"bold"
                         },
                         "children":"Client Name :  ${BE.PRI_COMPANY_NAME}"
@@ -61,11 +71,22 @@
                     "span":{
                         "position":[1, 0],
                         "style":{
-                            "fontSize":"1em",
+                            "fontSize":"1.0em",
                             "fontWeight":"bold",
                             "marginTop": "20px"
                         },
-                        "children":"Release Number :  ${BE.PRI_RELEASE_NUMBER} "
+                        "children":"Release Number :   "
+                    }
+                },
+               {
+                    "span":{
+                        "position":[1, 0],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${BE.PRI_RELEASE_NUMBER}"
                     }
                 },
                 {
@@ -107,28 +128,40 @@
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
-                        "children":"Rail Yard : ${BE.PRI_RYAIL_YARD}"
-                    }
-                },
-                {
-                    "DateLabel":{
-                        "position":[2, 0],
-                        "format":"DD/MM/YY HH:mm",
-                        "style":{
-                            "fontSize":"0.8em"
-                        },
-                        "children":"BE.PRI_RELEASE_DATE"
+                        "children":"Rail Yard : "
                     }
                 },
                 {
                     "span":{
-                        "position": [2, 1],
+                        "position":[2, 0],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${PRI.PRI_RYAIL_YARD} "
+                    }
+                },
+               {
+                    "span":{
+                        "position":[2, 1],
                         "style":{
                             "fontSize":"1em",
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
-                        "children":"DELIVERY REQUIRED BEFORE"
+                        "children":"Shipping Company : "
+                    }
+                },
+                {
+                    "span":{
+                        "position":[2, 1],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${PRI.PRI_SHIPPING_COMPANY} "
                     }
                 },
                 {
@@ -136,12 +169,22 @@
                     "style": {
                       "margin": "0px"
                     },
-                    "position": [2, 1],
+                    "position": [3, 0],
                     "children": [
+                      {
+                    "span":{
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                                },
+                        "children":"${PRI.PRI_SHIPPING_COMPANY} "
+                          }
+                      },
                     {
                         "Selector":{
-                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
-                            "showIfNull": true,
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "showIfNotNull": true,
                             "children":[
                                 {
                                     "p":{
@@ -149,7 +192,7 @@
                                             "fontSize": "0.8em",
                                             "margin": "0px"
                                         },
-                                        "children":"TBC"
+                                        "children":"BE.link.PRODUCT.PRI_DELIVERY_DATE"
                                     }
                                 }
                             ]
@@ -157,7 +200,7 @@
                     },
                     {
                         "Selector":{
-                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
                             "showIfNotNull": true,
                             "children":[
                                 {
@@ -166,7 +209,7 @@
                                         "style":{
                                             "fontSize":"0.8em"
                                         },
-                                        "children":"BE.PRI_DROPOFF_DATETIME"
+                                        "children":"BE.link.PRODUCT.PRI_DELIVERY_DATE"
                                     }
                                 }
                             ]
@@ -182,12 +225,11 @@
                             "fontSize":"1em",
                             "fontWeight":"bold"
                         },
-                        "children":"TOTAL DISTANCE"
+                        "children":"TOTAL TIME"
                     }
                 },
                 {
                     "MeasurementLabel":{
-                        "showDecimal": 2,
                         "position":[3, 0],
                         "style":{
                             "fontSize": "0.8em"
@@ -205,38 +247,7 @@
                                   "fontWeight":"bold",
                                   "fontSize": "0.8em"
                                 },
-                                "children":"LOAD INFORMATION"
-                            }
-                        }
-                    ]
-                }
-              },
-              {
-                "div":{
-                    "position":[4, 0],
-                    "children":[
-                        {
-                            "DisplayHTML":{
-                                "style":{
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"BE.link.LOAD.PRI_DESCRIPTION"
-                            }
-                        }
-                    ]
-                }
-              },
-              {
-                "div":{
-                    "position":[5,0],
-                    "children":[
-                        {
-                            "span":{
-                              "style": {
-                                  "fontWeight":"bold",
-                                  "fontSize": "0.8em"
-                                },
-                                "children":"LOAD DIMENSIONS"
+                                "children":"CONTAINER INFORMATION"
                             }
                         }
                     ]
@@ -267,24 +278,6 @@
                                     "fontSize": "0.8em"
                                 },
                                 "children":"W: ${BE.link.LOAD.PRI_LOAD_WIDTH_MM}mm"
-                            }
-                        },
-                        {
-                            "span":{
-                                "position": [1,0],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"H: ${BE.link.LOAD.PRI_LOAD_HEIGHT_MM}mm"
-                            }
-                        },
-                        {
-                            "span":{
-                                "position": [1,1],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"W: ${BE.link.LOAD.PRI_LOAD_WEIGHT_KG}kg"
                             }
                         }
                     ]
