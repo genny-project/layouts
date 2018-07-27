@@ -79,7 +79,26 @@
                     "projectTitle": "PROJECT.PRI_NAME",
                     "projectGreeting": "PROJECT.PRI_GREETING",
                     "userName": "USER.PRI_FIRSTNAME",
-                    "userImage": "USER.PRI_IMAGE_URL"
+                    "userImage": "USER.PRI_IMAGE_URL",
+                    "showRoles": true,
+                    "userRoles": [
+                      {
+                        "name": "Intern",
+                        "value": "USER.PRI_IS_SELLER"
+                      },
+                      {
+                        "name": "Host Company",
+                        "value": "USER.PRI_IS_BUYER"
+                      },
+                      {
+                        "name": "Agent",
+                        "value": "USER.PRI_IS_AGENT"
+                      },
+                      {
+                        "name": "Education Provider",
+                        "value": "USER.PRI_IS_EDU_PROVIDER_STAFF"
+                      }
+                    ]
                   }
                 },
                 {
@@ -90,8 +109,8 @@
                     ],
                     "checkValues": [
                       "USER.PRI_IS_AGENT",
-                      "USER.PRI_IS_SELLER",
-                      "USER.PRI_IS_EDU_PROVIDER"
+                      "USER.PRI_IS_BUYER",
+                      "USER.PRI_IS_EDU_PROVIDER_STAFF"
                     ],
                     "showValues": [
                       true
@@ -195,7 +214,7 @@
                                   {
                                     "Selector": {
                                       "checkValues": [
-                                        "USER.PRI_IS_SELLER"
+                                        "USER.PRI_IS_BUYER"
                                       ],
                                       "showValues": [
                                         true
@@ -232,7 +251,7 @@
                                       "children": [
                                         {
                                           "GennyButton": {
-                                            "buttonCode": "BTN_ADD_HOST_COMPANY",
+                                            "buttonCode": "BTN_ADD_COMPANY",
                                             "style": {
                                               "width": "initial",
                                               "height": "30px",
@@ -244,7 +263,7 @@
                                               "fontSize": "0.8em"
                                             },
                                             "value": {},
-                                            "children": "NEW HOST COMPANY"
+                                            "children": "NEW COMPANY"
                                           }
                                         }
                                       ]
@@ -254,8 +273,8 @@
                                     "Selector": {
                                       "checkValues": [
                                         "USER.PRI_IS_AGENT",
-                                        "USER.PRI_IS_SELLER",
-                                        "USER.PRI_IS_EDU_PROVIDER"
+                                        "USER.PRI_IS_BUYER",
+                                        "USER.PRI_IS_EDU_PROVIDER_STAFF"
                                       ],
                                       "showValues": [
                                         true
@@ -297,7 +316,7 @@
                       0
                     ],
                     "checkValues": [
-                      "USER.PRI_IS_SELLER",
+                      "USER.PRI_IS_BUYER",
                       "USER.PRI_IS_AGENT"
                     ],
                     "showValues": [
@@ -333,7 +352,7 @@
                       0
                     ],
                     "checkValues": [
-                      "USER.PRI_IS_SELLER",
+                      "USER.PRI_IS_BUYER",
                       "USER.PRI_IS_AGENT"
                     ],
                     "hideValues": [
