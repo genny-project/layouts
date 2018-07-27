@@ -171,70 +171,69 @@
                                     },
                             "children":"Expected Delivery Date :"
                               }
-                          },
-                        {
-                            "Selector":{
-                                "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                                "showIfNotNull": true,
-                                "children":[
-                                    {
-                                        "DateLabel":{
-                                          "format":"DD/MM/YY",
-                                          "style":{
-                                              "fontSize":"0.8em"
-                                          },
-                                          "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
-                                        }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "showIfNotNull": true,
+                            "children":[
+                                {
+                                    "DateLabel":{
+                                      "format":"DD/MM/YY",
+                                      "position": [3, 0],
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
                                     }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector":{
-                                "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                                "showIfNull": true,
-                                "children":[
-                                    {
-                                         "span":{
-                                          "style":{
-                                              "fontSize":"0.8em"
-                                          },
-                                          "children":"N/A"
-                                        }
-                                    }
-                                ]
-                            }
+                                }
+                            ]
                         }
-                        ]
-                      }
-                    },
-              {
-                "span":{
-                        "position": [3, 1],
-                        "style":{
-                            "fontSize":"1.0em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
-                                },
-                        "children":"Estimated Delivery Date : "
-                          }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "showIfNull": true,
+                            "children":[
+                                {
+                                     "span":{
+                                     "position": [3, 0],  
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"N/A"
+                                    }
+                                }
+                            ]
+                        }
+                    },                
+                    {
+                      "span":{
+                              "position": [3, 1],
+                              "style":{
+                                  "fontSize":"1.0em",
+                                  "fontWeight":"bold",
+                                  "marginTop": "10px"
+                                      },
+                              "children":"Estimated Delivery Date : "
+                                }
                       },
                       {
-                          "Selector":{
-                              "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                              "showIfNotNull": true,
-                              "children":[
-                                  {
-                                        "DateLabel":{
-                                        "position":[1, 1],
-                                        "format":"DD/MM/YY",
-                                        "style":{
-                                            "fontSize":"0.8em"
-                                        },
-                                        "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
-                                     }
-                                  }
-                              ]
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "showIfNotNull": true,
+                            "children":[
+                                {
+                                      "DateLabel":{
+                                      "position": [3, 1],
+                                      "format":"DD/MM/YY",
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
+                                   }
+                                }
+                            ]
                           }
                       },
                       {
@@ -244,6 +243,7 @@
                               "children":[
                                   {
                                         "span":{
+                                          "position": [3, 1],
                                         "style":{
                                             "fontSize":"0.8em"
                                         },
@@ -253,7 +253,7 @@
                               ]
                           }
                       }
-                      ]
+                     ]
                     }
                   },
                   {
@@ -316,12 +316,15 @@
                                     "fontSize": "0.8em"
                                 },
                                 "children":"W: ${BE.link.LOAD.PRI_LOAD_WIDTH_MM}mm"
-                            }
+                                    }
+                                }
+                            ]
                         }
-                    ]
-                }
+                    }
+                ]
             }
-        ]
-    }
+        }
+      ]
+  }
 }
   
