@@ -8,7 +8,7 @@
                "children":[
                   {
                      "Selector":{
-                        "checkValues":"USER.PRI_IS_BUYER",
+                        "checkValues":["USER.PRI_IS_BUYER","USER.PRI_IS_SELLER"],
                         "showValues":[
                            true,
                            "TRUE"
@@ -27,7 +27,7 @@
                   },
                   {
                      "Selector":{
-                        "checkValues":"USER.PRI_IS_SELLER",
+                        "checkValues":["USER.PRI_IS_SELLER","USER.PRI_IS_BUYER"],
                         "showValues":[
                            true,
                            "TRUE"
@@ -69,17 +69,19 @@
             "Selector":{
                "checkValues":"ROOT",
                "showValues":[
-                  "GRP_APPROVED",
-                  "GRP_COMPLETED",
-                  "GRP_IN_TRANSIT",
-                  "GRP_PAID"
+                  "GRP_NEW_ITEMS",
+                  "GRP_ORDER_ACTIVE_CONFIRMED",
+                  "GRP_ORDER_ACTIVE_INTRANSIT",
+                  "GRP_ORDER_ACTIVE_DELIVERED",
+                  "GRP_ORDER_ACTIVE_DELIVERED"
                ],
                "children":[
                   {
                      "Selector":{
                         "checkValues":[
                            "USER.PRI_IS_BUYER",
-                           "USER.PRI_IS_ADMIN"
+                           "USER.PRI_IS_ADMIN",
+                           "USER.PRI_IS_SELLER"                           
                         ],
                         "showValues":[
                            true,
