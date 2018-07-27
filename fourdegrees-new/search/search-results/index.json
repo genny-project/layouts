@@ -92,9 +92,20 @@
       "direction": "asc"
     },
     {
-      "operator": "populateAttributes",
-      "code": "{{props.contactID}}}",
-      "as": "attributes"
+      "operator": "scope",
+      "path": "results",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "attributes",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "results"
+      }
     }
   ]
 }
