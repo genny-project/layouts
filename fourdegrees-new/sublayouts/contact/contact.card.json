@@ -24,7 +24,7 @@
             {
               "component": "Image",
               "props": {
-                "source": "undefined",
+                "source": "{{props.contactImage}}",
                 "shape": "circle",
                 "width": 60,
                 "height": 60
@@ -46,9 +46,9 @@
               },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Text",
                   "props": {
-                    "text": "Cambell Wilson",
+                    "text": "{{query.attributes.PRI_FIRSTNAME.valueString}}",
                     "color": "black",
                     "fontWeight": "bold",
                     "size": "sm"
@@ -63,9 +63,9 @@
               },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Text",
                   "props": {
-                    "text": "Digital Strategey - Relacion",
+                    "text": "{{props.contactCompany}}",
                     "color": "grey",
                     "size": "xs"
                   }
@@ -78,9 +78,9 @@
               },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Text",
                   "props": {
-                    "text": "1st Degree",
+                    "text": "{{props.contactDegree}}",
                     "color": "black",
                     "size": "xs"
                   }
@@ -114,6 +114,22 @@
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.contactID}}",
+      "as": "be"
+    },
+    {
+      "operator": "map",
+      "fields": "be"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{props.contactID}}}",
+      "as": "attributes"
     }
   ]
 }

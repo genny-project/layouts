@@ -16,18 +16,17 @@
       "children": [
         {
           "component": "Box",
-          "props":{
+          "props": {
             "padding": 20,
             "flexDirection": "column"
           },
-          "children":[
+          "children": [
             {
               "component": "Box",
-              "props": {
-              },
+              "props": {},
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Text",
                   "props": {
                     "text": "Search By",
                     "color": "gray",
@@ -53,11 +52,10 @@
             },
             {
               "component": "Box",
-              "props": {
-              },
+              "props": {},
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Text",
                   "props": {
                     "text": "Select a Category",
                     "color": "gray",
@@ -70,59 +68,82 @@
         },
         {
           "component": "ScrollView",
-          "props": {
-          },
-          "children": [
-            {
-              "component": "Link",
-              "props": {
-                "style" : {
-                  "width" : "100%"
-                },
-                "to": "search/category-refinement/",
-                "params": {
-                }
+          "props": {},
+          "repeat": "_query",
+          "children": {
+            "component": "EventLink",
+            "props": {
+              "style": {
+                "width": "100%"
               },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "justifyContent": "space-between",
-                    "alignItems": "center",
-                    "padding": 20,
-                    "marginBottom": 2,
-                    "backgroundColor": "white"
-                  },
-                  "children": [
-                    {
-                      "component": "Label",
-                      "props": {
-                        "text": "Accounting",
-                        "size": "sm"
-                      }
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginLeft": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "chevron-right",
-                            "color": "black"
-                          }
-                        }
-                      ]
+              "to": "search/category-refinement",
+              "value": "{{repeater.code}}",
+              "params": {}
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "padding": 20,
+                  "marginBottom": 2,
+                  "backgroundColor": "white"
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater.name}}",
+                      "size": "sm"
                     }
-                  ]
-                }
-              ]
-            }
-          ]
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginLeft": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "props": {
+                          "name": "chevron-right",
+                          "color": "black"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_SERVICES",
+      "as": "services"
+    },
+    {
+      "operator": "scope",
+      "path": "services.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "services.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
     }
   ]
 }
