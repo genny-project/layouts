@@ -74,22 +74,60 @@
   "query": [
     {
       "operator": "getBE",
+      "basePath": "baseEntities.data",
       "id": "GRP_RESULTS",
-      "as": "results"
+      "as": "be"
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "be",
       "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
+        "operator": "map",
+        "fields": {
+          "name": "name",
+          "items": "links"
+        }
       }
     },
     {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "linkValue": "link.linkValue",
+          "item": "be"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateLinkValues",
+        "field": "item",
+        "as": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "path": "links"
+      }
     }
   ]
 }
