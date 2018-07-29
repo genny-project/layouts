@@ -59,8 +59,7 @@
           "children": {
             "component": "Sublayout",
             "props": {
-              "layoutName": "contact/contact.card",
-              "contactID": "{{repeater.code}}",
+              "layoutName": "sublayouts/contact-card/",
               "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
               "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
               "contactCompany": "{{repeater.attributes.PRI_COMPANY_NAME.valueString}}",
@@ -74,60 +73,26 @@
   "query": [
     {
       "operator": "getBE",
-      "basePath": "baseEntities.data",
       "id": "GRP_RESULTS",
-      "as": "be"
+      "as": "results"
     },
     {
       "operator": "scope",
-      "path": "be",
+      "path": "results.links",
       "scope": {
-        "operator": "map",
-        "fields": {
-          "name": "name",
-          "items": "links"
-        }
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
       }
     },
     {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be": {
-            "$exists": true
-          }
-        }
-      }
+      "operator": "map",
+      "fields": "results.links"
     },
     {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "map",
-        "fields": {
-          "linkValue": "link.linkValue",
-          "item": "be"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "populateLinkValues",
-        "field": "item",
-        "as": "links"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "populateAttributes",
-        "path": "links"
-      }
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
     }
   ]
 }
