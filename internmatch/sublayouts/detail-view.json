@@ -76,10 +76,6 @@
                 "children": [
                   {
                     "h4": {
-                      "position": [
-                        1,
-                        0
-                      ],
                       "style": {
                         "borderBottom": "2px solid #485461",
                         "borderTop": "2px solid #485461",
@@ -90,10 +86,6 @@
                   },
                   {
                     "SublayoutLoader": {
-                      "position": [
-                        1,
-                        0
-                      ],
                       "layoutCode": "internship-details-host-company",
                       "style": {
                             "backgroundColor": "#DDD"
@@ -108,55 +100,67 @@
               }
             },
             {
-              "h4": {
+              "Selector": {
                 "position": [
                   1,
                   0
                 ],
-                "style": {
-                  "borderBottom": "2px solid #485461",
-                  "borderTop": "2px solid #485461",
-                  "padding": "5px 0 10px"
-                },
-                "children": "Company Representative"
+                "showIfNotNull": true,
+                "checkValues": [
+                  "BE.LNK_HOST_COMPANY_REP.code"
+                ],
+                "children": [
+                  {
+                    "h4": {
+                      "style": {
+                        "borderBottom": "2px solid #485461",
+                        "borderTop": "2px solid #485461",
+                        "padding": "5px 0 10px"
+                      },
+                      "children": "Company Representative"
+                    }
+                  },
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "internship-details-representative",
+                      "style": {
+                            "backgroundColor": "#DDD"
+                      },
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "position": [
+                  1,
+                  0
+                ],
+                "showIfNotNull": true,
+                "checkValues": [
+                  "BE.LNK_INTERN_SUPERVISOR.code"
+                ],
+                "children": [
+                  {
+                    "h4": {
+                      "style": {
+                        "borderBottom": "2px solid #485461",
+                        "borderTop": "2px solid #485461",
+                        "padding": "5px 0 10px"
+                      },
+                      "children": "Intern Supervisor"
+                    }
+                  }
+                ]
               }
             },
             {
               "SublayoutLoader": {
-                "position": [
-                  1,
-                  0
-                ],
-                "layoutCode": "internship-details-representative",
-                "style": {
-                      "backgroundColor": "#DDD"
-                },
-                "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-                }
-              }
-            },
-            {
-              "h4": {
-                "position": [
-                  1,
-                  0
-                ],
-                "style": {
-                  "borderBottom": "2px solid #485461",
-                  "borderTop": "2px solid #485461",
-                  "padding": "5px 0 10px"
-                },
-                "children": "Intern Supervisor"
-              }
-            },
-            {
-              "SublayoutLoader": {
-                "position": [
-                  1,
-                  0
-                ],
                 "layoutCode": "internship-details-supervisor",
                 "style": {
                       "backgroundColor": "#DDD"
