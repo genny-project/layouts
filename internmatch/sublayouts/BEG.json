@@ -39,13 +39,21 @@
           },
           "children":[
             {
-               "SublayoutLoader": {
-                  "layoutCode": "company-name",
-                  "aliases": {
-                     "BE": "BE.PRI_COMPANY_CODE",
-                     "GROUP": "ROOT"
-                  }
-               }
+                "Selector": {
+                    "checkValues": "BE.PRI_COMPANY_CODE",
+                    "showIfNotNull": true,
+                    "children": [
+                        {
+                           "SublayoutLoader": {
+                              "layoutCode": "company-name",
+                              "aliases": {
+                                 "BE": "BE.PRI_COMPANY_CODE",
+                                 "GROUP": "ROOT"
+                              }
+                           }
+                        }
+                    ]
+                }
             }
           ]
         }
