@@ -44,7 +44,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "text": "Services",
+                    "text": "{{query.search.PRI_NAME.value}}",
                     "size": "xl"
                   }
                 }
@@ -124,12 +124,12 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_SERVICES",
-      "as": "services"
+      "id": "{{navigation.searchID}}",
+      "as": "search"
     },
     {
       "operator": "scope",
-      "path": "services.links",
+      "path": "search.links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -138,7 +138,7 @@
     },
     {
       "operator": "map",
-      "fields": "services.links"
+      "fields": "search.links"
     },
     {
       "operator": "sort",
