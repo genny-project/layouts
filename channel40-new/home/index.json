@@ -67,75 +67,74 @@
             "props": {
               "headerText": "{{repeater.name}}"
             },
-            "children":
-              {
-                "component": "Link",
-                "props": {
-                  "style" : {
-                    "width" : "100%"
-                  },
-                  "key": "{{repeater.item.code}}",
-                  "to": "load/{{repeater.item.code}}",
-                  "params": {
-                    "loadID": "{{repeater.item.code}}"
-                  }
+            "children": {
+              "component": "Link",
+              "props": {
+                "style": {
+                  "width": "100%"
                 },
-                "children": [
-                  {
-                    "component": "Card",
-                    "children": [
-                      {
-                        "component": "Media",
-                        "props": {
-                          "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
-                        },
-                        "children": [
-                          {
-                            "component": "Box",
-                            "children": [
-                              {
-                                "component": "Box",
-                                "props": {
-                                  "flex": 1,
-                                  "width": "100%",
-                                  "flexDirection": "column",
-                                  "justifyContent": "flex-start",
-                                  "paddingRight": 15
-                                },
-                                "children": [
-                                  {
-                                    "component": "Text",
-                                    "children": "{{repeater.item.name}}"
-                                  },
-                                  {
-                                    "component": "Text",
-                                    "props": {
-                                      "size": "xxs"
-                                    },
-                                    "children": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
-                                  }
-                                ]
+                "key": "{{repeater.item.code}}",
+                "to": "load/{{repeater.item.code}}",
+                "params": {
+                  "loadID": "{{repeater.item.code}}"
+                }
+              },
+              "children": [
+                {
+                  "component": "Card",
+                  "children": [
+                    {
+                      "component": "Media",
+                      "props": {
+                        "image": "{{repeater.links.LOAD.attributes.PRI_IMAGE_URL.valueString}}"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flex": 1,
+                                "width": "100%",
+                                "flexDirection": "column",
+                                "justifyContent": "flex-start",
+                                "paddingRight": 15
                               },
-                              {
-                                "component": "Box",
-                                "children": [
-                                  {
-                                    "component": "Status",
-                                    "props": {
-                                      "color": "{{repeater.item.attributes.STA_STATUS.valueString}}",
-                                      "height": 40
-                                    }
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "children": "{{repeater.item.name}}"
+                                },
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xxs"
+                                  },
+                                  "children": "{{repeater.item.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}} - {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{repeater.item.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "children": [
+                                {
+                                  "component": "Status",
+                                  "props": {
+                                    "color": "{{repeater.item.attributes.STA_STATUS.valueString}}",
+                                    "height": 40
                                   }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           }
         }
       ]

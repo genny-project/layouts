@@ -44,7 +44,11 @@
                 {
                   "component": "Heading",
                   "props": {
+<<<<<<< HEAD
                     "text": "Services",
+=======
+                    "text": "{{query.search.name}}",
+>>>>>>> dev
                     "size": "xl"
                   }
                 }
@@ -124,12 +128,21 @@
   "query": [
     {
       "operator": "getBE",
+<<<<<<< HEAD
       "id": "GRP_SERVICES",
       "as": "services"
     },
     {
       "operator": "scope",
       "path": "services.links",
+=======
+      "id": "{{navigation.searchID}}",
+      "as": "search"
+    },
+    {
+      "operator": "scope",
+      "path": "search.links",
+>>>>>>> dev
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -138,7 +151,11 @@
     },
     {
       "operator": "map",
+<<<<<<< HEAD
       "fields": "services.links"
+=======
+      "fields": "search.links"
+>>>>>>> dev
     },
     {
       "operator": "sort",
@@ -146,4 +163,8 @@
       "direction": "asc"
     }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev

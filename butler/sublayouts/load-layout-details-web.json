@@ -51,16 +51,34 @@
                     "span":{
                         "position":[0, 0],
                         "style":{
+<<<<<<< HEAD
                             "fontSize":"1em",
                             "fontWeight":"bold"
                         },
                         "children":"JOB ID: ${BE.PRI_JOB_ID}"
+=======
+                            "fontSize":"1.0em",
+                            "fontWeight":"bold"
+                        },
+                        "children":"Client Name : "
+                    }
+                },
+                {
+                    "span":{
+                        "position":[0, 0],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold"
+                        },
+                        "children":"${BE.PRI_COMPANY_NAME}"
+>>>>>>> dev
                     }
                 },
                 {
                     "span":{
                         "position":[1, 0],
                         "style":{
+<<<<<<< HEAD
                             "fontSize":"1em",
                             "fontWeight":"bold",
                             "marginTop": "20px"
@@ -76,6 +94,24 @@
                             "BE": "BE.code",
                             "GROUP": "ROOT"
                         }
+=======
+                            "fontSize":"1.0em",
+                            "fontWeight":"bold",
+                            "marginTop": "20px"
+                        },
+                        "children":"Release Number :   "
+                    }
+                },
+               {
+                    "span":{
+                        "position":[1, 0],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${BE.PRI_RELEASE_NUMBER}"
+>>>>>>> dev
                     }
                 },
                 {
@@ -86,6 +122,7 @@
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
+<<<<<<< HEAD
                         "children":"DELIVERY"
                     }
                 },
@@ -97,6 +134,19 @@
                             "BE": "BE.code",
                             "GROUP": "ROOT"
                         }
+=======
+                        "children":"Release Open Date : "
+                    }
+                },
+               {
+                    "DateLabel":{
+                        "position":[1, 1],
+                        "format":"DD/MM/YY",
+                        "style":{
+                            "fontSize":"0.8em"
+                        },
+                        "children":"${BE.PRI_RELEASE_DATE}"
+>>>>>>> dev
                     }
                 },
                 {
@@ -107,6 +157,7 @@
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
+<<<<<<< HEAD
                         "children":"AVAILABLE FOR PICKUP FROM"
                     }
                 },
@@ -123,11 +174,31 @@
                 {
                     "span":{
                         "position": [2, 1],
+=======
+                        "children":"Rail Yard : "
+                    }
+                },
+                {
+                    "span":{
+                        "position":[2, 0],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${BE.PRI_RYAIL_YARD} "
+                    }
+                },
+               {
+                    "span":{
+                        "position":[2, 1],
+>>>>>>> dev
                         "style":{
                             "fontSize":"1em",
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
+<<<<<<< HEAD
                         "children":"DELIVERY REQUIRED BEFORE"
                     }
                 },
@@ -243,6 +314,156 @@
                 }
               },
               {
+=======
+                        "children":"Shipping Company : "
+                    }
+                },
+                {
+                    "span":{
+                        "position":[2, 1],
+                        "style":{
+                            "fontSize":"0.8em",
+                            "fontWeight":"bold",
+                            "marginTop": "10px"
+                        },
+                        "children":"${BE.PRI_SHIPPING_COMPANY} "
+                    }
+                },
+     
+                   {
+                    "span":{
+                            "position": [3, 0],
+                            "style":{
+                                "fontSize":"1.0em",
+                                "fontWeight":"bold",
+                                "marginTop": "10px"
+                                    },
+                            "children":"Expected Delivery Date :"
+                              }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "position": [3, 0],
+                            "showIfNotNull": true,
+                            "children":[
+                                {
+                                    "DateLabel":{
+                                      "format":"DD/MM/YY",
+                                      
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
+                                    }
+                                }
+                          ]
+                        }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "position": [3, 0],
+                            "showIfNull": true,
+                            "children":[
+                                {
+                                     "span":{  
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"N/A"
+                                    }
+                                }
+                          ]
+                        }
+                    },                
+                    {
+                      "span":{
+                              "position": [3, 1],
+                              "style":{
+                                  "fontSize":"1.0em",
+                                  "fontWeight":"bold",
+                                  "marginTop": "10px"
+                                      },
+                              "children":"Estimated Delivery Date : "
+                                }
+                      },
+                      {
+                        "Selector":{
+                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                            "position": [3, 1],
+                            "showIfNotNull": true,
+                            "children":[
+                                {
+                                      "DateLabel":{
+                                      "format":"DD/MM/YY",
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
+                                   }
+                                }
+                            ]
+                          }
+                    },
+                      {
+
+                          "Selector":{
+                              "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                              "position": [3, 1],
+                              "showIfNull": true,
+                              "children":[
+                                  {
+                                        "span":{
+                                        "style":{
+                                            "fontSize":"0.8em"
+                                        },
+                                        "children":"N/A"
+                                     }
+                                  }
+                              ]
+                          }
+                      }
+                     ]
+                    }
+                  },
+                  {
+                      "span":{
+                          "position":[4, 0],
+                          "style":{
+                              "fontSize":"1.0em",
+                              "fontWeight":"bold"
+                          },
+                          "children":"Total Time"
+                      }
+                  },
+                  {
+                      "MeasurementLabel":{
+                          "position":[4, 0],
+                          "style":{
+                              "fontSize": "0.8em"
+                          },
+                          "children":"${BE.PRI_TOTAL_DISTANCE_M}"
+                      }
+                  },
+                {
+                  "div": {
+                      "position":[5, 0],
+                      "children":[
+                          {
+                              "span":{
+                                  "style": {
+                                    "fontWeight":"bold",
+                                    "fontSize": "1.0em"
+                                  },
+                                  "children":"Container Information"
+                              }
+                          }
+                      ]
+                  }
+                },
+              {
+>>>>>>> dev
                 "Grid":{
                     "position":[5,0],
                     "cols":[3,3],
@@ -267,6 +488,7 @@
                                     "fontSize": "0.8em"
                                 },
                                 "children":"W: ${BE.link.LOAD.PRI_LOAD_WIDTH_MM}mm"
+<<<<<<< HEAD
                             }
                         },
                         {
@@ -296,3 +518,14 @@
     ]
   }
 }
+=======
+                                    }
+                                }
+                           ]
+                       }
+                   }
+             ]
+        }
+    }
+  
+>>>>>>> dev

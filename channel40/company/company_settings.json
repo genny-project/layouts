@@ -1,0 +1,104 @@
+{
+  "Grid": {
+    "rows": [
+      {
+        "style": {
+          "height": "80px",
+          "background": "PROJECT.PRI_COLOR",
+          "flexGrow": 0
+        }
+      },
+      1
+    ],
+    "cols": 1,
+    "children": [
+      {
+        "div": {
+          "position": [0, 0],
+          "style": {
+            "background": "PROJECT.PRI_COLOR"
+          },
+          "children": [
+            {
+              "GennyButton": {
+                "buttonCode": "BTN_CREATE_ROLE",
+                "value": {},
+                "children": "+ ADD ROLE",
+                "style": {
+                  "padding": "10px",
+                  "width": "150px",
+                  "position": "absolute",
+                  "right": "20px"
+                },
+                "buttonStyle": {
+                  "background": "PROJECT.PRI_COLOR",
+                  "border": "1px solid white",
+                  "maxWidth": "150px",
+                  "fontColor": "white",
+                  "marginTop": "15px"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "div": {
+          "position": [1, 0],
+          "children": [
+            {
+              "SplitView": {
+                "children": [
+                  {
+                    "GennyList": {
+                      "position": [0, 0],
+                      "root": "GRP_ROLES",
+                      "selectedItem": "BE.code"
+                    }
+                  },
+                  {
+                    "div": {
+                      "position": [0, 1],
+                      "children": [
+                        {
+                          "Selector": {
+                            "checkValues": "BE.code",
+                            "showIfNull": true,
+                            "children": [
+                                {
+                                  "div": {
+                                    "style": {
+                                      "textAlign": "center",
+                                      "marginTop": "45%"
+                                    },
+                                    "children": "Select a role to see more details"
+                                  }
+                               }
+                            ]
+                          }
+                        },
+                        {
+                          "Selector": {
+                            "checkValues": "BE.code",
+                            "showIfNotNull": true,
+                            "children": [
+                              {
+                                "GennyForm": {
+                                  "root": "QUE_ROLE_DETAILS_GRP"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
