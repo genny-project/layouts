@@ -17,120 +17,89 @@
         "style": {
             "padding": "5px 10px"
         },
+        
         "children":[
             {
                 "Grid":{
                     "position":[0,0],
-                    "rows":1,
+                    "rows": 1,
                     "cols":[
                         {
                             "style":{
-                                "flex":"0 0 40px",
-                                "display":"flex",
-                                "alignItems":"center"
+                                "flexGrow": 1,
+                                "minWidth": "100px",
+                                "margin": "0 5px"
                             }
                         },
-                        3
+                        {
+                            "style":{
+                                "flexGrow": 1,
+                                "minWidth": "100px",
+                                "margin": "0 5px"
+                            }
+                        },
+                        {
+                            "style":{
+                                "flexGrow": 1,
+                                "minWidth": "100px",
+                                "margin": "0 5px",
+                                "display": "flex",
+                                "alignItems": "center"
+                            }
+                        }
                     ],
                     "children":[
-                        {
-                            "Grid":{
-                                "position":[0,0],
-                                "rows": 1,
-                                "cols":[
-                                    {
+                                   {  
+                                      "span":{
                                         "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px"
-                                        }
-                                    },
-                                    {
-                                        "style":{
-                                            "flexGrow": 1,
-                                            "minWidth": "100px",
-                                            "margin": "0 5px",
-                                            "display": "flex",
-                                            "alignItems": "center"
-                                        }
+                                            "fontSize":"1em",
+                                            "fontWeight":"bold",
+                                            "marginTop": "10px"
+                                        },
+                                        "children":"Container Id : "
                                     }
-                                ],
-                                "children":[
-                                    {
-                                        "Selector":{
-                                            "position":[0,0],
-                                            "checkValues":["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN","USER_IS_SELLER"],
-                                            "showValues": [true, "TRUE"],
-                                            "children":[
-                                                          {  
-                                                              "span":{
-                                                                "style":{
-                                                                    "fontSize":"1em",
-                                                                    "fontWeight":"bold",
-                                                                    "marginTop": "10px"
-                                                                },
-                                                                "children":"Container Id : "
-                                                            }
-                                                        },
-                                                           {      
-                                                                "span":{
-                                                                    "style":{
-                                                                        "fontSize":"0.75em",
-                                                                        "marginRight": "5px"
-                                                                    },
-                                                                    "children":"BE.PRI_EACH_CONTAINER_ID"
-                                                              }
-                                                         }
-                                                    ]
-                                             }
-                                       },
-                                      {
-                                            "Selector":{
-                                                "position":[0,0],
-                                                "checkValues":["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN","USER_IS_SELLER"],
-                                                "showValues": [true, "TRUE"],
-                                                "children":[
-                                                              {  
-                                                                  "span":{
-                                                                    "style":{
-                                                                        "fontSize":"1em",
-                                                                        "fontWeight":"bold",
-                                                                        "marginTop": "10px"
-                                                                    },
-                                                                    "children":"Container Size : "
-                                                                }
-                                                            },
-                                                               {      
-                                                                    "span":{
-                                                                        "style":{
-                                                                            "fontSize":"0.75em",
-                                                                            "marginRight": "5px"
-                                                                        },
-                                                                        "children":"BE.PRI_EACH_CONTAINER_SIZE"
-                                                                  }
-                                                             }
-                                                        ]
-                                                 }
-                                           },
+                                },
+                                   {      
+                                        "span":{
+                                            "style":{
+                                                "fontSize":"0.75em",
+                                                "marginRight": "5px"
+                                            },
+                                            "children":"BE.PRI_EACH_CONTAINER_ID"
+                                      }
+                                 },
+                                   {  
+                                          "span":{
+                                            "style":{
+                                                "fontSize":"1em",
+                                                "fontWeight":"bold",
+                                                "marginTop": "10px"
+                                            },
+                                            "children":"Container Size : "
+                                        }
+                                    },
+                                       {      
+                                            "span":{
+                                                "style":{
+                                                    "fontSize":"0.75em",
+                                                    "marginRight": "5px"
+                                                },
+                                                "children":"BE.PRI_EACH_CONTAINER_SIZE"
+                                          }
+                                     },
+                        
                                      {
-                                          "GennyButton":{
-                                              "position":[0,2],
-                                              "buttonCode":"BTN_DELETE_CONTAINER",
-                                              "value":{
-                                                  "itemCode":"BE.code",
-                                                  "hint":"ROOT"
-                                              },
-                                              "style":{
-                                                  "height":"30px"
-                                              },
-                                              "type":"confirm",
+                                      "GennyButton":{
+                                          "position":[0,2],
+                                          "buttonCode":"BTN_DELETE_CONTAINER",
+                                          "value":{
+                                              "itemCode":"BE.code",
+                                              "hint":"ROOT"
+                                          },
+                                          "style":{
+                                              "height":"30px"
+                                          },
+                                          "type":"confirm",
                                               "children":[
                                                   {
                                                       "span":{
@@ -140,16 +109,14 @@
                                                           },
                                                           "children":"DELETE"
                                                 }
-                                            }
-                                        ]
-                                    }
-                                 }
-                              ]
-                          }
-                      }
-                  ]
-                }
+                                        }
+                                  ]
+                             }
+                         }
+                     ]
+                 }
             }
         ]
     }
 }
+
