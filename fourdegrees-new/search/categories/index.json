@@ -44,7 +44,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "text": "{{query.search.name}}",
+                    "text": "{{query.name}}",
                     "size": "xl"
                   }
                 }
@@ -69,7 +69,7 @@
         {
           "component": "ScrollView",
           "props": {},
-          "repeat": "_query",
+          "repeat": "_query.linkBEs",
           "children": {
             "component": "EventLink",
             "props": {
@@ -128,22 +128,29 @@
       "as": "search"
     },
     {
+      "operator": "map",
+      "fields": "search"
+    },
+    {
+      "operator": "populateLinkValues",
+      "multiple": true,
+      "as": "linkBEs"
+    },
+    {
       "operator": "scope",
-      "path": "search.links",
+      "path": "linkBEs",
       "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
+        "operator": "populateAttributes"
       }
     },
     {
-      "operator": "map",
-      "fields": "search.links"
-    },
-    {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "sort",
+        "by": "weight",
+        "direction": "asc"
+      }
     }
   ]
 }
