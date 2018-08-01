@@ -4,7 +4,14 @@
          {
             "Selector":{
                "checkValues":"ROOT",
-               "showValues":"GRP_NEW_ITEMS",
+               "showValues":[
+                  "GRP_NEW_ITEMS",
+                  "GRP_ORDER_ACTIVE_CONFIRMED",
+                  "GRP_ORDER_ACTIVE_INTRANSIT",
+                  "GRP_ORDER_ACTIVE_DELIVERED",
+                  "GRP_ORDER_ACTIVE_COMPLETED",
+                  "GRP_DRAFTS"
+               ],
                "children":[
                   {
                      "Selector":{
@@ -19,7 +26,7 @@
                                  "style":{
                                     "margin":"0"
                                  },
-                                 "children":"YOUR QUOTES"
+                                 "children":"Containers Onboard"
                               }
                            }
                         ]
@@ -41,115 +48,6 @@
                            "maxWidth":"700px",
                            "background":"none"
                         }
-                     }
-                  }
-               ]
-            }
-         },
-         {
-            "Selector":{
-               "checkValues":"ROOT",
-               "showValues":[
-                  "GRP_NEW_ITEMS",
-                  "GRP_ORDER_ACTIVE_CONFIRMED",
-                  "GRP_ORDER_ACTIVE_INTRANSIT",
-                  "GRP_ORDER_ACTIVE_DELIVERED",
-                  "GRP_ORDER_ACTIVE_DELIVERED"
-               ],
-               "children":[
-                  {
-                     "Selector":{
-                        "checkValues":[
-                           "USER.PRI_IS_BUYER",
-                           "USER.PRI_IS_ADMIN",
-                           "USER.PRI_IS_SELLER"                           
-                        ],
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OFFER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {
-                     "Selector":{
-                        "checkValues":[
-                           "USER.PRI_IS_SELLER",
-                           "USER.PRI_IS_ADMIN"
-                        ],
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "div":{
-                                 "className":"line-break"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OWNER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "showEmpty":false,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           },
-                           {
-                              "div":{
-                                 "className":"line-break"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OFFER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "showEmpty":true,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           }
-                        ]
                      }
                   }
                ]
