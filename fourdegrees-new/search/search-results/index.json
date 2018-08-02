@@ -2,7 +2,10 @@
   "layout": {
     "title": "Search - Search Results",
     "appColor": "dark",
-    "hideHeaderRight": true
+    "hideHeaderRight": true,
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
@@ -62,8 +65,8 @@
               "layoutName": "sublayouts/contact-card/",
               "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
               "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
-              "contactCompany": "{{repeater.attributes.PRI_COMPANY_NAME.valueString}}",
-              "contactDegree": "{{repeater.attributes.PRI_DEGREE.valueString}}"
+              "contactCompany": "GADA Technology",
+              "contactDegree": "-"
             }
           }
         }
@@ -82,6 +85,15 @@
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "populateAttributes",
+        "basePath": "baseEntities.attributes",
         "id": "{{link.targetCode}}"
       }
     },

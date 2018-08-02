@@ -2,7 +2,10 @@
   "layout": {
     "title": "Search - Categories",
     "appColor": "dark",
-    "hideHeaderRight": true
+    "hideHeaderRight": true,
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
@@ -44,7 +47,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "text": "Services",
+                    "text": "{{query.name}}",
                     "size": "xl"
                   }
                 }
@@ -69,16 +72,18 @@
         {
           "component": "ScrollView",
           "props": {},
-          "repeat": "_query",
+          "repeat": "_query.linkBEs",
           "children": {
-            "component": "EventLink",
+            "component": "EventButton",
             "props": {
-              "style": {
-                "width": "100%"
-              },
-              "to": "search/category-refinement",
-              "value": "{{repeater.code}}",
-              "params": {}
+              "color": "white",
+              "alignItems": "flex-start",
+              "paddingX": 0,
+              "paddingY": 0,
+              "width": "100%",
+              "eventType": "ROUTE_CHANGE",
+              "buttonCode": "search/category-refinement",
+              "value": "{{repeater.code}}"
             },
             "children": [
               {
@@ -86,6 +91,7 @@
                 "props": {
                   "justifyContent": "space-between",
                   "alignItems": "center",
+                  "width": "100%",
                   "padding": 20,
                   "marginBottom": 2,
                   "backgroundColor": "white"
@@ -124,26 +130,33 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_SERVICES",
-      "as": "services"
-    },
-    {
-      "operator": "scope",
-      "path": "services.links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
+      "id": "{{navigation.searchID}}",
+      "as": "search"
     },
     {
       "operator": "map",
-      "fields": "services.links"
+      "fields": "search"
     },
     {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
+      "operator": "populateLinkValues",
+      "multiple": true,
+      "as": "linkBEs"
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "populateAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "sort",
+        "by": "weight",
+        "direction": "asc"
+      }
     }
   ]
 }
