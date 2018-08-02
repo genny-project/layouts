@@ -47,15 +47,7 @@
                 {
                   "component": "Heading",
                   "props": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "text": "Services",
-=======
-                    "text": "{{query.search.name}}",
->>>>>>> dev
-=======
                     "text": "{{query.name}}",
->>>>>>> 574385a9f5da21e4932614e2e85e49645cf396ad
                     "size": "xl"
                   }
                 }
@@ -138,14 +130,6 @@
   "query": [
     {
       "operator": "getBE",
-<<<<<<< HEAD
-      "id": "GRP_SERVICES",
-      "as": "services"
-    },
-    {
-      "operator": "scope",
-      "path": "services.links",
-=======
       "id": "{{navigation.searchID}}",
       "as": "search"
     },
@@ -160,30 +144,12 @@
     },
     {
       "operator": "scope",
-<<<<<<< HEAD
-      "path": "search.links",
->>>>>>> dev
-=======
       "path": "linkBEs",
->>>>>>> 574385a9f5da21e4932614e2e85e49645cf396ad
       "scope": {
         "operator": "populateAttributes"
       }
     },
     {
-<<<<<<< HEAD
-      "operator": "map",
-<<<<<<< HEAD
-      "fields": "services.links"
-=======
-      "fields": "search.links"
->>>>>>> dev
-    },
-    {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
-=======
       "operator": "scope",
       "path": "linkBEs",
       "scope": {
@@ -191,11 +157,6 @@
         "by": "weight",
         "direction": "asc"
       }
->>>>>>> 574385a9f5da21e4932614e2e85e49645cf396ad
     }
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> dev
