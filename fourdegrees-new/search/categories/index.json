@@ -2,7 +2,10 @@
   "layout": {
     "title": "Search - Categories",
     "appColor": "dark",
-    "hideHeaderRight": true
+    "hideHeaderRight": true,
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
@@ -71,14 +74,16 @@
           "props": {},
           "repeat": "_query",
           "children": {
-            "component": "EventLink",
+            "component": "EventButton",
             "props": {
-              "style": {
-                "width": "100%"
-              },
-              "to": "search/category-refinement",
-              "value": "{{repeater.code}}",
-              "params": {}
+              "color": "white",
+              "alignItems": "flex-start",
+              "paddingX": 0,
+              "paddingY": 0,
+              "width": "100%",
+              "eventType": "ROUTE_CHANGE",
+              "buttonCode": "search/category-refinement",
+              "value": "{{repeater.code}}"
             },
             "children": [
               {
@@ -86,6 +91,7 @@
                 "props": {
                   "justifyContent": "space-between",
                   "alignItems": "center",
+                  "width": "100%",
                   "padding": 20,
                   "marginBottom": 2,
                   "backgroundColor": "white"
