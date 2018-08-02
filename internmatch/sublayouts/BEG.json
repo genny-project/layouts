@@ -39,12 +39,21 @@
           },
           "children":[
             {
-              "p":{
-                "style":{
-                  "margin":"0"
-                },
-                "children": "BE.link.COMPANY.PRI_CPY_NAME"
-              }
+                "Selector": {
+                    "checkValues": "BE.PRI_COMPANY_CODE",
+                    "showIfNotNull": true,
+                    "children": [
+                        {
+                           "SublayoutLoader": {
+                              "layoutCode": "company-name",
+                              "aliases": {
+                                 "BE": "BE.PRI_COMPANY_CODE",
+                                 "GROUP": "ROOT"
+                              }
+                           }
+                        }
+                    ]
+                }
             }
           ]
         }

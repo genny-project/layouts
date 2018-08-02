@@ -4,11 +4,14 @@
             {
                 "Selector":{
                     "checkValues": "ROOT",
-                    "showValues": ["GRP_NEW_ITEMS", "GRP_DRAFTS"],
+                    "showValues": ["GRP_NEW_ITEMS",
+                           "GRP_ORDER_ACTIVE_CONFIRMED",
+                           "GRP_ORDER_ACTIVE_INTRANSIT",
+                                  "GRP_DRAFTS"],
                     "children": [
                         {
                             "Selector": {
-                                "checkValues": "USER.PRI_IS_BUYER",
+                                "checkValues": ["USER.PRI_IS_BUYER","USER.PRI_IS_ADMIN"],
                                 "showValues": [true, "TRUE"],
                                 "children": [
                                     {

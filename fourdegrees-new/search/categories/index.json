@@ -47,7 +47,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "text": "Services",
+                    "text": "{{query.name}}",
                     "size": "xl"
                   }
                 }
@@ -72,7 +72,7 @@
         {
           "component": "ScrollView",
           "props": {},
-          "repeat": "_query",
+          "repeat": "_query.linkBEs",
           "children": {
             "component": "EventButton",
             "props": {
@@ -130,26 +130,33 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_SERVICES",
-      "as": "services"
-    },
-    {
-      "operator": "scope",
-      "path": "services.links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
+      "id": "{{navigation.searchID}}",
+      "as": "search"
     },
     {
       "operator": "map",
-      "fields": "services.links"
+      "fields": "search"
     },
     {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
+      "operator": "populateLinkValues",
+      "multiple": true,
+      "as": "linkBEs"
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "populateAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "sort",
+        "by": "weight",
+        "direction": "asc"
+      }
     }
   ]
 }
