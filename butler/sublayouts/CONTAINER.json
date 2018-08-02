@@ -67,30 +67,42 @@
                               }
                          },
                          {
-                          "GennyButton":{
-                              "position":[0,2],
-                              "buttonCode":"BTN_DELETE_CONTAINER",
-                              "value":{
-                                  "itemCode":"BE.code",
-                                  "hint":"ROOT"
-                              },
-                              "style":{
-                                  "height":"30px"
-                              },
-                              "type":"confirm",
-                                  "children":[
-                                      {
-                                      "span":{
-                                          "style":{
-                                              "fontSize":"0.75em",
-                                              "color":"white"
-                                          },
-                                          "children":"DELETE"
-                                  }
-                            }
-                      ]
-                 }
-             }
+                            "Selector":{
+                               "checkValues":[
+                                  "USER.PRI_IS_BUYER",
+                                  "USER.PRI_IS_SELLER"
+                               ],
+                               "showValues":[
+                                  true,
+                                  "true"
+                               ],
+                               "children":{
+                                  "GennyButton":{
+                                      "position":[0,2],
+                                      "buttonCode":"BTN_DELETE_CONTAINER",
+                                      "value":{
+                                          "itemCode":"BE.code",
+                                          "hint":"ROOT"
+                                      },
+                                      "style":{
+                                          "height":"30px"
+                                      },
+                                      "type":"confirm",
+                                          "children":[
+                                              {
+                                              "span":{
+                                                  "style":{
+                                                      "fontSize":"0.75em",
+                                                      "color":"white"
+                                                  },
+                                                  "children":"DELETE"
+                                          }
+                                    }
+                             ]
+                         }
+                     }
+               }
+            }
          ]
      }   
 }
