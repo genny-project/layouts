@@ -7,8 +7,7 @@
     ],
     "style": {
       "height": "initial",
-      "backgroundColor": "white",
-      "lineHeight": "1.8em"
+      "backgroundColor": "white"
     },
     "children": [
       {
@@ -56,7 +55,7 @@
                 ],
                 "layoutCode": "internship-details-features",
                 "style": {
-                  "backgroundColor": "#DDD"
+                      "backgroundColor": "#DDD"
                 },
                 "aliases": {
                   "BE": "BE.code",
@@ -65,108 +64,33 @@
               }
             },
             {
-              "Selector": {
+              "h4": {
                 "position": [
                   1,
                   0
                 ],
-                "showIfNotNull": true,
-                "checkValues": [
-                  "BE.PRI_COMPANY_CODE"
-                ],
-                "children": [
-                  {
-                    "h4": {
-                      "style": {
-                   
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Host Company"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-host-company",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
-                      "aliases": {
-                        "BE": "BE.PRI_COMPANY_CODE",
-                        "GROUP": "ROOT"
-                      }
-                    }
-                  }
-                ]
+                "style": {
+                  "borderBottom": "2px solid #485461",
+                  "borderTop": "2px solid #485461",
+                  "padding": "5px 0 10px"
+                },
+                "children": "Company Representative"
               }
             },
             {
-              "Selector": {
+              "SublayoutLoader": {
                 "position": [
                   1,
                   0
                 ],
-                "showIfNotNull": true,
-                "checkValues": [
-                  "BE.LNK_HOST_COMPANY_REP.code"
-                ],
-                "children": [
-                  {
-                    "h4": {
-                      "style": {
-                       
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Company Representative"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-representative",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
-                      "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "Selector": {
-                "position": [
-                  1,
-                  0
-                ],
-                "showIfNotNull": true,
-                "checkValues": [
-                  "BE.LNK_INTERN_SUPERVISOR.code"
-                ],
-                "children": [
-                  {
-                    "h4": {
-                      "style": {
-                     
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Intern Supervisor"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-supervisor",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
-                      "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                      }
-                    }
-                  }
-                ]
+                "layoutCode": "internship-details-representative",
+                "style": {
+                      "backgroundColor": "#DDD"
+                },
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
               }
             },
             {
