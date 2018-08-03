@@ -1,163 +1,179 @@
 {
-   "TabContainer":{
-      "position":[
-         0,
-         0
-      ],
-      "tabColor":"PROJECT.PRI_COLOR",
-      "views":[
+   "div":{
+      "children":[
          {
-            "title":"Details",
-            "icon":"dashboard",
-            "layout":{
-               "layout":[
+            "div":{
+               "position":[
+                  0,
+                  0
+               ],
+               "children":[
                   {
                      "div":{
+                        "style":{
+                           "width":"100%",
+                           "padding":"20px 50px 10px",
+                           "position":"absolute"
+                        },
                         "children":[
                            {
-                              "div":{
+                              "GennyButton":{
                                  "style":{
-                                    "width":"100%",
-                                    "padding":"20px 50px 10px",
+                                    "width":"100px",
+                                    "height":"30px",
                                     "position":"absolute"
+                                 },
+                                 "buttonStyle":{
+                                    "background":"PROJECT.PRI_COLOR",
+                                    "height":"30px",
+                                    "padding":"0"
+                                 },
+                                 "buttonCode":"BTN_BACK_BUTTON",
+                                 "hint":{
+                                    "itemCode":"BE.code"
                                  },
                                  "children":[
                                     {
-                                       "GennyButton":{
+                                       "IconSmall":{
                                           "style":{
-                                             "width":"100px",
-                                             "height":"30px",
-                                             "position":"absolute"
+                                             "fontSize":"28px",
+                                             "transform":"rotate(90deg)",
+                                             "color":"white"
                                           },
-                                          "buttonStyle":{
-                                             "background":"PROJECT.PRI_COLOR",
-                                             "height":"30px",
-                                             "padding":"0"
+                                          "name":"arrow_drop_down"
+                                       }
+                                    },
+                                    {
+                                       "span":{
+                                          "style":{
+                                             "color":"white"
                                           },
-                                          "buttonCode":"BTN_BACK_BUTTON",
-                                          "hint":{
-                                             "itemCode":"BE.code"
-                                          },
-                                          "children":[
-                                             {
-                                                "IconSmall":{
-                                                   "style":{
-                                                      "fontSize":"28px",
-                                                      "transform":"rotate(90deg)",
-                                                      "color":"white"
-                                                   },
-                                                   "name":"arrow_drop_down"
-                                                }
-                                             },
-                                             {
-                                                "span":{
-                                                   "style":{
-                                                      "color":"white"
-                                                   },
-                                                   "children":"BACK"
-                                                }
-                                             }
-                                          ]
+                                          "children":"BACK"
                                        }
                                     }
                                  ]
                               }
-                           },
-                           {
-                              "SublayoutLoader":{
-                                 "position":[
-                                    0,
-                                    0
-                                 ],
-                                 "layoutCode":"property-details-header",
-                                 "aliases":{
-                                    "BE":"BE.code",
-                                    "GROUP":"ROOT"
-                                 }
-                              }
                            }
                         ]
+                     }
+                  },
+                  {
+                     "SublayoutLoader":{
+                        "position":[
+                           0,
+                           0
+                        ],
+                        "layoutCode":"property-details-header",
+                        "aliases":{
+                           "BE":"BE.code",
+                           "GROUP":"ROOT"
+                        }
                      }
                   }
                ]
             }
          },
          {
-            "title":"Units",
-            "icon":"public",
-            "layout":{
-               "layout":[
+            "TabContainer":{
+               "tabColor":"PROJECT.PRI_COLOR",
+               "position":[
+                  1,
+                  0
+               ],
+               "views":[
                   {
-                     "div":{
-                        "children":[
+                     "title":"Units",
+                     "icon":"public",
+                     "layout":{
+                        "layout":[
                            {
                               "div":{
-                                 "style":{
-                                    "height":"50px",
-                                    "backgroundColor":"PROJECT.PRI_COLOR"
-                                 },
                                  "children":[
                                     {
-                                       "GennyButton":{
-                                          "position":[
-                                             0,
-                                             0
-                                          ],
+                                       "div":{
                                           "style":{
-                                             "width":"150px",
-                                             "height":"40px",
-                                             "marginLeft":"auto",
-                                             "right":"20px",
-                                             "border":"white"
-                                          },
-                                          "buttonStyle":{
-                                             "background":"PROJECT.PRI_COLOR",
-                                             "color":"solid 2px white",
-                                             "border":"white"
-                                          },
-                                          "buttonComponentStyle":{
-                                             "border":"2px solid white",
-                                             "borderRadius":"5px",
-                                             "marginTop":"3px"
-                                          },
-                                          "buttonCode":"BTN_ADD_BE_TO_BEG",
-                                          "value":{
-                                             "itemCode":"BE.code",
-                                             "root":"ROOT"
+                                             "height":"50px",
+                                             "backgroundColor":"PROJECT.PRI_COLOR",
+                                             "paddingTop":"5px"
                                           },
                                           "children":[
                                              {
-                                                "IconSmall":{
-                                                   "name":"meeting_room",
-                                                   "fontSize":"2em",
+                                                "GennyButton":{
+                                                   "position":[
+                                                      0,
+                                                      0
+                                                   ],
                                                    "style":{
-                                                      "padding":"0",
-                                                      "marginRight":"0.3em",
-                                                      "color":"#fff"
-                                                   }
-                                                }
-                                             },
-                                             {
-                                                "p":{
-                                                   "style":{
-                                                      "margin":"0"
+                                                      "width":"150px",
+                                                      "height":"40px",
+                                                      "marginLeft":"auto",
+                                                      "right":"20px",
+                                                      "border":"white"
                                                    },
-                                                   "children":"Add Unit"
+                                                   "buttonStyle":{
+                                                      "background":"PROJECT.PRI_COLOR",
+                                                      "color":"white",
+                                                      "border":"2px solid white"
+                                                   },
+                                                   "buttonComponent":{
+                                                      "border":"2px solid white",
+                                                      "borderRadius":"5px",
+                                                      "marginTop":"2px"
+                                                   },
+                                                   "buttonCode":"BTN_ADD_BE_TO_BEG",
+                                                   "value":{
+                                                      "itemCode":"BE.code",
+                                                      "root":"ROOT"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "IconSmall":{
+                                                            "name":"meeting_room",
+                                                            "fontSize":"2em",
+                                                            "style":{
+                                                               "padding":"0",
+                                                               "marginRight":"0.3em",
+                                                               "color":"#fff"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "p":{
+                                                            "style":{
+                                                               "margin":"0"
+                                                            },
+                                                            "children":"Add Unit"
+                                                         }
+                                                      }
+                                                   ]
                                                 }
                                              }
                                           ]
                                        }
+                                    },
+                                    {
+                                       "SublayoutLoader":{
+                                          "layoutCode":"property-details-units-table",
+                                          "aliases":{
+                                             "BE":"BE.code",
+                                             "GROUP":"ROOT"
+                                          }
+                                       }
                                     }
                                  ]
                               }
-                           },
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "title":"Reports",
+                     "icon":"work",
+                     "layout":{
+                        "layout":[
                            {
-                              "SublayoutLoader":{
-                                 "layoutCode":"property-details-units-table",
-                                 "aliases":{
-                                    "BE":"BE.code",
-                                    "GROUP":"ROOT"
-                                 }
+                              "div":{
+                                 "children":"reports"
                               }
                            }
                         ]
