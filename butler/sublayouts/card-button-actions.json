@@ -23,7 +23,7 @@
                     "background": "green"
                   },
                   "children": "View Detail",
-                  "buttonCode": "BTN_VIEW_DETAIL",
+                  "buttonCode": "BTN_ORDER_VIEW_DETAIL",
                   "value": {
                     "itemCode": "BE.code",
                     "hint": "ROOT"
@@ -40,8 +40,7 @@
        "USER.PRI_IS_SELLER"
       ],
       "showValues":[
-        true,
-        "true"
+      "GRP_NEW_ITEMS"
       ],
       "children":[
            {
@@ -71,9 +70,8 @@
       "USER.PRI_IS_SELLER"
       ],
       "showValues":[
-        true,
-        "true"
-      ],
+        "GRP_ORDER_ACTIVE_CONFIRMED"
+     ],
       "children":[
            {
               "GennyButton": {
@@ -102,8 +100,7 @@
       "USER.PRI_IS_SELLER"
       ],
       "showValues":[
-        true,
-        "true"
+              "GRP_ORDER_ACTIVE_INTRANSIT"
       ],
       "children":[
            {
@@ -126,7 +123,36 @@
           ]
         }
       },
-    
+    { 
+      "Selector":{
+      "checkValues":[
+      "USER.PRI_IS_BUYER",
+      "USER.PRI_IS_SELLER"
+      ],
+      "showValues":[
+              "GRP_ORDER_ACTIVE_INTRANSIT"
+      ],
+      "children":[
+           {
+              "GennyButton": {
+                "style": {
+                  "height": "30px",
+                  "marginTop": "10px"
+                },
+                "buttonStyle": {
+                  "background": "green"
+                },
+                "children": "Delivered",
+                "buttonCode": "BTN_ORDER_DELIVERED",
+                "value": {
+                "itemCode": "BE.code",
+                "hint": "ROOT"
+                }
+              }
+            }
+          ]
+        }
+      },
       { 
         "Selector":{
         "checkValues":[
@@ -134,8 +160,7 @@
         "USER.PRI_IS_SELLER"
         ],
         "showValues":[
-          true,
-          "true"
+             "GRP_ORDER_ACTIVE_DELIVERED"
         ],
         "children":[
              {
@@ -147,8 +172,8 @@
                   "buttonStyle": {
                     "background": "green"
                   },
-                  "children": "Delivered",
-                  "buttonCode": "BTN_ORDER_DELIVERED",
+                  "children": "Completed",
+                  "buttonCode": "BTN_ORDER_COMPLETED",
                   "value": {
                     "itemCode": "BE.code",
                     "hint": "ROOT"
