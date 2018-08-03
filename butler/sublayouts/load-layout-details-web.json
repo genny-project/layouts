@@ -51,12 +51,6 @@
                     "span":{
                         "position":[0, 0],
                         "style":{
-<<<<<<< HEAD
-                            "fontSize":"1em",
-                            "fontWeight":"bold"
-                        },
-                        "children":"JOB ID: ${BE.PRI_JOB_ID}"
-=======
                             "fontSize":"1.0em",
                             "fontWeight":"bold"
                         },
@@ -71,30 +65,12 @@
                             "fontWeight":"bold"
                         },
                         "children":"${BE.PRI_COMPANY_NAME}"
->>>>>>> dev
                     }
                 },
                 {
                     "span":{
                         "position":[1, 0],
                         "style":{
-<<<<<<< HEAD
-                            "fontSize":"1em",
-                            "fontWeight":"bold",
-                            "marginTop": "20px"
-                        },
-                        "children":"PICKUP"
-                    }
-                },
-                {
-                    "SublayoutLoader" : {
-                        "position":[1, 0],
-                        "layoutCode": "address-pickup-display",
-                        "aliases": {
-                            "BE": "BE.code",
-                            "GROUP": "ROOT"
-                        }
-=======
                             "fontSize":"1.0em",
                             "fontWeight":"bold",
                             "marginTop": "20px"
@@ -111,7 +87,6 @@
                             "marginTop": "10px"
                         },
                         "children":"${BE.PRI_RELEASE_NUMBER}"
->>>>>>> dev
                     }
                 },
                 {
@@ -122,19 +97,6 @@
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
-<<<<<<< HEAD
-                        "children":"DELIVERY"
-                    }
-                },
-                {
-                    "SublayoutLoader" : {
-                        "position":[1, 1],
-                        "layoutCode": "address-dropoff-display",
-                        "aliases": {
-                            "BE": "BE.code",
-                            "GROUP": "ROOT"
-                        }
-=======
                         "children":"Release Open Date : "
                     }
                 },
@@ -146,7 +108,6 @@
                             "fontSize":"0.8em"
                         },
                         "children":"${BE.PRI_RELEASE_DATE}"
->>>>>>> dev
                     }
                 },
                 {
@@ -157,24 +118,6 @@
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
-<<<<<<< HEAD
-                        "children":"AVAILABLE FOR PICKUP FROM"
-                    }
-                },
-                {
-                    "DateLabel":{
-                        "position":[2, 0],
-                        "format":"DD/MM/YY HH:mm",
-                        "style":{
-                            "fontSize":"0.8em"
-                        },
-                        "children":"BE.PRI_PICKUP_DATETIME"
-                    }
-                },
-                {
-                    "span":{
-                        "position": [2, 1],
-=======
                         "children":"Rail Yard : "
                     }
                 },
@@ -192,129 +135,11 @@
                {
                     "span":{
                         "position":[2, 1],
->>>>>>> dev
                         "style":{
                             "fontSize":"1em",
                             "fontWeight":"bold",
                             "marginTop": "10px"
                         },
-<<<<<<< HEAD
-                        "children":"DELIVERY REQUIRED BEFORE"
-                    }
-                },
-                {
-                  "p": {
-                    "style": {
-                      "margin": "0px"
-                    },
-                    "position": [2, 1],
-                    "children": [
-                    {
-                        "Selector":{
-                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
-                            "showIfNull": true,
-                            "children":[
-                                {
-                                    "p":{
-                                        "style": {
-                                            "fontSize": "0.8em",
-                                            "margin": "0px"
-                                        },
-                                        "children":"TBC"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "Selector":{
-                            "checkValues": "BE.PRI_DROPOFF_DATETIME",
-                            "showIfNotNull": true,
-                            "children":[
-                                {
-                                    "DateLabel":{
-                                        "format":"DD/MM/YY HH:mm",
-                                        "style":{
-                                            "fontSize":"0.8em"
-                                        },
-                                        "children":"BE.PRI_DROPOFF_DATETIME"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                    ]
-                  }
-                },
-                {
-                    "span":{
-                        "position":[3, 0],
-                        "style":{
-                            "fontSize":"1em",
-                            "fontWeight":"bold"
-                        },
-                        "children":"TOTAL DISTANCE"
-                    }
-                },
-                {
-                    "MeasurementLabel":{
-                        "showDecimal": 2,
-                        "position":[3, 0],
-                        "style":{
-                            "fontSize": "0.8em"
-                        },
-                        "children":"BE.PRI_TOTAL_DISTANCE_M"
-                    }
-                },
-              {
-                "div": {
-                    "position":[4, 0],
-                    "children":[
-                        {
-                            "span":{
-                                "style": {
-                                  "fontWeight":"bold",
-                                  "fontSize": "0.8em"
-                                },
-                                "children":"LOAD INFORMATION"
-                            }
-                        }
-                    ]
-                }
-              },
-              {
-                "div":{
-                    "position":[4, 0],
-                    "children":[
-                        {
-                            "DisplayHTML":{
-                                "style":{
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"BE.link.LOAD.PRI_DESCRIPTION"
-                            }
-                        }
-                    ]
-                }
-              },
-              {
-                "div":{
-                    "position":[5,0],
-                    "children":[
-                        {
-                            "span":{
-                              "style": {
-                                  "fontWeight":"bold",
-                                  "fontSize": "0.8em"
-                                },
-                                "children":"LOAD DIMENSIONS"
-                            }
-                        }
-                    ]
-                }
-              },
-              {
-=======
                         "children":"Shipping Company : "
                     }
                 },
@@ -457,96 +282,9 @@
                               }
                           }
                       ]
-<<<<<<< HEAD
-                  }
-                },
-<<<<<<< HEAD
-              {
->>>>>>> dev
-                "Grid":{
-                    "position":[5,0],
-                    "cols":[3,3],
-                    "rows":3,
-                    "style":{
-                        "height":"initial"
-                    },
-                    "children":[
-                        {
-                            "span":{
-                                "position": [0,0],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"L: ${BE.link.LOAD.PRI_LOAD_LENGTH_MM}mm"
-                            }
-                        },
-                        {
-                            "span":{
-                                "position": [0,1],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"W: ${BE.link.LOAD.PRI_LOAD_WIDTH_MM}mm"
-<<<<<<< HEAD
-                            }
-                        },
-                        {
-                            "span":{
-                                "position": [1,0],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"H: ${BE.link.LOAD.PRI_LOAD_HEIGHT_MM}mm"
-                            }
-                        },
-                        {
-                            "span":{
-                                "position": [1,1],
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"W: ${BE.link.LOAD.PRI_LOAD_WEIGHT_KG}kg"
-                            }
-                        }
-                    ]
-                }
-              }
-            ]
-        }
-      }
-    ]
-  }
-}
-=======
-                                    }
-=======
-                  {
-                    "Grid":{
-                        "position":[5,0],
-                        "cols":[3,3],
-                        "rows":3,
-                        "style":{
-                            "height":"initial"
-                        },
-                        "children":[
-                            {
-                                "span":{
-                                    "position": [0,0],
-                                    "style": {
-                                        "fontSize": "0.8em"
-                                    },
-                                    "children":"Containers Required: ${BE.link.LOAD.PRI_LOAD_LENGTH_MM}mm"
->>>>>>> 574385a9f5da21e4932614e2e85e49645cf396ad
-                                }
-                            }
-                           ]
-                       }
-=======
->>>>>>> 36fff41aa916d9b00022c07c582a8fd21a5a7fa2
                    }
                }
              ]
         }
     }
   
->>>>>>> dev
