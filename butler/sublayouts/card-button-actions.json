@@ -36,150 +36,211 @@
      { 
       "Selector":{
       "checkValues":[
-       "USER.PRI_IS_BUYER",
-       "USER.PRI_IS_SELLER"
+        "USER.PRI_IS_BUYER",
       ],
       "showValues":[
-      "GRP_NEW_ITEMS"
+      true,
+      "true"
       ],
       "children":[
-           {
-              "GennyButton": {
-                "style": {
-                  "height": "30px",
-                  "marginTop": "10px"
-                },
-                "buttonStyle": {
-                  "background": "green"
-                },
-                "children": "Confirm Order",
-                "buttonCode": "BTN_ORDER_CONFIRM",
-                "value": {
-                  "itemCode": "BE.code",
-                  "hint": "ROOT"
-                }
+                { 
+                "Selector":{
+                "checkValues":[
+                  "ROOT"
+                ],
+                "showValues":[
+                "GRP_NEW_ITEMS"
+                ],
+                "children":[
+                     {
+                        "GennyButton": {
+                          "style": {
+                            "height": "30px",
+                            "marginTop": "10px"
+                          },
+                          "buttonStyle": {
+                            "background": "green"
+                          },
+                          "children": "Confirm Order",
+                          "buttonCode": "BTN_ORDER_CONFIRM",
+                          "value": {
+                            "itemCode": "BE.code",
+                            "hint": "ROOT"
+                          }
+                        }
+                     }
+                   ]
+                 }
               }
-           }
-         ]
+          ]
        }
     },  
+
     { 
       "Selector":{
       "checkValues":[
-      "USER.PRI_IS_BUYER",
-      "USER.PRI_IS_SELLER"
+          "USER.PRI_IS_BUYER",
+          "USER.PRI_IS_SELLER"
       ],
       "showValues":[
-        "GRP_ORDER_ACTIVE_CONFIRMED"
+        true,
+            "true"
      ],
       "children":[
-           {
-              "GennyButton": {
-                "style": {
-                  "height": "30px",
-                  "marginTop": "10px"
-                },
-                "buttonStyle": {
-                  "background": "green"
-                },
-                "children": "In Transit",
-                "buttonCode": "BTN_ORDER_IN_TRANSIT",
-                "value": {
-                  "itemCode": "BE.code",
-                  "hint": "ROOT"
-                }
-              }
-            }
-          ]
+               { 
+                  "Selector":{
+                  "checkValues":[
+                  "ROOT"
+                  ],
+                  "showValues":[
+                    "GRP_ORDER_ACTIVE_CONFIRMED"
+                 ],
+                  "children":[
+                       {
+                          "GennyButton": {
+                            "style": {
+                              "height": "30px",
+                              "marginTop": "10px"
+                            },
+                            "buttonStyle": {
+                              "background": "green"
+                            },
+                            "children": "In Transit",
+                            "buttonCode": "BTN_ORDER_IN_TRANSIT",
+                            "value": {
+                              "itemCode": "BE.code",
+                              "hint": "ROOT"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                 }
+            ]
         }
       },
     { 
       "Selector":{
       "checkValues":[
-      "USER.PRI_IS_BUYER",
-      "USER.PRI_IS_SELLER"
+                "USER.PRI_IS_BUYER",
+          "USER.PRI_IS_SELLER"
       ],
       "showValues":[
-              "GRP_ORDER_ACTIVE_INTRANSIT"
+                      true,
+            "true"
       ],
       "children":[
-           {
-              "GennyButton": {
-                "style": {
-                  "height": "30px",
-                  "marginTop": "10px"
-                },
-                "buttonStyle": {
-                  "background": "green"
-                },
-                "children": "Add Container",
-                "buttonCode": "BTN_ADD_CONTAINER",
-                "value": {
-                "itemCode": "BE.code",
-                "hint": "ROOT"
-                }
-              }
+                  { 
+                        "Selector":{
+                        "checkValues":[
+                        "ROOT"
+                        ],
+                        "showValues":[
+                                "GRP_ORDER_ACTIVE_INTRANSIT"
+                        ],
+                        "children":[
+                             {
+                                "GennyButton": {
+                                  "style": {
+                                    "height": "30px",
+                                    "marginTop": "10px"
+                                  },
+                                  "buttonStyle": {
+                                    "background": "green"
+                                  },
+                                  "children": "Add Container",
+                                  "buttonCode": "BTN_ADD_CONTAINER",
+                                  "value": {
+                                  "itemCode": "BE.code",
+                                  "hint": "ROOT"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                 ]
             }
-          ]
-        }
       },
     { 
       "Selector":{
       "checkValues":[
-      "USER.PRI_IS_BUYER",
-      "USER.PRI_IS_SELLER"
+      "ROOT"
       ],
       "showValues":[
               "GRP_ORDER_ACTIVE_INTRANSIT"
       ],
       "children":[
-           {
-              "GennyButton": {
-                "style": {
-                  "height": "30px",
-                  "marginTop": "10px"
-                },
-                "buttonStyle": {
-                  "background": "green"
-                },
-                "children": "Delivered",
-                "buttonCode": "BTN_ORDER_DELIVERED",
-                "value": {
-                "itemCode": "BE.code",
-                "hint": "ROOT"
-                }
-              }
+                  { 
+                    "Selector":{
+                    "checkValues":[
+                    "ROOT"
+                    ],
+                    "showValues":[
+                            "GRP_ORDER_ACTIVE_INTRANSIT"
+                    ],
+                    "children":[
+                         {
+                            "GennyButton": {
+                              "style": {
+                                "height": "30px",
+                                "marginTop": "10px"
+                              },
+                              "buttonStyle": {
+                                "background": "green"
+                              },
+                              "children": "Delivered",
+                              "buttonCode": "BTN_ORDER_DELIVERED",
+                              "value": {
+                              "itemCode": "BE.code",
+                              "hint": "ROOT"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+               ]
             }
-          ]
-        }
       },
       { 
         "Selector":{
         "checkValues":[
-        "USER.PRI_IS_BUYER",
-        "USER.PRI_IS_SELLER"
+        "ROOT"
         ],
         "showValues":[
              "GRP_ORDER_ACTIVE_DELIVERED"
         ],
         "children":[
-             {
-                "GennyButton": {
-                  "style": {
-                    "height": "30px",
-                    "marginTop": "10px"
-                  },
-                  "buttonStyle": {
-                    "background": "green"
-                  },
-                  "children": "Completed",
-                  "buttonCode": "BTN_ORDER_COMPLETED",
-                  "value": {
-                    "itemCode": "BE.code",
-                    "hint": "ROOT"
+              { 
+                "Selector":{
+                "checkValues":[
+                "ROOT"
+                ],
+                "showValues":[
+                     "GRP_ORDER_ACTIVE_DELIVERED"
+                ],
+                "children":[
+                     {
+                        "GennyButton": {
+                          "style": {
+                            "height": "30px",
+                            "marginTop": "10px"
+                          },
+                          "buttonStyle": {
+                            "background": "green"
+                          },
+                          "children": "Completed",
+                          "buttonCode": "BTN_ORDER_COMPLETED",
+                          "value": {
+                            "itemCode": "BE.code",
+                            "hint": "ROOT"
+                          }
+                        }
+                      }
+                    ]
                   }
-                }
-              }
+               }
             ]
           }
        }
