@@ -24,7 +24,6 @@
           ],
           "layoutCode": "internship-details-company-image",
           "style": {
-            "backgroundColor": "#DDD",
             "maxWidth": "150px",
             "minWidth": "50px"
           },
@@ -65,7 +64,15 @@
                   1,
                   0
                 ],
-                "children": "Posted by: ${BE.link.COMPANY.PRI_NAME}",
+                "children": [{
+                    "SublayoutLoader": {
+                      "layoutCode": "internship-details-company-name",
+                      "aliases": {
+                        "BE": "BE.PRI_COMPANY_CODE",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }],
                 "style": {
                   "margin": "0px",
                   "color": "PROJECT.PRI_COLOR"
