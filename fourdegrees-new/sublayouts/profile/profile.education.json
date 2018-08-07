@@ -8,7 +8,7 @@
       "component": "Box",
       "props": {
         "flex": 1,
-        "backgroundColor": "lightgrey",
+        "backgroundColor": "lightgray",
         "flexDirection": "column",
         "onLayout": "_props.onLayout"
       },
@@ -21,21 +21,34 @@
           },
           "children": [
             {
-              "component": "Box",
+              "component": "EventButton",
               "props": {
-                "flex": 1,
-                "backgroundColor": "#202532",
-                "justifyContent": "center",
-                "padding": 15
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-education",
+                "color": "#202532",
+                "paddingY": 0,
+                "paddingX": 0
               },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Box",
                   "props": {
-                    "text": "Edit Education",
-                    "color": "white",
-                    "size": "xs"
-                  }
+                    "flex": 1,
+                    "backgroundColor": "#202532",
+                    "justifyContent": "center",
+                    "padding": 15
+                  },
+
+                  "children": [
+                    {
+                      "component": "Label",
+                      "props": {
+                        "text": "Edit Education",
+                        "color": "white",
+                        "size": "xs"
+                      }
+                    }
+                  ]
                 }
               ]
             }
