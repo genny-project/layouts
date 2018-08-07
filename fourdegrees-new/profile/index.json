@@ -68,7 +68,8 @@
                             {
                               "component": "Heading",
                               "props": {
-                                "text": "Campbell Wilson",
+                                "text":
+                                  "{{user.attributes.PRI_FIRSTNAME.value}} {{user.attributes.PRI_LASTNAME.value}}",
                                 "color": "white",
                                 "size": "xl"
                               }
@@ -113,7 +114,7 @@
                         },
                         "to": "introduction/",
                         "params": {
-                          "loadID": ".{{repeater.item.code}}"
+                          "loadID": ".{{query.name}}"
                         }
                       },
                       "children": [
@@ -146,7 +147,8 @@
                             {
                               "component": "Label",
                               "props": {
-                                "text": "Introduce Matthew",
+                                "text":
+                                  "Introduce {{user.attributes.PRI_FIRSTNAME.value}}",
                                 "color": "black",
                                 "size": "xs"
                               }
@@ -174,7 +176,23 @@
                   ]
                 },
                 {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "large"
+                  },
+                  "dontShowIf": {
+                    "user.attributes.PRI_FIRSTNAME.value": {
+                      "$exists": true
+                    }
+                  }
+                },
+                {
                   "component": "Box",
+                  "onlyShowIf": {
+                    "user.attributes.PRI_FIRSTNAME.value": {
+                      "$exists": true
+                    }
+                  },
                   "props": {
                     "flex": 1,
                     "flexDirection": "column",
@@ -192,8 +210,25 @@
                       "children": [
                         {
                           "component": "Label",
+                          "conditional": {
+                            "if": {
+                              "user.attributes.PRI_FIRSTNAME.value": {
+                                "$exists": true
+                              },
+                              "user.attributes.PRI_LASTNAME.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text":
+                                "{{user.attributes.PRI_FIRSTNAME.value}} {{user.attributes.PRI_LASTNAME.value}}"
+                            },
+                            "else": {
+                              "text": "Loading...",
+                              "color": "blue"
+                            }
+                          },
                           "props": {
-                            "text": "Summary",
                             "color": "black",
                             "size": "sm"
                           }
@@ -220,6 +255,7 @@
                         }
                       ]
                     },
+
                     {
                       "component": "Box",
                       "props": {
@@ -229,8 +265,7 @@
                         {
                           "component": "Label",
                           "props": {
-                            "text":
-                              "If there is a common motivation that’s driven my career, it would be to empower, educate and inspire others to achieve their professional and personal goals.",
+                            "text": "{{user.attributes.PRI_DESCRIPTION.value}}",
                             "color": "black",
                             "size": "xs"
                           }
@@ -387,43 +422,43 @@
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.services/"
+                        "layoutName": "sublayouts/profile-services/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.products/"
+                        "layoutName": "sublayouts/profile-products/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.interests/"
+                        "layoutName": "sublayouts/profile-interests/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.groups/"
+                        "layoutName": "sublayouts/profile-groups/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.employment/"
+                        "layoutName": "sublayouts/profile-employment/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.education/"
+                        "layoutName": "sublayouts/profile-education/"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.contact/"
+                        "layoutName": "sublayouts/profile-contact/"
                       }
                     }
                   ]
@@ -461,6 +496,21 @@
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "PER_USER1",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
     }
   ]
 }

@@ -8,19 +8,38 @@
       "component": "Box",
       "props": {
         "flex": 1,
-        "backgroundColor": "white",
-        "padding": 20,
-        "marginBottom": 10,
+        "backgroundColor": "lightgrey",
+        "flexDirection": "column",
         "onLayout": "_props.onLayout"
       },
       "children": [
         {
-          "component": "Heading",
+          "component": "Box",
           "props": {
-            "text": "Groups",
-            "color": "black",
-            "size": "xl"
-          }
+            "padding": 10,
+            "marginBottom": 10
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "backgroundColor": "#202532",
+                "justifyContent": "center",
+                "padding": 15
+              },
+              "children": [
+                {
+                  "component": "Label",
+                  "props": {
+                    "text": "Edit Groups",
+                    "color": "white",
+                    "size": "xs"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }
