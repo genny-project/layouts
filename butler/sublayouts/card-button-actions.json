@@ -8,8 +8,7 @@
             "Selector":{
                "checkValues":[
                   "USER.PRI_IS_BUYER",
-                  "USER.PRI_IS_SELLER",
-                  "USER.PRI_IS_ADMIN"
+                  "USER.PRI_IS_SELLER"
                ],
                "showValues":[
                   true,
@@ -36,7 +35,7 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
                                  },
                                  "children":"View Details",
                                  "buttonCode":"BTN_ORDER_VIEW_DETAILS",
@@ -78,7 +77,7 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
                                  },
                                  "children":"Confirm Order",
                                  "buttonCode":"BTN_ORDER_CONFIRM",
@@ -97,7 +96,6 @@
          {
             "Selector":{
                "checkValues":[
-                  "USER.PRI_IS_ADMIN",
                   "USER.PRI_IS_BUYER"
                ],
                "showValues":[
@@ -121,7 +119,7 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
                                  },
                                  "children":"In-Transit",
                                  "buttonCode":"BTN_ORDER_IN_TRANSIT",
@@ -140,7 +138,6 @@
          {
             "Selector":{
                "checkValues":[
-                  "USER.PRI_IS_ADMIN",
                   "USER.PRI_IS_BUYER"
                ],
                "showValues":[
@@ -154,7 +151,7 @@
                            "ROOT"
                         ],
                         "showValues":[
-                           "GRP_ORDER_ACTIVE_INTRANSIT"
+                           "GRP_ORDER_ACTIVE_CONFIRMED"
                         ],
                         "children":[
                            {
@@ -164,10 +161,10 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
                                  },
-                                 "children":"Add Container",
-                                 "buttonCode":"BTN_ADD_CONTAINER",
+                                 "children":"Allocate Driver",
+                                 "buttonCode":"BTN_ALLOCATE_DRIVER",
                                  "value":{
                                     "itemCode":"BE.code",
                                     "hint":"ROOT"
@@ -179,10 +176,11 @@
                   }
                ]
             }
-         },{
+         },
+         {
             "Selector":{
                "checkValues":[
-                  "USER.PRI_IS_ADMIN",
+                  "USER.PRI_IS_BUYER",
                   "USER.PRI_IS_SELLER"
                ],
                "showValues":[
@@ -206,7 +204,49 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
+                                 },
+                                 "children":"Add Container",
+                                 "buttonCode":"BTN_ADD_CONTAINER",
+                                 "value":{
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },{
+            "Selector":{
+               "checkValues":[
+                  "USER.PRI_IS_BUYER",
+                  "USER.PRI_IS_SELLER"
+               ],
+               "showValues":[
+                  true,
+                  "true"
+               ],
+               "children":[
+                  {
+                     "Selector":{
+                        "checkValues":[
+                           "ROOT"
+                        ],
+                        "showValues":[
+                           "GRP_ORDER_ACTIVE_INTRANSIT"
+                        ],
+                        "children":[
+                           {
+                              "GennyButton":{
+                                 "style":{
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{
+                                    "background":"#0187BF"
                                  },
                                  "children":"Delivered",
                                  "buttonCode":"BTN_ORDER_DELIVERED",
@@ -225,7 +265,7 @@
          {
             "Selector":{
                "checkValues":[
-                  "USER.PRI_IS_ADMIN",
+                  "USER.PRI_IS_BUYER",
                   "USER.PRI_IS_SELLER"
                ],
                "showValues":[
@@ -249,7 +289,7 @@
                                     "marginTop":"10px"
                                  },
                                  "buttonStyle":{
-                                    "background":"green"
+                                    "background":"#0187BF"
                                  },
                                  "children":"Completed",
                                  "buttonCode":"BTN_ORDER_COMPLETED",
