@@ -60,14 +60,29 @@
           "props": {},
           "repeat": "_query",
           "children": {
-            "component": "Sublayout",
+            "component": "EventLink",
             "props": {
-              "layoutName": "contact/contact.card",
-              "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
-              "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
-              "contactCompany": "GADA Technology",
-              "contactDegree": "-"
-            }
+              "style": {
+                "width": "100%"
+              },
+              "to": "profile/",
+              "value": "{{repeater.code}}",
+              "params": {
+                "userID": "{{repeater.code}}"
+              }
+            },
+            "children": [
+              {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "contact/contact.card",
+                  "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
+                  "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+                  "contactCompany": "GADA Technology",
+                  "contactDegree": "-"
+                }
+              }
+            ]
           }
         }
       ]
