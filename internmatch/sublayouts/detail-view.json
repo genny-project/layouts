@@ -71,27 +71,35 @@
             {
               "Selector": {
                 "position": [1, 0],
-                "showIfNotNull": true,
-                "checkValues": ["BE.LNK_HOST_COMPANY_REP.code"],
+                "checkValues": ["USER.PRI_IS_SELLER"],
+                "hideValues": [true],
                 "children": [
                   {
-                    "h4": {
-                      "style": {
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Company Representative"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-representative",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
-                      "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                      }
+                    "Selector": {
+                      "showIfNotNull": true,
+                      "checkValues": ["BE.LNK_HOST_COMPANY_REP.code"],
+                      "children": [
+                        {
+                          "h4": {
+                            "style": {
+                              "padding": "5px 0 10px"
+                            },
+                            "children": "Company Representative"
+                          }
+                        },
+                        {
+                          "SublayoutLoader": {
+                            "layoutCode": "internship-details-representative",
+                            "style": {
+                              "backgroundColor": "#DDD"
+                            },
+                            "aliases": {
+                              "BE": "BE.code",
+                              "GROUP": "ROOT"
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -100,12 +108,8 @@
             {
               "Selector": {
                 "position": [1, 0],
-                "checkValues": [
-                  "USER.PRI_IS_SELLER"
-                ],
-                "hideValues": [
-                  true
-                ],
+                "checkValues": ["USER.PRI_IS_SELLER"],
+                "hideValues": [true],
                 "children": [
                   {
                     "Selector": {
