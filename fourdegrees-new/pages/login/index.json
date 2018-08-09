@@ -40,8 +40,9 @@
         {
           "component": "Box",
           "props": {
-            "flex": 1,
-            "alignItems": "center"
+            "flex": 2,
+            "flexShrink": 0,
+            "flexDirection": "column"
           },
           "children": [
             {
@@ -51,17 +52,82 @@
                 "size": "xxl",
                 "bold": false
               },
-              "children": "TODO"
+              "children": "Enter your details"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginTop": 40,
+                "flex": 1
+              },
+              "children": [
+                {
+                  "component": "LoginForm",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexGrow": 1,
+                        "flexShrink": 0,
+                        "flexDirection": "column",
+                        "justifyContent": "space-between"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "flexDirection": "column"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginBottom": 20
+                              },
+                              "children": [
+                                {
+                                  "component": "LoginFormInput",
+                                  "props": {
+                                    "type": "email",
+                                    "placeholder": "Email",
+                                    "name": "email"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginBottom": 20
+                              },
+                              "children": [
+                                {
+                                  "component": "LoginFormInput",
+                                  "props": {
+                                    "type": "password",
+                                    "placeholder": "Password",
+                                    "name": "password"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "component": "LoginFormSubmit",
+                          "props": {
+                            "text": "Next",
+                            "inverted": true,
+                            "color": "white"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "flex-end"
-          }
         }
       ]
     }
