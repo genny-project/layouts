@@ -67,6 +67,52 @@
                         "children":"${BE.PRI_COMPANY_NAME}"
                     }
                 },
+               {
+                    "span":{
+                            "position": [0, 1],
+                            "style":{
+                                "fontSize":"1.0em",
+                                "fontWeight":"bold",
+                                "marginTop": "10px"
+                                    },
+                            "children":"Transport Company :"
+                              }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.PRI_ALLOCATED_TC",
+                            "position": [0, 1],
+                            "showIfNotNull": true,
+                            "children":[
+                                {
+                                    "span":{
+                                      
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"${BE.PRI_ALLOCATED_TC}"
+                                    }
+                                }
+                          ]
+                        }
+                     },
+                    {
+                        "Selector":{
+                            "checkValues": "BE.PRI_ALLOCATED_TC",
+                            "position": [0, 1],
+                            "showIfNull": true,
+                            "children":[
+                                {
+                                     "span":{  
+                                      "style":{
+                                          "fontSize":"0.8em"
+                                      },
+                                      "children":"N/A"
+                                    }
+                                }
+                          ]
+                        }
+                    },    
                 {
                     "span":{
                         "position":[1, 0],

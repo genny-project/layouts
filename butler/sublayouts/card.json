@@ -1,24 +1,24 @@
-{
-   "div":{
-      "style":{
+{  
+   "div":{  
+      "style":{  
          "marginBottom":"5px"
       },
-      "children":[
-         {
-            "Grid":{
-               "rows":[
-                  {
-                     "style":{
+      "children":[  
+         {  
+            "Grid":{  
+               "rows":[  
+                  {  
+                     "style":{  
                         "flexGrow":1,
                         "flexWrap":"nowrap"
                      }
                   },
                   1
                ],
-               "cols":[
+               "cols":[  
                   0.1,
-                  {
-                     "style":{
+                  {  
+                     "style":{  
                         "display":"flex",
                         "flexDirection":"column",
                         "flexWrap":"no-wrap",
@@ -29,71 +29,71 @@
                   },
                   "10px"
                ],
-               "children":[
-                  {
-                     "ImageView":{
-                        "position":[
+               "children":[  
+                  {  
+                     "ImageView":{  
+                        "position":[  
                            0,
                            0
                         ],
                         "src":"",
-                        "style":{
+                        "style":{  
                            "width":"30px",
                            "height":"30px",
                            "marginRight":"5px"
                         }
                      }
                   },
-                  {
-                     "span":{
-                        "position":[
+                  {  
+                     "span":{  
+                        "position":[  
                            0,
                            1
                         ],
-                        "style":{
+                        "style":{  
                            "fontSize":"1em",
                            "fontWeight":800
                         },
                         "children":"${BE.PRI_COMPANY_NAME}"
                      }
                   },
-                  {
-                     "span":{
-                        "position":[
+                  {  
+                     "span":{  
+                        "position":[  
                            0,
                            1
                         ],
-                        "style":{
+                        "style":{  
                            "fontSize":"0.85em"
                         },
                         "children":"Rel: ${BE.PRI_RELEASE_NUMBER}"
                      }
                   },
-                  {
-                     "span":{
-                        "position":[
+                  {  
+                     "span":{  
+                        "position":[  
                            0,
                            1
                         ],
-                        "style":{
+                        "style":{  
                            "display":"flex",
                            "alignItems":"center",
                            "justifyContent":"flex-start"
                         },
-                        "children":[
-                           {
-                              "span":{
-                                 "style":{
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
                                     "fontSize":"0.85em",
                                     "marginRight":"5px"
                                  },
                                  "children":"Date: "
                               }
                            },
-                           {
-                              "DateLabel":{
+                           {  
+                              "DateLabel":{  
                                  "format":"DD/MM/YY",
-                                 "style":{
+                                 "style":{  
                                     "fontSize":"0.85em"
                                  },
                                  "children":"BE.PRI_RELEASE_DATE"
@@ -102,18 +102,18 @@
                         ]
                      }
                   },
-                  {
-                     "GennyStatus":{
-                        "position":[
+                  {  
+                     "GennyStatus":{  
+                        "position":[  
                            0,
                            2
                         ],
                         "root":"BE.code",
-                        "style":{
+                        "style":{  
                            "height":"100%",
                            "maxHeight":"40px"
                         },
-                        "statusStyle":{
+                        "statusStyle":{  
                            "height":"100%",
                            "maxHeight":"40px"
                         }
@@ -122,51 +122,51 @@
                ]
             }
          },
-         {
-            "GennyDropdown":{
+         {  
+            "GennyDropdown":{  
                "inline":true,
                "isSlide":false,
                "animateHeader":false,
                "animateFooter":true,
-               "contentStyle":{
+               "contentStyle":{  
                   "backgroundColor":"white",
                   "padding":"0"
                },
-               "header":[
-                  {
-                     "SublayoutLoader":{
+               "header":[  
+                  {  
+                     "SublayoutLoader":{  
                         "layoutCode":"card-header",
-                        "aliases":{
+                        "aliases":{  
                            "GROUP":"ROOT",
                            "BE":"BE.code"
                         }
                      }
                   }
                ],
-               "footer":[
-                  {
-                     "SublayoutLoader":{
+               "footer":[  
+                  {  
+                     "SublayoutLoader":{  
                         "layoutCode":"card-footer",
-                        "aliases":{
+                        "aliases":{  
                            "GROUP":"ROOT",
                            "BE":"BE.code"
                         }
                      }
                   }
                ],
-               "children":[
-                  {
-                     "div":{
-                        "style":{
+               "children":[  
+                  {  
+                     "div":{  
+                        "style":{  
                            "display":"flex",
                            "flexDirection":"column",
                            "padding":"5px 0",
                            "width":"100%"
                         },
-                        "children":[
-                           {
-                              "span":{
-                                 "style":{
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
                                     "fontSize":"0.85em",
                                     "padding":"5px",
                                     "backgroundColor":"#ddd",
@@ -176,9 +176,9 @@
                                  "children":"RY: ${BE.PRI_RYAIL_YARD}"
                               }
                            },
-                           {
-                              "span":{
-                                 "style":{
+                           {  
+                              "span":{  
+                                 "style":{  
                                     "fontSize":"0.85em",
                                     "padding":"5px",
                                     "backgroundColor":"#ddd",
@@ -188,9 +188,9 @@
                                  "children":"SC: ${BE.PRI_SHIPPING_COMPANY}"
                               }
                            },
-                           {
-                              "span":{
-                                 "style":{
+                           {  
+                              "span":{  
+                                 "style":{  
                                     "fontSize":"0.85em",
                                     "padding":"5px",
                                     "backgroundColor":"#ddd",
@@ -199,17 +199,95 @@
                                  },
                                  "children":"DD: ${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
                               }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "ROOT"
+                                 ],
+                                 "showValues":[  
+                                    "GRP_ORDER_ACTIVE_CONFIRMED",
+                                    "GRP_ORDER_ACTIVE_INTRANSIT",
+                                    "GRP_ORDER_ACTIVE_DELIVERED",
+                                    "GRP_ORDER_ACTIVE_COMPLETED"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "BE.PRI_ALLOCATED_TC"
+                                          ],
+                                          "showIfNotNull":true,
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "fontSize":"0.85em",
+                                                      "padding":"5px",
+                                                      "backgroundColor":"#ddd",
+                                                      "marginBottom":"5px",
+                                                      "flexGrow":1
+                                                   },
+                                                   "children":"TC: ${BE.PRI_ALLOCATED_TC}"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"card-button-actions",
+                                 "style": {
+                                 "marginBottom":"5px"
+                                 },
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "ROOT"
+                                 ],
+                                 "showValues":[  
+                                    "GRP_ORDER_ACTIVE_INTRANSIT",
+                                    "GRP_ORDER_ACTIVE_DELIVERED",
+                                    "GRP_ORDER_ACTIVE_COMPLETED"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyList":{  
+                                          "root":"BE.code",
+                                          "showEmpty":false,
+                                          "showTitle":false,
+                                          "itemLayout":"CARD_CONTAINERS",
+                                          "showLinks":[  
+                                             "CONTAINER"
+                                          ],
+                                          "localAliases":{  
+                                             "PARENT":"ROOT"
+                                          },
+                                          "hideHeader":true,
+                                          "hideCount":true,
+                                          "gennyListStyle":{  
+                                             "maxWidth":"700px"
+                                          },
+                                          "style":{  
+                                             "margin":"0",
+                                             "maxWidth":"700px",
+                                             "background":"none"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
                            }
                         ]
-                     }
-                  },
-                  {
-                     "SublayoutLoader":{
-                        "layoutCode":"card-button-actions",
-                        "aliases":{
-                           "BE":"BE.code",
-                           "GROUP":"ROOT"
-                        }
                      }
                   }
                ]

@@ -36,24 +36,30 @@
                   "component": "Box",
                   "props": {
                     "flex": 2,
-                    "alignItems": "center"
+                    "alignItems": "flex-start",
+                    "justifyContent": "flex-end",
+                    "display": "flex",
+                    "flexDirection": "column"
                   },
                   "children": [
                     {
                       "component": "Heading",
                       "props": {
+                        "flex": 1,
                         "text": "Good Morning Campbell.",
                         "color": "white",
-                        "size": "xl",
-                        "width": "100%"
+                        "size": "xl"
                       }
                     },
                     {
-                      "component": "EventLink",
+                      "component": "EventButton",
                       "props": {
+                        "flex": 1,
                         "text": "Browse network",
-                        "color": "red",
-                        "buttonCode": "BTN_BROWSE_NETWORK"
+                        "buttonCode": "BTN_BROWSE_NETWORK",
+                        "color": "transparent",
+                        "textColor": "white",
+                        "textAlign": "left"
                       }
                     }
                   ]

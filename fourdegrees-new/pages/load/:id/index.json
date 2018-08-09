@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Load Detail ",
+    "title": "Load Details",
     "appColor": "dark"
   },
   "children": [
@@ -279,16 +279,14 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children":
-                        "{{query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}}"
+                      "children": "{{query.attributes.PRI_PICKUP_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_PICKUP_ADDRESS_STATE.valueString}}"
                     },
                     {
                       "component": "Text",
                       "props": {
                         "size": "xxs"
                       },
-                      "children":
-                        "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
+                      "children": "{{query.attributes.PRI_PICKUP_DATETIME.valueDateTime}}"
                     }
                   ]
                 },
@@ -315,8 +313,7 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children":
-                        "{{query.attributes.PRI_TOTAL_DISTANCE_M.valueDouble}}m"
+                      "children": "{{query.attributes.PRI_TOTAL_DISTANCE_M.valueDouble}}m"
                     }
                   ]
                 },
@@ -341,16 +338,14 @@
                       "props": {
                         "size": "xxs"
                       },
-                      "children":
-                        "{{query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
+                      "children": "{{query.attributes.PRI_DROPOFF_ADDRESS_SUBURB.valueString}}, {{query.attributes.PRI_DROPOFF_ADDRESS_STATE.valueString}}"
                     },
                     {
                       "component": "Text",
                       "props": {
                         "size": "xxs"
                       },
-                      "children":
-                        "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
+                      "children": "{{query.attributes.PRI_DROPOFF_DATETIME.valueDateTime}}"
                     }
                   ]
                 }
@@ -416,8 +411,7 @@
                   "props": {
                     "size": "xxs"
                   },
-                  "children":
-                    "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}"
+                  "children": "{{query.load.attributes.PRI_LOAD_TYPE.valueString}}"
                 }
               ]
             },
@@ -442,8 +436,7 @@
                   "props": {
                     "size": "xxs"
                   },
-                  "children":
-                    "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}"
+                  "children": "{{query.load.attributes.PRI_EQUIPMENT_REF_NO.valueString}}"
                 }
               ]
             },
@@ -468,32 +461,28 @@
                   "props": {
                     "size": "xs"
                   },
-                  "children":
-                    "L: {{query.attributes.PRI_LOAD_LENGTH_MM.valueDouble}}mm "
+                  "children": "L: {{query.attributes.PRI_LOAD_LENGTH_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children":
-                    "W: {{query.attributes.PRI_LOAD_WIDTH_MM.valueDouble}}mm "
+                  "children": "W: {{query.attributes.PRI_LOAD_WIDTH_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children":
-                    "H: {{query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble}}mm "
+                  "children": "H: {{query.attributes.PRI_LOAD_HEIGHT_MM.valueDouble}}mm "
                 },
                 {
                   "component": "Text",
                   "props": {
                     "size": "xs"
                   },
-                  "children":
-                    "W: {{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg "
+                  "children": "W: {{query.attributes.PRI_LOAD_WEIGHT_KG.valueDouble}}kg "
                 }
               ]
             },
@@ -531,8 +520,7 @@
                 "component": "Media",
                 "props": {
                   "image": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
-                  "header":
-                    "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+                  "header": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
                   "headerProps": {
                     "size": "xxs"
                   },
@@ -757,7 +745,7 @@
       "as": "owner",
       "scope": {
         "operator": "find",
-        "query": { "linkValue": { "$eq": "OWNER" } }
+        "query": { "linkValue": { "$eq": "OWNER" }}
       }
     },
     {
@@ -766,7 +754,7 @@
       "as": "load",
       "scope": {
         "operator": "findOne",
-        "query": { "linkValue": { "$eq": "LOAD" } }
+        "query": { "linkValue": { "$eq": "LOAD" }}
       }
     },
     {
@@ -775,7 +763,7 @@
       "as": "offers",
       "scope": {
         "operator": "find",
-        "query": { "linkValue": { "$eq": "OFFER" } }
+        "query": { "linkValue": { "$eq": "OFFER" }}
       }
     }
   ]
