@@ -1,10 +1,7 @@
 {
   "Grid": {
     "rows": 1,
-    "cols": [
-      2,
-      1
-    ],
+    "cols": [2, 1],
     "style": {
       "height": "initial",
       "backgroundColor": "white",
@@ -13,19 +10,13 @@
     "children": [
       {
         "Grid": {
-          "position": [
-            0,
-            0
-          ],
+          "position": [0, 0],
           "style": {
             "color": "rgb(72,84,98)",
             "height": "initial",
             "paddingBottom": "50px"
           },
-          "rows": [
-            0.1,
-            1
-          ],
+          "rows": [0.1, 1],
           "cols": [
             {
               "style": {
@@ -37,10 +28,7 @@
           "children": [
             {
               "SublayoutLoader": {
-                "position": [
-                  0,
-                  0
-                ],
+                "position": [0, 0],
                 "layoutCode": "internship-details-title",
                 "aliases": {
                   "BE": "BE.code",
@@ -50,10 +38,7 @@
             },
             {
               "SublayoutLoader": {
-                "position": [
-                  1,
-                  0
-                ],
+                "position": [1, 0],
                 "layoutCode": "internship-details-features",
                 "style": {
                   "backgroundColor": "#DDD"
@@ -66,30 +51,14 @@
             },
             {
               "Selector": {
-                "position": [
-                  1,
-                  0
-                ],
+                "position": [1, 0],
                 "showIfNotNull": true,
-                "checkValues": [
-                  "BE.PRI_COMPANY_CODE"
-                ],
+                "checkValues": ["BE.PRI_COMPANY_CODE"],
                 "children": [
-                  {
-                    "h4": {
-                      "style": {
-                   
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Host Company"
-                    }
-                  },
                   {
                     "SublayoutLoader": {
                       "layoutCode": "internship-details-host-company",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
+                      "style": {},
                       "aliases": {
                         "BE": "BE.PRI_COMPANY_CODE",
                         "GROUP": "ROOT"
@@ -101,19 +70,13 @@
             },
             {
               "Selector": {
-                "position": [
-                  1,
-                  0
-                ],
+                "position": [1, 0],
                 "showIfNotNull": true,
-                "checkValues": [
-                  "BE.LNK_HOST_COMPANY_REP.code"
-                ],
+                "checkValues": ["BE.LNK_HOST_COMPANY_REP.code"],
                 "children": [
                   {
                     "h4": {
                       "style": {
-                       
                         "padding": "5px 0 10px"
                       },
                       "children": "Company Representative"
@@ -136,34 +99,40 @@
             },
             {
               "Selector": {
-                "position": [
-                  1,
-                  0
-                ],
-                "showIfNotNull": true,
+                "position": [1, 0],
                 "checkValues": [
-                  "BE.LNK_INTERN_SUPERVISOR.code"
+                  "USER.PRI_IS_SELLER"
+                ],
+                "hideValues": [
+                  true
                 ],
                 "children": [
                   {
-                    "h4": {
-                      "style": {
-                     
-                        "padding": "5px 0 10px"
-                      },
-                      "children": "Intern Supervisor"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-supervisor",
-                      "style": {
-                        "backgroundColor": "#DDD"
-                      },
-                      "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                      }
+                    "Selector": {
+                      "showIfNotNull": true,
+                      "checkValues": ["BE.LNK_INTERN_SUPERVISOR.code"],
+                      "children": [
+                        {
+                          "h4": {
+                            "style": {
+                              "padding": "5px 0 10px"
+                            },
+                            "children": "Intern Supervisor"
+                          }
+                        },
+                        {
+                          "SublayoutLoader": {
+                            "layoutCode": "internship-details-supervisor",
+                            "style": {
+                              "backgroundColor": "#DDD"
+                            },
+                            "aliases": {
+                              "BE": "BE.code",
+                              "GROUP": "ROOT"
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -171,10 +140,7 @@
             },
             {
               "SublayoutLoader": {
-                "position": [
-                  1,
-                  0
-                ],
+                "position": [1, 0],
                 "layoutCode": "internship-details-required-skills",
                 "aliases": {
                   "BE": "BE.code",
@@ -184,34 +150,19 @@
             },
             {
               "Selector": {
-                "position": [
-                  1,
-                  0
-                ],
-                "checkValues": [
-                  "USER.PRI_IS_BUYER"
-                ],
-                "hideValues": [
-                  true
-                ],
+                "position": [1, 0],
+                "checkValues": ["USER.PRI_IS_BUYER"],
+                "hideValues": [true],
                 "children": [
                   {
                     "Selector": {
-                      "position": [
-                        1,
-                        0
-                      ],
-                      "checkValues": [
-                        "BE.link.REPRESENTATIVE.PRI_NAME"
-                      ],
+                      "position": [1, 0],
+                      "checkValues": ["BE.link.REPRESENTATIVE.PRI_NAME"],
                       "showIfNotNull": true,
                       "children": [
                         {
                           "SublayoutLoader": {
-                            "position": [
-                              1,
-                              0
-                            ],
+                            "position": [1, 0],
                             "layoutCode": "internship-details-representative",
                             "aliases": {
                               "BE": "BE.code",
@@ -230,10 +181,7 @@
       },
       {
         "Grid": {
-          "position": [
-            0,
-            1
-          ],
+          "position": [0, 1],
           "cols": 1,
           "rows": 2,
           "style": {
@@ -246,10 +194,7 @@
                   "float": "right",
                   "marginRight": "50px"
                 },
-                "position": [
-                  1,
-                  0
-                ],
+                "position": [1, 0],
                 "layoutCode": "internship-details-button-actions",
                 "aliases": {
                   "BE": "BE.code",
