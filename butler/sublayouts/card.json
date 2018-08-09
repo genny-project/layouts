@@ -206,7 +206,7 @@
                                     "ROOT"
                                  ],
                                  "showValues":[  
-                                   "GRP_ORDER_ACTIVE_CONFIRMED",
+                                    "GRP_ORDER_ACTIVE_CONFIRMED",
                                     "GRP_ORDER_ACTIVE_INTRANSIT",
                                     "GRP_ORDER_ACTIVE_DELIVERED",
                                     "GRP_ORDER_ACTIVE_COMPLETED"
@@ -214,7 +214,7 @@
                                  "children":[  
                                     {  
                                        "Selector":{  
-                                          "checkValues":[
+                                          "checkValues":[  
                                              "BE.PRI_ALLOCATED_TC"
                                           ],
                                           "showIfNotNull":true,
@@ -238,6 +238,15 @@
                               }
                            },
                            {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"card-button-actions",
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           },
+                           {  
                               "Selector":{  
                                  "checkValues":[  
                                     "ROOT"
@@ -247,44 +256,34 @@
                                     "GRP_ORDER_ACTIVE_DELIVERED",
                                     "GRP_ORDER_ACTIVE_COMPLETED"
                                  ],
-                                                "children":[
-                                       {
-                                          "GennyList":{
-                                             "root":"BE.code",
-                                             "showEmpty":false,
-                                             "itemLayout":"CARD_CONTAINERS",
-                                             "showLinks":[
-                                                "CONTAINER"
-                                             ],
-                                             "localAliases": {
-                                                "PARENT": "ROOT"  
-                                             },
-                                             "hideHeader":true,
-                                             "hideCount":true,
-                                             "gennyListStyle":{
-                                                "maxWidth":"700px"
-                                             },
-                                             "style":{
-                                                "margin":"0",
-                                                "maxWidth":"700px",
-                                                "background":"none"
-                                             }
+                                 "children":[  
+                                    {  
+                                       "GennyList":{  
+                                          "root":"BE.code",
+                                          "showEmpty":false,
+                                          "itemLayout":"CARD_CONTAINERS",
+                                          "showLinks":[  
+                                             "CONTAINER"
+                                          ],
+                                          "localAliases":{  
+                                             "PARENT":"ROOT"
+                                          },
+                                          "hideHeader":true,
+                                          "hideCount":true,
+                                          "gennyListStyle":{  
+                                             "maxWidth":"700px"
+                                          },
+                                          "style":{  
+                                             "margin":"0",
+                                             "maxWidth":"700px",
+                                             "background":"none"
                                           }
                                        }
-                                    ]
-
+                                    }
+                                 ]
                               }
                            }
                         ]
-                     }
-                  },
-                  {  
-                     "SublayoutLoader":{  
-                        "layoutCode":"card-button-actions",
-                        "aliases":{  
-                           "BE":"BE.code",
-                           "GROUP":"ROOT"
-                        }
                      }
                   }
                ]
