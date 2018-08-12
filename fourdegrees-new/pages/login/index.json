@@ -121,12 +121,48 @@
                           ]
                         },
                         {
-                          "component": "LoginFormSubmit",
+                          "component": "Box",
                           "props": {
-                            "text": "Next",
-                            "inverted": true,
-                            "color": "white"
-                          }
+                            "flexDirection": "column"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginBottom": 20
+                              },
+                              "children": [
+                                {
+                                  "component": "LoginFormError",
+                                  "props": {
+                                    "wrapperProps": {
+                                      "borderWidth": 2,
+                                      "borderColor": "red",
+                                      "borderStyle": "solid",
+                                      "alignItems": "center",
+                                      "justifyContent": "center",
+                                      "padding": 20,
+                                      "cleanStyleObject": true,
+                                      "width": "100%"
+                                    },
+                                    "textProps": {
+                                      "color": "red",
+                                      "bold": true,
+                                      "align": "center"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "LoginFormSubmit",
+                              "props": {
+                                "text": "Next",
+                                "inverted": true,
+                                "color": "white"
+                              }
+                            }
+                          ]
                         }
                       ]
                     }
