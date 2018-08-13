@@ -1,4 +1,8 @@
 {
+  "layout": {
+    "title": "Profile Employment",
+    "appColor": "dark"
+  },
   "children": [
     {
       "component": "Box",
@@ -53,8 +57,7 @@
             },
             {
               "component": "Box",
-              "props": {
-              },
+              "props": {},
               "children": [
                 {
                   "component": "Text",
@@ -69,24 +72,39 @@
           ]
         },
         {
-          "component": "Box",
+          "component": "EventButton",
           "props": {
-            "marginleft": 20,
-            "alignItems": "center"
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "width": "100%",
+            "eventType": "BTN_CLICK",
+            "buttonCode": "CONNECT_WITH_PEOPLE",
+            "value": {
+              "itemCode": "{{props.contactID}}"
+            }
           },
           "children": [
             {
               "component": "Box",
               "props": {
+                "marginleft": 20,
+                "alignItems": "center"
               },
               "children": [
                 {
-                  "component": "Icon",
-                  "props": {
-                    "color": "black",
-                    "size": "md",
-                    "name": "chevron-right"
-                  }
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "color": "black",
+                        "size": "md",
+                        "name": "chevron-right"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -107,7 +125,7 @@
     },
     {
       "operator": "populateAttributes",
-      "code": "{{props.contactID}}}",
+      "code": "{{props.contactID}}",
       "as": "attributes"
     }
   ]
