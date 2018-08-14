@@ -156,8 +156,8 @@
                   0
                ],
                "showIfNotNull":true,
-               "children":[       
-                 {  
+               "children":[  
+                  {  
                      "span":{  
                         "style":{  
                            "fontSize":"0.8em",
@@ -166,11 +166,11 @@
                         },
                         "children":"Delivery Date: ${BE.link.PRODUCT.PRI_DELIVERY_DATE} "
                      }
-                  } 
+                  }
                ]
             }
          },
-        {  
+         {  
             "Selector":{  
                "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
                "position":[  
@@ -178,8 +178,8 @@
                   0
                ],
                "showIfNull":true,
-               "children":[       
-                 {  
+               "children":[  
+                  {  
                      "span":{  
                         "style":{  
                            "fontSize":"0.8em",
@@ -188,7 +188,7 @@
                         },
                         "children":"Delivery Date: N/A "
                      }
-                  } 
+                  }
                ]
             }
          },
@@ -200,8 +200,8 @@
                   0
                ],
                "showIfNotNull":true,
-               "children":[       
-                 {  
+               "children":[  
+                  {  
                      "span":{  
                         "style":{  
                            "fontSize":"0.8em",
@@ -210,7 +210,7 @@
                         },
                         "children":"Expected Delivery Date: ${BE.link.PRODUCT.PRI_DELIVERY_DATE} "
                      }
-                  } 
+                  }
                ]
             }
          },
@@ -222,8 +222,8 @@
                   0
                ],
                "showIfNull":true,
-               "children":[       
-                 {  
+               "children":[  
+                  {  
                      "span":{  
                         "style":{  
                            "fontSize":"0.8em",
@@ -232,10 +232,10 @@
                         },
                         "children":"Expected Delivery Date: N/A "
                      }
-                  } 
+                  }
                ]
             }
-         }, 
+         },
          {  
             "div":{  
                "position":[  
@@ -258,10 +258,20 @@
                         "style":{  
                            "fontSize":"0.8em"
                         },
-                        "children":"Containers Required :${BE.link.PRODUCT.PRI_CONTAINER_SIZE_REQUESTED} * ${BE.link.PRODUCT.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit "
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "children":"Containers Required :${BE.link.PRODUCT.PRI_CONTAINER_SIZE_REQUESTED} *"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "children":" ${BE.link.PRODUCT.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit "
+                              }
+                           }
+                        ]
                      }
                   }
-                 
                ]
             }
          }
