@@ -8,66 +8,63 @@
   },
   "children": [
     {
-      "component": "Box",
+      "component": "ScrollView",
       "props": {
-        "flex": 1,
-        "height": "100%",
-        "backgroundColor": "#f8f8f8",
-        "flexDirection": "column"
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "padding": 20,
+            "flex": 1,
             "flexDirection": "column"
           },
           "children": [
             {
               "component": "Box",
-              "props": {},
+              "props": {
+                "padding": 20,
+                "flexDirection": "column"
+              },
               "children": [
                 {
-                  "component": "Label",
+                  "component": "Box",
                   "props": {
-                    "text": "result page",
-                    "color": "gray",
-                    "size": "xs"
-                  }
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Results",
+                        "size": "xl"
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "marginBottom": 20
+                "justifyContent": "center"
               },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "text": "Results",
-                    "size": "xl"
-                  }
+              "repeat": "_query",
+              "children": {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "sublayouts/contact-card/",
+                  "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
+                  "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
+                  "contactCompany": "GADA Technology",
+                  "contactDegree": "-"
                 }
-              ]
+              }
             }
           ]
-        },
-        {
-          "component": "ScrollView",
-          "props": {},
-          "repeat": "_query",
-          "children": {
-            "component": "Sublayout",
-            "props": {
-              "layoutName": "sublayouts/contact-card/",
-              "contactImage": "{{repeater.attributes.PRI_IMAGE_URL.valueString}}",
-              "contactName": "{{repeater.attributes.PRI_FIRSTNAME.valueString}} {{repeater.attributes.PRI_LASTNAME.valueString}}",
-              "contactCompany": "GADA Technology",
-              "contactDegree": "-"
-            }
-          }
         }
       ]
     }
