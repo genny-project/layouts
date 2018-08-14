@@ -1,0 +1,90 @@
+{
+  "div": {
+    "style": {
+      "display": "flex",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    "children": [
+      {
+        "GennyButton": {
+          "style": {
+            "width": "100px",
+            "height": "30px"
+          },
+          "buttonStyle": {
+            "background": "PROJECT.PRI_COLOR",
+            "height": "30px",
+            "padding": "0"
+          },
+          "buttonCode": "BTN_BACK_BUTTON",
+          "hint": {
+            "itemCode": "BE.code"
+          },
+          "children": [
+            {
+              "IconSmall": {
+                "style": {
+                  "fontSize": "28px",
+                  "transform": "rotate(90deg)",
+                  "color": "white"
+                },
+                "name": "arrow_drop_down"
+              }
+            },
+            {
+              "span": {
+                "style": {
+                  "color": "white"
+                },
+                "children": "BACK"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "span": {
+          "style": {
+            "fontSize": "24px",
+            "textAlign": "center",
+            "margin": "30px 0"
+          },
+          "children": "Agreement Document"
+        }
+      },
+      {
+        "div": {
+          "style": {
+            "width": "700px",
+            "height": "500px",
+            "padding": "5px",
+            "marginBottom": "20px"
+          },
+          "children":[
+            {
+              "PDFViewer": {
+                "file": "BE.PRI_S3_AGREEMENT_LINK"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "span": {
+          "style": {
+            "fontSize": "16px",
+            "textAlign": "center",
+            "marginBottom": "15px"
+          },
+          "children": "By clicking submit, you agree to the terms in the document"
+        }
+      },
+        {
+        "GennyForm": {
+          "root": "QUE_ATMC_AGREEMENT_EDU_REP_GRP"
+        }
+      }
+    ]
+  }
+}
