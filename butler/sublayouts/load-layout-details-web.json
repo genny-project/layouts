@@ -1,336 +1,408 @@
-{
-  "div": {
-    "children": [
-      {
-        "Grid":{
-            "cols": 2,
-            "rows": [
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              }, 
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              },
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              },
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              },
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              },
-              {
-                "style": {
-                  "flexGrow": 1,
-                  "marginTop": "20px"
-                }
-              }
-            ],
-            "style":{
-                "marginTop":"20px",
-                "height":"initial"
-            },
-            "children":[
-                {
-                    "span":{
-                        "position":[0, 0],
-                        "style":{
-                            "fontSize":"1.0em",
-                            "fontWeight":"bold"
+{  
+   "div":{  
+      "children":[  
+         {  
+            "Grid":{  
+               "cols":2,
+               "rows":[  
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  },
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  },
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  },
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  },
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  },
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginTop":"20px"
+                     }
+                  }
+               ],
+               "style":{  
+                  "marginTop":"20px",
+                  "height":"initial"
+               },
+               "children":[  
+                  {  
+                     "span":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1.0em",
+                           "fontWeight":"bold"
                         },
                         "children":"Client Name : "
-                    }
-                },
-                {
-                    "span":{
-                        "position":[0, 0],
-                        "style":{
-                            "fontSize":"0.8em",
-                            "fontWeight":"bold"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"0.8em",
+                           "fontWeight":"bold"
                         },
                         "children":"${BE.PRI_COMPANY_NAME}"
-                    }
-                },
-               {
-                    "span":{
-                            "position": [0, 1],
-                            "style":{
-                                "fontSize":"1.0em",
-                                "fontWeight":"bold",
-                                "marginTop": "10px"
-                                    },
-                            "children":"Transport Company :"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           0,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"1.0em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
+                        },
+                        "children":"Transport Company :"
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.PRI_ALLOCATED_TC",
+                        "position":[  
+                           0,
+                           1
+                        ],
+                        "showIfNotNull":true,
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.PRI_ALLOCATED_TC}"
                               }
-                     },
-                    {
-                        "Selector":{
-                            "checkValues": "BE.PRI_ALLOCATED_TC",
-                            "position": [0, 1],
-                            "showIfNotNull": true,
-                            "children":[
-                                {
-                                    "span":{
-                                      
-                                      "style":{
-                                          "fontSize":"0.8em"
-                                      },
-                                      "children":"${BE.PRI_ALLOCATED_TC}"
-                                    }
-                                }
-                          ]
-                        }
-                     },
-                    {
-                        "Selector":{
-                            "checkValues": "BE.PRI_ALLOCATED_TC",
-                            "position": [0, 1],
-                            "showIfNull": true,
-                            "children":[
-                                {
-                                     "span":{  
-                                      "style":{
-                                          "fontSize":"0.8em"
-                                      },
-                                      "children":"N/A"
-                                    }
-                                }
-                          ]
-                        }
-                    },    
-                {
-                    "span":{
-                        "position":[1, 0],
-                        "style":{
-                            "fontSize":"1.0em",
-                            "fontWeight":"bold",
-                            "marginTop": "20px"
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.PRI_ALLOCATED_TC",
+                        "position":[  
+                           0,
+                           1
+                        ],
+                        "showIfNull":true,
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"N/A"
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1.0em",
+                           "fontWeight":"bold",
+                           "marginTop":"20px"
                         },
                         "children":"Release Number :   "
-                    }
-                },
-               {
-                    "span":{
-                        "position":[1, 0],
-                        "style":{
-                            "fontSize":"0.8em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"0.8em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"${BE.PRI_RELEASE_NUMBER}"
-                    }
-                },
-                {
-                    "span":{
-                        "position":[1, 1],
-                        "style":{
-                            "fontSize":"1em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           1,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"1em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"Release Open Date : "
-                    }
-                },
-               {
-                    "DateLabel":{
-                        "position":[1, 1],
+                     }
+                  },
+                  {  
+                     "DateLabel":{  
+                        "position":[  
+                           1,
+                           1
+                        ],
                         "format":"DD/MM/YY",
-                        "style":{
-                            "fontSize":"0.8em"
+                        "style":{  
+                           "fontSize":"0.8em"
                         },
                         "children":"${BE.PRI_RELEASE_DATE}"
-                    }
-                },
-                {
-                    "span":{
-                        "position":[2, 0],
-                        "style":{
-                            "fontSize":"1em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           2,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"Rail Yard : "
-                    }
-                },
-                {
-                    "span":{
-                        "position":[2, 0],
-                        "style":{
-                            "fontSize":"0.8em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           2,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"0.8em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"${BE.PRI_RYAIL_YARD} "
-                    }
-                },
-               {
-                    "span":{
-                        "position":[2, 1],
-                        "style":{
-                            "fontSize":"1em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           2,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"1em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"Shipping Company : "
-                    }
-                },
-                {
-                    "span":{
-                        "position":[2, 1],
-                        "style":{
-                            "fontSize":"0.8em",
-                            "fontWeight":"bold",
-                            "marginTop": "10px"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           2,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"0.8em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
                         },
                         "children":"${BE.PRI_SHIPPING_COMPANY} "
-                    }
-                },
-     
-                   {
-                    "span":{
-                            "position": [3, 0],
-                            "style":{
-                                "fontSize":"1.0em",
-                                "fontWeight":"bold",
-                                "marginTop": "10px"
-                                    },
-                            "children":"Expected Delivery Date :"
-                              }
-                     },
-                    {
-                        "Selector":{
-                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                            "position": [3, 0],
-                            "showIfNotNull": true,
-                            "children":[
-                                {
-                                    "DateLabel":{
-                                      "format":"DD/MM/YY",
-                                      
-                                      "style":{
-                                          "fontSize":"0.8em"
-                                      },
-                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
-                                    }
-                                }
-                          ]
-                        }
-                     },
-                    {
-                        "Selector":{
-                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                            "position": [3, 0],
-                            "showIfNull": true,
-                            "children":[
-                                {
-                                     "span":{  
-                                      "style":{
-                                          "fontSize":"0.8em"
-                                      },
-                                      "children":"N/A"
-                                    }
-                                }
-                          ]
-                        }
-                    },                
-                    {
-                      "span":{
-                              "position": [3, 1],
-                              "style":{
-                                  "fontSize":"1.0em",
-                                  "fontWeight":"bold",
-                                  "marginTop": "10px"
-                                      },
-                              "children":"Estimated Delivery Date : "
-                                }
-                      },
-                      {
-                        "Selector":{
-                            "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                            "position": [3, 1],
-                            "showIfNotNull": true,
-                            "children":[
-                                {
-                                      "DateLabel":{
-                                      "format":"DD/MM/YY",
-                                      "style":{
-                                          "fontSize":"0.8em"
-                                      },
-                                      "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
-                                   }
-                                }
-                            ]
-                          }
-                    },
-                      {
-
-                          "Selector":{
-                              "checkValues": "BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                              "position": [3, 1],
-                              "showIfNull": true,
-                              "children":[
-                                  {
-                                        "span":{
-                                        "style":{
-                                            "fontSize":"0.8em"
-                                        },
-                                        "children":"N/A"
-                                     }
-                                  }
-                              ]
-                          }
-                        }
-                       ]
-                    }
+                     }
                   },
-                {
-                  "div": {
-                      "position":[5, 0],
-                      "children":[
-                          {
-                              "div":{
-                                  "style": {
-                                    "fontWeight":"bold",
-                                    "fontSize": "1.0em"
-                                  },
-                                  "children":"Container Information"
+                  {  
+                     "span":{  
+                        "position":[  
+                           3,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1.0em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
+                        },
+                        "children":"Expected Delivery Date :"
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                        "position":[  
+                           3,
+                           0
+                        ],
+                        "showIfNotNull":true,
+                        "children":[  
+                           {  
+                              "DateLabel":{  
+                                 "format":"DD/MM/YY",
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
                               }
-                          },
-                        {
-                            "span":{
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"Containers Required : "
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                        "position":[  
+                           3,
+                           0
+                        ],
+                        "showIfNull":true,
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"N/A"
                               }
-                          },
-                          {
-                            "span":{
-                                "style": {
-                                    "fontSize": "0.8em"
-                                },
-                                "children":"${BE.link.PRODUCT.PRI_CONTAINER_SIZE_REQUESTED} * ${BE.link.PRODUCT.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit"
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           3,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"1.0em",
+                           "fontWeight":"bold",
+                           "marginTop":"10px"
+                        },
+                        "children":"Estimated Delivery Date : "
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                        "position":[  
+                           3,
+                           1
+                        ],
+                        "showIfNotNull":true,
+                        "children":[  
+                           {  
+                              "DateLabel":{  
+                                 "format":"DD/MM/YY",
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
                               }
-                          }
-                      ]
-                   }
-               }
-             ]
-        }
-    }
-  
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                        "position":[  
+                           3,
+                           1
+                        ],
+                        "showIfNull":true,
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"N/A"
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "div":{  
+               "position":[  
+                  5,
+                  0
+               ],
+               "children":[  
+                  {  
+                     "div":{  
+                        "style":{  
+                           "fontWeight":"bold",
+                           "fontSize":"1.0em"
+                        },
+                        "children":"Container Information"
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "style":{  
+                           "fontSize":"0.8em"
+                        },
+                        "children":"Containers Required : "
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "style":{  
+                           "fontSize":"0.8em"
+                        },
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.link.PRODUCT.PRI_CONTAINER_SIZE_REQUESTED} *"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.link.PRODUCT.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit"
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
+}
