@@ -1,6 +1,6 @@
 {
   "Grid": {
-    "cols": [1, "50px"],
+    "cols": ["100px", 1, "50px"],
     "rows": 2,
     "style": {
       "height": "initial",
@@ -11,72 +11,79 @@
     },
     "children": [
       {
-        "h3": {
+
+        "SublayoutLoader": {
           "position": [0, 0],
+          "layoutCode": "company-image",
+          "aliases": {
+            "BE": "BE.PRI_COMPANY_CODE",
+            "GROUP": "ROOT"
+          }
+
+        }
+      }, {
+        "h3": {
+          "position": [0, 1],
           "style": {
             "margin": "0",
-            "marginTop": "10px"
+            "marginTop": "10px",
+            "textTransform": "uppercase",
+            "color": "#444"
           },
           "children": "BE.PRI_NAME"
         }
       },
       {
         "div": {
-          "position": [1, 0],
+          "position": [0, 1],
           "style": {
             "padding": "0",
             "display": "flex",
             "marginBottom": "10px",
             "alignItems": "center"
           },
-          "children": [
-            {
-              "Selector": {
-                "checkValues": "BE.PRI_COMPANY_CODE",
-                "showIfNotNull": true,
-                "children": [
-                  {
-                    "SublayoutLoader": {
-                      "layoutCode": "company-name",
-                      "aliases": {
-                        "BE": "BE.PRI_COMPANY_CODE",
-                        "GROUP": "ROOT"
-                      }
-                    }
+          "children": [{
+            "Selector": {
+              "checkValues": "BE.PRI_COMPANY_CODE",
+              "showIfNotNull": true,
+              "children": [{
+                "SublayoutLoader": {
+                  "layoutCode": "company-name",
+                  "aliases": {
+                    "BE": "BE.PRI_COMPANY_CODE",
+                    "GROUP": "ROOT"
                   }
-                ]
-              }
+                }
+              }]
             }
-          ]
+          }]
         }
       },
       {
         "Selector": {
-          "position": [0, 1],
+          "position": [0, 2],
           "checkValues": [
             "USER.PRI_IS_SELLER"
           ],
           "showValues": [
             true, "true"
           ],
-          "children": [
-            {
-              "GennyButton": {
-                "style": {
-                  "height": "30px"
-                },
-                "buttonStyle": {
-                  "background": "PROJECT.PRI_COLOR"
-                },
-                "children": "View",
-                "buttonCode": "BTN_VIEW_INTERNSHIP",
-                "value": {
-                  "itemCode": "BE.code",
-                  "hint": "ROOT"
-                }
+          "children": [{
+            "GennyButton": {
+              "style": {
+                "height": "30px"
+              },
+              "buttonStyle": {
+                "background": "PROJECT.PRI_COLOR"
+              },
+              "children": "View",
+              "buttonCode": "BTN_VIEW_INTERNSHIP",
+              "value": {
+                "itemCode": "BE.code",
+                "hint": "ROOT"
               }
             }
-          ]
+          }]
         }
       }
     ]
