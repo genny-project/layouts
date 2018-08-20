@@ -71,10 +71,43 @@
             "padding": "5px",
             "marginBottom": "20px"
           },
-          "children":[
+          "children": [
             {
               "PDFViewer": {
                 "file": "BE.PRI_S3_AGREEMENT_LINK"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "div": {
+          "style": {
+            "width": "100%",
+            "display": "flex",
+            "justifyContent": "center"
+          },
+          "children": [
+            {
+              "a": {
+                "style": {
+                  "height": "30px",
+                  "marginBottom": "5px",
+                  "background": "green",
+                  "color": "white",
+                  "display": "flex",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": "1px 7px 2px",
+                  "borderRadius": "5px",
+                  "width": "200px",
+                  "fontFamily": "system-ui",
+                  "textAlign": "center"
+                },
+                "href": "BE.PRI_S3_AGREEMENT_LINK",
+                "target": "_blank",
+                "rel": "noopener",
+                "children": "View Document"
               }
             }
           ]
@@ -90,9 +123,21 @@
           "children": "By clicking submit, you agree to the terms in the document"
         }
       },
-       {
-        "GennyForm": {
-          "root": "QUE_ATMC_AGREEMENT_INTERN_GRP"
+      {
+        "Selector": {
+          "checkValues": [
+            "BE.PRI_INTERN_ACCEPTED"
+          ],
+          "hideValues": [
+            true
+          ],
+          "children": [
+            {
+              "GennyForm": {
+                "root": "QUE_ATMC_AGREEMENT_INTERN_GRP"
+              }
+            }
+          ]
         }
       }
     ]
