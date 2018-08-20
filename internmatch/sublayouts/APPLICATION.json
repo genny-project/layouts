@@ -4,27 +4,68 @@
     "cols": 1,
     "style": {
       "padding": "0",
-      "background": "white",
+      "background": "orange",
       "fontSize": "10px"
     },
     "children": [
       {
         "Selector": {
-          "position": [0,0],
-          "checkValues": [
-            "BE.linkValue"
-          ],
-          "hideValues": [
-            "APPLICANT"
-          ],
+          "position": [0, 0],
+          "checkValues": ["BE.linkValue"],
+          "hideValues": ["APPLICANT"],
           "children": [
             {
-              "SublayoutLoader": {
-                "layoutCode": "card-main",
-                "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-                }
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_BUYER", "USER.PRI_IS_AGENT"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-main",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_SELLER"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-intern",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_EDU_PROVIDER_STAFF"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-edu-provider",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
               }
             }
           ]
