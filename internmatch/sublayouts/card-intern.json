@@ -1,23 +1,93 @@
 {
-   "Grid": {
-      "rows": 2,
-      "cols": 1,
-      "children": [
-         {
-            "SublayoutLoader": {
-               "position": [0, 0],
-               "layoutCode": "card-content",
-               "aliases": {
+  "Grid": {
+    "position": [0, 0],
+    "rows": 1,
+    "cols": [
+      1,
+      {
+        "style": {
+          "flex": "0 0 10px",
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "flex-end"
+        }
+      }
+    ],
+    "children": [
+      {
+        "SublayoutLoader": {
+          "position": [0, 0],
+          "layoutCode": "card-intern-content",
+          "aliases": {
+            "BE": "BE.PRI_BEG_CODE",
+            "GROUP": "ROOT"
+          }
+        }
+      },
+      {
+        "GennyDropdown": {
+          "position": [0, 1],
+          "inline": false,
+          "isSlide": false,
+          "animateHeader": false,
+          "animateFooter": true,
+          "stopPropagationOnClick": true,
+          "style": {
+            "paddingBottom": "2px",
+            "margin": "-5px -5px 0"
+          },
+          "contentStyle": {
+            "backgroundColor": "#fff",
+            "boxShadow": "0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "120px",
+            "left": "100%",
+            "padding": "5px 5px 0",
+            "transform": "translate(-100%)",
+            "top": "20px"
+          },
+          "tagStyle": {
+            "display": "none"
+          },
+          "header": [
+            {
+              "IconSmall": {
+                "name": "more_horiz",
+                "style": {
+                  "padding": "0"
+                }
+              }
+            }
+          ],
+          "children": [
+            {
+              "SublayoutLoader": {
+                "layoutCode": "card-button-actions",
+                "aliases": {
                   "BE": "BE.code",
                   "GROUP": "ROOT"
-               }
+                }
+              }
             }
-         },
-         {
-            "br": {
-               "position": [0, 0]
-            }
-         }
-      ]
-   }  
+          ]
+        }
+      },
+      {
+        "GennyStatus": {
+          "position": [0, 1],
+          "root": "BE.code",
+          "style": {
+            "height": "25px",
+            "width": "10px"
+          },
+          "statusStyle": {
+            "height": "100%",
+            "width": "10px",
+            "maxHeight": "40px"
+          }
+        }
+      }
+    ]
+  }
 }
