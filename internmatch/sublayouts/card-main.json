@@ -33,12 +33,21 @@
           "cols": 1,
           "children": [
             {
-              "p": {
-                "position": [0, 0],
-                "style": {
-                  "margin": "0px"
-                },
-                "children": "ID: ${BE.link.APPLICANT.PRI_STUDENT_ID}"
+              "Selector": {
+                "position": [1, 0],
+                "checkValues": "BE.link.APPLICANT.PRI_STUDENT_ID",
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "p": {
+                      "position": [0, 0],
+                      "style": {
+                        "margin": "0px"
+                      },
+                      "children": "ID: ${BE.link.APPLICANT.PRI_STUDENT_ID}"
+                    }
+                  }
+                ]
               }
             },
             {
@@ -56,7 +65,18 @@
                 "style": {
                   "margin": "0px"
                 },
-                "children": "BE.PRI_EDU_PROVIDER_NAME"
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-edu-provider-name",
+                      "style": {},
+                      "aliases": {
+                        "BE": "BE.PRI_EDU_PROVIDER_CODE",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
               }
             },
             {
@@ -65,7 +85,18 @@
                 "style": {
                   "margin": "0px"
                 },
-                "children": "BE.PRI_HOST_COMPANY_NAME"
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-beg-hcname",
+                      "style": {},
+                      "aliases": {
+                        "BE": "BE.PRI_BEG_CODE",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
               }
             },
             {
