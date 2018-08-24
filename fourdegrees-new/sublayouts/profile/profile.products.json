@@ -1,36 +1,23 @@
 {
-  "layout": {
-    "title": "Profile Products",
-    "appColor": "dark"
-  },
   "children": [
     {
       "component": "Box",
       "props": {
-        "flex": 1,
-        "backgroundColor": "lightgray",
-        "flexDirection": "column",
-        "onLayout": "_props.onLayout"
+        "padding": 20
       },
       "children": [
         {
-          "component": "Box",
+          "component": "EventButton",
+
           "props": {
-            "padding": 10,
-            "marginBottom": 10
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-products",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "text": "Edit Products"
-              }
-            }
-          ]
+            "eventType": "ROUTE_CHANGE",
+            "buttonCode": "profile/add-products",
+            "text": "Edit Products",
+            "color": "#202532",
+            "textColor": "#FFF",
+            "paddingY": 15,
+            "paddingX": 15
+          }
         }
       ]
     }

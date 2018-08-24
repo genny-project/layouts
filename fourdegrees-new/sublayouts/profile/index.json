@@ -250,8 +250,20 @@
                       "children": [
                         {
                           "component": "Label",
+                          "conditional": {
+                            "if": {
+                              "user.attributes.PRI_DESCRIPTION.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{user.attributes.PRI_DESCRIPTION.value}}"
+                            },
+                            "else": {
+                              "text": "--"
+                            }
+                          },
                           "props": {
-                            "text": "{{user.attributes.PRI_DESCRIPTION.value}}",
                             "color": "black",
                             "size": "xs"
                           }
