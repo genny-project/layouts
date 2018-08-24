@@ -1,36 +1,23 @@
 {
-  "layout": {
-    "title": "Profile Groups",
-    "appColor": "dark"
-  },
   "children": [
     {
       "component": "Box",
       "props": {
-        "flex": 1,
-        "backgroundColor": "lightgray",
-        "flexDirection": "column",
-        "onLayout": "_props.onLayout"
+        "padding": 20
       },
       "children": [
         {
-          "component": "Box",
+          "component": "EventButton",
+
           "props": {
-            "padding": 10,
-            "marginBottom": 10
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-groups",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "text": "Edit Groups"
-              }
-            }
-          ]
+            "eventType": "ROUTE_CHANGE",
+            "buttonCode": "profile/add-group",
+            "text": "Edit Groups",
+            "color": "#202532",
+            "textColor": "#FFF",
+            "paddingY": 15,
+            "paddingX": 15
+          }
         }
       ]
     }
