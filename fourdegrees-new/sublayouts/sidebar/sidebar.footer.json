@@ -5,48 +5,104 @@
   },
   "children": [
     {
-      "component": "EventButton",
+      "component": "Box",
       "props": {
-        "alignItems": "flex-start",
-        "paddingX": 0,
-        "paddingY": 0,
         "width": "100%",
-        "eventType": "ROUTE_CHANGE",
-        "buttonCode": "registration/add-network"
+        "flexDirection": "column"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "EventButton",
           "props": {
-            "justifyContent": "flex-start",
-            "alignItems": "center",
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
             "width": "100%",
-            "padding": 20,
-            "backgroundColor": "black"
+            "eventType": "ROUTE_CHANGE",
+            "buttonCode": "registration/add-network"
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "marginRight": 10
+                "justifyContent": "flex-start",
+                "alignItems": "center",
+                "width": "100%",
+                "padding": 20,
+                "backgroundColor": "black"
               },
               "children": [
                 {
-                  "component": "Icon",
+                  "component": "Box",
                   "props": {
-                    "name": "add",
+                    "marginRight": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "add",
+                        "color": "white"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Add Network",
+                    "size": "sm",
                     "color": "white"
                   }
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "component": "Link",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "width": "100%",
+            "to": "logout"
+          },
+          "children": [
             {
-              "component": "Text",
+              "component": "Box",
               "props": {
-                "text": "Add Network",
-                "size": "sm",
-                "color": "white"
-              }
+                "justifyContent": "flex-start",
+                "alignItems": "center",
+                "width": "100%",
+                "padding": 20,
+                "backgroundColor": "black"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginRight": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "exit-to-app",
+                        "color": "white"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Logout",
+                    "size": "sm",
+                    "color": "white"
+                  }
+                }
+              ]
             }
           ]
         }
