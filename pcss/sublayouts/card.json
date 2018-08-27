@@ -1,117 +1,129 @@
-{
-  "div": {
-    "style": {
-      "marginBottom": "5px"
-    },
-    "children": [
-      {
-        "Grid": {
-          "rows": [
-            {
-              "style": {
-                "flexGrow": 1,
-                "flexWrap": "nowrap"
-              }
-            },
-            1
-          ],
-          "cols": [
-            0.1,
-            {
-              "style": {
-                "display": "flex",
-                "flexDirection": "column",
-                "flexWrap": "no-wrap",
-                "flexGrow": 1,
-                "paddingRight": "10px",
-                "justifyContent": "space-evenly"
-              }
-            },
-            "10px"
-          ],
-          "children": [
-            {
-              "ImageMapView": {
-                "position": [
-                  0,
-                  0
-                ],
-                "style": {
-                  "width": "30px",
-                  "marginRight": "5px"
-                },
-                "height": 30,
-                "width": 30,
-                "address": "BE.PRI_ADDRESS"
-              }
-            },
-            {
-              "GennyAddressLabel": {
-                "position": [
-                  0,
+{  
+   "div":{  
+      "style":{  
+         "marginBottom":"5px"
+      },
+      "children":[  
+         {  
+            "Grid":{  
+               "rows":[  
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "flexWrap":"nowrap"
+                     }
+                  },
                   1
-                ],
-                "style": {
-                  "fontSize": "0.85em"
-                },
-                "attributePrefix": "PRI_ADDRESS",
-                "root": "BE.code"
-              }
-            },
-            {
-              "GennyStatus": {
-                "position": [
-                  0,
-                  2
-                ],
-                "root": "BE.code",
-                "style": {
-                  "height": "100%",
-                  "maxHeight": "40px"
-                },
-                "statusStyle": {
-                  "height": "100%",
-                  "maxHeight": "40px"
-                }
-              }
+               ],
+               "cols":[  
+                  0.1,
+                  {  
+                     "style":{  
+                        "display":"flex",
+                        "flexDirection":"column",
+                        "flexWrap":"no-wrap",
+                        "flexGrow":1,
+                        "paddingRight":"10px",
+                        "justifyContent":"space-evenly"
+                     }
+                  },
+                  "10px"
+               ],
+               "children":[  
+                  {  
+                     "ImageMapView":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "width":"30px",
+                           "marginRight":"5px"
+                        },
+                        "height":30,
+                        "width":30,
+                        "address":"BE.PRI_ADDRESS"
+                     }
+                  },
+                  {  
+                     "GennyAddressLabel":{  
+                        "position":[  
+                           0,
+                           1
+                        ],
+                        "style":{  
+                           "fontSize":"0.85em"
+                        },
+                        "attributePrefix":"PRI_ADDRESS",
+                        "root":"BE.code"
+                     }
+                  },
+                  {  
+                     "GennyStatus":{  
+                        "position":[  
+                           0,
+                           2
+                        ],
+                        "root":"BE.code",
+                        "style":{  
+                           "height":"100%",
+                           "maxHeight":"40px"
+                        },
+                        "statusStyle":{  
+                           "height":"100%",
+                           "maxHeight":"40px"
+                        }
+                     }
+                  }
+               ]
             }
-          ]
-        }
-      },
-      {
-        "GennyButton": {
-          "style": {
-            "height": "30px",
-            "marginTop": "10px"
-          },
-          "buttonStyle": {
-            "background": "green"
-          },
-          "children": "Send Email",
-          "buttonCode": "BTN_SEND_EMAIL",
-          "value": {
-            "itemCode": "BE.code",
-            "hint": "ROOT"
-          }
-        }
-      },
-      {
-        "GennyButton": {
-          "style": {
-            "height": "30px",
-            "marginTop": "10px"
-          },
-          "buttonStyle": {
-            "background": "green"
-          },
-          "children": "View Detail",
-          "buttonCode": "BTN_VIEW_BEG",
-          "value": {
-            "itemCode": "BE.code",
-            "hint": "ROOT"
-          }
-        }
-      }
-    ]
-  }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "ROOT"
+               ],
+               "showValues":[  
+                  "GRP_NEW_ITEMS"
+               ],
+               "children":[  
+                  {  
+                     "GennyButton":{  
+                        "style":{  
+                           "height":"30px",
+                           "marginTop":"10px"
+                        },
+                        "buttonStyle":{  
+                           "background":"green"
+                        },
+                        "children":"Send Email",
+                        "buttonCode":"BTN_SEND_EMAIL",
+                        "value":{  
+                           "itemCode":"BE.code",
+                           "hint":"ROOT"
+                        }
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "GennyButton":{  
+               "style":{  
+                  "height":"30px",
+                  "marginTop":"10px"
+               },
+               "buttonStyle":{  
+                  "background":"green"
+               },
+               "children":"View Detail",
+               "buttonCode":"BTN_VIEW_BEG",
+               "value":{  
+                  "itemCode":"BE.code",
+                  "hint":"ROOT"
+               }
+            }
+         }
+      ]
+   }
 }
