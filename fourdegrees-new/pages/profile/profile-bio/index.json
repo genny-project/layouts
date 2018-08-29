@@ -31,8 +31,7 @@
                   "props": {
                     "height": 400,
                     "width": "100%",
-                    "source":
-                      "https://media.ceetiz.com/activity/GBAMEL001/thumbnails/642x450/moomba-over-yarra.jpg"
+                    "source": "{{query.profile.attributes.PRI_IMAGE_URL.value}}"
                   },
                   "children": [
                     {
@@ -82,7 +81,7 @@
                               "component": "Heading",
                               "props": {
                                 "text":
-                                  "{{user.attributes.PRI_FIRSTNAME.value}} {{user.attributes.PRI_LASTNAME.value}}",
+                                  "{{query.profile.attributes.PRI_FIRSTNAME.value}} {{query.profile.attributes.PRI_LASTNAME.value}}",
                                 "color": "white",
                                 "size": "xl"
                               }
@@ -129,7 +128,7 @@
                         {
                           "component": "Label",
                           "props": {
-                            "text": "{{user.attributes.PRI_DESCRIPTION.value}}",
+                            "text": "{{query.profile.attributes.PRI_DESCRIPTION.value}}",
                             "color": "black",
                             "size": "sm"
                           }
@@ -189,7 +188,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "PER_USER1",
+      "id": "{{navigation.userID}}",
       "as": "profile"
     },
     {

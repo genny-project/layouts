@@ -1,0 +1,34 @@
+{
+  "layout": {
+    "title": "Profile User",
+    "appColor": "dark",
+    "header": {
+      "variant": "transparent"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "SafeAreaView",
+      "props": {
+        "forceInset": {
+          "top": "never"
+        },
+        "style": {
+          "flex": 1
+        }
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "profile",
+            "userID": "{{navigation.userID}}"
+          }
+        }
+      ]
+    }
+  ]
+}

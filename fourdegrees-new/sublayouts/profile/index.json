@@ -31,7 +31,7 @@
                     "height": 400,
                     "width": "100%",
                     "source":
-                      "https://media.ceetiz.com/activity/GBAMEL001/thumbnails/642x450/moomba-over-yarra.jpg"
+                      "{{query.profile.attributes.PRI_IMAGE_URL.value}}"
                   },
                   "children": [
                     {
@@ -41,32 +41,116 @@
                         "height": "100%",
                         "flexDirection": "column",
                         "justifyContent": "flex-end",
-                        "top": 0,
-                        "padding": 20
+                        "top": 0
                       },
                       "children": [
                         {
                           "component": "Box",
                           "props": {
-                            "flexDirection": "column"
+                            "width": "100%",
+                            "backgroundColor": "rgba(0,0,0,0.4)",
+                            "padding": 20
                           },
                           "children": [
                             {
-                              "component": "Heading",
+                              "component": "Box",
                               "props": {
-                                "text":
-                                  "{{user.attributes.PRI_FIRSTNAME.value}} {{user.attributes.PRI_LASTNAME.value}}",
-                                "color": "white",
-                                "size": "xl"
-                              }
+                                "flexDirection": "column"
+                              },
+                              "children": [
+                                {
+                                  "component": "Heading",
+                                  "props": {
+                                    "text":
+                                      "{{query.profile.attributes.PRI_FIRSTNAME.value}} {{query.profile.attributes.PRI_LASTNAME.value}}",
+                                    "color": "white",
+                                    "size": "xl"
+                                  }
+                                },
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "text": "Not Connected",
+                                    "color": "white",
+                                    "size": "xs"
+                                  },
+                                  "conditional": [
+                                    {
+                                      "if": {
+                                        "navigation.degree": 1
+                                      },
+                                      "then": {
+                                        "text": "Connected - 1st Degree"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "navigation.degree": 2
+                                      },
+                                      "then": {
+                                        "text": "Connected - 2nd Degree"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "navigation.degree": 3
+                                      },
+                                      "then": {
+                                        "text": "Connected - 3rd Degree"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "navigation.degree": 4
+                                      },
+                                      "then": {
+                                        "text": "Connected - 4th Degree"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "user.data.code": "{{props.userID}}"
+                                      },
+                                      "then": {
+                                        "text": "This is you"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             {
-                              "component": "Label",
+                              "component": "Box",
                               "props": {
-                                "text": "Connected - 1st Degree",
-                                "color": "white",
-                                "size": "xs"
-                              }
+                                "flex": 1,
+                                "justifyContent": "flex-end",
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "eventType": "ROUTE_CHANGE",
+                                    "buttonCode": "profile/add-details",
+                                    "color": "transparent",
+                                    "paddingY": 0,
+                                    "paddingX": 0
+                                  },
+                                  "onlyShowIf": {
+                                    "user.data.code": "{{props.userID}}"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Icon",
+                                      "props": {
+                                        "name": "image",
+                                        "color": "white",
+                                        "size": "md"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         }
@@ -134,7 +218,7 @@
                               "component": "Label",
                               "props": {
                                 "text":
-                                  "Introduce {{user.attributes.PRI_FIRSTNAME.value}}",
+                                  "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}",
                                 "color": "black",
                                 "size": "xs"
                               }
@@ -207,7 +291,7 @@
                             },
                             "then": {
                               "text":
-                                "{{user.attributes.PRI_FIRSTNAME.value}} {{user.attributes.PRI_LASTNAME.value}}"
+                                "{{query.profile.attributes.PRI_FIRSTNAME.value}} {{query.profile.attributes.PRI_LASTNAME.value}}"
                             },
                             "else": {
                               "text": "Loading...",
@@ -227,6 +311,9 @@
                             "color": "transparent",
                             "paddingY": 0,
                             "paddingX": 0
+                          },
+                          "onlyShowIf": {
+                            "user.data.code": "{{props.userID}}"
                           },
                           "children": [
                             {
@@ -257,7 +344,7 @@
                               }
                             },
                             "then": {
-                              "text": "{{user.attributes.PRI_DESCRIPTION.value}}"
+                              "text": "{{query.profile.attributes.PRI_DESCRIPTION.value}}"
                             },
                             "else": {
                               "text": "--"
@@ -278,7 +365,7 @@
                         },
                         "to": "profile/profile-bio",
                         "params": {
-                          "loadID": ".{{repeater.item.code}}"
+                          "userID": "{{props.userID}}"
                         }
                       },
                       "children": [
@@ -420,19 +507,22 @@
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.services"
+                        "layoutName": "profile/profile.services",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.products"
+                        "layoutName": "profile/profile.products",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.interests"
+                        "layoutName": "profile/profile.interests",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {
@@ -456,7 +546,8 @@
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.contact"
+                        "layoutName": "profile/profile.contact",
+                        "userID": "{{props.userID}}"
                       }
                     }
                   ]
@@ -499,7 +590,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "PER_USER1",
+      "id": "{{props.userID}}",
       "as": "profile"
     },
     {

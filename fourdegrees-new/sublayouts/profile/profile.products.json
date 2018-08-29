@@ -3,23 +3,92 @@
     {
       "component": "Box",
       "props": {
-        "padding": 20
+        "flexDirection": "column"
       },
       "children": [
         {
-          "component": "EventButton",
-
+          "component": "Box",
           "props": {
-            "eventType": "ROUTE_CHANGE",
-            "buttonCode": "profile/add-products",
-            "text": "Edit Products",
-            "color": "#202532",
-            "textColor": "#FFF",
-            "paddingY": 15,
-            "paddingX": 15
-          }
+            "padding": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-products",
+                "text": "Edit Products",
+                "color": "#202532",
+                "textColor": "#FFF",
+                "paddingY": 15,
+                "paddingX": 15
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 10,
+            "paddingBottom": 20
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_PRODUCTS.value": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexWrap": "wrap"
+              },
+              "repeat": "_query.profile.attributes.PRI_PRODUCTS.value",
+              "children": {
+                "component": "Box",
+                "props": {
+                  "backgroundColor": "lightgrey",
+                  "shape": "pill",
+                  "padding": 10,
+                  "marginRight": 10,
+                  "marginTop": 10
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater}}",
+                      "color": "black",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.userID}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
     }
   ]
 }
