@@ -16,13 +16,31 @@
           "children": [
             {
               "Selector": {
-                "checkValues": ["USER.PRI_IS_BUYER", "USER.PRI_IS_AGENT"],
+                "checkValues": ["USER.PRI_IS_AGENT"],
                 "showValues": [true],
                 "position": [0, 0],
                 "children": [
                   {
                     "SublayoutLoader": {
                       "layoutCode": "card-main",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_BUYER"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-host-company",
                       "aliases": {
                         "BE": "BE.code",
                         "GROUP": "ROOT"
@@ -42,7 +60,7 @@
                     "SublayoutLoader": {
                       "layoutCode": "card-intern",
                       "aliases": {
-                        "BE": "BE.PRI_BEG_CODE",
+                        "BE": "BE.code",
                         "GROUP": "ROOT"
                       }
                     }

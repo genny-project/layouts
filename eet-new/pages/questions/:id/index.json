@@ -2,7 +2,7 @@
   "layout": {
     "title": "Question",
     "appColor": "dark",
-    "backgroundColor": "#202532",
+    "backgroundColor": "white",
     "header": {
       "variant": "default"
     }
@@ -33,7 +33,6 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "xl",
                     "text": "{{heading}}"
                   }
@@ -49,7 +48,6 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -62,7 +60,15 @@
               "props": {
                 "marginBottom": 20,
                 "flexDirection": "column"
+              },
+              "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "text": "{{label}}"
+                }
               }
+              ]
             },
             "renderFormInput": {
               "component": "FormInput",
@@ -83,8 +89,7 @@
               "component": "Button",
               "props": {
                 "inverted": true,
-                "showSpinnerOnClick": true,
-                "color": "white"
+                "showSpinnerOnClick": true
               }
             },
             "renderLoading": {
@@ -108,7 +113,6 @@
                     {
                       "component": "Text",
                       "props": {
-                        "color": "white",
                         "text": "Loading form..."
                       }
                     }

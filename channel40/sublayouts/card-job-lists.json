@@ -1,218 +1,253 @@
 {
-    "div": {
-        "children": [
-            {
-                "Selector":{
-                    "checkValues":["USER.PRI_IS_BUYER", "USER.PRI_IS_ADMIN"],
-                    "showValues": [true, "TRUE"],
-                    "children":[
-                        {
-                            "Selector": {
-                                "checkValues": "ROOT",
-                                "showValues": "GRP_NEW_ITEMS",
-                                "children": [
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["OFFER"],
-                                            "itemsPerPage": 1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showEmpty":false,
-                                            "showTitle": false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector": {
-                                "checkValues": "ROOT",
-                                "showValues": ["GRP_APPROVED", "GRP_IN_TRANSIT", "GRP_DELIVERED", "GRP_PAID"],
-                                "children": [
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["ACCEPTED_OFFER"],
-                                            "itemsPerPage": 1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showTitle": false,
-                                            "showEmpty":false,
-                                            "showTitle": false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["DRIVER"],
-                                            "itemsPerPage": 1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-<<<<<<< HEAD
-                                            "showTitle":false,
-=======
-                                            "showTitle": false,
->>>>>>> dev
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "Selector": {
-                    "checkValues": "USER.PRI_IS_ADMIN",
-                    "showValues": [true, "TRUE"],
-                    "children": [
-                        {
-                            "GennyList":{
-                                "root":"BE.code",
-                                "showLinks":["OWNER"],
-                                "itemsPerPage":1,
-                                "hideHeader":true,
-                                "hideCount":true,
-                                "hideNav":true,
-                                "showTitle":false,
-                                "showEmpty":false,
-                                "style":{
+   "div":{
+      "children":[
+         {
+            "Selector":{
+               "checkValues":[
+                  "USER.PRI_IS_BUYER",
+                  "USER.PRI_IS_ADMIN"
+               ],
+               "showValues":[
+                  true,
+                  "true",
+                  "TRUE"
+               ],
+               "children":[
+                  {
+                     "Selector":{
+                        "checkValues":"ROOT",
+                        "showValues":"GRP_NEW_ITEMS",
+                        "children":[
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "OFFER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showEmpty":false,
+                                 "showTitle":false,
+                                 "style":{
                                     "padding":"0"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "Selector":{
-                    "checkValues": "USER.PRI_IS_SELLER",
-                    "showValues": [true, "TRUE"],
-                    "children":[
-                        {
-                            "Selector": {
-                                "checkValues": "ROOT",
-                                "showValues": "GRP_NEW_ITEMS",
-                                "children": [
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["OWNER"],
-                                            "itemsPerPage":1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showTitle": false,
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["OFFER"],
-                                            "itemsPerPage":1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "showTitle": false,
-                                            "hideNav":true,
-                                            "showTitle": false,
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Selector": {
-                                "checkValues": "ROOT",
-                                "showValues": ["GRP_APPROVED", "GRP_IN_TRANSIT", "GRP_DELIVERED", "GRP_PAID"],
-                                "children": [
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["ACCEPTED_OFFER"],
-                                            "itemsPerPage":1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showTitle": false,
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "GennyList":{
-                                            "root":"BE.code",
-                                            "showLinks":["OWNER"],
-                                            "itemsPerPage":1,
-                                            "hideHeader":true,
-                                            "hideCount":true,
-                                            "hideNav":true,
-                                            "showTitle": false,
-                                            "showEmpty":false,
-                                            "style":{
-                                                "padding":"0"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "GennyButton":{
-                    "buttonCode":"BTN_LOAD_SEE_MORE",
-                    "value":{
-                        "itemCode":"BE.code",
-                        "hint":"ROOT"
-                    },
-                    "position":[
-                        0,
-                        1
-                    ],
-                    "style":{
-                        "height":"30px",
-                        "marginTop":"10px"
-                    },
-                    "buttonStyle":{
-                        "backgroundColor":"#000"
-                    },
-                    "children":[
-                        {
-                            "span":{
-                                "style":{
-                                    "fontSize":"0.8em"
-                                },
-                                "children":"View Load Details"
-                            }
-                        }
-                    ]
-                }
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "Selector":{
+                        "checkValues":"ROOT",
+                        "showValues":[
+                           "GRP_APPROVED",
+                           "GRP_IN_TRANSIT",
+                           "GRP_DELIVERED",
+                           "GRP_PAID"
+                        ],
+                        "children":[
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "ACCEPTED_OFFER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           },
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "DRIVER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         },
+         {
+            "Selector":{
+               "checkValues":"USER.PRI_IS_ADMIN",
+               "showValues":[
+                  true,
+                  "true",
+                  "TRUE"
+               ],
+               "children":[
+                  {
+                     "GennyList":{
+                        "root":"BE.code",
+                        "showLinks":[
+                           "OWNER"
+                        ],
+                        "itemsPerPage":1,
+                        "hideHeader":true,
+                        "hideCount":true,
+                        "hideNav":true,
+                        "showTitle":false,
+                        "showEmpty":false,
+                        "style":{
+                           "padding":"0"
+                        }
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "Selector":{
+               "checkValues":"USER.PRI_IS_SELLER",
+               "showValues":[
+                  true,
+                  "true",
+                  "TRUE"
+               ],
+               "children":[
+                  {
+                     "Selector":{
+                        "checkValues":"ROOT",
+                        "showValues":"GRP_NEW_ITEMS",
+                        "children":[
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "OWNER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           },
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "OFFER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "Selector":{
+                        "checkValues":"ROOT",
+                        "showValues":[
+                           "GRP_APPROVED",
+                           "GRP_IN_TRANSIT",
+                           "GRP_DELIVERED",
+                           "GRP_PAID"
+                        ],
+                        "children":[
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "ACCEPTED_OFFER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           },
+                           {
+                              "GennyList":{
+                                 "root":"BE.code",
+                                 "showLinks":[
+                                    "OWNER"
+                                 ],
+                                 "itemsPerPage":1,
+                                 "hideHeader":true,
+                                 "hideCount":true,
+                                 "hideNav":true,
+                                 "showTitle":false,
+                                 "showEmpty":false,
+                                 "style":{
+                                    "padding":"0"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "GennyButton":{
+               "buttonCode":"BTN_LOAD_SEE_MORE",
+               "value":{
+                  "itemCode":"BE.code",
+                  "hint":"ROOT"
+               },
+               "position":[
+                  0,
+                  1
+               ],
+               "style":{
+                  "height":"30px",
+                  "marginTop":"10px"
+               },
+               "buttonStyle":{
+                  "backgroundColor":"#000"
+               },
+               "children":[
+                  {
+                     "span":{
+                        "style":{
+                           "fontSize":"0.8em"
+                        },
+                        "children":"View Load Details"
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
 }

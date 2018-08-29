@@ -2,7 +2,7 @@
   "layout": {
     "title": "Welcome",
     "appColor": "white",
-    "backgroundColor": "#202532"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -25,33 +25,24 @@
           "props": {
             "flex": 1,
             "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "Image",
-              "props": {
-                "source": "https://puu.sh/B9kRL.png",
-                "height": 25,
-                "width": 75
-              }
-            }
-          ]
+          }
         },
         {
           "component": "Box",
           "props": {
             "flex": 1,
-            "alignItems": "center"
+            "alignItems": "center",
+            "width": "100%"
           },
           "children": [
             {
               "component": "Heading",
               "props": {
-                "color": "white",
                 "size": "xxl",
-                "bold": false
+                "bold": false,
+                "align": "center"
               },
-              "children": "Welcome"
+              "children": "EET"
             }
           ]
         },
@@ -71,12 +62,12 @@
               },
               "children": [
                 {
-                  "component": "Button",
+                  "component": "LinkButton",
                   "props": {
-                    "text": "Join Network",
-                    "color": "#09D0B7",
-                    "textColor": "#09D0B7",
-                    "inverted": true
+                    "text": "Login",
+                    "color": "#007bff",
+                    "textColor": "white",
+                    "to": "login"
                   }
                 }
               ]
@@ -84,10 +75,10 @@
             {
               "component": "LinkButton",
               "props": {
-                "text": "Login",
-                "color": "white",
-                "inverted": true,
-                "to": "login"
+                "text": "Register",
+                "color": "black",
+                "textColor": "white",
+                "to": "register"
               }
             }
           ]

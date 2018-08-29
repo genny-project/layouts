@@ -6,8 +6,14 @@
   "children": [
     {
       "component": "ScrollView",
+<<<<<<< HEAD
 
       "props": {},
+=======
+      "props": {
+        "width": "100%"
+      },
+>>>>>>> dev
       "children": [
         {
           "component": "Box",
@@ -39,7 +45,7 @@
                         "flex": 1,
                         "height": "100%",
                         "flexDirection": "column",
-                        "justifyContent": "space-between",
+                        "justifyContent": "flex-end",
                         "top": 0,
                         "padding": 20
                       },
@@ -47,10 +53,14 @@
                         {
                           "component": "Box",
                           "props": {
+<<<<<<< HEAD
                             "flexDirection": "column",
                             "position": "absolute",
                             "top": 300,
                             "left": 20
+=======
+                            "flexDirection": "column"
+>>>>>>> dev
                           },
                           "children": [
                             {
@@ -249,8 +259,20 @@
                       "children": [
                         {
                           "component": "Label",
+                          "conditional": {
+                            "if": {
+                              "user.attributes.PRI_DESCRIPTION.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{user.attributes.PRI_DESCRIPTION.value}}"
+                            },
+                            "else": {
+                              "text": "--"
+                            }
+                          },
                           "props": {
-                            "text": "{{user.attributes.PRI_DESCRIPTION.value}}",
                             "color": "black",
                             "size": "xs"
                           }

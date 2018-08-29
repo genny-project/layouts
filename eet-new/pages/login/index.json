@@ -2,7 +2,7 @@
   "layout": {
     "title": "Login",
     "appColor": "white",
-    "backgroundColor": "#202532",
+    "backgroundColor": "white",
     "header": {
       "variant": "public-transparent"
     }
@@ -38,31 +38,22 @@
               "component": "Box",
               "props": {
                 "flex": 1,
+                "height": 5,
                 "alignItems": "center"
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "source": "https://puu.sh/B9kRL.png",
-                    "height": 25,
-                    "width": 75
-                  }
-                }
-              ]
+              }
             },
             {
               "component": "Box",
               "props": {
                 "flex": 2,
                 "flexShrink": 0,
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "marginTop": 10
               },
               "children": [
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "xxl",
                     "bold": false
                   },
@@ -108,8 +99,8 @@
                                       "useThemeFrom": "Input",
                                       "variant": "default",
                                       "props": {
-                                        "type": "text",
-                                        "placeholder": "Username",
+                                        "type": "email",
+                                        "placeholder": "Email",
                                         "name": "username"
                                       }
                                     }
@@ -173,8 +164,8 @@
                                   "component": "FormGenericSubmit",
                                   "props": {
                                     "text": "Next",
-                                    "inverted": true,
-                                    "color": "white"
+                                    "color": "#007bff",
+                                    "textColor": "white"
                                   }
                                 }
                               ]

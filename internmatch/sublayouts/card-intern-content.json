@@ -1,0 +1,63 @@
+{
+  "Grid": {
+    "position": [0, 0],
+    "rows": 1,
+    "cols": [
+      "40px",
+      1,
+      {
+        "style": {
+          "flex": "0 0 10px",
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "flex-end"
+        }
+      }
+    ],
+    "children":[
+
+      {
+        "SublayoutLoader": {
+          "position": [0, 0],
+          "layoutCode": "card-host-company-image",
+          "style" : {
+            "marginRight": "5px"
+          },
+          "aliases": {
+            "BE": "BE.PRI_COMPANY_CODE",
+            "GROUP": "ROOT"
+          }
+        }
+      }, 
+      {
+        "Grid": {
+          "position": [0, 1],
+          "rows": 2,
+          "cols": 1,
+          "children": [
+            {
+              "SublayoutLoader": {
+                "position": [1, 0],
+                "layoutCode": "card-host-company-name",
+                "style": {},
+                "aliases": {
+                  "BE": "BE.PRI_COMPANY_CODE",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "p": {
+                "position": [1, 0],
+                "style": {
+                  "margin": "0px"
+                },
+                "children": "BE.PRI_NAME"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 {
   "layout": {
-    "title": "Login",
+    "title": "Register",
     "appColor": "white",
-    "backgroundColor": "#202532",
+    "backgroundColor": "white",
     "header": {
       "variant": "public-transparent"
     }
@@ -37,23 +37,6 @@
             {
               "component": "Box",
               "props": {
-                "flex": 1,
-                "alignItems": "center"
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "source": "https://puu.sh/B9kRL.png",
-                    "height": 25,
-                    "width": 75
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
                 "flex": 2,
                 "flexShrink": 0,
                 "flexDirection": "column"
@@ -62,7 +45,6 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "xxl",
                     "bold": false
                   },
@@ -78,7 +60,7 @@
                     {
                       "component": "AuthenticationForm",
                       "props": {
-                        "type": "login"
+                        "type": "register"
                       },
                       "children": [
                         {
@@ -111,6 +93,60 @@
                                         "type": "text",
                                         "placeholder": "Username",
                                         "name": "username"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginBottom": 20
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "FormGenericInput",
+                                      "useThemeFrom": "Input",
+                                      "variant": "default",
+                                      "props": {
+                                        "type": "email",
+                                        "placeholder": "Email",
+                                        "name": "email"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginBottom": 20
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "FormGenericInput",
+                                      "useThemeFrom": "Input",
+                                      "variant": "default",
+                                      "props": {
+                                        "type": "text",
+                                        "placeholder": "First name",
+                                        "name": "firstname"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginBottom": 20
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "FormGenericInput",
+                                      "useThemeFrom": "Input",
+                                      "variant": "default",
+                                      "props": {
+                                        "type": "text",
+                                        "placeholder": "Last name",
+                                        "name": "lastname"
                                       }
                                     }
                                   ]
@@ -173,8 +209,8 @@
                                   "component": "FormGenericSubmit",
                                   "props": {
                                     "text": "Next",
-                                    "inverted": true,
-                                    "color": "white"
+                                    "color": "#007bff",
+                                    "textColor": "white"
                                   }
                                 }
                               ]
