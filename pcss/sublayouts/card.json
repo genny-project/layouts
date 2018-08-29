@@ -59,6 +59,32 @@
                       }
                    },
                    {  
+                    "Selector":{  
+                       "checkValues":[  
+                          "BE.PRI_INSPECTION_DATETIME"
+                       ],
+                       "position":[  
+                        0,
+                        1
+                     ],
+                       "showIfNotNull":true,
+                       "children":[  
+                          {  
+                             "span":{  
+                                "style":{  
+                                   "fontSize":"0.85em",
+                                   "padding":"5px",
+                                   "backgroundColor":"#ddd",
+                                   "marginBottom":"5px",
+                                   "flexGrow":1
+                                },
+                                "children":"Inspection Time: ${BE.PRI_INSPECTION_DATETIME}"
+                             }
+                          }
+                       ]
+                    }
+                 },
+                   {  
                       "GennyStatus":{  
                          "position":[  
                             0,
@@ -168,6 +194,48 @@
                 ]
              }
           },
+          {  
+            "Selector":{  
+               "checkValues":[  
+                   "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Inspection Date",
+                                 "buttonCode":"BTN_REQUEST_INSPECTION_DATETIME",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
           {  
              "Selector":{  
                 "checkValues":[  
