@@ -5,139 +5,156 @@
   },
   "children": [
     {
-      "component": "Box",
+      "component": "Link",
       "props": {
-        "flexDirection": "row",
-        "backgroundColor": "white",
-        "flex": 1,
-        "padding": 20,
-        "marginBottom": 10
+        "style": {
+          "width": "100%"
+        },
+        "to": "profile/",
+        "params": {
+          "userID": "{{props.contactID}}",
+          "degree": "_props.depths.{{props.contactID}}"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "marginRight": 20,
-            "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "Image",
-              "props": {
-                "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
-                "shape": "circle",
-                "width": 60,
-                "height": 60
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
+            "flexDirection": "row",
+            "backgroundColor": "white",
             "flex": 1,
-            "flexDirection": "column"
+            "padding": 20,
+            "marginBottom": 10,
+            "alignItems": "center"
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "marginBottom": 5
+                "marginRight": 20,
+                "alignItems": "center"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Image",
                   "props": {
-                    "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
-                    "color": "grey",
-                    "size": "xs"
+                    "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "shape": "circle",
+                    "width": 60,
+                    "height": 60
                   }
                 }
               ]
             },
             {
               "component": "Box",
-              "props": {},
-              "children": [
-                {
-                  "component": "Text",
-                  "conditional": [
-                    {
-                      "if": {
-                        "props.depths.{{props.contactID}}": 1
-                      },
-                      "then": {
-                        "text": "1st Degree"
-                      }
-                    },
-                    {
-                      "if": {
-                        "props.depths.{{props.contactID}}": 2
-                      },
-                      "then": {
-                        "text": "2nd Degree"
-                      }
-                    },
-                    {
-                      "if": {
-                        "props.depths.{{props.contactID}}": 3
-                      },
-                      "then": {
-                        "text": "3rd Degree"
-                      }
-                    },
-                    {
-                      "if": {
-                        "props.depths.{{props.contactID}}": 4
-                      },
-                      "then": {
-                        "text": "4th Degree"
-                      }
-                    }
-                  ],
-                  "props": {
-                    "color": "black",
-                    "size": "xs"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "EventButton",
-          "dontShowIf": {
-            "props.depths.{{props.contactID}}": 1
-          },
-          "props": {
-            "alignItems": "flex-start",
-            "paddingX": 0,
-            "paddingY": 0,
-            "eventType": "BTN_CLICK",
-            "buttonCode": "CONNECT_WITH_PEOPLE",
-            "value": {
-              "itemCode": "{{props.contactID}}"
-            }
-          },
-          "children": [
-            {
-              "component": "Box",
               "props": {
-                "marginleft": 20,
-                "alignItems": "center"
+                "flex": 1,
+                "flexDirection": "column"
               },
               "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                },
                 {
                   "component": "Box",
                   "props": {},
                   "children": [
                     {
-                      "component": "Icon",
+                      "component": "Text",
                       "props": {
                         "color": "black",
-                        "size": "md",
-                        "name": "add-circle-outline"
-                      }
+                        "text": "Not Connected",
+                        "size": "xs"
+                      },
+                      "conditional": [
+                        {
+                          "if": {
+                            "props.depths.{{props.contactID}}": 1
+                          },
+                          "then": {
+                            "text": "1st Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.contactID}}": 2
+                          },
+                          "then": {
+                            "text": "2nd Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.contactID}}": 3
+                          },
+                          "then": {
+                            "text": "3rd Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.contactID}}": 4
+                          },
+                          "then": {
+                            "text": "4th Degree"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "EventButton",
+              "dontShowIf": {
+                "props.depths.{{props.contactID}}": 1
+              },
+              "props": {
+                "alignItems": "flex-start",
+                "paddingX": 0,
+                "paddingY": 0,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "CONNECT_WITH_PEOPLE",
+                "value": {
+                  "itemCode": "{{props.contactID}}"
+                }
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginleft": 20,
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "color": "black",
+                            "size": "lg",
+                            "name": "add-circle-outline"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
