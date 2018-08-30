@@ -9,12 +9,15 @@
   "children": [
     {
       "component": "ScrollView",
-      "props": {},
+      "props": {
+        "flex": 1
+      },
       "children": [
         {
           "component": "Box",
           "props": {
             "flex": 1,
+            "height": "100%",
             "flexDirection": "column",
             "backgroundColor": "lightgrey"
           },
@@ -46,32 +49,6 @@
                       },
                       "children": [
                         {
-                          "component": "Link",
-                          "props": {
-                            "style": {},
-                            "to": "profile",
-                            "params": {}
-                          },
-                          "children": [
-                            {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column"
-                              },
-                              "children": [
-                                {
-                                  "component": "Icon",
-                                  "props": {
-                                    "name": "chevron-left",
-                                    "color": "white",
-                                    "size": "lg"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
                           "component": "Box",
                           "props": {
                             "flexDirection": "column"
@@ -87,7 +64,7 @@
                               }
                             },
                             {
-                              "component": "Label",
+                              "component": "Text",
                               "props": {
                                 "text": "Bio",
                                 "color": "white",
@@ -126,55 +103,51 @@
                       },
                       "children": [
                         {
-                          "component": "Label",
+                          "component": "Text",
                           "props": {
-                            "text": "{{query.profile.attributes.PRI_DESCRIPTION.value}}",
                             "color": "black",
                             "size": "sm"
+                          },
+                          "conditional": {
+                            "if": {
+                              "query.profile.attributes.PRI_DESCRIPTION.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.profile.attributes.PRI_DESCRIPTION.value}}"
+                            },
+                            "else": {
+                              "text": "No description to show."
+                            }
                           }
                         }
                       ]
                     },
                     {
                       "component": "Box",
-                      "props": {},
                       "children": [
                         {
-                          "component": "Label",
+                          "component": "Text",
                           "props": {
-                            "text": "",
                             "color": "black",
                             "size": "xs"
+                          },
+                          "conditional": {
+                            "if": {
+                              "query.profile.attributes.PRI_PERSONAL_INFO.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{query.profile.attributes.PRI_PERSONAL_INFO.value}}"
+                            },
+                            "else": {
+                              "text": "No additional information to show."
+                            }
                           }
                         }
                       ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "padding": 10
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "flex": 1,
-                    "backgroundColor": "#202532",
-                    "justifyContent": "center",
-                    "padding": 15
-                  },
-                  "children": [
-                    {
-                      "component": "Label",
-                      "props": {
-                        "text": "Message",
-                        "color": "white",
-                        "size": "xs"
-                      }
                     }
                   ]
                 }

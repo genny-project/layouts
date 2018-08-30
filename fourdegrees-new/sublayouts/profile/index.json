@@ -112,7 +112,7 @@
                                         "user.data.code": "{{props.userID}}"
                                       },
                                       "then": {
-                                        "text": "This is you"
+                                        "text": ""
                                       }
                                     }
                                   ]
@@ -175,6 +175,9 @@
                     "flexDirection": "column",
                     "padding": 10
                   },
+                  "dontShowIf": {
+                    "user.data.code": "{{props.userID}}"
+                  },
                   "children": [
                     {
                       "component": "Link",
@@ -215,7 +218,7 @@
                               ]
                             },
                             {
-                              "component": "Label",
+                              "component": "Text",
                               "props": {
                                 "text":
                                   "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}",
@@ -339,7 +342,7 @@
                           "component": "Label",
                           "conditional": {
                             "if": {
-                              "user.attributes.PRI_DESCRIPTION.value": {
+                              "query.profile.attributes.PRI_DESCRIPTION.value": {
                                 "$exists": true
                               }
                             },
@@ -347,7 +350,7 @@
                               "text": "{{query.profile.attributes.PRI_DESCRIPTION.value}}"
                             },
                             "else": {
-                              "text": "--"
+                              "text": "No description to show."
                             }
                           },
                           "props": {
