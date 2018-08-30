@@ -1,0 +1,76 @@
+{
+  "Grid": {
+    "rows": 2,
+    "cols": 1,
+    "style": {
+      "padding": "0",
+      "background": "white",
+      "fontSize": "10px"
+    },
+    "children": [
+      {
+        "Selector": {
+          "position": [0, 0],
+          "checkValues": ["BE.linkValue"],
+          "hideValues": ["UNIT"],
+          "children": [
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_BUYER"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-main",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_JOHN_HOLLAND"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-host-company",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Selector": {
+                "checkValues": ["USER.PRI_IS_EDU_PROVIDER_STAFF"],
+                "showValues": [true],
+                "position": [0, 0],
+                "children": [
+                  {
+                    "SublayoutLoader": {
+                      "layoutCode": "card-edu-provider",
+                      "aliases": {
+                        "BE": "BE.code",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
