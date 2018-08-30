@@ -229,11 +229,29 @@
                                         "icon":"dashboard",
                                         "layout":{  
                                            "layout":[  
-                                              {  
-                                                 "GennyBucketView":{  
-                                                    "root":"GRP_BEGS"
-                                                 }
-                                              }
+                                              {
+                                                "SplitView": {
+                                                    "position": [
+                                                        1,
+                                                        0
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "GennyList": {
+                                                                "root": "GRP_NEW_ITEMS",
+                                                                "showTitle": true,
+                                                                "hideSelectedStyle": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "GennyBucketView": {
+                                                                "useLinkValueForLayout": true,
+                                                                "root": "GRP_UNITS"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
                                            ]
                                         }
                                      },
