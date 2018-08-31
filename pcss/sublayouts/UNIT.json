@@ -1,6 +1,6 @@
 {
   "Grid": {
-    "rows": 3,
+    "rows": 2,
     "cols": 1,
     "style": {
       "padding": "0",
@@ -8,26 +8,27 @@
       "fontSize": "10px"
     },
     "children": [
+      {  
+        "GennyAddressLabel":{  
+           "position":[  
+              0,
+              0
+           ],
+           "style":{  
+
+              "fontSize":"0.85em"
+           },
+           "attributePrefix":"PRI_ADDRESS",
+           "root":"BE.code"
+        }
+     },
       {
         "Selector": {
-          "position": [0, 0],
+          "position": [0, 1],
           "checkValues": ["BE.linkValue"],
           "showValues": ["UNIT"],
           "children": [
-            {  
-              "GennyAddressLabel":{  
-                 "position":[  
-                    0,
-                    0
-                 ],
-                 "style":{  
 
-                    "fontSize":"0.85em"
-                 },
-                 "attributePrefix":"PRI_ADDRESS",
-                 "root":"BE.code"
-              }
-           },
             {
               "Selector": {
                 "checkValues": ["USER.PRI_IS_BUYER"],
@@ -50,7 +51,7 @@
               "Selector": {
                 "checkValues": ["USER.PRI_IS_JOHN_HOLLAND"],
                 "showValues": [true,"true"],
-                "position": [0, 2],
+                "position": [0, 1],
                 "children": [
                   {
                     "SublayoutLoader": {
