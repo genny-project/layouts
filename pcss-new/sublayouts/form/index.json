@@ -1,0 +1,108 @@
+{
+  "layout": {
+    "title": "Welcome",
+    "appColor": "white",
+    "backgroundColor": "#202532"
+  },
+  "children": [
+    {
+      "component": "Form",
+      "props": {
+        "questionGroupCode": "{{props.formCode}}",
+        "renderHeading": {
+          "component": "Box",
+          "props": {
+            "marginTop": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "white",
+                "size": "xl",
+                "text": "{{heading}}"
+              }
+            }
+          ]
+        },
+        "renderSubheading": {
+          "component": "Box",
+          "props": {
+            "marginY": 20
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "white",
+                "size": "lg",
+                "align": "left",
+                "text": "{{subheading}}"
+              }
+            }
+          ]
+        },
+        "renderFormInputWrapper": {
+          "component": "Box",
+          "props": {
+            "marginBottom": 20,
+            "flexDirection": "column"
+          }
+        },
+        "renderFormInput": {
+          "component": "FormInput",
+          "useThemeFrom": "Input",
+          "variant": "default",
+          "props": {
+            "placeholder": "{{label}}"
+          }
+        },
+        "renderSubmitButtonWrapper": {
+          "component": "Box",
+          "props": {
+            "marginTop": 10,
+            "flexDirection": "column"
+          }
+        },
+        "renderSubmitButton": {
+          "component": "Button",
+          "props": {
+            "inverted": true,
+            "showSpinnerOnClick": true,
+            "color": "white"
+          }
+        },
+        "renderLoading": {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "ActivityIndicator",
+              "props": {
+                "size": "large"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginTop": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "color": "white",
+                    "text": "Loading form..."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
