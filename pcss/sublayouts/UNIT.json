@@ -62,7 +62,6 @@
                         "children":"Address : "
                      }
                   },
-          
                   {  
                      "GennyAddressLabel":{  
                         "position":[  
@@ -151,14 +150,42 @@
                      }
                   }
                ],
-               "children":[ 
-                 {  
+               "children":[  
+                  {  
                      "Selector":{  
                         "checkValues":[  
                            "ROOT"
                         ],
                         "showValues":[  
-                         "GRP_IDENTIFIED"
+                           "GRP_IDENTIFIED"
+                        ],
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "padding-top":"5px"
+                        },
+                        "children":[  
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"unit_details-identified",
+                                 "aliases":{  
+                                    "BE":"BE.PRI_BEG_CODE",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
                         ],
                         "position":[  
                            1,
@@ -181,75 +208,31 @@
                      }
                   },
                   {  
-                     "div":{  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_REQUESTED"
+                        ],
+                        "position":[  
+                           1,
+                           0
+                        ],
                         "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
+                           "padding-top":"5px"
                         },
-                        "children":"Owner : Name......"
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
-                        },
-                        "children":"Owner Contact : Contact...."
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
-                        },
-                        "children":"Rep Nmae: Name....."
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
-                        },
-                        "children":"Rep Contact : Contact....."
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
-                        },
-                        "children":"Tenant Name: Name....."
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "style":{  
-                           "fontSize":"0.85em",
-                           "padding":"5px",
-                           "backgroundColor":"#ddd",
-                           "marginBottom":"5px",
-                           "flexGrow":1
-                        },
-                        "children":"Tenant Contact : COntact....."
+                        "children":[  
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"unit_details-requested",
+                                 "aliases":{  
+                                    "BE":"BE.PRI_BEG_CODE",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
                      }
                   }
                ]
