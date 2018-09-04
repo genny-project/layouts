@@ -1,0 +1,121 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-interests",
+                "text": "Edit Interests",
+                "color": "#202532",
+                "textColor": "#FFF",
+                "paddingY": 15,
+                "paddingX": 15
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 10,
+            "paddingBottom": 20
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_INTERESTS.value": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexWrap": "wrap"
+              },
+              "repeat": "_query.profile.attributes.PRI_INTERESTS.value",
+              "children": {
+                "component": "Box",
+                "props": {
+                  "backgroundColor": "lightgrey",
+                  "shape": "pill",
+                  "padding": 10,
+                  "marginRight": 10,
+                  "marginTop": 10
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater}}",
+                      "color": "black",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "width": "100%",
+            "justifyContent": "center"
+          },
+          "dontShowIf": {
+            "query.profile.attributes.PRI_INTERESTS.value": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "No interests to show.",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.userID}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

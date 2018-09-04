@@ -1,0 +1,216 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-contact",
+                "text": "Edit Contacts",
+                "color": "#202532",
+                "textColor": "#FFF",
+                "paddingY": 15,
+                "paddingX": 15
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 5
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_MOBILE.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "Phone",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 5
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_MOBILE.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{query.profile.attributes.PRI_MOBILE.value}}",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 5
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_WEBSITE.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "Website",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 5
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_WEBSITE.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{query.profile.attributes.PRI_WEBSITE.value}}",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 5
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_EMAIL.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "Email",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_EMAIL.value": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{query.profile.attributes.PRI_EMAIL.value}}",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20
+          },
+          "onlyShowIf": {
+            "query.profile.attributes.PRI_MOBILE.value": {
+              "$exists": false
+            },
+            "query.profile.attributes.PRI_WEBSITE.value": {
+              "$exists": false
+            },
+            "query.profile.attributes.PRI_EMAIL.value": {
+              "$exists": false
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "No contact information to show.",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.userID}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

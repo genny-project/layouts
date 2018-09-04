@@ -1,0 +1,374 @@
+{
+
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "style": {
+          "flex": 1
+        }
+      },
+      "children": [
+        {
+          "component": "Image",
+          "props": {
+            "flex": 1,
+            "minHeight": "100%",
+            "source": "https://puu.sh/BdU7u.png"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginTop": 80,
+                "marginBottom": 40,
+                "paddingX": 20,
+                "flex": 1,
+                "justifyContent": "space-between"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "marginTop": 80
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "conditional": {
+                        "if": {
+                          "user.attributes.PRI_FIRSTNAME.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "Good {{time.timeOfDay}}, {{user.attributes.PRI_FIRSTNAME.value}}."
+                        },
+                        "else": {
+                          "text": "Good {{time.timeOfDay}}."
+                        }
+                      },
+                      "props": {
+                        "flex": 1,
+                        "color": "white",
+                        "size": "xl"
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 40,
+                        "marginBottom": 40
+                      },
+                      "children": [
+                        {
+                          "component": "EventButton",
+                          "props": {
+                            "text": "Browse network",
+                            "buttonCode": "BTN_BROWSE_NETWORK",
+                            "color": "#09D0B7",
+                            "textColor": "#09D0B7",
+                            "inverted": true,
+                            "textAlign": "left",
+                            "width": 200
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Search network by",
+                        "color": "white"
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 10,
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "flexDirection": "column",
+                        "boxShadow": "light"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "height": 50
+                          },
+                          "children": [
+                            {
+                              "component": "Input",
+                              "props": {
+                                "type": "autocomplete",
+                                "inputProps": {
+                                  "borderWidth": 0,
+                                  "borderBottomWidth": 1,
+                                  "borderColor": "lightgray",
+                                  "placeholder": "Keyword Search",
+                                  "icon": "search",
+                                  "iconColor": "black",
+                                  "borderRadius": 0,
+                                  "borderTopLeftRadius": 5,
+                                  "borderTopRightRadius": 5,
+                                  "backgroundColor": "white",
+                                  "paddingX": 15
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "flexDirection": "column"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flexDirection": "row"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/categories",
+                                    "value": "GRP_PRODUCTS",
+                                    "params": {
+                                      "searchID": "GRP_PRODUCTS"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray",
+                                        "borderBottomWidth": 1,
+                                        "borderRightWidth": 1
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Products"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/categories",
+                                    "value": "GRP_SERVICES",
+                                    "params": {
+                                      "searchID": "GRP_SERVICES"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray",
+                                        "borderBottomWidth": 1
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Services"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "children": [
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/categories",
+                                    "value": "GRP_INDUSTRIES",
+                                    "params": {
+                                      "searchID": "GRP_INDUSTRIES"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray",
+                                        "borderBottomWidth": 1,
+                                        "borderRightWidth": 1
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Industry"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/categories",
+                                    "value": "GRP_NAMES",
+                                    "params": {
+                                      "searchID": "GRP_NAMES"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray",
+                                        "borderBottomWidth": 1
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Name"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+
+                              },
+                              "children": [
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/category-refinement"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray",
+                                        "borderRightWidth": 1
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Company"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "EventLink",
+                                  "props": {
+                                    "style": {
+                                      "width": "50%"
+                                    },
+                                    "to": "search/categories",
+                                    "value": "GRP_INTERESTS",
+                                    "params": {
+                                      "searchID": "GRP_INTERESTS"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "width": "100%",
+                                        "height": 85,
+                                        "alignItems": "center",
+                                        "justifyContent": "center",
+                                        "borderColor": "lightgray"
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "text": "Interest"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
