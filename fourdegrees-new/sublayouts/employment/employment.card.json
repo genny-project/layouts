@@ -96,19 +96,19 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.attributes.PRI_START_DATE.value}} - Current",
+                    "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - Current",
                     "color": "grey",
                     "size": "xxs"
                   },
                   "conditional": [
                     {
                       "if": {
-                        "query.attributes.PRI_END_DATE.value": {
+                        "query.attributes.PRI_END_DATE_UNVERIFIED.value": {
                           "$exists": true
                         }
                       },
                       "then": {
-                        "text": "{{query.attributes.PRI_START_DATE.value}} - {{query.attributes.PRI_END_DATE.value}}"
+                        "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - {{query.attributes.PRI_END_DATE_UNVERIFIED.value}}"
                       }
                     }
                   ]

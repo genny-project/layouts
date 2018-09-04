@@ -12,13 +12,16 @@
           "props": {
             "padding": 10
           },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
           "children": [
             {
               "component": "EventButton",
               "props": {
                 "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-education-history",
-                "text": "Add Education",
+                "buttonCode": "profile/add-skills",
+                "text": "Edit Skills",
                 "color": "#202532",
                 "textColor": "#FFF",
                 "paddingY": 15,
@@ -30,24 +33,46 @@
         {
           "component": "Box",
           "props": {
-            "paddingX": 10,
-            "flexDirection": "column"
+            "backgroundColor": "white",
+            "padding": 10,
+            "paddingBottom": 20
           },
           "onlyShowIf": {
-            "query.profile.links": {
+            "query.profile.attributes.PRI_SKILLS.value": {
               "$size": {
                 "$gt": 0
               }
             }
           },
-          "repeat": "_query.profile.links",
-          "children": {
-            "component": "Sublayout",
-            "props": {
-              "layoutName": "employment/employment.card",
-              "employmentID": "{{repeater.code}}"
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexWrap": "wrap"
+              },
+              "repeat": "_query.profile.attributes.PRI_SKILLS.value",
+              "children": {
+                "component": "Box",
+                "props": {
+                  "backgroundColor": "lightgrey",
+                  "shape": "pill",
+                  "padding": 10,
+                  "marginRight": 10,
+                  "marginTop": 10
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater}}",
+                      "color": "black",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
             }
-          }
+          ]
         },
         {
           "component": "Box",
@@ -58,7 +83,7 @@
             "justifyContent": "center"
           },
           "dontShowIf": {
-            "query.profile.links": {
+            "query.profile.attributes.PRI_SKILLS.value": {
               "$size": {
                 "$gt": 0
               }
@@ -68,7 +93,7 @@
             {
               "component": "Text",
               "props": {
-                "text": "No employment to show.",
+                "text": "No skills to show.",
                 "color": "black",
                 "size": "xs"
               }
@@ -86,11 +111,10 @@
     },
     {
       "operator": "scope",
-      "path": "profile.links",
+      "path": "profile",
       "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
       }
     }
   ]

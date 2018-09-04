@@ -1,7 +1,7 @@
 {
   "layout": {
-    "title": "Results",
-    "backgroundColor": "#f8f8f8",
+    "title": "Welcome",
+    "appColor": "dark",
     "header": {
       "variant": "default"
     }
@@ -10,18 +10,16 @@
     {
       "component": "ScrollView",
       "props": {
-        "style": {
-          "flex": 1,
-          "height": "100%"
-        }
+        "width": "100%",
+        "flex": 1
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "flexDirection": "column",
-            "backgroundColor": "red",
             "flex": 1,
+            "flexDirection": "column",
+            "backgroundColor": "white",
             "padding": 20
           },
           "children": [
@@ -29,8 +27,7 @@
               "component": "Box",
               "props": {
                 "flexDirection": "row",
-                "flex": 1,
-                "marginBottom": 10,
+                "marginBottom": 20,
                 "alignItems": "center"
               },
               "children": [
@@ -44,7 +41,7 @@
                     {
                       "component": "Image",
                       "props": {
-                        "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                        "source": "",
                         "shape": "circle",
                         "width": 60,
                         "height": 60
@@ -77,13 +74,12 @@
                     },
                     {
                       "component": "Box",
-                      "props": {},
                       "children": [
                         {
-                          "component": "Heading",
+                          "component": "Text",
                           "props": {
+                            "text": "{{query.attributes.PRI_CPY_NAME.valueString}}",
                             "color": "black",
-                            "text": "Not Connected",
                             "size": "lg"
                           }
                         }
@@ -102,9 +98,9 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "Position",
+                    "text": "{{query.attributes.PRI_POSITION.valueString}}",
                     "color": "black",
-                    "size": "sm"
+                    "size": "xxs"
                   }
                 }
               ]
@@ -112,15 +108,15 @@
             {
               "component": "Box",
               "props": {
-                "marginBottom": 5
+                "marginBottom": 20
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
-                    "text": "South Yarra, Melbourne Australia",
+                    "text": "{{query.attributes.PRI_ADDRESS_UNVERIFIED.valueString}}",
                     "color": "black",
-                    "size": "sm"
+                    "size": "xxs"
                   }
                 }
               ]
@@ -128,31 +124,41 @@
             {
               "component": "Box",
               "props": {
-                "marginBottom": 5
+                "marginBottom": 20
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
-                    "text": "June 2012 - June 2018",
-                    "color": "black",
-                    "size": "sm"
-                  }
+                    "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - Current",
+                    "color": "grey",
+                    "size": "xxs"
+                  },
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.attributes.PRI_END_DATE_UNVERIFIED.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - {{query.attributes.PRI_END_DATE_UNVERIFIED.value}}"
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
+              "props": {},
               "children": [
                 {
                   "component": "Text",
                   "props": {
-                    "text": "Position asd aksdahaks hakaksdh akjdh akjsh kajsh kajsh kaj ah dkajh kdjah dkja",
+                    "text": "{{query.attributes.PRI_COMPANY_DESCRIPTION.valueString}}",
                     "color": "black",
-                    "size": "sm"
+                    "size": "xxs"
                   }
                 }
               ]
@@ -160,6 +166,18 @@
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.employmentID}}",
+      "as": "be"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{navigation.employmentID}}",
+      "as": "attributes"
     }
   ]
 }
