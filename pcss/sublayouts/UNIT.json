@@ -66,22 +66,89 @@
                      }
                   },
                   {  
-                     "GennyStatus":{  
-                        "position":[  
+                     "Grid":{  
+                        "postion":[  
                            0,
                            2
                         ],
-                        "root":"BE.code",
-                        "style":{  
-                           "height":"100%",
-                           "padding-left":"5px",
-                           "maxHeight":"40px",
-                           "maxWidth":"20px"
-                        },
-                        "statusStyle":{  
-                           "height":"100%",
-                           "maxHeight":"40px"
-                        }
+                        "rows":[  
+                           1,
+                           9
+                        ],
+                        "cols":1,
+                        "children":[  
+                           {  
+                              "GennyDropdown":{  
+                                 "position":[  
+                                    1,
+                                    0
+                                 ],
+                                 "inline":false,
+                                 "isSlide":false,
+                                 "animateHeader":false,
+                                 "animateFooter":true,
+                                 "stopPropagationOnClick":true,
+                                 "style":{  
+                                    "paddingBottom":"2px",
+                                    "margin":"-5px -5px 0"
+                                 },
+                                 "contentStyle":{  
+                                    "backgroundColor":"#fff",
+                                    "boxShadow":"0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
+                                    "display":"flex",
+                                    "flexDirection":"column",
+                                    "width":"120px",
+                                    "left":"100%",
+                                    "padding":"5px 5px 0",
+                                    "transform":"translate(-100%)",
+                                    "top":"20px"
+                                 },
+                                 "tagStyle":{  
+                                    "display":"none"
+                                 },
+                                 "header":[  
+                                    {  
+                                       "IconSmall":{  
+                                          "name":"more_horiz",
+                                          "style":{  
+                                             "padding":"0"
+                                          }
+                                       }
+                                    }
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "SublayoutLoader":{  
+                                          "layoutCode":"card-button-actions",
+                                          "aliases":{  
+                                             "BE":"BE.code",
+                                             "GROUP":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "GennyStatus":{  
+                                 "position":[  
+                                    2,
+                                    0
+                                 ],
+                                 "root":"BE.code",
+                                 "style":{  
+                                    "height":"100%",
+                                    "padding-left":"5px",
+                                    "maxHeight":"40px",
+                                    "maxWidth":"20px"
+                                 },
+                                 "statusStyle":{  
+                                    "height":"100%",
+                                    "maxHeight":"40px"
+                                 }
+                              }
+                           }
+                        ]
                      }
                   }
                ]
@@ -107,8 +174,8 @@
                   {  
                      "SublayoutLoader":{  
                         "layoutCode":"unit_action_button",
-                        "aliases":{
-                           "ITEM": "BE.code",
+                        "aliases":{  
+                           "ITEM":"BE.code",
                            "BE":"BE.PRI_BEG_CODE",
                            "GROUP":"ROOT"
                         }
