@@ -41,49 +41,6 @@
                         }
                      }
                   }
-        
-               ]
-            }
-         },
-         {  
-            "Selector":{  
-               "checkValues":[  
-                  "USER.PRI_IS_BUYER"
-               ],
-               "showValues":[  
-                  true,
-                  "true"
-               ],
-               "children":[  
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_IDENTIFIED"
-                        ],
-                        "children":[  
-                           {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Contacted",
-                                 "buttonCode":"BTN_SEND_EMAIL",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  }
                ]
             }
          },
@@ -151,7 +108,7 @@
                            "ROOT"
                         ],
                         "showValues":[  
-                           "GRP_REQUESTED"
+                           "GRP_IDENTIFIED"
                         ],
                         "children":[  
                            {  
@@ -163,8 +120,134 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Inspection Date",
-                                 "buttonCode":"BTN_REQUEST_INSPECTION_DATETIME",
+                                 "children":"Send Email",
+                                 "buttonCode":"BTN_SEND_EMAIL",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_IDENTIFIED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Contacted By Phone",
+                                 "buttonCode":"BTN_CONTACTED_PHONE",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_IDENTIFIED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Contacted by Letter",
+                                 "buttonCode":"BTN_CONTACTED_LETTER",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_IDENTIFIED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Contacted by site visit",
+                                 "buttonCode":"BTN_CONTACTED_SITE_VISIT",
                                  "value":{  
                                     "itemCode":"BE.code",
                                     "hint":"ROOT"
@@ -205,8 +288,134 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Request Inspection",
+                                 "children":"Request PCS",
                                  "buttonCode":"BTN_REQUEST_INSPECTION",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Decline PCS",
+                                 "buttonCode":"BTN_REQUEST_DECLINE",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Send Email Again",
+                                 "buttonCode":"BTN_SEND_EMAIL_AGAIN",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Contacted Again",
+                                 "buttonCode":"BTN_CONTACTED_AGAIN",
                                  "value":{  
                                     "itemCode":"BE.code",
                                     "hint":"ROOT"
@@ -254,7 +463,7 @@
                                           "buttonStyle":{  
                                              "background":"green"
                                           },
-                                          "children":"Initiate Inspection",
+                                          "children":"Book Inspection",
                                           "buttonCode":"BTN_INITIATE_INSPECTION",
                                           "value":{  
                                              "itemCode":"BE.code",
@@ -263,6 +472,132 @@
                                        }
                                     }
                                  ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_INSPECTION"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Upload PCS Report",
+                                 "buttonCode":"BTN_UPLOAD_REPORT",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_INSPECTION"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Upload Other Media",
+                                 "buttonCode":"BTN_COMPLETED",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_INSPECTION"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Rebook appointment",
+                                 "buttonCode":"BTN_REBOOK_APPOINTMENT",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
                               }
                            }
                         ]
