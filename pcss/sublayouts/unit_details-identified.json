@@ -2,94 +2,137 @@
    "div":{  
       "children":[  
          {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
+            "Selector":{  
+               "checkValues":[  
+                  "BE.PRI_REP_FIRSTNAME",
+                  "BE.PRI_REP_EMAIL",
+                  "BE.PRI_REP_MOBILE"
+               ],
+               "showIfNotNull":true,
                "children":[  
                   {  
-                     "span":{  
-                        "position":[  
-                           0,
-                           0
-                        ],
-                        "children":"Owner: ${BE.PRI_OWNER_FIRSTNAME}"
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "children":"REP: ${BE.PRI_REP_FIRSTNAME}"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "children":"${BE.PRI_REP_LASTNAME}"
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
-                     "span":{  
-                        "position":[  
-                           0,
-                           0
-                        ],
-                        "children":"${PRI_OWNER_LASTNAME}"
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Rep Email :${BE.PRI_REP_EMAIL} "
+                     }
+                  },
+                  {  
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Rep Phone :${BE.PRI_REP_MOBILE} "
                      }
                   }
                ]
             }
          },
          {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Owner Contact : Contact...."
-            }
-         },
-         {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Rep Name: Name....."
-            }
-         },
-         {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Rep Contact : Contact....."
-            }
-         },
-         {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Tenant Name: Name....."
-            }
-         },
-         {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Tenant Contact : COntact....."
+            "Selector":{  
+               "checkValues":[  
+                  "BE.PRI_REP_FIRSTNAME",
+                  "BE.PRI_REP_EMAIL",
+                  "BE.PRI_REP_MOBILE"
+               ],
+               "showIfNull":true,
+               "children":[  
+                  {  
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "children":"Owner: ${BE.PRI_OWNER_FIRSTNAME}"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "children":"${BE.PRI_OWNER_LASTNAME}"
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Rep Email :${BE.PRI_EMAIL} "
+                     }
+                  },
+                  {  
+                     "div":{  
+                        "style":{  
+                           "fontSize":"1em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Owner Phone :${BE.PRI_MOBILE} "
+                     }
+                  }
+               ]
             }
          }
       ]
