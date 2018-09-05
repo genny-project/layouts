@@ -87,68 +87,6 @@
           ],
           "children": [
             {
-              "div": {
-                "position": [0, 0],
-                "style": {
-                  "backgroundColor": "#DDD",
-                  "padding": "20px",
-                  "width": "560px",
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                  "display": "flex",
-                  "flexDirection": "column"
-                },
-                "children": [
-                  {
-                    "h2": {
-                      "style": {
-                        "margin": "5px"
-                      },
-                      "children": "BE.parent.PRI_NAME"
-                    }
-                  },
-                  {
-                    "h3": {
-                      "style": {
-                        "margin": "5px"
-                      },
-                      "children": "BE.parent.link.COMPANY.PRI_NAME"
-                    }
-                  },
-                  {
-                    "SublayoutLoader": {
-                      "position": [0, 0],
-                      "layoutCode": "internship-details-features",
-                      "aliases": {
-                        "BE": "BE.PRI_BEG_CODE",
-                        "GROUP": "ROOT"
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "SublayoutLoader": {
-                "position": [0, 0],
-                "layoutCode": "application-details-about",
-                "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-                }
-              }
-            },
-            {
-              "SublayoutLoader": {
-                "position": [0, 0],
-                "layoutCode": "application-details-history",
-                "aliases": {
-                  "BE": "BE.code",
-                  "GROUP": "ROOT"
-                }
-              }
-            },
-            {
               "h4": {
                 "position": [0, 0],
                 "style": {
@@ -174,7 +112,16 @@
                 "style": {
                   "margin": "5px"
                 },
-                "children": "BE.PRI_OWNER_FIRSTNAME"
+                "children": "Name: ${BE.PRI_OWNER_FIRSTNAME} ${BE.PRI_OWNER_LASTNAME}"
+              }
+            },
+            {
+              "p": {
+                "position": [0,0],
+                "style": {
+                  "margin": "5px"
+                },
+                "children": "Email: ${BE.PRI_EMAIL}"
               }
             }
           ]
