@@ -1,0 +1,218 @@
+{
+  "Grid": {
+    "rows": 1,
+    "cols": [
+      2,
+      1
+    ],
+    "children": [
+      {
+        "Grid": {
+          "position": [
+            0,
+            0
+          ],
+          "style": {
+            "color": "rgb(72,84,98)",
+            "lineHeight": "1.8em"
+          },
+          "rows": [
+            0.1,
+            1
+          ],
+          "cols": [
+            {
+              "style": {
+                "flexGrow": 1,
+                "marginLeft": "10%"
+              }
+            }
+          ],
+          "children": [
+            {
+              "div": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "width": "100%",
+                  "padding": "10px 0"
+                },
+                "children": [
+                  {
+                    "GennyButton": {
+                      "style": {
+                        "width": "100px",
+                        "height": "30px"
+                      },
+                      "buttonStyle": {
+                        "background": "PROJECT.PRI_COLOR",
+                        "height": "30px",
+                        "padding": "0"
+                      },
+                      "buttonCode": "BTN_BACK_BUTTON",
+                      "hint": {
+                        "itemCode": "BE.code"
+                      },
+                      "children": [
+                        {
+                          "IconSmall": {
+                            "style": {
+                              "fontSize": "28px",
+                              "transform": "rotate(90deg)",
+                              "color": "white"
+                            },
+                            "name": "arrow_drop_down"
+                          }
+                        },
+                        {
+                          "span": {
+                            "style": {
+                              "color": "white"
+                            },
+                            "children": "BACK"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "application-details-title",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "div": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "backgroundColor": "#DDD",
+                  "padding": "20px",
+                  "width": "560px",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "display": "flex",
+                  "flexDirection": "column"
+                },
+                "children": [
+                  {
+                    "h2": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.PRI_NAME"
+                    }
+                  },
+                  {
+                    "h3": {
+                      "style": {
+                        "margin": "5px"
+                      },
+                      "children": "BE.parent.link.COMPANY.PRI_NAME"
+                    }
+                  },
+                  {
+                    "SublayoutLoader": {
+                      "position": [
+                        0,
+                        0
+                      ],
+                      "layoutCode": "internship-details-features",
+                      "aliases": {
+                        "BE": "BE.PRI_BEG_CODE",
+                        "GROUP": "ROOT"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "application-details-about",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "SublayoutLoader": {
+                "position": [
+                  0,
+                  0
+                ],
+                "layoutCode": "application-details-history",
+                "aliases": {
+                  "BE": "BE.code",
+                  "GROUP": "ROOT"
+                }
+              }
+            },
+            {
+              "h4": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "borderBottom": "2px solid #485461",
+                  "borderTop": "2px solid #485461"
+                },
+                "children": "RESUME FILES"
+              }
+            },
+            {
+              "FileViewer":{
+                "position":[0,0],
+                "root": "BE.link.APPLICANT.code",
+                "attribute":"PRI_RESUME"
+              }
+            },
+            {
+              "h4": {
+                "position": [
+                  0,
+                  0
+                ],
+                "style": {
+                  "borderBottom": "2px solid #485461",
+                  "borderTop": "2px solid #485461"
+                },
+                "children": "ADDITIONAL FILES"
+              }
+            },
+            {
+              "FileViewer":{
+                "position":[0,0],
+                "root": "BE.link.INT_AGMT.code",
+                "attribute":"PRI_FINAL_S3_AGREEMENT_LINK",
+                 "style":{
+                  "paddingBottom": "20px" 
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
