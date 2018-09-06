@@ -1,0 +1,91 @@
+{
+  "layout": {
+    "title": "Owner Landing",
+    "appColor": "white",
+    "backgroundColor": "#e05b5b"
+  },
+  "children": [
+    {
+      "component": "Container",
+      "props": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1,
+        "height": "100%",
+        "maxWidth": 700
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "white",
+                "size": "xxl",
+                "bold": false
+              },
+              "children": "That code doesn't match any properties in our database."
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "color": "white",
+                "size": "xs",
+                "bold": false
+              },
+              "children": "EXPLANATION TEXT GOES HERE"
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "center",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "ROUTE_CHANGE",
+            "buttonCode": "owner-landing/verify-code",
+            "value": {
+              "itemCode": ""
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "alignItems": "center",
+                "shape": "rounded",
+                "borderWidth": 1,
+                "borderColor": "white"
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "white",
+                    "size": "xl",
+                    "bold": false
+                  },
+                  "children": "Click here to try another property code."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
