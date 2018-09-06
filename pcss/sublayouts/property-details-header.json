@@ -1,62 +1,67 @@
 {
-   "div":{
-      "children":[
-         {
-            "ImageMapView":{
-               "position":[
-                  0,
-                  0
-               ],
-               "style":{
-                  "overflow":"hidden",
-                  "backgroundPositionX": "50%",
-                  "width": "initial"
-               },
-               "height":300,
-               "width":1000,
-               "address":"BE.PRI_ADDRESS_FULL",
-               "children":[
-                  {
-                     "Grid":{
-                        "position":[
-                           1,
-                           0
+    "div": {
+        "children": [{
+            "ImageMapView": {
+                "position": [
+                    0,
+                    0
+                ],
+                "style": {
+                    "overflow": "hidden",
+                    "backgroundPositionX": "50%",
+                    "width": "initial"
+                },
+                "height": 300,
+                "width": 1000,
+                "address": "BE.PRI_ADDRESS_FULL",
+                "children": [{
+                    "Grid": {
+                        "position": [
+                            1,
+                            0
                         ],
-                        "cols":1,
-                        "rows":2,
-                        "children":[
-                           {
-                              "GennyAddressLabel":{
-                                 "position":[
-                                    0,
-                                    0
-                                 ],
-                                 "style":{
-                                    "fontSize":"2em"
-                                 },
-                                 "attributePrefix":"PRI_ADDRESS",
-                                 "root":"BE.code"
-                              }
-                           },
-                           {
-                              "span":{
-                                 "position":[
-                                    1,
-                                    0
-                                 ],
-                                 "style":{
-                                    "color":"black",
-                                    "fontSize":"1.5em"
-                                 },
-                                 "children": "Property Type: ${BE.LNK_PROPERTY_TYPE_SELECT.name}"
-                              }
-                           }
+                        "cols": 1,
+                        "rows": 2,
+                        "children": [{
+                                "GennyAddressLabel": {
+                                    "position": [
+                                        0,
+                                        0
+                                    ],
+                                    "style": {
+                                        "fontSize": "2em"
+                                    },
+                                    "attributePrefix": "PRI_ADDRESS",
+                                    "root": "BE.code"
+                                }
+                            },
+                            {
+                                "Selector": {
+                                    "checkValues": [
+                                        "BE.LNK_PROPERTY_TYPE_SELECT.name"
+                                    ],
+                                    "showIfNotNull": true,
+                                    "children": [{
+                                            "span": {
+                                                "position": [
+                                                    1,
+                                                    0
+                                                ],
+                                                "style": {
+                                                    "color": "black",
+                                                    "fontSize": "2em"
+                                                },
+                                                "children": "BE.LNK_PROPERTY_TYPE_SELECT.name"
+                                            }
+                                        }
+
+                                    ]
+                                }
+                            }
                         ]
-                     }
-                  }
-               ]
+                    }
+                }]
             }
-         }
-      ]
-   }
+        }]
+    }
 }
