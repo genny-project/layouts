@@ -2,7 +2,7 @@
   "layout": {
     "title": "Login",
     "appColor": "white",
-    "backgroundColor": "#202532",
+    "backgroundColor": "#FFF",
     "header": {
       "variant": "public-transparent"
     }
@@ -26,27 +26,25 @@
       },
       "children": [
         {
-          "component": "Box",
+          "component": "AuthenticationForm",
           "props": {
-            "flex": 1,
-            "padding": 20,
-            "paddingBottom": 40,
-            "flexDirection": "column"
+            "type": "login"
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "flex": 1,
-                "alignItems": "center"
+                "marginBottom": 20
               },
               "children": [
                 {
-                  "component": "Image",
+                  "component": "FormGenericInput",
+                  "useThemeFrom": "Input",
+                  "variant": "default",
                   "props": {
-                    "source": "https://puu.sh/B9kRL.png",
-                    "height": 25,
-                    "width": 75
+                    "type": "text",
+                    "placeholder": "Username",
+                    "name": "username"
                   }
                 }
               ]
@@ -54,136 +52,62 @@
             {
               "component": "Box",
               "props": {
-                "flex": 2,
-                "flexShrink": 0,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "FormGenericInput",
+                  "useThemeFrom": "Input",
+                  "variant": "default",
+                  "props": {
+                    "type": "password",
+                    "placeholder": "Password",
+                    "name": "password"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
                 "flexDirection": "column"
               },
               "children": [
                 {
-                  "component": "Heading",
-                  "props": {
-                    "color": "white",
-                    "size": "xxl",
-                    "bold": false
-                  },
-                  "children": "Enter your details"
-                },
-                {
                   "component": "Box",
                   "props": {
-                    "marginTop": 40,
-                    "flex": 1
+                    "marginBottom": 20
                   },
                   "children": [
                     {
-                      "component": "AuthenticationForm",
+                      "component": "FormGenericStatus",
                       "props": {
-                        "type": "login"
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "props": {
-                            "flexGrow": 1,
-                            "flexShrink": 0,
-                            "flexDirection": "column",
-                            "justifyContent": "space-between",
-                            "width": "100%"
-                          },
-                          "children": [
-                            {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column"
-                              },
-                              "children": [
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginBottom": 20
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "FormGenericInput",
-                                      "useThemeFrom": "Input",
-                                      "variant": "default",
-                                      "props": {
-                                        "type": "text",
-                                        "placeholder": "Username",
-                                        "name": "username"
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginBottom": 20
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "FormGenericInput",
-                                      "useThemeFrom": "Input",
-                                      "variant": "default",
-                                      "props": {
-                                        "type": "password",
-                                        "placeholder": "Password",
-                                        "name": "password"
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column"
-                              },
-                              "children": [
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginBottom": 20
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "FormGenericStatus",
-                                      "props": {
-                                        "wrapperProps": {
-                                          "borderWidth": 2,
-                                          "borderColor": "red",
-                                          "borderStyle": "solid",
-                                          "alignItems": "center",
-                                          "justifyContent": "center",
-                                          "padding": 20,
-                                          "cleanStyleObject": true,
-                                          "width": "100%"
-                                        },
-                                        "textProps": {
-                                          "color": "red",
-                                          "bold": true,
-                                          "align": "center"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "FormGenericSubmit",
-                                  "props": {
-                                    "text": "Next",
-                                    "inverted": true,
-                                    "color": "white"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
+                        "wrapperProps": {
+                          "borderWidth": 2,
+                          "borderColor": "red",
+                          "borderStyle": "solid",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "padding": 20,
+                          "cleanStyleObject": true,
+                          "width": "100%"
+                        },
+                        "textProps": {
+                          "color": "red",
+                          "bold": true,
+                          "align": "center"
                         }
-                      ]
+                      }
                     }
                   ]
+                },
+                {
+                  "component": "FormGenericSubmit",
+                  "props": {
+                    "text": "Next",
+                    "inverted": true,
+                    "color": "white"
+                  }
                 }
               ]
             }
