@@ -86,6 +86,23 @@
     },
     {
       "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "find",
+      "path": "profile.links",
+      "query": {
+        "link.linkValue": {
+          "$eq": "EMPLOYMENT"
+        }
+      }
+    },
+    {
+      "operator": "scope",
       "path": "profile.links",
       "scope": {
         "operator": "getBE",
