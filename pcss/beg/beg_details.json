@@ -36,7 +36,7 @@
                                                         "padding": "0"
                                                     },
                                                     "buttonCode": "BTN_BACK_BUTTON",
-                                                    "hint": {
+                                                    "value": {
                                                         "itemCode": "BE.code"
                                                     },
                                                     "children": [{
@@ -73,8 +73,8 @@
                                                         "height": "30px",
                                                         "padding": "0"
                                                     },
-                                                    "buttonCode": "BTN_EDIT_BUTTON",
-                                                    "hint": {
+                                                    "buttonCode": "BTN_EDIT_PROPERTY_BUTTON",
+                                                    "value": {
                                                         "itemCode": "${BE.code}"
                                                     },
                                                     "children": [{
@@ -100,9 +100,9 @@
                                                         "height": "30px",
                                                         "padding": "0"
                                                     },
-                                                    "buttonCode": "BTN_DELETE_BUTTON",
-                                                    "hint": {
-                                                        "itemCode": "DELETE"
+                                                    "buttonCode": "BTN_DELETE_PROPERTY_BUTTON",
+                                                    "value": {
+                                                        "itemCode": "BE.code"
                                                     },
                                                     "children": [{
                                                         "span": {
@@ -145,6 +145,15 @@
                                              }
                                          }],
                                          "children": [
+                                             {
+                                                 "p": {
+                                                     "position": [0, 0],
+                                                     "style": {
+                                                         "margin": "5px"
+                                                     },
+                                                     "children": "Date Added: ${BE.PRI_PROPERTY_ADDED_DATETIME}"
+                                                 }
+                                             },
                                              {
                                                  "h4": {
                                                      "position": [0, 0],
