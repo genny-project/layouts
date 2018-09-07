@@ -1,20 +1,40 @@
 {
   "layout": {
-
+    "title": "Splash",
+    "appColor": "white",
+    "backgroundColor": "#1074aa"
   },
   "children": [
     {
       "component": "Box",
+      "props": {
+        "flex": 1,
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center"
+      },
+
       "children": [
-        {
-          "component": "Text",
-          "children": "Hello, internmatch!"
-        },
         {
           "component": "LinkButton",
           "props": {
             "text": "Login",
-            "to": "login"
+            "to": "login",
+            "width": "100%",
+            "color": "white",
+            "borderWidthColor": "white",
+            "borderWidth": 2
+          }
+        },
+        {
+          "component": "LinkButton",
+          "props": {
+            "text": "Create an account",
+            "to": "registration/role",
+            "color": "white",
+            "width": "100%",
+            "borderWidthColor": "white",
+            "borderWidth": 2
           }
         }
       ]
