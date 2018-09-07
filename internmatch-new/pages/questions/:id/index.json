@@ -6,7 +6,7 @@
     }
   },
   "children": [
-      {
+    {
       "component": "Container",
       "props": {
         "flexDirection": "column",
@@ -19,7 +19,23 @@
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "{{navigation.id}}"
+            "questionGroupCode": "{{navigation.id}}",
+            "renderFormInput": {
+              "component": "FormInput",
+              "useThemeFrom": "Input",
+              "variant": "default",
+              "props": {
+                "placeholder": "{{label}}"
+              }
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "inverted": true,
+                "showSpinnerOnClick": true,
+                "color": "white"
+              }
+            }
           }
         }
       ]
