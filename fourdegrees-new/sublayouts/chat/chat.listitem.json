@@ -1,22 +1,22 @@
 {
   "layout": {
-    "title": "Profile Employment",
+    "title": "Message",
     "appColor": "dark"
   },
   "children": [
     {
-      "component": "Link",
-      "props": {
-        "style": {
-          "width": "100%"
+        "component": "EventButton",
+        "props": {
+          "alignItems": "flex-start",
+          "paddingX": 0,
+          "paddingY": 0,
+          "eventType": "BTN_CLICK",
+          "buttonCode": "BTN_CREATE_CONVERSATION",
+          "value": {
+            "itemCode": "{{props.contactID}}"
+          }
         },
-        "to": "profile/",
-        "params": {
-          "userID": "{{props.contactID}}",
-          "degree": "_props.depths.{{props.contactID}}"
-        }
-      },
-      "children": [
+        "children": [
         {
           "component": "Box",
           "props": {
@@ -72,38 +72,23 @@
               ]
             },
             {
-              "component": "EventButton",
+              "component": "Box",
               "props": {
-                "alignItems": "flex-start",
-                "paddingX": 0,
-                "paddingY": 0,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_CREATE_CONVERSATION",
-                "value": {
-                  "itemCode": "{{props.contactID}}"
-                }
+                "marginleft": 20,
+                "alignItems": "center"
               },
               "children": [
                 {
                   "component": "Box",
-                  "props": {
-                    "marginleft": 20,
-                    "alignItems": "center"
-                  },
+                  "props": {},
                   "children": [
                     {
-                      "component": "Box",
-                      "props": {},
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "color": "black",
-                            "size": "lg",
-                            "name": "chevron-right"
-                          }
-                        }
-                      ]
+                      "component": "Icon",
+                      "props": {
+                        "color": "black",
+                        "size": "lg",
+                        "name": "chevron-right"
+                      }
                     }
                   ]
                 }
