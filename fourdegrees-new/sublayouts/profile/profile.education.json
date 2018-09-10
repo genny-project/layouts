@@ -12,6 +12,9 @@
           "props": {
             "padding": 10
           },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
           "children": [
             {
               "component": "EventButton",
@@ -34,18 +37,18 @@
             "flexDirection": "column"
           },
           "onlyShowIf": {
-            "query.profile.links": {
+            "query.educationLinks": {
               "$size": {
                 "$gt": 0
               }
             }
           },
-          "repeat": "_query.profile.links",
+          "repeat": "_query.educationLinks",
           "children": {
             "component": "Sublayout",
             "props": {
-              "layoutName": "employment/employment.card",
-              "employmentID": "{{repeater.code}}"
+              "layoutName": "education/education.card",
+              "itemID": "{{repeater.code}}"
             }
           }
         },
@@ -58,7 +61,7 @@
             "justifyContent": "center"
           },
           "dontShowIf": {
-            "query.profile.links": {
+            "query.educationLinks": {
               "$size": {
                 "$gt": 0
               }
@@ -68,7 +71,7 @@
             {
               "component": "Text",
               "props": {
-                "text": "No employment to show.",
+                "text": "No education to show.",
                 "color": "black",
                 "size": "xs"
               }
@@ -86,7 +89,28 @@
     },
     {
       "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
       "path": "profile.links",
+      "as": "educationLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "EDUCATION"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "educationLinks",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
