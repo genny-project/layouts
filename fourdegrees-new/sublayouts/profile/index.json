@@ -471,43 +471,54 @@
                     "tabs": [
                       {
                         "key": 0,
-                        "route": "Search",
-                        "title": "Services"
+                        "route": "Skills",
+                        "title": "Skills"
                       },
                       {
                         "key": 1,
-                        "route": "alerts/",
-                        "title": "Products"
+                        "route": "Services",
+                        "title": "Services"
                       },
                       {
                         "key": 2,
-                        "route": "profile/",
-                        "title": "Interests"
+                        "route": "Products",
+                        "title": "Products"
                       },
                       {
                         "key": 3,
-                        "route": "more/",
-                        "title": "Groups & Associations"
+                        "route": "Interests",
+                        "title": "Interests"
                       },
                       {
                         "key": 4,
-                        "route": "alerts/",
-                        "title": "Employment"
+                        "route": "Groups",
+                        "title": "Groups & Associations"
                       },
                       {
                         "key": 5,
-                        "route": "profile/",
-                        "title": "Education"
+                        "route": "Employment",
+                        "title": "Employment"
                       },
                       {
                         "key": 6,
-                        "route": "more/",
+                        "route": "Education",
+                        "title": "Education"
+                      },
+                      {
+                        "key": 7,
+                        "route": "Contact",
                         "title": "Contact"
                       }
                     ]
                   },
                   "children": [
                     {
+                      "component": "Sublayout",
+                      "props": {
+                        "layoutName": "profile/profile.skills",
+                        "userID": "{{props.userID}}"
+                      }
+                    },{
                       "component": "Sublayout",
                       "props": {
                         "layoutName": "profile/profile.services",
@@ -531,19 +542,22 @@
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.groups"
+                        "layoutName": "profile/profile.groups",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.employment"
+                        "layoutName": "profile/profile.employment",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {
                       "component": "Sublayout",
                       "props": {
-                        "layoutName": "profile/profile.education"
+                        "layoutName": "profile/profile.education",
+                        "userID": "{{props.userID}}"
                       }
                     },
                     {

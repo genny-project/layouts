@@ -3,17 +3,95 @@
     {
       "component": "Box",
       "props": {
-        "padding": 20
+        "flexDirection": "column",
+        "width": "100%"
       },
       "children": [
         {
-          "component": "Text",
+          "component": "Box",
           "props": {
-            "color": "black"
+            "padding": 10
           },
-          "children": "Coming Soon"
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-employment-history",
+                "text": "Add Employment",
+                "color": "#202532",
+                "textColor": "#FFF",
+                "paddingY": 15,
+                "paddingX": 15
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingX": 10,
+            "flexDirection": "column"
+          },
+          "onlyShowIf": {
+            "query.profile.links": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          "repeat": "_query.profile.links",
+          "children": {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "employment/employment.card",
+              "employmentID": "{{repeater.code}}"
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "width": "100%",
+            "justifyContent": "center"
+          },
+          "dontShowIf": {
+            "query.profile.links": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "No employment to show.",
+                "color": "black",
+                "size": "xs"
+              }
+            }
+          ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.userID}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
     }
   ]
 }
