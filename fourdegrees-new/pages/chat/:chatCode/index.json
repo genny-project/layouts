@@ -1,0 +1,58 @@
+{
+  "layout": {
+    "title": "Chat Conversation",
+    "appColor": "dark",
+    "header": {
+      "variant": "noback"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Chat",
+      "props": {
+        "bubbleRightColor": "#09D0B7",
+        "sendIcon": "chevron-right",
+        "sendIconColor": "white",
+        "raw": "_query.results",
+        "sendIconBackgroundColor": "#09D0B7",
+        "users": "_query.results.links",
+        "user": {
+          "_id": "{{user.data.code}}"
+        }
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.chatCode}}",
+      "as": "results"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "getLinkDepths",
+      "code": "{{user.data.code}}",
+      "as": "depths"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "populateAttributes",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}"
+      }
+    }
+  ]
+}
