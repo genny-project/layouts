@@ -49,7 +49,7 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.attributes.PRI_CPY_NAME.valueString}}",
+                    "text": "{{query.attributes.PRI_NAME.valueString}}",
                     "color": "black",
                     "size": "sm"
                   }
@@ -65,7 +65,7 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.attributes.PRI_POSITION.valueString}}",
+                    "text": "{{query.attributes.PRI_TITLE.valueString}}",
                     "color": "black",
                     "size": "xxs"
                   }
@@ -124,7 +124,7 @@
             },
             "to": "education/",
             "params": {
-              "educationID": "{{props.educationID}}"
+              "educationID": "{{props.itemID}}"
             }
           },
           "children": [
@@ -159,12 +159,12 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.educationID}}",
+      "id": "{{props.itemID}}",
       "as": "be"
     },
     {
       "operator": "populateAttributes",
-      "code": "{{props.educationID}}",
+      "code": "{{props.itemID}}",
       "as": "attributes"
     }
   ]

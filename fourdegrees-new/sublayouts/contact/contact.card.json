@@ -12,8 +12,8 @@
         },
         "to": "profile/",
         "params": {
-          "userID": "{{props.contactID}}",
-          "degree": "_props.depths.{{props.contactID}}"
+          "userID": "{{props.itemID}}",
+          "degree": "_props.depths.{{props.itemID}}"
         }
       },
       "children": [
@@ -83,7 +83,7 @@
                       "conditional": [
                         {
                           "if": {
-                            "props.depths.{{props.contactID}}": 1
+                            "props.depths.{{props.itemID}}": 1
                           },
                           "then": {
                             "text": "1st Degree"
@@ -91,7 +91,7 @@
                         },
                         {
                           "if": {
-                            "props.depths.{{props.contactID}}": 2
+                            "props.depths.{{props.itemID}}": 2
                           },
                           "then": {
                             "text": "2nd Degree"
@@ -99,7 +99,7 @@
                         },
                         {
                           "if": {
-                            "props.depths.{{props.contactID}}": 3
+                            "props.depths.{{props.itemID}}": 3
                           },
                           "then": {
                             "text": "3rd Degree"
@@ -107,7 +107,7 @@
                         },
                         {
                           "if": {
-                            "props.depths.{{props.contactID}}": 4
+                            "props.depths.{{props.itemID}}": 4
                           },
                           "then": {
                             "text": "4th Degree"
@@ -122,7 +122,7 @@
             {
               "component": "EventButton",
               "dontShowIf": {
-                "props.depths.{{props.contactID}}": 1
+                "props.depths.{{props.itemID}}": 1
               },
               "props": {
                 "alignItems": "flex-start",
@@ -131,7 +131,7 @@
                 "eventType": "BTN_CLICK",
                 "buttonCode": "CONNECT_WITH_PEOPLE",
                 "value": {
-                  "itemCode": "{{props.contactID}}"
+                  "itemCode": "{{props.itemID}}"
                 }
               },
               "children": [
@@ -168,12 +168,12 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.contactID}}",
+      "id": "{{props.itemID}}",
       "as": "be"
     },
     {
       "operator": "populateAttributes",
-      "code": "{{props.contactID}}",
+      "code": "{{props.itemID}}",
       "as": "attributes"
     }
   ]

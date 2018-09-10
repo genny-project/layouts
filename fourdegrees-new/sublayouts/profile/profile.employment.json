@@ -12,6 +12,9 @@
           "props": {
             "padding": 10
           },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
           "children": [
             {
               "component": "EventButton",
@@ -34,18 +37,18 @@
             "flexDirection": "column"
           },
           "onlyShowIf": {
-            "query.profile.links": {
+            "query.employmentLinks": {
               "$size": {
                 "$gt": 0
               }
             }
           },
-          "repeat": "_query.profile.links",
+          "repeat": "_query.employmentLinks",
           "children": {
             "component": "Sublayout",
             "props": {
               "layoutName": "employment/employment.card",
-              "employmentID": "{{repeater.code}}"
+              "itemID": "{{repeater.code}}"
             }
           }
         },
@@ -58,7 +61,7 @@
             "justifyContent": "center"
           },
           "dontShowIf": {
-            "query.profile.links": {
+            "query.employmentLinks": {
               "$size": {
                 "$gt": 0
               }
@@ -93,17 +96,21 @@
       }
     },
     {
-      "operator": "find",
+      "operator": "scope",
       "path": "profile.links",
-      "query": {
-        "link.linkValue": {
-          "$eq": "EMPLOYMENT"
+      "as": "employmentLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "EMPLOYMENT"
+          }
         }
       }
     },
     {
       "operator": "scope",
-      "path": "profile.links",
+      "path": "employmentLinks",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
