@@ -1,85 +1,133 @@
-{
-  "layout": [
-    {
-      "AppHolder": {
-        "cols": [0,5],
-        "rows": 1,
-        "children": [
-          {
-            "Sidebar": {
-              "position": [0,0],
-              "style": {
-                "backgroundColor": "PROJECT.PRI_COLOR",
-                "color": "white",
-                "textAlign": "center"
-              },
-              "hasImage": true,
-              "src": "PROJECT.PRI_LOGO",
-              "children": [
-                {
-                  "GennyTreeView": {
-                    "position": [1,0],
-                    "style": {
-                    "marginTop": "50px"
-                  },
-                    "root": "GRP_ROOT"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "Grid": {
-              "cols": [{"style": { "flexGrow" : 1, "width" : "100%"}}],
-              "rows": ["90px", { "style" : {"flex": "1 1 auto", "overflow": "hidden" }}, "30px"],
-              "position": [0,1],
-              "className": "app-main",
-              "children": [
-                {
-                  "GennyHeader": {
-                    "position": [0,0],
-
-                    "style": {
-                      "backgroundColor": "PROJECT.PRI_COLOR",
-                      "color": "white"
-                    },
-                    "projectTitle" : "PROJECT.PRI_NAME",
-                    "projectGreeting" : "PROJECT.PRI_GREETING",
-                    "userName" : "USER.PRI_FIRSTNAME",
-                    "userImage" : "USER.PRI_IMAGE_URL"
-                  }
-                },
-                {
-                  "AppContent": {
-                    "position": [1,0],
-                    "showSidebar": true,
-                    "children" : [
-                      {
-                        "div": {
-                          "children": ""
+{  
+   "layout":[  
+      {  
+         "AppHolder":{  
+            "cols":[  
+               0,
+               5
+            ],
+            "rows":1,
+            "children":[  
+               {  
+                  "Sidebar":{  
+                     "position":[  
+                        0,
+                        0
+                     ],
+                     "style":{  
+                        "backgroundColor":"PROJECT.PRI_COLOR",
+                        "color":"white",
+                        "textAlign":"center"
+                     },
+                     "hasImage":true,
+                     "src":"PROJECT.PRI_LOGO",
+                     "children":[  
+                        {  
+                           "GennyTreeView":{  
+                              "position":[  
+                                 1,
+                                 0
+                              ],
+                              "style":{  
+                                 "marginTop":"50px"
+                              },
+                              "root":"GRP_ROOT"
+                           }
                         }
-                      }
-                    ]
+                     ]
                   }
-                },
-                {
-                  "Footer": {
-                    "position": [2,0],
-                    "style": {
-                      "backgroundColor": "PROJECT.PRI_COLOR",
-                      "color": "white"
-                    },
-                    "version" : "PROJECT.PRI_VERSION",
-                    "poweredBy" : {
-                      "caption" : "PROJECT.PRI_POWERED_BY"
-                    }
+               },
+               {  
+                  "Grid":{  
+                     "cols":[  
+                        {  
+                           "style":{  
+                              "flexGrow":1,
+                              "width":"100%"
+                           }
+                        }
+                     ],
+                     "rows":[  
+                        "90px",
+                        {  
+                           "style":{  
+                              "flex":"1 1 auto",
+                              "overflow":"hidden"
+                           }
+                        },
+                        "30px"
+                     ],
+                     "position":[  
+                        0,
+                        1
+                     ],
+                     "className":"app-main",
+                     "children":[  
+                        {  
+                           "GennyHeader":{  
+                              "position":[  
+                                 0,
+                                 0
+                              ],
+                              "style":{  
+                                 "backgroundColor":"PROJECT.PRI_COLOR",
+                                 "color":"white"
+                              },
+                              "projectTitle":"PROJECT.PRI_NAME",
+                              "projectGreeting":"PROJECT.PRI_GREETING",
+                              "userName":"USER.PRI_FIRSTNAME",
+                              "userImage":"USER.PRI_IMAGE_URL"
+                           }
+                        },
+                        {  
+                           "AppContent":{  
+                              "position":[  
+                                 1,
+                                 0
+                              ],
+                              "showSidebar":true,
+                              "children":[  
+                                 {  
+                                    "div":{  
+                                       "children":""
+                                    }
+                                 }
+                              ]
+                           }
+                        },
+                        {  
+                           "Footer":{  
+                              "position":[  
+                                 2,
+                                 0
+                              ],
+                              "style":{  
+                                 "backgroundColor":"PROJECT.PRI_COLOR",
+                                 "color":"white"
+                              },
+                              "children":{  
+                                 "GennyButton":{  
+                                    "buttonStyle":{  
+                                       "background":"none"
+                                    },
+                                    "children":"Privacy Policy",
+                                    "buttonCode":"BTN_DISPLAY_PRIVACY_POLICIES",
+                                    "value":{  
+                                       "hint":"ROOT"
+                                    }
+                                 }
+                              },
+                              "version":"PROJECT.PRI_VERSION",
+                              "poweredBy":{  
+                                 "caption":"PROJECT.PRI_POWERED_BY"
+                              }
+                           }
+                        }
+                     ]
                   }
-                }
-              ]
-            }
-          }
-        ]
+               }
+            ]
+         }
       }
-    }
-  ]
+   ]
 }
