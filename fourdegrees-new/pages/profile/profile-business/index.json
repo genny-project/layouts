@@ -1,7 +1,7 @@
 {
   "layout": {
-    "title": "Results",
-    "backgroundColor": "#f8f8f8",
+    "title": "Profile Business",
+    "appColor": "dark",
     "header": {
       "variant": "default"
     }
@@ -10,17 +10,16 @@
     {
       "component": "ScrollView",
       "props": {
-        "style": {
-          "flex": 1,
-          "backgroundColor": "#f8f8f8"
-        }
+        "flex": 1
       },
       "children": [
         {
           "component": "Box",
           "props": {
             "flex": 1,
-            "flexDirection": "column"
+            "height": "100%",
+            "flexDirection": "column",
+            "backgroundColor": "lightgrey"
           },
           "children": [
             {
@@ -33,13 +32,13 @@
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 20
+                    "marginBottom": 10
                   },
                   "children": [
                     {
                       "component": "Heading",
                       "props": {
-                        "text": "Results",
+                        "text": "Business",
                         "size": "xl"
                       }
                     }
@@ -50,16 +49,22 @@
             {
               "component": "Box",
               "props": {
-                "justifyContent": "center",
+                "paddingX": 10,
                 "flexDirection": "column"
               },
-              "repeat": "_query.results.links",
+              "onlyShowIf": {
+                "query.employmentLinks": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "repeat": "_query.employmentLinks",
               "children": {
                 "component": "Sublayout",
                 "props": {
-                  "layoutName": "cards/contact/contact.card",
-                  "itemID": "{{repeater.code}}",
-                  "depths": "_query.depths"
+                  "layoutName": "cards/employment/employment.card",
+                  "itemID": "{{repeater.code}}"
                 }
               }
             }
@@ -71,12 +76,33 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULTS",
-      "as": "results"
+      "id": "{{navigation.userID}}",
+      "as": "profile"
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "employmentLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "EMPLOYMENT"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "employmentLinks",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -84,17 +110,23 @@
       }
     },
     {
-      "operator": "getLinkDepths",
-      "code": "{{user.data.code}}",
-      "as": "depths"
+      "operator": "scope",
+      "path": "employmentLinks",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "employmentLinks",
       "scope": {
-        "operator": "populateAttributes",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}"
+        "operator": "find",
+        "query": {
+          "attributes.PRI_END_DATE_UNVERIFIED": {
+            "$exists": false
+          }
+        }
       }
     }
   ]
