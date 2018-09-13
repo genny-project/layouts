@@ -1,96 +1,68 @@
 {
   "layout": {
-    "title": "Welcome",
+    "title": "Splash",
     "appColor": "white",
-    "backgroundColor": "#202532"
+    "backgroundColor": "#e3e3e3"
   },
   "children": [
     {
-      "component": "StatusBar",
+      "component": "Container",
       "props": {
-        "barStyle": "light-content"
-      }
-    },
-    {
-      "component": "Box",
-      "props": {
-        "flex": 1,
-        "padding": 20,
-        "paddingBottom": 40,
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1
       },
+
       "children": [
         {
-          "component": "Box",
+          "component": "Image",
           "props": {
-            "flex": 1,
-            "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "Image",
-              "props": {
-                "source": "https://puu.sh/B9kRL.png",
-                "height": 25,
-                "width": 75
-              }
-            }
-          ]
+            "source": "https://i.imgur.com/0fodSXE.png",
+            "width": "50%"
+          }
         },
         {
           "component": "Box",
           "props": {
-            "flex": 1,
-            "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "Heading",
-              "props": {
-                "color": "white",
-                "size": "xxl",
-                "bold": false
-              },
-              "children": "Welcome"
+            "height": 10
+          }
+        },
+        {
+          "component": "LinkButton",
+          "props": {
+            "text": "Login",
+            "to": "login",
+            "width": "100%",
+            "color": "white",
+            "borderWidth": 1,
+            "textColor": "#093f7f",
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
             }
-          ]
+          }
         },
         {
           "component": "Box",
           "props": {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "flex-end"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 10,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Button",
-                  "props": {
-                    "text": "Join Network",
-                    "color": "#09D0B7",
-                    "textColor": "#09D0B7",
-                    "inverted": true
-                  }
-                }
-              ]
-            },
-            {
-              "component": "LinkButton",
-              "props": {
-                "text": "Login",
-                "color": "white",
-                "inverted": true,
-                "to": "login"
-              }
+            "height": 10
+          }
+        },
+        {
+          "component": "LinkButton",
+          "props": {
+            "text": "Create an account",
+            "to": "registration/role",
+            "width": "100%",
+            "color": "white",
+            "borderWidth": 1,
+            "textColor": "#093f7f",
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
             }
-          ]
+          }
         }
       ]
     }

@@ -42,12 +42,21 @@
               }
             },
             {
-              "p": {
+              "Selector": {
                 "position": [1, 0],
-                "style": {
-                  "margin": "0px"
-                },
-                "children": "BE.link.APPLICANT.PRI_EMAIL"
+                "checkValues": "BE.link.APPLICANT.PRI_STUDENT_ID",
+                "showIfNotNull": true,
+                "children": [
+                  {
+                    "p": {
+                      "position": [0, 0],
+                      "style": {
+                        "margin": "0px"
+                      },
+                      "children": "ID: ${BE.link.APPLICANT.PRI_STUDENT_ID}"
+                    }
+                  }
+                ]
               }
             },
             {

@@ -1,95 +1,106 @@
 {
   "layout": {
-    "title": "Home",
-    "appColor": "dark",
+    "title": "Registration",
+    "appColor": "white",
+    "backgroundColor": "#e3e3e3",
     "header": {
-      "variant": "transparent"
+      "variant": "default"
     },
     "sidebar": {
-      "variant": "default"
+      "variant": "sidebar-default"
     }
   },
   "children": [
     {
-      "component": "SafeAreaView",
+      "component": "Container",
       "props": {
-        "forceInset": {
-          "top": "never"
-        },
-        "style": {
-          "flex": 1
-        }
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1
       },
       "children": [
         {
-          "component": "Tabs",
+          "component": "Image",
           "props": {
-            "bottomTabs": true,
-            "tabBarBackground": "white",
-            "iconColor": "#898f9f",
-            "activeIconColor": "#202532",
-            "iconSize": "lg",
-            "labelColor": "#898f9f",
-            "activeLabelColor": "#202532",
-            "labelProps": {
-              "minHeight": 20,
-              "paddingY": 0,
-              "size": "xs"
-            },
-            "tabs": [
-              {
-                "key": 0,
-                "route": "Search",
-                "title": "Search",
-                "icon": "search"
-              },
-              {
-                "key": 1,
-                "route": "alerts",
-                "title": "Alerts",
-                "icon": "notifications"
-              },
-              {
-                "key": 2,
-                "route": "profile",
-                "title": "Profile",
-                "icon": "people"
-              },
-              {
-                "key": 3,
-                "route": "more",
-                "title": "More",
-                "icon": "settings"
-              }
-            ]
+            "source": "https://i.imgur.com/0fodSXE.png",
+            "width": "50%"
+          }
+        },
+        {
+          "component": "Heading",
+          "props": {
+            "size": "lg",
+            "align": "center",
+            "color": "white"
           },
-          "children": [
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "search"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "alerts"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "profile",
-                "userID": "{{user.data.code}}"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "more"
-              }
+          "children": "ADD"
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 40
+          }
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "buttonCode": "BTN_ADD_PEOPLE",
+            "size": "lg",
+            "width": "100%",
+            "text": "New People",
+            "color": "white",
+            "textColor": "black",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "transitionDuration": "300ms",
+            "hoverProps": {
+              "color": "#3b5998",
+              "textColor": "white"
             }
-          ]
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 10
+          }
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "buttonCode": "BTN_ADD_BEG_AGENT",
+            "size": "lg",
+            "width": "100%",
+            "text": "New Internship as Agent",
+            "color": "white",
+            "textColor": "black",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 10
+          }
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "buttonCode": "BTN_ADD_COMPANY",
+            "size": "lg",
+            "width": "100%",
+            "text": "New Company",
+            "color": "white",
+            "textColor": "black",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "hoverProps": {
+              "color": "#3b5998",
+              "textColor": "white"
+            }
+          }
         }
       ]
     }

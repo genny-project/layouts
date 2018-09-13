@@ -1,9 +1,11 @@
 {
   "layout": {
     "title": "Registration",
-    "appColor": "light",
-    "hideSidebar":  true,
-    "hideHeader": true
+    "appColor": "white",
+    "backgroundColor": "white",
+    "header": {
+      "variant": "public-transparent"
+    }
   },
   "children": [
     {
@@ -16,10 +18,18 @@
       },
       "children": [
         {
+          "component": "Image",
+          "props": {
+            "source": "https://i.imgur.com/0fodSXE.png",
+            "width": "50%"
+          }
+        },
+        {
           "component": "Heading",
           "props": {
-              "size": "lg",
-              "align": "center"
+            "size": "lg",
+            "align": "center",
+            "color": "black"
           },
           "children": "Select your role"
         },
@@ -35,7 +45,15 @@
             "buttonCode": "BTN_SELECT_ROLE_BUYER",
             "size": "lg",
             "width": "100%",
-            "text": "I'm a Host Company Staff"
+            "text": "I am an intern",
+            "color": "white",
+            "textColor": "#093f7f",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
+            }
           }
         },
         {
@@ -46,11 +64,20 @@
         },
         {
           "component": "EventButton",
+
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_SELLER",
             "size": "lg",
             "width": "100%",
-            "text": "I'm an Intern"
+            "text": "I am a Host Company Staff",
+            "color": "white",
+            "textColor": "#093f7f",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
+            }
           }
         },
         {
@@ -65,7 +92,30 @@
             "buttonCode": "BTN_SELECT_ROLE_AGENT",
             "size": "lg",
             "width": "100%",
-            "text": "I'm an Agent"
+            "text": "I am an Agent",
+            "color": "white",
+            "textColor": "#093f7f",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 10
+          }
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "buttonCode": "BTN_SELECT_ROLE_EDU_PROVIDER_STAFF",
+            "size": "lg",
+            "width": "100%",
+            "text": "I am a Edu Provider Staff",
+            "color": "white",
+            "textColor": "#093f7f",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true
           }
         }
       ]

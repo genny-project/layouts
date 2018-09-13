@@ -1,82 +1,67 @@
 {
-   "div":{
-      "children":[
-         {
-            "ImageMapView":{
-               "position":[
-                  0,
-                  0
-               ],
-               "style":{
-                  "width":"100%",
-                  "overflow":"hidden"
-               },
-               "height":300,
-<<<<<<< HEAD
-               "width":2000,
-=======
-               "width":640,
->>>>>>> dev
-               "address":"BE.PRI_ADDRESS_FULL",
-               "children":[
-                  {
-                     "Grid":{
-                        "position":[
-                           1,
-                           0
+    "div": {
+        "children": [{
+            "ImageMapView": {
+                "position": [
+                    0,
+                    0
+                ],
+                "style": {
+                    "overflow": "hidden",
+                    "backgroundPositionX": "50%",
+                    "width": "initial"
+                },
+                "height": 300,
+                "width": 1000,
+                "address": "BE.PRI_ADDRESS_FULL",
+                "children": [{
+                    "Grid": {
+                        "position": [
+                            1,
+                            0
                         ],
-                        "cols":1,
-                        "rows":2,
-<<<<<<< HEAD
-=======
-                        "style": {
-                           "float": "right",
-                           "right": "10px",
-                           "marginTop": "-50px",
-                           "color": "white"
-                        },
->>>>>>> dev
-                        "children":[
-                           {
-                              "GennyAddressLabel":{
-                                 "position":[
-                                    0,
-                                    0
-                                 ],
-                                 "style":{
-<<<<<<< HEAD
-                                    "fontSize":"2em"
-=======
-                                    "fontSize":"2em",
-                                    "backgroundColor": "#0000007d"
->>>>>>> dev
-                                 },
-                                 "attributePrefix":"PRI_ADDRESS",
-                                 "root":"BE.code"
-                              }
-<<<<<<< HEAD
-                           },
-                           {
-                              "span":{
-                                 "position":[
-                                    1,
-                                    0
-                                 ],
-                                 "style":{
-                                    "color":"black",
-                                    "fontSize":"2em"
-                                 },
-                                 "children":"BE.LNK_PROPERTY_TYPE_SELECT.name"
-                              }
-=======
->>>>>>> dev
-                           }
+                        "cols": 1,
+                        "rows": 2,
+                        "children": [{
+                                "GennyAddressLabel": {
+                                    "position": [
+                                        0,
+                                        0
+                                    ],
+                                    "style": {
+                                        "fontSize": "2em"
+                                    },
+                                    "attributePrefix": "PRI_ADDRESS",
+                                    "root": "BE.code"
+                                }
+                            },
+                            {
+                                "Selector": {
+                                    "checkValues": [
+                                        "BE.LNK_PROPERTY_TYPE_SELECT.name"
+                                    ],
+                                    "position": [
+                                                   1,
+                                                   0
+                                                ],
+                                    "showIfNotNull": true,
+                                    "children": [{
+                                            "span": {
+                                                "style": {
+                                                    "color": "black",
+                                                    "fontSize": "1.5em"
+                                                },
+                                                "children": "Property Type: ${BE.LNK_PROPERTY_TYPE_SELECT.name}"
+                                            }
+                                        }
+
+                                    ]
+                                }
+                            }
                         ]
-                     }
-                  }
-               ]
+                    }
+                }]
             }
-         }
-      ]
-   }
+        }]
+    }
 }

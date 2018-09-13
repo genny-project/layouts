@@ -1,0 +1,96 @@
+{
+  "layout": {
+    "title": "Login",
+    "appColor": "white",
+    "backgroundColor": "#e05b5b",
+    "header": {
+      "variant": "public-transparent"
+    }
+  },
+  "children": [
+    {
+      "component": "StatusBar",
+      "props": {
+        "barStyle": "light-content"
+      }
+    },
+    {
+      "component": "KeyboardAwareScrollView",
+      "props": {
+        "style": {
+          "flex": 1
+        },
+        "contentContainerStyle": {
+          "flex": 1
+        }
+      },
+      "children": [
+        {
+          "component": "Container",
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "padding": 20,
+                "paddingBottom": 40,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Image",
+                      "props": {
+                        "source": "https://i.imgur.com/jAAWx8I.png",
+                        "width": "50%"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 2,
+                    "flexShrink": 0,
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "color": "white",
+                        "size": "xxl",
+                        "bold": false
+                      },
+                      "children": "Enter your details"
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 40
+                      },
+                      "children": [
+                        {
+                          "component": "AuthenticationGuestLogin",
+                          "props": {
+                            "redirectTo": "owner-landing"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
