@@ -2,10 +2,7 @@
   "layout": {
     "title": "Login",
     "appColor": "white",
-    "backgroundColor": "#1074aa",
-    "header": {
-      "variant": "public-transparent"
-    }
+    "backgroundColor": "#e3e3e3"
   },
   "children": [
     {
@@ -26,19 +23,27 @@
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Container",
           "props": {
-            "flex": 1,
-            "padding": 20,
-            "paddingBottom": 40,
-            "flexDirection": "column"
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "flex": 1
           },
+
           "children": [
             {
-              "component": "Box",
+              "component": "Container",
               "props": {
                 "flex": 1,
                 "alignItems": "center"
+              }
+            },
+            {
+              "component": "Image",
+              "props": {
+                "source": "https://i.imgur.com/0fodSXE.png",
+                "width": "50%"
               }
             },
             {
@@ -52,16 +57,17 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
+                    "color": "black",
                     "size": "xxl",
                     "bold": false
                   },
-                  "children": "Enter your details"
+                  "children": "Login to InternMatch"
                 },
                 {
                   "component": "Box",
                   "props": {
-                    "marginTop": 40,
+                    "alignItems": "center",
+                    "justifyContent": "center",
                     "flex": 1
                   },
                   "children": [
@@ -101,7 +107,7 @@
                                         "type": "text",
                                         "placeholder": "Username",
                                         "name": "username",
-                                        "color": "white"
+                                        "color": "#093f7f"
                                       }
                                     }
                                   ]
@@ -120,7 +126,7 @@
                                         "type": "password",
                                         "placeholder": "Password",
                                         "name": "password",
-                                        "color": "white"
+                                        "color": "#093f7f"
                                       }
                                     }
                                   ]
@@ -164,9 +170,9 @@
                                 {
                                   "component": "FormGenericSubmit",
                                   "props": {
-                                    "text": "Next",
+                                    "text": "Login",
                                     "inverted": true,
-                                    "color": "white"
+                                    "color": "#093f7f"
                                   }
                                 }
                               ]

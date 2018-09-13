@@ -2,19 +2,32 @@
   "layout": {
     "title": "Splash",
     "appColor": "white",
-    "backgroundColor": "#1074aa"
+    "backgroundColor": "#e3e3e3"
   },
   "children": [
     {
-      "component": "Box",
+      "component": "Container",
       "props": {
-        "flex": 1,
         "flexDirection": "column",
         "alignItems": "center",
-        "justifyContent": "center"
+        "justifyContent": "center",
+        "flex": 1
       },
 
       "children": [
+        {
+          "component": "Image",
+          "props": {
+            "source": "https://i.imgur.com/0fodSXE.png",
+            "width": "50%"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 10
+          }
+        },
         {
           "component": "LinkButton",
           "props": {
@@ -22,8 +35,18 @@
             "to": "login",
             "width": "100%",
             "color": "white",
-            "borderWidthColor": "white",
-            "borderWidth": 2
+            "borderWidth": 1,
+            "textColor": "#093f7f",
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "height": 10
           }
         },
         {
@@ -31,10 +54,14 @@
           "props": {
             "text": "Create an account",
             "to": "registration/role",
-            "color": "white",
             "width": "100%",
-            "borderWidthColor": "white",
-            "borderWidth": 2
+            "color": "white",
+            "borderWidth": 1,
+            "textColor": "#093f7f",
+            "hoverProps": {
+              "color": "#093f7f",
+              "textColor": "white"
+            }
           }
         }
       ]

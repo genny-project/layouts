@@ -2,9 +2,12 @@
   "layout": {
     "title": "Registration",
     "appColor": "white",
-    "backgroundColor": "#1074aa",
+    "backgroundColor": "#e3e3e3",
     "header": {
-      "variant": "public-transparent"
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "sidebar-default"
     }
   },
   "children": [
@@ -17,6 +20,13 @@
         "flex": 1
       },
       "children": [
+        {
+          "component": "Image",
+          "props": {
+            "source": "https://i.imgur.com/0fodSXE.png",
+            "width": "50%"
+          }
+        },
         {
           "component": "Heading",
           "props": {
@@ -37,11 +47,17 @@
           "props": {
             "buttonCode": "BTN_ADD_PEOPLE",
             "size": "lg",
-            "width": "50%",
-            "marginLeft": 180,
+            "width": "100%",
             "text": "New People",
             "color": "white",
-            "showSpinnerOnClick": true
+            "textColor": "black",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "transitionDuration": "300ms",
+            "hoverProps": {
+              "color": "#3b5998",
+              "textColor": "white"
+            }
           }
         },
         {
@@ -53,12 +69,13 @@
         {
           "component": "EventButton",
           "props": {
-            "buttonCode": "BTN_ADD_INTERNSHIP",
+            "buttonCode": "BTN_ADD_BEG_AGENT",
             "size": "lg",
-            "width": "50%",
-            "text": "New Internship",
+            "width": "100%",
+            "text": "New Internship as Agent",
             "color": "white",
-            "marginLeft": 180,
+            "textColor": "black",
+            "borderWidth": 1,
             "showSpinnerOnClick": true
           }
         },
@@ -73,11 +90,16 @@
           "props": {
             "buttonCode": "BTN_ADD_COMPANY",
             "size": "lg",
-            "width": "50%",
+            "width": "100%",
             "text": "New Company",
-            "marginLeft": 180,
             "color": "white",
-            "showSpinnerOnClick": true
+            "textColor": "black",
+            "borderWidth": 1,
+            "showSpinnerOnClick": true,
+            "hoverProps": {
+              "color": "#3b5998",
+              "textColor": "white"
+            }
           }
         }
       ]
