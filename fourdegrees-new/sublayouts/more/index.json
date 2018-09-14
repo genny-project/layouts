@@ -1,31 +1,73 @@
 {
   "layout": {
     "title": "More",
-    "appColor": "dark"
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
   },
   "children": [
     {
       "component": "ScrollView",
       "props": {
-        "width": "100%",
-        "flex": 1
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
             "flex": 1,
-            "backgroundColor": "lightgrey"
+            "flexDirection": "column"
           },
           "children": [
             {
-              "component": "Text",
+              "component": "Box",
               "props": {
-                "color": "black"
+                "padding": 20,
+                "flexDirection": "column"
               },
-              "children": "More Coming Soon"
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Settings",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "flexDirection": "column"
+              },
+              "children": {
+                "component": "Box",
+                "props": {
+                  
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "children": "Privacy 🛡"
+                  }
+                ]
+              }
             }
           ]
         }
@@ -33,4 +75,3 @@
     }
   ]
 }
-
