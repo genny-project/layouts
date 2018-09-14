@@ -93,53 +93,17 @@
                             "marginLeft": "10%"
                         }
                     }],
-                    "children": [{
-                            "h4": {
-                                "position": [
-                                    0,
-                                    0
-                                ],
-                                "style": {
-                                    "borderBottom": "2px solid #485461",
-                                    "borderTop": "2px solid #485461"
-                                },
-                                "children": [{
-                                        "p": {
-                                            "position": [
-                                                0,
-                                                0
-                                            ],
-                                            "style": {
-                                                "margin": "5px"
-                                            },
-                                            "children": "Date Added: ${BE.PRI_CREATED_DATETIME}"
-                                        }
-                                    },
-                                    {
-                                        "Selector": {
-                                            "checkValues": [
-                                                "BE.PRI_DELETED_DATETIME"
-                                            ],
-                                            "showIfNotNull": true,
-                                            "children": [{
-                                                "span": {
-                                                    "style": {
-                                                        "fontSize": "0.75em"
-                                                    },
-                                                    "children": "Date Deleted: ${BE.PRI_DELETED_DATETIME}"
-                                                }
-                                            }]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
+                    "children": [    
                         {
                             "h4": {
                                 "position": [
                                     0,
                                     0
                                 ],
+                                 "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
                                 "children": [{
                                         "Selector": {
                                             "checkValues": [
@@ -162,6 +126,49 @@
                                                 "fontSize": "0.75em"
                                             },
                                             "children": "${BE.PRI_ADDRESS_FULL}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        
+                        {
+                            "h4": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
+                                "children": [{
+                                        "p": {
+                                            "position": [
+                                                0,
+                                                0
+                                            ],
+                                            "style": {
+                                                "margin": "5px",
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "Date Added: ${BE.PRI_CREATED_DATETIME}"
+                                        }
+                                    },
+                                    {
+                                        "Selector": {
+                                            "checkValues": [
+                                                "BE.PRI_DELETED_DATETIME"
+                                            ],
+                                            "showIfNotNull": true,
+                                            "children": [{
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "Date Deleted: ${BE.PRI_DELETED_DATETIME}"
+                                                }
+                                            }]
                                         }
                                     }
                                 ]
