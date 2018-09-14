@@ -180,15 +180,15 @@
                   },
                   "children": [
                     {
-                      "component": "Link",
+                      "component": "EventButton",
                       "props": {
                         "style": {
                           "width": "100%"
                         },
-                        "to": "introduction/",
-                        "params": {
-                          "loadID": ".{{query.name}}"
-                        }
+                        "routeValue": "INTRODUCE_ME",
+                        "buttonCode": "INTRODUCE_ME",
+                        "eventType": "ROUTE_CHANGE",
+                        "value": "{{props.userID}}"
                       },
                       "children": [
                         {
@@ -220,8 +220,7 @@
                             {
                               "component": "Text",
                               "props": {
-                                "text":
-                                  "Introduce Me",
+                                "text": "Introduce Me",
                                 "color": "black",
                                 "size": "xs"
                               },
