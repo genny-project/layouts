@@ -48,16 +48,36 @@
               ]
             },
             {
+              "component": "ActivityIndicator",
+              "props": {
+                "size": "large"
+              },
+              "dontShowIf": {
+                "query.results.links": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              }
+            },
+            {
               "component": "Box",
               "props": {
                 "justifyContent": "center",
                 "flexDirection": "column"
               },
+              "onlyShowIf": {
+                "query.results.links": {
+                  "$exists": {
+                    "$gt": 0
+                  }
+                }
+              },
               "repeat": "_query.results.links",
               "children": {
                 "component": "Sublayout",
                 "props": {
-                  "layoutName": "contact/contact.card",
+                  "layoutName": "cards/contact/contact.card",
                   "itemID": "{{repeater.code}}",
                   "depths": "_query.depths"
                 }

@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "IntroduceMe",
+    "title": "Chat",
     "appColor": "dark",
     "header": {
       "variant": "default"
@@ -34,17 +34,19 @@
               },
               "children": [
                 {
-                  "component": "Heading",
+                  "component": "Box",
                   "props": {
-                    "text": "Introduce Me",
-                    "size": "xl"
-                  }
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "Ask someone in your degrees for an introduction"
-                  }
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Your Messages",
+                        "size": "xl"
+                      }
+                    }
+                  ]
                 }
               ]
             },
@@ -58,8 +60,8 @@
               "children": {
                 "component": "Sublayout",
                 "props": {
-                  "layoutName": "cards/contact/contact.default",
-                  "itemID": "{{repeater.code}}",
+                  "layoutName": "chat/chat.listitem",
+                  "contactID": "{{repeater.code}}",
                   "depths": "_query.depths"
                 }
               }

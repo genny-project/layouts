@@ -1,0 +1,159 @@
+{
+  "layout": {
+    "title": "Profile Business",
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "height": "100%",
+            "flexDirection": "column",
+            "backgroundColor": "lightgrey"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "padding": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Business",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "paddingX": 10,
+                "flexDirection": "column"
+              },
+              "onlyShowIf": {
+                "query.employmentLinks": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "repeat": "_query.employmentLinks",
+              "children": {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "cards/employment/employment.card",
+                  "itemID": "{{repeater.code}}"
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "white",
+                "padding": 20,
+                "width": "100%",
+                "justifyContent": "center"
+              },
+              "dontShowIf": {
+                "query.employmentLinks": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "No employment to show.",
+                    "color": "black",
+                    "size": "xs"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.userID}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "employmentLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "EMPLOYMENT"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "employmentLinks",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "employmentLinks",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "employmentLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "attributes.PRI_END_DATE_UNVERIFIED": {
+            "$exists": false
+          }
+        }
+      }
+    }
+  ]
+}
