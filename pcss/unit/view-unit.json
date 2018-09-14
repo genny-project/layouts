@@ -5,23 +5,20 @@
             2,
             1
         ],
-        "children": [
-            {
+        "children": [{
             "div": {
                 "position": [
                     0,
                     0
                 ],
-                "children": [
-                    {
+                "children": [{
                         "div": {
                             "style": {
                                 "width": "100%",
                                 "padding": "20px 50px 10px",
                                 "position": "absolute"
                             },
-                            "children": [
-                                {
+                            "children": [{
                                     "GennyButton": {
                                         "style": {
                                             "width": "100px",
@@ -38,8 +35,7 @@
                                         "hint": {
                                             "itemCode": "BE.code"
                                         },
-                                        "children": [
-                                            {
+                                        "children": [{
                                                 "IconSmall": {
                                                     "style": {
                                                         "fontSize": "28px",
@@ -61,61 +57,71 @@
                                     }
                                 },
                                 {
-                                    "GennyButton": {
-                                        "style": {
-                                            "width": "100px",
-                                            "height": "30px",
-                                            "position": "absolute",
-                                            "top": "50px"
-                                        },
-                                        "buttonStyle": {
-                                            "background": "PROJECT.PRI_COLOR",
-                                            "height": "30px",
-                                            "padding": "0"
-                                        },
-                                        "buttonCode": "BTN_EDIT_UNIT_BUTTON",
-                                        "value": {
-                                            "itemCode": "${BE.code}"
-                                        },
+                                    "Selector": {
+                                        "checkValues": [
+                                            "ROOT"
+                                        ],
+                                        "hideValues": [
+                                            "GRP_BIN",
+                                            "GRP_UNITS_BIN"
+                                        ],
                                         "children": [
+
                                             {
-                                            "span": {
-                                                "style": {
-                                                    "color": "white"
-                                                },
-                                                "children": "EDIT"
+                                                "GennyButton": {
+                                                    "style": {
+                                                        "width": "100px",
+                                                        "height": "30px",
+                                                        "position": "absolute",
+                                                        "top": "50px"
+                                                    },
+                                                    "buttonStyle": {
+                                                        "background": "PROJECT.PRI_COLOR",
+                                                        "height": "30px",
+                                                        "padding": "0"
+                                                    },
+                                                    "buttonCode": "BTN_EDIT_UNIT_BUTTON",
+                                                    "value": {
+                                                        "itemCode": "${BE.code}"
+                                                    },
+                                                    "children": [{
+                                                        "span": {
+                                                            "style": {
+                                                                "color": "white"
+                                                            },
+                                                            "children": "EDIT"
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            {
+                                                "GennyButton": {
+                                                    "style": {
+                                                        "width": "100px",
+                                                        "height": "30px",
+                                                        "position": "absolute",
+                                                        "top": "90px"
+                                                    },
+                                                    "buttonStyle": {
+                                                        "background": "PROJECT.PRI_COLOR",
+                                                        "height": "30px",
+                                                        "padding": "0"
+                                                    },
+                                                    "buttonCode": "BTN_DELETE_UNIT_BUTTON",
+                                                    "value": {
+                                                        "itemCode": "BE.code"
+                                                    },
+                                                    "children": [{
+                                                        "span": {
+                                                            "style": {
+                                                                "color": "white"
+                                                            },
+                                                            "children": "DELETE"
+                                                        }
+                                                    }]
+                                                }
                                             }
-                                        }
                                         ]
-                                    }
-                                },
-                                {
-                                    "GennyButton": {
-                                        "style": {
-                                            "width": "100px",
-                                            "height": "30px",
-                                            "position": "absolute",
-                                            "top": "90px"
-                                        },
-                                        "buttonStyle": {
-                                            "background": "PROJECT.PRI_COLOR",
-                                            "height": "30px",
-                                            "padding": "0"
-                                        },
-                                        "buttonCode": "BTN_DELETE_UNIT_BUTTON",
-                                        "value": {
-                                            "itemCode": "BE.code"
-                                        },
-                                        "children": [
-                                            {
-                                            "span": {
-                                                "style": {
-                                                    "color": "white"
-                                                },
-                                                "children": "DELETE"
-                                            }
-                                        }
-                                    ]
                                     }
                                 }
 
@@ -157,8 +163,7 @@
                         "marginLeft": "10%"
                     }
                 }],
-                "children": [
-                    {
+                "children": [{
                         "h4": {
                             "position": [
                                 0,
@@ -174,16 +179,14 @@
                                             "BE.PRI_UNIT_ID"
                                         ],
                                         "showIfNotNull": true,
-                                        "children": [
-                                            {
+                                        "children": [{
                                             "span": {
                                                 "style": {
                                                     "fontSize": "0.75em"
                                                 },
                                                 "children": "${BE.PRI_UNIT_ID}/"
                                             }
-                                        }
-                                    ]
+                                        }]
                                     }
                                 },
                                 {
@@ -207,8 +210,7 @@
                                 "borderBottom": "2px solid #485461",
                                 "borderTop": "2px solid #485461"
                             },
-                            "children": [
-                                {
+                            "children": [{
                                     "p": {
                                         "position": [
                                             0,
@@ -227,16 +229,14 @@
                                             "BE.PRI_DELETED_DATETIME"
                                         ],
                                         "showIfNotNull": true,
-                                        "children": [
-                                            {
+                                        "children": [{
                                             "span": {
                                                 "style": {
                                                     "fontSize": "0.75em"
                                                 },
                                                 "children": "Date Deleted: ${BE.PRI_DELETED_DATETIME}"
                                             }
-                                        }
-                                    ]
+                                        }]
                                     }
                                 }
                             ]
@@ -453,7 +453,6 @@
                     }
                 ]
             }
-        }
-      ]
+        }]
     }
 }
