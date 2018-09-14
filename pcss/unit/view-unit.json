@@ -211,7 +211,7 @@
                         }
                     },
                     {
-                        "h4": {
+                        "p": {
                             "position": [
                                 0,
                                 0
@@ -220,17 +220,24 @@
                                 "borderBottom": "2px solid #485461",
                                 "borderTop": "2px solid #485461"
                             },
-                            "children": [{
-                                    "p": {
-                                        "position": [
-                                            0,
-                                            0
-                                        ],
+                            "children": [
+                                {
+                                    "span": {
+                                        "style": {
+                                            "fontSize": "1em",
+                                            "fontWeight": "bold"
+                                        },
+                                        "children": "Date Added: "
+                                    }
+                                },
+                                {
+                                    "span": {
+                                       
                                         "style": {
                                             "margin": "5px",
                                             "fontSize": "0.75em"
                                         },
-                                        "children": "Date Added: ${BE.PRI_CREATED_DATETIME}"
+                                        "children": " ${BE.PRI_CREATED_DATETIME}"
                                     }
                                 },
                                 {
@@ -239,14 +246,24 @@
                                             "BE.PRI_DELETED_DATETIME"
                                         ],
                                         "showIfNotNull": true,
-                                        "children": [{
+                                        "children": [
+                                            {
+                                            "span": {
+                                                "style": {
+                                                    "fontSize": "1em"
+                                                },
+                                                "children": "Date Deleted: "
+                                            }
+                                        },
+                                        {
                                             "span": {
                                                 "style": {
                                                     "fontSize": "0.75em"
                                                 },
-                                                "children": "Date Deleted: ${BE.PRI_DELETED_DATETIME}"
+                                                "children": "${BE.PRI_DELETED_DATETIME}"
                                             }
-                                        }]
+                                        }
+                                    ]
                                     }
                                 }
                             ]
