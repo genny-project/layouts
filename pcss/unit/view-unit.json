@@ -140,249 +140,243 @@
                                     0,
                                     0
                                 ],
-                                "style": {
-                                    "borderBottom": "2px solid #485461",
-                                    "borderTop": "2px solid #485461"
-                                },
-                                "children": [
-
+                                "children": [{
+                                        "Selector": {
+                                            "checkValues": [
+                                                "BE.PRI_UNIT_ID"
+                                            ],
+                                            "showIfNotNull": true,
+                                            "children": [{
+                                                "span": {
+                                                    "style": {
+                                                        "fontSize": "0.75em"
+                                                    },
+                                                    "children": "${BE.PRI_UNIT_ID}/"
+                                                }
+                                            }]
+                                        }
+                                    },
+                                    {
+                                        "span": {
+                                            "style": {
+                                                "fontSize": "0.75em"
+                                            },
+                                            "children": "${BE.PRI_ADDRESS_FULL}"
+                                        }
+                                    }
                                 ]
                             }
                         },
                         {
-                            "Selector": {
-                                "checkValues": [
-                                    "BE.PRI_UNIT_ID"
+                            "h4": {
+                                "position": [
+                                    0,
+                                    0
                                 ],
-                                "showIfNotNull": true,
-                                "children": [{
-                                    "span": {
-                                        "style": {
-                                            "fontSize": "0.75em"
-                                        },
-                                        "children": "${BE.PRI_UNIT_ID}/"
-                                    }
-                                }]
+                                "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
+                                "children": "Owner Details"
                             }
                         },
                         {
-                            "span": {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
                                 "style": {
-                                    "fontSize": "0.75em"
+                                    "margin": "5px"
                                 },
-                                "children": "${BE.PRI_ADDRESS_FULL}"
+                                "children": "Name: ${BE.PRI_OWNER_FIRSTNAME}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Email: ${BE.PRI_EMAIL}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Mobile: ${BE.PRI_MOBILE}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Company: ${BE.PRI_OWNER_COMPANY}"
+                            }
+                        },
+                        {
+                            "h4": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
+                                "children": "Owner Representative Details"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Name: ${BE.PRI_REP_FIRSTNAME}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Email: ${BE.PRI_REP_EMAIL}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Mobile: ${BE.PRI_REP_MOBILE}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Company: ${BE.PRI_REP_ADDRESS}"
+                            }
+                        },
+                        {
+                            "h4": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
+                                "children": "Tenant Details"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Name: ${BE.PRI_TENANT_FIRSTNAME}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Email: ${BE.PRI_TENANT_EMAIL}"
+                            }
+                        },
+                        {
+                            "p": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "margin": "5px"
+                                },
+                                "children": "Mobile: ${BE.PRI_TENANT_MOBILE}"
+                            }
+                        },
+                        {
+                            "SublayoutLoader": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "layoutCode": "pcs-details-history",
+                                "aliases": {
+                                    "BE": "BE.code",
+                                    "GROUP": "ROOT"
+                                }
+                            }
+                        },
+                        {
+                            "h4": {
+                                "position": [
+                                    0,
+                                    0
+                                ],
+                                "style": {
+                                    "borderBottom": "2px solid #485461",
+                                    "borderTop": "2px solid #485461"
+                                },
+                                "children": "Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
                             }
                         }
                     ]
-                }
-            },
-            {
-                "h4": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "borderBottom": "2px solid #485461",
-                        "borderTop": "2px solid #485461"
-                    },
-                    "children": "Owner Details"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Name: ${BE.PRI_OWNER_FIRSTNAME}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Email: ${BE.PRI_EMAIL}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Mobile: ${BE.PRI_MOBILE}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Company: ${BE.PRI_OWNER_COMPANY}"
-                }
-            },
-            {
-                "h4": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "borderBottom": "2px solid #485461",
-                        "borderTop": "2px solid #485461"
-                    },
-                    "children": "Owner Representative Details"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Name: ${BE.PRI_REP_FIRSTNAME}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Email: ${BE.PRI_REP_EMAIL}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Mobile: ${BE.PRI_REP_MOBILE}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Company: ${BE.PRI_REP_ADDRESS}"
-                }
-            },
-            {
-                "h4": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "borderBottom": "2px solid #485461",
-                        "borderTop": "2px solid #485461"
-                    },
-                    "children": "Tenant Details"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Name: ${BE.PRI_TENANT_FIRSTNAME}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Email: ${BE.PRI_TENANT_EMAIL}"
-                }
-            },
-            {
-                "p": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "margin": "5px"
-                    },
-                    "children": "Mobile: ${BE.PRI_TENANT_MOBILE}"
-                }
-            },
-            {
-                "SublayoutLoader": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "layoutCode": "pcs-details-history",
-                    "aliases": {
-                        "BE": "BE.code",
-                        "GROUP": "ROOT"
-                    }
-                }
-            },
-            {
-                "h4": {
-                    "position": [
-                        0,
-                        0
-                    ],
-                    "style": {
-                        "borderBottom": "2px solid #485461",
-                        "borderTop": "2px solid #485461"
-                    },
-                    "children": "Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
                 }
             }
         ]
