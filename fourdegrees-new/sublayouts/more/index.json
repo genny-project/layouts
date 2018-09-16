@@ -1,11 +1,8 @@
 {
   "layout": {
     "title": "More",
-    "appColor": "dark",
+    "backgroundColor": "#f8f8f8",
     "header": {
-      "variant": "default"
-    },
-    "sidebar": {
       "variant": "default"
     }
   },
@@ -23,8 +20,7 @@
           "component": "Box",
           "props": {
             "flex": 1,
-            "flexDirection": "column",
-            "backgroundColor": "#f8f8f8"
+            "flexDirection": "column"
           },
           "children": [
             {
@@ -37,15 +33,13 @@
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 20,
-                    "justifyContent": "flex-start",
-                    "alignItems": "flex-start"
+                    "marginBottom": 20
                   },
                   "children": [
                     {
                       "component": "Heading",
                       "props": {
-                        "text": "Settings",
+                        "text": "More",
                         "size": "xl"
                       }
                     }
@@ -54,33 +48,37 @@
               ]
             },
             {
+              "component": "ActivityIndicator",
+              "props": {
+                "size": "large"
+              },
+              "dontShowIf": {
+                "query.results.links": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              }
+            },
+            {
               "component": "Box",
               "props": {
+                "justifyContent": "center",
                 "flexDirection": "column"
               },
-              "children": {
-                "component": "Box",
-                "props": {
-                  "backgroundColor": "white",
-                  "height": 50
-                },
-                "children": [
-                  {
-                    "component": "Text",
-                    "props": {
-                      "textAlign": "left"
-                    },
-                    "children": "Privacy"
-                  },
-                  {	
-                    "component": "Icon",	
-                    "props": {	
-                      "color": "black",	
-                      "size": "md",	
-                      "name": "adjust"	
-                    }	
+              "onlyShowIf": {
+                "query.results.links": {
+                  "$exists": {
+                    "$gt": 0
                   }
-                ]
+                }
+              },
+              "children": {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "cards/more/section.card",
+                  "title": "Privacy"
+                }
               }
             }
           ]
