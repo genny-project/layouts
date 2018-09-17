@@ -2,7 +2,7 @@
   "layout": {
     "title": "Owner Details",
     "appColor": "white",
-    "backgroundColor": "#e05b5b"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -17,6 +17,23 @@
       },
       "children": [
         {
+            "component": "Box",
+            "props": {
+                "flex": 1
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                    }
+                }
+            ]
+        },
+        {
           "component": "Box",
           "props": {
             "padding": 10
@@ -25,7 +42,6 @@
             {
               "component": "Heading",
               "props": {
-                "color": "white",
                 "size": "xxl",
                 "bold": false
               },
@@ -42,7 +58,6 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
                 "bold": false
               },
@@ -64,7 +79,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
+                    "color": "#0592FD",
                     "size": "xl",
                     "text": "{{heading}}"
                   }
@@ -80,7 +95,7 @@
               {
                 "component": "Text",
                 "props": {
-                  "color": "#222",
+                  "color": "#0592FD",
                   "size": "sm"
                 },
                 "children": "{{label}}"
@@ -96,7 +111,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
+                    "color": "#0592FD",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -116,7 +131,10 @@
               "useThemeFrom": "Input",
               "variant": "default",
               "props": {
-                "placeholder": "{{label}}"
+                "placeholder": "{{label}}",
+                "borderWidth": 1,
+                "borderColor": "lightgray",
+                "borderRadius": 3
               }
             },
             "renderLoading": {
@@ -140,7 +158,6 @@
                     {
                       "component": "Text",
                       "props": {
-                        "color": "white",
                         "text": "Loading form..."
                       }
                     }
@@ -159,7 +176,6 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
                 "bold": false
               },
@@ -172,6 +188,8 @@
                 "value": {
                   "itemCode": "...."
                 },
+                "color": "#0592FD",
+                "textColor": "white",
                 "text": "Accept"
               }
             },
