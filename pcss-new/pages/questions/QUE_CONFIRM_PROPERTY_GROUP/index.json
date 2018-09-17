@@ -2,7 +2,7 @@
   "layout": {
     "title": "Owner Confirmation",
     "appColor": "white",
-    "backgroundColor": "#e05b5b"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -17,6 +17,23 @@
       },
       "children": [
         {
+            "component": "Box",
+            "props": {
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                    }
+                }
+            ]
+        },
+        {
           "component": "Box",
           "props": {
             "padding": 10
@@ -25,7 +42,7 @@
             {
               "component": "Heading",
               "props": {
-                "color": "white",
+                "color": "#0592FD",
                 "size": "xxl",
                 "bold": false
               },
@@ -42,9 +59,9 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
-                "bold": false
+                "bold": false,
+                "align": "center"
               },
               "children": "If this address is incorrect, please contact Surety Property team on 1300 767 741 or send an email to info@suretyproperty.com.au so we can resolve this for you."
             }
@@ -64,8 +81,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
-                    "size": "xl",
+                    "size": "lg",
                     "text": "{{heading}}"
                   }
                 }
@@ -80,7 +96,6 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -114,8 +129,7 @@
               "component": "Button",
               "props": {
                 "inverted": true,
-                "showSpinnerOnClick": true,
-                "color": "white"
+                "showSpinnerOnClick": true
               }
             },
             "renderLoading": {
@@ -139,7 +153,6 @@
                     {
                       "component": "Text",
                       "props": {
-                        "color": "white",
                         "text": "Loading form..."
                       }
                     }
