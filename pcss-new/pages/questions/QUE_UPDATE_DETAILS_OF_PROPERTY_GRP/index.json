@@ -2,7 +2,7 @@
   "layout": {
     "title": "Owner Details",
     "appColor": "white",
-    "backgroundColor": "#e05b5b"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -17,6 +17,24 @@
       },
       "children": [
         {
+            "component": "Box",
+            "props": {
+                "flex": 1,
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                    }
+                }
+            ]
+        },
+        {
           "component": "Box",
           "props": {
             "padding": 10
@@ -25,7 +43,7 @@
             {
               "component": "Heading",
               "props": {
-                "color": "white",
+                "color": "#0592FD",
                 "size": "xxl",
                 "bold": false
               },
@@ -42,7 +60,6 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
                 "bold": false
               },
@@ -53,7 +70,7 @@
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "QUE_ADD_UNIT_TO_PROPERTY_GRP",
+            "questionGroupCode": "QUE_UPDATE_DETAILS_OF_PROPERTY_GRP",
             "renderHeading": {
               "component": "Box",
               "props": {
@@ -64,7 +81,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
+                    "color": "#0592FD",
                     "size": "xl",
                     "text": "{{heading}}"
                   }
@@ -80,7 +97,6 @@
               {
                 "component": "Text",
                 "props": {
-                  "color": "#222",
                   "size": "sm"
                 },
                 "children": "{{label}}"
@@ -90,13 +106,14 @@
             "renderSubheading": {
               "component": "Box",
               "props": {
-                "marginY": 20
+                "marginY": 20,
+                "marginBottom": 20
               },
               "children": [
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
+                    "color": "#0592FD",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -116,7 +133,10 @@
               "useThemeFrom": "Input",
               "variant": "default",
               "props": {
-                "placeholder": "{{label}}"
+                "placeholder": "{{label}}",
+                "borderWidth": 1,
+                "borderColor": "lightgray",
+                "borderRadius": 3
               }
             },
             "renderLoading": {
@@ -140,7 +160,6 @@
                     {
                       "component": "Text",
                       "props": {
-                        "color": "white",
                         "text": "Loading form..."
                       }
                     }
@@ -159,11 +178,10 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
                 "bold": false
               },
-              "children": "Please confirm the acceptance of the pre-condition assessment of your property. By choosing to decline the offer of the Pre-Condition Assessment for your property, you may forfeit any opportunity to claim for damages related to these works."
+              "children": "Please confirm the acceptance of the Building Condition Inspection of your property. Only the Owner or authorised Owners Representative can accept this request to proceed with conducting a Building Condition Inspection. By choosing to decline the offer of the Building Condition Inspection for your property, you may forfeit any opportunity to claim for damages related to these works."
             },
             {
               "component": "EventButton",
@@ -172,6 +190,8 @@
                 "value": {
                   "itemCode": "...."
                 },
+                "color": "#0592FD",
+                "textColor": "white",
                 "text": "Accept"
               }
             },

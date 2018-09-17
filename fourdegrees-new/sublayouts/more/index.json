@@ -1,11 +1,8 @@
 {
   "layout": {
     "title": "More",
-    "appColor": "dark",
+    "backgroundColor": "#f8f8f8",
     "header": {
-      "variant": "default"
-    },
-    "sidebar": {
       "variant": "default"
     }
   },
@@ -22,29 +19,29 @@
         {
           "component": "Box",
           "props": {
-            "flex": 1,
-            "flexDirection": "column"
+            "width": "100%",
+            "flexDirection": "column",
+            "backgroundColor": "#f8f8f8"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "padding": 20,
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "width": "100%"
               },
               "children": [
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 20,
-                    "justifyContent": "flex-start",
-                    "alignItems": "flex-start"
+                    "marginBottom": 20
                   },
                   "children": [
                     {
                       "component": "Heading",
                       "props": {
-                        "text": "Settings",
+                        "text": "More",
                         "size": "xl"
                       }
                     }
@@ -55,32 +52,16 @@
             {
               "component": "Box",
               "props": {
-                "justifyContent": "flex-start",
-                "alignItems": "flex-start",
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "width": "100%",
+                "backgroundColor": "#f8f8f8"
               },
               "children": {
-                "component": "Box",
+                "component": "Sublayout",
                 "props": {
-                  "backgroundColor": "white"
-                },
-                "children": [
-                  {
-                    "component": "Text",
-                    "props": {
-                      "textAlign": "left"
-                    },
-                    "children": "Privacy"
-                  },
-                  {	
-                    "component": "Icon",	
-                    "props": {	
-                      "color": "black",	
-                      "size": "md",	
-                      "name": "adjust"	
-                    }	
-                  }
-                ]
+                  "layoutName": "cards/more/section.card",
+                  "title": "Privacy"
+                }
               }
             }
           ]

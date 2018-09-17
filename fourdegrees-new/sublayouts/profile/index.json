@@ -172,8 +172,7 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "flexDirection": "column",
-                    "padding": 10
+                    "flexDirection": "column"
                   },
                   "dontShowIf": {
                     "user.data.code": "{{props.userID}}"
@@ -182,9 +181,6 @@
                     {
                       "component": "EventButton",
                       "props": {
-                        "style": {
-                          "width": "100%"
-                        },
                         "routeValue": "INTRODUCE_ME",
                         "buttonCode": "INTRODUCE_ME",
                         "eventType": "ROUTE_CHANGE",
@@ -194,6 +190,7 @@
                         {
                           "component": "Box",
                           "props": {
+                            "width": "100%",
                             "flexDirection": "row",
                             "alignItems": "center",
                             "backgroundColor": "white",
@@ -275,7 +272,7 @@
                       },
                       "children": [
                         {
-                          "component": "Label",
+                          "component": "Text",
                           "props": {
                             "color": "black",
                             "size": "sm",
@@ -573,7 +570,7 @@
                       },
                       "children": [
                         {
-                          "component": "Label",
+                          "component": "Text",
                           "props": {
                             "text": "Business",
                             "color": "black",
@@ -656,7 +653,8 @@
                         "layoutName": "profile/profile.skills",
                         "userID": "{{props.userID}}"
                       }
-                    },{
+                    },
+                    {
                       "component": "Sublayout",
                       "props": {
                         "layoutName": "profile/profile.services",
