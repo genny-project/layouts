@@ -9,6 +9,7 @@
       "component": "Box",
       "repeat": "_query.items",
       "props": {
+        "marginTop": "10px",
         "flexDirection": "column"
       },
       "children": {
@@ -16,26 +17,181 @@
         "props": {
           "padding": 5,
           "marginBottom": 5,
-          "borderBottom": "1px solid #000",
           "backgroundColor": "grey",
-          "flexDirection": "column"
+          "flexDirection": "row",
+          "justifyContent": "center"
         },
         "children": [
           {
-            "component": "Text",
-            "children": "{{repeater.attributes.PRI_NAME.value}}",
+            "component": "Container",
             "props": {
-
-              "color": "#0f0f0f"
-            }
-          },
-          {
-            "component": "Text",
-            "children": "{{repeater.company.name}}",
-            "props": {
-
-              "color": "#0f0f0f"
-            }
+              "flexDirection": "row",
+              "display": "flex",
+              "flex-wrap": "wrap",
+              "width": "100%"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "width": "100%",
+                  "backgroundColor": "white",
+                  "flexDirection": "row",
+                  "display": "flex"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "backgroundColor": "white",
+                      "width": "100px",
+                      "justifyContent": "center",
+                      "paddingTop": "10px",
+                      "padddingBottom": "10px",
+                      "paddingLeft": "10px",
+                      "paddingRight": "10px"
+                    },
+                    "children": [
+                      {
+                        "component": "Image",
+                        "props": {
+                          "source": " https://i.imgur.com/ziHkxPf.jpg",
+                          "height": "100%",
+                          "width": "100%",
+                          "shape": "circle"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "width": "70%",
+                      "flexDirection": "column",
+                      "backgroundColor": "white"
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {},
+                        "children": [
+                          {
+                            "component": "Box",
+                            "children": {
+                              "component": "Text",
+                              "children": "Javascript developer",
+                              "props": {
+                                "color": "#444444",
+                                "fontWeight": "bold"
+                              }
+                            },
+                            "props": {
+                              "color": "red",
+                              "paddingTop": "10px"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "props": {
+                          "paddingTop": "5px"
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "children": {
+                              "component": "Text",
+                              "children": "Blaze Acumen",
+                              "props": {
+                                "color": "#e7a57d"
+                              }
+                            },
+                            "props": {
+                              "color": "red"
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "children": {
+                              "component": "Text",
+                              "children": "Ashburton VIC",
+                              "props": {
+                                "color": "black"
+                              }
+                            },
+                            "props": {
+                              "color": "red",
+                              "paddingLeft": "20px"
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "children": {
+                              "component": "Text",
+                              "children": "28 days ago",
+                              "props": {
+                                "color": "black"
+                              }
+                            },
+                            "props": {
+                              "color": "red",
+                              "paddingLeft": "10px"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "children": [
+                          {
+                            "component": "Box",
+                            "children": {
+                              "component": "Text",
+                              "children": "Looking for a talented JavaScript Developer (FrontEnd + Backend) to join a growing team of Niche Educational product based organization.",
+                              "props": {
+                                "color": "#332f2d"
+                              }
+                            },
+                            "props": {
+                              "color": "red",
+                              "width": "100%",
+                              "paddingTop": "15px",
+                              "paddingBottom": "10px"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "backgroundColor": "white",
+                      "width": "15%"
+                    },
+                    "children": [
+                      {
+                        "component": "Button",
+                        "props": {
+                          "size": "md",
+                          "color": "#283a4c",
+                          "fontWeight": "bold",
+                          "textColor": "white"
+                        },
+                        "children": {
+                          "component": "Text",
+                          "props": { 
+                            "color": "#fff"
+                          },
+                          "children": "View"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -90,7 +246,7 @@
       "path": "items",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
         "id": "{{attributes.LNK_HOST_COMPANY.value}}"
       }
