@@ -7,38 +7,35 @@
   "children": [
     {
       "component": "Box",
-      "repeat": "_query.internList",
-      "children": {
-        "component": "Text",
-        "props": {
-          "color": "white"
-        },
-        "children": "{{repeater.be.attributes.PRI_NAME.value}}"
-      }
-    },
-    {
-      "component": "Table",
-      "props": {
-        "columns": [
-          {
-            "Header": "First Name",
-            "accessor": "fname"
-          },
-          {
-            "Header": "Last Name",
-            "accessor": "lname"
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "columns": [
+              {
+                "Header": "Full Name",
+                "accessor": "firstName"
+              },
+              {
+                "Header": "Edu Provider",
+                "accessor": "eduProvider"
+              },
+              {
+                "Header": "Mobile Phone",
+                "accessor": "mobilePhone"
+              },
+              {
+                "Header": "Username",
+                "accessor": "uname"
+              }
+            ],
+            "tableBackgroundColor": "#cccccc",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px"
           }
-        ],
-
-        "tableBackgroundColor": "red",
-
-        "data": [
-          {
-            "fname": "Nischal",
-            "lname": "Gautam"
-          }
-        ]
-      }
+        }
+      ]
     }
   ],
   "query": [
@@ -67,6 +64,30 @@
         "scope": {
           "operator": "populateBEGAttributes",
           "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "uname": "be.attributes.PRI_USERNAME.value"
         }
       }
     }
