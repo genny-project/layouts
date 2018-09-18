@@ -2,7 +2,7 @@
   "layout": {
     "title": "Login",
     "appColor": "white",
-    "backgroundColor": "#e05b5b",
+    "backgroundColor": "white",
     "header": {
       "variant": "public-transparent"
     }
@@ -41,15 +41,18 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "alignItems": "center"
+                    "alignItems": "center",
+                    "padding": 50
                   },
                   "children": [
                     {
-                      "component": "Image",
-                      "props": {
-                        "source": "https://i.imgur.com/jAAWx8I.png",
-                        "width": "50%"
-                      }
+                        "component": "Image",
+                        "props": {
+                            "height": 100,
+                            "width": 400,
+                            "top": 50,
+                            "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                        }
                     }
                   ]
                 },
@@ -64,7 +67,6 @@
                     {
                       "component": "Heading",
                       "props": {
-                        "color": "white",
                         "size": "xxl",
                         "bold": false
                       },
@@ -111,7 +113,10 @@
                                           "props": {
                                             "type": "text",
                                             "placeholder": "Username",
-                                            "name": "username"
+                                            "name": "username",
+                                            "borderColor": "lightgray",
+                                            "borderWidth": 1,
+                                            "borderRadius": 3
                                           }
                                         }
                                       ]
@@ -129,7 +134,10 @@
                                           "props": {
                                             "type": "password",
                                             "placeholder": "Password",
-                                            "name": "password"
+                                            "name": "password",
+                                            "borderColor": "lightgray",
+                                            "borderWidth": 1,
+                                            "borderRadius": 3
                                           }
                                         }
                                       ]
@@ -174,8 +182,7 @@
                                       "component": "FormGenericSubmit",
                                       "props": {
                                         "text": "Next",
-                                        "inverted": true,
-                                        "color": "white"
+                                        "inverted": true
                                       }
                                     }
                                   ]
