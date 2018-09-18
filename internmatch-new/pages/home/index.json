@@ -7,109 +7,169 @@
   },
   "children": [
     {
-      "component": "Box",
+      "component": "Tabs",
       "props": {
-        "flexDirection": "column",
-        "alignItems": "center",
-        "justifyContent": "center",
         "flex": 1,
-        "height": "100%"
+        "tabBarBackground": "#303338",
+        "tabWrapperProps": {
+          "paddingLeft": 20,
+          "paddingTop": 20
+        },
+        "textColor": "#FFF",
+        "tabBackground": "#4c4d52",
+        "activeTabBackground": "#FFF",
+        "activeTabTextColor": "#000",
+        "tabProps": {
+          "paddingX": 20,
+          "paddingY": 15,
+          "minWidth": 180,
+          "justifyContent": "center"
+        },
+        "tabTitleProps": {
+          "size": "xs"
+        },
+        "activeTabTitleProps": {
+          "bold": true
+        },
+        "inactiveTabProps": {
+          "borderColor": "#303338",
+          "borderRightWidth": 1,
+          "borderStyle": "solid"
+        },
+        "tabs": [
+          { "title": "Active Internships" },
+          { "title": "My Applications" },
+          { "title": "Map View" }
+        ]
       },
       "children": [
         {
-          "component": "BucketView",
+          "component": "Box",
           "props": {
-            "minHeight": 50,
-            "tabBarSize": "md",
-            "tabBarBackground": "#3f3f3f",
-            "activeTabBackground": "#232323",
-            "iconColor": "white",
-            "iconSize": "md",
-            "labelColor": "white",
-            "labelProps": {
-              "transform": "upperCase"
-            },
-            "overflowX": "auto"
+            "flex": 1,
+            "padding": 20
           },
-          "repeat": "_query",
-          "children": {
-            "component": "List",
-            "repeat": "_repeater.items",
-            "props": {
-              "headerText": "{{repeater.name}}",
-              "headerBackground": "rgba(0, 0, 0, 0.2)",
-              "minWidth": 240
-            },
-            "conditional": {
-              "if": {
-                "repeater.$index": {
-                  "$or": [
-                    { "$mod": [2, 1] },
-                    { "$exists": false }
-                  ]
-                }
-              },
-              "then": {
-                "contentBackground": "#a3a3a3"
-              },
-              "else": {
-                "contentBackground": "#b6b6b6"
-              }
-            },
-            "children": {
-              "component": "Link",
+          "children": [
+            {
+              "component": "Text",
+              "children": "Applications"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "BucketView",
               "props": {
-                "style": {
-                  "width": "100%"
+                "padding": 20,
+                "tabBarSize": "md",
+                "backgroundColor": "#f6f6f6",
+                "tabBarBackground": "#3f3f3f",
+                "activeTabBackground": "#232323",
+                "iconColor": "white",
+                "iconSize": "md",
+                "labelColor": "white",
+                "labelProps": {
+                  "transform": "upperCase"
                 },
-                "key": "{{repeater.code}}",
-                "to": "application/{{repeater.code}}",
-                "params": {
-                  "loadID": "{{repeater.code}}"
-                }
+                "overflowX": "auto",
+                "gutter": 20
               },
-              "children": [
-                {
-                  "component": "Card",
+              "repeat": "_query",
+              "children": {
+                "component": "List",
+                "repeat": "_repeater.items",
+                "props": {
+                  "headerText": "{{repeater.name}}",
+                  "minWidth": 240,
+                  "contentBackground": "#eaeaea",
+                  "headerProps": {
+                    "paddingX": 20,
+                    "paddingY": 15,
+                    "justifyContent": "space-between",
+                    "alignItems": "center"
+                  },
+                  "headerTextProps": {
+                    "bold": true
+                  },
+                  "showCountInHeader": true,
+                  "headerCountProps": {
+
+                  },
+                  "headerCountTextProps": {
+                    "bold": true,
+                    "size": "xs"
+                  },
+                  "emptyProps": {
+                    "padding": 10
+                  },
+                  "emptyTextProps": {
+                    "size": "xs"
+                  }
+                },
+                "children": {
+                  "component": "Link",
+                  "props": {
+                    "style": {
+                      "width": "100%"
+                    },
+                    "key": "{{repeater.code}}",
+                    "to": "application/{{repeater.code}}",
+                    "params": {
+                      "loadID": "{{repeater.code}}"
+                    }
+                  },
                   "children": [
                     {
-                      "component": "Media",
-                      "props": {
-                        "image": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}"
-                      },
+                      "component": "Card",
                       "children": [
                         {
-                          "component": "Box",
+                          "component": "Media",
+                          "props": {
+                            "image": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}"
+                          },
                           "children": [
                             {
                               "component": "Box",
-                              "props": {
-                                "flex": 1,
-                                "width": "100%",
-                                "flexDirection": "column",
-                                "justifyContent": "flex-start"
-                              },
                               "children": [
-                                {
-                                  "component": "Text",
-                                  "props": {
-                                    "size": "xs",
-                                    "bold": true
-                                  },
-                                  "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                                },
                                 {
                                   "component": "Box",
                                   "props": {
-                                    "marginTop": 5
+                                    "flex": 1,
+                                    "width": "100%",
+                                    "flexDirection": "column",
+                                    "justifyContent": "flex-start"
                                   },
                                   "children": [
                                     {
                                       "component": "Text",
                                       "props": {
-                                        "size": "xxs"
+                                        "size": "xs",
+                                        "bold": true
                                       },
-                                      "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
+                                      "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "marginTop": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs"
+                                          },
+                                          "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -121,9 +181,22 @@
                     }
                   ]
                 }
-              ]
+              }
             }
-          }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "padding": 20
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": "Map view here"
+            }
+          ]
         }
       ]
     }
