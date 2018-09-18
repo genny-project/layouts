@@ -180,6 +180,7 @@
                   },
                   "children": [
                     {
+<<<<<<< Updated upstream
                       "component": "Link",
                       "props": {
                         "style": {
@@ -188,6 +189,15 @@
                         "to": "introduction/",
                         "params": {
                           "loadID": ".{{query.name}}"
+=======
+                      "component": "EventLink",
+                      "props": {
+                        "eventType": "ROUTE_CHANGE",
+                        "value": "{{props.userID}}",
+                        "to": "introduction",
+                        "params": {
+                          "targetUserID": "{{props.userID}}"
+>>>>>>> Stashed changes
                         }
                       },
                       "children": [
@@ -616,6 +626,28 @@
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "requests",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "REQUEST"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
       }
     }
   ]
