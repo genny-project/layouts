@@ -1,152 +1,178 @@
 {
-  "div": {
-    "style": {
-      "width": "100%",
-      "height": "100%"
-    },
-    "children": [
-      {
-        "Selector": {
-          "position": [
-            1,
-            0
-          ],
-          "checkValues": [
-            "USER.PRI_IS_BUYER",
-            "USER.PRI_IS_AGENT"
-          ],
-          "showValues": [
-            true
-          ],
-          "children": [
-            {
-              "SplitView": {
-                "position": [
-                  1,
-                  0
-                ],
-                "children": [
-                  {
-                    "GennyList": {
-                      "root": "GRP_NEW_ITEMS",
-                      "showTitle": true,
-                      "title" : "Active Internships",
-                      "hideSelectedStyle": true
-                    }
-                  },
-                  {
-                    "GennyBucketView": {
-                      "useLinkValueForLayout": true,
-                      "root": "GRP_APPLICATIONS"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "Selector": {
-          "position": [
-            1,
-            0
-          ],
-          "checkValues": [
-            "USER.PRI_IS_EDU_PROVIDER_STAFF"
-          ],
-          "showValues": [
-            true
-          ],
-          "children": [
-            {
-              "GennyBucketView": {
-                "useLinkValueForLayout": true,
-                "position": [
-                  1,
-                  0
-                ],
-                "root": "GRP_APPLICATIONS"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "Selector": {
-          "position": [
-            1,
-            0
-          ],
-          "checkValues": [
-            "USER.PRI_IS_SELLER"
-          ],
-          "showValues": [
-            true
-          ],
-          "children": [
-            {
-              "TabContainer": {
-                "position": [
-                  1,
-                  0
-                ],
-                "contentStyle": {
-                  "backgroundColor": "#fff"
-                },
-                "views": [
-                  {
-                    "title": "Active Internships",
-                    "icon": "view_agenda",
-                    "layout": {
-                      "layout": [
-                        {
-                          "GennyList": {
-                            "root": "GRP_NEW_ITEMS",
-                            "showTitle": true,
-                            "title" : "Active Internships",
-                            "hideSelectedStyle": false,
-                            "selectedColor": "rgba(12, 124, 234, 0.28)"
-                          }
+    "div": {
+        "style": {
+            "width": "100%",
+            "height": "100%"
+        },
+        "children": [{
+                "Selector": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "checkValues": [
+                        "USER.PRI_IS_BUYER",
+                        "USER.PRI_IS_AGENT"
+                    ],
+                    "showValues": [
+                        true
+                    ],
+                    "children": [{
+                        "SplitView": {
+                            "position": [
+                                1,
+                                0
+                            ],
+                            "children": [{
+                                    "GennyList": {
+                                        "root": "GRP_NEW_ITEMS",
+                                        "showTitle": true,
+                                        "title": "Active Internships",
+                                        "hideSelectedStyle": true,
+                                        "selectedColor": "rgba(12, 124, 234, 0.28)"
+                                    }
+                                },
+                                {
+                                    "TabContainer": {
+                                        "contentStyle": {
+                                            "backgroundColor": "#fff"
+                                        },
+                                        "views": [{
+                                                "title": "Process Card",
+                                                "icon": "view_agenda",
+                                                "layout": {
+                                                    "layout": [{
+                                                        "GennyBucketView": {
+                                                            "useLinkValueForLayout": true,
+                                                            "root": "GRP_APPLICATIONS"
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            {
+                                                "title": "Internship Details",
+                                                "icon": "view_module",
+                                                "layout": {
+                                                    "layout": [
+                                                        {
+                                                            "div" : {
+                                                                "style": {
+                                                                    "flex": 1,
+                                                                    "justifyContent": "center",
+                                                                    "display": "flex",
+                                                                    "alignItems": "center",
+                                                                    "height": "100%"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "span" : {
+                                                                            "children": "No Internship Selected"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
                         }
-                      ]
-                    }
-                  },
-                  {
-                    "title": "My Applications",
-                    "icon": "view_module",
-                    "layout": {
-                      "layout": [
-                        {
-                          "GennyBucketView": {
+                    }]
+                }
+            },
+            {
+                "Selector": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "checkValues": [
+                        "USER.PRI_IS_EDU_PROVIDER_STAFF"
+                    ],
+                    "showValues": [
+                        true
+                    ],
+                    "children": [{
+                        "GennyBucketView": {
                             "useLinkValueForLayout": true,
+                            "position": [
+                                1,
+                                0
+                            ],
                             "root": "GRP_APPLICATIONS"
-                          }
                         }
-                      ]
-                    }
-                  },
-                  {
-                    "title" : "Map View",
-                    "icon": "public",
-                    "layout" : {
-                      "layout" : [
-                        {
-                          "GennyMap":{
-                            "hideRoutes": true,
-                            "root":"GRP_NEW_ITEMS",
-                            "btnCode": "BTN_VIEW_INTERNSHIP"
-                          }
+                    }]
+                }
+            },
+            {
+                "Selector": {
+                    "position": [
+                        1,
+                        0
+                    ],
+                    "checkValues": [
+                        "USER.PRI_IS_SELLER"
+                    ],
+                    "showValues": [
+                        true
+                    ],
+                    "children": [{
+                        "TabContainer": {
+                            "position": [
+                                1,
+                                0
+                            ],
+                            "contentStyle": {
+                                "backgroundColor": "#fff"
+                            },
+                            "views": [{
+                                    "title": "Active Internships",
+                                    "icon": "view_agenda",
+                                    "layout": {
+                                        "layout": [{
+                                            "GennyList": {
+                                                "root": "GRP_NEW_ITEMS",
+                                                "showTitle": true,
+                                                "title": "Active Internships",
+                                                "hideSelectedStyle": true,
+                                                "selectedColor": "rgba(12, 124, 234, 0.28)"
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "title": "My Applications",
+                                    "icon": "view_module",
+                                    "layout": {
+                                        "layout": [{
+                                            "GennyBucketView": {
+                                                "useLinkValueForLayout": true,
+                                                "root": "GRP_APPLICATIONS"
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "title": "Map View",
+                                    "icon": "public",
+                                    "layout": {
+                                        "layout": [{
+                                            "GennyMap": {
+                                                "hideRoutes": true,
+                                                "root": "GRP_NEW_ITEMS",
+                                                "btnCode": "BTN_VIEW_INTERNSHIP"
+                                            }
+                                        }]
+                                    }
+                                }
+                            ]
                         }
-                      ]
-                    }
-                  }
-                ]
-              }
+                    }]
+                }
             }
-          ]
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
