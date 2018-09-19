@@ -42,40 +42,42 @@
                      }
                   },
                   {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "BE.PRI_UNIT_ID"
-                        ],
-                        "showIfNotNull":true,
+                     "span":{  
                         "position":[  
                            0,
                            1
                         ],
                         "children":[  
                            {  
-                              "span":{  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_UNIT_ID"
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"1.2em"
+                                          },
+                                          "children":"${BE.PRI_UNIT_ID}/"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "GennyAddressLabel":{  
                                  "style":{  
                                     "fontSize":"1.2em"
                                  },
-                                 "children":"${BE.PRI_UNIT_ID}/"
+                                 "showCountry":false,
+                                 "attributePrefix":"PRI_ADDRESS",
+                                 "root":"BE.PRI_BEG_CODE"
                               }
                            }
                         ]
                      }
-                  },
-                  {               
-                      "GennyAddressLabel":{
-                          "position":[  
-                           0,
-                           1
-                        ],
-                          "style":{
-                              "fontSize":"1.2em"
-                          },
-                              "showCountry": false,
-                          "attributePrefix": "PRI_ADDRESS",
-                          "root":"BE.PRI_BEG_CODE"
-                      }                        
                   },
                   {  
                      "Grid":{  
@@ -176,13 +178,13 @@
                   2,
                   0
                ],
-               "style": {
-                  "zIndex": 2
+               "style":{  
+                  "zIndex":2
                },
                "contentStyle":{  
                   "backgroundColor":"white",
                   "padding":"0",
-                  "zIndex": 2
+                  "zIndex":2
                },
                "footer":[  
                   {  
