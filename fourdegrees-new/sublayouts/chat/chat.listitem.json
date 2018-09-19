@@ -61,8 +61,26 @@
                   "children": [
                     {
                       "component": "Text",
+                      "dontShowIf": {
+                        "query.senderBE.name" : {
+                          "$eq": "{{user.data.name}}"
+                        }
+                      },
                       "props": {
-                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
+                        "text": "{{query.senderBE.name}}",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    },
+                    {
+                      "component": "Text",
+                      "dontShowIf": {
+                        "query.receiverBE.name" : {
+                          "$eq": "{{user.data.name}}"
+                        }
+                      },
+                      "props": {
+                        "text": "{{query.receiverBE.name}}",
                         "color": "grey",
                         "size": "xs"
                       }
@@ -80,7 +98,7 @@
                 "eventType": "BTN_CLICK",
                 "buttonCode": "BTN_CREATE_CONVERSATION",
                 "value": {
-                  "itemCode": "{{props.contactID}}"
+                  "itemCode": "{{props.itemID}}"
                 }
               },
               "children": [
@@ -117,13 +135,84 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.contactID}}",
-      "as": "be"
+      "id": "{{props.itemID}}",
+      "as": "chatBE"
     },
     {
-      "operator": "populateAttributes",
-      "code": "{{props.contactID}}",
-      "as": "attributes"
+      "operator": "scope",
+      "path": "chatBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "chatBE.links",
+      "as": "senderBE",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "sender"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "senderBE",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "senderBE",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "chatBE.links",
+      "as": "receiverBE",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "receiver"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "receiverBE",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "receiverBE",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
     }
   ]
 }

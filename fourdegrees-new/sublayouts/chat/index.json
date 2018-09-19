@@ -56,13 +56,12 @@
                 "justifyContent": "center",
                 "flexDirection": "column"
               },
-              "repeat": "_query.messages.links",
+              "repeat": "_query.chats.links",
               "children": {
                 "component": "Sublayout",
                 "props": {
                   "layoutName": "chat/chat.listitem",
-                  "contactID": "{{repeater.code}}",
-                  "depths": "_query.depths"
+                  "itemID": "{{repeater.code}}"
                 }
               }
             }
@@ -75,11 +74,11 @@
     {
       "operator": "getBE",
       "id": "GRP_MESSAGES",
-      "as": "messages"
+      "as": "chats"
     },
     {
       "operator": "scope",
-      "path": "messages.links",
+      "path": "chats.links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -87,13 +86,8 @@
       }
     },
     {
-      "operator": "getLinkDepths",
-      "code": "{{user.data.code}}",
-      "as": "depths"
-    },
-    {
       "operator": "scope",
-      "path": "messages.links",
+      "path": "chats.links",
       "scope": {
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",
