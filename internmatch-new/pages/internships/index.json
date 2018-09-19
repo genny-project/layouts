@@ -1,0 +1,99 @@
+{
+  "layout": {
+    "title": "Available Internships",
+    "appColor": "white",
+    "backgroundColor": "white"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "repeat": "_query.items",
+      "props": {
+        "flexDirection": "column"
+      },
+      "children": {
+        "component": "Box",
+        "props": {
+          "padding": 5,
+          "marginBottom": 5,
+          "borderBottom": "1px solid #000",
+          "backgroundColor": "grey",
+          "flexDirection": "column"
+        },
+        "children": [
+          {
+            "component": "Text",
+            "children": "{{repeater.attributes.PRI_NAME.value}}",
+            "props": {
+
+              "color": "#0f0f0f"
+            }
+          },
+          {
+            "component": "Text",
+            "children": "{{repeater.company.name}}",
+            "props": {
+
+              "color": "#0f0f0f"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_NEW_ITEMS",
+      "as": "internshipList"
+    },
+    {
+      "operator": "scope",
+      "path": "internshipList",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internshipList.links",
+      "as": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "BEG"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_HOST_COMPANY.value}}"
+      }
+    }
+  ]
+}

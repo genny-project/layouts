@@ -1,31 +1,68 @@
 {
   "layout": {
     "title": "More",
-    "appColor": "dark"
+    "backgroundColor": "#f8f8f8",
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
       "component": "ScrollView",
       "props": {
-        "width": "100%",
-        "flex": 1
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "flex": 1,
-            "backgroundColor": "lightgrey"
+            "width": "100%",
+            "flexDirection": "column",
+            "backgroundColor": "#f8f8f8"
           },
           "children": [
             {
-              "component": "Text",
+              "component": "Box",
               "props": {
-                "color": "black"
+                "padding": 20,
+                "flexDirection": "column",
+                "width": "100%"
               },
-              "children": "More Coming Soon"
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "More",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "backgroundColor": "#f8f8f8"
+              },
+              "children": {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "cards/more/section.card",
+                  "title": "Privacy"
+                }
+              }
             }
           ]
         }
@@ -33,4 +70,3 @@
     }
   ]
 }
-

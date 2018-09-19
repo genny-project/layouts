@@ -179,6 +179,43 @@
                   }
                 ]
               }
+            },
+            {
+              "Selector": {
+                "position": [1, 0],
+                "checkValues": ["USER.PRI_IS_AGENT"],
+                "showValues": [true],
+                "children": [
+                  {
+                    "Selector": {
+                      "showIfNotNull": true,
+                      "checkValues": ["BE.LNK_INTERNSHIP_REFERRAL_COMPANY.code"],
+                      "children": [
+                        {
+                          "h4": {
+                            "style": {
+                              "padding": "5px 0 10px"
+                            },
+                            "children": "Referral Info"
+                          }
+                        },
+                        {
+                          "SublayoutLoader": {
+                            "layoutCode": "referee",
+                            "style": {
+                              "backgroundColor": "#DDD"
+                            },
+                            "aliases": {
+                              "BE": "BE.code",
+                              "GROUP": "ROOT"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

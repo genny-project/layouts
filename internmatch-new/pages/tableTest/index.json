@@ -1,0 +1,74 @@
+{
+  "layout": {
+    "title": "Table View",
+    "appColor": "white",
+    "backgroundColor": "#0d0d0d"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "repeat": "_query.internList",
+      "children": {
+        "component": "Text",
+        "props": {
+          "color": "white"
+        },
+        "children": "{{repeater.be.attributes.PRI_NAME.value}}"
+      }
+    },
+    {
+      "component": "Table",
+      "props": {
+        "columns": [
+          {
+            "Header": "First Name",
+            "accessor": "fname"
+          },
+          {
+            "Header": "Last Name",
+            "accessor": "lname"
+          }
+        ],
+
+        "tableBackgroundColor": "red",
+
+        "data": [
+          {
+            "fname": "Nischal",
+            "lname": "Gautam"
+          }
+        ]
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_INTERNS",
+      "as": "internList"
+    },
+    {
+      "operator": "scope",
+      "path": "internList.links",
+      "as": "internList",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "layout": {
+    "title": "Profile Employment",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Link",
+      "props": {
+        "style": {
+          "width": "100%"
+        },
+        "to": "profile/",
+        "params": {
+          "userID": "{{props.itemID}}",
+          "degree": "_props.depths.{{props.itemID}}"
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "backgroundColor": "white",
+            "flex": 1,
+            "padding": 20,
+            "marginBottom": 10,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginRight": 20,
+                "alignItems": "center"
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "shape": "circle",
+                    "width": 60,
+                    "height": 60
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "black",
+                        "text": "Not Connected",
+                        "size": "xs"
+                      },
+                      "conditional": [
+                        {
+                          "if": {
+                            "props.depths.{{props.itemID}}": 1
+                          },
+                          "then": {
+                            "text": "1st Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.itemID}}": 2
+                          },
+                          "then": {
+                            "text": "2nd Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.itemID}}": 3
+                          },
+                          "then": {
+                            "text": "3rd Degree"
+                          }
+                        },
+                        {
+                          "if": {
+                            "props.depths.{{props.itemID}}": 4
+                          },
+                          "then": {
+                            "text": "4th Degree"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {	
+              "component": "Box",	
+              "props": {	
+                "marginleft": 20,	
+                "alignItems": "center"	
+              },	
+              "children": [	
+                {	
+                  "component": "Box",	
+                  "props": {},	
+                  "children": [	
+                    {	
+                      "component": "Icon",	
+                      "props": {	
+                        "color": "black",	
+                        "size": "lg",	
+                        "name": "keyboard_arrow_right"	
+                      }	
+                    }	
+                  ]	
+                }	
+              ]	
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.itemID}}",
+      "as": "be"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{props.itemID}}",
+      "as": "attributes"
+    }
+  ]
+}

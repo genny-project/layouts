@@ -1,9 +1,7 @@
 {
   "layout": {
-    "title": "Registration",
-    "appColor": "light",
-    "hideSidebar":  true,
-    "hideHeader": true
+    "title": "Company",
+    "appColor": "dark"
   },
   "children": [
     {
@@ -12,7 +10,8 @@
         "flexDirection": "column",
         "alignItems": "center",
         "justifyContent": "center",
-        "flex": 1
+        "flex": 1,
+        "padding": 20
       },
       "children": [
         {
@@ -21,7 +20,7 @@
               "size": "lg",
               "align": "center"
           },
-          "children": "Select your role"
+          "children": "Are you a company?"
         },
         {
           "component": "Box",
@@ -32,10 +31,11 @@
         {
           "component": "EventButton",
           "props": {
-            "buttonCode": "BTN_SELECT_ROLE_BUYER",
+            "buttonCode": "BTN_SELECT_COMPANY_YES",
             "size": "lg",
             "width": "100%",
-            "text": "I'm a Freight Owner"
+            "text": "Yes, I'm a company",
+            "showSpinnerOnClick": true
           }
         },
         {
@@ -47,10 +47,11 @@
         {
           "component": "EventButton",
           "props": {
-            "buttonCode": "BTN_SELECT_ROLE_SELLER",
+            "buttonCode": "BTN_SELECT_COMPANY_NO",
             "size": "lg",
             "width": "100%",
-            "text": "I'm a Driver"
+            "text": "No",
+            "showSpinnerOnClick": true
           }
         }
       ]
