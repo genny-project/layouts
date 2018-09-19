@@ -15,13 +15,17 @@
       "props": {
         "justifyContent": "center",
         "padding": 20,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "backgroundColor": "#f8f8f8",
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "borderStyle": "solid"
       },
       "children": [
         {
           "component": "Text",
           "props": {
-            "text": "Person Name",
+            "text": "{{query.introducerBE.attributes.PRI_FIRSTNAME.value}} {{query.introducerBE.attributes.PRI_LASTNAME.value}}",
             "size": "sm"
           }
         }
@@ -31,15 +35,16 @@
       "component": "Box",
       "props": {
         "justifyContent": "center",
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "backgroundColor": "#f8f8f8"
       },
       "children": [
         {
           "component": "Sublayout",
           "props": {
             "layoutName": "cards/introduction/introduction.card",
-            "itemID": "PER_USER1",
-            "requestID": "PER_USER1"
+            "requestID": "{{query.requestBE.code}}",
+            "recipientID": "{{query.recipientBE.code}}"
           }
         }
       ]
@@ -52,6 +57,7 @@
         "sendIconColor": "white",
         "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
+        "itemCode": "{{navigation.chatCode}}",
         "users": "_query.results.links",
         "user": {
           "_id": "{{user.data.code}}"
@@ -86,6 +92,58 @@
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{navigation.itemID}}",
+      "as": "requestBE"
+    },
+    {
+      "operator": "scope",
+      "path": "requestBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "creatorBE"
+    },
+    {
+      "operator": "scope",
+      "path": "creatorBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_RECIPIENT_CODE.value}}",
+      "as": "recipientBE"
+    },
+    {
+      "operator": "scope",
+      "path": "recipientBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBE"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
       }
     }
   ]
