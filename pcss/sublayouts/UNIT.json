@@ -21,7 +21,7 @@
                   1
                ],
                "style":{  
-                  "padding-bottom":"5px",
+                  "padding-bottom":"0px",
                   "background":"white"
                },
                "children":[  
@@ -63,17 +63,19 @@
                         ]
                      }
                   },
-                  {  
-                     "span":{  
-                        "position":[  
+                  {               
+                      "GennyAddressLabel":{
+                          "position":[  
                            0,
                            1
                         ],
-                        "style":{  
-                           "fontSize":"1em"
-                        },
-                        "children":"${BE.PRI_ADDRESS_FULL}"
-                     }
+                          "style":{
+                              "fontSize":"1.2em"
+                          },
+                              "showCountry": false,
+                          "attributePrefix": "PRI_ADDRESS",
+                          "root":"BE.parent.code"
+                      }                        
                   },
                   {  
                      "Grid":{  
