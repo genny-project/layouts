@@ -5,18 +5,18 @@
   },
   "children": [
     {
-        "component": "EventButton",
-        "props": {
-          "alignItems": "flex-start",
-          "paddingX": 0,
-          "paddingY": 0,
-          "eventType": "BTN_CLICK",
-          "buttonCode": "BTN_CREATE_CONVERSATION",
-          "value": {
-            "itemCode": "{{props.contactID}}"
-          }
+      "component": "Link",
+      "props": {
+        "style": {
+          "width": "100%"
         },
-        "children": [
+        "to": "profile/",
+        "params": {
+          "userID": "{{props.contactID}}",
+          "degree": "_props.depths.{{props.contactID}}"
+        }
+      },
+      "children": [
         {
           "component": "Box",
           "props": {
@@ -72,23 +72,38 @@
               ]
             },
             {
-              "component": "Box",
+              "component": "EventButton",
               "props": {
-                "marginleft": 20,
-                "alignItems": "center"
+                "alignItems": "flex-start",
+                "paddingX": 0,
+                "paddingY": 0,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_CREATE_CONVERSATION",
+                "value": {
+                  "itemCode": "{{props.contactID}}"
+                }
               },
               "children": [
                 {
                   "component": "Box",
-                  "props": {},
+                  "props": {
+                    "marginleft": 20,
+                    "alignItems": "center"
+                  },
                   "children": [
                     {
-                      "component": "Icon",
-                      "props": {
-                        "color": "black",
-                        "size": "lg",
-                        "name": "chevron-right"
-                      }
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "color": "black",
+                            "size": "lg",
+                            "name": "chevron-right"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
