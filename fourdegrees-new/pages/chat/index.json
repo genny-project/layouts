@@ -56,7 +56,7 @@
                 "justifyContent": "center",
                 "flexDirection": "column"
               },
-              "repeat": "_query.results.links",
+              "repeat": "_query.messages.links",
               "children": {
                 "component": "Sublayout",
                 "props": {
@@ -74,12 +74,12 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULTS",
-      "as": "results"
+      "id": "GRP_MESSAGES",
+      "as": "messages"
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "messages.links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -93,7 +93,7 @@
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "messages.links",
       "scope": {
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",

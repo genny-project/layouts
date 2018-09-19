@@ -2,7 +2,7 @@
   "layout": {
     "title": "Owner Landing",
     "appColor": "white",
-    "backgroundColor": "#e05b5b"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -17,6 +17,23 @@
       },
       "children": [
         {
+            "component": "Box",
+            "props": {
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                    }
+                }
+            ]
+        },
+        {
           "component": "Box",
           "props": {
             "padding": 10
@@ -25,11 +42,11 @@
             {
               "component": "Heading",
               "props": {
-                "color": "white",
+                "color": "#0592FD",
                 "size": "xxl",
                 "bold": false
               },
-              "children": "That code doesn't match any properties in our database."
+              "children": "The code entered is not recognised."
             }
           ]
         },
@@ -42,9 +59,9 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
-                "bold": false
+                "bold": false,
+                "align": "center"
               },
               "children": "For assistance, please contact the Batemans Bay project team on 1800 870 119 or send an email to BatemansBayBridge@jhg.com.au."
             }
@@ -55,7 +72,7 @@
           "props": {
             "alignItems": "center",
             "paddingX": 0,
-            "paddingY": 0,
+            "paddingY": 40,
             "eventType": "ROUTE_CHANGE",
             "buttonCode": "owner-landing/verify-code",
             "value": {
@@ -69,15 +86,15 @@
                 "alignItems": "center",
                 "shape": "rounded",
                 "borderWidth": 1,
-                "borderColor": "white"
+                "borderColor": "lightgray"
               },
               "children": [
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "xl",
-                    "bold": false
+                    "bold": false,
+                    "decoration": "underline"
                   },
                   "children": "Click here to try another property code."
                 }

@@ -1,403 +1,474 @@
-{
-    "TabContainer": {
-        "position": [
-            0,
-            0
-        ],
-        "tabColor": "PROJECT.PRI_COLOR",
-        "views": [{
-                "title": "Details",
-                "icon": "dashboard",
-                "layout": {
-                    "layout": [{
-                        "div": {
-                            "style": {
-                                "position": "relative"
-                            },
-                            "children": [
-                                {
-                                    "div": {
-                                        "style": {
-                                            "width": "100%",
-                                            "padding": "20px 50px 10px",
-                                            "position": "absolute"
-                                        },
-                                        "children": [{
-                                                "GennyButton": {
-                                                    "style": {
-                                                        "width": "100px",
-                                                        "height": "30px",
-                                                        "position": "absolute",
-                                                        "top": "10px"
-                                                    },
-                                                    "buttonStyle": {
-                                                        "background": "PROJECT.PRI_COLOR",
-                                                        "height": "30px",
-                                                        "padding": "0"
-                                                    },
-                                                    "buttonCode": "BTN_BACK_BUTTON",
-                                                    "value": {
-                                                        "itemCode": "BE.code"
-                                                    },
-                                                    "children": [{
-                                                            "IconSmall": {
-                                                                "style": {
-                                                                    "fontSize": "28px",
-                                                                    "transform": "rotate(90deg)",
-                                                                    "color": "white"
-                                                                },
-                                                                "name": "arrow_drop_down"
-                                                            }
-                                                        },
-                                                        {
-                                                            "span": {
-                                                                "style": {
-                                                                    "color": "white"
-                                                                },
-                                                                "children": "BACK"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "GennyButton": {
-                                                    "style": {
-                                                        "width": "100px",
-                                                        "height": "30px",
-                                                        "position": "absolute",
-                                                        "top": "50px"
-                                                    },
-                                                    "buttonStyle": {
-                                                        "background": "PROJECT.PRI_COLOR",
-                                                        "height": "30px",
-                                                        "padding": "0"
-                                                    },
-                                                    "buttonCode": "BTN_EDIT_PROPERTY_BUTTON",
-                                                    "value": {
-                                                        "itemCode": "${BE.code}"
-                                                    },
-                                                    "children": [{
-                                                        "span": {
-                                                            "style": {
-                                                                "color": "white"
-                                                            },
-                                                            "children": "EDIT"
-                                                        }
-                                                    }]
-                                                }
-                                            },
-                                            {
-                                                "GennyButton": {
-                                                    "style": {
-                                                        "width": "100px",
-                                                        "height": "30px",
-                                                        "position": "absolute",
-                                                        "top": "90px"
-                                                    },
-                                                    "buttonStyle": {
-                                                        "background": "PROJECT.PRI_COLOR",
-                                                        "height": "30px",
-                                                        "padding": "0"
-                                                    },
-                                                    "buttonCode": "BTN_DELETE_PROPERTY_BUTTON",
-                                                    "value": {
-                                                        "itemCode": "BE.code"
-                                                    },
-                                                    "children": [{
-                                                        "span": {
-                                                            "style": {
-                                                                "color": "white"
-                                                            },
-                                                            "children": "DELETE"
-                                                        }
-                                                    }]
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "SublayoutLoader": {
-                                        "position": [
-                                            0,
-                                            0
-                                        ],
-                                        "layoutCode": "property-details-header",
-                                        "aliases": {
-                                            "BE": "BE.code",
-                                            "GROUP": "ROOT"
-                                        }
-                                    }
-                                },
-                                 {
-                                     "Grid": {
-                                         "position": [0, 0],
-                                         "style": {
-                                             "color": "rgb(72,84,98)",
-                                             "lineHeight": "1.8em"
-                                         },
-                                         "rows": [0.1, 1],
-                                         "cols": [{
-                                             "style": {
-                                                 "flexGrow": 1,
-                                                 "marginLeft": "10%"
-                                             }
-                                         }],
-                                         "children": [
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Date Added: ${BE.PRI_PROPERTY_ADDED_DATETIME}"
-                                                 }
-                                             },
-                                             {
-                                                 "h4": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "borderBottom": "2px solid #485461",
-                                                         "borderTop": "2px solid #485461"
-                                                     },
-                                                     "children": "Owner Details"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Name: ${BE.PRI_OWNER_FIRSTNAME}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Email: ${BE.PRI_EMAIL}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Mobile: ${BE.PRI_MOBILE}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Company: ${BE.PRI_OWNER_COMPANY}"
-                                                 }
-                                             },
-                                             {
-                                                 "h4": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "borderBottom": "2px solid #485461",
-                                                         "borderTop": "2px solid #485461"
-                                                     },
-                                                     "children": "Owner Representative Details"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Name: ${BE.PRI_REP_FIRSTNAME}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Email: ${BE.PRI_REP_EMAIL}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Mobile: ${BE.PRI_REP_MOBILE}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Company: ${BE.PRI_REP_ADDRESS}"
-                                                 }
-                                             },
-                                             {
-                                                 "h4": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "borderBottom": "2px solid #485461",
-                                                         "borderTop": "2px solid #485461"
-                                                     },
-                                                     "children": "Tenant Details"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Name: ${BE.PRI_TENANT_FIRSTNAME}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Email: ${BE.PRI_TENANT_EMAIL}"
-                                                 }
-                                             },
-                                             {
-                                                 "p": {
-                                                     "position": [0, 0],
-                                                     "style": {
-                                                         "margin": "5px"
-                                                     },
-                                                     "children": "Mobile: ${BE.PRI_TENANT_MOBILE}"
-                                                 }
-                                             },
-                                             {
-                                               "h4": {
-                                                   "position": [0, 0],
-                                                   "style": {
-                                                       "borderBottom": "2px solid #485461",
-                                                       "borderTop": "2px solid #485461"
+{  
+   "TabContainer":{  
+      "position":[  
+         0,
+         0
+      ],
+      "tabColor":"PROJECT.PRI_COLOR",
+      "views":[  
+         {  
+            "title":"Details",
+            "icon":"dashboard",
+            "layout":{  
+               "layout":[  
+                  {  
+                     "div":{  
+                        "style":{  
+                           "position":"relative"
+                        },
+                        "children":[  
+                           {  
+                              "div":{  
+                                 "style":{  
+                                    "width":"100%",
+                                    "padding":"20px 50px 10px",
+                                    "position":"absolute"
+                                 },
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "width":"100px",
+                                             "height":"30px",
+                                             "position":"absolute",
+                                             "top":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"PROJECT.PRI_COLOR",
+                                             "height":"30px",
+                                             "padding":"0"
+                                          },
+                                          "buttonCode":"BTN_BACK_BUTTON",
+                                          "value":{  
+                                             "itemCode":"BE.code"
+                                          },
+                                          "children":[  
+                                             {  
+                                                "IconSmall":{  
+                                                   "style":{  
+                                                      "fontSize":"28px",
+                                                      "transform":"rotate(90deg)",
+                                                      "color":"white"
                                                    },
-                                                   "children": "Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
-                                               }
-                                           }
-                                         ]
-                                     }
+                                                   "name":"arrow_drop_down"
+                                                }
+                                             },
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "color":"white"
+                                                   },
+                                                   "children":"BACK"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "width":"100px",
+                                             "height":"30px",
+                                             "position":"absolute",
+                                             "top":"50px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"PROJECT.PRI_COLOR",
+                                             "height":"30px",
+                                             "padding":"0"
+                                          },
+                                          "buttonCode":"BTN_EDIT_PROPERTY_BUTTON",
+                                          "value":{  
+                                             "itemCode":"${BE.code}"
+                                          },
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "color":"white"
+                                                   },
+                                                   "children":"EDIT"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "width":"100px",
+                                             "height":"30px",
+                                             "position":"absolute",
+                                             "top":"90px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"PROJECT.PRI_COLOR",
+                                             "height":"30px",
+                                             "padding":"0"
+                                          },
+                                          "buttonCode":"BTN_DELETE_PROPERTY_BUTTON",
+                                          "value":{  
+                                             "itemCode":"BE.code"
+                                          },
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "color":"white"
+                                                   },
+                                                   "children":"DELETE"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "SublayoutLoader":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "layoutCode":"property-details-header",
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
                                  }
-                            ]
-                        }
-                    }]
-                }
-            },
-            {
-                "title": "Units",
-                "icon": "public",
-                "layout": {
-                    "layout": [{
-                        "div": {
-                            "children": [{
-                                    "div": {
-                                        "style": {
-                                            "height": "50px",
-                                            "backgroundColor": "PROJECT.PRI_COLOR"
-                                        },
-                                        "children": [{
-                                            "Selector": {
-                                                "checkValues": [
-                                                    "USER.PRI_IS_BUYER"
-                                                ],
-                                                "showValues": [
-                                                    true, "true"
-                                                ],
-                                                "children": [{
-                                                    "GennyButton": {
-                                                        "position": [
-                                                            0,
-                                                            0
-                                                        ],
-                                                        "style": {
-                                                            "width": "150px",
-                                                            "height": "40px",
-                                                            "marginLeft": "auto",
-                                                            "right": "20px",
-                                                            "border": "white"
-                                                        },
-                                                        "buttonStyle": {
-                                                            "background": "PROJECT.PRI_COLOR",
-                                                            "color": "solid 2px white",
-                                                            "border": "white"
-                                                        },
-                                                        "buttonComponentStyle": {
-                                                            "border": "2px solid white",
-                                                            "borderRadius": "5px",
-                                                            "marginTop": "3px"
-                                                        },
-                                                        "buttonCode": "BTN_ADD_UNIT_TO_PROPERTY",
-                                                        "value": {
-                                                            "itemCode": "BE.code",
-                                                            "root": "ROOT"
-                                                        },
-                                                        "children": [{
-                                                                "IconSmall": {
-                                                                    "name": "meeting_room",
-                                                                    "fontSize": "2em",
-                                                                    "style": {
-                                                                        "padding": "0",
-                                                                        "marginRight": "0.3em",
-                                                                        "color": "#fff"
-                                                                    }
-                                                                }
-                                                            },
-                                                            {
-                                                                "p": {
-                                                                    "style": {
-                                                                        "margin": "0"
-                                                                    },
-                                                                    "children": "Add Unit"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }]
-                                            }
-                                        }]
+                              }
+                           },
+                           {  
+                              "Grid":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "style":{  
+                                    "color":"rgb(72,84,98)",
+                                    "lineHeight":"1.8em"
+                                 },
+                                 "rows":[  
+                                    0.1,
+                                    1
+                                 ],
+                                 "cols":[  
+                                    {  
+                                       "style":{  
+                                          "flexGrow":1,
+                                          "marginLeft":"10%"
+                                       }
                                     }
-                                },
-                                {
-                                    "SublayoutLoader": {
-                                        "layoutCode": "property-details-units-table",
-                                        "aliases": {
-                                            "BE": "BE.code",
-                                            "GROUP": "ROOT"
-                                        }
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Date Added: ${BE.PRI_CREATED_DATETIME}"
+                                       }
+                                    },
+                                    {  
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "BE.PRI_DELETED_DATETIME"
+                                          ],
+                                          "showIfNotNull":true,
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "fontSize":"0.75em"
+                                                   },
+                                                   "children":"Date Deleted: ${BE.PRI_DELETED_DATETIME}"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {  
+                                       "h4":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "borderBottom":"2px solid #485461",
+                                             "borderTop":"2px solid #485461"
+                                          },
+                                          "children":"Property Location"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Property Precinct: ${BE.LNK_PROPERTY_PRECINCT_SELECT.name}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Location to Highway: ${BE.LNK_LOCATION_TO_HIGHWAY.name}"
+                                       }
+                                    },
+                                    {  
+                                       "h4":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "borderBottom":"2px solid #485461",
+                                             "borderTop":"2px solid #485461"
+                                          },
+                                          "children":"Owner Representative Details"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Name: ${BE.PRI_REP_FIRSTNAME}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Email: ${BE.PRI_REP_EMAIL}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Mobile: ${BE.PRI_REP_MOBILE}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Company: ${BE.PRI_REP_ADDRESS}"
+                                       }
+                                    },
+                                    {  
+                                       "h4":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "borderBottom":"2px solid #485461",
+                                             "borderTop":"2px solid #485461"
+                                          },
+                                          "children":"Tenant Details"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Name: ${BE.PRI_TENANT_FIRSTNAME}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Email: ${BE.PRI_TENANT_EMAIL}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Mobile: ${BE.PRI_TENANT_MOBILE}"
+                                       }
+                                    },
+                                    {  
+                                       "h4":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "borderBottom":"2px solid #485461",
+                                             "borderTop":"2px solid #485461"
+                                          },
+                                          "children":"Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
+                                       }
                                     }
-                                }
-                            ]
-                        }
-                    }]
-                }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         },
+         {  
+            "title":"Units",
+            "icon":"public",
+            "layout":{  
+               "layout":[  
+                  {  
+                     "div":{  
+                        "children":[  
+                           {  
+                              "div":{  
+                                 "style":{  
+                                    "height":"50px",
+                                    "backgroundColor":"PROJECT.PRI_COLOR"
+                                 },
+                                 "children":[  
+                                    {  
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "USER.PRI_IS_BUYER"
+                                          ],
+                                          "showValues":[  
+                                             true,
+                                             "true"
+                                          ],
+                                          "children":[  
+                                             {  
+                                                "GennyButton":{  
+                                                   "position":[  
+                                                      0,
+                                                      0
+                                                   ],
+                                                   "style":{  
+                                                      "width":"150px",
+                                                      "height":"40px",
+                                                      "marginLeft":"auto",
+                                                      "right":"20px",
+                                                      "border":"white"
+                                                   },
+                                                   "buttonStyle":{  
+                                                      "background":"PROJECT.PRI_COLOR",
+                                                      "color":"solid 2px white",
+                                                      "border":"white"
+                                                   },
+                                                   "buttonComponentStyle":{  
+                                                      "border":"2px solid white",
+                                                      "borderRadius":"5px",
+                                                      "marginTop":"3px"
+                                                   },
+                                                   "buttonCode":"BTN_ADD_UNIT_TO_PROPERTY",
+                                                   "value":{  
+                                                      "itemCode":"BE.code",
+                                                      "root":"ROOT"
+                                                   },
+                                                   "children":[  
+                                                      {  
+                                                         "IconSmall":{  
+                                                            "name":"meeting_room",
+                                                            "fontSize":"2em",
+                                                            "style":{  
+                                                               "padding":"0",
+                                                               "marginRight":"0.3em",
+                                                               "color":"#fff"
+                                                            }
+                                                         }
+                                                      },
+                                                      {  
+                                                         "p":{  
+                                                            "style":{  
+                                                               "margin":"0"
+                                                            },
+                                                            "children":"Add Unit"
+                                                         }
+                                                      }
+                                                   ]
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"property-details-units-table",
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
 }

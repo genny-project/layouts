@@ -1,108 +1,326 @@
 {
   "layout": {
-    "title": "Registration",
-    "appColor": "white",
-    "backgroundColor": "#e3e3e3",
+    "title": "Home",
     "header": {
       "variant": "default"
-    },
-    "sidebar": {
-      "variant": "sidebar-default"
     }
   },
   "children": [
     {
-      "component": "Container",
+      "component": "Tabs",
       "props": {
-        "flexDirection": "column",
-        "alignItems": "center",
-        "justifyContent": "center",
-        "flex": 1
+        "flex": 1,
+        "tabBarBackground": "#303338",
+        "tabWrapperProps": {
+          "paddingLeft": 20,
+          "paddingTop": 20
+        },
+        "textColor": "#FFF",
+        "tabBackground": "#4c4d52",
+        "activeTabBackground": "#FFF",
+        "activeTabTextColor": "#000",
+        "tabProps": {
+          "paddingX": 20,
+          "paddingY": 15,
+          "minWidth": 180,
+          "justifyContent": "center"
+        },
+        "tabTitleProps": {
+          "size": "xs"
+        },
+        "activeTabTitleProps": {
+          "bold": true
+        },
+        "inactiveTabProps": {
+          "borderColor": "#303338",
+          "borderRightWidth": 1,
+          "borderStyle": "solid"
+        },
+        "tabs": [
+          { "title": "Active Internships" },
+          { "title": "My Applications" },
+          { "title": "Map View" }
+        ]
       },
       "children": [
         {
-          "component": "Image",
+          "component": "Box",
           "props": {
-            "source": "https://i.imgur.com/0fodSXE.png",
-            "width": "50%"
-          }
-        },
-        {
-          "component": "Heading",
-          "props": {
-            "size": "lg",
-            "align": "center",
-            "color": "white"
+            "flex": 1,
+            "padding": 20
           },
-          "children": "ADD"
-        },
-        {
-          "component": "Box",
-          "props": {
-            "height": 40
-          }
-        },
-        {
-          "component": "EventButton",
-          "props": {
-            "buttonCode": "BTN_ADD_PEOPLE",
-            "size": "lg",
-            "width": "100%",
-            "text": "New People",
-            "color": "white",
-            "textColor": "black",
-            "borderWidth": 1,
-            "showSpinnerOnClick": true,
-            "transitionDuration": "300ms",
-            "hoverProps": {
-              "color": "#3b5998",
-              "textColor": "white"
+          "children": [
+            {
+              "component": "Text",
+              "children": "Applications"
             }
-          }
+          ]
         },
         {
           "component": "Box",
           "props": {
-            "height": 10
-          }
-        },
-        {
-          "component": "EventButton",
-          "props": {
-            "buttonCode": "BTN_ADD_BEG_AGENT",
-            "size": "lg",
-            "width": "100%",
-            "text": "New Internship as Agent",
-            "color": "white",
-            "textColor": "black",
-            "borderWidth": 1,
-            "showSpinnerOnClick": true
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "height": 10
-          }
-        },
-        {
-          "component": "EventButton",
-          "props": {
-            "buttonCode": "BTN_ADD_COMPANY",
-            "size": "lg",
-            "width": "100%",
-            "text": "New Company",
-            "color": "white",
-            "textColor": "black",
-            "borderWidth": 1,
-            "showSpinnerOnClick": true,
-            "hoverProps": {
-              "color": "#3b5998",
-              "textColor": "white"
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "BucketView",
+              "props": {
+                "padding": 20,
+                "tabBarSize": "md",
+                "backgroundColor": "#f6f6f6",
+                "tabBarBackground": "#3f3f3f",
+                "activeTabBackground": "#232323",
+                "iconColor": "white",
+                "iconSize": "md",
+                "labelColor": "white",
+                "labelProps": {
+                  "transform": "upperCase"
+                },
+                "overflowX": "auto",
+                "gutter": 20
+              },
+              "repeat": "_query",
+              "children": {
+                "component": "List",
+                "repeat": "_repeater.items",
+                "props": {
+                  "headerText": "{{repeater.name}}",
+                  "minWidth": 240,
+                  "contentBackground": "#eaeaea",
+                  "headerProps": {
+                    "paddingX": 20,
+                    "paddingY": 15,
+                    "justifyContent": "space-between",
+                    "alignItems": "center"
+                  },
+                  "headerTextProps": {
+                    "bold": true
+                  },
+                  "showCountInHeader": true,
+                  "headerCountProps": {
+
+                  },
+                  "headerCountTextProps": {
+                    "bold": true,
+                    "size": "xs"
+                  },
+                  "emptyProps": {
+                    "padding": 10
+                  },
+                  "emptyTextProps": {
+                    "size": "xs"
+                  }
+                },
+                "children": {
+                  "component": "Link",
+                  "props": {
+                    "style": {
+                      "width": "100%"
+                    },
+                    "key": "{{repeater.code}}",
+                    "to": "application/{{repeater.code}}",
+                    "params": {
+                      "loadID": "{{repeater.code}}"
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Card",
+                      "children": [
+                        {
+                          "component": "Media",
+                          "props": {
+                            "image": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "children": [
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "flex": 1,
+                                    "width": "100%",
+                                    "flexDirection": "column",
+                                    "justifyContent": "flex-start"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Text",
+                                      "props": {
+                                        "size": "xs",
+                                        "bold": true
+                                      },
+                                      "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "marginTop": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs"
+                                          },
+                                          "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
             }
-          }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "padding": 20
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": "Map view here"
+            }
+          ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_APPLICATIONS",
+      "as": "applications"
+    },
+    {
+      "operator": "scope",
+      "path": "applications.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "applications.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
+    },
+    {
+      "operator": "map",
+      "fields": "be"
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be.code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "map",
+      "fields": {
+        "name": "name",
+        "code": "code",
+        "items": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "map",
+        "fields": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_BEG_CODE.value}}",
+        "as": "internship"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "internship",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{internship.attributes.LNK_HOST_COMPANY.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
     }
   ]
 }

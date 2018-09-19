@@ -12,33 +12,12 @@
   "children": [
     {
       "component": "Box",
-      "props": {
-        "justifyContent": "center",
-        "padding": 20,
-        "fontWeight": "bold"
-      },
       "children": [
         {
           "component": "Text",
           "props": {
             "text": "Person Name",
             "size": "sm"
-          }
-        }
-      ]
-    },
-    {
-      "component": "Box",
-      "props": {
-        "justifyContent": "center",
-        "flexDirection": "column"
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "cards/introduction/introduction.card",
-            "itemID": "PER_USER1"
           }
         }
       ]
@@ -51,7 +30,8 @@
         "sendIconColor": "white",
         "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
-        "users": "_query.results.links",
+        "chatLinks": "_query.results.links",
+        "itemCode": "{{navigation.chatCode}}",
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -81,6 +61,29 @@
     {
       "operator": "scope",
       "path": "results.links",
+      "scope": {
+        "operator": "populateAttributes",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_MESSAGES",
+      "as": "messages"
+    },
+    {
+      "operator": "scope",
+      "path": "messages.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "messages.links",
       "scope": {
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",

@@ -1,29 +1,29 @@
 {
   "layout": {
-    "title": "Test",
+    "title": "IntroduceMe",
     "appColor": "dark",
     "header": {
+      "variant": "default"
+    },
+    "sidebar": {
       "variant": "default"
     }
   },
   "children": [
     {
-      "component": "Box",
+      "component": "ScrollView",
       "props": {
-        "flexDirection": "column",
-        "justifyContent": "flex-start",
-        "backgroundColor": "lightgrey",
-        "flex": 1,
-        "height": "100%"
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
             "flex": 1,
-            "height": "100%"
+            "flexDirection": "column"
           },
           "children": [
             {
@@ -43,9 +43,7 @@
                 {
                   "component": "Text",
                   "props": {
-                    "size": "xxs",
-                    "text": "You can only be introduded to {{query.targetUser.attributes.PRI_FIRSTNAME.value}} through",
-                    "color": "grey"
+                    "text": "Ask someone in your degrees for an introduction"
                   }
                 }
               ]
@@ -80,47 +78,7 @@
                 "props": {
                   "layoutName": "cards/contact/contact.default",
                   "itemID": "{{repeater.code}}",
-                  "depths": "_query.depths",
-                  "itemCode": "{{query.requests.code}}",
-                  "userCode": "{{query.targetUser.code}}",
-                  "buttonComponent": {
-                    "component":"EventButton",
-                    "renderAsComponent": true,
-                    "props":{
-                       "buttonCode":"START_INTRODUCTION",
-                       "value":{
-                          "itemCode": "{{props.itemCode}}",
-                          "userCode": "{{props.userCode}}"
-                       }
-                    },
-                    "children":[
-                       {
-                        "component":"Box",
-                        "props":{
-                            "marginleft":20,
-                            "alignItems":"center"
-                        },
-                        "children":[
-                          {
-                            "component":"Box",
-                            "props":{
-
-                            },
-                            "children":[
-                              {
-                                "component":"Icon",
-                                "props":{
-                                    "color":"black",
-                                    "size":"lg",
-                                    "name":"keyboard_arrow_right"
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
+                  "depths": "_query.depths"
                 }
               }
             },
@@ -183,87 +141,6 @@
         "basePath": "baseEntities.attributes",
         "id": "{{link.targetCode}}"
       }
-    },
-    {
-      "operator": "getBE",
-      "id": "{{user.data.code}}",
-      "as": "profile"
-    },
-    {
-      "operator": "scope",
-      "path": "profile",
-      "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "profile.links",
-      "as": "requests",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "REQUEST"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$exists": true
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "findOne",
-        "query": {
-          "attributes.PRI_RECIPIENT_CODE.value": {
-            "$eq": "{{navigation.targetUserID}}"
-          }
-        }
-      }
-    },
-    {
-      "operator": "getBE",
-      "id": "{{navigation.targetUserID}}",
-      "as": "targetUser"
-    },
-    {
-      "operator": "scope",
-      "path": "targetUser",
-      "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
-      }
     }
   ]
 }
-
