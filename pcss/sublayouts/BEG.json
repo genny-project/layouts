@@ -1,47 +1,62 @@
-{
-    "div": {
-        "style": {
-            "fontSize": "1em",
-            "borderBottom": "1px solid #bbb",
-            "borderRadius": 0,
-            "padding": "5px",
-            "display": "flex",
-            "alignItems": "center",
-            "justifyContent": "center",
-            "background":"white"
-        },
-        "children": [
-            {
-                "span": {
-                    "children": "BE.PRI_ADDRESS_FULL"
-                }
-            },
-            {
-                "GennyButton":{
-                    "buttonCode":"BTN_VIEW_BEG",
-                    "value":{
-                        "itemCode":"BE.code",
-                        "hint":"ROOT"
-                    },
-                    "style":{
-                        "height":"30px",
-                        "marginTop":"10px"
-                    },
-                    "buttonStyle":{
-                        "backgroundColor":"#000"
-                    },
-                    "children":[
-                        {
-                            "span":{
-                                "style":{
-                                    "fontSize":"0.6em"
-                                },
-                                "children":"View Full Details"
-                            }
-                        }
-                    ]
-                }
+{  
+   "Grid":{  
+      "rows":1,
+      "cols":[  
+         1,
+         9
+      ],
+      "style":{  
+         "fontSize":"1em",
+         "borderBottom":"1px solid #bbb",
+         "borderRadius":"10px",
+         "padding":"5px",
+         "alignItems":"center",
+         "justifyContent":"center",
+         "background":"white"
+      },
+      "children":[  
+         {  
+            "GennyButton":{  
+               "buttonCode":"BTN_VIEW_BEG",
+               "position":[  
+                  0,
+                  0
+               ],
+               "value":{  
+                  "itemCode":"BE.code",
+                  "hint":"ROOT"
+               },
+               "buttonStyle":{  
+                  "backgroundColor":" rgba(167, 164, 164, 0.05)"
+               },
+               "children":[  
+                  {  
+                     "IconSmall":{  
+                        "style":{  
+                           "fontSize":"40px",
+                           "color":"rgba(242, 79, 85, 0.71)"
+                        },
+                        "name":"location_city"
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         },
+         {  
+            "GennyAddressLabel":{  
+               "position":[  
+                  0,
+                  1
+               ],
+               "style":{  
+                  "fontSize":"0.9em",
+                  "padding-top":"3%"
+               },
+               "showCountry":false,
+               "attributePrefix":"PRI_ADDRESS",
+               "root":"BE.code"
+            }
+         }
+      ]
+   }
 }
