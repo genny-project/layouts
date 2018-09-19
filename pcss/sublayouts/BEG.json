@@ -1,17 +1,30 @@
 {  
-   "Grid":{  
-      "rows":1,
-      "cols":[1,9 ],
+   "div":{  
       "style":{  
          "fontSize":"1em",
          "borderBottom":"1px solid #bbb",
-         "borderRadius":10,
+         "borderRadius":0,
          "padding":"5px",
+         "display":"flex",
          "alignItems":"center",
          "justifyContent":"center",
          "background":"white"
       },
       "children":[  
+         {  
+            "GennyAddressLabel":{  
+               "position":[  
+                  0,
+                  1
+               ],
+               "style":{  
+                  "fontSize":"0.9em"
+               },
+               "showCountry":false,
+               "attributePrefix":"PRI_ADDRESS",
+               "root":"BE.code"
+            }
+         },
          {  
             "GennyButton":{  
                "buttonCode":"BTN_VIEW_BEG",
@@ -19,14 +32,12 @@
                   "itemCode":"BE.code",
                   "hint":"ROOT"
                },
-               "position":[0,0],
                "style":{  
                   "height":"30px",
+                  "marginTop":"10px"
                },
                "buttonStyle":{  
-                  "backgroundColor":" rgb(146, 146, 146)",
-                  "width":"20%",
-                  "height":"130%"
+                  "backgroundColor":" rgb(146, 146, 146)"
                },
                "children":[  
                   {  
@@ -39,17 +50,6 @@
                      }
                   }
                ]
-            }
-         },
-         {  
-            "GennyAddressLabel":{ 
-               "position":[0,1],
-               "style":{  
-                  "fontSize":"0.9em"
-               },
-               "showCountry":false,
-               "attributePrefix":"PRI_ADDRESS",
-               "root":"BE.code"
             }
          }
       ]
