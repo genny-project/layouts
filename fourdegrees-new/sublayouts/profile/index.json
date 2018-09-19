@@ -172,19 +172,22 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "flexDirection": "column"
+                    "flexDirection": "column",
+                    "padding": 10
                   },
                   "dontShowIf": {
                     "user.data.code": "{{props.userID}}"
                   },
                   "children": [
                     {
-                      "component": "EventButton",
+                      "component": "EventLink",
                       "props": {
-                        "routeValue": "INTRODUCE_ME",
-                        "buttonCode": "INTRODUCE_ME",
                         "eventType": "ROUTE_CHANGE",
-                        "value": "{{props.userID}}"
+                        "value": "{{props.userID}}",
+                        "to": "introduction",
+                        "params": {
+                          "targetUserID": "{{props.userID}}"
+                        }
                       },
                       "children": [
                         {
@@ -606,7 +609,7 @@
                       "height": 5
                     },
                     "sceneProps": {
-                      "marginTop": 0
+                      "marginTop": 10
                     },
                     "tabs": [
                       {
@@ -745,6 +748,28 @@
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "requests",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "REQUEST"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
       }
     }
   ]
