@@ -32,7 +32,9 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "padding": 20
+                "padding": 20,
+                "backgroundColor": "#f8f8f8",
+                "width": "100%"
               },
               "children": [
                 {
@@ -85,7 +87,6 @@
                   "itemID": "{{repeater.code}}",
                   "depths": "_query.depths",
                   "itemCode": "{{query.requests.code}}",
-                  "userCode": "{{query.targetUser.code}}",
                   "buttonComponent": {
                     "component":"EventButton",
                     "renderAsComponent": true,
@@ -93,7 +94,7 @@
                        "buttonCode":"START_INTRODUCTION",
                        "value":{
                           "itemCode": "{{props.itemCode}}",
-                          "userCode": "{{props.userCode}}"
+                          "userCode": "{{props.itemID}}"
                        }
                     },
                     "children":[
