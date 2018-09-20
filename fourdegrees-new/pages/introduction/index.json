@@ -87,39 +87,32 @@
                   "itemID": "{{repeater.code}}",
                   "depths": "_query.depths",
                   "itemCode": "{{query.requests.code}}",
-                  "buttonComponent": {
-                    "component":"EventButton",
+                  "iconComponent": {
+                    "component":"Box",
                     "renderAsComponent": true,
                     "props":{
                        "buttonCode":"START_INTRODUCTION",
                        "value":{
                           "itemCode": "{{props.itemCode}}",
                           "userCode": "{{props.itemID}}"
-                       }
+                       },
+                       "marginleft":20,
+                       "alignItems":"center"
                     },
-                    "children":[
-                       {
+                    "children": [
+                      {
                         "component":"Box",
                         "props":{
-                            "marginleft":20,
-                            "alignItems":"center"
+
                         },
                         "children":[
                           {
-                            "component":"Box",
+                            "component":"Icon",
                             "props":{
-
-                            },
-                            "children":[
-                              {
-                                "component":"Icon",
-                                "props":{
-                                    "color":"black",
-                                    "size":"lg",
-                                    "name":"keyboard_arrow_right"
-                                }
-                              }
-                            ]
+                                "color":"black",
+                                "size":"lg",
+                                "name":"keyboard_arrow_right"
+                            }
                           }
                         ]
                       }
