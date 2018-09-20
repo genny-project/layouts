@@ -80,46 +80,55 @@
                 }
               },
               "repeat": "_query.results.links",
-              "children": {
-                "component": "Sublayout",
-                "props": {
-                  "layoutName": "cards/contact/contact.default",
-                  "itemID": "{{repeater.code}}",
-                  "depths": "_query.depths",
-                  "itemCode": "{{query.requests.code}}",
-                  "iconComponent": {
-                    "component":"Box",
-                    "renderAsComponent": true,
-                    "props":{
-                       "buttonCode":"START_INTRODUCTION",
-                       "value":{
-                          "itemCode": "{{props.itemCode}}",
-                          "userCode": "{{props.itemID}}"
-                       },
-                       "marginleft":20,
-                       "alignItems":"center"
-                    },
-                    "children": [
-                      {
-                        "component":"Box",
-                        "props":{
+              "children": [
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "buttonCode":"START_INTRODUCTION",
+                     "value": {
+                        "itemCode": "{{props.itemCode}}",
+                        "userCode": "{{props.itemID}}"
+                     }
+                  },
+                  "children": [
+                    { 
+                      "component": "Sublayout",
+                      "props": {
+                        "layoutName": "cards/contact/contact.default",
+                        "itemID": "{{repeater.code}}",
+                        "depths": "_query.depths",
+                        "itemCode": "{{query.requests.code}}",
+                        "iconComponent": {
+                          "component":"Box",
+                          "renderAsComponent": true,
+                          "props": {
+                             "marginleft":20,
+                             "alignItems":"center"
+                          },
+                          "children": [
+                            {
+                              "component":"Box",
+                              "props":{
 
-                        },
-                        "children":[
-                          {
-                            "component":"Icon",
-                            "props":{
-                                "color":"black",
-                                "size":"lg",
-                                "name":"keyboard_arrow_right"
+                              },
+                              "children":[
+                                {
+                                  "component":"Icon",
+                                  "props":{
+                                      "color":"black",
+                                      "size":"lg",
+                                      "name":"keyboard_arrow_right"
+                                  }
+                                }
+                              ]
                             }
-                          }
-                        ]
+                          ]
+                        }
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
-              }
+              ]
             },
             {
               "component": "Box",
