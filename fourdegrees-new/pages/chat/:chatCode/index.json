@@ -15,14 +15,25 @@
       "props": {
         "justifyContent": "center",
         "padding": 20,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "backgroundColor": "#f8f8f8",
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "borderStyle": "solid"
       },
       "children": [
         {
           "component": "Text",
           "props": {
-            "text": "Person Name",
             "size": "sm"
+          },
+          "children": {
+            "component": "Join",
+            "renderAsComponent": true,
+            "props": {
+              "joiner": ", ",
+              "items": "_query.names"
+            }
           }
         }
       ]
@@ -31,7 +42,12 @@
       "component": "Box",
       "props": {
         "justifyContent": "center",
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "onlyShowIf": {
+          "navigation.itemID": {
+            "$exists": true
+          }
+        }
       },
       "children": [
         {
@@ -39,7 +55,11 @@
           "props": {
             "layoutName": "cards/introduction/introduction.card",
             "itemID": "PER_USER1",
-            "requestID": "PER_USER1"
+            "requestID": "PER_USER1",
+            "backgroundColor": "#f8f8f8",
+            "borderBottomWidth": 1,
+            "borderColor": "lightgrey",
+            "borderStyle": "solid"
           }
         }
       ]
@@ -50,9 +70,11 @@
         "bubbleRightColor": "#09D0B7",
         "sendIcon": "chevron-right",
         "sendIconColor": "white",
-        "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
-        "users": "_query.results.links",
+        "itemCode": "{{navigation.chatCode}}",
+        "users": "_query.users",
+        "messages": "_query.messages",
+        "names": "_query.names",
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -68,6 +90,32 @@
     {
       "operator": "scope",
       "path": "results.links",
+      "as": "messages",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "message"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "messages",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -75,17 +123,49 @@
       }
     },
     {
-      "operator": "getLinkDepths",
-      "code": "{{user.data.code}}",
-      "as": "depths"
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "messages",
       "scope": {
         "operator": "populateAttributes",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}"
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "names",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "names",
+      "scope": {
+        "operator": "map",
+        "fields": "name"
       }
     }
   ]
