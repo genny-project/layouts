@@ -21,7 +21,7 @@
                   1
                ],
                "style":{  
-                  "padding-bottom":"5px",
+                  "padding-bottom":"0px",
                   "background":"white"
                },
                "children":[  
@@ -42,37 +42,60 @@
                      }
                   },
                   {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "BE.PRI_UNIT_ID"
-                        ],
-                        "showIfNotNull":true,
-                        "position":[  
-                           0,
-                           1
-                        ],
-                        "children":[  
-                           {  
-                              "span":{  
-                                 "style":{  
-                                    "fontSize":"1.2em"
-                                 },
-                                 "children":"${BE.PRI_UNIT_ID}/"
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {  
                      "span":{  
                         "position":[  
                            0,
                            1
                         ],
                         "style":{  
-                           "fontSize":"1em"
+                           "display":"flex"
                         },
-                        "children":"${BE.PRI_ADDRESS_FULL}"
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "children":[  
+                                    {  
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "BE.PRI_UNIT_ID"
+                                          ],
+                                          "showIfNotNull":true,
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "fontSize":"1.2em"
+                                                   },
+                                                   "children":"${BE.PRI_UNIT_ID}/ "
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "position":[  
+                                    0,
+                                    1
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyAddressLabel":{  
+                                          "style":{  
+                                             "fontSize":"1.2em"
+                                          },
+                                          "showCountry":false,
+                                          "attributePrefix":"PRI_ADDRESS",
+                                          "root":"BE.PRI_BEG_CODE"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
@@ -174,13 +197,13 @@
                   2,
                   0
                ],
-               "style": {
-                  "zIndex": 2
+               "style":{  
+                  "zIndex":2
                },
                "contentStyle":{  
                   "backgroundColor":"white",
                   "padding":"0",
-                  "zIndex": 2
+                  "zIndex":2
                },
                "footer":[  
                   {  

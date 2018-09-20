@@ -1,0 +1,203 @@
+{
+  "layout": {
+    "title": "Profile Employment",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "row",
+        "padding": 20,
+        "marginBottom": 10,
+        "alignItems": "center",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginRight": 15,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Image",
+              "props": {
+                "source": "{{query.recipient.attributes.PRI_IMAGE_URL.valueString}}",
+                "shape": "circle",
+                "width": 50,
+                "height": 50
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Introduction Request",
+                    "color": "grey",
+                    "size": "xs"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.recipient.attributes.PRI_FIRSTNAME.valueString}} {{query.recipient.attributes.PRI_LASTNAME.valueString}}",
+                    "color": "black",
+                    "size": "md"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "MAKE_INTRODUCTION",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "dontShowIf": {
+            "query.request.attributes.STA_PER_CONORPIRIE": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Introduce",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "MERGE_INTRODUCTION",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "query.request.attributes.STA_PER_CONORPIRIE": {
+              "$exists": true
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Merge",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.recipientID}}",
+      "as": "recipient"
+    },
+   {
+      "operator": "scope",
+      "path": "recipient",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{props.requestID}}",
+      "as": "request"
+    },
+   {
+      "operator": "scope",
+      "path": "request",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

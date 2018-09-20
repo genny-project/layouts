@@ -15,7 +15,7 @@
           "props": {
             "flex": 1,
             "flexDirection": "column",
-            "backgroundColor": "lightgrey"
+            "backgroundColor": "#f8f8f8"
           },
           "children": [
             {
@@ -165,7 +165,7 @@
               "props": {
                 "flex": 1,
                 "flexDirection": "column",
-                "backgroundColor": "lightgrey"
+                "backgroundColor": "#f8f8f8"
               },
               "children": [
                 {
@@ -179,12 +179,23 @@
                   },
                   "children": [
                     {
+<<<<<<< HEAD
                       "component": "EventButton",
                       "props": {
                         "routeValue": "INTRODUCE_ME",
                         "buttonCode": "INTRODUCE_ME",
                         "eventType": "ROUTE_CHANGE",
                         "value": "{{props.userID}}"
+=======
+                      "component": "EventLink",
+                      "props": {
+                        "eventType": "ROUTE_CHANGE",
+                        "value": "{{props.userID}}",
+                        "to": "introduction",
+                        "params": {
+                          "targetUserID": "{{props.userID}}"
+                        }
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
                       },
                       "children": [
                         {
@@ -745,6 +756,28 @@
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "requests",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "REQUEST"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
       }
     }
   ]

@@ -3,7 +3,7 @@
     "title": "Chat Conversation",
     "appColor": "dark",
     "header": {
-      "variant": "noback"
+      "variant": "default"
     },
     "sidebar": {
       "variant": "default"
@@ -12,17 +12,54 @@
   "children": [
     {
       "component": "Box",
+<<<<<<< HEAD
+=======
+      "props": {
+        "justifyContent": "center",
+        "padding": 20,
+        "fontWeight": "bold",
+        "backgroundColor": "#f8f8f8",
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "borderStyle": "solid"
+      },
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       "children": [
         {
           "component": "Text",
           "props": {
+<<<<<<< HEAD
             "text": "Person Name",
+=======
+            "text": "{{query.introducerBE.attributes.PRI_FIRSTNAME.value}} {{query.introducerBE.attributes.PRI_LASTNAME.value}}",
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
             "size": "sm"
           }
         }
       ]
     },
     {
+<<<<<<< HEAD
+=======
+      "component": "Box",
+      "props": {
+        "justifyContent": "center",
+        "flexDirection": "column",
+        "backgroundColor": "#f8f8f8"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "cards/introduction/introduction.card",
+            "requestID": "{{query.requestBE.code}}",
+            "recipientID": "{{query.recipientBE.code}}"
+          }
+        }
+      ]
+    },
+    {
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       "component": "Chat",
       "props": {
         "bubbleRightColor": "#09D0B7",
@@ -30,8 +67,13 @@
         "sendIconColor": "white",
         "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
+<<<<<<< HEAD
         "chatLinks": "_query.results.links",
         "itemCode": "{{navigation.chatCode}}",
+=======
+        "itemCode": "{{navigation.chatCode}}",
+        "users": "_query.results.links",
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -69,6 +111,7 @@
     },
     {
       "operator": "getBE",
+<<<<<<< HEAD
       "id": "GRP_MESSAGES",
       "as": "messages"
     },
@@ -88,6 +131,56 @@
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",
         "id": "{{link.targetCode}}"
+=======
+      "id": "{{navigation.itemID}}",
+      "as": "requestBE"
+    },
+    {
+      "operator": "scope",
+      "path": "requestBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "creatorBE"
+    },
+    {
+      "operator": "scope",
+      "path": "creatorBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_RECIPIENT_CODE.value}}",
+      "as": "recipientBE"
+    },
+    {
+      "operator": "scope",
+      "path": "recipientBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBE"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+>>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       }
     }
   ]
