@@ -12,8 +12,6 @@
   "children": [
     {
       "component": "Box",
-<<<<<<< HEAD
-=======
       "props": {
         "justifyContent": "center",
         "padding": 20,
@@ -23,24 +21,17 @@
         "borderColor": "lightgrey",
         "borderStyle": "solid"
       },
->>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       "children": [
         {
           "component": "Text",
           "props": {
-<<<<<<< HEAD
-            "text": "Person Name",
-=======
             "text": "{{query.introducerBE.attributes.PRI_FIRSTNAME.value}} {{query.introducerBE.attributes.PRI_LASTNAME.value}}",
->>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
             "size": "sm"
           }
         }
       ]
     },
     {
-<<<<<<< HEAD
-=======
       "component": "Box",
       "props": {
         "justifyContent": "center",
@@ -59,7 +50,6 @@
       ]
     },
     {
->>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       "component": "Chat",
       "props": {
         "bubbleRightColor": "#09D0B7",
@@ -67,13 +57,8 @@
         "sendIconColor": "white",
         "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
-<<<<<<< HEAD
-        "chatLinks": "_query.results.links",
-        "itemCode": "{{navigation.chatCode}}",
-=======
         "itemCode": "{{navigation.chatCode}}",
         "users": "_query.results.links",
->>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -111,27 +96,6 @@
     },
     {
       "operator": "getBE",
-<<<<<<< HEAD
-      "id": "GRP_MESSAGES",
-      "as": "messages"
-    },
-    {
-      "operator": "scope",
-      "path": "messages.links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "messages.links",
-      "scope": {
-        "operator": "populateAttributes",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}"
-=======
       "id": "{{navigation.itemID}}",
       "as": "requestBE"
     },
@@ -180,7 +144,6 @@
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
->>>>>>> 599e71d4af9c7abca5f815890860cf61784e29b8
       }
     }
   ]
