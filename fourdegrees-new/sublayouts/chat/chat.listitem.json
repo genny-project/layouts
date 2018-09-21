@@ -5,15 +5,15 @@
   },
   "children": [
     {
-      "component": "Link",
+      "component": "EventButton",
       "props": {
-        "style": {
-          "width": "100%"
-        },
-        "to": "profile/",
-        "params": {
-          "userID": "{{props.contactID}}",
-          "degree": "_props.depths.{{props.contactID}}"
+        "alignItems": "flex-start",
+        "paddingX": 0,
+        "paddingY": 0,
+        "eventType": "BTN_CLICK",
+        "buttonCode": "BTN_CREATE_CONVERSATION",
+        "value": {
+          "itemCode": "{{props.itemID}}"
         }
       },
       "children": [
@@ -32,16 +32,22 @@
               "component": "Box",
               "props": {
                 "marginRight": 20,
-                "alignItems": "center"
+                "alignItems": "center",
+                "shape": "circle"
               },
               "children": [
                 {
                   "component": "Image",
                   "props": {
-                    "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "source": "{{query.images.0.attributes.PRI_IMAGE_URL.valueString}}",
                     "shape": "circle",
                     "width": 60,
                     "height": 60
+                  },
+                  "dontShowIf": {
+                    "query.senderBE.name" : {
+                      "$eq": "{{user.data.name}}"
+                    }
                   }
                 }
               ]
@@ -61,8 +67,17 @@
                   "children": [
                     {
                       "component": "Text",
+                      "children": [
+                          {
+                            "component": "Join",
+                            "renderAsComponent": true,
+                            "props": {
+                              "delimiter": ", ",
+                              "items": "_query.names"
+                              }
+                          }
+                      ],
                       "props": {
-                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
                         "color": "grey",
                         "size": "xs"
                       }
@@ -72,16 +87,11 @@
               ]
             },
             {
-              "component": "EventButton",
+              "component": "Box",
               "props": {
                 "alignItems": "flex-start",
                 "paddingX": 0,
-                "paddingY": 0,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_CREATE_CONVERSATION",
-                "value": {
-                  "itemCode": "{{props.contactID}}"
-                }
+                "paddingY": 0
               },
               "children": [
                 {
@@ -117,13 +127,72 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.contactID}}",
-      "as": "be"
+      "id": "{{props.itemID}}",
+      "as": "results"
     },
     {
-      "operator": "populateAttributes",
-      "code": "{{props.contactID}}",
-      "as": "attributes"
+      "operator": "scope",
+      "path": "results.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "names",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "names",
+      "scope": {
+        "operator": "map",
+        "fields": "name"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "images",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
     }
   ]
 }

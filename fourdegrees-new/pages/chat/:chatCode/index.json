@@ -3,7 +3,7 @@
     "title": "Chat Conversation",
     "appColor": "dark",
     "header": {
-      "variant": "default"
+      "variant": "noback"
     },
     "sidebar": {
       "variant": "default"
@@ -23,10 +23,45 @@
       },
       "children": [
         {
-          "component": "Text",
+          "component": "Box",
           "props": {
-            "text": "{{query.introducerBE.attributes.PRI_FIRSTNAME.value}} {{query.introducerBE.attributes.PRI_LASTNAME.value}}",
-            "size": "sm"
+            "alignItems": "center",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component" : "BackButton"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 3
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": [
+                  {
+                    "component": "Join",
+                    "renderAsComponent": true,
+                    "props": {
+                      "delimiter": ", ",
+                      "items": "_query.names"
+                      }
+                  }
+                ]
+
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 1
           }
         }
       ]
@@ -36,7 +71,12 @@
       "props": {
         "justifyContent": "center",
         "flexDirection": "column",
-        "backgroundColor": "#f8f8f8"
+        "backgroundColor": "#f8f8f8",
+        "onlyShowIf": {
+          "navigation.itemID": {
+            "$exists": true
+          }
+        }
       },
       "children": [
         {
@@ -55,10 +95,11 @@
         "bubbleRightColor": "#09D0B7",
         "sendIcon": "chevron-right",
         "sendIconColor": "white",
-        "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
         "itemCode": "{{navigation.chatCode}}",
-        "users": "_query.results.links",
+        "users": "_query.users",
+        "messages": "_query.messages",
+        "names": "_query.names",
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -74,6 +115,32 @@
     {
       "operator": "scope",
       "path": "results.links",
+      "as": "messages",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "message"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "messages",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -81,17 +148,49 @@
       }
     },
     {
-      "operator": "getLinkDepths",
-      "code": "{{user.data.code}}",
-      "as": "depths"
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "messages",
       "scope": {
         "operator": "populateAttributes",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}"
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "names",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "names",
+      "scope": {
+        "operator": "map",
+        "fields": "name"
       }
     },
     {
