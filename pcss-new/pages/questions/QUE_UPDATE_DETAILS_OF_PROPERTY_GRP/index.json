@@ -47,7 +47,7 @@
                 "size": "xxl",
                 "bold": false
               },
-              "children": "Update Property Details"
+              "children": "Property Details"
             }
           ]
         },
@@ -139,6 +139,21 @@
                 "borderRadius": 3
               }
             },
+            "renderSubmitButtonWrapper": {
+              "component": "Box",
+              "props": {
+                "marginTop": 10,
+                "flexDirection": "column"
+              }
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "inverted": true,
+                "showSpinnerOnClick": true,
+                "color": "black"
+              }
+            },
             "renderLoading": {
               "component": "Box",
               "props": {
@@ -168,44 +183,6 @@
               ]
             }
           }
-        },
-        {
-          "component": "Box",
-          "props": {
-
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false
-              },
-              "children": "Please confirm the acceptance of the Building Condition Inspection of your property. Only the Owner or authorised Owners Representative can accept this request to proceed with conducting a Building Condition Inspection. By choosing to decline the offer of the Building Condition Inspection for your property, you may forfeit any opportunity to claim for damages related to these works."
-            },
-            {
-              "component": "EventButton",
-              "props": {
-                "buttonCode": "BTN_ACCEPT_PROPERTY_ASSESSMENT",
-                "value": {
-                  "itemCode": "...."
-                },
-                "color": "#0592FD",
-                "textColor": "white",
-                "text": "Accept"
-              }
-            },
-            {
-              "component": "EventButton",
-              "props": {
-                "buttonCode": "BTN_DECLINE_PROPERTY_ASSESSMENT",
-                "value": {
-                  "itemCode": "...."
-                },
-                "text": "Decline"
-              }
-            }
-          ]
         }
       ]
     }

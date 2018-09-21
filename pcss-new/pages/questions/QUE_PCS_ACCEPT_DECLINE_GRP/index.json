@@ -1,0 +1,222 @@
+{
+  "layout": {
+    "title": "Accept/Decline PCS",
+    "appColor": "white",
+    "backgroundColor": "white"
+  },
+  "children": [
+    {
+      "component": "Container",
+      "props": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1,
+        "height": "100%",
+        "maxWidth": 700
+      },
+      "children": [
+        {
+            "component": "Box",
+            "props": {
+                "flex": 1,
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                    }
+                }
+            ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "#0592FD",
+                "size": "xxl",
+                "bold": false
+              },
+              "children": "Building Condition Inspection"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "If you are the Owner or the Authorised Representative on behalf of the property owner and would like to accept proceeding with a Building Condition Inspection please hit the ACCEPT button."
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "If you are not an Authorised Representative/or a tenant please just close the page and no further action is required."
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "Thank you for your submission and providing all the necessary property contact details."
+            }
+          ]
+        },
+        {
+          "component": "Form",
+          "props": {
+            "questionGroupCode": "QUE_PCS_ACCEPT_DECLINE_GRP",
+            "renderHeading": {
+              "component": "Box",
+              "props": {
+                "marginTop": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "#0592FD",
+                    "size": "xl",
+                    "text": "{{heading}}"
+                  }
+                }
+              ]
+            },
+            "renderFormInputLabel": {
+            "component": "Box",
+            "props": {
+              "marginBottom": 5
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "size": "sm"
+                },
+                "children": "{{label}}"
+              }
+            ]
+          },
+            "renderSubheading": {
+              "component": "Box",
+              "props": {
+                "marginY": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "#0592FD",
+                    "size": "lg",
+                    "align": "left",
+                    "text": "{{subheading}}"
+                  }
+                }
+              ]
+            },
+            "renderFormInputWrapper": {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              }
+            },
+            "renderFormInput": {
+              "component": "FormInput",
+              "useThemeFrom": "Input",
+              "variant": "default",
+              "props": {
+                "placeholder": "{{label}}",
+                "borderWidth": 1,
+                "borderColor": "lightgray",
+                "borderRadius": 3
+              }
+            },
+            "renderSubmitButtonWrapper": {
+              "component": "Box",
+              "props": {
+                "marginTop": 10,
+                "flexDirection": "column"
+              }
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "inverted": true,
+                "showSpinnerOnClick": true,
+                "color": "black"
+              }
+            },
+            "renderLoading": {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "large"
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginTop": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Loading form..."
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

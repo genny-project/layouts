@@ -1,0 +1,111 @@
+{
+  "layout": {
+    "title": "Internship Details",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "dontShowIf": {
+        "query.internship.attributes.PRI_NAME.value": {
+          "$exists": true
+        },
+        "query.internship.company.attributes.PRI_NAME.value": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flex": 1,
+        "width": "100%",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": [
+        {
+          "component": "ActivityIndicator",
+          "props": {
+            "size": "large"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "onlyShowIf": {
+        "query.internship.attributes.PRI_NAME.value": {
+          "$exists": true
+        },
+        "query.internship.company.attributes.PRI_NAME.value": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flexDirection": "column",
+        "padding": 20
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "bold": true
+          },
+          "children": "{{query.internship.attributes.PRI_NAME.value}}"
+        },
+        {
+          "component": "Text",
+          "children": "Posted by {{query.internship.company.attributes.PRI_NAME.value}}"
+        },
+        {
+          "component": "Text",
+          "props": {
+            "size": "xs"
+          },
+          "children": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "internship"
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    }
+  ]
+}

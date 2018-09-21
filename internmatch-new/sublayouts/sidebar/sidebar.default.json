@@ -1,11 +1,55 @@
 {
-  "sidebarRootCode": "GRP_NETWORKS",
-  "sidebarProps": {
-    "headerLayout": "sidebar/sidebar.header",
-    "footerLayout": "sidebar/sidebar.footer",
-    "sidebarItemProps": {
-      "hideLogout": true,
-      "sidebarItemLayout": "sidebar/sidebar.item"
-    }
+  "rootCode": "GRP_ROOT",
+  "width": 300,
+  "backgroundColor": "#fff",
+  "flex": 1,
+  "inline": true,
+  "renderBody": {
+    "component": "Box",
+    "children": [
+      {
+        "component": "Box",
+        "props": {
+          "flexDirection": "column"
+        },
+        "repeat": "_items",
+        "children": {
+          "component": "Touchable",
+          "props": {
+            "padding": 20,
+            "onPress": "_repeater.onPress",
+            "withFeedback": true,
+            "alignItems": "center"
+          },
+          "children": {
+            "component": "Box",
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "marginRight": 15
+                },
+                "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{repeater.icon}}",
+                      "color": "black"
+                    }
+                  }
+                ]
+              },
+              {
+                "component": "Text",
+                "props": {
+                  "color": "black"
+                },
+                "children": "{{repeater.name}}"
+              }
+            ]
+          }
+        }
+      }
+    ]
   }
 }

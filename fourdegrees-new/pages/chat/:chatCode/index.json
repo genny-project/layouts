@@ -71,6 +71,7 @@
       "props": {
         "justifyContent": "center",
         "flexDirection": "column",
+        "backgroundColor": "#f8f8f8",
         "onlyShowIf": {
           "navigation.itemID": {
             "$exists": true
@@ -82,12 +83,8 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "cards/introduction/introduction.card",
-            "itemID": "PER_USER1",
-            "requestID": "PER_USER1",
-            "backgroundColor": "#f8f8f8",
-            "borderBottomWidth": 1,
-            "borderColor": "lightgrey",
-            "borderStyle": "solid"
+            "requestID": "{{query.requestBE.code}}",
+            "recipientID": "{{query.recipientBE.code}}"
           }
         }
       ]
@@ -194,6 +191,58 @@
       "scope": {
         "operator": "map",
         "fields": "name"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{navigation.itemID}}",
+      "as": "requestBE"
+    },
+    {
+      "operator": "scope",
+      "path": "requestBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "creatorBE"
+    },
+    {
+      "operator": "scope",
+      "path": "creatorBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_RECIPIENT_CODE.value}}",
+      "as": "recipientBE"
+    },
+    {
+      "operator": "scope",
+      "path": "recipientBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBE"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
       }
     }
   ]
