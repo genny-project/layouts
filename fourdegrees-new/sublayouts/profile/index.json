@@ -337,6 +337,16 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_PHONE_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
                           "component": "Text",
@@ -347,6 +357,27 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "marginBottom": 20
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_PHONE_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_PHONE_ADDITIONAL.value",
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
                     },
                     {
                       "component": "Box",
@@ -379,6 +410,16 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
                           "component": "Text",
@@ -389,6 +430,27 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "marginBottom": 20
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value",
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
                     },
                     {
                       "component": "Box",
@@ -421,6 +483,16 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_EMAIL_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
                           "component": "Text",
@@ -435,16 +507,46 @@
                     {
                       "component": "Box",
                       "props": {
+                        "flexDirection": "column",
+                        "marginBottom": 20
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_EMAIL_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_EMAIL_ADDITIONAL.value",
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
                         "marginBottom": 20
                       },
                       "onlyShowIf": {
                         "query.profile.attributes.PRI_MOBILE": {
                           "$exists": false
                         },
+                        "query.profile.attributes.PRI_PHONE_ADDITIONAL": {
+                          "$exists": false
+                        },
                         "query.profile.attributes.PRI_EMAIL": {
                           "$exists": false
                         },
+                        "query.profile.attributes.PRI_EMAIL_ADDITIONAL": {
+                          "$exists": false
+                        },
                         "query.profile.attributes.PRI_WEBSITE": {
+                          "$exists": false
+                        },
+                        "query.profile.attributes.PRI_WEBSITE_ADDITIONAL": {
                           "$exists": false
                         }
                       },
