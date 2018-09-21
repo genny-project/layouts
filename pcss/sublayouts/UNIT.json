@@ -1,310 +1,61 @@
 {  
    "Grid":{  
-      "rows":3,
-      "cols":1,
+      "rows":1,
+      "cols":[  
+         1,
+         9
+      ],
       "style":{  
-         "padding":"0",
-         "background":"white",
-         "fontSize":"10px"
+         "fontSize":"1em",
+         "borderBottom":"1px solid #bbb",
+         "borderRadius":"10px",
+         "padding":"5px",
+         "alignItems":"center",
+         "justifyContent":"center",
+         "background":"white"
       },
       "children":[  
          {  
-            "Grid":{  
+            "GennyButton":{  
+               "buttonCode":"BTN_VIEW_BEG",
                "position":[  
                   0,
                   0
                ],
-               "rows":1,
-               "cols":[  
-                  2,
-                  9,
-                  1
-               ],
-               "style":{  
-                  "padding-bottom":"0px",
-                  "background":"white"
+               "value":{  
+                  "itemCode":"BE.code",
+                  "hint":"ROOT"
+               },
+               "buttonStyle":{  
+                  "backgroundColor":" rgba(167, 164, 164, 0.12)"
                },
                "children":[  
                   {  
-                     "ImageMapView":{  
-                        "position":[  
-                           0,
-                           0
-                        ],
+                     "IconSmall":{  
                         "style":{  
-                           "width":"35px",
-                           "marginRight":"5px"
+                           "fontSize":"40px",
+                           "color":"rgba(242, 79, 85, 0.71)"
                         },
-                        "height":35,
-                        "width":35,
-                        "address":"BE.PRI_ADDRESS",
-                        "address":"BE.PRI_ADDRESS_FULL"
-                     }
-                  },
-                  {  
-                     "div":{  
-                        "position":[  
-                           0,
-                           1
-                        ],
-                        "style":{  
-                           "display":"flex"
-                        },
-                        "children":[  
-                           {  
-                              "span":{  
-                                 "children":[  
-                                    {  
-                                       "Selector":{  
-                                          "checkValues":[  
-                                             "BE.PRI_UNIT_ID"
-                                          ],
-                                          "showIfNotNull":true,
-                                          "children":[  
-                                             {  
-                                                "span":{  
-                                                   "style":{  
-                                                      "fontSize":"1.2em"
-                                                   },
-                                                   "children":"${BE.PRI_UNIT_ID}/ "
-                                                }
-                                             }
-                                          ]
-                                       }
-                                    }
-                                 ]
-                              }
-                           },
-                           {  
-                              "span":{  
-                                 "position":[  
-                                    0,
-                                    1
-                                 ],
-                                 "children":[  
-                                    {  
-                                       "GennyAddressLabel":{  
-                                          "style":{  
-                                             "fontSize":"1.2em"
-                                          },
-                                          "labelStyle":{
-                                          "display":"inline"
-                                          },
-                                          "showCountry":false,
-                                          "attributePrefix":"PRI_ADDRESS",
-                                          "root":"BE.PRI_BEG_CODE"
-                                       }
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {  
-                     "Grid":{  
-                        "position":[  
-                           0,
-                           2
-                        ],
-                        "rows":[  
-                           1,
-                           12
-                        ],
-                        "cols":1,
-                        "children":[  
-                           {  
-                              "GennyDropdown":{  
-                                 "position":[  
-                                    0,
-                                    0
-                                 ],
-                                 "inline":false,
-                                 "isSlide":false,
-                                 "animateHeader":false,
-                                 "animateFooter":true,
-                                 "stopPropagationOnClick":true,
-                                 "style":{  
-                                    "paddingBottom":"2px",
-                                    "margin":"-5px -5px 0"
-                                 },
-                                 "contentStyle":{  
-                                    "backgroundColor":"#fff",
-                                    "boxShadow":"0px 2px 10px 5px rgba(0, 0, 0, 0.25)",
-                                    "display":"flex",
-                                    "flexDirection":"column",
-                                    "width":"120px",
-                                    "left":"100%",
-                                    "padding":"5px 5px 0",
-                                    "transform":"translate(-100%)",
-                                    "top":"20px"
-                                 },
-                                 "tagStyle":{  
-                                    "display":"none"
-                                 },
-                                 "header":[  
-                                    {  
-                                       "IconSmall":{  
-                                          "name":"more_horiz",
-                                          "style":{  
-                                             "padding":"0"
-                                          }
-                                       }
-                                    }
-                                 ],
-                                 "children":[  
-                                    {  
-                                       "SublayoutLoader":{  
-                                          "layoutCode":"unit_action_button",
-                                          "aliases":{  
-                                             "BE":"BE.code",
-                                             "GROUP":"ROOT"
-                                          }
-                                       }
-                                    }
-                                 ]
-                              }
-                           },
-                           {  
-                              "GennyStatus":{  
-                                 "position":[  
-                                    1,
-                                    0
-                                 ],
-                                 "root":"BE.code",
-                                 "style":{  
-                                    "height":"100%",
-                                    "padding-left":"5px",
-                                    "maxHeight":"40px",
-                                    "maxWidth":"20px"
-                                 },
-                                 "statusStyle":{  
-                                    "height":"100%",
-                                    "maxHeight":"40px"
-                                 }
-                              }
-                           }
-                        ]
+                        "name":"location_city"
                      }
                   }
                ]
             }
          },
          {  
-            "GennyDropdown":{  
-               "inline":true,
-               "isSlide":false,
-               "animateHeader":false,
-               "animateFooter":true,
+            "GennyAddressLabel":{  
                "position":[  
-                  2,
-                  0
+                  0,
+                  1
                ],
                "style":{  
-                  "zIndex":2
+                  "fontSize":"0.9em",
+                  "padding-top":"3%",
+                  "padding-left":"3%"
                },
-               "contentStyle":{  
-                  "backgroundColor":"white",
-                  "padding":"0",
-                  "zIndex":2
-               },
-               "footer":[  
-                  {  
-                     "SublayoutLoader":{  
-                        "layoutCode":"card-footer",
-                        "aliases":{  
-                           "GROUP":"ROOT",
-                           "BE":"BE.code"
-                        }
-                     }
-                  }
-               ],
-               "children":[  
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_IDENTIFIED"
-                        ],
-                        "position":[  
-                           1,
-                           0
-                        ],
-                        "style":{  
-                           "padding-top":"5px"
-                        },
-                        "children":[  
-                           {  
-                              "SublayoutLoader":{  
-                                 "layoutCode":"unit_details-identified",
-                                 "aliases":{  
-                                    "BE":"BE.code",
-                                    "GROUP":"ROOT"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_CONTACTED"
-                        ],
-                        "position":[  
-                           1,
-                           0
-                        ],
-                        "style":{  
-                           "padding-top":"5px"
-                        },
-                        "children":[  
-                           {  
-                              "SublayoutLoader":{  
-                                 "layoutCode":"unit_details-contacted",
-                                 "aliases":{  
-                                    "BE":"BE.code",
-                                    "GROUP":"ROOT"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_REQUESTED"
-                        ],
-                        "position":[  
-                           1,
-                           0
-                        ],
-                        "style":{  
-                           "padding-top":"5px"
-                        },
-                        "children":[  
-                           {  
-                              "SublayoutLoader":{  
-                                 "layoutCode":"unit_details-requested",
-                                 "aliases":{  
-                                    "BE":"BE.code",
-                                    "GROUP":"ROOT"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  }
-               ]
+               "showCountry":false,
+               "attributePrefix":"PRI_ADDRESS",
+               "root":"BE.code"
             }
          }
       ]
