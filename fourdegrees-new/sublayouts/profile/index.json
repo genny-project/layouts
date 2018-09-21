@@ -349,9 +349,10 @@
                       },
                       "children": [
                         {
-                          "component": "Text",
+                          "component": "PhoneNumber",
                           "props": {
-                            "text": "{{query.profile.attributes.PRI_MOBILE.value}}",
+                            "mobile": true,
+                            "number": "{{query.profile.attributes.PRI_MOBILE.value}}",
                             "color": "black",
                             "size": "xs"
                           }
@@ -495,9 +496,9 @@
                       },
                       "children": [
                         {
-                          "component": "Text",
+                          "component": "EmailAddress",
                           "props": {
-                            "text": "{{query.profile.attributes.PRI_EMAIL.value}}",
+                            "email": "{{query.profile.attributes.PRI_EMAIL.value}}",
                             "color": "black",
                             "size": "xs"
                           }
@@ -507,8 +508,7 @@
                     {
                       "component": "Box",
                       "props": {
-                        "flexDirection": "column",
-                        "marginBottom": 20
+                        "flexDirection": "column"
                       },
                       "onlyShowIf": {
                         "query.profile.attributes.PRI_EMAIL_ADDITIONAL.value": {
@@ -517,12 +517,20 @@
                       },
                       "repeat": "_query.profile.attributes.PRI_EMAIL_ADDITIONAL.value",
                       "children": {
-                        "component": "Text",
+                        "component": "Box",
                         "props": {
-                          "text": "{{repeater}}",
-                          "color": "black",
-                          "size": "xs"
-                        }
+                          "marginBottom": 5
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "{{repeater}}",
+                              "color": "black",
+                              "size": "xs"
+                            }
+                          }
+                        ]
                       }
                     },
                     {
