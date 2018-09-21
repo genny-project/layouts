@@ -63,6 +63,31 @@
                   "layoutName": "chat/chat.listitem",
                   "itemID": "{{repeater.code}}"
                 }
+              },
+              "onlyShowIf": {
+                "query.chats.links": {
+                  "$exists": true
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "alignItems": "center",
+                "flexDirection": "column",
+                "flex": 1
+              },
+              "children": {
+                "component": "ActivityIndicator",
+                "props": {
+                  "size": "large"
+                },
+                "dontShowIf": {
+                  "query.chats.links": {
+                    "$exists": true
+                  }
+                }
               }
             }
           ]

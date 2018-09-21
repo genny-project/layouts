@@ -3,7 +3,7 @@
     "title": "Chat Conversation",
     "appColor": "dark",
     "header": {
-      "variant": "default"
+      "variant": "noback"
     },
     "sidebar": {
       "variant": "default"
@@ -23,17 +23,45 @@
       },
       "children": [
         {
-          "component": "Text",
+          "component": "Box",
           "props": {
-            "size": "sm"
+            "alignItems": "center",
+            "flex": 1
           },
-          "children": {
-            "component": "Join",
-            "renderAsComponent": true,
-            "props": {
-              "joiner": ", ",
-              "items": "_query.names"
+          "children": [
+            {
+              "component" : "BackButton"
             }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 3
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": [
+                  {
+                    "component": "Join",
+                    "renderAsComponent": true,
+                    "props": {
+                      "delimiter": ", ",
+                      "items": "_query.names"
+                      }
+                  }
+                ]
+
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 1
           }
         }
       ]
