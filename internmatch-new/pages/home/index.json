@@ -1,7 +1,10 @@
 {
   "layout": {
-    "title": "Home",
+    "title": "Dashboard",
     "header": {
+      "variant": "default"
+    },
+    "sidebar": {
       "variant": "default"
     }
   },
@@ -13,7 +16,8 @@
         "tabBarBackground": "#303338",
         "tabWrapperProps": {
           "paddingLeft": 20,
-          "paddingTop": 20
+          "height": 50,
+          "flexBasis": "auto"
         },
         "textColor": "#FFF",
         "tabBackground": "#4c4d52",
@@ -37,166 +41,32 @@
           "borderStyle": "solid"
         },
         "tabs": [
-          { "title": "Active Internships" },
-          { "title": "My Applications" },
-          { "title": "Map View" }
-        ]
+          { "title": "Active Internships", "key": 0 },
+          { "title": "My Applications", "key": 1 },
+          { "title": "Map View", "key": 2 }
+        ],
+        "childProps": {
+          "overflowX": "auto"
+        }
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flex": 1,
-            "padding": 20
-          },
-          "children": [
-            {
-              "component": "Text",
-              "children": "Applications"
-            }
-          ]
+            "layoutName": "home/internships"
+          }
         },
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flexDirection": "column",
-            "alignItems": "center",
-            "justifyContent": "center",
-            "flex": 1
-          },
-          "children": [
-            {
-              "component": "BucketView",
-              "props": {
-                "padding": 20,
-                "tabBarSize": "md",
-                "backgroundColor": "#f6f6f6",
-                "tabBarBackground": "#3f3f3f",
-                "activeTabBackground": "#232323",
-                "iconColor": "white",
-                "iconSize": "md",
-                "labelColor": "white",
-                "labelProps": {
-                  "transform": "upperCase"
-                },
-                "overflowX": "auto",
-                "gutter": 20
-              },
-              "repeat": "_query",
-              "children": {
-                "component": "List",
-                "repeat": "_repeater.items",
-                "props": {
-                  "headerText": "{{repeater.name}}",
-                  "minWidth": 240,
-                  "contentBackground": "#eaeaea",
-                  "headerProps": {
-                    "paddingX": 20,
-                    "paddingY": 15,
-                    "justifyContent": "space-between",
-                    "alignItems": "center"
-                  },
-                  "headerTextProps": {
-                    "bold": true
-                  },
-                  "showCountInHeader": true,
-                  "headerCountProps": {
-
-                  },
-                  "headerCountTextProps": {
-                    "bold": true,
-                    "size": "xs"
-                  },
-                  "emptyProps": {
-                    "padding": 10
-                  },
-                  "emptyTextProps": {
-                    "size": "xs"
-                  }
-                },
-                "children": {
-                  "component": "Link",
-                  "props": {
-                    "style": {
-                      "width": "100%"
-                    },
-                    "key": "{{repeater.code}}",
-                    "to": "application/{{repeater.code}}",
-                    "params": {
-                      "loadID": "{{repeater.code}}"
-                    }
-                  },
-                  "children": [
-                    {
-                      "component": "Card",
-                      "children": [
-                        {
-                          "component": "Media",
-                          "props": {
-                            "image": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}"
-                          },
-                          "children": [
-                            {
-                              "component": "Box",
-                              "children": [
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "flex": 1,
-                                    "width": "100%",
-                                    "flexDirection": "column",
-                                    "justifyContent": "flex-start"
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xs",
-                                        "bold": true
-                                      },
-                                      "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                                    },
-                                    {
-                                      "component": "Box",
-                                      "props": {
-                                        "marginTop": 5
-                                      },
-                                      "children": [
-                                        {
-                                          "component": "Text",
-                                          "props": {
-                                            "size": "xxs"
-                                          },
-                                          "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          ]
+            "layoutName": "home/bucket"
+          }
         },
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flex": 1,
-            "padding": 20
-          },
-          "children": [
-            {
-              "component": "Text",
-              "children": "Map view here"
-            }
-          ]
+            "layoutName": "home/map-view"
+          }
         }
       ]
     }

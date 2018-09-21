@@ -1,0 +1,97 @@
+{
+  "layout": {
+    "title": "Login",
+    "appColor": "white",
+    "backgroundColor": "#white",
+    "header": {
+      "variant": "public-transparent"
+    }
+  },
+  "children": [
+    {
+      "component": "StatusBar",
+      "props": {
+        "barStyle": "light-content"
+      }
+    },
+    {
+      "component": "KeyboardAwareScrollView",
+      "props": {
+        "style": {
+          "flex": 1
+        },
+        "contentContainerStyle": {
+          "flex": 1
+        }
+      },
+      "children": [
+        {
+          "component": "Container",
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "padding": 20,
+                "paddingBottom": 40,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                    "component": "Box",
+                    "props": {
+                        "marginBottom": 40
+                    },
+                    "children": [
+                        {
+                            "component": "Image",
+                            "props": {
+                                "height": 100,
+                                "width": 400,
+                                "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
+                            }
+                        }
+                    ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 2,
+                    "flexShrink": 0,
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "color": "#0592FD",
+                        "size": "xxl",
+                        "bold": false,
+                        "align": "center"
+                      },
+                      "children": "Enter your details"
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 40
+                      },
+                      "children": [
+                        {
+                          "component": "AuthenticationGuestLogin",
+                          "props": {
+                            "redirectTo": "owner-landing"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
