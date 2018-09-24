@@ -112,20 +112,84 @@
                         ],
                         "children":[  
                            {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Send Email",
-                                 "buttonCode":"BTN_SEND_EMAIL",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_REP_EMAIL",
+                                    "BE.PRI_EMAIL"
+                                 ],
+                                 "showIfNull":true,
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"grey"
+                                          },
+                                          "children":"Send Email",
+                                          "buttonCode":"",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_IDENTIFIED"
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_REP_EMAIL",
+                                    "BE.PRI_EMAIL"
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Send Email",
+                                          "buttonCode":"BTN_SEND_EMAIL",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]
