@@ -88,7 +88,7 @@
                                         "navigation.degree": 2
                                       },
                                       "then": {
-                                        "text": "Connected - 2nd Degree"
+                                        "text": "2nd Degree"
                                       }
                                     },
                                     {
@@ -96,7 +96,7 @@
                                         "navigation.degree": 3
                                       },
                                       "then": {
-                                        "text": "Connected - 3rd Degree"
+                                        "text": "3rd Degree"
                                       }
                                     },
                                     {
@@ -104,7 +104,7 @@
                                         "navigation.degree": 4
                                       },
                                       "then": {
-                                        "text": "Connected - 4th Degree"
+                                        "text": "4th Degree"
                                       }
                                     },
                                     {
@@ -337,16 +337,48 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_PHONE_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
-                          "component": "Text",
+                          "component": "PhoneNumber",
                           "props": {
-                            "text": "{{query.profile.attributes.PRI_MOBILE.value}}",
+                            "mobile": true,
+                            "number": "{{query.profile.attributes.PRI_MOBILE.value}}",
                             "color": "black",
                             "size": "xs"
                           }
                         }
                       ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "marginBottom": 20
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_PHONE_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_PHONE_ADDITIONAL.value",
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
                     },
                     {
                       "component": "Box",
@@ -379,6 +411,16 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
                           "component": "Text",
@@ -389,6 +431,27 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "marginBottom": 20
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_WEBSITE_ADDITIONAL.value",
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
                     },
                     {
                       "component": "Box",
@@ -421,16 +484,54 @@
                           "$exists": true
                         }
                       },
+                      "conditional": {
+                        "if": {
+                          "query.profile.attributes.PRI_EMAIL_ADDITIONAL.value": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "marginBottom": 0
+                        }
+                      },
                       "children": [
                         {
-                          "component": "Text",
+                          "component": "EmailAddress",
                           "props": {
-                            "text": "{{query.profile.attributes.PRI_EMAIL.value}}",
+                            "email": "{{query.profile.attributes.PRI_EMAIL.value}}",
                             "color": "black",
                             "size": "xs"
                           }
                         }
                       ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column"
+                      },
+                      "onlyShowIf": {
+                        "query.profile.attributes.PRI_EMAIL_ADDITIONAL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "repeat": "_query.profile.attributes.PRI_EMAIL_ADDITIONAL.value",
+                      "children": {
+                        "component": "Box",
+                        "props": {
+                          "marginBottom": 5
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "{{repeater}}",
+                              "color": "black",
+                              "size": "xs"
+                            }
+                          }
+                        ]
+                      }
                     },
                     {
                       "component": "Box",
@@ -441,10 +542,19 @@
                         "query.profile.attributes.PRI_MOBILE": {
                           "$exists": false
                         },
+                        "query.profile.attributes.PRI_PHONE_ADDITIONAL": {
+                          "$exists": false
+                        },
                         "query.profile.attributes.PRI_EMAIL": {
                           "$exists": false
                         },
+                        "query.profile.attributes.PRI_EMAIL_ADDITIONAL": {
+                          "$exists": false
+                        },
                         "query.profile.attributes.PRI_WEBSITE": {
+                          "$exists": false
+                        },
+                        "query.profile.attributes.PRI_WEBSITE_ADDITIONAL": {
                           "$exists": false
                         }
                       },
@@ -696,34 +806,6 @@
                       "props": {
                         "layoutName": "profile/profile.education",
                         "userID": "{{props.userID}}"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "padding": 10,
-                "marginBottom": 10
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "flex": 1,
-                    "backgroundColor": "#202532",
-                    "justifyContent": "center",
-                    "padding": 15
-                  },
-                  "children": [
-                    {
-                      "component": "Label",
-                      "props": {
-                        "text": "Message",
-                        "color": "white",
-                        "size": "xs"
                       }
                     }
                   ]

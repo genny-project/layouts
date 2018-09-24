@@ -288,7 +288,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Request PCS",
+                                 "children":"Request Condition Report",
                                  "buttonCode":"BTN_REQUEST_INSPECTION",
                                  "value":{  
                                     "itemCode":"BE.code",
@@ -330,7 +330,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Decline PCS",
+                                 "children":"Decline Condition Report",
                                  "buttonCode":"BTN_REQUEST_DECLINE",
                                  "value":{  
                                     "itemCode":"BE.code",
@@ -364,20 +364,84 @@
                         ],
                         "children":[  
                            {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Send Email Again",
-                                 "buttonCode":"BTN_SEND_EMAIL_AGAIN",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_REP_EMAIL",
+                                    "BE.PRI_EMAIL"
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Send Email Again",
+                                          "buttonCode":"BTN_SEND_EMAIL_AGAIN",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_REP_EMAIL",
+                                    "BE.PRI_EMAIL"
+                                 ],
+                                 "showIfNotNull":false,
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"grey"
+                                          },
+                                          "children":"Send Email Again",
+                                          "buttonCode":"BTN_SEND_EMAIL_AGAIN",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]
@@ -414,7 +478,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Contacted Again",
+                                 "children":"Contact Again",
                                  "buttonCode":"BTN_CONTACTED_AGAIN",
                                  "value":{  
                                     "itemCode":"BE.code",
