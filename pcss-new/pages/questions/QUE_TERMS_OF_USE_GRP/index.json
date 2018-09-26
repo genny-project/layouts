@@ -47,62 +47,14 @@
                 "size": "xxl",
                 "bold": false
               },
-              "children": "Building Condition Inspection"
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false
-              },
-              "children": "If you are the Owner or the Authorised Representative on behalf of the property owner and would like to accept proceeding with a Building Condition Inspection please hit the ACCEPT button."
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false
-              },
-              "children": "If you are not an Authorised Representative/or a tenant please just close the page and no further action is required."
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false
-              },
-              "children": "Thank you for your submission and providing all the necessary property contact details."
+              "children": "Terms of use"
             }
           ]
         },
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "QUE_PCS_ACCEPT_DECLINE_GRP",
+            "questionGroupCode": "QUE_TERMS_OF_USE_GRP",
             "renderHeading": {
               "component": "Box",
               "props": {
@@ -211,94 +163,94 @@
                       }
                     }
                   ]
+                },
+                {
+                   "component": "Box",
+                   "props": {
+                      "display": "flex"
+                   },
+                   "children": [
+                      {
+                         "component":"EventButton",
+                         "props":{
+                            "flex": "0.5",
+                            "alignItems":"center",
+                            "paddingX":0,
+                            "paddingY":0,
+                            "eventType":"ROUTE_CHANGE",
+                            "buttonCode":"owner-landing/privacy-policy",
+                            "value":{
+                               "itemCode":""
+                            }
+                         },
+                         "children":[
+                            {
+                               "component":"Box",
+                               "props":{
+                                  "alignItems":"center",
+                                  "shape":"rounded",
+                                  "borderStyle":"solid",
+                                  "borderWidth":1,
+                                  "borderColor":"white",
+                                  "padding":40
+                               },
+                               "children":[
+                                  {
+                                     "component":"Heading",
+                                     "props":{
+                                        "size":"md",
+                                        "bold":false,
+                                        "decoration":"underline"
+                                     },
+                                     "children":"Privacy Policy"
+                                  }
+                               ]
+                            }
+                         ]
+                      },
+                      {
+                         "component":"EventButton",
+                         "props":{
+                            "flex": "0.5",
+                            "alignItems":"center",
+                            "paddingX":0,
+                            "paddingY":0,
+                            "eventType":"ROUTE_CHANGE",
+                            "buttonCode":"owner-landing/terms-of-use",
+                            "value":{
+                               "itemCode":""
+                            }
+                         },
+                         "children":[
+                            {
+                               "component":"Box",
+                               "props":{
+                                  "alignItems":"center",
+                                  "shape":"rounded",
+                                  "borderStyle":"solid",
+                                  "borderWidth":1,
+                                  "borderColor":"white",
+                                  "padding":40
+                               },
+                               "children":[
+                                  {
+                                     "component":"Heading",
+                                     "props":{
+                                        "size":"md",
+                                        "bold":false,
+                                        "decoration":"underline"
+                                     },
+                                     "children":"Terms of Use"
+                                  }
+                               ]
+                            }
+                         ]
+                      }
+                   ]
                 }
               ]
             }
           }
-        },
-        {
-           "component": "Box",
-           "props": {
-              "display": "flex"
-           },
-           "children": [
-              {
-                 "component":"EventButton",
-                 "props":{
-                    "flex": "0.5",
-                    "alignItems":"center",
-                    "paddingX":0,
-                    "paddingY":0,
-                    "eventType":"ROUTE_CHANGE",
-                    "buttonCode":"owner-landing/privacy-policy",
-                    "value":{
-                       "itemCode":""
-                    }
-                 },
-                 "children":[
-                    {
-                       "component":"Box",
-                       "props":{
-                          "alignItems":"center",
-                          "shape":"rounded",
-                          "borderStyle":"solid",
-                          "borderWidth":1,
-                          "borderColor":"white",
-                          "padding":40
-                       },
-                       "children":[
-                          {
-                             "component":"Heading",
-                             "props":{
-                                "size":"md",
-                                "bold":false,
-                                "decoration":"underline"
-                             },
-                             "children":"Privacy Policy"
-                          }
-                       ]
-                    }
-                 ]
-              },
-              {
-                 "component":"EventButton",
-                 "props":{
-                    "flex": "0.5",
-                    "alignItems":"center",
-                    "paddingX":0,
-                    "paddingY":0,
-                    "eventType":"ROUTE_CHANGE",
-                    "buttonCode":"owner-landing/terms-of-use",
-                    "value":{
-                       "itemCode":""
-                    }
-                 },
-                 "children":[
-                    {
-                       "component":"Box",
-                       "props":{
-                          "alignItems":"center",
-                          "shape":"rounded",
-                          "borderStyle":"solid",
-                          "borderWidth":1,
-                          "borderColor":"white",
-                          "padding":40
-                       },
-                       "children":[
-                          {
-                             "component":"Heading",
-                             "props":{
-                                "size":"md",
-                                "bold":false,
-                                "decoration":"underline"
-                             },
-                             "children":"Terms of Use"
-                          }
-                       ]
-                    }
-                 ]
-              }
-           ]
         }
       ]
     }

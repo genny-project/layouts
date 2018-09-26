@@ -1,12 +1,37 @@
 {
   "rootCode": "GRP_ROOT",
   "width": 300,
-  "backgroundColor": "#fff",
   "flex": 1,
   "inline": true,
   "renderBody": {
     "component": "Box",
+    "props": {
+      "backgroundColor": "#ffffff",
+      "position": "fixed",
+      "width": 300,
+      "height": "100vh",
+      "left": 0,
+      "top": 0,
+      "flexDirection": "column"
+    },
     "children": [
+      {
+        "component": "Box",
+        "props": {
+          "padding": 20,
+          "paddingBottom": 0,
+          "height": 115
+        },
+        "children": [
+          {
+            "component": "Image",
+            "props": {
+              "source": "https://puu.sh/BB7km.png",
+              "height": 70
+            }
+          }
+        ]
+      },
       {
         "component": "Box",
         "props": {
@@ -17,6 +42,7 @@
           "component": "Touchable",
           "props": {
             "padding": 20,
+            "paddingLeft": 50,
             "onPress": "_repeater.onPress",
             "withFeedback": true,
             "alignItems": "center"
@@ -34,7 +60,7 @@
                     "component": "Icon",
                     "props": {
                       "name": "{{repeater.icon}}",
-                      "color": "black"
+                      "color": "#959595"
                     }
                   }
                 ]
@@ -42,7 +68,7 @@
               {
                 "component": "Text",
                 "props": {
-                  "color": "black"
+                  "color": "#959595"
                 },
                 "children": "{{repeater.name}}"
               }

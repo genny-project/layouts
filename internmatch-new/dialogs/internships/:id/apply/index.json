@@ -1,13 +1,4 @@
 {
-  "layout": {
-    "title": "Internship Details",
-    "header": {
-      "variant": "default"
-    },
-    "sidebar": {
-      "variant": "default"
-    }
-  },
   "children": [
     {
       "component": "Box",
@@ -68,17 +59,54 @@
           "children": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
         },
         {
-          "component": "EventButton",
+          "component": "Box",
           "props": {
-            "color": "blue",
-            "paddingY": 15,
-            "paddingX": 20,
-            "buttonCode": "BTN_APPLY_INTERNSHIP",
-            "value": {
-              "itemCode": "{{query.internship.code}}",
-              "root": "ROOT"
+            "flexDirection": "column",
+            "marginTop": 40
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "children": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}"
+                }
+              ]
             },
-            "text": "Apply for internship"
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "children": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}"
+                }
+              ]
+            },
+            {
+              "component": "Date",
+              "props": {
+                "format": "Do [of] MMMM, YYYY"
+              },
+              "children": "{{query.internship.attributes.PRI_START_DATE.value}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Form",
+          "props": {
+            "questionGroupCode": "QUE_APPLY_INTERNSHIP_GRP"
           }
         }
       ]

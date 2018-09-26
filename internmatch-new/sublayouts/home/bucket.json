@@ -45,15 +45,16 @@
                 "bold": true
               },
               "showCountInHeader": true,
-              "headerCountProps": {
-
+              "contentBodyProps": {
+                "paddingX": 10,
+                "paddingY": 20
+              },
+              "emptyProps": {
+                "padding": 20
               },
               "headerCountTextProps": {
                 "bold": true,
                 "size": "xs"
-              },
-              "emptyProps": {
-                "padding": 20
               },
               "emptyTextProps": {
                 "size": "xs"
@@ -65,63 +66,109 @@
             "children": {
               "component": "Link",
               "props": {
-                "style": {
-                  "width": "100%"
+                "width": "100%",
+                "backgroundColor": "#ffffff",
+                "padding": 10,
+                "wrapperProps": {
+                  "style": {
+                    "marginBottom": 20,
+                    "width": "100%"
+                  }
                 },
                 "key": "{{repeater.code}}",
-                "to": "application/{{repeater.code}}",
-                "params": {
-                  "loadID": "{{repeater.code}}"
-                }
+                "to": "application/{{repeater.code}}"
               },
               "children": [
                 {
-                  "component": "Card",
+                  "component": "Box",
+                  "dontShowIf": {
+                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
+                      "$exists": true
+                    },
+                    "repeater.company.attributes.PRI_NAME.value": {
+                      "$exists": true
+                    },
+                    "repeater.internship.attributes.PRI_NAME.value": {
+                      "$exists": true
+                    }
+                  },
+                  "props": {
+                    "padding": 15,
+                    "width": "100%",
+                    "justifyContent": "center"
+                  },
                   "children": [
                     {
-                      "component": "Media",
+                      "component": "ActivityIndicator",
                       "props": {
-                        "image": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}"
+                        "size": "small"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
+                      "$exists": true
+                    },
+                    "repeater.company.attributes.PRI_NAME.value": {
+                      "$exists": true
+                    },
+                    "repeater.internship.attributes.PRI_NAME.value": {
+                      "$exists": true
+                    }
+                  },
+                  "props": {
+                    "width": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 10,
+                        "flexShrink": 0
+                      },
+                      "children": [
+                        {
+                          "component": "Image",
+                          "props": {
+                            "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
+                            "height": 50,
+                            "width": 50
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "flex": 1
                       },
                       "children": [
                         {
                           "component": "Box",
+                          "props": {
+                            "marginBottom": 5
+                          },
                           "children": [
                             {
-                              "component": "Box",
+                              "component": "Text",
                               "props": {
-                                "flex": 1,
-                                "width": "100%",
-                                "flexDirection": "column",
-                                "justifyContent": "flex-start"
+                                "size": "xs",
+                                "bold": true
                               },
-                              "children": [
-                                {
-                                  "component": "Text",
-                                  "props": {
-                                    "size": "xs",
-                                    "bold": true
-                                  },
-                                  "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                                },
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginTop": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs"
-                                      },
-                                      "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
-                                    }
-                                  ]
-                                }
-                              ]
+                              "children": "{{repeater.company.attributes.PRI_NAME.value}}"
                             }
                           ]
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "size": "xxs"
+                          },
+                          "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
                         }
                       ]
                     }
