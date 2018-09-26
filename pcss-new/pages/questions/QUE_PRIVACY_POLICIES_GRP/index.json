@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Owner Confirmation",
+    "title": "Accept/Decline PCS",
     "appColor": "white",
     "backgroundColor": "white"
   },
@@ -19,6 +19,7 @@
         {
             "component": "Box",
             "props": {
+                "flex": 1,
                 "padding": 40
             },
             "children": [
@@ -46,31 +47,14 @@
                 "size": "xxl",
                 "bold": false
               },
-              "children": "Property Address Confirmation"
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false,
-                "align": "center"
-              },
-              "children": "If this address is incorrect, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au so we can resolve this for you."
+              "children": "Privacy Policy"
             }
           ]
         },
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "QUE_CONFIRM_PROPERTY_GROUP",
+            "questionGroupCode": "QUE_PRIVACY_POLICIES_GRP",
             "renderHeading": {
               "component": "Box",
               "props": {
@@ -81,21 +65,39 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "size": "lg",
+                    "color": "#0592FD",
+                    "size": "xl",
                     "text": "{{heading}}"
                   }
                 }
               ]
             },
+            "renderFormInputLabel": {
+            "component": "Box",
+            "props": {
+              "marginBottom": 5
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "size": "sm"
+                },
+                "children": "{{label}}"
+              }
+            ]
+          },
             "renderSubheading": {
               "component": "Box",
               "props": {
-                "marginY": 20
+                "marginY": 20,
+                "marginBottom": 20
               },
               "children": [
                 {
                   "component": "Heading",
                   "props": {
+                    "color": "#0592FD",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -115,7 +117,10 @@
               "useThemeFrom": "Input",
               "variant": "default",
               "props": {
-                "placeholder": "{{label}}"
+                "placeholder": "{{label}}",
+                "borderWidth": 1,
+                "borderColor": "lightgray",
+                "borderRadius": 3
               }
             },
             "renderSubmitButtonWrapper": {
@@ -129,7 +134,8 @@
               "component": "Button",
               "props": {
                 "inverted": true,
-                "showSpinnerOnClick": true
+                "showSpinnerOnClick": true,
+                "color": "black"
               }
             },
             "renderLoading": {
@@ -157,47 +163,47 @@
                       }
                     }
                   ]
+                },
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "alignItems": "center",
+                    "paddingX": 0,
+                    "paddingY": 0,
+                    "eventType": "ROUTE_CHANGE",
+                    "buttonCode": "owner-landing/privacy-policy",
+                    "value": {
+                      "itemCode": ""
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "alignItems": "center",
+                        "shape": "rounded",
+                        "borderStyle": "solid",
+                        "borderWidth": 1,
+                        "borderColor": "white",
+                        "padding": 40
+                      },
+                      "children": [
+                        {
+                          "component": "Heading",
+                          "props": {
+                            "size": "md",
+                            "bold": false,
+                            "decoration": "underline"
+                          },
+                          "children": "Privacy Policy"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
           }
-        },
-        {
-          "component": "EventButton",
-          "props": {
-            "alignItems": "center",
-            "paddingX": 0,
-            "paddingY": 0,
-            "eventType": "ROUTE_CHANGE",
-            "buttonCode": "owner-landing/privacy-policy",
-            "value": {
-              "itemCode": ""
-            }
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "alignItems": "center",
-                "shape": "rounded",
-                "borderStyle": "solid",
-                "borderWidth": 1,
-                "borderColor": "white",
-                "padding": 40
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "md",
-                    "bold": false,
-                    "decoration": "underline"
-                  },
-                  "children": "Privacy Policy"
-                }
-              ]
-            }
-          ]
         }
       ]
     }

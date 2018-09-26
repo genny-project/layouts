@@ -1,474 +1,466 @@
-{
-    "Grid": {
-        "rows": 1,
-        "cols": [
-            2,
-            1
-        ],
-        "children": [{
-            "div": {
-                "position": [
-                    0,
-                    0
-                ],
-                "children": [{
-                        "div": {
-                            "style": {
-                                "width": "100%",
-                                "padding": "20px 50px 10px",
-                                "position": "absolute"
-                            },
-                            "children": [{
-                                    "GennyButton": {
-                                        "style": {
-                                            "width": "100px",
-                                            "height": "30px",
-                                            "position": "absolute",
-                                            "top": "10px"
-                                        },
-                                        "buttonStyle": {
-                                            "background": "PROJECT.PRI_COLOR",
-                                            "height": "30px",
-                                            "padding": "0"
-                                        },
-                                        "buttonCode": "BTN_BACK_BUTTON",
-                                        "hint": {
-                                            "itemCode": "BE.code"
-                                        },
-                                        "children": [{
-                                                "IconSmall": {
-                                                    "style": {
-                                                        "fontSize": "28px",
-                                                        "transform": "rotate(90deg)",
-                                                        "color": "white"
-                                                    },
-                                                    "name": "arrow_drop_down"
-                                                }
-                                            },
-                                            {
-                                                "span": {
-                                                    "style": {
-                                                        "color": "white"
-                                                    },
-                                                    "children": "BACK"
-                                                }
-                                            }
-                                        ]
+{  
+   "Grid":{  
+      "rows":1,
+      "cols":[  
+         2,
+         1
+      ],
+      "children":[  
+         {  
+            "div":{  
+               "position":[  
+                  0,
+                  0
+               ],
+               "children":[  
+                  {  
+                     "div":{  
+                        "style":{  
+                           "width":"100%",
+                           "padding":"20px 50px 10px",
+                           "position":"absolute"
+                        },
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "width":"100px",
+                                    "height":"30px",
+                                    "position":"absolute",
+                                    "top":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"PROJECT.PRI_COLOR",
+                                    "height":"30px",
+                                    "padding":"0"
+                                 },
+                                 "buttonCode":"BTN_BACK_BUTTON",
+                                 "hint":{  
+                                    "itemCode":"BE.code"
+                                 },
+                                 "children":[  
+                                    {  
+                                       "IconSmall":{  
+                                          "style":{  
+                                             "fontSize":"28px",
+                                             "transform":"rotate(90deg)",
+                                             "color":"white"
+                                          },
+                                          "name":"arrow_drop_down"
+                                       }
+                                    },
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "color":"white"
+                                          },
+                                          "children":"BACK"
+                                       }
                                     }
-                                },
-                                {
-                                    "Selector": {
-                                        "checkValues": [
-                                            "ROOT"
-                                        ],
-                                        "hideValues": [
-                                            "GRP_BIN",
-                                            "GRP_UNITS_BIN"
-                                        ],
-                                        "children": [
-
-                                            {
-                                                "GennyButton": {
-                                                    "style": {
-                                                        "width": "100px",
-                                                        "height": "30px",
-                                                        "position": "absolute",
-                                                        "top": "50px"
-                                                    },
-                                                    "buttonStyle": {
-                                                        "background": "PROJECT.PRI_COLOR",
-                                                        "height": "30px",
-                                                        "padding": "0"
-                                                    },
-                                                    "buttonCode": "BTN_EDIT_UNIT_BUTTON",
-                                                    "value": {
-                                                        "itemCode": "${BE.code}"
-                                                    },
-                                                    "children": [{
-                                                        "span": {
-                                                            "style": {
-                                                                "color": "white"
-                                                            },
-                                                            "children": "EDIT"
-                                                        }
-                                                    }]
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "ROOT"
+                                 ],
+                                 "hideValues":[  
+                                    "GRP_BIN",
+                                    "GRP_UNITS_BIN"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "width":"100px",
+                                             "height":"30px",
+                                             "position":"absolute",
+                                             "top":"50px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"PROJECT.PRI_COLOR",
+                                             "height":"30px",
+                                             "padding":"0"
+                                          },
+                                          "buttonCode":"BTN_EDIT_UNIT_BUTTON",
+                                          "value":{  
+                                             "itemCode":"${BE.code}"
+                                          },
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "color":"white"
+                                                   },
+                                                   "children":"EDIT"
                                                 }
-                                            },
-                                            {
-                                                "GennyButton": {
-                                                    "style": {
-                                                        "width": "100px",
-                                                        "height": "30px",
-                                                        "position": "absolute",
-                                                        "top": "90px"
-                                                    },
-                                                    "buttonStyle": {
-                                                        "background": "PROJECT.PRI_COLOR",
-                                                        "height": "30px",
-                                                        "padding": "0"
-                                                    },
-                                                    "buttonCode": "BTN_DELETE_UNIT_BUTTON",
-                                                    "value": {
-                                                        "itemCode": "BE.code"
-                                                    },
-                                                    "children": [{
-                                                        "span": {
-                                                            "style": {
-                                                                "color": "white"
-                                                            },
-                                                            "children": "DELETE"
-                                                        }
-                                                    }]
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "width":"100px",
+                                             "height":"30px",
+                                             "position":"absolute",
+                                             "top":"90px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"PROJECT.PRI_COLOR",
+                                             "height":"30px",
+                                             "padding":"0"
+                                          },
+                                          "buttonCode":"BTN_DELETE_UNIT_BUTTON",
+                                          "value":{  
+                                             "itemCode":"BE.code"
+                                          },
+                                          "children":[  
+                                             {  
+                                                "span":{  
+                                                   "style":{  
+                                                      "color":"white"
+                                                   },
+                                                   "children":"DELETE"
                                                 }
-                                            }
-                                        ]
+                                             }
+                                          ]
+                                       }
                                     }
-                                }
-
-                            ]
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "SublayoutLoader":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "layoutCode":"property-details-header",
+                        "aliases":{  
+                           "BE":"BE.code",
+                           "GROUP":"ROOT"
                         }
-                    },
-                    {
-                        "SublayoutLoader": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "layoutCode": "property-details-header",
-                            "aliases": {
-                                "BE": "BE.code",
-                                "GROUP": "ROOT"
-                            }
-                        }
-                    }
-                ]
+                     }
+                  }
+               ]
             }
-        }, {
-            "Grid": {
-                "position": [
-                    0,
-                    0
-                ],
-                "style": {
-                    "color": "rgb(72,84,98)",
-                    "lineHeight": "1.8em"
-                },
-                "rows": [
-                    0.1,
-                    1
-                ],
-                "cols": [{
-                    "style": {
-                        "flexGrow": 1,
-                        "marginLeft": "10%"
-                    }
-                }],
-                "children": [{
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-
-                            "children": [
-                                {
-                                    "Selector": {
-                                        "checkValues": [
-                                            "BE.PRI_UNIT_ID"
-                                        ],
-                                        "showIfNotNull": true,
-                                        "children": [{
-                                            "span": {
-                                                "style": {
-                                                    "fontSize": "2.em"
-                                                },
-                                                "children": "${BE.PRI_UNIT_ID}/"
-                                            }
-                                        }]
+         },
+         {  
+            "Grid":{  
+               "position":[  
+                  0,
+                  0
+               ],
+               "style":{  
+                  "color":"rgb(72,84,98)",
+                  "lineHeight":"1.8em"
+               },
+               "rows":[  
+                  0.1,
+                  1
+               ],
+               "cols":[  
+                  {  
+                     "style":{  
+                        "flexGrow":1,
+                        "marginLeft":"10%"
+                     }
+                  }
+               ],
+               "children":[  
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_UNIT_ID"
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"2em"
+                                          },
+                                          "children":"${BE.PRI_UNIT_ID}/"
+                                       }
                                     }
-                                },
-                                {
-                                    "span": {
-                                        "style": {
-                                            "fontSize": "2em"
-                                        },
-                                        "children": "${BE.PRI_ADDRESS_FULL}"
+                                 ]
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"2em"
+                                 },
+                                 "children":"${BE.PRI_ADDRESS_FULL}"
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "color":"rgb(72, 84, 98)"
+                        },
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_DELETED_DATETIME"
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"1em",
+                                             "fontWeight":"bold"
+                                          },
+                                          "children":"Date Deleted: "
+                                       }
+                                    },
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"0.75em"
+                                          },
+                                          "children":"${BE.PRI_DELETED_DATETIME}"
+                                       }
                                     }
-                                }
-                            ]
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "h4":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "borderBottom":"2px solid #485461",
+                           "borderTop":"2px solid #485461"
+                        },
+                        "children":"Owner Details"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Name: ${BE.PRI_OWNER_FIRSTNAME}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Email: ${BE.PRI_EMAIL}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Mobile: ${BE.PRI_MOBILE}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Company: ${BE.PRI_OWNER_COMPANY}"
+                     }
+                  },
+                  {  
+                     "h4":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "borderBottom":"2px solid #485461",
+                           "borderTop":"2px solid #485461"
+                        },
+                        "children":"Owner Representative Details"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Name: ${BE.PRI_REP_FIRSTNAME}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Email: ${BE.PRI_REP_EMAIL}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Mobile: ${BE.PRI_REP_MOBILE}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Company: ${BE.PRI_REP_ADDRESS}"
+                     }
+                  },
+                  {  
+                     "h4":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "borderBottom":"2px solid #485461",
+                           "borderTop":"2px solid #485461"
+                        },
+                        "children":"Tenant Details"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Name: ${BE.PRI_TENANT_FIRSTNAME}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Email: ${BE.PRI_TENANT_EMAIL}"
+                     }
+                  },
+                  {  
+                     "p":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "margin":"5px"
+                        },
+                        "children":"Mobile: ${BE.PRI_TENANT_MOBILE}"
+                     }
+                  },
+                  {  
+                     "SublayoutLoader":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "layoutCode":"pcs-details-history",
+                        "aliases":{  
+                           "BE":"BE.code",
+                           "GROUP":"ROOT"
                         }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "borderBottom": "2px solid #485461",
-                                "borderTop": "2px solid #485461"
-                            },
-                            "children": [
-                                {
-                                    "span": {
-                                        "style": {
-                                            "fontSize": "1em",
-                                            "fontWeight": "bold"
-                                        },
-                                        "children": "Date Added: "
-                                    }
-                                },
-                                {
-                                    "span": {
-                                       
-                                        "style": {
-                                            "margin": "5px",
-                                            "fontSize": "0.75em"
-                                        },
-                                        "children": " ${BE.PRI_CREATED_DATETIME}"
-                                    }
-                                },
-                                {
-                                    "Selector": {
-                                        "checkValues": [
-                                            "BE.PRI_DELETED_DATETIME"
-                                        ],
-                                        "showIfNotNull": true,
-                                        "children": [
-                                            {
-                                            "span": {
-                                                "style": {
-                                                    "fontSize": "1em",
-                                                    "fontWeight": "bold"
-                                                },
-                                                "children": "Date Deleted: "
-                                            }
-                                        },
-                                        {
-                                            "span": {
-                                                "style": {
-                                                    "fontSize": "0.75em"
-                                                },
-                                                "children": "${BE.PRI_DELETED_DATETIME}"
-                                            }
-                                        }
-                                    ]
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "h4": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "borderBottom": "2px solid #485461",
-                                "borderTop": "2px solid #485461"
-                            },
-                            "children": "Owner Details"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Name: ${BE.PRI_OWNER_FIRSTNAME}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Email: ${BE.PRI_EMAIL}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Mobile: ${BE.PRI_MOBILE}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Company: ${BE.PRI_OWNER_COMPANY}"
-                        }
-                    },
-                    {
-                        "h4": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "borderBottom": "2px solid #485461",
-                                "borderTop": "2px solid #485461"
-                            },
-                            "children": "Owner Representative Details"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Type of representative: ${BE.LNK_REPRESENTATIVE_TYPE_SELECT.name}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Name: ${BE.PRI_REP_FIRSTNAME}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Email: ${BE.PRI_REP_EMAIL}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Mobile: ${BE.PRI_REP_MOBILE}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Company: ${BE.PRI_REP_ADDRESS}"
-                        }
-                    },
-                    {
-                        "h4": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "borderBottom": "2px solid #485461",
-                                "borderTop": "2px solid #485461"
-                            },
-                            "children": "Tenant Details"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Name: ${BE.PRI_TENANT_FIRSTNAME}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Email: ${BE.PRI_TENANT_EMAIL}"
-                        }
-                    },
-                    {
-                        "p": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "margin": "5px"
-                            },
-                            "children": "Mobile: ${BE.PRI_TENANT_MOBILE}"
-                        }
-                    },
-                    {
-                        "SublayoutLoader": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "layoutCode": "pcs-details-history",
-                            "aliases": {
-                                "BE": "BE.code",
-                                "GROUP": "ROOT"
-                            }
-                        }
-                    },
-                    {
-                        "h4": {
-                            "position": [
-                                0,
-                                0
-                            ],
-                            "style": {
-                                "borderBottom": "2px solid #485461",
-                                "borderTop": "2px solid #485461"
-                            },
-                            "children": "Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
-                        }
-                    }
-                ]
+                     }
+                  },
+                  {  
+                     "h4":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
+                        "style":{  
+                           "borderBottom":"2px solid #485461",
+                           "borderTop":"2px solid #485461"
+                        },
+                        "children":"Web Verification Code :  ${BE.PRI_VERIFICATION_CODE}"
+                     }
+                  }
+               ]
             }
-        }]
-    }
+         }
+      ]
+   }
 }
