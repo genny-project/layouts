@@ -217,424 +217,88 @@
           }
         },
         {
-          "layout": {
-            "title": "Owner Confirmation",
-            "appColor": "white",
-            "backgroundColor": "white"
-          },
-          "children": [
-            {
-              "component": "Container",
-              "props": {
-                "flexDirection": "column",
-                "alignItems": "center",
-                "justifyContent": "center",
-                "flex": 1,
-                "height": "100%",
-                "maxWidth": 700
+           "component": "Box",
+           "props": {
+              "display": "flex"
+           },
+           "children": [
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/privacy-policy",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Privacy Policy"
+                          }
+                       ]
+                    }
+                 ]
               },
-              "children": [
-                {
-                    "component": "Box",
-                    "props": {
-                        "padding": 40
-                    },
-                    "children": [
-                        {
-                            "component": "Image",
-                            "props": {
-                                "height": 100,
-                                "width": 400,
-                                "top": 50,
-                                "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
-                            }
-                        }
-                    ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "padding": 10
-                  },
-                  "children": [
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/terms-of-use",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
                     {
-                      "component": "Heading",
-                      "props": {
-                        "color": "#0592FD",
-                        "size": "xxl",
-                        "bold": false
-                      },
-                      "children": "Property Address Confirmation"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "padding": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "props": {
-                        "size": "xs",
-                        "bold": false,
-                        "align": "center"
-                      },
-                      "children": "If this address is incorrect, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au so we can resolve this for you."
-                    }
-                  ]
-                },
-                {
-                  "component": "Form",
-                  "props": {
-                    "questionGroupCode": "QUE_CONFIRM_PROPERTY_GROUP",
-                    "renderHeading": {
-                      "component": "Box",
-                      "props": {
-                        "marginTop": 20,
-                        "marginBottom": 20
-                      },
-                      "children": [
-                        {
-                          "component": "Heading",
-                          "props": {
-                            "size": "lg",
-                            "text": "{{heading}}"
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Terms of Use"
                           }
-                        }
-                      ]
-                    },
-                    "renderSubheading": {
-                      "component": "Box",
-                      "props": {
-                        "marginY": 20
-                      },
-                      "children": [
-                        {
-                          "component": "Heading",
-                          "props": {
-                            "size": "lg",
-                            "align": "left",
-                            "text": "{{subheading}}"
-                          }
-                        }
-                      ]
-                    },
-                    "renderFormInputWrapper": {
-                      "component": "Box",
-                      "props": {
-                        "marginBottom": 20,
-                        "flexDirection": "column"
-                      }
-                    },
-                    "renderFormInput": {
-                      "component": "FormInput",
-                      "useThemeFrom": "Input",
-                      "variant": "default",
-                      "props": {
-                        "placeholder": "{{label}}"
-                      }
-                    },
-                    "renderSubmitButtonWrapper": {
-                      "component": "Box",
-                      "props": {
-                        "marginTop": 10,
-                        "flexDirection": "column"
-                      }
-                    },
-                    "renderSubmitButton": {
-                      "component": "Button",
-                      "props": {
-                        "inverted": true,
-                        "showSpinnerOnClick": true
-                      }
-                    },
-                    "renderLoading": {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "column"
-                      },
-                      "children": [
-                        {
-                          "component": "ActivityIndicator",
-                          "props": {
-                            "size": "large"
-                          }
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "marginTop": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "text": "Loading form..."
-                              }
-                            }
-                          ]
-                        }
-                      ]
+                       ]
                     }
-                  }
-                },
-                {
-                  "layout": {
-                    "title": "Owner Landing",
-                    "appColor": "white",
-                    "backgroundColor": "white"
-                  },
-                  "children": [
-                    {
-                      "component": "Container",
-                      "props": {
-                        "flexDirection": "column",
-                        "alignItems": "center",
-                        "justifyContent": "center",
-                        "flex": 1,
-                        "height": "100%",
-                        "maxWidth": 700
-                      },
-                      "children": [
-                        {
-                            "component": "Box",
-                            "props": {
-                                "marginBottom": 40
-                            },
-                            "children": [
-                                {
-                                    "component": "Image",
-                                    "props": {
-                                        "height": 100,
-                                        "width": 400,
-                                        "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "padding": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Heading",
-                              "props": {
-                                "color": "#0592FD",
-                                "size": "xxl",
-                                "bold": false
-                              },
-                              "children": "Web Verification Code"
-                            }
-                          ]
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "padding": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xs",
-                                "bold": false
-                              },
-                              "children": "Please enter the 5 alphanumeric code provided in the letter you received. If your code contains 0, it is the number zero."
-                            }
-                          ]
-                        },
-                        {
-                          "component": "Form",
-                          "props": {
-                            "questionGroupCode": "QUE_CODE_VERIFICATION_GRP",
-                            "renderSubheading": {
-                              "component": "Box",
-                              "props": {
-                                "marginY": 20
-                              },
-                              "children": [
-                                {
-                                  "component": "Heading",
-                                  "props": {
-                                    "color": "#0592FD",
-                                    "size": "lg",
-                                    "align": "left",
-                                    "text": "{{subheading}}"
-                                  }
-                                }
-                              ]
-                            },
-                            "renderFormInputWrapper": {
-                              "component": "Box",
-                              "props": {
-                                "marginBottom": 20,
-                                "flexDirection": "column"
-                              }
-                            },
-                            "renderFormInput": {
-                              "component": "FormInput",
-                              "useThemeFrom": "Input",
-                              "variant": "default",
-                              "props": {
-                                "placeholder": "{{label}}"
-                              }
-                            },
-                            "renderSubmitButtonWrapper": {
-                              "component": "Box",
-                              "props": {
-                                "marginTop": 10,
-                                "flexDirection": "column"
-                              }
-                            },
-                            "renderSubmitButton": {
-                              "component": "Button",
-                              "props": {
-                                "inverted": true,
-                                "showSpinnerOnClick": true
-                              }
-                            },
-                            "renderLoading": {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column"
-                              },
-                              "children": [
-                                {
-                                  "component": "ActivityIndicator",
-                                  "props": {
-                                    "size": "large"
-                                  }
-                                },
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginTop": 10
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "color": "#0592FD",
-                                        "text": "Loading form..."
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "padding": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xs",
-                                "bold": false
-                              },
-                              "children": "For assistance, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au."
-                            }
-                          ]
-                        },
-                        {
-                           "component": "Box",
-                           "props": {
-                              "display": "flex"
-                           },
-                           "children": [
-                              {
-                                 "component":"EventButton",
-                                 "props":{
-                                    "flex": "0.5",
-                                    "alignItems":"center",
-                                    "paddingX":0,
-                                    "paddingY":0,
-                                    "eventType":"ROUTE_CHANGE",
-                                    "buttonCode":"owner-landing/privacy-policy",
-                                    "value":{
-                                       "itemCode":""
-                                    }
-                                 },
-                                 "children":[
-                                    {
-                                       "component":"Box",
-                                       "props":{
-                                          "alignItems":"center",
-                                          "shape":"rounded",
-                                          "borderStyle":"solid",
-                                          "borderWidth":1,
-                                          "borderColor":"white",
-                                          "padding":40
-                                       },
-                                       "children":[
-                                          {
-                                             "component":"Heading",
-                                             "props":{
-                                                "size":"md",
-                                                "bold":false,
-                                                "decoration":"underline"
-                                             },
-                                             "children":"Privacy Policy"
-                                          }
-                                       ]
-                                    }
-                                 ]
-                              },
-                              {
-                                 "component":"EventButton",
-                                 "props":{
-                                    "flex": "0.5",
-                                    "alignItems":"center",
-                                    "paddingX":0,
-                                    "paddingY":0,
-                                    "eventType":"ROUTE_CHANGE",
-                                    "buttonCode":"owner-landing/terms-of-use",
-                                    "value":{
-                                       "itemCode":""
-                                    }
-                                 },
-                                 "children":[
-                                    {
-                                       "component":"Box",
-                                       "props":{
-                                          "alignItems":"center",
-                                          "shape":"rounded",
-                                          "borderStyle":"solid",
-                                          "borderWidth":1,
-                                          "borderColor":"white",
-                                          "padding":40
-                                       },
-                                       "children":[
-                                          {
-                                             "component":"Heading",
-                                             "props":{
-                                                "size":"md",
-                                                "bold":false,
-                                                "decoration":"underline"
-                                             },
-                                             "children":"Terms of Use"
-                                          }
-                                       ]
-                                    }
-                                 ]
-                              }
-                           ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+                 ]
+              }
+           ]
         }
       ]
     }
