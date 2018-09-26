@@ -331,7 +331,8 @@
                       "component": "Box",
                       "props": {
                         "marginBottom": 10,
-                        "alignItems": "center"
+                        "alignItems": "center",
+                        "flexWrap": "wrap"
                       },
                       "onlyShowIf": {
                         "query.profile.attributes.PRI_MOBILE.value": {
@@ -437,7 +438,8 @@
                       "component": "Box",
                       "props": {
                         "marginBottom": 10,
-                        "alignItems": "center"
+                        "alignItems": "center",
+                        "flexWrap": "wrap"
                       },
                       "onlyShowIf": {
                         "query.profile.attributes.PRI_WEBSITE.value": {
@@ -544,7 +546,8 @@
                       "props": {
                         "marginBottom": 10,
                         "alignItems": "center",
-                        "flex": 1
+                        "flex": 1,
+                        "flexWrap": "wrap"
                       },
                       "onlyShowIf": {
                         "query.profile.attributes.PRI_EMAIL.value": {
@@ -701,9 +704,6 @@
                       "children": [
                         {
                           "component": "Box",
-                          "props": {
-                            "marginBottom": 10
-                          },
                           "children": [
                             {
                               "component": "Label",
@@ -715,69 +715,6 @@
                               }
                             }
                           ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flex": 1,
-                "flexDirection": "row"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "flex": 1,
-                    "backgroundColor": "#202532",
-                    "justifyContent": "center",
-                    "paddingX": 20,
-                    "paddingY": 30
-                  },
-                  "children": [
-                    {
-                      "component": "Label",
-                      "props": {
-                        "text": "Individual",
-                        "color": "white",
-                        "size": "xs"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Link",
-                  "props": {
-                    "style": {
-                      "flex": 1
-                    },
-                    "to": "profile/profile-business",
-                    "params": {
-                      "userID": "{{props.userID}}"
-                    }
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flex": 1,
-                        "backgroundColor": "white",
-                        "justifyContent": "center",
-                        "paddingX": 20,
-                        "paddingY": 30
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "text": "Business",
-                            "color": "black",
-                            "size": "xs"
-                          }
                         }
                       ]
                     }
