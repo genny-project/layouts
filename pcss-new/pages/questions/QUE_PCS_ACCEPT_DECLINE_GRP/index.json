@@ -649,168 +649,88 @@
                                        ]
                                     },
                                     {
-                                      "layout": {
-                                        "title": "Owner Landing",
-                                        "appColor": "white",
-                                        "backgroundColor": "white"
-                                      },
-                                      "children": [
-                                        {
-                                          "component": "Container",
-                                          "props": {
-                                            "flexDirection": "column",
-                                            "alignItems": "center",
-                                            "justifyContent": "center",
-                                            "flex": 1,
-                                            "height": "100%",
-                                            "maxWidth": 700
+                                       "component": "Box",
+                                       "props": {
+                                          "display": "flex"
+                                       },
+                                       "children": [
+                                          {
+                                             "component":"EventButton",
+                                             "props":{
+                                                "flex": "0.5",
+                                                "alignItems":"center",
+                                                "paddingX":0,
+                                                "paddingY":0,
+                                                "eventType":"ROUTE_CHANGE",
+                                                "buttonCode":"owner-landing/privacy-policy",
+                                                "value":{
+                                                   "itemCode":""
+                                                }
+                                             },
+                                             "children":[
+                                                {
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "alignItems":"center",
+                                                      "shape":"rounded",
+                                                      "borderStyle":"solid",
+                                                      "borderWidth":1,
+                                                      "borderColor":"white",
+                                                      "padding":40
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"Heading",
+                                                         "props":{
+                                                            "size":"md",
+                                                            "bold":false,
+                                                            "decoration":"underline"
+                                                         },
+                                                         "children":"Privacy Policy"
+                                                      }
+                                                   ]
+                                                }
+                                             ]
                                           },
-                                          "children": [
-                                            {
-                                                "component": "Box",
-                                                "props": {
-
-                                                },
-                                                "children": [
-                                                    {
-                                                        "component": "Image",
-                                                        "props": {
-                                                            "height": 100,
-                                                            "width": 400,
-                                                            "top": 50,
-                                                            "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
-                                                        }
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                              "component": "Box",
-                                              "props": {
-                                                "padding": 40
-                                              },
-                                              "children": [
-                                                {
-                                                  "component": "Heading",
-                                                  "props": {
-                                                    "color": "#0592FD",
-                                                    "size": "xxl",
-                                                    "bold": false
-                                                  },
-                                                  "children": "You have declined assessment for your property"
+                                          {
+                                             "component":"EventButton",
+                                             "props":{
+                                                "flex": "0.5",
+                                                "alignItems":"center",
+                                                "paddingX":0,
+                                                "paddingY":0,
+                                                "eventType":"ROUTE_CHANGE",
+                                                "buttonCode":"owner-landing/terms-of-use",
+                                                "value":{
+                                                   "itemCode":""
                                                 }
-                                              ]
-                                            },
-                                            {
-                                              "component": "Box",
-                                              "props": {
-                                                "padding": 10
-                                              },
-                                              "children": [
+                                             },
+                                             "children":[
                                                 {
-                                                  "component": "Text",
-                                                  "props": {
-                                                    "size": "md",
-                                                    "bold": false,
-                                                    "align": "center"
-                                                  },
-                                                  "children": "You have chosen to decline the offer of the Pre-Condition Assessment for your property. You may forfeit any opportunity to claim for damages related to these works."
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "alignItems":"center",
+                                                      "shape":"rounded",
+                                                      "borderStyle":"solid",
+                                                      "borderWidth":1,
+                                                      "borderColor":"white",
+                                                      "padding":40
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"Heading",
+                                                         "props":{
+                                                            "size":"md",
+                                                            "bold":false,
+                                                            "decoration":"underline"
+                                                         },
+                                                         "children":"Terms of Use"
+                                                      }
+                                                   ]
                                                 }
-                                              ]
-                                            },
-                                            {
-                                              "component": "Box",
-                                              "props": {
-                                                "padding": 10
-                                              },
-                                              "children": [
-                                                {
-                                                  "component": "Text",
-                                                  "props": {
-                                                    "size": "xs",
-                                                    "bold": false,
-                                                    "align": "center"
-                                                  },
-                                                  "children": "Should you have any follow-up questions related to either our construction works or the Building Condition Inspections, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au."
-                                                }
-                                              ]
-                                            },
-                                            {
-                                               "component":"EventButton",
-                                               "props":{
-                                                  "alignItems":"center",
-                                                  "paddingX":0,
-                                                  "paddingY":0,
-                                                  "eventType":"ROUTE_CHANGE",
-                                                  "buttonCode":"owner-landing/privacy-policy",
-                                                  "value":{
-                                                     "itemCode":""
-                                                  }
-                                               },
-                                               "children":[
-                                                  {
-                                                     "component":"Box",
-                                                     "props":{
-                                                        "alignItems":"center",
-                                                        "shape":"rounded",
-                                                        "borderStyle":"solid",
-                                                        "borderWidth":1,
-                                                        "borderColor":"white",
-                                                        "padding":40
-                                                     },
-                                                     "children":[
-                                                        {
-                                                           "component":"Heading",
-                                                           "props":{
-                                                              "size":"md",
-                                                              "bold":false,
-                                                              "decoration":"underline"
-                                                           },
-                                                           "children":"Privacy Policy"
-                                                        }
-                                                     ]
-                                                  }
-                                               ]
-                                            },
-                                            {
-                                               "component":"EventButton",
-                                               "props":{
-                                                  "alignItems":"center",
-                                                  "paddingX":0,
-                                                  "paddingY":0,
-                                                  "eventType":"ROUTE_CHANGE",
-                                                  "buttonCode":"owner-landing/terms-of-use",
-                                                  "value":{
-                                                     "itemCode":""
-                                                  }
-                                               },
-                                               "children":[
-                                                  {
-                                                     "component":"Box",
-                                                     "props":{
-                                                        "alignItems":"center",
-                                                        "shape":"rounded",
-                                                        "borderStyle":"solid",
-                                                        "borderWidth":1,
-                                                        "borderColor":"white",
-                                                        "padding":40
-                                                     },
-                                                     "children":[
-                                                        {
-                                                           "component":"Heading",
-                                                           "props":{
-                                                              "size":"md",
-                                                              "bold":false,
-                                                              "decoration":"underline"
-                                                           },
-                                                           "children":"Terms of Use"
-                                                        }
-                                                     ]
-                                                  }
-                                               ]
-                                            }
-                                          ]
-                                        }
-                                      ]
+                                             ]
+                                          }
+                                       ]
                                     }
                                  ]
                               }
