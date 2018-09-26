@@ -68,58 +68,88 @@
           ]
         },
         {
-          "component": "Box",
-          "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "size": "xs",
-                "bold": false,
-                "align": "center"
+           "component": "Box",
+           "props": {
+              "display": "flex"
+           },
+           "children": [
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/privacy-policy",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Privacy Policy"
+                          }
+                       ]
+                    }
+                 ]
               },
-              "children": "Should you have any follow-up questions related to either our construction works or the Building Condition Inspections, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au."
-            }
-          ]
-        },
-        {
-          "component": "EventButton",
-          "props": {
-            "alignItems": "center",
-            "paddingX": 0,
-            "paddingY": 0,
-            "eventType": "ROUTE_CHANGE",
-            "buttonCode": "owner-landing/privacy-policy",
-            "value": {
-              "itemCode": ""
-            }
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "alignItems": "center",
-                "shape": "rounded",
-                "borderStyle": "solid",
-                "borderWidth": 1,
-                "borderColor": "white",
-                "padding": 40
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "size": "md",
-                    "bold": false,
-                    "decoration": "underline"
-                  },
-                  "children": "Privacy Policy"
-                }
-              ]
-            }
-          ]
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/terms-of-use",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Terms of Use"
+                          }
+                       ]
+                    }
+                 ]
+              }
+           ]
         }
       ]
     }
