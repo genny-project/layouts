@@ -10,6 +10,32 @@
             "GennyForm":{
                "root":"QUE_CONTACTED_DETAILS_EMAIL_GRP"
             }
+         },
+         {
+            "Selector": {
+               "checkValues": "BE.PRI_FIRST_S3_CORRESPONDENCE_LINK",
+               "showIfNull": true,
+               "children": [
+                  {
+                     "p": {
+                        "children": "Generating PDF..."
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "Selector": {
+               "checkValues": "BE.PRI_FIRST_S3_CORRESPONDENCE_LINK",
+               "showIfNotNull": true,
+               "children": [
+                  {
+                     "PDFViewer": {
+                        "file": "BE.PRI_FIRST_S3_CORRESPONDENCE_LINK"
+                     }
+                  }
+               ]
+            }
          }
       ]
    }
