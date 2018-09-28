@@ -21,7 +21,19 @@
                            "marginBottom":"5px",
                            "flexGrow":1
                         },
-                        "children":"Last Contact Date: ${BE.PRI_LAST_CONTACT_DATETIME}"
+                        "children": [
+                           {
+                              "span": {
+                                 "children": "Last Contact Date: "
+                              }
+                           },
+                           {
+                              "DateLabel": {
+                                 "format": "dd mmm yyy hh:mm a",
+                                 "children": "${BE.PRI_LAST_CONTACT_DATETIME}"
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
