@@ -1,0 +1,191 @@
+{
+  "layout": {
+    "title": "Message",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "backgroundColor": "white",
+            "flex": 1,
+            "padding": 20,
+            "marginBottom": 10,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginRight": 20,
+                "alignItems": "center",
+                "shape": "circle"
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "{{query.images.0.attributes.PRI_IMAGE_URL.valueString}}",
+                    "shape": "circle",
+                    "width": 60,
+                    "height": 60
+                  },
+                  "dontShowIf": {
+                    "query.senderBE.name" : {
+                      "$eq": "{{user.data.name}}"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "children": [
+                          {
+                            "component": "Join",
+                            "renderAsComponent": true,
+                            "props": {
+                              "delimiter": ", ",
+                              "items": "_query.names"
+                              }
+                          }
+                      ],
+                      "props": {
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "alignItems": "flex-start",
+                "paddingX": 0,
+                "paddingY": 0
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginleft": 20,
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "color": "black",
+                            "size": "lg",
+                            "name": "chevron-right"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.itemID}}",
+      "as": "results"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "names",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "names",
+      "scope": {
+        "operator": "map",
+        "fields": "name"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "images",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    }
+  ]
+}
