@@ -82,19 +82,13 @@
                   }
                 },
                 "key": "{{repeater.code}}",
-                "to": "application/{{repeater.code}}"
+                "to": "student/{{repeater.code}}"
               },
               "children": [
                 {
                   "component": "Box",
                   "dontShowIf": {
-                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
-                      "$exists": true
-                    },
-                    "repeater.company.attributes.PRI_NAME.value": {
-                      "$exists": true
-                    },
-                    "repeater.internship.attributes.PRI_NAME.value": {
+                    "repeater.attributes.PRI_NAME.value": {
                       "$exists": true
                     }
                   },
@@ -115,13 +109,7 @@
                 {
                   "component": "Box",
                   "onlyShowIf": {
-                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
-                      "$exists": true
-                    },
-                    "repeater.company.attributes.PRI_NAME.value": {
-                      "$exists": true
-                    },
-                    "repeater.internship.attributes.PRI_NAME.value": {
+                    "repeater.attributes.PRI_NAME.value": {
                       "$exists": true
                     }
                   },
@@ -139,7 +127,7 @@
                         {
                           "component": "Image",
                           "props": {
-                            "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
+                            "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
                             "height": 50,
                             "width": 50
                           }
@@ -165,7 +153,27 @@
                                 "size": "xs",
                                 "bold": true
                               },
-                              "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                              "children": "{{repeater.attributes.PRI_NAME.value}}"
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "onlyShowIf": {
+                            "repeater.attributes.PRI_STUDENT_ID.value": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs"
+                              },
+                              "children": "ID: {{repeater.attributes.PRI_STUDENT_ID.value}}"
                             }
                           ]
                         },
@@ -174,7 +182,7 @@
                           "props": {
                             "size": "xxs"
                           },
-                          "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
+                          "children": "{{repeater.attributes.PRI_MOBILE.value}}"
                         }
                       ]
                     }
@@ -268,44 +276,9 @@
       "operator": "scope",
       "path": "items",
       "scope": {
-        "operator": "getBE",
-        "id": "{{attributes.PRI_BEG_CODE.value}}",
-        "as": "internship"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "internship",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "{{internship.attributes.LNK_HOST_COMPANY.value}}",
-        "as": "company"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "company",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
+        "operator": "sort",
+        "by": "attributes.PRI_NAME.value",
+        "direction": "asc"
       }
     }
   ]
