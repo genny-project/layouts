@@ -2,10 +2,7 @@
   "layout": {
     "title": "Registration",
     "appColor": "red",
-    "backgroundColor": "white",
-    "header": {
-      "variant": "public-transparent"
-    }
+    "backgroundColor": "white"
   },
   "children": [
   {  
@@ -13,7 +10,8 @@
     "props":{
       "flexDirection":"row",
       "width": "100%",
-      "height": "100vh"
+      "height": "100vh",
+      "backgroundColor":"#edf1ff"
     },
     "children": [
       {
@@ -61,13 +59,19 @@
                 },
                 "children": [
                   {
-                    "component": "Heading",
-                    "props": {
-                      "color": "black",
-                      "size": "xxl",
-                      "bold": false
+                    "component":"Box",
+                    "props":{
+                      "paddingTop":"50px"
                     },
-                    "children": "Login to InternMatch"
+                    "children":{
+                      "component": "Heading",
+                      "props": {
+                        "color": "black",
+                        "size": "xxl",
+                        "bold": false
+                      },
+                      "children": "Login"
+                    }
                   },
                   {
                     "component": "Box",
@@ -125,7 +129,8 @@
                                           "color": "#093f7f",
                                           "borderWidth":"1px",
                                           "borderColor":"#000000",
-                                          "borderRadius":"5px"
+                                          "borderRadius":"5px",
+                                          "backgroundColor":"#FFFFFF"
                                         }
                                       }
                                     ]
@@ -156,7 +161,8 @@
                                           "color": "#093f7f",
                                           "borderWidth":"1px",
                                           "borderColor":"#000000",
-                                          "borderRadius":"5px"
+                                          "borderRadius":"5px",
+                                          "backgroundColor":"#FFFFFF"
                                         }
                                       }
                                     ]
@@ -172,13 +178,12 @@
                                   {
                                     "component": "Box",
                                     "props": {
-                                      "marginBottom": 20
                                     },
                                     "children": [
                                       {
                                         "component": "FormGenericStatus",
                                         "props": {
-                                          "wrapperProps": {
+                                            "wrapperProps": {
                                             "borderWidth": 2,
                                             "borderColor": "red",
                                             "borderStyle": "solid",
@@ -200,8 +205,8 @@
                                   {
                                     "component": "FormGenericSubmit",
                                     "props": {
-                                      "color": "teal",
-                                      "text": "Login",
+                                      "color": "#3c67c8",
+                                      "text": "Sign in",
                                       "textColor": "#fff",
                                       "size": "xl",
                                       "height": "50px",
@@ -226,7 +231,7 @@
       {
         "component": "Box",
         "props": {
-          "flex":1,
+          "flex":"1.5",
           "flexDirection" : "column",
           "width": "100%"
         },
