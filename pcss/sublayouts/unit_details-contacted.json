@@ -2,16 +2,18 @@
    "div":{  
       "children":[  
          {  
-            "Selector":{  
-               "checkValues":[  
-                  "BE.PRI_REP_FIRSTNAME",
-                  "BE.PRI_REP_EMAIL",
-                  "BE.PRI_REP_MOBILE"
+            "div":{  
+               "position":[  
+                  0,
+                  0
                ],
-               "showIfNotNull":true,
                "children":[  
                   {  
                      "div":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
                         "style":{  
                            "fontSize":"1.2em",
                            "padding":"5px",
@@ -19,36 +21,51 @@
                            "marginBottom":"5px",
                            "flexGrow":1
                         },
-                        "children":[  
-                           {  
-                              "span":{  
-                                 "position":[  
-                                    0,
-                                    0
-                                 ],
-                                 "children":"Last Contact Date: ${BE.PRI_LAST_CONTACT_DATETIME}"
+                        "children": [
+                           {
+                              "span": {
+                                 "children": "Last Contact Date: "
                               }
                            },
-                           {  
-                              "span":{  
-                                 "position":[  
-                                    0,
-                                    1
-                                 ],
-                                 "children":"Last Contact Type: ${BE.PRI_LAST_CONTACT_METHOD}"
-                              }
-                           },
-                           {  
-                              "span":{  
-                                 "position":[  
-                                    0,
-                                    1
-                                 ],
-                                 "children":"Number of Contact to date: ${BE.PRI_NUMBER_OF_TIMES_CONTACTED}"
+                           {
+                              "DateLabel": {
+                                 "format": "DD-MMM-YY HH:mm a",
+                                 "children": "${BE.PRI_LAST_CONTACT_DATETIME}"
                               }
                            }
-                           
                         ]
+                     }
+                  },
+                  {  
+                     "div":{  
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1.2em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Last Contact Type: ${BE.LNK_CONTACTED_METHOD.name}"
+                     }
+                  },
+                  {  
+                     "div":{  
+                        "position":[  
+                           2,
+                           0
+                        ],
+                        "style":{  
+                           "fontSize":"1.2em",
+                           "padding":"5px",
+                           "backgroundColor":"#ddd",
+                           "marginBottom":"5px",
+                           "flexGrow":1
+                        },
+                        "children":"Number of Contact to date: ${BE.PRI_NUMBER_OF_TIMES_CONTACTED}"
                      }
                   }
                ]

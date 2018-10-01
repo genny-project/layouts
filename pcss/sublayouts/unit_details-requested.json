@@ -3,14 +3,30 @@
       "children":[  
          {  
             "div":{  
+               "position":[  
+                  0,
+                  0
+               ],
                "style":{  
-                  "fontSize":"0.85em",
+                  "fontSize":"1.2em",
                   "padding":"5px",
                   "backgroundColor":"#ddd",
                   "marginBottom":"5px",
                   "flexGrow":1
                },
-               "children":"Contacted Date : ${BE.PRI_GRP_CONTACTED_DATE}"
+               "children": [
+                  {
+                     "span": {
+                        "children": "Last Contact Date: "
+                     }
+                  },
+                  {
+                     "DateLabel": {
+                        "format": "DD-MMM-YY HH:mm a",
+                        "children": "${BE.PRI_LAST_CONTACT_DATETIME}"
+                     }
+                  }
+               ]
             }
          }
       ]
