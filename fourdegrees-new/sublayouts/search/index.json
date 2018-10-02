@@ -22,15 +22,18 @@
                 "flexDirection": "column",
                 "marginTop": 20,
                 "paddingX": 10,
-                "flex": 1,
-                "justifyContent": "flex-start"
+                "justifyContent": "flex-start",
+                "flex": 1
               },
               "children": [
+
                 {
                   "component": "Box",
                   "props": {
                     "display": "flex",
-                    "flexDirection": "column"
+                    "flexDirection": "column",
+                    "marginTop": 40,
+                    "marginBottom": 20
                   },
                   "children": [
                     {
@@ -59,132 +62,84 @@
                   "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "flex": 1,
                     "width": "100%"
                   },
                   "children": [
                     {
-                      "component": "SafeAreaView",
+                      "component": "Form",
                       "props": {
-                        "forceInset": {
-                          "top": "never"
-                        },
-                        "style": {
-                          "flex": 1
-                        }
-                      },
-                      "children": [
-                        {
-                          "component": "Form",
+                        "questionGroupCode": "QUE_KEYWORD_SEARCH_GRP",
+                        "displayInline": true,
+                        "loadingText": null,
+                        "renderFormInputWrapper": {
+                          "component": "Box",
                           "props": {
-                            "questionGroupCode": "QUE_KEYWORD_SEARCH_GRP",
-                            "displayDirection": "row",
-
-                            "renderSubheading": {
-                              "component": "Box",
-                              "props": {
-                                "marginY": 20
-                              },
-                              "children": [
-                                {
-                                  "component": "Heading",
-                                  "props": {
-                                    "color": "white",
-                                    "size": "lg",
-                                    "align": "left",
-                                    "text": "{{subheading}}"
-                                  }
-                                }
-                              ]
-                            },
-                            "renderFormInputWrapper": {
-                              "component": "Box",
-                              "props": {
-                                "marginBottom": 20,
-                                "flexDirection": "column",
-                                "padding": 20,
-                                "backgroundColor": "white",
-                                "borderTopLeftRadius": 5,
-                                "borderBottomLeftRadius": 5,
-                                "flex": 1
-                              }
-                            },
-                            "renderFormInput": {
-                              "component": "FormInput",
-                              "useThemeFrom": "Input",
-                              "variant": "search",
-                              "props": {
-                                "placeholder": "{{label}}"
-                              }
-                            },
-                            "renderSubmitButtonWrapper": {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column",
-                                "alignItems": "center",
-                                "justifyContent": "center",
-                                "marginBottom": 20,
-                                "backgroundColor": "white",
-                                "borderTopRightRadius": 5,
-                                "borderBottomRightRadius": 5
-                              }
-                            },
-                            "renderSubmitButton": {
-                              "component": "Button",
-                              "props": {
-                                "padding": 10,
-                                "text": null,
-                                "size": "lg",
-                                "icon": "search",
-                                "showSpinnerOnClick": true,
-                                "textColor": "black",
-                                "color": "transparent"
-                              }
-                            },
-                            "renderLoading": {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column"
-                              },
-                              "children": [
-                                {
-                                  "component": "ActivityIndicator",
-                                  "props": {
-                                    "size": "large"
-                                  }
-                                },
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginTop": 10
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "color": "white",
-                                        "text": "Loading form..."
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
+                            "flexDirection": "column",
+                            "padding": 20,
+                            "backgroundColor": "white",
+                            "shape": "roundedLeft",
+                            "flex": 1
+                          }
+                        },
+                        "renderFormInput": {
+                          "component": "FormInput",
+                          "useThemeFrom": "Input",
+                          "variant": "search",
+                          "props": {
+                            "placeholder": "{{label}}"
+                          }
+                        },
+                        "renderSubmitButtonWrapper": {
+                          "component": "Box",
+                          "props": {
+                            "flexDirection": "column",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "backgroundColor": "white",
+                            "shape": "roundedRight"
+                          }
+                        },
+                        "renderSubmitButton": {
+                          "component": "Button",
+                          "useThemeFrom": "Button",
+                          "variant": "search",
+                          "props": {
+                            "padding": 10,
+                            "text": null,
+                            "size": "lg",
+                            "icon": "search",
+                            "showSpinnerOnClick": true,
+                            "color": "transparent",
+                            "colorDisabled": "transparent",
+                            "textColor": "black",
+                            "textColorDisabled": "lightgrey",
+                            "shape": "roundedRight",
+                            "height": "100%"
                           }
                         }
-                      ]
-                    },
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "justifyContent": "flex-start"
+                  },
+                  "children": [
                     {
                       "component": "Box",
                       "props": {
-                        "flexDirection": "row"
+                        "flex": 1,
+                        "alignItems": "center",
+                        "justifyContent": "center"
                       },
                       "children": [
                         {
                           "component": "EventLink",
                           "props": {
                             "style": {
-                              "flex": 1,
                               "alignItems": "center"
                             },
                             "to": "search/categories",
@@ -197,7 +152,6 @@
                             {
                               "component": "Box",
                               "props": {
-                                "flex": 1,
                                 "alignItems": "center",
                                 "justifyContent": "center"
                               },
@@ -206,32 +160,42 @@
                                   "component": "Text",
                                   "props": {
                                     "color": "white",
-                                    "text": "Advanced Search"
+                                    "text": "Advanced Search",
+                                    "decoration": "underline"
                                   }
                                 }
                               ]
                             }
                           ]
-                        },
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1,
+                        "alignItems": "center"
+                      },
+                      "children": [
                         {
-                          "component": "Box",
+                          "component": "EventButton",
                           "props": {
-                            "flex": 1,
-                            "alignItems": "center"
+                            "buttonCode": "BTN_BROWSE_NETWORK",
+                            "width": "100%"
                           },
                           "children": [
                             {
-                              "component": "EventButton",
+                              "component": "Box",
                               "props": {
-                                "buttonCode": "BTN_BROWSE_NETWORK",
-                                "width": "100%"
+                                "alignItems": "center"
                               },
                               "children": [
                                 {
                                   "component": "Text",
                                   "props": {
                                     "color": "white",
-                                    "text": "Browse network"
+                                    "text": "Browse network",
+                                    "decoration": "underline"
                                   }
                                 }
                               ]

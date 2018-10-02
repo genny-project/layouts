@@ -3,9 +3,17 @@
       "children":[  
          {  
             "div":{  
+               "position":[  
+                  0,
+                  0
+               ],
                "children":[  
                   {  
                      "div":{  
+                        "position":[  
+                           0,
+                           0
+                        ],
                         "style":{  
                            "fontSize":"1.2em",
                            "padding":"5px",
@@ -13,11 +21,27 @@
                            "marginBottom":"5px",
                            "flexGrow":1
                         },
-                        "children":"Last Contact Date: ${BE.PRI_LAST_CONTACT_DATETIME}"
+                        "children": [
+                           {
+                              "span": {
+                                 "children": "Last Contact Date: "
+                              }
+                           },
+                           {
+                              "DateLabel": {
+                                 "format": "DD-MMM-YY HH:mm a",
+                                 "children": "${BE.PRI_LAST_CONTACT_DATETIME}"
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
                      "div":{  
+                        "position":[  
+                           1,
+                           0
+                        ],
                         "style":{  
                            "fontSize":"1.2em",
                            "padding":"5px",
@@ -25,11 +49,15 @@
                            "marginBottom":"5px",
                            "flexGrow":1
                         },
-                        "children":"Last Contact Type: ${BE.PRI_LAST_CONTACT_METHOD}"
+                        "children":"Last Contact Type: ${BE.LNK_CONTACTED_METHOD.name}"
                      }
                   },
                   {  
                      "div":{  
+                        "position":[  
+                           2,
+                           0
+                        ],
                         "style":{  
                            "fontSize":"1.2em",
                            "padding":"5px",
