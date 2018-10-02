@@ -118,6 +118,18 @@
         "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}"
       }
+    },
+    {
+      "operator":"scope",
+      "path":"notes",
+      "scope":{
+         "operator":"find",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
+      }
     }
   ]
 }
