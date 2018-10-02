@@ -74,18 +74,49 @@
         "backgroundColor": "#f8f8f8"
       },
       "onlyShowIf": {
-        "navigation.itemID": {
-          "$exists": true
-        }
+        "$or": [
+          {
+            "navigation.itemID": {
+              "$exists": true
+            }
+          },
+          {
+            "query.requests": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          }
+        ]
       },
       "children": [
         {
           "component": "Sublayout",
-          "props": {
-            "layoutName": "cards/introduction/introduction.card",
-            "requestID": "{{query.requestBE.code}}",
-            "recipientID": "{{query.recipientBE.code}}"
-          }
+          "conditional": [
+            {
+              "if" : {
+                "navigation.itemID": {
+                  "$exists": true
+                }
+              },
+              "then": {
+                "layoutName": "cards/introduction/introduction.card",
+                "requestID": "{{navigation.itemID}}"
+              }
+            },
+            {
+              "if" : {
+                "query.requests": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "then": {
+                "layoutName": "cards/introduction/introductions-summary.card"
+              }
+            }
+          ]
         }
       ]
     },
@@ -110,30 +141,17 @@
     {
       "operator": "getBE",
       "id": "{{navigation.chatCode}}",
-      "as": "results"
+      "as": "chatBE"
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "chatBE.links",
       "as": "messages",
       "scope": {
         "operator": "find",
         "query": {
           "valueString": {
             "$eq": "message"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "results.links",
-      "as": "users",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "link.attributeCode": {
-            "$eq": "LNK_USER"
           }
         }
       }
@@ -161,6 +179,27 @@
     },
     {
       "operator": "scope",
+      "path": "messages",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "chatBE.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
       "path": "users",
       "scope": {
         "operator": "getBE",
@@ -169,11 +208,15 @@
       }
     },
     {
-      "operator": "scope",
-      "path": "messages",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
+      "operator":"scope",
+      "path":"users",
+      "scope":{
+         "operator":"find",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
       }
     },
     {
@@ -207,54 +250,49 @@
     },
     {
       "operator": "getBE",
-      "id": "{{navigation.itemID}}",
-      "as": "requestBE"
+      "id": "{{user.data.code}}",
+      "as": "currentUser"
     },
     {
       "operator": "scope",
-      "path": "requestBE",
+      "path": "currentUser",
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
       }
     },
     {
-      "operator": "getBE",
-      "id": "{{requestBE.attributes.PRI_CREATOR_CODE.value}}",
-      "as": "creatorBE"
-    },
-    {
       "operator": "scope",
-      "path": "creatorBE",
+      "path": "currentUser.links",
+      "as": "requests",
       "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "REQUEST"
+          }
+        }
       }
     },
     {
-      "operator": "getBE",
-      "id": "{{requestBE.attributes.PRI_RECIPIENT_CODE.value}}",
-      "as": "recipientBE"
-    },
-    {
       "operator": "scope",
-      "path": "recipientBE",
+      "path": "requests",
       "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
       }
     },
     {
-      "operator": "getBE",
-      "id": "{{requestBE.attributes.PRI_INTRODUCER_CODE.value}}",
-      "as": "introducerBE"
-    },
-    {
-      "operator": "scope",
-      "path": "introducerBE",
+      "operator":"scope",
+      "path":"requests",
       "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
+        "operator":"find",
+        "query":{
+          "code": {
+            "$exists":true
+          }
+        }
       }
     }
   ]

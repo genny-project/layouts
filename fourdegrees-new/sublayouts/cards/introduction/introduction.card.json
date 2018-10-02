@@ -24,7 +24,7 @@
             {
               "component": "Image",
               "props": {
-                "source": "{{query.recipient.attributes.PRI_IMAGE_URL.valueString}}",
+                "source": "{{query.recipientBe.attributes.PRI_IMAGE_URL.valueString}}",
                 "shape": "circle",
                 "width": 50,
                 "height": 50
@@ -64,7 +64,7 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.recipient.attributes.PRI_FIRSTNAME.valueString}} {{query.recipient.attributes.PRI_LASTNAME.valueString}}",
+                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}} {{query.recipientBe.attributes.PRI_LASTNAME.valueString}}",
                     "color": "black",
                     "size": "md"
                   }
@@ -175,12 +175,12 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.recipientID}}",
-      "as": "recipient"
+      "id": "{{props.requestID}}",
+      "as": "requestBE"
     },
    {
       "operator": "scope",
-      "path": "recipient",
+      "path": "requestBE",
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
@@ -188,12 +188,38 @@
     },
     {
       "operator": "getBE",
-      "id": "{{props.requestID}}",
-      "as": "request"
+      "id": "{{requestBE.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "creatorBE"
     },
-   {
+    {
       "operator": "scope",
-      "path": "request",
+      "path": "creatorBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_RECIPIENT_CODE.value}}",
+      "as": "recipientBE"
+    },
+    {
+      "operator": "scope",
+      "path": "recipientBE",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBE.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBE"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBE",
       "scope": {
         "operator": "populateBEGAttributes",
         "as": "attributes"
