@@ -92,31 +92,22 @@
       "children": [
         {
           "component": "Sublayout",
-          "conditional": [
-            {
-              "if" : {
-                "navigation.itemID": {
-                  "$exists": true
-                }
-              },
-              "then": {
-                "layoutName": "cards/introduction/introduction.card",
-                "requestID": "{{navigation.itemID}}"
+          "props": {
+            "layoutName": "cards/introduction/introductions-summary.card",
+            "requests": "_query.requests",
+            "names": "_query.names"
+          },
+          "conditional": {
+            "if" : {
+              "navigation.itemID": {
+                "$exists": true
               }
             },
-            {
-              "if" : {
-                "query.requests": {
-                  "$size": {
-                    "$gt": 0
-                  }
-                }
-              },
-              "then": {
-                "layoutName": "cards/introduction/introductions-summary.card"
-              }
+            "then": {
+              "layoutName": "cards/introduction/introduction.card",
+              "requestID": "{{navigation.itemID}}"
             }
-          ]
+          }
         }
       ]
     },

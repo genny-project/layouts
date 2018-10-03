@@ -5,85 +5,96 @@
   },
   "children": [
     {
-      "component": "Box",
+      "component": "EventLink",
       "props": {
-        "flexDirection": "row",
-        "padding": 20,
-        "marginBottom": 10,
-        "alignItems": "center",
-        "width": "100%"
+        "to": "introduction/introductions-list",
+        "style": {
+          "width": "100%"
+        },
+        "value": "{{user.data.code}}",
+        "params": {
+          "requests": "_props.requests",
+          "names": "_props.names"
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "marginRight": 10,
+            "flexDirection": "row",
+            "padding": 20,
             "alignItems": "center",
-            "shape": "circle",
-            "justifyContent": "center",
-            "backgroundColor": "red",
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "text": "2",
-                "color": "white",
-                "size": "md"
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "column",
-            "flex": 1
+            "width": "100%"
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "marginBottom": 5
+                "flex": 1
               },
               "children": [
                 {
                   "component": "Text",
+                  "conditional": {
+                    "if" : {
+                      "query.count": {
+                        "$size": {
+                          "$eq": 1
+                        }
+                      }
+                    },
+                    "then": {
+                      "text": "1 Active Introduction Request"
+                    }
+                  },
                   "props": {
-                    "text": "Introduction Requests",
+                    "text": "{{query.count}} Active Introduction Requests",
                     "color": "black",
                     "size": "md"
                   }
                 }
               ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "marginleft": 20,
-            "alignItems": "center"
-          },
-          "children": [
+            },
             {
               "component": "Box",
-              "props": {},
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center"
+              },
               "children": [
                 {
-                  "component": "Icon",
-                  "props": {
-                    "color": "black",
-                    "size": "lg",
-                    "name": "keyboard_arrow_right"
-                  }
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "color": "black",
+                        "size": "lg",
+                        "name": "keyboard_arrow_right"
+                      }
+                    }
+                  ]
                 }
               ]
             }
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator":"scope",
+      "path": "props.requests",
+      "as": "count",
+      "scope": {
+        "operator":"count",
+        "query":{
+          "code": {
+            "$exists":true
+          }
+        }
+      }
     }
   ]
 }
