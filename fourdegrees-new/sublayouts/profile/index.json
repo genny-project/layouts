@@ -172,74 +172,188 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "flexDirection": "column"
+                    "flexDirection": "row"
                   },
                   "dontShowIf": {
                     "user.data.code": "{{props.userID}}"
                   },
                   "children": [
                     {
-                      "component": "EventLink",
+                      "component": "Box",
                       "props": {
-                        "eventType": "ROUTE_CHANGE",
-                        "value": "{{props.userID}}",
-                        "to": "introduction",
-                        "params": {
-                          "targetUserID": "{{props.userID}}"
-                        }
+                        "flex": 1,
+                        "flexDirection": "row"
                       },
                       "children": [
                         {
-                          "component": "Box",
+                          "component": "EventLink",
                           "props": {
-                            "width": "100%",
-                            "flexDirection": "row",
-                            "alignItems": "center",
-                            "backgroundColor": "white",
-                            "paddingX": 10,
-                            "paddingY": 20
+                            "eventType": "ROUTE_CHANGE",
+                            "value": "{{props.userID}}",
+                            "to": "introduction",
+                            "params": {
+                              "targetUserID": "{{props.userID}}"
+                            }
                           },
                           "children": [
                             {
                               "component": "Box",
                               "props": {
-                                "marginRight": 10
+                                "flex": 1,
+                                "flexDirection": "row",
+                                "backgroundColor": "white",
+                                "alignItems": "center",
+                                "width": "100%",
+                                "paddingX": 10,
+                                "paddingY": 20,
+                                "marginX": 10,
+                                "marginY": 15
                               },
                               "children": [
                                 {
-                                  "component": "Icon",
+                                  "component": "Box",
                                   "props": {
-                                    "name": "hdr-strong",
-                                    "color": "black",
-                                    "size": "sm"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "component": "Text",
-                              "props": {
-                                "text": "Introduce Me",
-                                "color": "black",
-                                "size": "xs"
-                              },
-                              "conditional": [
-                                {
-                                  "if": {
-                                    "navigation.degree": 1
+                                    "flexDirection": "row",
+                                    "alignItems": "center",
+                                    "marginRight": "auto"
                                   },
-                                  "then": {
-                                    "text": "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}"
-                                  }
+                                  "children": [
+                                    {
+                                      "component": "Icon",
+                                      "props": {
+                                        "name": "hdr-strong",
+                                        "color": "black",
+                                        "size": "sm"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "alignItems": "center",
+                                    "justifyContent": "center"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Text",
+                                      "props": {
+                                        "text": "Introduce Me",
+                                        "color": "black",
+                                        "size": "xs",
+                                        "align": "center"
+                                      },
+                                      "conditional": [
+                                        {
+                                          "if": {
+                                            "navigation.degree": 1
+                                          },
+                                          "then": {
+                                            "text": "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginLeft": "auto"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Icon",
+                                      "props": {
+                                        "name": "chevron-right",
+                                        "color": "black",
+                                        "size": "md"
+                                      }
+                                    }
+                                  ]
                                 }
                               ]
-                            },
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "width": 5
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flex": 1
+                      },
+                      "children": [
+                        {
+                          "component": "EventButton",
+                          "props": {
+                            "buttonCode": "CONNECT_TO_USER",
+                            "value": {
+                              "itemCode": "{{props.userID}}"
+                            }
+                          },
+                          "children": [
                             {
                               "component": "Box",
                               "props": {
-                                "marginLeft": "auto"
+                                "flex": 1,
+                                "flexDirection": "row",
+                                "alignItems": "center",
+                                "backgroundColor": "white",
+                                "paddingX": 10,
+                                "paddingY": 20
                               },
                               "children": [
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "flexDirection": "row"
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Icon",
+                                      "props": {
+                                        "name": "hdr-strong",
+                                        "color": "black",
+                                        "size": "sm"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "flex": 1
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Text",
+                                      "props": {
+                                        "text": "Connect",
+                                        "color": "black",
+                                        "size": "xs",
+                                        "align": "center",
+                                        "width": "100%"
+                                      },
+                                      "conditional": [
+                                        {
+                                          "if": {
+                                            "navigation.degree": 1
+                                          },
+                                          "then": {
+                                            "text": "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
                                 {
                                   "component": "Icon",
                                   "props": {
@@ -251,6 +365,7 @@
                               ]
                             }
                           ]
+
                         }
                       ]
                     }

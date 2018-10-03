@@ -5,51 +5,131 @@
   },
   "children": [
     {
-      "component": "ScrollView",
+      "component": "Box",
       "props": {
-        "width": "100%",
-        "flex": 1
+        "flexDirection": "column"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "ScrollView",
           "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "flex": 1,
-            "backgroundColor": "white"
+            "width": "100%",
+            "flex": 1
           },
           "children": [
             {
-              "component": "Image",
+              "component": "Box",
+              "dontShowIf": {
+                "query.notes": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
               "props": {
-                "source": "https://i.imgur.com/fw9C2fL.jpg",
-                "height": 300,
-                "width": 300
-              }
+                "alignItems": "center",
+                "justifyContent": "center",
+                "flex": 2,
+                "backgroundColor": "white"
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "https://i.imgur.com/fw9C2fL.jpg",
+                    "height": 300,
+                    "width": 300
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "flex": 1,
+                "backgroundColor": "white"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "color": "black"
+                  },
+                  "children": "You are all clear!"
+                }
+              ]
             }
           ]
         },
         {
           "component": "Box",
-          "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "flex": 1,
-            "backgroundColor": "white"
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "color": "black"
-              },
-              "children": "You are all clear!"
+          "onlyShowIf": {
+            "query.notes": {
+              "$size": {
+                "$gt": 0
+              }
             }
-          ]
+          },
+          "props": {
+            "flex": 1
+          },
+          "children": {
+            "component": "FlatList",
+            "props": {
+              "data": "_query.notes",
+              "renderItem": {
+                "component": "Text",
+                "props": {
+                  "text": "{{item}}"
+                }
+              }
+            }
+          }
         }
       ]
     }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{user.data.code}}",
+      "as": "profile"
+    },
+    {
+      "operator": "scope",
+      "path": "profile.links",
+      "as": "notes",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "NOTE"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"notes",
+      "scope":{
+         "operator":"find",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
+      }
+    }
   ]
 }
-
