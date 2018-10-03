@@ -13,56 +13,86 @@
         "justifyContent": "center",
         "flex": 1
       },
-
       "children": [
         {
-          "component": "Image",
-          "props": {
-            "source": "https://i.imgur.com/0fodSXE.png",
-            "width": "50%"
-          }
-        },
-        {
           "component": "Box",
           "props": {
-            "height": 10
-          }
-        },
-        {
-          "component": "LinkButton",
-          "props": {
-            "text": "Login",
-            "to": "login",
-            "width": "100%",
-            "color": "white",
-            "borderWidth": 1,
-            "textColor": "#093f7f",
-            "hoverProps": {
-              "color": "#093f7f",
-              "textColor": "white"
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "borderwidth": 2
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "height": 100,
+                "justifyContent": "center",
+                "padding": "20px"
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "https://i.imgur.com/0fodSXE.png",
+                    "width": "50%"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "height": 100
+              },
+              "children": [
+                {
+                  "component": "LinkButton",
+                  "props": {
+                    "text": "Login",
+                    "color": "teal",
+                    "textColor": "#fff",
+                    "size": "xl",
+                    "height": "50px",
+                    "width": "300px",
+                    "padding": "20px",
+                    "to": "login",
+                    "borderWidth": 1,
+                    "hoverProps": {
+                      "color": "darkcyan",
+                      "textColor": "white"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "height": 100
+              },
+              "children": [
+                {
+                  "component": "LinkButton",
+                  "props": {
+                    "text": "Create an account",
+                    "color": "teal",
+                    "textColor": "#fff",
+                    "size": "xl",
+                    "height": "50px",
+                    "width": "300px",
+                    "padding": "20px",
+                    "to": "registration/role",
+                    "borderWidth": 1,
+                    "hoverProps": {
+                      "color": "darkcyan",
+                      "textColor": "white"
+                    }
+                  }
+                }
+              ]
             }
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "height": 10
-          }
-        },
-        {
-          "component": "LinkButton",
-          "props": {
-            "text": "Create an account",
-            "to": "registration/role",
-            "width": "100%",
-            "color": "white",
-            "borderWidth": 1,
-            "textColor": "#093f7f",
-            "hoverProps": {
-              "color": "#093f7f",
-              "textColor": "white"
-            }
-          }
+          ]
         }
       ]
     }
