@@ -1,13 +1,14 @@
 {
   "layout": {
-    "title": "Message",
+    "title": "alert",
     "appColor": "dark"
   },
   "children": [
     {
       "component": "Box",
       "props": {
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "width": "100%"
       },
       "children": [
         {
@@ -32,15 +33,10 @@
                 {
                   "component": "Image",
                   "props": {
-                    "source": "{{query.images.0.attributes.PRI_IMAGE_URL.valueString}}",
+                    "source": "{{query.profile.attributes.PRI_IMAGE_URL.value}}",
                     "shape": "circle",
                     "width": 60,
                     "height": 60
-                  },
-                  "dontShowIf": {
-                    "query.senderBE.name" : {
-                      "$eq": "{{user.data.name}}"
-                    }
                   }
                 }
               ]
@@ -60,19 +56,10 @@
                   "children": [
                     {
                       "component": "Text",
-                      "children": [
-                          {
-                            "component": "Join",
-                            "renderAsComponent": true,
-                            "props": {
-                              "delimiter": ", ",
-                              "items": "_query.names"
-                              }
-                          }
-                      ],
                       "props": {
                         "color": "grey",
-                        "size": "xs"
+                        "size": "xs",
+                        "text": "{{props.alert.attributes.PRI_CONTENT.value}}"
                       }
                     }
                   ]
@@ -81,6 +68,11 @@
             },
             {
               "component": "Box",
+              "dontShowIf": {
+                "props.alert.attributes.PRI_CREATOR_TYPE.value": {
+                  "$eq": "alert"
+                }
+              },
               "props": {
                 "alignItems": "flex-start",
                 "paddingX": 0,
@@ -120,71 +112,15 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{props.itemID}}",
-      "as": "results"
+      "id": "{{props.alert.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "profile"
     },
     {
       "operator": "scope",
-      "path": "results.links",
-      "as": "users",
+      "path": "profile",
       "scope": {
-        "operator": "find",
-        "query": {
-          "link.attributeCode": {
-            "$eq": "LNK_USER"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "users",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "users",
-      "scope": {
-        "operator": "populateAttributes",
+        "operator": "populateBEGAttributes",
         "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "users",
-      "as": "names",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$ne": "{{user.data.code}}"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "names",
-      "scope": {
-        "operator": "map",
-        "fields": "name"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "users",
-      "as": "images",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$ne": "{{user.data.code}}"
-          }
-        }
       }
     }
   ]
