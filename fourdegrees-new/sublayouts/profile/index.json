@@ -184,6 +184,13 @@
                         "flex": 1,
                         "flexDirection": "row"
                       },
+                      "dontShowIf": {
+                        "query.requests": {
+                          "$size": {
+                            "$gt": 0
+                          }
+                        }
+                      },
                       "children": [
                         {
                           "component": "EventLink",
@@ -281,7 +288,115 @@
                     {
                       "component": "Box",
                       "props": {
-                        "width": 5
+                        "flex": 1
+                      },
+                      "onlyShowIf": {
+                        "query.requests": {
+                          "$size": {
+                            "$gt": 0
+                          }
+                        }
+                      },
+                    "repeat": "_query.requests",
+                      "children": {
+                        "component": "EventButton",
+                        "props": {
+                          "paddingX": 0,
+                          "paddingY": 0,
+                          "style": {
+                            "flex":1
+                          },
+                          "buttonCode": "START_INTRODUCTION",
+                          "value": {
+                            "itemCode":"{{repeater.code}}",
+                            "userCode":"{{repeater.attributes.PRI_INTRODUCER_CODE.value}}"
+                          }
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flex": 1,
+                              "flexDirection": "row",
+                              "alignItems": "center",
+                              "backgroundColor": "white",
+                              "paddingX": 10,
+                              "paddingY": 20
+                            },
+                            "children": [
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "flexDirection": "row"
+                                },
+                                "children": [
+                                  {
+                                    "component": "Icon",
+                                    "props": {
+                                      "name": "hdr-strong",
+                                      "color": "black",
+                                      "size": "sm"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "component": "Box",
+                                "props": {
+                                  "flex": 1,
+                                  "flexDirection": "column",
+                                  "alignItems": "center",
+                                  "justifyContent": "center"
+                                },
+                                "children": [
+                                  {
+                                    "component": "Text",
+                                    "props": {
+                                      "text": "Request Pending",
+                                      "color": "black",
+                                      "size": "xs",
+                                      "align": "center"
+                                    }
+                                  },
+                                  {
+                                    "component": "Text",
+                                    "onlyShowIf": {
+                                      "query.requests": {
+                                        "$size": {
+                                          "$gt": 0
+                                        }
+                                      }
+                                    },
+                                    "conditional": {
+                                      "if": {
+                                        "query.introducerBe.attributes.PRI_FIRSTNAME.value": {
+                                          "$exists": true
+                                        }
+                                      },
+                                      "then": {
+                                        "text": "Awaiting {{query.introducerBe.attributes.PRI_FIRSTNAME.value}}'s Approval"
+                                      }
+                                    },
+                                    "props": {
+                                      "text": "Awaiting Approval",
+                                      "color": "grey",
+                                      "size": "xxs",
+                                      "align": "center"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "component": "Icon",
+                                "props": {
+                                  "name": "chevron-right",
+                                  "color": "black",
+                                  "size": "md"
+                                }
+                              }
+                            ]
+                          }
+                        ]
                       }
                     },
                     {
@@ -293,6 +408,12 @@
                         {
                           "component": "EventButton",
                           "props": {
+                            "paddingX": 0,
+                            "paddingY": 0,
+                            "height": "100%",
+                            "style": {
+                              "flex":1
+                            },
                             "buttonCode": "CONNECT_TO_USER",
                             "value": {
                               "itemCode": "{{props.userID}}"
@@ -968,8 +1089,21 @@
       }
     },
     {
+      "operator": "getBE",
+      "id": "{{user.data.code}}",
+      "as": "currentUser"
+    },
+    {
       "operator": "scope",
-      "path": "profile.links",
+      "path": "currentUser",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "currentUser.links",
       "as": "requests",
       "scope": {
         "operator": "find",
@@ -987,6 +1121,76 @@
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "scope": {
+        "operator":"find",
+        "query":{
+          "attributes.PRI_CREATOR_CODE.value": {
+            "$eq": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "scope": {
+        "operator":"find",
+        "query":{
+          "attributes.PRI_RECIPIENT_CODE.value": {
+            "$eq": "{{props.userID}}"
+          }
+        }
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"requests",
+      "as": "introducerBe",
+      "scope":{
+         "operator":"findOne",
+         "query":{
+            "attributes.PRI_INTRODUCER_CODE.value":{
+               "$exists":true
+            }
+         }
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{introducerBe.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBe"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
       }
     }
   ]
