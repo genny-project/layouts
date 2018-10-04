@@ -1,13 +1,14 @@
 {
   "layout": {
-    "title": "Alert",
+    "title": "Alerts",
     "appColor": "dark"
   },
   "children": [
     {
       "component": "Box",
       "props": {
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "width": "100%"
       },
       "children": [
         {
@@ -65,24 +66,22 @@
         },
         {
           "component": "Box",
-          "onlyShowIf": {
-            "query.notes": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
           "props": {
-            "flex": 1
+            "flex": 1,
+            "width": "100%"
           },
           "children": {
             "component": "FlatList",
+            "style": {
+              "flex": 1
+            },
             "props": {
               "data": "_query.notes",
               "renderItem": {
-                "component": "Text",
+                "component": "Sublayout",
                 "props": {
-                  "text": "{{item}}"
+                  "layoutName": "alerts/alert.listitem",
+                  "alert": "_item"
                 }
               }
             }
@@ -94,7 +93,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "{{user.data.code}}",
+      "id": "GRP_NOTES",
       "as": "profile"
     },
     {
@@ -113,10 +112,19 @@
     {
       "operator": "scope",
       "path": "notes",
+      "as": "notes",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
       }
     },
     {
