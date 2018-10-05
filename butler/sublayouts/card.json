@@ -186,7 +186,19 @@
                                     "marginBottom":"5px",
                                     "flexGrow":1
                                  },
-                                 "children": "DD: ${BE.PRI_DELIVERY_DATE}"
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "children":"DD: "
+                                       }
+                                    },
+                                    {  
+                                       "DateLabel":{  
+                                          "format":"DD/MM/YY h:mm a",
+                                          "children":"BE.PRI_DELIVERY_DATE"
+                                       }
+                                    }
+                                 ]
                               }
                            },
                            {  
@@ -229,8 +241,8 @@
                            {  
                               "SublayoutLoader":{  
                                  "layoutCode":"card-button-actions",
-                                 "style": {
-                                 "marginBottom":"0px"
+                                 "style":{  
+                                    "marginBottom":"0px"
                                  },
                                  "aliases":{  
                                     "BE":"BE.code",
@@ -266,7 +278,7 @@
                                           "style":{  
                                              "maxWidth":"800px",
                                              "backgroundColor":"#fff",
-                                             "padding": "0"
+                                             "padding":"0"
                                           }
                                        }
                                     }
