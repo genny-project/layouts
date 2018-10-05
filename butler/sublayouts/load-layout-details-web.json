@@ -54,74 +54,26 @@
                            0
                         ],
                         "style":{  
-                           "fontSize":"1.0em",
-                           "fontWeight":"bold"
+                           "display":"flex",
+                           "flex-direction":"column"
                         },
-                        "children":"Client Name : "
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           0,
-                           0
-                        ],
-                        "style":{  
-                           "fontSize":"0.8em",
-                           "fontWeight":"bold"
-                        },
-                        "children":"${BE.PRI_COMPANY_NAME}"
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           0,
-                           1
-                        ],
-                        "style":{  
-                           "fontSize":"1.0em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"Transport Company :"
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":"BE.PRI_ALLOCATED_TC",
-                        "position":[  
-                           0,
-                           1
-                        ],
-                        "showIfNotNull":true,
                         "children":[  
                            {  
                               "span":{  
                                  "style":{  
-                                    "fontSize":"0.8em"
+                                    "fontSize":"1.0em",
+                                    "fontWeight":"bold"
                                  },
-                                 "children":"${BE.PRI_ALLOCATED_TC}"
+                                 "children":"Client Name : "
                               }
-                           }
-                        ]
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":"BE.PRI_ALLOCATED_TC",
-                        "position":[  
-                           0,
-                           1
-                        ],
-                        "showIfNull":true,
-                        "children":[  
+                           },
                            {  
                               "span":{  
                                  "style":{  
                                     "fontSize":"0.8em"
+                  
                                  },
-                                 "children":"N/A"
+                                 "children":"${BE.PRI_COMPANY_NAME}"
                               }
                            }
                         ]
@@ -130,15 +82,64 @@
                   {  
                      "span":{  
                         "position":[  
-                           1,
-                           0
+                           0,
+                           1
                         ],
                         "style":{  
-                           "fontSize":"1.0em",
-                           "fontWeight":"bold",
-                           "marginTop":"20px"
+                           "display":"flex",
+                           "flex-direction":"column"
                         },
-                        "children":"Release Number :   "
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"1.0em",
+                                    "fontWeight":"bold"
+                                 },
+                                 "children":"Transport Company "
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_ALLOCATED_TC",
+                                 "position":[  
+                                    0,
+                                    1
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"${BE.PRI_ALLOCATED_TC}"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_ALLOCATED_TC",
+                                 "position":[  
+                                    0,
+                                    1
+                                 ],
+                                 "showIfNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"N/A"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
@@ -148,11 +149,28 @@
                            0
                         ],
                         "style":{  
-                           "fontSize":"0.8em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
+                           "display":"flex",
+                           "flex-direction":"column"
                         },
-                        "children":"${BE.PRI_RELEASE_NUMBER}"
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"1.0em",
+                                    "fontWeight":"bold"
+                                 },
+                                 "children":"Release Number"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.PRI_RELEASE_NUMBER}"
+                              }
+                           }
+                        ]
                      }
                   },
                   {  
@@ -162,9 +180,8 @@
                            1
                         ],
                         "style":{  
-                           "fontSize":"1em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
+                           "display":"flex",
+                           "flex-direction":"column"
                         },
                         "children":[  
                            {  
@@ -175,10 +192,9 @@
                                  ],
                                  "style":{  
                                     "fontSize":"1em",
-                                    "fontWeight":"bold",
-                                    "marginTop":"10px"
+                                    "fontWeight":"bold"
                                  },
-                                 "children":"Release Open Date : "
+                                 "children":"Release Open Date"
                               }
                            },
                            {  
@@ -205,110 +221,61 @@
                   },
                   {  
                      "span":{  
+                        "style":{  
+                           "display":"flex",
+                           "flex-direction":"column"
+                        },
                         "position":[  
                            2,
                            0
                         ],
-                        "style":{  
-                           "fontSize":"1em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"Rail Yard : "
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           2,
-                           0
-                        ],
-                        "style":{  
-                           "fontSize":"0.8em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"${BE.PRI_RAIL_YARD} "
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           2,
-                           1
-                        ],
-                        "style":{  
-                           "fontSize":"1em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"Shipping Company : "
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           2,
-                           1
-                        ],
-                        "style":{  
-                           "fontSize":"0.8em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"${BE.PRI_SHIPPING_COMPANY} "
-                     }
-                  },
-                  {  
-                     "span":{  
-                        "position":[  
-                           3,
-                           0
-                        ],
-                        "style":{  
-                           "fontSize":"1.0em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
-                        },
-                        "children":"Expected Delivery Date :"
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                        "position":[  
-                           3,
-                           0
-                        ],
-                        "showIfNotNull":true,
                         "children":[  
                            {  
-                              "DateLabel":{  
-                                 "format":"DD/MM/YY",
+                              "span":{  
                                  "style":{  
-                                    "fontSize":"0.8em"
+                                    "fontSize":"1em",
+                                    "fontWeight":"bold"
                                  },
-                                 "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
+                                 "children":"Rail Yard"
                               }
-                           }
-                        ]
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                        "position":[  
-                           3,
-                           0
-                        ],
-                        "showIfNull":true,
-                        "children":[  
+                           },
                            {  
                               "span":{  
                                  "style":{  
                                     "fontSize":"0.8em"
                                  },
-                                 "children":"N/A"
+                                 "children":"${BE.PRI_RAIL_YARD} "
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "span":{  
+                        "position":[  
+                           2,
+                           1
+                        ],
+                        "style":{  
+                           "display":"flex",
+                           "flex-direction":"column"
+                        },
+                        "children":[  
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"1em",
+                                    "fontWeight":"bold"
+                                 },
+                                 "children":"Shipping Company"
+                              }
+                           },
+                           {  
+                              "span":{  
+                                 "style":{  
+                                    "fontSize":"0.8em"
+                                 },
+                                 "children":"${BE.PRI_SHIPPING_COMPANY}"
                               }
                            }
                         ]
@@ -318,52 +285,109 @@
                      "span":{  
                         "position":[  
                            3,
-                           1
+                           0
                         ],
                         "style":{  
-                           "fontSize":"1.0em",
-                           "fontWeight":"bold",
-                           "marginTop":"10px"
+                           "display":"flex",
+                           "flex-direction":"column"
                         },
-                        "children":"Estimated Delivery Date : "
-                     }
-                  },
-                  {  
-                     "Selector":{  
-                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
-                        "position":[  
-                           3,
-                           1
-                        ],
-                        "showIfNotNull":true,
                         "children":[  
                            {  
-                              "DateLabel":{  
-                                 "format":"DD/MM/YY",
+                              "span":{  
                                  "style":{  
-                                    "fontSize":"0.8em"
+                                    "fontSize":"1.0em",
+                                    "fontWeight":"bold"
                                  },
-                                 "children":"${BE.link.PRODUCT.PRI_DELIVERY_DATE}"
+                                 "children":"Expected Delivery Date"
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_DELIVERY_DATE",
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "DateLabel":{  
+                                          "format":"DD/MM/YY",
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"${BE.PRI_DELIVERY_DATE}"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_DELIVERY_DATE",
+                                 "showIfNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"N/A"
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]
                      }
                   },
                   {  
-                     "Selector":{  
-                        "checkValues":"BE.link.PRODUCT.PRI_DELIVERY_DATE",
+                     "span":{  
+                        "style":{  
+                           "display":"flex",
+                           "flex-direction":"column"
+                        },
                         "position":[  
                            3,
                            1
                         ],
-                        "showIfNull":true,
                         "children":[  
                            {  
                               "span":{  
                                  "style":{  
-                                    "fontSize":"0.8em"
+                                    "fontSize":"1.0em",
+                                    "fontWeight":"bold"
                                  },
-                                 "children":"N/A"
+                                 "children":"Estimated Delivery Date"
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_DELIVERY_DATE",
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "DateLabel":{  
+                                          "format":"DD/MM/YY",
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"${BE.PRI_DELIVERY_DATE}"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":"BE.PRI_DELIVERY_DATE",
+                                 "showIfNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "fontSize":"0.8em"
+                                          },
+                                          "children":"N/A"
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]
@@ -404,7 +428,7 @@
                                  "style":{  
                                     "fontSize":"0.8em"
                                  },
-                                 "children":"${BE.link.PRODUCT.PRI_CONTAINER_SIZE_REQUESTED} *"
+                                 "children":"${BE.PRI_CONTAINER_SIZE_REQUESTED} * "
                               }
                            },
                            {  
@@ -412,7 +436,7 @@
                                  "style":{  
                                     "fontSize":"0.8em"
                                  },
-                                 "children":"${BE.link.PRODUCT.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit"
+                                 "children":"${BE.PRI_NUMBER_OF_CONTAINER_REQUESTED} unit"
                               }
                            }
                         ]

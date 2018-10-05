@@ -221,7 +221,6 @@
     {
       "operator": "scope",
       "path": "users",
-      "as": "names",
       "scope": {
         "operator": "find",
         "query": {
@@ -233,10 +232,24 @@
     },
     {
       "operator": "scope",
-      "path": "names",
+      "path": "users",
+      "as": "names",
       "scope": {
         "operator": "map",
         "fields": "name"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"users",
+      "as": "otherUser",
+      "scope":{
+         "operator":"findOne",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
       }
     },
     {
@@ -282,6 +295,26 @@
         "query":{
           "code": {
             "$exists":true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "scope": {
+        "operator":"find",
+        "query":{
+          "attributes.PRI_INTRODUCER_CODE.value": {
+            "$eq": "{{otherUser.code}}"
           }
         }
       }

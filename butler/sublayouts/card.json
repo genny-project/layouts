@@ -1,7 +1,7 @@
 {  
    "div":{  
       "style":{  
-         "marginBottom":"5px"
+         "marginBottom":"0px"
       },
       "children":[  
          {  
@@ -36,7 +36,7 @@
                            0,
                            0
                         ],
-                        "src":"",
+                        "src":"BE.PRI_IMAGE_URL",
                         "style":{  
                            "width":"30px",
                            "height":"30px",
@@ -51,7 +51,7 @@
                            1
                         ],
                         "style":{  
-                           "fontSize":"1em",
+                           "fontSize":"0.9em",
                            "fontWeight":800
                         },
                         "children":"${BE.PRI_COMPANY_NAME}"
@@ -64,7 +64,7 @@
                            1
                         ],
                         "style":{  
-                           "fontSize":"0.85em"
+                           "fontSize":"0.8em"
                         },
                         "children":"Rel: ${BE.PRI_RELEASE_NUMBER}"
                      }
@@ -84,7 +84,7 @@
                            {  
                               "span":{  
                                  "style":{  
-                                    "fontSize":"0.85em",
+                                    "fontSize":"0.8em",
                                     "marginRight":"5px"
                                  },
                                  "children":"Date: "
@@ -94,7 +94,7 @@
                               "DateLabel":{  
                                  "format":"DD/MM/YY",
                                  "style":{  
-                                    "fontSize":"0.85em"
+                                    "fontSize":"0.8em"
                                  },
                                  "children":"${BE.PRI_RELEASE_DATE}"
                               }
@@ -184,9 +184,23 @@
                                     "padding":"5px",
                                     "backgroundColor":"#ddd",
                                     "marginBottom":"5px",
-                                    "flexGrow":1
+                                    "flexGrow":1,
+                                    "display":"flex",
+                                    "flexDirection":"row"
                                  },
-                                 "children": "DD: ${BE.PRI_DELIVERY_DATE}"
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "children":"DD: "
+                                       }
+                                    },
+                                    {  
+                                       "DateLabel":{  
+                                          "format":"DD/MM/YY h:mm a",
+                                          "children":"BE.PRI_DELIVERY_DATE"
+                                       }
+                                    }
+                                 ]
                               }
                            },
                            {  
@@ -229,8 +243,8 @@
                            {  
                               "SublayoutLoader":{  
                                  "layoutCode":"card-button-actions",
-                                 "style": {
-                                 "marginBottom":"5px"
+                                 "style":{  
+                                    "marginBottom":"0px"
                                  },
                                  "aliases":{  
                                     "BE":"BE.code",
@@ -266,7 +280,7 @@
                                           "style":{  
                                              "maxWidth":"800px",
                                              "backgroundColor":"#fff",
-                                             "padding": "0"
+                                             "padding":"0"
                                           }
                                        }
                                     }

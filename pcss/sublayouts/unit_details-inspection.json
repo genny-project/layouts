@@ -1,19 +1,38 @@
+{
+    "div": {
+        "children": [{
+            "div": {
+                "style": {
+                    "fontSize": "1.2em",
+                    "padding": "5px",
+                    "backgroundColor": "#ddd",
+                    "marginBottom": "5px",
+                    "flexGrow": 1,
+                    "display": "flex",
+                    "flexDirection": "row"
 
-{  
-   "div":{  
-      "children":[  
-         {  
-            "div":{  
-               "style":{  
-                  "fontSize":"1.2em",
-                  "padding":"5px",
-                  "backgroundColor":"#ddd",
-                  "marginBottom":"5px",
-                  "flexGrow":1
-               },
-               "children":"Inspection Date : ${BE.PRI_INSPECTION_DATETIME}"
+                },
+                "children": [{
+                        "span": {
+                            "style": {
+                                "fontSize": "1.0em",
+                                "marginRight": "5px"
+                            },
+                            "children": "Inspection Date: "
+                        }
+                    },
+                    {
+                        "DateLabel": {
+                            "format": "DD/MM/YY h:mm a",
+                            "style": {
+                                "fontSize": "1.0em",
+                                "marginRight": "5px"
+                            },
+                            "children": "BE.PRI_INSPECTION_DATETIME"
+                        }
+                    }
+                ]
             }
-         }
-      ]
-   }
+        }]
+    }
 }
