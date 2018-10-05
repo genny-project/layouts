@@ -92,31 +92,22 @@
       "children": [
         {
           "component": "Sublayout",
-          "conditional": [
-            {
-              "if" : {
-                "navigation.itemID": {
-                  "$exists": true
-                }
-              },
-              "then": {
-                "layoutName": "cards/introduction/introduction.card",
-                "requestID": "{{navigation.itemID}}"
+          "props": {
+            "layoutName": "cards/introduction/introductions-summary.card",
+            "requests": "_query.requests",
+            "names": "_query.names"
+          },
+          "conditional": {
+            "if" : {
+              "navigation.itemID": {
+                "$exists": true
               }
             },
-            {
-              "if" : {
-                "query.requests": {
-                  "$size": {
-                    "$gt": 0
-                  }
-                }
-              },
-              "then": {
-                "layoutName": "cards/introduction/introductions-summary.card"
-              }
+            "then": {
+              "layoutName": "cards/introduction/introduction.card",
+              "requestID": "{{navigation.itemID}}"
             }
-          ]
+          }
         }
       ]
     },
@@ -230,7 +221,6 @@
     {
       "operator": "scope",
       "path": "users",
-      "as": "names",
       "scope": {
         "operator": "find",
         "query": {
@@ -242,10 +232,24 @@
     },
     {
       "operator": "scope",
-      "path": "names",
+      "path": "users",
+      "as": "names",
       "scope": {
         "operator": "map",
         "fields": "name"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"users",
+      "as": "otherUser",
+      "scope":{
+         "operator":"findOne",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
       }
     },
     {
@@ -291,6 +295,26 @@
         "query":{
           "code": {
             "$exists":true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "requests",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "scope": {
+        "operator":"find",
+        "query":{
+          "attributes.PRI_INTRODUCER_CODE.value": {
+            "$eq": "{{otherUser.code}}"
           }
         }
       }
