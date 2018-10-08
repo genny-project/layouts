@@ -1,0 +1,106 @@
+{
+  "layout": {
+    "title": "HC  View",
+    "appColor": "white",
+    "backgroundColor": "black"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "columns": [
+              {
+                "Header": "Acions",
+                "accessor": "actions",
+                "id": "actions",
+                "key": "actions"
+              },
+              {
+                "Header": "Full Name",
+                "accessor": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string"
+              },
+              {
+                "Header": "Phone Number",
+                "accessor": "mobilePhone",
+                "filterType": "string"
+              },
+              {
+                "Header": "University ",
+                "accessor": "mobilePhone",
+                "filterType": "string"
+              }
+            ],
+            "tableBackgroundColor": "#cccccc",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px",
+            "itemsPerPage": 15
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_EDU_PROVIDERS",
+      "as": "hostCompanies"
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies.links",
+      "as": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "be.attributes.PRI_FIRSTNAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "university": "be.attributes.PRI_UNIVERSITY.value"
+        }
+      }
+    }
+  ]
+}
