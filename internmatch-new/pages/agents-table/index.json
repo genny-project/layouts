@@ -1,0 +1,129 @@
+{
+  "layout": {
+    "title": "HC  View",
+    "appColor": "white",
+    "backgroundColor": "black"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "id": "actions",
+                "key": "actions"
+              },
+              {
+                "Header": "Full Name",
+                "accessor": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "uname",
+                "filterType": "string"
+              },
+              {
+                "Header": "contact Number",
+                "accessor": "mobilePhone",
+                "filterType": "string"
+              },
+              {
+                "Header": "Agency",
+                "accessor": "agency",
+                "filterType": "string"
+              }
+            ],
+            "tableBackgroundColor": "#cccccc",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px",
+            "itemsPerPage": 15
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_AGENTS",
+      "as": "internList"
+    },
+    {
+      "operator": "scope",
+      "path": "internList.links",
+      "as": "internList",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "agency",
+        "id": "{{be.attributes.LNK_AGENCY.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "scope",
+        "path": "agency",
+        "scope": {
+          "operator": "populateAttributes",
+          "as" : "attributes",
+          "code": "{{code}}"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "agency": "agency.attributes.PRI_NAME.value"
+        }
+      }
+    }
+  ]
+}
