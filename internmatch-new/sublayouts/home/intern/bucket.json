@@ -6,13 +6,13 @@
         "flexDirection": "column",
         "alignItems": "center",
         "justifyContent": "center",
-        "flex": 1
+        "flex": 1,
+        "padding": 20
       },
       "children": [
         {
           "component": "BucketView",
           "props": {
-            "padding": 20,
             "tabBarSize": "md",
             "backgroundColor": "#f6f6f6",
             "tabBarBackground": "#3f3f3f",
@@ -25,7 +25,10 @@
             },
             "overflowX": "auto",
             "width": "100%",
-            "gutter": 20
+            "gutter": 20,
+            "contentProps": {
+              "minWidth": 240
+            }
           },
           "repeat": "_query",
           "children": {
@@ -33,7 +36,6 @@
             "repeat": "_repeater.items",
             "props": {
               "headerText": "{{repeater.name}}",
-              "minWidth": 240,
               "contentBackground": "#eaeaea",
               "headerProps": {
                 "paddingX": 20,

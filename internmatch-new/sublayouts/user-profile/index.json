@@ -1,0 +1,475 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "#f6f6f6",
+        "padding": 20,
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "user-profile/header",
+            "userCode": "{{props.user.code}}",
+            "showBackButton": "_props.showBackButton"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginRight": 20
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "{{props.user.attributes.PRI_IMAGE_URL.value}}",
+                    "width": 100,
+                    "height": 100
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "{{props.user.attributes.PRI_NAME.value}}",
+                        "bold": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{props.user.attributes.PRI_EMAIL.value}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Text",
+                      "children": "Joined "
+                    },
+                    {
+                      "component": "Date",
+                      "props": {
+                        "format": "calendar"
+                      },
+                      "children": "{{props.user.attributes.PRI_REGISTRATION_DATETIME.value}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "person",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "children": "{{props.user.attributes.PRI_NAME.value}} ({{props.user.attributes.PRI_PREFERRED_NAME.value}})"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "school",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.user.attributes.PRI_STUDENT_ID.value": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "Student ID: {{props.user.attributes.PRI_STUDENT_ID.value}}"
+                        },
+                        "else": {
+                          "text": "No student ID"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "mail",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.user.attributes.PRI_EMAIL.value": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.user.attributes.PRI_EMAIL.value}}"
+                        },
+                        "else": {
+                          "text": "No email"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "call",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.user.attributes.PRI_MOBILE.value": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.user.attributes.PRI_MOBILE.value}}"
+                        },
+                        "else": {
+                          "text": "No phone number"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "event",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.user.attributes.PRI_DOB.value": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "Born {{props.user.attributes.PRI_DOB.value}}"
+                        },
+                        "else": {
+                          "text": "No date of birth"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Occupation"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.user.attributes.LNK_OCCUPATION.value": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "repeat": "_props.user.attributes.LNK_OCCUPATION.value",
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "children": "{{repeater}}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component": "Text",
+                  "dontShowIf": {
+                    "props.user.attributes.LNK_OCCUPATION.value": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "children": "No occupation"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Education provider"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.user.attributes.LNK_EDU_PROVIDER.value": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "repeat": "_props.user.attributes.LNK_EDU_PROVIDER.value",
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "children": "{{repeater}}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component": "Text",
+                  "dontShowIf": {
+                    "props.user.attributes.LNK_EDU_PROVIDER.value": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "children": "No education provider"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Industry"
+                    }
+                  ]
+                },
+                {
+                  "component": "Text",
+                  "conditional": {
+                    "if": {
+                      "props.user.attributes.LNK_INDUSTRY.value": {
+                        "$exists": true,
+                        "$ne": "undefined"
+                      }
+                    },
+                    "then": {
+                      "text": "{{props.user.attributes.LNK_INDUSTRY.value}}"
+                    },
+                    "else": {
+                      "text": "No industry"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
