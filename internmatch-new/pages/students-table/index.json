@@ -19,7 +19,7 @@
                 "key": "actions"
               },
               {
-                "Header": "Namea",
+                "Header": "Name",
                 "accessor": "fullName",
                 "filterType": "string"
               },
@@ -30,12 +30,12 @@
               },
               {
                 "Header": "contact Number",
-                "accessor": "contactNumber",
+                "accessor": "mobilePhone",
                 "filterType": "string"
               },
               {
-                "Header": "State",
-                "accessor": "state",
+                "Header": "University",
+                "accessor": "university",
                 "filterType": "string"
               }
             ],
@@ -95,10 +95,11 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
+          "fullName": "be.attributes.PRI_NAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value"
+          "university": "company.name",
+          "resume": "be.attributes.PRI_USERNAME.value"
         }
       }
     }
