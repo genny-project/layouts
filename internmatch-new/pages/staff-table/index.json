@@ -1,8 +1,8 @@
 {
   "layout": {
-    "title": "HC  View",
+    "title": "Table View",
     "appColor": "white",
-    "backgroundColor": "black"
+    "backgroundColor": "#0d0d0d"
   },
   "children": [
     {
@@ -13,29 +13,25 @@
           "props": {
             "columns": [
               {
-                "Header": "Actions",
-                "accessor": "actions",
-                "id": "actions",
-                "key": "actions"
-              },
-              {
                 "Header": "Full Name",
-                "accessor": "firstName",
+                "accessor": "fullName",
+                "id": "firstName",
+                "key": "firstName",
                 "filterType": "string"
               },
               {
-                "Header": "Email",
-                "accessor": "uname",
+                "Header": "Edu Provider",
+                "accessor": "eduProvider",
                 "filterType": "string"
               },
               {
-                "Header": "contact Number",
+                "Header": "Mobile Phone",
                 "accessor": "mobilePhone",
-                "filterType": "string"
+                "filterType": "number"
               },
               {
-                "Header": "Agency",
-                "accessor": "agency",
+                "Header": "Username",
+                "accessor": "email",
                 "filterType": "string"
               }
             ],
@@ -52,13 +48,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_AGENTS",
-      "as": "internList"
+      "id": "GRP_STAFFS",
+      "as": "staffs"
     },
     {
       "operator": "scope",
-      "path": "internList.links",
-      "as": "internList",
+      "path": "staffs.links",
+      "as": "staffs",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -68,7 +64,7 @@
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "staffs",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -80,7 +76,7 @@
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "staffs",
       "scope": {
         "operator": "getBE",
         "as" : "company",
@@ -90,38 +86,15 @@
     },
     {
       "operator": "scope",
-      "path": "internList",
-      "scope": {
-        "operator": "getBE",
-        "as" : "agency",
-        "id": "{{be.attributes.LNK_AGENCY.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "internList",
-      "scope": {
-        "operator": "scope",
-        "path": "agency",
-        "scope": {
-          "operator": "populateAttributes",
-          "as" : "attributes",
-          "code": "{{code}}"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "internList",
+      "path": "staffs",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
+          "fullName": "be.attributes.PRI_NAME.value",
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value",
-          "agency": "agency.attributes.PRI_NAME.value"
+          "email": "be.attributes.PRI_USERNAME.value"
         }
       }
     }

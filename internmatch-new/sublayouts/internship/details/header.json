@@ -1,0 +1,152 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "justifyContent": "space-between",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginRight": 10
+              },
+              "children": [
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "padding": 15,
+                    "color": "white",
+                    "text": "Edit",
+                    "buttonCode": "BTN_EDIT_INTERNSHIP",
+                    "value": {
+                      "itemCode": "{{query.internship.code}}",
+                      "root": "ROOT"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginRight": 10
+              },
+              "children": [
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "padding": 15,
+                    "color": "white",
+                    "text": "Delete",
+                    "buttonCode": "BTN_DELETE_INTERNSHIP",
+                    "value": {
+                      "itemCode": "{{query.internship.code}}",
+                      "root": "ROOT"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_SELLER.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginRight": 10
+              },
+              "children": [
+                {
+                  "component": "Button",
+                  "props": {
+                    "padding": 15,
+                    "color": "white",
+                    "text": "Back",
+                    "isBackButton": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginLeft": 10
+              },
+              "children": [
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "padding": 15,
+                    "color": "#1597c5",
+                    "textColor": "#fff",
+                    "text": "Add application",
+                    "buttonCode": "BTN_APPLY_BEG_AGENT",
+                    "value": {
+                      "itemCode": "{{query.internship.code}}",
+                      "root": "ROOT"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_SELLER.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginLeft": 10
+              },
+              "children": [
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "padding": 15,
+                    "color": "#1597c5",
+                    "textColor": "#fff",
+                    "text": "Apply now",
+                    "buttonCode": "BTN_APPLY_INTERNSHIP",
+                    "value": {
+                      "itemCode": "{{query.internship.code}}",
+                      "root": "ROOT"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

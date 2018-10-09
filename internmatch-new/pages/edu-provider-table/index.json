@@ -19,8 +19,8 @@
                 "key": "actions"
               },
               {
-                "Header": "Namea",
-                "accessor": "fullName",
+                "Header": "Provider Name",
+                "accessor": "providerName",
                 "filterType": "string"
               },
               {
@@ -29,13 +29,13 @@
                 "filterType": "string"
               },
               {
-                "Header": "contact Number",
-                "accessor": "contactNumber",
+                "Header": "Phone Number",
+                "accessor": "mobilePhone",
                 "filterType": "string"
               },
               {
-                "Header": "State",
-                "accessor": "state",
+                "Header": "Address ",
+                "accessor": "address",
                 "filterType": "string"
               }
             ],
@@ -52,23 +52,23 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_HOST_COMPANY_REPRESENTATIVES",
-      "as": "internList"
+      "id": "GRP_EDU_PROVIDERS",
+      "as": "hostCompanies"
     },
     {
       "operator": "scope",
-      "path": "internList.links",
-      "as": "internList",
+      "path": "hostCompanies.links",
+      "as": "hostCompanies",
       "scope": {
         "operator": "getBE",
-        "basePath": "baseEntities.data",
+        "basePath": "baseEntities.attributes",
         "id": "{{link.targetCode}}",
         "as": "be"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "hostCompanies",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -80,7 +80,7 @@
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "hostCompanies",
       "scope": {
         "operator": "getBE",
         "as" : "company",
@@ -90,15 +90,15 @@
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "hostCompanies",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
-          "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value"
+          "providerName": "be.attributes.PRI_NAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
+          "address": "be.attributes.PRI_ADDRESS_STATE.value"
         }
       }
     }

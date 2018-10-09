@@ -1,0 +1,455 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "#f6f6f6",
+        "padding": 20,
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "internship/details/header"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginRight": 20
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "{{props.companyImage}}",
+                    "width": 100,
+                    "height": 100
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "{{props.internshipName}}",
+                        "bold": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{props.companyName}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Text",
+                      "children": "Posted "
+                    },
+                    {
+                      "component": "Date",
+                      "props": {
+                        "format": "calendar"
+                      },
+                      "children": "{{props.createdOn}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "place",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "children": "{{props.internshipAddress}}"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "event",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Date",
+                      "props": {
+                        "format": "[Begins] DD MMM YYYY",
+                        "date": "{{props.internshipStartDate}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "schedule",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "children": "{{props.internshipDuration}} long"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Preferred skills"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.internshipSkills": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "repeat": "_props.internshipSkills",
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "children": "{{repeater}}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component": "Text",
+                  "dontShowIf": {
+                    "props.internshipSkills": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "children": "None"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Internship description"
+                    }
+                  ]
+                },
+                {
+                  "component": "Text",
+                  "children": "{{props.internshipDescription}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Learning outcomes"
+                    }
+                  ]
+                },
+                {
+                  "component": "Text",
+                  "conditional": {
+                    "if": {
+                      "props.internshipLearningOutcomes": {
+                        "$exists": true,
+                        "$ne": "undefined"
+                      }
+                    },
+                    "then": {
+                      "text": "{{props.internshipLearningOutcomes}}"
+                    },
+                    "else": {
+                      "text": "None"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "person",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "children": "{{props.companyName}}"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "mail",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.companyEmail": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.companyEmail}}"
+                        },
+                        "else": {
+                          "text": "No company email"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 15
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "call",
+                            "color": "black"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.companyPhone": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.companyPhone}}"
+                        },
+                        "else": {
+                          "text": "No company phone number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

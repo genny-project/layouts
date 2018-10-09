@@ -53,15 +53,28 @@
                            "flexWrap": "no-wrap"
                         },
                         "children":[  
-                           {  
-                              "GennyAddressLabel":{  
+                           {
+                              "span": {
                                  "style":{  
                                     "fontSize":"1.2em"
                                  },
-                                 "showCountry":false,
-                                 "unit": "BE.PRI_UNIT_ID",
-                                 "attributePrefix":"PRI_ADDRESS",
-                                 "root":"BE.PRI_BEG_CODE"
+                                 "children": "${BE.PRI_UNIT_ID}  "
+                              }
+                           },
+                           {
+                              "span": {
+                                 "children": [
+                                    {  
+                                       "GennyAddressLabel":{  
+                                          "style":{  
+                                             "fontSize":"1.2em"
+                                          },
+                                          "showCountry":false,
+                                          "attributePrefix":"PRI_ADDRESS",
+                                          "root":"BE.PRI_BEG_CODE"
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]

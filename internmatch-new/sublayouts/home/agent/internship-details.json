@@ -1,154 +1,90 @@
 {
   "children": [
     {
-      "component": "Box",
+      "component": "Sublayout",
       "props": {
-        "flexDirection": "column",
-        "width": "100%",
-        "backgroundColor": "#f6f6f6",
-        "padding": 20
-      },
-      "children": [
-        {
-          "component": "Box",
-          "dontShowIf": {
-            "query.items": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
-          "props": {
-            "flex": 1,
-            "width": "100%",
-            "justifyContent": "center",
-            "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "ActivityIndicator",
-              "props": {
-                "size": "large"
-              }
-            }
-          ]
-        },
-        {
-          "component": "Container",
-          "onlyShowIf": {
-            "query.items": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
-          "props": {
-            "flexDirection": "column",
-            "maxWidth": 700
-          },
-          "repeat": "_query.items",
-          "children": {
-            "component": "Link",
-            "props": {
-              "to": "internships/{{repeater.code}}",
-              "marginBottom": 20,
-              "padding": 20,
-              "backgroundColor": "#ffffff",
-              "withFeedback": true,
-              "hoverProps": {
-                "style": {
-                  "transform": [
-                    { "scale": 1.02 }
-                  ]
-                }
-              }
-            },
-            "children": {
-              "component": "Box",
-              "props": {
-                "width": "100%"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginRight": 20,
-                    "flexShrink": 0
-                  },
-                  "children": [
-                    {
-                      "component": "Image",
-                      "props": {
-                        "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
-                        "height": 100,
-                        "width": 100
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "flexDirection": "column",
-                    "flex": 1,
-                    "backgroundColor": "#ffffff"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginBottom": 5
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "bold": true
-                          },
-                          "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{repeater.attributes.PRI_NAME.value}}"
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginTop": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "size": "xs"
-                          },
-                          "children": "{{repeater.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ]
+        "layoutName": "internship/details",
+        "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
+        "companyName": "{{query.internship.company.attributes.PRI_NAME.value}}",
+        "companyEmail": "{{query.internship.attributes.PRI_EMAIL.value}}",
+        "companyPhone": "{{query.internship.attributes.PRI_LANDLINE.value}}",
+        "internshipName": "{{query.internship.attributes.PRI_NAME.value}}",
+        "internshipAddress": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}",
+        "internshipStartDate": "{{query.internship.attributes.PRI_START_DATE.value}}",
+        "internshipDuration": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "internshipSkills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
+        "internshipDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
+        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
+        "createdOn": "{{query.internship.created}}"
+      }
     }
   ],
   "query": [
     {
-      "operator": "getLinks",
-      "id": "GRP_NEW_ITEMS",
-      "as": "items"
+      "operator": "getBE",
+      "id": "GRP_APPLICATIONS",
+      "as": "applications"
+    },
+    {
+      "operator": "scope",
+      "path": "applications.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "applications.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
+    },
+    {
+      "operator": "map",
+      "fields": "be"
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be.code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "map",
+      "fields": {
+        "name": "name",
+        "code": "code",
+        "items": "links"
+      }
     },
     {
       "operator": "scope",
       "path": "items",
       "scope": {
-        "operator": "getBE",
-        "id": "code"
+        "operator": "map",
+        "fields": "be"
       }
     },
     {
@@ -164,22 +100,9 @@
       "operator": "scope",
       "path": "items",
       "scope": {
-        "operator": "getBE",
-        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
-        "as": "company"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "company",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
+        "operator": "sort",
+        "by": "attributes.PRI_NAME.value",
+        "direction": "asc"
       }
     }
   ]
