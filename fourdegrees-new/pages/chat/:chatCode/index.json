@@ -312,19 +312,56 @@
       "path": "requests",
       "scope": {
         "operator":"find",
-        "query":{
-          "attributes.PRI_INTRODUCER_CODE.value": {
-            "$eq": "{{otherUser.code}}"
-          }
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{currentUser.code}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{currentUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                }
+              ]
+            }
+          ]
         }
-      }
-    },
-    {
-      "operator": "external",
-      "name": "test",
-      "params": {
-        "idName": "{{currentUser.code}}",
-        "asName": "me"
       }
     }
   ]
