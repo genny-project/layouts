@@ -1,0 +1,183 @@
+{
+  "layout": {
+    "title": "Welcome",
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "width": "100%",
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "flexDirection": "column",
+            "backgroundColor": "white",
+            "padding": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "marginBottom": 20,
+                "alignItems": "center"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginRight": 20,
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Image",
+                      "props": {
+                        "source": "",
+                        "shape": "circle",
+                        "width": 60,
+                        "height": 60
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 5
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "Group or Association",
+                            "color": "grey",
+                            "size": "xs"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{query.attributes.PRI_NAME.valueString}}",
+                            "color": "black",
+                            "size": "lg"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.attributes.PRI_POSITION.valueString}}",
+                    "color": "black",
+                    "size": "xxs"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.attributes.PRI_ADDRESS_UNVERIFIED.valueString}}",
+                    "color": "black",
+                    "size": "xxs"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - Current",
+                    "color": "grey",
+                    "size": "xxs"
+                  },
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.attributes.PRI_END_DATE_UNVERIFIED.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - {{query.attributes.PRI_END_DATE_UNVERIFIED.value}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.attributes.PRI_DESCRIPTION_LONG.valueString}}",
+                    "color": "black",
+                    "size": "xxs"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.associationID}}",
+      "as": "be"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{navigation.associationID}}",
+      "as": "attributes"
+    }
+  ]
+}

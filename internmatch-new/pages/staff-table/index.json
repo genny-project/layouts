@@ -1,8 +1,8 @@
 {
   "layout": {
-    "title": "HC  View",
+    "title": "Table View",
     "appColor": "white",
-    "backgroundColor": "black"
+    "backgroundColor": "#0d0d0d"
   },
   "children": [
     {
@@ -13,29 +13,25 @@
           "props": {
             "columns": [
               {
-                "Header": "Acions",
-                "accessor": "actions",
-                "id": "actions",
-                "key": "actions"
-              },
-              {
-                "Header": "Provider Name",
-                "accessor": "providerName",
+                "Header": "Full Name",
+                "accessor": "fullName",
+                "id": "firstName",
+                "key": "firstName",
                 "filterType": "string"
               },
               {
-                "Header": "Email",
-                "accessor": "email",
+                "Header": "Edu Provider",
+                "accessor": "eduProvider",
                 "filterType": "string"
               },
               {
-                "Header": "Phone Number",
+                "Header": "Mobile Phone",
                 "accessor": "mobilePhone",
-                "filterType": "string"
+                "filterType": "number"
               },
               {
-                "Header": "Address ",
-                "accessor": "address",
+                "Header": "Username",
+                "accessor": "email",
                 "filterType": "string"
               }
             ],
@@ -52,23 +48,23 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_EDU_PROVIDERS",
-      "as": "hostCompanies"
+      "id": "GRP_STAFFS",
+      "as": "staffs"
     },
     {
       "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
+      "path": "staffs.links",
+      "as": "staffs",
       "scope": {
         "operator": "getBE",
-        "basePath": "baseEntities.attributes",
+        "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}",
         "as": "be"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "staffs",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -80,7 +76,7 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "staffs",
       "scope": {
         "operator": "getBE",
         "as" : "company",
@@ -90,15 +86,15 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "staffs",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "providerName": "be.attributes.PRI_NAME.value",
-          "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "address": "be.attributes.PRI_ADDRESS_STATE.value"
+          "fullName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "email": "be.attributes.PRI_USERNAME.value"
         }
       }
     }

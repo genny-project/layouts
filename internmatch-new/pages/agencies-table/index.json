@@ -19,8 +19,8 @@
                 "key": "actions"
               },
               {
-                "Header": "Provider Name",
-                "accessor": "providerName",
+                "Header": "Company Name",
+                "accessor": "companyName",
                 "filterType": "string"
               },
               {
@@ -30,12 +30,12 @@
               },
               {
                 "Header": "Phone Number",
-                "accessor": "mobilePhone",
+                "accessor": "phoneNumber",
                 "filterType": "string"
               },
               {
-                "Header": "Address ",
-                "accessor": "address",
+                "Header": "Full Address" ,
+                "accessor": "fullAddress",
                 "filterType": "string"
               }
             ],
@@ -52,7 +52,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_EDU_PROVIDERS",
+      "id": "GRP_AGENCIES",
       "as": "hostCompanies"
     },
     {
@@ -95,10 +95,10 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "providerName": "be.attributes.PRI_NAME.value",
+          "companyName": "be.attributes.PRI_NAME.value",
           "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "address": "be.attributes.PRI_ADDRESS_STATE.value"
+          "phoneNumber": "be.attributes.PRI_LANDLINE.value",
+          "fullAddress": "be.attributes.PRI_ADDRESS_FULL.value"
         }
       }
     }

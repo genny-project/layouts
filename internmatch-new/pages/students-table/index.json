@@ -19,8 +19,8 @@
                 "key": "actions"
               },
               {
-                "Header": "Provider Name",
-                "accessor": "providerName",
+                "Header": "Name",
+                "accessor": "fullName",
                 "filterType": "string"
               },
               {
@@ -29,13 +29,13 @@
                 "filterType": "string"
               },
               {
-                "Header": "Phone Number",
+                "Header": "contact Number",
                 "accessor": "mobilePhone",
                 "filterType": "string"
               },
               {
-                "Header": "Address ",
-                "accessor": "address",
+                "Header": "University",
+                "accessor": "university",
                 "filterType": "string"
               }
             ],
@@ -52,23 +52,23 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_EDU_PROVIDERS",
-      "as": "hostCompanies"
+      "id": "GRP_STUDENTS",
+      "as": "internList"
     },
     {
       "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
+      "path": "internList.links",
+      "as": "internList",
       "scope": {
         "operator": "getBE",
-        "basePath": "baseEntities.attributes",
+        "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}",
         "as": "be"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "internList",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -80,7 +80,7 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "internList",
       "scope": {
         "operator": "getBE",
         "as" : "company",
@@ -90,15 +90,16 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "internList",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "providerName": "be.attributes.PRI_NAME.value",
+          "fullName": "be.attributes.PRI_NAME.value",
           "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "address": "be.attributes.PRI_ADDRESS_STATE.value"
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "university": "company.name",
+          "resume": "be.attributes.PRI_USERNAME.value"
         }
       }
     }
