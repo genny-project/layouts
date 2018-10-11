@@ -1,0 +1,100 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "home/agent/bucket/card/_image",
+            "imageUrl": "{{props.imageUrl}}"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs",
+                    "bold": true,
+                    "text": "{{props.title}}"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "props.studentId": {
+                  "$exists": true,
+                  "$ne": "undefined"
+                }
+              },
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "ID: {{props.studentId}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "props.mobile": {
+                  "$exists": true,
+                  "$ne": "undefined"
+                }
+              },
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xxs"
+                  },
+                  "children": "{{props.mobile}}"
+                }
+              ]
+            },
+            {
+              "component": "Date",
+              "onlyShowIf": {
+                "props.date": {
+                  "$exists": true,
+                  "$ne": "undefined"
+                }
+              },
+              "props": {
+                "date": "{{props.date}}",
+                "size": "xxs",
+                "format": "{{props.dateFormat}}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

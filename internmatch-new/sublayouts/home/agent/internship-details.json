@@ -1,7 +1,51 @@
 {
   "children": [
     {
+      "component": "Box",
+      "dontShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flex": 1,
+        "width": "100%",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 10
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "No internship selected",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Text",
+          "props": {
+            "text": "Please select an active internship to the left",
+            "align": "center"
+          }
+        }
+      ]
+    },
+    {
       "component": "Sublayout",
+      "onlyShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
       "props": {
         "layoutName": "internship/details",
         "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
@@ -21,75 +65,13 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "GRP_APPLICATIONS",
-      "as": "applications"
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
     },
     {
       "operator": "scope",
-      "path": "applications.links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "as": "be",
-        "id": "{{link.targetCode}}",
-        "filterOutEmpty": true
-      }
-    },
-    {
-      "operator": "map",
-      "fields": "applications.links"
-    },
-    {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
-    },
-    {
-      "operator": "map",
-      "fields": "be"
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "as": "be",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be.code": {
-            "$exists": true
-          }
-        }
-      }
-    },
-    {
-      "operator": "map",
-      "fields": {
-        "name": "name",
-        "code": "code",
-        "items": "links"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "map",
-        "fields": "be"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
@@ -98,11 +80,24 @@
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
-        "operator": "sort",
-        "by": "attributes.PRI_NAME.value",
-        "direction": "asc"
+        "operator": "getBE",
+        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     }
   ]
