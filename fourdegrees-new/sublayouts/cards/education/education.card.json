@@ -16,111 +16,11 @@
       },
       "children": [
         {
-          "component": "Box",
-          "props": {
-            "marginRight": 20,
-            "alignItems": "center"
-          },
-          "children": [
-            {
-              "component": "Image",
-              "props": {
-                "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
-                "shape": "circle",
-                "width": 60,
-                "height": 60
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flex": 1,
-            "flexDirection": "column"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.attributes.PRI_NAME.valueString}}",
-                    "color": "black",
-                    "size": "sm"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.attributes.PRI_TITLE.valueString}}",
-                    "color": "black",
-                    "size": "xxs"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.attributes.PRI_ADDRESS_UNVERIFIED.valueString}}",
-                    "color": "black",
-                    "size": "xxs"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - Current",
-                    "color": "grey",
-                    "size": "xxs"
-                  },
-                  "conditional": [
-                    {
-                      "if": {
-                        "query.attributes.PRI_END_DATE_UNVERIFIED.value": {
-                          "$exists": true
-                        }
-                      },
-                      "then": {
-                        "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - {{query.attributes.PRI_END_DATE_UNVERIFIED.value}}"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "component": "Link",
           "props": {
             "style": {
+              "display": "flex",
+              "flex": 1
             },
             "to": "education/",
             "params": {
@@ -130,22 +30,129 @@
           "children": [
             {
               "component": "Box",
-              "props": {
-                "marginleft": 20,
-                "alignItems": "center"
-              },
               "children": [
                 {
                   "component": "Box",
-                  "props": {},
+                  "props": {
+                    "marginRight": 20,
+                    "alignItems": "center"
+                  },
                   "children": [
                     {
-                      "component": "Icon",
+                      "component": "Image",
                       "props": {
-                        "color": "black",
-                        "size": "lg",
-                        "name": "navigate-next"
+                        "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                        "shape": "circle",
+                        "width": 60,
+                        "height": 60
                       }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 5
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{query.attributes.PRI_NAME.valueString}}",
+                            "color": "black",
+                            "size": "sm"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 5
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{query.attributes.PRI_TITLE.valueString}}",
+                            "color": "black",
+                            "size": "xxs"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 5
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{query.attributes.PRI_ADDRESS_UNVERIFIED.valueString}}",
+                            "color": "black",
+                            "size": "xxs"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - Current",
+                            "color": "grey",
+                            "size": "xxs"
+                          },
+                          "conditional": [
+                            {
+                              "if": {
+                                "query.attributes.PRI_END_DATE_UNVERIFIED.value": {
+                                  "$exists": true
+                                }
+                              },
+                              "then": {
+                                "text": "{{query.attributes.PRI_START_DATE_UNVERIFIED.value}} - {{query.attributes.PRI_END_DATE_UNVERIFIED.value}}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginleft": 20,
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "color": "black",
+                            "size": "lg",
+                            "name": "navigate-next"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }

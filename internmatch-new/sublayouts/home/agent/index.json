@@ -54,6 +54,10 @@
               "children": [
                 {
                   "component": "Selection",
+                  "props": {
+                    "mode": "toggle",
+                    "selectFirstItemOnMount": true
+                  },
                   "repeat": "_query.items",
                   "children": {
                     "component": "EventTouchable",
@@ -73,14 +77,20 @@
                       "key": "{{repeater.code}}",
                       "withFeedback": true,
                       "showSpinnerOnClick": false,
-                      "eventType": "SELECT_EVENT",
                       "buttonCode": "SELECT_EVENT",
                       "value": {
                         "hint": "GRP_NEW_ITEMS",
                         "itemCode": "{{repeater.code}}"
                       },
                       "flexDirection": "column",
-                      "onPress": "_selection.onSelect"
+                      "onPress": "_selection.onSelect",
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_TOGGLE",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{repeater.code}}"
+                        }
+                      }
                     },
                     "children": [
                       {

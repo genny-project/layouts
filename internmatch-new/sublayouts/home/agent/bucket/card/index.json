@@ -1,0 +1,88 @@
+{
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "imageUrl": "{{props.imageUrl}}",
+        "studentId": "{{props.studentId}}",
+        "mobile": "{{props.mobile}}",
+        "placedOn": "{{props.placedOn}}",
+        "appliedOn": "{{props.appliedOn}}",
+        "shortlistedOn": "{{props.shortlistedOn}}",
+        "interviewedOn": "{{props.interviewedOn}}",
+        "offeredOn": "{{props.offeredOn}}",
+        "inProgressOn": "{{props.inProgressOn}}",
+        "title": "{{props.title}}"
+      },
+      "conditional": {
+        "if": {
+          "props.inProgressOn": {
+            "$exists": true,
+            "$ne": "undefined"
+          }
+        },
+        "then": {
+          "layoutName": "home/agent/bucket/card/in-progress"
+        },
+        "else": {
+          "if": {
+            "props.placedOn": {
+              "$exists": true,
+              "$ne": "undefined"
+            }
+          },
+          "then": {
+            "layoutName": "home/agent/bucket/card/placed"
+          },
+          "else": {
+            "if": {
+              "props.offeredOn": {
+                "$exists": true,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "layoutName": "home/agent/bucket/card/offered"
+            },
+            "else": {
+              "if": {
+                "props.interviewedOn": {
+                  "$exists": true,
+                  "$ne": "undefined"
+                }
+              },
+              "then": {
+                "layoutName": "home/agent/bucket/card/interviewed"
+              },
+              "else": {
+                "if": {
+                  "props.shortlistedOn": {
+                    "$exists": true,
+                    "$ne": "undefined"
+                  }
+                },
+                "then": {
+                  "layoutName": "home/agent/bucket/card/shortlisted"
+                },
+                "else": {
+                  "if": {
+                    "props.appliedOn": {
+                      "$exists": true,
+                      "$ne": "undefined"
+                    }
+                  },
+                  "then": {
+                    "layoutName": "home/agent/bucket/card/applied"
+                  },
+                  "else": {
+                    "layoutName": "home/agent/bucket/card/to-be-applied"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
