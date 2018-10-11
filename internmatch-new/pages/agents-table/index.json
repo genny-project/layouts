@@ -13,29 +13,29 @@
           "props": {
             "columns": [
               {
-                "Header": "Acions",
+                "Header": "Actions",
                 "accessor": "actions",
                 "id": "actions",
                 "key": "actions"
               },
               {
-                "Header": "Namea",
-                "accessor": "fullName",
+                "Header": "Full Name",
+                "accessor": "firstName",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
-                "accessor": "email",
+                "accessor": "uname",
                 "filterType": "string"
               },
               {
                 "Header": "contact Number",
-                "accessor": "contactNumber",
+                "accessor": "mobilePhone",
                 "filterType": "string"
               },
               {
-                "Header": "State",
-                "accessor": "state",
+                "Header": "Agency",
+                "accessor": "agency",
                 "filterType": "string"
               }
             ],
@@ -52,7 +52,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_HOST_COMPANY_REPRESENTATIVES",
+      "id": "GRP_AGENTS",
       "as": "internList"
     },
     {
@@ -91,6 +91,28 @@
     {
       "operator": "scope",
       "path": "internList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "agency",
+        "id": "{{be.attributes.LNK_AGENCY.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
+      "scope": {
+        "operator": "scope",
+        "path": "agency",
+        "scope": {
+          "operator": "populateAttributes",
+          "as" : "attributes",
+          "code": "{{code}}"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internList",
       "as": "tableData",
       "scope": {
         "operator": "map",
@@ -98,7 +120,8 @@
           "firstName": "be.attributes.PRI_NAME.value",
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value"
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "agency": "agency.attributes.PRI_NAME.value"
         }
       }
     }

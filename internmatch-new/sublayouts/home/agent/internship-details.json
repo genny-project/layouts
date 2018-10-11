@@ -2,524 +2,76 @@
   "children": [
     {
       "component": "Box",
+      "dontShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
       "props": {
-        "flexDirection": "column",
-        "backgroundColor": "#f6f6f6",
-        "padding": 20,
-        "flex": 1
+        "flex": 1,
+        "width": "100%",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "flexDirection": "column"
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "justifyContent": "space-between",
-            "marginBottom": 20,
-            "width": "100%"
+            "marginBottom": 10
           },
           "children": [
             {
-              "component": "Box",
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginRight": 10
-                  },
-                  "children": [
-                    {
-                      "component": "EventButton",
-                      "props": {
-                        "padding": 15,
-                        "color": "white",
-                        "text": "Edit",
-                        "buttonCode": "BTN_APPLY_INTERNSHIP",
-                        "value": {
-                          "itemCode": "{{query.internship.code}}",
-                          "root": "ROOT"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "EventButton",
-                  "props": {
-                    "padding": 15,
-                    "color": "white",
-                    "text": "Delete",
-                    "buttonCode": "BTN_APPLY_INTERNSHIP",
-                    "value": {
-                      "itemCode": "{{query.internship.code}}",
-                      "root": "ROOT"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "component": "EventButton",
+              "component": "Heading",
               "props": {
-                "padding": 15,
-                "color": "blue",
-                "text": "Add application",
-                "buttonCode": "BTN_APPLY_INTERNSHIP",
-                "value": {
-                  "itemCode": "{{query.internship.code}}",
-                  "root": "ROOT"
-                }
+                "text": "No internship selected",
+                "align": "center"
               }
             }
           ]
         },
         {
-          "component": "Box",
+          "component": "Text",
           "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginRight": 20
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "source": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
-                    "width": 100,
-                    "height": 100
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "text": "{{query.internship.attributes.PRI_NAME.value}}",
-                        "bold": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "props": {
-                        "text": "{{query.internship.company.attributes.PRI_NAME.value}}"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "children": [
-                    {
-                      "component": "Text",
-                      "children": "Posted "
-                    },
-                    {
-                      "component": "Date",
-                      "props": {
-                        "format": "calendar"
-                      },
-                      "children": "{{query.internship.created}}"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "place",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "event",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Date",
-                      "props": {
-                        "format": "[Begins] DD MMM YYYY",
-                        "date": "{{query.internship.attributes.PRI_START_DATE.value}}"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "schedule",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}} long"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20,
-            "flexDirection": "column"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Preferred skills"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "onlyShowIf": {
-                    "query.internship.attributes.PRI_INTERNSHIP_SKILLS.value": {
-                      "$exists": true,
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "props": {
-                    "flexDirection": "column"
-                  },
-                  "repeat": "_query.internship.attributes.PRI_INTERNSHIP_SKILLS.value",
-                  "children": {
-                    "component": "Box",
-                    "props": {
-                      "marginRight": 15
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "children": "{{repeater}}"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "component": "Text",
-                  "dontShowIf": {
-                    "query.internship.attributes.PRI_INTERNSHIP_SKILLS.value": {
-                      "$exists": true,
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "children": "None"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Internship description"
-                    }
-                  ]
-                },
-                {
-                  "component": "Text",
-                  "children": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Learning outcomes"
-                    }
-                  ]
-                },
-                {
-                  "component": "Text",
-                  "conditional": {
-                    "if": {
-                      "query.internship.attributes.PRI_POSITION_DESCRIPTION.value": {
-                        "$exists": true
-                      }
-                    },
-                    "then": {
-                      "text": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}"
-                    },
-                    "else": {
-                      "text": "None"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "person",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{query.internship.company.attributes.PRI_NAME.value}}"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "mail",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "query.internship.attributes.PRI_EMAIL.value": {
-                            "$exists": true
-                          }
-                        },
-                        "then": {
-                          "text": "{{query.internship.attributes.PRI_EMAIL.value}}"
-                        },
-                        "else": {
-                          "text": "No company email"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "call",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "query.internship.attributes.PRI_LANDLINE.value": {
-                            "$exists": true
-                          }
-                        },
-                        "then": {
-                          "text": "{{query.internship.attributes.PRI_LANDLINE.value}}"
-                        },
-                        "else": {
-                          "text": "No company phone number"
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+            "text": "Please select an active internship to the left",
+            "align": "center"
+          }
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "onlyShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "layoutName": "internship/details",
+        "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
+        "companyName": "{{query.internship.company.attributes.PRI_NAME.value}}",
+        "companyEmail": "{{query.internship.attributes.PRI_EMAIL.value}}",
+        "companyPhone": "{{query.internship.attributes.PRI_LANDLINE.value}}",
+        "internshipName": "{{query.internship.attributes.PRI_NAME.value}}",
+        "internshipAddress": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}",
+        "internshipStartDate": "{{query.internship.attributes.PRI_START_DATE.value}}",
+        "internshipDuration": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "internshipSkills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
+        "internshipDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
+        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
+        "createdOn": "{{query.internship.created}}"
+      }
     }
   ],
   "query": [
     {
-      "operator": "getLinks",
-      "id": "GRP_NEW_ITEMS",
-      "as": "items"
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
     },
     {
       "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "code"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
@@ -528,7 +80,7 @@
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "getBE",
         "id": "{{attributes.LNK_HOST_COMPANY.value}}",
@@ -537,7 +89,7 @@
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "scope",
         "path": "company",

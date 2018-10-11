@@ -11,30 +11,6 @@
           "component": "Box",
           "props": {
             "paddingX": 10,
-            "paddingBottom": 10
-          },
-          "onlyShowIf": {
-            "user.data.code": "{{props.userID}}"
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-association-history",
-                "text": "Add Association",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "paddingY": 15,
-                "paddingX": 15
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "paddingX": 10,
             "flexDirection": "column"
           },
           "onlyShowIf": {
@@ -76,6 +52,66 @@
                 "color": "black",
                 "size": "xs"
               }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingX": 10,
+            "paddingBottom": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-association-history",
+                "color": "transparent",
+                "paddingY": 0,
+                "paddingX": 0
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 8,
+                    "borderWidth": 1,
+                    "borderStyle": "solid",
+                    "borderColor": "{{layout.appColor}}",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "flex": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Add Association",
+                        "color": "{{layout.appColor}}",
+                        "size": "xs"
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "width": 5
+                      }
+                    },
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "edit",
+                        "color": "{{layout.appColor}}",
+                        "size": "sm"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

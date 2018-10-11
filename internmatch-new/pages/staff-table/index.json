@@ -1,0 +1,102 @@
+{
+  "layout": {
+    "title": "Table View",
+    "appColor": "white",
+    "backgroundColor": "#0d0d0d"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "columns": [
+              {
+                "Header": "Full Name",
+                "accessor": "fullName",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Edu Provider",
+                "accessor": "eduProvider",
+                "filterType": "string"
+              },
+              {
+                "Header": "Mobile Phone",
+                "accessor": "mobilePhone",
+                "filterType": "number"
+              },
+              {
+                "Header": "Username",
+                "accessor": "email",
+                "filterType": "string"
+              }
+            ],
+            "tableBackgroundColor": "#cccccc",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px",
+            "itemsPerPage": 15
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_STAFFS",
+      "as": "staffs"
+    },
+    {
+      "operator": "scope",
+      "path": "staffs.links",
+      "as": "staffs",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "staffs",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "staffs",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "staffs",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "fullName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "email": "be.attributes.PRI_USERNAME.value"
+        }
+      }
+    }
+  ]
+}
