@@ -11,30 +11,6 @@
           "component": "Box",
           "props": {
             "paddingX": 10,
-            "paddingBottom": 10
-          },
-          "onlyShowIf": {
-            "user.data.code": "{{props.userID}}"
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-association-history",
-                "text": "Add Association",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "paddingY": 15,
-                "paddingX": 15
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "paddingX": 10,
             "flexDirection": "column"
           },
           "onlyShowIf": {
@@ -75,6 +51,30 @@
                 "text": "No groups or associations to show.",
                 "color": "black",
                 "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingX": 10,
+            "paddingBottom": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-association-history",
+                "text": "Add Association",
+                "color": "#202532",
+                "textColor": "#FFF",
+                "paddingY": 15,
+                "paddingX": 15
               }
             }
           ]

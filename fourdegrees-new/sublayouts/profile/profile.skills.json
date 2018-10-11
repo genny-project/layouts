@@ -10,33 +10,9 @@
         {
           "component": "Box",
           "props": {
-            "paddingX": 10,
-            "paddingBottom": 10
-          },
-          "onlyShowIf": {
-            "user.data.code": "{{props.userID}}"
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-skills",
-                "text": "Edit Skills",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "paddingY": 15,
-                "paddingX": 15
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
             "backgroundColor": "white",
             "padding": 10,
-            "paddingBottom": 20
+            "paddingBottom": 0
           },
           "onlyShowIf": {
             "query.profile.attributes.PRI_SKILLS.value": {
@@ -49,29 +25,70 @@
             {
               "component": "Box",
               "props": {
-                "flexWrap": "wrap"
+                "flexWrap": "wrap",
+                "flex": 1
               },
-              "repeat": "_query.profile.attributes.PRI_SKILLS.value",
-              "children": {
-                "component": "Box",
-                "props": {
-                  "backgroundColor": "lightgrey",
-                  "shape": "pill",
-                  "padding": 10,
-                  "marginRight": 10,
-                  "marginTop": 10
-                },
-                "children": [
-                  {
-                    "component": "Text",
+              "children": [
+                {
+                  "component": "Fragment",
+                  "repeat": "_query.profile.attributes.PRI_SKILLS.value",
+                  "children": {
+                    "component": "Box",
                     "props": {
-                      "text": "{{repeater}}",
-                      "color": "black",
-                      "size": "xs"
-                    }
+                      "backgroundColor": "lightgrey",
+                      "shape": "pill",
+                      "padding": 10,
+                      "marginRight": 10,
+                      "marginBottom": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
+                    ]
                   }
-                ]
-              }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "justifyContent": "flex-end",
+                    "alignItems": "center",
+                    "marginRight": 10,
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "EventButton",
+                      "props": {
+                        "eventType": "ROUTE_CHANGE",
+                        "buttonCode": "profile/add-skills",
+                        "color": "transparent",
+                        "paddingY": 0,
+                        "paddingX": 0
+                      },
+                      "onlyShowIf": {
+                        "user.data.code": "{{props.userID}}"
+                      },
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                            "name": "edit",
+                            "color": "#202532",
+                            "size": "md"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
