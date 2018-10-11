@@ -62,6 +62,16 @@
                       "flexDirection": "column"
                     },
                     "children": [
+                        {
+                          "component": "Heading",
+                          "props": {
+                            "color": "black",
+                            "size": "xxl",
+                            "bold": false
+                          },
+                          "children": "RESET YOUR PASSWORD"
+                        },
+                    
                       {
                         "component": "Box",
                         "props": {
@@ -114,52 +124,10 @@
                                             }
                                           }
                                         ]
-                                      },
-                                      {
-                                        "component": "Box",
-                                        "props": {
-                                          "marginBottom": 20
-                                        },
-                                        "children": [
-                                          {
-                                            "component": "FormGenericInput",
-                                            "useThemeFrom": "Input",
-                                            "variant": "default",
-                                            "props": {
-                                              "type": "password",
-                                              "placeholder": "Password",
-                                              "name": "password",
-                                              "icon": "lock",
-                                              "borderColor": "#505050",
-                                              "borderWidth": 1,
-                                              "height": 50,
-                                              "borderRadius": 3,
-                                              "textAlign": "center",
-                                              "backgroundColor": "#F1F1F1"
-                                            }
-                                          }
-                                        ]
                                       }
                                     ]
                                   },
-                                  {
-                                    "component": "Box",
-                                    "props": {
-                                      "marginBottom": 20
-                                    },
-                                    "children": [
-                                      {
-                                        "component": "FormGenericInput",
-                                        "useThemeFrom": "Input",
-                                        "props": {
-                                          "type": "checkbox",
-                                          "items": [" Remember Me "],     
-                                          "value": "rememberme"
-                                         
-                                        }
-                                      }
-                                    ]
-                                  },
+                                  
                                   {
                                     "component": "Box",
                                     "props": {
@@ -169,14 +137,13 @@
                                       {
                                         "component": "LinkButton",
                                         "props": {
-                                          "text": "Forgot Password",
+                                          "text": "Back to login",
                                           "textColor": "#6a6c6c",
                                           "height": "30px",
                                           "width": "150px",
-                                          "to": "resetPassword",
+                                          "to": "splash",
                                           "hoverProps": {
-                                            "textColor": "#D34545",
-                                            "textDecoration": "underline"
+                                            "textColor": "#D34545"
                                           }
                                         }
                                       }
@@ -220,7 +187,7 @@
                                       {
                                         "component": "FormGenericSubmit",
                                         "props": {
-                                          "text": "Login",
+                                          "text": "Send Reset Email",
                                           "color": "#ea032a",
                                           "textColor": "#fff",
                                           "hoverProps": {

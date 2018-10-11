@@ -1,0 +1,66 @@
+{
+  "children": [
+    {
+      "component": "Tabs",
+      "props": {
+        "flex": 1,
+        "tabBarBackground": "#303338",
+        "tabWrapperProps": {
+          "paddingLeft": 20,
+          "height": 50,
+          "flexBasis": "auto"
+        },
+        "textColor": "#FFF",
+        "tabBackground": "#4c4d52",
+        "activeTabBackground": "#f6f6f6",
+        "activeTabTextColor": "#000",
+        "tabProps": {
+          "paddingX": 20,
+          "paddingY": 15,
+          "minWidth": 180,
+          "justifyContent": "center"
+        },
+        "tabTitleProps": {
+          "size": "xs"
+        },
+        "activeTabTitleProps": {
+          "bold": true
+        },
+        "inactiveTabProps": {
+          "borderColor": "#303338",
+          "borderRightWidth": 1,
+          "borderStyle": "solid"
+        },
+        "tabs": [
+          { "title": "Active Internships", "key": 0 },
+          { "title": "My Applications", "key": 1 },
+          { "title": "Map View", "key": 2 }
+        ],
+        "childProps": {
+          "overflowX": "auto"
+        },
+        "overflowX": "auto"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "home/intern/internships"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "home/intern/bucket"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "home/intern/map-view"
+          }
+        }
+      ]
+    }
+  ]
+}
