@@ -13,30 +13,39 @@
           "props": {
             "columns": [
               {
-                "Header": "Acions",
+                "Header": "Actions",
                 "accessor": "actions",
-                "id": "actions",
-                "key": "actions"
+                "editable": true,
+                "buttonComponent": [
+                  {
+                    "text": "Edit",
+                    "layoutName": "user-profile"
+                  },
+                  {
+                    "text": "View",
+                    "layoutName": "user-profile"
+                  }
+              ]
               },
               {
                 "Header": "Company Name",
                 "accessor": "companyName",
-                "filterType": "string"
+                "editable": true
               },
               {
                 "Header": "Email",
                 "accessor": "email",
-                "filterType": "string"
+                "editable": true
               },
               {
                 "Header": "Phone Number",
                 "accessor": "phoneNumber",
-                "filterType": "string"
+                "editable": true
               },
               {
                 "Header": "Full Address" ,
                 "accessor": "fullAddress",
-                "filterType": "string"
+                "editable": true
               }
             ],
             "tableBackgroundColor": "#cccccc",
