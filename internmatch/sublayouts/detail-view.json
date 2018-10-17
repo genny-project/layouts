@@ -52,17 +52,26 @@
             {
               "Selector": {
                 "position": [1, 0],
-                "showIfNotNull": true,
-                "checkValues": ["BE.PRI_COMPANY_CODE"],
+                "checkValues": ["USER.PRI_IS_SELLER"],
+                "hideValues": [true],
                 "children": [
                   {
-                    "SublayoutLoader": {
-                      "layoutCode": "internship-details-host-company",
-                      "style": {},
-                      "aliases": {
-                        "BE": "BE.PRI_COMPANY_CODE",
-                        "GROUP": "ROOT"
-                      }
+                    "Selector": {
+                      "position": [1, 0],
+                      "showIfNotNull": true,
+                      "checkValues": ["BE.PRI_COMPANY_CODE"],
+                      "children": [
+                        {
+                          "SublayoutLoader": {
+                            "layoutCode": "internship-details-host-company",
+                            "style": {},
+                            "aliases": {
+                              "BE": "BE.PRI_COMPANY_CODE",
+                              "GROUP": "ROOT"
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -189,7 +198,9 @@
                   {
                     "Selector": {
                       "showIfNotNull": true,
-                      "checkValues": ["BE.LNK_INTERNSHIP_REFERRAL_COMPANY.code"],
+                      "checkValues": [
+                        "BE.LNK_INTERNSHIP_REFERRAL_COMPANY.code"
+                      ],
                       "children": [
                         {
                           "h4": {

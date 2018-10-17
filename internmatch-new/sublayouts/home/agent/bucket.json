@@ -6,13 +6,13 @@
         "flexDirection": "column",
         "alignItems": "center",
         "justifyContent": "center",
-        "flex": 1
+        "flex": 1,
+        "padding": 20
       },
       "children": [
         {
           "component": "BucketView",
           "props": {
-            "padding": 20,
             "tabBarSize": "md",
             "backgroundColor": "#f6f6f6",
             "tabBarBackground": "#3f3f3f",
@@ -24,8 +24,12 @@
               "transform": "upperCase"
             },
             "overflowX": "auto",
+            "overflowY": "auto",
             "width": "100%",
-            "gutter": 20
+            "gutter": 20,
+            "contentProps": {
+              "minWidth": 240
+            }
           },
           "repeat": "_query",
           "children": {
@@ -33,13 +37,15 @@
             "repeat": "_repeater.items",
             "props": {
               "headerText": "{{repeater.name}}",
-              "minWidth": 240,
               "contentBackground": "#eaeaea",
               "headerProps": {
                 "paddingX": 20,
                 "paddingY": 15,
                 "justifyContent": "space-between",
-                "alignItems": "center"
+                "alignItems": "center",
+                "backgroundColor": "#eaeaea",
+                "position": "sticky",
+                "top": 0
               },
               "headerTextProps": {
                 "bold": true
@@ -191,123 +197,89 @@
                         },
                         {
                           "component": "Text",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_MOBILE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "text": "{{repeater.attributes.PRI_MOBILE.value}}",
-                            "size": "xxs"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "dontShowIf": {
-                            "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_PLACED_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Placed on] Do MMM YY"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Since] Do MMM YY"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "dontShowIf": {
-                            "$or": {
-                              "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
-                                "$exists": true
-                              },
+                          "conditional": {
+                            "if": {
                               "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
-                                "$exists": true
+                                "$exists": true,
+                                "$ne": "undefined"
+                              }
+                            },
+                            "then": {
+                              "component": "Date",
+                              "format": "[Since] Do MMM YY",
+                              "date": "{{repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value}}"
+                            },
+                            "else": {
+                              "if": {
+                                "repeater.attributes.PRI_GRP_PLACED_ON_DATE.value": {
+                                  "$exists": true,
+                                  "$ne": "undefined"
+                                }
+                              },
+                              "then": {
+                                "component": "Date",
+                                "format": "[Placed on] Do MMM YY",
+                                "date": "{{repeater.attributes.PRI_GRP_PLACED_ON_DATE.value}}"
+                              },
+                              "else": {
+                                "if": {
+                                  "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
+                                    "$exists": true,
+                                    "$ne": "undefined"
+                                  }
+                                },
+                                "then": {
+                                  "component": "Date",
+                                  "format": "[Offered on] Do MMM YY",
+                                  "date": "{{repeater.attributes.PRI_GRP_OFFERED_DATE.value}}"
+                                },
+                                "else": {
+                                  "if": {
+                                    "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
+                                      "$exists": true,
+                                      "$ne": "undefined"
+                                    }
+                                  },
+                                  "then": {
+                                    "component": "Date",
+                                    "format": "[Interviewed on] Do MMM YY",
+                                    "date": "{{repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value}}"
+                                  },
+                                  "else": {
+                                    "if": {
+                                      "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
+                                        "$exists": true,
+                                        "$ne": "undefined"
+                                      }
+                                    },
+                                    "then": {
+                                      "component": "Date",
+                                      "format": "[Shortlisted on] Do MMM YY",
+                                      "date": "{{repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value}}"
+                                    },
+                                    "else": {
+                                      "if": {
+                                        "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                                          "$exists": true,
+                                          "$ne": "undefined"
+                                        }
+                                      },
+                                      "then": {
+                                        "component": "Date",
+                                        "format": "[Applied on] Do MMM YY",
+                                        "date": "{{repeater.attributes.PRI_GRP_APPLIED_DATE.value}}"
+                                      },
+                                      "else": {
+                                        "text": "{{repeater.attributes.PRI_MOBILE.value}}"
+                                      }
+                                    }
+                                  }
+                                }
                               }
                             }
                           },
                           "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Interviewed on] Do MMM YY"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "dontShowIf": {
-                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Shortlisted on] Do MMM YY"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_OFFERED_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Offered on] Do MMM YY"
-                          }
-                        },
-                        {
-                          "component": "Date",
-                          "onlyShowIf": {
-                            "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "dontShowIf": {
-                            "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
-                              "$exists": true
-                            },
-                            "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
-                              "$exists": true
-                            },
-                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "date": "{{repeater.attributes.PRI_GRP_APPLIED_DATE.value}}",
-                            "size": "xxs",
-                            "format": "[Applied on] Do MMM YY"
+                            "size": "xxs"
                           }
                         }
                       ]

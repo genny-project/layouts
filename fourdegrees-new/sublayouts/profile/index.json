@@ -31,8 +31,7 @@
                     "height": 400,
                     "screenHeight": 400,
                     "width": "100%",
-                    "source":
-                      "{{query.profile.attributes.PRI_IMAGE_URL.value}}"
+                    "source": "{{query.profile.attributes.PRI_IMAGE_URL.value}}"
                   },
                   "children": [
                     {
@@ -62,8 +61,7 @@
                                 {
                                   "component": "Heading",
                                   "props": {
-                                    "text":
-                                      "{{query.profile.attributes.PRI_FIRSTNAME.value}} {{query.profile.attributes.PRI_LASTNAME.value}}",
+                                    "text": "{{query.profile.attributes.PRI_FIRSTNAME.value}} {{query.profile.attributes.PRI_LASTNAME.value}}",
                                     "color": "white",
                                     "size": "xl"
                                   }
@@ -196,6 +194,8 @@
                         {
                           "component": "EventLink",
                           "props": {
+                            "flex": 1,
+                            "width": "100%",
                             "eventType": "ROUTE_CHANGE",
                             "value": "{{props.userID}}",
                             "to": "introduction",
@@ -298,19 +298,19 @@
                           }
                         }
                       },
-                    "repeat": "_query.requests",
+                      "repeat": "_query.requests",
                       "children": {
                         "component": "EventButton",
                         "props": {
                           "paddingX": 0,
                           "paddingY": 0,
                           "style": {
-                            "flex":1
+                            "flex": 1
                           },
                           "buttonCode": "START_INTRODUCTION",
                           "value": {
-                            "itemCode":"{{repeater.code}}",
-                            "userCode":"{{repeater.attributes.PRI_INTRODUCER_CODE.value}}"
+                            "itemCode": "{{repeater.code}}",
+                            "userCode": "{{repeater.attributes.PRI_INTRODUCER_CODE.value}}"
                           }
                         },
                         "children": [
@@ -413,7 +413,7 @@
                             "paddingY": 0,
                             "height": "100%",
                             "style": {
-                              "flex":1
+                              "flex": 1
                             },
                             "buttonCode": "CONNECT_TO_USER",
                             "value": {
@@ -487,7 +487,6 @@
                               ]
                             }
                           ]
-
                         }
                       ]
                     }
@@ -499,7 +498,9 @@
                     "flex": 1,
                     "flexDirection": "column",
                     "paddingX": 20,
-                    "paddingY": 10
+                    "paddingY": 10,
+                    "backgroundColor": "white",
+                    "marginTop": 10
                   },
                   "children": [
                     {
@@ -957,7 +958,9 @@
               "component": "Box",
               "props": {
                 "flex": 1,
-                "paddingY": 10
+                "paddingY": 10,
+                "backgroundColor": "white",
+                "marginY": 10
               },
               "children": [
                 {
@@ -965,6 +968,8 @@
                   "props": {
                     "scrollEnabled": true,
                     "showDots": true,
+                    "tabsPosition": "top",
+                    "dotsPosition": "bottom",
                     "restrictSceneHeights": true,
                     "activeTabBackground": "#202532",
                     "tabBarBackground": "white",
@@ -977,6 +982,14 @@
                     },
                     "sceneProps": {
                       "marginTop": 0
+                    },
+                    "tabBarProps": {
+                      "marginBottom": 5
+                    },
+                    "dotProps": {
+                      "containerPadding": {
+                        "paddingY":0
+                      }
                     },
                     "tabs": [
                       {
@@ -1018,53 +1031,89 @@
                   },
                   "children": [
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.skills",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.skills",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.services",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.services",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.products",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.products",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.interests",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.interests",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.groups",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.groups",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.employment",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.employment",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     },
                     {
-                      "component": "Sublayout",
-                      "props": {
-                        "layoutName": "profile/profile.education",
-                        "userID": "{{props.userID}}"
-                      }
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Sublayout",
+                          "props": {
+                            "layoutName": "profile/profile.education",
+                            "userID": "{{props.userID}}"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1145,11 +1194,11 @@
       }
     },
     {
-      "operator":"scope",
+      "operator": "scope",
       "path": "requests",
       "scope": {
-        "operator":"find",
-        "query":{
+        "operator": "find",
+        "query": {
           "attributes.PRI_CREATOR_CODE.value": {
             "$eq": "{{user.data.code}}"
           }
@@ -1157,11 +1206,11 @@
       }
     },
     {
-      "operator":"scope",
+      "operator": "scope",
       "path": "requests",
       "scope": {
-        "operator":"find",
-        "query":{
+        "operator": "find",
+        "query": {
           "attributes.PRI_RECIPIENT_CODE.value": {
             "$eq": "{{props.userID}}"
           }
@@ -1169,16 +1218,16 @@
       }
     },
     {
-      "operator":"scope",
-      "path":"requests",
+      "operator": "scope",
+      "path": "requests",
       "as": "introducerBe",
-      "scope":{
-         "operator":"findOne",
-         "query":{
-            "attributes.PRI_INTRODUCER_CODE.value":{
-               "$exists":true
-            }
-         }
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "attributes.PRI_INTRODUCER_CODE.value": {
+            "$exists": true
+          }
+        }
       }
     },
     {

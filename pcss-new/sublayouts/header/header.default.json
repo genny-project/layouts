@@ -1,0 +1,129 @@
+{
+    "barStyle": "light-content",
+    "renderHeader": {
+      "component": "Box",
+      "props": {
+        "justifyContent": "space-between",
+        "alignItems": "center",
+        "height": 65,
+        "paddingLeft": 20,
+        "paddingRight": 10,
+        "backgroundColor": "#e05b5b"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "white"
+              },
+              "children": "{{title}}"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Touchable",
+              "props": {
+                "paddingX": 10,
+                "paddingY": 15,
+                "withFeedback": true
+              },
+              "children": [
+                {
+                  "component": "Icon",
+                  "props": {
+                    "name": "notifications",
+                    "color": "white"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Touchable",
+              "props": {
+                "paddingX": 10,
+                "paddingY": 15,
+                "withFeedback": true
+              },
+              "children": [
+                {
+                  "component": "Icon",
+                  "props": {
+                    "name": "chat",
+                    "color": "white"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Touchable",
+              "props": {
+                "paddingX": 10,
+                "paddingY": 15,
+                "withFeedback": true
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 10
+                      },
+                      "children": [
+                        {
+                          "component": "ActivityIndicator",
+                          "dontShowIf": {
+                            "user.attributes.PRI_FIRSTNAME.value": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "color": "white",
+                            "size": "small"
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "onlyShowIf": {
+                            "user.attributes.PRI_FIRSTNAME.value": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "color": "white",
+                            "text": "{{user.attributes.PRI_FIRSTNAME.value}}"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "expand_more",
+                        "color": "white",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

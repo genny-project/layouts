@@ -2,158 +2,76 @@
   "children": [
     {
       "component": "Box",
+      "dontShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
       "props": {
-        "flexDirection": "column",
+        "flex": 1,
         "width": "100%",
-        "backgroundColor": "#f6f6f6",
-        "padding": 20
+        "justifyContent": "center",
+        "alignItems": "center",
+        "flexDirection": "column"
       },
       "children": [
         {
           "component": "Box",
-          "dontShowIf": {
-            "query.items": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
           "props": {
-            "flex": 1,
-            "width": "100%",
-            "justifyContent": "center",
-            "alignItems": "center"
+            "marginBottom": 10
           },
           "children": [
             {
-              "component": "ActivityIndicator",
+              "component": "Heading",
               "props": {
-                "size": "large"
+                "text": "No internship selected",
+                "align": "center"
               }
             }
           ]
         },
         {
-          "component": "Container",
-          "onlyShowIf": {
-            "query.items": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
+          "component": "Text",
           "props": {
-            "flexDirection": "column",
-            "maxWidth": 700
-          },
-          "repeat": "_query.items",
-          "children": {
-            "component": "Link",
-            "props": {
-              "to": "internships/{{repeater.code}}",
-              "marginBottom": 20,
-              "padding": 20,
-              "backgroundColor": "#ffffff",
-              "withFeedback": true,
-              "hoverProps": {
-                "style": {
-                  "transform": [
-                    { "scale": 1.02 }
-                  ]
-                }
-              }
-            },
-            "children": {
-              "component": "Box",
-              "props": {
-                "width": "100%"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginRight": 20,
-                    "flexShrink": 0
-                  },
-                  "children": [
-                    {
-                      "component": "Image",
-                      "props": {
-                        "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
-                        "height": 100,
-                        "width": 100
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "flexDirection": "column",
-                    "flex": 1,
-                    "backgroundColor": "#ffffff"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginBottom": 5
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "bold": true
-                          },
-                          "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{repeater.attributes.PRI_NAME.value}}"
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginTop": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "size": "xs"
-                          },
-                          "children": "{{repeater.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
+            "text": "Please select an active internship to the left",
+            "align": "center"
           }
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "onlyShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "layoutName": "internship/details",
+        "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
+        "companyName": "{{query.internship.company.attributes.PRI_NAME.value}}",
+        "companyEmail": "{{query.internship.attributes.PRI_EMAIL.value}}",
+        "companyPhone": "{{query.internship.attributes.PRI_LANDLINE.value}}",
+        "internshipName": "{{query.internship.attributes.PRI_NAME.value}}",
+        "internshipAddress": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}",
+        "internshipStartDate": "{{query.internship.attributes.PRI_START_DATE.value}}",
+        "internshipDuration": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "internshipSkills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
+        "internshipDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
+        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
+        "createdOn": "{{query.internship.created}}"
+      }
     }
   ],
   "query": [
     {
-      "operator": "getLinks",
-      "id": "GRP_NEW_ITEMS",
-      "as": "items"
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
     },
     {
       "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "code"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
@@ -162,7 +80,7 @@
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "getBE",
         "id": "{{attributes.LNK_HOST_COMPANY.value}}",
@@ -171,7 +89,7 @@
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "scope",
         "path": "company",

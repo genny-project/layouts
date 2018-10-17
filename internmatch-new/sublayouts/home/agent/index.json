@@ -4,7 +4,8 @@
       "component": "Box",
       "props": {
         "width": "100%",
-        "flex": 1
+        "flex": 1,
+        "position": "relative"
       },
       "children": [
         {
@@ -53,6 +54,10 @@
               "children": [
                 {
                   "component": "Selection",
+                  "props": {
+                    "mode": "toggle",
+                    "selectFirstItemOnMount": true
+                  },
                   "repeat": "_query.items",
                   "children": {
                     "component": "EventTouchable",
@@ -64,21 +69,31 @@
                       },
                       "then": {
                         "borderLeftWidth": 5,
-                        "borderColor": "blue",
-                        "borderStyle": "solid"
+                        "borderColor": "#1597c5",
+                        "borderStyle": "solid",
+                        "buttonCode": "DESELECT_EVENT"
+                      },
+                      "else": {
+                        "buttonCode": "SELECT_EVENT"
                       }
                     },
                     "props": {
                       "key": "{{repeater.code}}",
                       "withFeedback": true,
                       "showSpinnerOnClick": false,
-                      "buttonCode": "SELECT_EVENT",
                       "value": {
                         "hint": "GRP_NEW_ITEMS",
                         "itemCode": "{{repeater.code}}"
                       },
                       "flexDirection": "column",
-                      "onPress": "_selection.onSelect"
+                      "onPress": "_selection.onSelect",
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_TOGGLE",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{repeater.code}}"
+                        }
+                      }
                     },
                     "children": [
                       {
@@ -128,14 +143,14 @@
           "component": "Tabs",
           "props": {
             "flex": 1,
-            "tabBarBackground": "#303338",
+            "tabBarBackground": "#233a4e",
             "tabWrapperProps": {
               "paddingLeft": 20,
               "height": 50,
               "flexBasis": "auto"
             },
             "textColor": "#FFF",
-            "tabBackground": "#4c4d52",
+            "tabBackground": "#41505d",
             "activeTabBackground": "#f6f6f6",
             "activeTabTextColor": "#000",
             "tabProps": {
@@ -151,7 +166,7 @@
               "bold": true
             },
             "inactiveTabProps": {
-              "borderColor": "#303338",
+              "borderColor": "#233a4e",
               "borderRightWidth": 1,
               "borderStyle": "solid"
             },
@@ -160,9 +175,11 @@
               { "title": "Internship Details", "key": 1 }
             ],
             "childProps": {
-              "overflowX": "auto"
+              "overflow": "auto",
+              "maxHeight": "calc(100vh - 65px - 50px)"
             },
-            "overflowX": "auto"
+            "overflowX": "auto",
+            "backgroundColor": "#f6f6f6"
           },
           "children": [
             {

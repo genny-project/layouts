@@ -1,11 +1,8 @@
 {
   "layout": {
-    "title": "Login",
+    "title": "login",
     "appColor": "white",
-    "backgroundColor": "white",
-    "header": {
-      "variant": "public-transparent"
-    }
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -14,11 +11,15 @@
         "barStyle": "light-content"
       }
     },
+   
     {
       "component": "KeyboardAwareScrollView",
       "props": {
         "style": {
-          "flex": 1
+          "flex": 1,
+          "position": "absolute",
+          "left": 0,
+          "right": 0
         },
         "contentContainerStyle": {
           "flex": 1
@@ -41,18 +42,15 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "alignItems": "center",
-                    "padding": 50
+                    "alignItems": "center"
                   },
                   "children": [
                     {
-                        "component": "Image",
-                        "props": {
-                            "height": 100,
-                            "width": 400,
-                            "top": 50,
-                            "source": "http://www.rms.nsw.gov.au/assets/images/logo.png"
-                        }
+                      "component": "Image",
+                      "props": {
+                        "source": "https://bouncer.outcome-hub.com/auth/resources/3.4.0.final/login/pcss/img/logo.png",
+                        "width": "50%"
+                      }
                     }
                   ]
                 },
@@ -64,14 +62,6 @@
                     "flexDirection": "column"
                   },
                   "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "size": "xxl",
-                        "bold": false
-                      },
-                      "children": "Enter your details"
-                    },
                     {
                       "component": "Box",
                       "props": {
@@ -112,11 +102,15 @@
                                           "variant": "default",
                                           "props": {
                                             "type": "text",
-                                            "placeholder": "Username",
+                                            "placeholder": "email address",
                                             "name": "username",
-                                            "borderColor": "lightgray",
+                                            "icon": "email",
+                                            "borderColor": "#505050",
                                             "borderWidth": 1,
-                                            "borderRadius": 3
+                                            "borderRadius": 4,
+                                            "height": 50,
+                                            "textAlign": "center",
+                                            "backgroundColor": "#F1F1F1"
                                           }
                                         }
                                       ]
@@ -135,12 +129,55 @@
                                             "type": "password",
                                             "placeholder": "Password",
                                             "name": "password",
-                                            "borderColor": "lightgray",
+                                            "icon": "lock",
+                                            "borderColor": "#505050",
                                             "borderWidth": 1,
-                                            "borderRadius": 3
+                                            "height": 50,
+                                            "borderRadius": 3,
+                                            "textAlign": "center",
+                                            "backgroundColor": "#F1F1F1"
                                           }
                                         }
                                       ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginBottom": 20
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "FormGenericInput",
+                                      "useThemeFrom": "Input",
+                                      "props": {
+                                        "type": "checkbox",
+                                        "items": [" Remember Me "],     
+                                        "value": "rememberme"
+                                       
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "LinkButton",
+                                      "props": {
+                                        "text": "Forgot Password",
+                                        "textColor": "#6a6c6c",
+                                        "height": "30px",
+                                        "width": "150px",
+                                        "to": "resetPassword",
+                                        "hoverProps": {
+                                          "textColor": "#D34545"
+                                        }
+                                      }
                                     }
                                   ]
                                 },
@@ -178,11 +215,17 @@
                                         }
                                       ]
                                     },
+                                    
                                     {
                                       "component": "FormGenericSubmit",
                                       "props": {
-                                        "text": "Next",
-                                        "inverted": true
+                                        "text": "Login",
+                                        "color": "#ea032a",
+                                        "textColor": "#fff",
+                                        "hoverProps": {
+                                          "color": "#D34545",
+                                          "textColor": "#ffffff"
+                                        }
                                       }
                                     }
                                   ]
