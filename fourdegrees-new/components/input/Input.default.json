@@ -9,5 +9,182 @@
     "borderColor": "#FFF"
   },
   "color": "#FFF",
-  "autoCapitalize": "none"
+  "autoCapitalize": "none",
+  "typeOnlyProps": {
+    "segmentedcontrol": {
+      "borderWidth": 2,
+      "borderStyle": "solid",
+      "borderColor": "#202532",
+      "color": "#202532",
+      "activeStyling": {
+        "color": "white",
+        "backgroundColor": "#202532"
+      }
+    },
+    "tag": {
+      "tagsWrapperProps": {
+        "flexWrap": "nowrap",
+        "flexDirection": "column"
+      },
+      "renderTag": {
+        "component": "Box",
+        "props": {
+          "flexDirection": "row",
+          "flex": 1,
+          "padding": 20,
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "marginBottom": 5
+        },
+        "children": [
+          {
+            "component": "Box",
+            "props": {
+              "marginRight": 20,
+              "alignItems": "center"
+            },
+            "children": [
+              {
+                "component": "Image",
+                "props": {
+                  "source": "{{asdasd}}",
+                  "shape": "circle",
+                  "width": 50,
+                  "height": 50
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "flex": 1
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "color": "black",
+                  "text": "{{item.label}}",
+                  "size": "xs"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "marginleft": 20,
+              "alignItems": "center"
+            },
+            "children": [
+              {
+                "component": "Touchable",
+                "props": {
+                  "withFeedback": true,
+                  "onPress": "_onPress"
+                },
+                "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "clear",
+                      "color": "grey"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "renderSuggestion": {
+        "component": "Box",
+        "props": {
+          "flexDirection": "row",
+          "flex": 1,
+          "padding": 20,
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderBottomWidth": 2,
+          "borderBottomStyle": "solid",
+          "borderColor": "lightgrey"
+        },
+        "children": [
+          {
+            "component": "Box",
+            "props": {
+              "marginRight": 20,
+              "alignItems": "center"
+            },
+            "children": [
+              {
+                "component": "Image",
+                "props": {
+                  "source": "{{asdasd}}",
+                  "shape": "circle",
+                  "width": 50,
+                  "height": 50
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "flex": 1
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "color": "black",
+                  "text": "{{item.label}}",
+                  "size": "xs"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "marginleft": 20,
+              "alignItems": "center",
+              "justifyContent": "center",
+              "borderRadius": 15,
+              "borderWidth": 2,
+              "borderColor": "#202532",
+              "borderStyle": "solid",
+              "width": 30,
+              "height": 30
+            },
+            "conditional": {
+              "if": {
+                "item.selected": {
+                  "$eq": true
+                }
+              },
+              "then": {
+                "backgroundColor": "#202532"
+              }
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "onlyShowIf": {
+                  "item.selected": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "name": "done",
+                  "color": "white"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }
