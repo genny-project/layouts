@@ -1,0 +1,93 @@
+{
+  "borderBottomWidth": 2,
+  "borderBottomStyle": "solid",
+  "borderColor": "#6A6A6A",
+  "transition": "300ms ease border",
+  "paddingX": 5,
+  "paddingY": 10,
+  "activeStyling": {
+    "borderColor": "#FFF"
+  },
+  "color": "#FFF",
+  "autoCapitalize": "none",
+  "typeOnlyProps": {
+    "tag": {
+      "allowNewTags": false,
+      "allowMultipleSelection": true,
+      "tagsWrapperProps": {
+        "flexWrap": "nowrap",
+        "flexDirection": "column"
+      },
+      "renderTag": {
+        "component": "Sublayout",
+        "props": {
+          "layoutName": "cards/dropdown/dropdown.card",
+          "item": "_item",
+          "onPress": "_onPress",
+          "iconComponent": {
+            "component": "Touchable",
+            "renderAsComponent": true,
+            "props": {
+              "withFeedback": true,
+              "onPress": "_props.onPress"
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "props": {
+                  "name": "clear",
+                  "color": "grey"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "renderSuggestion": {
+        "component": "Sublayout",
+        "props": {
+          "layoutName": "cards/dropdown/dropdown.card",
+          "item": "_item",
+          "iconComponent": {
+            "component": "Box",
+            "renderAsComponent": true,
+            "props": {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "borderRadius": 15,
+              "borderWidth": 2,
+              "borderColor": "#202532",
+              "borderStyle": "solid",
+              "width": 30,
+              "height": 30
+            },
+            "conditional": {
+              "if": {
+                "props.item.selected": {
+                  "$eq": true
+                }
+              },
+              "then": {
+                "backgroundColor": "#202532"
+              }
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "onlyShowIf": {
+                  "props.item.selected": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "name": "done",
+                  "color": "white"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

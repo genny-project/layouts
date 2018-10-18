@@ -71,6 +71,20 @@
             },
             "children": {
               "component": "Link",
+              "conditional": {
+                "if": {
+                  "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                    "$exists": true,
+                    "$ne": "undefined"
+                  }
+                },
+                "then": {
+                  "to": "application/{{repeater.code}}"
+                },
+                "else": {
+                  "to": "student/{{repeater.code}}"
+                }
+              },
               "props": {
                 "width": "100%",
                 "backgroundColor": "#ffffff",
@@ -87,8 +101,7 @@
                     ]
                   }
                 },
-                "key": "{{repeater.code}}",
-                "to": "student/{{repeater.code}}"
+                "key": "{{repeater.code}}"
               },
               "children": [
                 {
