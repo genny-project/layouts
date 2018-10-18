@@ -1,0 +1,85 @@
+{
+  "layout": {
+    "title": "Profile Employment",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "row",
+        "flex": 1,
+        "padding": 20,
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "marginBottom": 5
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginRight": 20,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Image",
+              "props": {
+                "source": "{{query.attributes.PRI_IMAGE_URL.value}}",
+                "shape": "circle",
+                "width": 50,
+                "height": 50
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Text",
+              "conditional": {
+                "if": {
+                  "props.item.selected" : {
+                    "$eq": true
+                  }
+                },
+                "then": {
+                  "fontWeight": "bold"
+                }
+              },
+              "props": {
+                "color": "black",
+                "text": "{{query.attributes.PRI_FIRSTNAME.value}} {{query.attributes.PRI_LASTNAME.value}}",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "marginleft": 20,
+            "alignItems": "center"
+          },
+          "children":"_props.iconComponent"
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.item.value}}",
+      "as": "be"
+    },
+    {
+      "operator": "populateAttributes",
+      "code": "{{props.item.value}}",
+      "as": "attributes"
+    }
+  ]
+}
