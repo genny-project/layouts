@@ -4,17 +4,24 @@
       "component": "Box",
       "children": {
         "component": "Box",
+        "props": {
+          "padding": "20px"
+        },
         "children": [
           {
             "component": "Map",
             "props": {
-              "zoom": 3,
-              "height": "400px",
-              "width": "800px"
+              "zoom": 5,
+              "height": "100%",
+              "width": "1200px"
             },
             "repeat": "_query.items",
             "repeatCopiesPropsOntoRecursive": true,
             "children": {
+              "onlyShowIf": {
+                "repeater.attributes.PRI_ADDRESS_LATITUDE.valueDouble": { "$exists": true },
+                "repeater.attributes.PRI_ADDRESS_LONGITUDE.valueDouble": { "$exists": true }
+              },
               "component": "Marker",
               "props": {
                 "lat": "_repeater.attributes.PRI_ADDRESS_LATITUDE.valueDouble",

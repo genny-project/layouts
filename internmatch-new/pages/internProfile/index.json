@@ -11,60 +11,39 @@
     "component": "Container",
     "props": {
       "flexDirection" : "column",
-      "marginTop":"20px"
+      "justifyContent": "center",
+      "marginTop":"20px",
+      "minWIdth": "900px"
     },
     "children": [
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "column",
-          "justifyContent":"center"
-        },
-        "children": [
           {
             "component": "Box",
             "props": {
-              "flexDirection": "row",
-              "justifyContent":"center"
+              "flexDirection": "column",
+              "alignItems": "center",
+              "width":"100%"
             },
             "children": [
               {
                 "component": "Text",
                 "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
                   "color":"#000000",
                   "size":"xl",
                   "bold": true
                 },
                 "children": "Profile Details"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "paddingTop": "20px",
-              "padddingBottom": "10px",
-              "justifyContent":"center",
-              "flexDirection":"row"
-            },
-            "children": [
+              },
               {
                 "component": "Image",
                 "props": {
                   "source": "https://i.imgur.com/ziHkxPf.jpg",
-                  "justifyContent":"center",
-                  "flexDirection":"column",
                   "shape": "square",
                   "height":150,
                   "width":150
                 }
               }
             ]
-          }
-        ]
-      },
+          },
       {
         "component": "Box",
         "props": {
@@ -123,6 +102,7 @@
           "justifyContent":"space-around",
           "height":50,
           "marginTop":"5px",
+          "width":"100%",
           "backgroundColor":"#f5f5f5"
         },
         "children": [
