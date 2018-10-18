@@ -1,9 +1,14 @@
 {
   "layout": {
-    "title": "Agencies Table View",
+    "title": "Education Providers",
     "appColor": "white",
-    "backgroundColor": "black"
-  },
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }  },
   "children": [
     {
       "component": "Box",
@@ -13,43 +18,34 @@
           "props": {
             "columns": [
               {
-                "Header": "Actions",
+                "Header": "Acions",
                 "accessor": "actions",
-                "editable": true,
-                "buttonComponent": [
-                  {
-                    "text": "Edit",
-                    "layoutName": "user-profile"
-                  },
-                  {
-                    "text": "View",
-                    "layoutName": "user-profile"
-                  }
-              ]
+                "id": "actions",
+                "key": "actions"
               },
               {
                 "Header": "Company Name",
                 "accessor": "companyName",
-                "editable": true
+                "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "email",
-                "editable": true
+                "filterType": "string"
               },
               {
                 "Header": "Phone Number",
                 "accessor": "phoneNumber",
-                "editable": true
+                "filterType": "string"
               },
               {
-                "Header": "Full Address" ,
+                "Header": "Address ",
                 "accessor": "fullAddress",
-                "editable": true
+                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#cccccc",
-            "data1": "_query.tableData",
+            "data": "_query.tableData",
             "height": "500px",
             "width": "500px",
             "itemsPerPage": 15
