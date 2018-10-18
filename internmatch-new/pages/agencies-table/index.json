@@ -1,9 +1,14 @@
 {
   "layout": {
-    "title": "HC  View",
+    "title": "Education Providers",
     "appColor": "white",
-    "backgroundColor": "black"
-  },
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }  },
   "children": [
     {
       "component": "Box",
@@ -34,7 +39,7 @@
                 "filterType": "string"
               },
               {
-                "Header": "Full Address" ,
+                "Header": "Address ",
                 "accessor": "fullAddress",
                 "filterType": "string"
               }
@@ -53,12 +58,12 @@
     {
       "operator": "getBE",
       "id": "GRP_AGENCIES",
-      "as": "hostCompanies"
+      "as": "agencies"
     },
     {
       "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
+      "path": "agencies.links",
+      "as": "agencies",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.attributes",
@@ -68,7 +73,7 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "agencies",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -80,7 +85,7 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "agencies",
       "scope": {
         "operator": "getBE",
         "as" : "company",
@@ -90,7 +95,7 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "agencies",
       "as": "tableData",
       "scope": {
         "operator": "map",
