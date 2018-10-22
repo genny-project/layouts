@@ -61,34 +61,54 @@
               "component": "Box",
               "props": {
                 "marginBottom": 20,
-                "flexDirection": "column",
-                "borderWidth": 2
+                "flexDirection": "column"
               }
+            },
+            "renderFormInputLabel": {
+              "component": "Box",
+              "props": {
+                "marginBottom": 10,
+                "marginLeft": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{label}}"
+                  }
+                }
+              ]
             },
             "renderFormInput": {
               "component": "FormInput",
-              "useThemeFrom": "Input",
-              "variant": "default",
               "props": {
-                "placeholder": "{{label}}"
+                "placeholder": "{{label}}",
+                "paddingX": 20,
+                "paddingY": 15,
+                "borderRadius": 30,
+                "borderWidth": 1,
+                "borderColor": "#233a4e",
+                "borderStyle": "solid"
               }
             },
             "renderSubmitButtonWrapper": {
               "component": "Box",
               "props": {
                 "marginTop": 10,
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "width": "100%"
               }
             },
             "renderSubmitButton": {
               "component": "EventButton",
               "props": {
-                "inverted": true,
                 "showSpinnerOnClick": true,
-                "color": "#222",
+                "color": "#1597c5",
+                "textColor": "white",
+                "width": "100%",
+                "borderRadius": 30,
                 "hoverProps": {
-                  "color": "#093f7f",
-                  "textColor": "white"
+                  "color": "#10799e"
                 }
               }
             },
