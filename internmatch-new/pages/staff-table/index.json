@@ -1,8 +1,14 @@
 {
   "layout": {
-    "title": "Table View",
+    "title": "Staffs",
     "appColor": "white",
-    "backgroundColor": "#0d0d0d"
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
   },
   "children": [
     {
@@ -15,13 +21,6 @@
               {
                 "Header": "Full Name",
                 "accessor": "fullName",
-                "id": "firstName",
-                "key": "firstName",
-                "filterType": "string"
-              },
-              {
-                "Header": "Edu Provider",
-                "accessor": "eduProvider",
                 "filterType": "string"
               },
               {
@@ -77,22 +76,12 @@
     {
       "operator": "scope",
       "path": "staffs",
-      "scope": {
-        "operator": "getBE",
-        "as" : "company",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "staffs",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
+          
           "fullName": "be.attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
           "email": "be.attributes.PRI_USERNAME.value"
         }
