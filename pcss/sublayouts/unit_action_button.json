@@ -10,7 +10,7 @@
                   {  
                      "style":{  
                         "flexGrow":1,
-                        "flexWrap":"nowrap"
+                        "flexWrap":"nowrap" 
                      }
                   },
                   1
@@ -128,7 +128,7 @@
                                           "buttonStyle":{  
                                              "background":"grey"
                                           },
-                                          "children":"Send Email",
+                                          "children":"Contact By Email",
                                           "buttonCode":"",
                                           "value":{  
                                              "itemCode":"BE.code",
@@ -181,7 +181,7 @@
                                           "buttonStyle":{  
                                              "background":"green"
                                           },
-                                          "children":"Send Email",
+                                          "children":"Contact By Email",
                                           "buttonCode":"BTN_SEND_EMAIL",
                                           "value":{  
                                              "itemCode":"BE.code",
@@ -226,7 +226,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Contacted By Phone",
+                                 "children":"Contact By Phone",
                                  "buttonCode":"BTN_CONTACTED_PHONE",
                                  "value":{  
                                     "itemCode":"BE.code",
@@ -268,7 +268,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Contacted by Letter",
+                                 "children":"Contact By Letter",
                                  "buttonCode":"BTN_CONTACTED_LETTER",
                                  "value":{  
                                     "itemCode":"BE.code",
@@ -310,7 +310,7 @@
                                  "buttonStyle":{  
                                     "background":"green"
                                  },
-                                 "children":"Contacted by site visit",
+                                 "children":"Contact by Site Visit",
                                  "buttonCode":"BTN_CONTACTED_SITE_VISIT",
                                  "value":{  
                                     "itemCode":"BE.code",
@@ -436,20 +436,63 @@
                                  "showIfNotNull":true,
                                  "children":[  
                                     {  
-                                       "GennyButton":{  
-                                          "style":{  
-                                             "height":"30px",
-                                             "marginTop":"10px"
-                                          },
-                                          "buttonStyle":{  
-                                             "background":"green"
-                                          },
-                                          "children":"Send Email Again",
-                                          "buttonCode":"BTN_SEND_EMAIL_AGAIN",
-                                          "value":{  
-                                             "itemCode":"BE.code",
-                                             "hint":"ROOT"
-                                          }
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                          ],
+                                          "showValues":[  
+                                             1,
+                                             "1"
+                                          ],
+                                          "children":[  
+                                             {  
+                                                "GennyButton":{  
+                                                   "style":{  
+                                                      "height":"30px",
+                                                      "marginTop":"10px"
+                                                   },
+                                                   "buttonStyle":{  
+                                                      "background":"green"
+                                                   },
+                                                   "children":"Recontact By Email",
+                                                   "buttonCode":"BTN_SEND_EMAIL_AGAIN",
+                                                   "value":{  
+                                                      "itemCode":"BE.code",
+                                                      "hint":"ROOT"
+                                                   }
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {  
+                                       "Selector":{  
+                                          "checkValues":[  
+                                             "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                          ],
+                                          "showValues":[  
+                                             2,
+                                             "2"
+                                          ],
+                                          "children":[  
+                                             {  
+                                                "GennyButton":{  
+                                                   "style":{  
+                                                      "height":"30px",
+                                                      "marginTop":"10px"
+                                                   },
+                                                   "buttonStyle":{  
+                                                      "background":"green"
+                                                   },
+                                                   "children":"Recontact By Email",
+                                                   "buttonCode":"BTN_SEND_EMAIL_THIRD",
+                                                   "value":{  
+                                                      "itemCode":"BE.code",
+                                                      "hint":"ROOT"
+                                                   }
+                                                }
+                                             }
+                                          ]
                                        }
                                     }
                                  ]
@@ -497,7 +540,7 @@
                                           "buttonStyle":{  
                                              "background":"grey"
                                           },
-                                          "children":"Send Email Again",
+                                          "children":"Recontact By Email",
                                           "buttonCode":"",
                                           "value":{  
                                              "itemCode":"BE.code",
@@ -534,20 +577,288 @@
                         ],
                         "children":[  
                            {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Contact Again",
-                                 "buttonCode":"BTN_CONTACTED_AGAIN",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    1,
+                                    "1"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Phone",
+                                          "buttonCode":"BTN_CONTACTED_PHONE_AGAIN",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    2,
+                                    "2"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Phone",
+                                          "buttonCode":"BTN_CONTACTED_PHONE_THIRD",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    1,
+                                    "1"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Letter",
+                                          "buttonCode":"BTN_CONTACTED_LETTER_AGAIN",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    2,
+                                    "2"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Letter",
+                                          "buttonCode":"BTN_CONTACTED_LETTER_THIRD",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    1,
+                                    "1"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Site Visit",
+                                          "buttonCode":"BTN_CONTACTED_SITE_VISIT_AGAIN",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    2,
+                                    "2"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Recontact By Site Visit",
+                                          "buttonCode":"BTN_CONTACTED_SITE_VISIT_THIRD",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_CONTACTED"
+                        ],
+                        "children":[  
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.PRI_NUMBER_OF_TIMES_CONTACTED"
+                                 ],
+                                 "showValues":[  
+                                    3,
+                                    "3"
+                                 ],
+                                 "children":[  
+                                    {  
+                                       "GennyButton":{  
+                                          "style":{  
+                                             "height":"30px",
+                                             "marginTop":"10px"
+                                          },
+                                          "buttonStyle":{  
+                                             "background":"green"
+                                          },
+                                          "children":"Uncontactable",
+                                          "buttonCode":"BTN_MOVE_TO_UNCONTACTABLE",
+                                          "value":{  
+                                             "itemCode":"BE.code",
+                                             "hint":"ROOT"
+                                          }
+                                       }
+                                    }
+                                 ]
                               }
                            }
                         ]
@@ -580,7 +891,7 @@
                                  "checkValues":[  
                                     "BE.PRI_INSPECTION_DATETIME"
                                  ],
-                                 "showIfNotNull":true,
+                                 "showIfNull":true,
                                  "children":[  
                                     {  
                                        "GennyButton":{  
@@ -600,90 +911,6 @@
                                        }
                                     }
                                  ]
-                              }
-                           }
-                        ]
-                     }
-                  }
-               ]
-            }
-         },
-         {  
-            "Selector":{  
-               "checkValues":[  
-                  "USER.PRI_IS_BUYER"
-               ],
-               "showValues":[  
-                  true,
-                  "true"
-               ],
-               "children":[  
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_INSPECTION"
-                        ],
-                        "children":[  
-                           {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Upload PCS Report",
-                                 "buttonCode":"BTN_UPLOAD_REPORT",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  }
-               ]
-            }
-         },
-         {  
-            "Selector":{  
-               "checkValues":[  
-                  "USER.PRI_IS_BUYER"
-               ],
-               "showValues":[  
-                  true,
-                  "true"
-               ],
-               "children":[  
-                  {  
-                     "Selector":{  
-                        "checkValues":[  
-                           "ROOT"
-                        ],
-                        "showValues":[  
-                           "GRP_INSPECTION"
-                        ],
-                        "children":[  
-                           {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Upload Other Media",
-                                 "buttonCode":"BTN_COMPLETED",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
                               }
                            }
                         ]
@@ -755,6 +982,108 @@
                         "children":[  
                            {  
                               "GennyButton":{  
+                                 "enabled": false,
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"gray"
+                                 },
+                                 "children":"Upload Building Condition Report",
+                                 "buttonCode":"BTN_UPLOAD_REPORT",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           },
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Inspection Completed",
+                                 "buttonCode":"BTN_MOVE_PROPERTY_TO_SIGNED_OFF",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_DONTEXIST"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
+                                 "style":{  
+                                    "height":"30px",
+                                    "marginTop":"10px"
+                                 },
+                                 "buttonStyle":{  
+                                    "background":"green"
+                                 },
+                                 "children":"Upload Other Media",
+                                 "buttonCode":"BTN_COMPLETED",
+                                 "value":{  
+                                    "itemCode":"BE.code",
+                                    "hint":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         {  
+            "Selector":{  
+               "checkValues":[  
+                  "USER.PRI_IS_BUYER"
+               ],
+               "showValues":[  
+                  true,
+                  "true"
+               ],
+               "children":[  
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_DONTEXIST"
+                        ],
+                        "children":[  
+                           {  
+                              "GennyButton":{  
                                  "style":{  
                                     "height":"30px",
                                     "marginTop":"10px"
@@ -795,23 +1124,58 @@
                            "GRP_SIGNOFF"
                         ],
                         "children":[  
-                           {  
-                              "GennyButton":{  
-                                 "style":{  
-                                    "height":"30px",
-                                    "marginTop":"10px"
-                                 },
-                                 "buttonStyle":{  
-                                    "background":"green"
-                                 },
-                                 "children":"Completed",
-                                 "buttonCode":"BTN_COMPLETED",
-                                 "value":{  
-                                    "itemCode":"BE.code",
-                                    "hint":"ROOT"
-                                 }
-                              }
-                           }
+                            {  
+                                "GennyButton":{  
+                                    "style":{  
+                                        "height":"30px",
+                                        "marginTop":"10px"
+                                    },
+                                    "buttonStyle":{  
+                                        "background": "green"
+                                    },
+                                    "children":"Report Prepared",
+                                    "buttonCode":"BTN_MARK_REPORT_AS_PREPARED",
+                                    "value":{  
+                                        "itemCode":"BE.code",
+                                        "hint":"ROOT"
+                                    }
+                                }
+                            },
+                            {  
+                                "GennyButton":{  
+                                    "style":{  
+                                        "height":"30px",
+                                        "marginTop":"10px"
+                                    },
+                                    "buttonStyle":{  
+                                        "background": "green"
+                                    },
+                                    "children":"Report Released",
+                                    "buttonCode":"BTN_MARK_REPORT_AS_RELEASED",
+                                    "value":{  
+                                        "itemCode":"BE.code",
+                                        "hint":"ROOT"
+                                    }
+                                }
+                            },
+                            {  
+                                "GennyButton":{  
+                                    "style":{  
+                                        "height":"30px",
+                                        "marginTop":"10px"
+                                    },
+                                    "buttonStyle":{  
+                                        "background": "gray"
+                                    },
+                                    "enabled": false,
+                                    "children":"Upload Condition Report",
+                                    "buttonCode":"BTN_UPLOAD_REPORT",
+                                    "value":{  
+                                        "itemCode":"BE.code",
+                                        "hint":"ROOT"
+                                    }
+                                }
+                            }
                         ]
                      }
                   }
