@@ -1126,7 +1126,7 @@
                         "children":[  
                             {
                                 "Selector": {
-                                    "checkValues": "PRI_IS_REPORT_PREPARED",
+                                    "checkValues": "BE.PRI_IS_REPORT_PREPARED",
                                     "showIfNull": true,
                                     "children":[
                                         {  
@@ -1152,7 +1152,32 @@
                             },
                             {
                                 "Selector": {
-                                    "checkValues": "PRI_IS_REPORT_RELEASED",
+                                    "checkValues": "BE.PRI_IS_REPORT_PREPARED",
+                                    "showValues": [true, "true"],
+                                    "children":[
+                                        {  
+                                            "GennyButton":{  
+                                                "style":{  
+                                                    "height":"30px",
+                                                    "marginTop":"10px"
+                                                },
+                                                "buttonStyle":{  
+                                                    "background": "green"
+                                                },
+                                                "children":"Report Prepared",
+                                                "buttonCode":"BTN_MARK_REPORT_AS_PREPARED",
+                                                "value":{  
+                                                    "itemCode":"BE.code",
+                                                    "hint":"ROOT"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Selector": {
+                                    "checkValues": "BE.PRI_IS_REPORT_RELEASED",
                                     "showIfNull": true,
                                     "children":[
                                         {  
@@ -1178,7 +1203,7 @@
                             },
                             {
                                 "Selector": {
-                                    "checkValues": "PRI_IS_REPORT_RELEASED",
+                                    "checkValues": "BE.PRI_IS_REPORT_RELEASED",
                                     "showValues": ["true", true],
                                     "children":[
                                         {  
