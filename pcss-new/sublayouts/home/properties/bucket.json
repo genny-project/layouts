@@ -6,13 +6,13 @@
         "flexDirection": "column",
         "alignItems": "center",
         "justifyContent": "center",
-        "flex": 1
+        "flex": 1,
+        "padding": 20
       },
       "children": [
         {
           "component": "BucketView",
           "props": {
-            "padding": 20,
             "tabBarSize": "md",
             "backgroundColor": "#f6f6f6",
             "tabBarBackground": "#3f3f3f",
@@ -25,7 +25,10 @@
             },
             "overflowX": "auto",
             "width": "100%",
-            "gutter": 20
+            "gutter": 20,
+            "contentProps": {
+              "minWidth": 240
+            }
           },
           "repeat": "_query",
           "children": {
@@ -33,7 +36,6 @@
             "repeat": "_repeater.items",
             "props": {
               "headerText": "{{repeater.name}}",
-              "minWidth": 240,
               "contentBackground": "#eaeaea",
               "headerProps": {
                 "paddingX": 20,
@@ -118,7 +120,7 @@
                     "repeater.company.attributes.PRI_IMAGE_URL.value": {
                       "$exists": true
                     },
-                    "repeater.property.attributes.PRI_ADDRESS_FULL.value": {
+                    "repeater.company.attributes.PRI_NAME.value": {
                       "$exists": true
                     },
                     "repeater.internship.attributes.PRI_NAME.value": {
@@ -253,59 +255,6 @@
       "scope": {
         "operator": "map",
         "fields": "be"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "{{attributes.PRI_BEG_CODE.value}}",
-        "as": "internship"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "internship",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "{{internship.attributes.LNK_HOST_COMPANY.value}}",
-        "as": "company"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "company",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
       }
     }
   ]

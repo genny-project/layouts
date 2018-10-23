@@ -4,14 +4,14 @@
       "component": "Tabs",
       "props": {
         "flex": 1,
-        "tabBarBackground": "#303338",
+        "tabBarBackground": "#e05b5b",
         "tabWrapperProps": {
-          "paddingLeft": 20,
-          "height": 50,
+          "paddingLeft": 0,
+          "height": 45,
           "flexBasis": "auto"
         },
         "textColor": "#FFF",
-        "tabBackground": "#4c4d52",
+        "tabBackground": "#e05b5b",
         "activeTabBackground": "#f6f6f6",
         "activeTabTextColor": "#000",
         "tabProps": {
@@ -27,17 +27,19 @@
           "bold": true
         },
         "inactiveTabProps": {
-          "borderColor": "#303338",
+          "borderColor": "#ffffff",
           "borderRightWidth": 1,
           "borderStyle": "solid"
         },
         "tabs": [
-          { "title": "Active Internships", "key": 0 },
-          { "title": "My Applications", "key": 1 },
+          { "title": "Identified Properties", "key": 0 },
+          { "title": "Process View", "key": 1 },
           { "title": "Map View", "key": 2 }
         ],
         "childProps": {
-          "overflowX": "auto"
+          "overflowX": "auto",
+          "overflowY": "auto",
+          "maxHeight": "calc(100vh - 50px - 65px)"
         },
         "overflowX": "auto"
       },
@@ -45,19 +47,19 @@
         {
           "component": "Sublayout",
           "props": {
-            "layoutName": "home/intern/internships"
+            "layoutName": "home/properties/properties"
           }
         },
         {
           "component": "Sublayout",
           "props": {
-            "layoutName": "home/intern/bucket"
+            "layoutName": "home/properties/bucket"
           }
         },
         {
           "component": "Sublayout",
           "props": {
-            "layoutName": "home/intern/map-view"
+            "layoutName": "home/properties/map-view"
           }
         }
       ]

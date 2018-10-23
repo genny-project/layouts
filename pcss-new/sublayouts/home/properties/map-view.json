@@ -13,9 +13,10 @@
               "width": "800px"
             },
             "repeat": "_query.items",
+            "repeatCopiesPropsOntoRecursive": true,
             "children": {
               "component": "Marker",
-              "recursiveProps": {
+              "props": {
                 "lat": "_repeater.attributes.PRI_ADDRESS_LATITUDE.valueDouble",
                 "lng": "_repeater.attributes.PRI_ADDRESS_LONGITUDE.valueDouble"
               }
@@ -53,7 +54,7 @@
       "path": "items",
       "scope": {
         "operator": "getBE",
-        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
+        "id": "{{attributes.PRI_COMPANY_CODE.value}}",
         "as": "company"
       }
     },
@@ -72,6 +73,3 @@
     }
   ]
 }
-
-
-
