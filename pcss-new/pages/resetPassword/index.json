@@ -41,7 +41,7 @@
               {
                 "component": "Image",
                 "props": {
-                  "width":"50%",
+                  "width":"82%",
                   "source": "https://bouncer.outcome-hub.com/auth/resources/3.4.0.final/login/pcss/img/logo.png"
                 }
               },
@@ -50,7 +50,8 @@
                 "props": {
                   "flex": 2,
                   "flexShrink": 0,
-                  "flexDirection": "column"
+                  "flexDirection": "column",
+                  "marginTop":"55px"
                 },
                 "children":
                   {
@@ -58,8 +59,7 @@
                     "props": {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "flex": 1,
-                      "marginTop":"20px"
+                      "flex": 1
                     },
                     "children": 
                       {
@@ -75,7 +75,7 @@
                               "flexShrink": 0,
                               "flexDirection": "column",
                               "justifyContent": "space-between",
-                              "width": "100%"
+                              "width": "80%"
                             },
                             "children": [
                               {
@@ -85,19 +85,26 @@
                                 },
                                 "children": [
                                   {
-                                    "component": "Heading",
-                                    "props": {
-                                      "color": "black",
-                                      "size": "xl",
-                                      "bold": false
+                                    "component":"Box",
+                                    "props":{
+                                      "alignItems":"center",
+                                      "justifyContent":"center"
                                     },
-                                    "children": "RESET YOUR PASSWORD"
-                                  },  
+                                    "children":                                  {
+                                      "component": "Heading",
+                                      "props": {
+                                        "color": "#696969",
+                                        "size": "lg",
+                                        "bold": false
+                                      },
+                                      "children": "RESET YOUR PASSWORD"
+                                    }
+                                  },
                                   {
                                     "component": "Box",
                                     "props": {
                                       "flexDirection": "column",
-                                      "marginBottom": "10px"
+                                      "marginBottom": "20px"
                                     },
                                     "children": [
                                       {
@@ -105,7 +112,7 @@
                                         "useThemeFrom": "Input",
                                         "variant": "default",
                                         "props": {
-                                          "marginTop": "10px",
+                                          "marginTop": "15px",
                                           "type": "text",
                                           "placeholder": "Email Address",
                                           "name": "username",
@@ -127,55 +134,6 @@
                                 },
                                 "children": [
                                   {
-                                    "component": "Box",
-                                    "props": {
-                                    },
-                                    "children": [
-                                      {
-                                        "component": "FormGenericStatus",
-                                        "props": {
-                                            "wrapperProps": {
-                                            "borderWidth": 2,
-                                            "borderColor": "red",
-                                            "borderStyle": "solid",
-                                            "alignItems": "center",
-                                            "justifyContent": "center",
-                                            "padding": 20,
-                                            "cleanStyleObject": true,
-                                            "width": "100%"
-                                          },
-                                          "textProps": {
-                                            "color": "red",
-                                            "bold": true,
-                                            "align": "center"
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "component": "Box",
-                                    "props": {
-                                      "marginBottom":"10px",
-                                      "padding":"0px"
-                                    },
-                                    "children": [
-                                      {
-                                        "component": "LinkButton",
-                                        "props": {
-                                          "text": "Back to login",
-                                          "textColor": "#6a6c6c",
-                                          "height": "30px",
-                                          "width": "150px",
-                                          "to": "splash",
-                                          "hoverProps": {
-                                            "textColor": "#D34545"
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  {
                                     "component": "FormGenericSubmit",
                                     "props": {
                                       "color": "red",
@@ -184,10 +142,35 @@
                                       "size": "xl",
                                       "height": "50px",
                                       "width": "300px",
-                                      "padding": "10px",
                                       "hoverProps": {
                                         "color": "#D34545",
                                         "textColor": "#ffffff"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "component":"Box",
+                                    "props":{
+                                      "borderBottomWidth":1,
+                                      "borderColor": "#333",
+                                      "borderStyle": "solid",
+                                      "marginTop":"30px",
+                                      "width": 102
+                                    },
+                                    "children":{
+                                      "component": "LinkButton",
+                                      "props": {
+                                        "text": "Back to login",
+                                        "textColor": "#696969",
+                                        "to": "/",
+                                        "borderbottom": 1,
+                                        "borderWidth":1,
+                                        "borderColor": "#e3e3e3",
+                                        "paddingX": 0,
+                                        "paddingY": 0,
+                                        "hoverProps": {
+                                          "textColor": "#696969"
+                                        }
                                       }
                                     }
                                   }
