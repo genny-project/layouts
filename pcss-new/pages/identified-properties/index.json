@@ -20,15 +20,11 @@
               "columns": [
                 {
                 "Header": "Action",
+                "editable": true,
                 "accessor": "actions",
                 "buttonComponent": [
                   {
-                    "text": "Edit",
-                    "layoutName": "user-profile"
-                  },
-                  {
-                    "text": "View",
-                    "layoutName": "user-profile"
+                    "text": "Edit"
                   }
                 ]
                 },
@@ -38,12 +34,12 @@
                   "filterType": "string"
                 },  
                 {
-                  "Header": "Type Of Property",
+                  "Header": "Precinct",
                   "accessor": "type",
                   "filterType": "string"
                 },
                 {
-                  "Header": "Postcode",
+                  "Header": "Type",
                   "accessor": "postcode",
                   "filterType": "number"
                 }
@@ -94,7 +90,7 @@
           "operator": "getBE",
           "as" : "company",
           "basePath": "baseEntities.data",
-          "id": "{{be.attributes.LNK_COMPANY_PROVIDER.value}}"
+          "id": "{{be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
         }
       },
       {
@@ -103,7 +99,7 @@
         "scope": {
           "operator": "getBE",
           "as" : "items",
-          "id": "{{be.attributes.LNK_AGENCY.value}}"
+          "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
         }
       },
       {
@@ -127,8 +123,8 @@
           "operator": "map",
           "fields": {
             "address": "be.attributes.PRI_ADDRESS_FULL.value",
-            "type": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
-            "postcode": "be.attributes.PRI_ADDRESS_POSTCODE.value"
+            "type": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
+            "postcode": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value"
           }
         }
       }
