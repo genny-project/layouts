@@ -5,6 +5,9 @@
     "backgroundColor": "white",
     "header": {
       "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
     }
   },
   "children": [
@@ -67,14 +70,44 @@
             "renderFormInputLabel": {
               "component": "Box",
               "props": {
-                "marginBottom": 10,
-                "marginLeft": 10
+                "margin": 10,
+                "alignItems": "center",
+                "justifyContent": "space-between"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "text": "{{label}}"
+                  },
+                  "conditional": {
+                    "if": {
+                      "error": {
+                        "$or": [
+                          { "$eq": true },
+                          { "$exists": true }
+                        ]
+                      },
+                      "$or": [
+                        { "submitCount": { "$gt": 0 } },
+                        { "touched": { "$eq": true } }
+                      ]
+                    },
+                    "then": {
+                      "color": "red"
+                    }
+                  }
+                },
+                {
+                  "component": "Text",
+                  "onlyShowIf": {
+                    "required": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "text": "*required",
+                    "size": "xs"
                   }
                 }
               ]
@@ -100,7 +133,7 @@
               }
             },
             "renderSubmitButton": {
-              "component": "EventButton",
+              "component": "Button",
               "props": {
                 "showSpinnerOnClick": true,
                 "color": "#1597c5",
