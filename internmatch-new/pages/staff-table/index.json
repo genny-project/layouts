@@ -19,9 +19,15 @@
           "props": {
             "columns": [
               {
-                "Header": "Full Name",
-                "accessor": "fullName",
-                "filterType": "string"
+                "Header": "Actions",
+                "accessor": "actions",
+                "buttonComponent": [
+                  {
+                    "text": "View",
+                    "layoutName": "user-profile",
+                    "btnCode": "BTN_EDIT_STAFF"
+                  }
+              ]
               },
               {
                 "Header": "Mobile Phone",
@@ -83,7 +89,9 @@
           
           "fullName": "be.attributes.PRI_NAME.value",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "email": "be.attributes.PRI_USERNAME.value"
+          "email": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
+
         }
       }
     }

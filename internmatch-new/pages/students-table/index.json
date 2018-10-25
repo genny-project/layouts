@@ -1,8 +1,14 @@
 {
   "layout": {
-    "title": "HC  View",
+    "title": "Students",
     "appColor": "white",
-    "backgroundColor": "black"
+    "header": {
+      "variant": "default"
+    },
+    "backgroundColor": "whitesmoke",
+    "sidebar": {
+      "variant": "default"
+    } 
   },
   "children": [
     {
@@ -13,10 +19,15 @@
           "props": {
             "columns": [
               {
-                "Header": "Acions",
+                "Header": "Actions",
                 "accessor": "actions",
-                "id": "actions",
-                "key": "actions"
+                "buttonComponent": [
+                  {
+                    "text": "View",
+                    "layoutName": "user-profile",
+                    "btnCode": "BTN_EDIT_INTERN"
+                  }
+              ]
               },
               {
                 "Header": "Name",
@@ -99,7 +110,8 @@
           "email": "be.attributes.PRI_EMAIL.value",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
           "university": "company.name",
-          "resume": "be.attributes.PRI_USERNAME.value"
+          "resume": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
         }
       }
     }
