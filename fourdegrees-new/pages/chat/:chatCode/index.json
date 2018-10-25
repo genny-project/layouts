@@ -123,6 +123,22 @@
         },
         {
           "component": "Sublayout",
+          "onlyShowIf": {
+            "$or":  [
+              {
+                "query.requests": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              {
+                "navigation.itemID": {
+                  "$exists": true
+                }
+              }
+            ]
+          },
           "props": {
             "layoutName": "cards/introduction/introductions-summary.card",
             "requests": "_query.requests",
@@ -322,6 +338,11 @@
                 {
                   "attributes.PRI_CREATOR_CODE.value": {
                     "$exists": true
+                  }
+                },
+                {
+                  "attributes.STA_STATUS": {
+                    "$exists": false
                   }
                 }
               ]
