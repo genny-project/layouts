@@ -82,15 +82,15 @@
                   },
                   "conditional": {
                     "if": {
-                      "error": {
-                        "$or": [
-                          { "$eq": true },
-                          { "$exists": true }
-                        ]
-                      },
                       "$or": [
-                        { "submitCount": { "$gt": 0 } },
-                        { "touched": { "$eq": true } }
+                        {
+                          "submitCount": { "$gt": 0 },
+                          "error": { "$exists": true }
+                        },
+                        {
+                          "touched": { "$eq": true },
+                          "error": { "$exists": true }
+                        }
                       ]
                     },
                     "then": {
@@ -101,12 +101,24 @@
                 {
                   "component": "Text",
                   "onlyShowIf": {
-                    "required": {
-                      "$eq": true
+                    "$or": [
+                      { "required": { "$eq": true } },
+                      { "error": { "$exists": true } }
+                    ]
+                  },
+                  "conditional": {
+                    "if": {
+                      "error": { "$exists": true }
+                    },
+                    "then": {
+                      "color": "red",
+                      "text": "{{error}}"
+                    },
+                    "else": {
+                      "text": "*required"
                     }
                   },
                   "props": {
-                    "text": "*required",
                     "size": "xs"
                   }
                 }
