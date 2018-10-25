@@ -116,14 +116,12 @@
    ],
    "query":[
       {
-         "operator":"getBE",
-         "id":"{{props.itemID}}",
-         "as":"be"
-      },
-      {
-         "operator":"populateAttributes",
-         "code":"{{props.itemID}}",
-         "as":"attributes"
+        "operator": "external",
+        "name": "getBeWithAttributes",
+        "params": {
+          "idField": "{{props.itemID}}",
+          "asField": "be"
+        }
       }
    ]
 }

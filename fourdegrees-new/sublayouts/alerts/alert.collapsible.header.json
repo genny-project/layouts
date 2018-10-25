@@ -1,0 +1,74 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "row",
+        "padding": 20,
+        "alignItems": "center",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexShrink": 0,
+            "flexGrow": 1,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{props.title}}",
+                "color": "black",
+                "size": "md"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "marginleft": 20,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "conditional": {
+                "if": {
+                  "props.isOpen": true
+                },
+                "then": {
+                  "transform": [
+                    {
+                      "rotate": "180deg"
+                    }
+                  ]
+                },
+                "else": {
+                  "transform": [
+                    {
+                      "rotate": "0deg"
+                    }
+                  ]
+                }
+              },
+              "children": [
+                {
+                  "component": "Icon",
+                  "props": {
+                    "color": "black",
+                    "size": "lg",
+                    "name": "keyboard_arrow_down"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

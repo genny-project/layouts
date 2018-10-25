@@ -86,12 +86,59 @@
                 "$gt": 0
               }
             }
+          },
+          {
+            "query.invites": {
+              "$size": {
+                "$gt": 0
+              }
+            }
           }
         ]
       },
       "children": [
         {
           "component": "Sublayout",
+          "onlyShowIf": {
+            "$and":  [
+              {
+                "query.invites": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              {
+                "navigation.itemID": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
+          "props": {
+            "layoutName": "cards/invites/invites-summary.card",
+            "invites": "_query.invites",
+            "names": "_query.names"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "$or":  [
+              {
+                "query.requests": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              {
+                "navigation.itemID": {
+                  "$exists": true
+                }
+              }
+            ]
+          },
           "props": {
             "layoutName": "cards/introduction/introductions-summary.card",
             "requests": "_query.requests",
@@ -109,6 +156,7 @@
             }
           }
         }
+
       ]
     },
     {
@@ -130,50 +178,21 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "{{navigation.chatCode}}",
-      "as": "chatBE"
-    },
-    {
-      "operator": "scope",
-      "path": "chatBE.links",
-      "as": "messages",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "message"
-          }
-        }
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{navigation.chatCode}}",
+        "asField": "chatBE"
       }
     },
+
     {
-      "operator": "scope",
-      "path": "messages",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator":"scope",
-      "path":"messages",
-      "scope":{
-         "operator":"find",
-         "query":{
-            "code":{
-               "$exists":true
-            }
-         }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "messages",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "chatBE.links",
+        "asField": "messages",
+        "linkValue": "message"
       }
     },
     {
@@ -253,58 +272,88 @@
       }
     },
     {
-      "operator": "getBE",
-      "id": "{{user.data.code}}",
-      "as": "currentUser"
-    },
-    {
-      "operator": "scope",
-      "path": "currentUser",
-      "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "currentUser"
       }
     },
     {
-      "operator": "scope",
-      "path": "currentUser.links",
-      "as": "requests",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "REQUEST"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "currentUser.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
       }
     },
     {
       "operator":"scope",
-      "path":"requests",
+      "path": "requests",
+      "as": "invites",
       "scope": {
         "operator":"find",
-        "query":{
-          "code": {
-            "$exists":true
-          }
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{currentUser.code}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{currentUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.STA_STATUS": {
+                    "$exists": false
+                  }
+                }
+              ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INVITE"
+              }
+            }
+          ]
         }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "requests",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
       }
     },
     {
@@ -359,6 +408,11 @@
                   }
                 }
               ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INTRODUCTION"
+              }
             }
           ]
         }

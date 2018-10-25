@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Profile Employment",
+    "title": "Invite Card",
     "appColor": "dark"
   },
   "children": [
@@ -26,7 +26,8 @@
                 "source": "{{query.recipientBe.attributes.PRI_IMAGE_URL.valueString}}",
                 "shape": "circle",
                 "width": 50,
-                "height": 50
+                "height": 50,
+                "fallbackIcon": "person"
               }
             }
           ]
@@ -47,9 +48,9 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "Introduction Request",
-                    "color": "grey",
-                    "size": "xs"
+                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}}",
+                    "color": "black",
+                    "size": "md"
                   }
                 }
               ]
@@ -63,9 +64,9 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}} {{query.recipientBe.attributes.PRI_LASTNAME.valueString}}",
-                    "color": "black",
-                    "size": "md"
+                    "text": "{{query.recipientBe.attributes.PRI_EMAIL.valueString}}",
+                    "color": "grey",
+                    "size": "xs"
                   }
                 }
               ]
@@ -84,56 +85,37 @@
             }
           },
           "onlyShowIf": {
-            "$or": [
+            "$and": [
               {
-                "query.introducerBe.code": {
-                  "$eq": "{{user.data.code}}"
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
                 }
               },
               {
-                "query.creatorBe.code": {
-                  "$eq": "{{user.data.code}}"
-                }
+                "$or": [
+                  {
+                    "query.introducerBe.code": {
+                      "$eq": "{{user.data.code}}"
+                    }
+                  },
+                  {
+                    "query.creatorBe.code": {
+                      "$eq": "{{user.data.code}}"
+                    }
+                  }
+                ]
               }
             ]
           },
           "conditional": [
             {
               "if": {
-                "$and": [
-                  {
-                    "query.requestBe.attributes.STA_PER_CONORPIRIE": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.introducerBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  }
-                ]
+                "query.introducerBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
               },
               "then": {
-                "buttonCode": "MAKE_INTRODUCTION"
-              }
-            },
-            {
-              "if": {
-                "$and": [
-                  {
-                    "query.requestBe.attributes.STA_PER_CONORPIRIE": {
-                      "$exists": true
-                    }
-                  },
-                  {
-                    "query.introducerBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  }
-                ]
-              },
-              "then": {
-                "buttonCode": "MERGE_INTRODUCTION"
+                "buttonCode": "ACCEPT_INVITE"
               }
             },
             {
@@ -143,7 +125,7 @@
                 }
               },
               "then": {
-                "buttonCode": "CANCEL_INTRODUCTION"
+                "buttonCode": "CANCEL_INVITE"
               }
             }
           ],
@@ -169,40 +151,12 @@
                       "conditional": [
                         {
                           "if": {
-                            "$and": [
-                              {
-                                "user.data.code": {
-                                  "$nin": "_query.requestBe.attributes.STA_PER_GREEN.value"
-                                }
-                              },
-                              {
-                                "query.introducerBe.code": {
-                                  "$eq": "{{user.data.code}}"
-                                }
-                              }
-                            ]
+                            "query.introducerBe.code": {
+                              "$eq": "{{user.data.code}}"
+                            }
                           },
                           "then": {
-                            "text": "Introduce"
-                          }
-                        },
-                        {
-                          "if": {
-                            "$and": [
-                              {
-                                "user.data.code": {
-                                  "$in":  "_query.requestBe.attributes.STA_PER_GREEN.value"
-                                }
-                              },
-                              {
-                                "query.introducerBe.code": {
-                                  "$eq": "{{user.data.code}}"
-                                }
-                              }
-                            ]
-                          },
-                          "then": {
-                            "text": "Merge"
+                            "text": "Support Invite"
                           }
                         },
                         {
@@ -225,6 +179,29 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "query.requestBe.attributes.STA_STATUS": {
+              "$exists": true
+            }
+          },
+          "props": {
+            "marginleft": 20,
+            "alignItems": "center",
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "Invite Sent",
+                "color": "grey",
+                "size": "xs"
+              }
             }
           ]
         }
