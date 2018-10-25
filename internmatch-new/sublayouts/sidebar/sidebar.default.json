@@ -1,11 +1,11 @@
 {
   "rootCode": "GRP_ROOT",
-  "width": 300,
+  "width": 80,
   "flex": 1,
   "inline": true,
   "openProps": {
-    "width": 80,
-    "backgroundColor": "#233a4e"
+    "width": 300,
+    "backgroundColor": "#ffffff"
   },
   "renderBody": {
     "component": "Box",
@@ -16,12 +16,12 @@
         }
       },
       "then": {
-        "width": 80,
-        "backgroundColor": "#233a4e"
-      },
-      "else": {
         "width": 300,
         "backgroundColor": "#ffffff"
+      },
+      "else": {
+        "width": 80,
+        "backgroundColor": "#233a4e"
       }
     },
     "props": {
@@ -44,7 +44,7 @@
         "children": [
           {
             "component": "Image",
-            "dontShowIf": {
+            "onlyShowIf": {
               "sidebar.left.isOpen": {
                 "$eq": true
               }
@@ -70,12 +70,12 @@
                   }
                 },
                 "then": {
-                  "name": "chevron-right",
-                  "color": "white"
-                },
-                "else": {
                   "name": "close",
                   "color": "black"
+                },
+                "else": {
+                  "name": "menu",
+                  "color": "white"
                 }
               }
             }
@@ -97,13 +97,13 @@
               }
             },
             "then": {
+              "padding": 20,
+              "paddingLeft": 50
+            },
+            "else": {
               "paddingY": 20,
               "width": "100%",
               "justifyContent": "center"
-            },
-            "else": {
-              "padding": 20,
-              "paddingLeft": 50
             }
           },
           "props": {
@@ -122,8 +122,7 @@
                       "$eq": true
                     }
                   },
-                  "then": {},
-                  "else": {
+                  "then": {
                     "marginRight": 15
                   }
                 },
@@ -137,10 +136,10 @@
                         }
                       },
                       "then": {
-                        "color": "white"
+                        "color": "#959595"
                       },
                       "else": {
-                        "color": "#959595"
+                        "color": "white"
                       }
                     },
                     "props": {
@@ -151,7 +150,7 @@
               },
               {
                 "component": "Text",
-                "dontShowIf": {
+                "onlyShowIf": {
                   "sidebar.left.isOpen": {
                     "$eq": true
                   }
@@ -163,10 +162,10 @@
                     }
                   },
                   "then": {
-                    "color": "white"
+                    "color": "#959595"
                   },
                   "else": {
-                    "color": "#959595"
+                    "color": "white"
                   }
                 },
                 "children": "{{repeater.name}}"
