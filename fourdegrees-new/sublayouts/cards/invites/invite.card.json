@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Profile Employment",
+    "title": "Invite Card",
     "appColor": "dark"
   },
   "children": [
@@ -26,7 +26,8 @@
                 "source": "{{query.recipientBe.attributes.PRI_IMAGE_URL.valueString}}",
                 "shape": "circle",
                 "width": 50,
-                "height": 50
+                "height": 50,
+                "fallbackIcon": "person"
               }
             }
           ]
@@ -47,9 +48,9 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "Introduction Request",
-                    "color": "grey",
-                    "size": "xs"
+                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}}",
+                    "color": "black",
+                    "size": "md"
                   }
                 }
               ]
@@ -63,9 +64,9 @@
                 {
                   "component": "Text",
                   "props": {
-                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}} {{query.recipientBe.attributes.PRI_LASTNAME.valueString}}",
-                    "color": "black",
-                    "size": "md"
+                    "text": "{{query.recipientBe.attributes.PRI_EMAIL.valueString}}",
+                    "color": "grey",
+                    "size": "xs"
                   }
                 }
               ]

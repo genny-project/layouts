@@ -1,0 +1,102 @@
+{
+  "layout": {
+    "title": "List of Invites",
+    "appColor": "dark",
+    "header": {
+      "variant": "noback"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "justifyContent": "center",
+        "padding": 20,
+        "fontWeight": "bold",
+        "backgroundColor": "#f8f8f8",
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "borderStyle": "solid"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component" : "BackButton"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 3
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": [
+                  {
+                    "component": "Join",
+                    "renderAsComponent": true,
+                    "props": {
+                      "delimiter": ", ",
+                      "items": "_navigation.names"
+                      }
+                  }
+                ]
+
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 1
+          }
+        }
+      ]
+    },
+    {
+      "component":"ScrollView",
+      "props":{
+         "style":{
+            "flex":1,
+            "backgroundColor":"#f8f8f8"
+         }
+      },
+      "repeat": "_navigation.invites",
+      "children":{
+        "component": "Sublayout",
+        "props": {
+          "layoutName": "cards/invites/invite.card",
+          "requestID": "{{repeater.code}}"
+        }
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator":"scope",
+      "path": "navigation.invites",
+      "as": "count",
+      "scope": {
+        "operator":"count",
+        "query":{
+          "code": {
+            "$exists":true
+          }
+        }
+      }
+    }
+  ]
+}
