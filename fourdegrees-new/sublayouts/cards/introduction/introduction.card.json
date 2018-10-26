@@ -102,8 +102,8 @@
               "if": {
                 "$and": [
                   {
-                    "query.requestBe.attributes.STA_PER_CONORPIRIE": {
-                      "$exists": false
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$nin": "{{user.data.code}}"
                     }
                   },
                   {
@@ -121,8 +121,8 @@
               "if": {
                 "$and": [
                   {
-                    "query.requestBe.attributes.STA_PER_CONORPIRIE": {
-                      "$exists": true
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$in": "{{user.data.code}}"
                     }
                   },
                   {
@@ -171,8 +171,8 @@
                           "if": {
                             "$and": [
                               {
-                                "user.data.code": {
-                                  "$nin": "_query.requestBe.attributes.STA_PER_GREEN.value"
+                                "query.requestBe.attributes.STA_GREEN.value": {
+                                  "$nin": "{{user.data.code}}"
                                 }
                               },
                               {
@@ -190,8 +190,8 @@
                           "if": {
                             "$and": [
                               {
-                                "user.data.code": {
-                                  "$in":  "_query.requestBe.attributes.STA_PER_GREEN.value"
+                                "query.requestBe.attributes.STA_GREEN.value": {
+                                  "$in": "{{user.data.code}}"
                                 }
                               },
                               {

@@ -163,7 +163,7 @@
     {
       "operator": "scope",
       "path": "users",
-      "as": "names",
+      "as": "otherUsers",
       "scope": {
         "operator": "find",
         "query": {
@@ -175,7 +175,8 @@
     },
     {
       "operator": "scope",
-      "path": "names",
+      "path": "otherUsers",
+      "as": "names",
       "scope": {
         "operator": "map",
         "fields": "name"
@@ -193,6 +194,47 @@
           }
         }
       }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "userBe.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "onlyShowIf": {
+        "otherUsers" : {
+          "$size": {
+            "$eq": 1
+          }
+        }
+      },
+      "query": [
+        {
+          "operator":"scope",
+          "path":"otherUsers",
+          "scope":{
+            "operator":"findOne",
+            "query":{
+              "code":{
+                "$exists": true
+              }
+            }
+          }
+        },
+        {
+          "operator": "external",
+          "name": "getLinkedBesWithAttributes",
+          "params": {
+            "linksField": "otherUsers.links",
+            "asField": "requests",
+            "linkValue": "REQUEST"
+          }
+        }
+      ]
     }
   ]
 }
