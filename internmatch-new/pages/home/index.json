@@ -16,11 +16,17 @@
       "component": "Box",
       "props": {
         "flex":1,
-        "position": "relative"
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
       },
       "children": [
         {
           "component": "Box",
+          "dontShowIf": {
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$eq": true
+            }
+          },
           "props": {
             "position": "absolute",
             "top": 0,
