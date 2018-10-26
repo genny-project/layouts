@@ -6,9 +6,12 @@
       "as": "{{params.asField}}"
     },
     {
-      "operator": "populateAttributes",
-      "code": "{{params.idField}}",
-      "as": "attributes"
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
     }
   ]
 }

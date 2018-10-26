@@ -1,0 +1,294 @@
+{
+  "layout": {
+    "title": "Sidebar Card",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "marginRight": 10,
+        "alignItems": "center"
+      },
+      "children": [
+        {
+          "component": "Image",
+          "props": {
+            "source": "{{query.networkBe.attributes.PRI_IMAGE_URL.value}}",
+            "shape": "circle",
+            "width": 50,
+            "height": 50
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{props.item.name}}",
+                "color": "white",
+                "fontWeight": "bold",
+                "size": "xs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 5
+          },
+          "children": [
+            {
+              "component": "Text",
+              "conditional": [
+                {
+                  "if": {
+                    "query.messages": {
+                      "$eq": 1
+                    }
+                  },
+                  "then": {
+                    "text": "1 Message"
+                  }
+                },
+                {
+                  "if": {
+                    "query.messages": {
+                      "$gt": 1
+                    }
+                  },
+                  "then": {
+                    "text": "{{query.messages}} Messages"
+                  }
+                }
+              ],
+              "props": {
+                "text": "No Messages",
+                "color": "grey",
+                "size": "xxs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 5
+          },
+          "children": [
+            {
+              "component": "Text",
+              "conditional": [
+                {
+                  "if": {
+                    "query.introductions": {
+                      "$eq": 1
+                    }
+                  },
+                  "then": {
+                    "text": "1 Introduction"
+                  }
+                },
+                {
+                  "if": {
+                    "query.introductions": {
+                      "$gt": 1
+                    }
+                  },
+                  "then": {
+                    "text": "{{query.introductions}} Introductions"
+                  }
+                }
+              ],
+              "props": {
+                "text": "No Introductions",
+                "color": "grey",
+                "size": "xxs"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Text",
+              "conditional": [
+                {
+                  "if": {
+                    "query.invites": {
+                      "$eq": 1
+                    }
+                  },
+                  "then": {
+                    "text": "1 Invite Request"
+                  }
+                },
+                {
+                  "if": {
+                    "query.invites": {
+                      "$gt": 1
+                    }
+                  },
+                  "then": {
+                    "text": "{{query.invites}} Invite Requests"
+                  }
+                }
+              ],
+              "props": {
+                "text": "No Invite Requests",
+                "color": "grey",
+                "size": "xxs"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{props.item.code}}",
+        "asField": "networkBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "userBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "userBe.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "as": "invites",
+      "scope": {
+        "operator":"count",
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{userBe.code}}"
+                  }
+                },
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{userBe.code}}"
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.STA_STATUS": {
+                    "$exists": false
+                  }
+                }
+              ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INVITE"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "as": "introductions",
+      "scope": {
+        "operator":"count",
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{userBe.code}}"
+                  }
+                },
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{userBe.code}}"
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$ne": "undefined"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                }
+              ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INTRODUCTION"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
