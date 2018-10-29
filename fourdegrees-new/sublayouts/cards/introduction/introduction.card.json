@@ -84,34 +84,16 @@
             }
           },
           "onlyShowIf": {
-            "$or": [
-              {
-                "query.introducerBe.code": {
-                  "$eq": "{{user.data.code}}"
-                }
-              },
-              {
-                "query.creatorBe.code": {
-                  "$eq": "{{user.data.code}}"
-                }
-              }
-            ]
+            "query.introducerBe.code": {
+              "$eq": "{{user.data.code}}"
+            }
           },
           "conditional": [
             {
               "if": {
-                "$and": [
-                  {
-                    "query.requestBe.attributes.STA_GREEN.value": {
-                      "$nin": "{{user.data.code}}"
-                    }
-                  },
-                  {
-                    "query.introducerBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  }
-                ]
+                "query.requestBe.attributes.STA_GREEN.value": {
+                  "$nin": "{{user.data.code}}"
+                }
               },
               "then": {
                 "buttonCode": "MAKE_INTRODUCTION"
@@ -119,31 +101,12 @@
             },
             {
               "if": {
-                "$and": [
-                  {
-                    "query.requestBe.attributes.STA_GREEN.value": {
-                      "$in": "{{user.data.code}}"
-                    }
-                  },
-                  {
-                    "query.introducerBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  }
-                ]
-              },
-              "then": {
-                "buttonCode": "MERGE_INTRODUCTION"
-              }
-            },
-            {
-              "if": {
-                "query.creatorBe.code": {
-                  "$eq": "{{user.data.code}}"
+                "query.requestBe.attributes.STA_GREEN.value": {
+                  "$in": "{{user.data.code}}"
                 }
               },
               "then": {
-                "buttonCode": "CANCEL_INTRODUCTION"
+                "buttonCode": "MERGE_INTRODUCTION"
               }
             }
           ],
@@ -169,18 +132,9 @@
                       "conditional": [
                         {
                           "if": {
-                            "$and": [
-                              {
-                                "query.requestBe.attributes.STA_GREEN.value": {
-                                  "$nin": "{{user.data.code}}"
-                                }
-                              },
-                              {
-                                "query.introducerBe.code": {
-                                  "$eq": "{{user.data.code}}"
-                                }
-                              }
-                            ]
+                            "query.requestBe.attributes.STA_GREEN.value": {
+                              "$nin": "{{user.data.code}}"
+                            }
                           },
                           "then": {
                             "text": "Introduce"
@@ -188,36 +142,131 @@
                         },
                         {
                           "if": {
-                            "$and": [
-                              {
-                                "query.requestBe.attributes.STA_GREEN.value": {
-                                  "$in": "{{user.data.code}}"
-                                }
-                              },
-                              {
-                                "query.introducerBe.code": {
-                                  "$eq": "{{user.data.code}}"
-                                }
-                              }
-                            ]
-                          },
-                          "then": {
-                            "text": "Merge"
-                          }
-                        },
-                        {
-                          "if": {
-                            "query.creatorBe.code": {
-                              "$eq": "{{user.data.code}}"
+                            "query.requestBe.attributes.STA_GREEN.value": {
+                              "$in": "{{user.data.code}}"
                             }
                           },
                           "then": {
-                            "text": "Cancel"
+                            "text": "Merge"
                           }
                         }
                       ],
                       "props": {
                         "text": "",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "REJECT_INTRODUCTION",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.introducerBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              },
+              {
+                "query.requestBe.attributes.STA_GREEN.value": {
+                  "$nin": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Reject",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "CANCEL_INTRODUCTION",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.creatorBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              },
+              {
+                "query.requestBe.attributes.STA_GREEN.value": {
+                  "$nin": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Cancel",
                         "color": "grey",
                         "size": "xs"
                       }

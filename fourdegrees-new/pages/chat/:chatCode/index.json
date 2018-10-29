@@ -406,6 +406,13 @@
                   "attributes.PRI_CREATOR_CODE.value": {
                     "$exists": true
                   }
+                },
+                {
+                  "query.requestBe.attributes.STA_GREEN.value": {
+                    "$size": {
+                      "$lt": 2
+                    }
+                  }
                 }
               ]
             },

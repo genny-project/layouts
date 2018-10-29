@@ -45,7 +45,7 @@
                     "height": 60
                   },
                   "dontShowIf": {
-                    "query.senderBE.name" : {
+                    "query.senderBE.name": {
                       "$eq": "{{user.data.name}}"
                     }
                   }
@@ -68,18 +68,81 @@
                     {
                       "component": "Text",
                       "children": [
-                          {
-                            "component": "Join",
-                            "renderAsComponent": true,
-                            "props": {
-                              "delimiter": ", ",
-                              "items": "_query.names"
-                              }
+                        {
+                          "component": "Join",
+                          "renderAsComponent": true,
+                          "props": {
+                            "delimiter": ", ",
+                            "items": "_query.names"
                           }
+                        }
                       ],
                       "props": {
                         "color": "grey",
                         "size": "xs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "onlyShowIf": {
+                    "query.introductions": {
+                      "$gt": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "conditional": [
+                        {
+                          "if": {
+                            "query.introductions": {
+                              "$gt": 1
+                            }
+                          },
+                          "then": {
+                            "text": "{{query.introductions}} Introductions"
+                          }
+                        }
+                      ],
+                      "props": {
+                        "text": "1 Introduction",
+                        "color": "grey",
+                        "size": "xxs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.invites": {
+                      "$gt": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "conditional": [
+                        {
+                          "if": {
+                            "query.invites": {
+                              "$gt": 1
+                            }
+                          },
+                          "then": {
+                            "text": "{{query.invites}} Invite Requests"
+                          }
+                        }
+                      ],
+                      "props": {
+                        "text": "1 Invite Request",
+                        "color": "grey",
+                        "size": "xxs"
                       }
                     }
                   ]
@@ -197,16 +260,24 @@
     },
     {
       "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "currentUser"
+      }
+    },
+    {
+      "operator": "external",
       "name": "getLinkedBesWithAttributes",
       "params": {
-        "linksField": "userBe.links",
+        "linksField": "currentUser.links",
         "asField": "requests",
         "linkValue": "REQUEST"
       }
     },
     {
       "onlyShowIf": {
-        "otherUsers" : {
+        "otherUsers": {
           "$size": {
             "$eq": 1
           }
@@ -214,24 +285,127 @@
       },
       "query": [
         {
-          "operator":"scope",
-          "path":"otherUsers",
-          "scope":{
-            "operator":"findOne",
-            "query":{
-              "code":{
+          "operator": "scope",
+          "path": "otherUsers",
+          "as": "otherUser",
+          "scope": {
+            "operator": "findOne",
+            "query": {
+              "code": {
                 "$exists": true
               }
             }
           }
         },
         {
-          "operator": "external",
-          "name": "getLinkedBesWithAttributes",
-          "params": {
-            "linksField": "otherUsers.links",
-            "asField": "requests",
-            "linkValue": "REQUEST"
+          "operator":"scope",
+          "path": "requests",
+          "as": "invites",
+          "scope": {
+            "operator":"count",
+            "query": {
+              "$and": [
+                {
+                  "$or": [
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "attributes.STA_STATUS": {
+                        "$exists": false
+                      }
+                    }
+                  ]
+                },
+                {
+                  "attributes.PRI_REQUEST_TYPE.value": {
+                    "$eq": "INVITE"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "operator":"scope",
+          "path": "requests",
+          "as": "introductions",
+          "scope": {
+            "operator":"count",
+            "query": {
+              "$and": [
+                {
+                  "$or": [
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    },
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$eq": "{{otherUser.code}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$and": [
+                    {
+                      "$and": [
+                        {
+                          "attributes.PRI_INTRODUCER_CODE.value": {
+                            "$exists": true
+                          }
+                        },
+                        {
+                          "attributes.PRI_INTRODUCER_CODE.value": {
+                            "$ne": "undefined"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "attributes.PRI_CREATOR_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "query.requestBe.attributes.STA_GREEN.value": {
+                        "$size": {
+                          "$lt": 2
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "attributes.PRI_REQUEST_TYPE.value": {
+                    "$eq": "INTRODUCTION"
+                  }
+                }
+              ]
+            }
           }
         }
       ]

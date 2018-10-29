@@ -80,6 +80,7 @@
             "paddingX": 0,
             "paddingY": 0,
             "eventType": "BTN_CLICK",
+            "buttonCode": "ACCEPT_INVITE",
             "value": {
               "itemCode": "{{props.requestID}}"
             }
@@ -92,43 +93,12 @@
                 }
               },
               {
-                "$or": [
-                  {
-                    "query.introducerBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  },
-                  {
-                    "query.creatorBe.code": {
-                      "$eq": "{{user.data.code}}"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "conditional": [
-            {
-              "if": {
                 "query.introducerBe.code": {
                   "$eq": "{{user.data.code}}"
                 }
-              },
-              "then": {
-                "buttonCode": "ACCEPT_INVITE"
               }
-            },
-            {
-              "if": {
-                "query.creatorBe.code": {
-                  "$eq": "{{user.data.code}}"
-                }
-              },
-              "then": {
-                "buttonCode": "CANCEL_INVITE"
-              }
-            }
-          ],
+            ]
+          },
           "children": [
             {
               "component": "Box",
@@ -148,30 +118,122 @@
                   "children": [
                     {
                       "component": "Text",
-                      "conditional": [
-                        {
-                          "if": {
-                            "query.introducerBe.code": {
-                              "$eq": "{{user.data.code}}"
-                            }
-                          },
-                          "then": {
-                            "text": "Support Invite"
-                          }
-                        },
-                        {
-                          "if": {
-                            "query.creatorBe.code": {
-                              "$eq": "{{user.data.code}}"
-                            }
-                          },
-                          "then": {
-                            "text": "Cancel"
-                          }
-                        }
-                      ],
                       "props": {
-                        "text": "",
+                        "text": "Support",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "REJECT_INVITE",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
+                }
+              },
+              {
+                "query.introducerBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Reject",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "CANCEL_INVITE",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
+                }
+              },
+              {
+                "query.creatorBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Cancel",
                         "color": "grey",
                         "size": "xs"
                       }
