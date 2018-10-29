@@ -127,13 +127,53 @@
             "renderFormInput": {
               "component": "FormInput",
               "props": {
-                "placeholder": "{{label}}",
                 "paddingX": 20,
                 "paddingY": 15,
                 "borderRadius": 30,
                 "borderWidth": 1,
                 "borderColor": "#233a4e",
-                "borderStyle": "solid"
+                "borderStyle": "solid",
+                "appearance": "none",
+                "renderTag": {
+                  "component": "Box",
+                  "props": {
+                    "paddingX": 20,
+                    "paddingY": 15,
+                    "borderRadius": 30,
+                    "borderWidth": 1,
+                    "borderColor": "#233a4e",
+                    "borderStyle": "solid",
+                    "position": "relative",
+                    "width": "100%",
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{name}}"
+                      }
+                    },
+                    {
+                      "component": "Touchable",
+                      "props": {
+                        "withFeedback": true,
+                        "position": "absolute",
+                        "right": 15,
+                        "top": 15,
+                        "onPress": "_onRemove"
+                      },
+                      "children": {
+                        "component": "Icon",
+                        "props": {
+                          "name": "clear",
+                          "color": "black",
+                          "size": "sm"
+                        }
+                      }
+                    }
+                  ]
+                }
               }
             },
             "renderSubmitButtonWrapper": {
