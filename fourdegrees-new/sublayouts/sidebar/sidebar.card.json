@@ -187,114 +187,23 @@
       }
     },
     {
-      "operator":"scope",
-      "path": "requests",
-      "as": "invites",
-      "scope": {
-        "operator":"count",
-        "query": {
-          "$and": [
-            {
-              "$or": [
-                {
-                  "attributes.PRI_CREATOR_CODE.value": {
-                    "$eq": "{{userBe.code}}"
-                  }
-                },
-                {
-                  "attributes.PRI_INTRODUCER_CODE.value": {
-                    "$eq": "{{userBe.code}}"
-                  }
-                }
-              ]
-            },
-            {
-              "$and": [
-                {
-                  "attributes.PRI_INTRODUCER_CODE.value": {
-                    "$exists": true
-                  }
-                },
-                {
-                  "attributes.PRI_CREATOR_CODE.value": {
-                    "$exists": true
-                  }
-                },
-                {
-                  "attributes.STA_STATUS": {
-                    "$exists": false
-                  }
-                }
-              ]
-            },
-            {
-              "attributes.PRI_REQUEST_TYPE.value": {
-                "$eq": "INVITE"
-              }
-            }
-          ]
-        }
+      "operator": "external",
+      "name": "getRequestInvites",
+      "params": {
+        "idField": "requests",
+        "asField": "invites",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
       }
     },
     {
-      "operator":"scope",
-      "path": "requests",
-      "as": "introductions",
-      "scope": {
-        "operator":"count",
-        "query": {
-          "$and": [
-            {
-              "$or": [
-                {
-                  "attributes.PRI_CREATOR_CODE.value": {
-                    "$eq": "{{userBe.code}}"
-                  }
-                },
-                {
-                  "attributes.PRI_INTRODUCER_CODE.value": {
-                    "$eq": "{{userBe.code}}"
-                  }
-                }
-              ]
-            },
-            {
-              "$and": [
-                {
-                  "$and": [
-                    {
-                      "attributes.PRI_INTRODUCER_CODE.value": {
-                        "$exists": true
-                      }
-                    },
-                    {
-                      "attributes.PRI_INTRODUCER_CODE.value": {
-                        "$ne": "undefined"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "attributes.PRI_CREATOR_CODE.value": {
-                    "$exists": true
-                  }
-                },
-                {
-                  "query.requestBe.attributes.STA_GREEN.value": {
-                    "$size": {
-                      "$lt": 2
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "attributes.PRI_REQUEST_TYPE.value": {
-                "$eq": "INTRODUCTION"
-              }
-            }
-          ]
-        }
+      "operator": "external",
+      "name": "getRequestIntroductions",
+      "params": {
+        "idField": "requests",
+        "asField": "introductions",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
       }
     }
   ]

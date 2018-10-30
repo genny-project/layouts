@@ -91,9 +91,18 @@
           "conditional": [
             {
               "if": {
-                "query.requestBe.attributes.STA_GREEN.value": {
-                  "$nin": "{{user.data.code}}"
-                }
+                "$or": [
+                  {
+                    "query.requestBe.attributes.STA_GREEN": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$nin": "{{user.data.code}}"
+                    }
+                  }
+                ]
               },
               "then": {
                 "buttonCode": "MAKE_INTRODUCTION"
@@ -132,9 +141,18 @@
                       "conditional": [
                         {
                           "if": {
-                            "query.requestBe.attributes.STA_GREEN.value": {
-                              "$nin": "{{user.data.code}}"
-                            }
+                            "$or": [
+                              {
+                                "query.requestBe.attributes.STA_GREEN.value": {
+                                  "$exists": false
+                                }
+                              },
+                              {
+                                "query.requestBe.attributes.STA_GREEN.value": {
+                                  "$nin": "{{user.data.code}}"
+                                }
+                              }
+                            ]
                           },
                           "then": {
                             "text": "Introduce"
@@ -183,9 +201,18 @@
                 }
               },
               {
-                "query.requestBe.attributes.STA_GREEN.value": {
-                  "$nin": "{{user.data.code}}"
-                }
+                "$or": [
+                  {
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$nin": "{{user.data.code}}"
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -240,9 +267,18 @@
                 }
               },
               {
-                "query.requestBe.attributes.STA_GREEN.value": {
-                  "$nin": "{{user.data.code}}"
-                }
+                "$or": [
+                  {
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.requestBe.attributes.STA_GREEN.value": {
+                      "$nin": "{{user.data.code}}"
+                    }
+                  }
+                ]
               }
             ]
           },
