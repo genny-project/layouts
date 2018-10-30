@@ -81,7 +81,7 @@
             }
           },
           {
-            "query.requests": {
+            "query.introductions": {
               "$size": {
                 "$gt": 0
               }
@@ -126,7 +126,7 @@
           "onlyShowIf": {
             "$or":  [
               {
-                "query.requests": {
+                "query.introductions": {
                   "$size": {
                     "$gt": 0
                   }
@@ -333,7 +333,7 @@
       "params": {
         "idField": "requests",
         "asField": "invites",
-        "operator": "count",
+        "operator": "find",
         "userCode": "{{currentUser.code}}"
       }
     },
@@ -343,7 +343,7 @@
       "params": {
         "idField": "requests",
         "asField": "introductions",
-        "operator": "count",
+        "operator": "find",
         "userCode": "{{currentUser.code}}"
       }
     }
