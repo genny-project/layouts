@@ -45,7 +45,7 @@
                     "height": 60
                   },
                   "dontShowIf": {
-                    "query.senderBE.name" : {
+                    "query.senderBE.name": {
                       "$eq": "{{user.data.name}}"
                     }
                   }
@@ -68,18 +68,81 @@
                     {
                       "component": "Text",
                       "children": [
-                          {
-                            "component": "Join",
-                            "renderAsComponent": true,
-                            "props": {
-                              "delimiter": ", ",
-                              "items": "_query.names"
-                              }
+                        {
+                          "component": "Join",
+                          "renderAsComponent": true,
+                          "props": {
+                            "delimiter": ", ",
+                            "items": "_query.names"
                           }
+                        }
                       ],
                       "props": {
                         "color": "grey",
                         "size": "xs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "onlyShowIf": {
+                    "query.introductions": {
+                      "$gt": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "conditional": [
+                        {
+                          "if": {
+                            "query.introductions": {
+                              "$gt": 1
+                            }
+                          },
+                          "then": {
+                            "text": "{{query.introductions}} Introductions"
+                          }
+                        }
+                      ],
+                      "props": {
+                        "text": "1 Introduction",
+                        "color": "grey",
+                        "size": "xxs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.invites": {
+                      "$gt": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "conditional": [
+                        {
+                          "if": {
+                            "query.invites": {
+                              "$gt": 1
+                            }
+                          },
+                          "then": {
+                            "text": "{{query.invites}} Invite Requests"
+                          }
+                        }
+                      ],
+                      "props": {
+                        "text": "1 Invite Request",
+                        "color": "grey",
+                        "size": "xxs"
                       }
                     }
                   ]
@@ -163,7 +226,7 @@
     {
       "operator": "scope",
       "path": "users",
-      "as": "names",
+      "as": "otherUsers",
       "scope": {
         "operator": "find",
         "query": {
@@ -175,7 +238,8 @@
     },
     {
       "operator": "scope",
-      "path": "names",
+      "path": "otherUsers",
+      "as": "names",
       "scope": {
         "operator": "map",
         "fields": "name"
@@ -193,6 +257,67 @@
           }
         }
       }
+    },
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "currentUser"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "currentUser.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "onlyShowIf": {
+        "otherUsers": {
+          "$size": {
+            "$eq": 1
+          }
+        }
+      },
+      "query": [
+        {
+          "operator": "scope",
+          "path": "otherUsers",
+          "as": "otherUser",
+          "scope": {
+            "operator": "findOne",
+            "query": {
+              "code": {
+                "$exists": true
+              }
+            }
+          }
+        },
+        {
+          "operator": "external",
+          "name": "getRequestInvites",
+          "params": {
+            "idField": "requests",
+            "asField": "invites",
+            "operator": "count",
+            "userCode": "{{otherUser.code}}"
+          }
+        },
+        {
+          "operator": "external",
+          "name": "getRequestIntroductions",
+          "params": {
+            "idField": "requests",
+            "asField": "introductions",
+            "operator": "count",
+            "userCode": "{{otherUser.code}}"
+          }
+        }
+      ]
     }
   ]
 }

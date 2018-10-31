@@ -67,10 +67,28 @@
                                 },
                                 {
                                   "component": "Text",
+                                  "onlyShowIf": {
+                                    "query.profile.attributes.PRI_PREFERRED_NAME.value": {
+                                      "$exists": true
+                                    }
+                                  },
+                                  "props": {
+                                    "text": "Also Known As: {{query.profile.attributes.PRI_PREFERRED_NAME.value}}",
+                                    "color": "white",
+                                    "size": "xs"
+                                  }
+                                },
+                                {
+                                  "component": "Text",
                                   "props": {
                                     "text": "Not Connected",
                                     "color": "white",
                                     "size": "xs"
+                                  },
+                                  "onlyShowIf": {
+                                    "user.data.code": {
+                                      "$ne": "{{props.userID}}"
+                                    }
                                   },
                                   "conditional": [
                                     {
@@ -103,14 +121,6 @@
                                       },
                                       "then": {
                                         "text": "4th Degree"
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "user.data.code": "{{props.userID}}"
-                                      },
-                                      "then": {
-                                        "text": ""
                                       }
                                     }
                                   ]
@@ -170,7 +180,8 @@
                   "component": "Box",
                   "props": {
                     "flex": 1,
-                    "flexDirection": "row"
+                    "flexDirection": "row",
+                    "margin": 10
                   },
                   "dontShowIf": {
                     "user.data.code": "{{props.userID}}"
@@ -180,14 +191,24 @@
                       "component": "Box",
                       "props": {
                         "flex": 1,
-                        "flexDirection": "row"
+                        "flexDirection": "row",
+                        "marginRight": 10
                       },
                       "dontShowIf": {
-                        "query.requests": {
-                          "$size": {
-                            "$gt": 0
+                        "$and": [
+                          {
+                            "query.requests": {
+                              "$size": {
+                                "$gt": 0
+                              }
+                            }
+                          },
+                          {
+                            "introducerBe": {
+                              "$exists": true
+                            }
                           }
-                        }
+                        ]
                       },
                       "children": [
                         {
@@ -212,9 +233,7 @@
                                 "alignItems": "center",
                                 "width": "100%",
                                 "paddingX": 10,
-                                "paddingY": 20,
-                                "marginX": 10,
-                                "marginY": 15
+                                "paddingY": 20
                               },
                               "children": [
                                 {
@@ -288,14 +307,24 @@
                     {
                       "component": "Box",
                       "props": {
-                        "flex": 1
+                        "flex": 1,
+                        "marginRight": 10
                       },
                       "onlyShowIf": {
-                        "query.requests": {
-                          "$size": {
-                            "$gt": 0
+                        "$and": [
+                          {
+                            "query.requests": {
+                              "$size": {
+                                "$gt": 0
+                              }
+                            }
+                          },
+                          {
+                            "introducerBe": {
+                              "$exists": true
+                            }
                           }
-                        }
+                        ]
                       },
                       "repeat": "_query.requests",
                       "children": {
@@ -404,6 +433,9 @@
                       "props": {
                         "flex": 1
                       },
+                      "dontShowIf": {
+                        "navigation.degree": 1
+                      },
                       "children": [
                         {
                           "component": "EventButton",
@@ -461,17 +493,7 @@
                                         "size": "xs",
                                         "align": "center",
                                         "width": "100%"
-                                      },
-                                      "conditional": [
-                                        {
-                                          "if": {
-                                            "navigation.degree": 1
-                                          },
-                                          "then": {
-                                            "text": "Introduce {{query.profile.attributes.PRI_FIRSTNAME.value}}"
-                                          }
-                                        }
-                                      ]
+                                      }
                                     }
                                   ]
                                 },
@@ -481,6 +503,85 @@
                                     "name": "chevron-right",
                                     "color": "black",
                                     "size": "md"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "backgroundColor": "white",
+                    "marginLeft": 10,
+                    "marginRight": 10
+                  },
+                  "dontShowIf": {
+                    "user.data.code": "{{props.userID}}"
+                  },
+                  "children": [
+                    {
+                      "component": "EventButton",
+                      "props": {
+                        "paddingX": 0,
+                        "paddingY": 0,
+                        "height": "100%",
+                        "style": {
+                          "flex": 1
+                        },
+                        "eventType": "BTN_CLICK",
+                        "buttonCode": "BTN_CREATE_CONVERSATION",
+                        "value": {
+                          "itemCode": "{{props.userID}}"
+                        }
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "flex": 1,
+                            "flexDirection": "row",
+                            "alignItems": "center",
+                            "backgroundColor": "white",
+                            "paddingX": 10,
+                            "paddingY": 20
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flexDirection": "row"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "inbox",
+                                    "color": "black",
+                                    "size": "sm"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flex": 1
+                              },
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "text": "Message {{query.profile.attributes.PRI_FIRSTNAME.value}}",
+                                    "color": "black",
+                                    "size": "xs",
+                                    "align": "center",
+                                    "width": "100%"
                                   }
                                 }
                               ]

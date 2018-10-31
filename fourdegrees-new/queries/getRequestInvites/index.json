@@ -1,0 +1,63 @@
+{
+  "query": [
+    {
+      "operator":"scope",
+      "path": "{{params.idField}}",
+      "as": "{{params.asField}}",
+      "scope": {
+        "operator":"{{params.operator}}",
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{params.userCode}}"
+                  }
+                },
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{params.userCode}}"
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$ne": "undefined"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "attributes.STA_STATUS": {
+                    "$exists": false
+                  }
+                }
+              ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INVITE"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
