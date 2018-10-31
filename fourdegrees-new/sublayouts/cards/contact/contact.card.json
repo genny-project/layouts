@@ -165,8 +165,45 @@
       "operator": "external",
       "name": "getBeWithAttributes",
       "params": {
-        "idField": "{{props.itemID}}",
-        "asField": "be"
+        "idField": "{{props.item.code}}",
+        "asField": "networkBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "userBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "userBe.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestInvites",
+      "params": {
+        "idField": "requests",
+        "asField": "invites",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestIntroductions",
+      "params": {
+        "idField": "requests",
+        "asField": "introductions",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
       }
     }
   ]

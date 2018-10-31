@@ -53,7 +53,7 @@
                 "size": "large"
               },
               "dontShowIf": {
-                "query.results.links": {
+                "query.networks": {
                   "$exists": true
                 }
               }
@@ -62,10 +62,11 @@
               "component": "Box",
               "props": {
                 "justifyContent": "center",
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "flex": 1
               },
               "onlyShowIf": {
-                "query.results.links": {
+                "query.networks": {
                   "$size": {
                     "$gt": 0
                   }
@@ -75,7 +76,7 @@
               "children": {
                 "component": "Sublayout",
                 "props": {
-                  "layoutName": "cards/sidebar/sidebar.card",
+                  "layoutName": "cards/network/network.card",
                   "itemID": "{{repeater.code}}",
                   "item": "_repeater"
                 }
@@ -90,7 +91,7 @@
                 "justifyContent": "center"
               },
               "dontShowIf": {
-                "query.results.links": {
+                "query.networks": {
                   "$size": {
                     "$gt": 0
                   }
@@ -114,27 +115,14 @@
   ],
   "query": [
     {
-      "operator": "external",
-      "name": "getBeWithAttributes",
-      "params": {
-        "idField": "GRP_NETWORKS",
-        "asField": "networkBe"
-      }
+      "operator": "getBE",
+      "id": "GRP_NETWORKS",
+      "as": "networks"
     },
     {
       "operator": "scope",
-      "path": "networkBe",
+      "path": "networks.links",
       "as": "networks",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "$exists":true
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "networks",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -142,23 +130,12 @@
       }
     },
     {
-      "operator":"scope",
-      "path":"networks",
-      "scope":{
-         "operator":"find",
-         "query":{
-            "code":{
-               "$exists":true
-            }
-         }
-      }
-    },
-    {
       "operator": "scope",
       "path": "networks",
       "scope": {
         "operator": "populateAttributes",
-        "as": "attributes"
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}"
       }
     }
   ]
