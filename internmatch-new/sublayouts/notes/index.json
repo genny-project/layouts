@@ -16,16 +16,51 @@
           },
           "children": [
             {
-              "component": "Heading",
+              "component": "Box",
               "props": {
-                "text": "Notes",
-                "size": "xxl"
-              }
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "text": "Notes",
+                    "size": "xxl"
+                  }
+                }
+              ]
             },
             {
               "component": "Box",
               "props": {
-                "marginY": 40,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "conditional": {
+                    "if": {
+                      "query.currentNote.attributes.PRI_NAME.value": {
+                        "$exists": true
+                      }
+                    },
+                    "then": {
+                      "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
+                    },
+                    "else": {
+                      "text": ""
+                    }
+                  },
+                  "props": {
+                    "size": "lg"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
                 "width": "100%",
                 "flexDirection": "column"
               },
@@ -90,7 +125,7 @@
             }
           },
           "props": {
-            "marginTop": 40,
+            "marginY": 40,
             "flexDirection": "column"
           },
           "children": [
@@ -178,7 +213,8 @@
                           "props": {
                             "width": "100%",
                             "text": "Add note",
-                            "color": "green"
+                            "color": "green",
+                            "disabledWhenFormInvalid": true
                           }
                         }
                       ]
@@ -210,6 +246,20 @@
     {
       "operator": "scope",
       "path": "notes",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentNote"
+    },
+    {
+      "operator": "scope",
+      "path": "currentNote",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
