@@ -13,167 +13,201 @@
   },
   "children": [
     {
-      "component": "Box", 
+      "component": "Box",
       "props": {
         "flex":1,
         "position": "relative"
       },
       "children": [
         {
-        "component": "Box",
-        "props": {
-          "position": "absolute",
-          "zIndex": 100,
-          "right": 0  
-        },
-        "children": [
-          {
-            "component": "Dropdown",
-            "props": {
-              "facingRight": false,
-              "menuButtonStyle": {
-                "backgroundColor": "transparent",
-                "border": 0,
-                "padding": 10,
-                "width": 60,
-                "fontSize": 16,
-                "cursor": "pointer",
-                "color": "white"
-              },
-              "menuListStyle": {
-                "background": "#233a4e",
-                "borderWidth": 2,
-                "borderStyle": "solid",
-                "padding": 10
-              },
-              "menuItemStyle": {
-                "color": "white",
-                "padding": 10,
-                "height": 30
-              },
-              "menuLinkStyle": {
-                "textAlign": "right",
-                "padding": 15,
-                "color": "white"
-              },
-              "items": [
-                {
-                  "text": "Internship",
-                  "buttonCode": "BTN_ADD_INTERNSHIP",
-                  "icon": "person"
+          "component": "Box",
+          "props": {
+            "position": "absolute",
+            "top": 0,
+            "right": 10,
+            "zIndex": 5
+          },
+          "children": [
+            {
+              "component": "Dropdown",
+              "props": {
+                "facingRight": true,
+                "menuButtonStyle": {
+                  "backgroundColor": "transparent",
+                  "border": 0,
+                  "padding": 10,
+                  "fontSize": 16,
+                  "cursor": "pointer",
+                  "color": "white"
                 },
-                {
-                  "text": "Company",
-                  "buttonCode": "BTN_ADD_COMPANY"
+                "menuListStyle": {
+                  "background": "#233a4e",
+                  "borderWidth": 2,
+                  "borderColor": "#192835",
+                  "borderStyle": "solid"
                 },
-                {
-                  "text": "People",
-                  "buttonCode": "BTN_ADD_PEOPLE"
+                "menuItemStyle": {
+                  "textAlign": "right",
+                  "padding": 15,
+                  "color": "white"
                 }
-              ]
-            },
-            "children": [
-              {
-                "component": "Box",
-                "props": {
-                  "alignItems": "center"
+              },
+              "conditional": {
+                "if": {
+                  "user.attributes.PRI_IS_AGENT.value": {
+                    "$eq": true
+                  }
                 },
-                "children": [
-                  {
-                    "component": "Box",
-                    "props": {
-                      "marginRight": 10
+                "then": {
+                  "items": [
+                    {
+                      "text": "New internship",
+                      "buttonCode": "BTN_ADD_BEG_AGENT"
                     },
-                    "children": [
+                    {
+                      "text": "New company",
+                      "buttonCode": "BTN_ADD_COMPANY"
+                    },
+                    {
+                      "text": "New person",
+                      "buttonCode": "BTN_ADD_PEOPLE"
+                    }
+                  ]
+                },
+                "else": {
+                  "if": {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "items": [
                       {
-                        "component": "ActivityIndicator",
-                        "dontShowIf": {
-                          "user.attributes.PRI_FIRSTNAME.value": {
-                            "$exists": true
-                          }
-                        },
-                        "props": {
-                          "color": "white",
-                          "size": "small"
-                        }
+                        "text": "New internship",
+                        "buttonCode": "BTN_ADD_INTERNSHIP"
                       },
                       {
-                        "component": "Text",
-                        "onlyShowIf": {
-                          "user.attributes.PRI_FIRSTNAME.value": {
-                            "$exists": true
-                          }
-                        },
-                        "props": {
-                          "color": "white",
-                          "text": "Add"
-                        }
+                        "text": "New person",
+                        "buttonCode": "BTN_ADD_PEOPLE"
                       }
                     ]
                   },
-                  {
-                    "component": "Icon",
-                    "props": {
-                      "name": "expand_more",
-                      "color": "white",
-                      "size": "xs"
+                  "else": {
+                    "if": {
+                      "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "items": [
+                        {
+                          "text": "New person",
+                          "buttonCode": "BTN_ADD_PEOPLE"
+                        }
+                      ]
                     }
                   }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Sublayout",
-        "onlyShowIf": {
-          "user.attributes.PRI_IS_AGENT.value": {
-            "$eq": true
+                }
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "alignItems": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginRight": 10
+                      },
+                      "children": [
+                        {
+                          "component": "ActivityIndicator",
+                          "dontShowIf": {
+                            "user.attributes.PRI_FIRSTNAME.value": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "color": "white",
+                            "size": "small"
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "onlyShowIf": {
+                            "user.attributes.PRI_FIRSTNAME.value": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "color": "white",
+                            "text": "ADD"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "expand_more",
+                        "color": "white",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/agent"
           }
         },
-        "props": {
-          "layoutName": "home/agent"
-        }
-      },
-      {
-        "component": "Sublayout",
-        "onlyShowIf": {
-          "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-            "$eq": true
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/edu-provider"
           }
         },
-        "props": {
-          "layoutName": "home/edu-provider"
-        }
-      },
-      {
-        "component": "Sublayout",
-        "onlyShowIf": {
-          "user.attributes.PRI_IS_SELLER.value": {
-            "$eq": true
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/intern"
           }
         },
-        "props": {
-          "layoutName": "home/intern"
-        }
-      },
-      {
-        "component": "Sublayout",
-        "onlyShowIf": {
-          "user.attributes.PRI_IS_BUYER.value": {
-            "$eq": true
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/hostcompany"
           }
-        },
-        "props": {
-          "layoutName": "home/hostcompany"
         }
-      }
-   
         
       ]
-      
     }
-    
   ]
 }

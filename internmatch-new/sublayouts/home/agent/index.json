@@ -48,6 +48,36 @@
             },
             {
               "component": "Box",
+              "dontShowIf": {
+                "query.items": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "props": {
+                "padding": 20,
+                "justifyContent": "center",
+                "alignItems": "center"
+              },
+              "children": [
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "small"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "query.items": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
               "props": {
                 "flexDirection": "column"
               },
