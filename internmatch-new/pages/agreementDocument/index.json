@@ -37,68 +37,19 @@
             },
             {
               "component": "Box",
-              "children": {
-                "component": "Image",
-                "props": {
-                  "source": "https://i.imgur.com/0fodSXE.png",
-                  "height":50,
-                  "width":200
-                }
-              },
-              "props": {
-                "flexDirection":"row",
-                "justifyContent":"center",
-                "paddingTop": "40px"
-              }
-            },
-            {
-              "component": "Box",
-              "children": {
-                "component": "Heading",
-                "children": "Work Integrated Learning (WIL) Internship Agreement",
-                "props": {
-                  "color": "#000000",
-                  "size": "xl",
-                  "fontFamily":"arial"
-                }
-              },
-              "props": {
-                "flexDirection":"row",
-                "justifyContent":"center",
-                "paddingTop": "30px"
-              }
-            },
-            {
-              "component": "Box",
-              "children": {
-                "component": "Heading",
-                "children": "General Terms and Conditions",
-                "props": {
-                  "color": "#000000",
-                  "size": "lg",
-                  "fontFamily":"arial"
-                }
-              },
-              "props": {
-                "flexDirection":"row",
-                "justifyContent":"center",
-                "paddingTop": "30px",
-                "paddingBottom":"15px"
-              }
-            },
-            {
-              "component": "Box",
               "props": {
                 "flexDirection": "row",
                 "backgroundColor":"#D3D3D3",
                 "paddingLeft":"50px",
-                "paddingRight":"50px"
+                "paddingRight":"50px",
+                "height": "500px",
+                "width": "800px"
               },
               "children": [
                 {
-                  "component": "PdfView",
+                  "component": "PdfViewer",
                   "props": {
-                    "file":""
+                    "file": "http://localhost:8080/week1%20(1).pdf"
                   }
                 }
               ]
@@ -106,12 +57,16 @@
             {
               "component": "Box",
               "children": {
-                "component": "EventButton",
+                "component": "LinkButton",
                 "props": {
                   "text":"View Document",
                   "textColor":"#ffffff",
                   "color": "#008001",
                   "size": "lg",
+                  "to":"https://www.facebook.com",
+                  "target":"_blank",
+                  "noopener":"noopener",
+                  "noreferer":"noreferer",
                   "height": "45px",
                   "width": "200px",
                   "shape": "rounded",
@@ -187,15 +142,12 @@
               }
             },
             {
-              "component": "Box",
-              "props": {
-                "flexDirection": "row",
-                "backgroundColor":"#D3D3D3",
-                "height":250
-              },
-              "children": [
-              ]
-            }
+                  "component": "Input",
+                  "props": {
+                  "type": "signature",
+                  "signatureUrl": "https://www.urltoupload.com"
+                  }
+                }
           ]
       }
     ]
