@@ -1,0 +1,81 @@
+{
+  "query": [
+    {
+      "operator":"scope",
+      "path": "{{params.idField}}",
+      "as": "{{params.asField}}",
+      "scope": {
+        "operator":"{{params.operator}}",
+        "query": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{params.userCode}}"
+                  }
+                },
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{params.userCode}}"
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$and": [
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$exists": true
+                      }
+                    },
+                    {
+                      "attributes.PRI_INTRODUCER_CODE.value": {
+                        "$ne": "undefined"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "$or": [
+                    {
+                      "query.requestBe.attributes.STA_GREEN.value": {
+                        "$exists": false                          }
+                    },
+                    {
+                      "$and": [
+                        {
+                          "query.requestBe.attributes.STA_GREEN.value": {
+                            "$exists": true                          }
+                        },
+                        {
+                          "query.requestBe.attributes.STA_GREEN.value": {
+                            "$size": {
+                              "$lt": 2
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "attributes.PRI_REQUEST_TYPE.value": {
+                "$eq": "INTRODUCTION"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

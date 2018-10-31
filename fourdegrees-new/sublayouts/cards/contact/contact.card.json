@@ -38,7 +38,7 @@
                 {
                   "component": "Image",
                   "props": {
-                    "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "source": "{{query.be.attributes.PRI_IMAGE_URL.valueString}}",
                     "shape": "circle",
                     "width": 60,
                     "height": 60
@@ -62,7 +62,7 @@
                     {
                       "component": "Text",
                       "props": {
-                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
+                        "text": "{{query.be.attributes.PRI_FIRSTNAME.valueString}} {{query.be.attributes.PRI_LASTNAME.valueString}}",
                         "color": "black",
                         "size": "sm"
                       }
@@ -83,7 +83,7 @@
                     {
                       "component": "Text",
                       "props": {
-                        "text": "{{query.attributes.PRI_NETWORK_NAME.valueString}}",
+                        "text": "{{query.be.attributes.PRI_NETWORK_NAME.valueString}}",
                         "color": "grey",
                         "size": "xs"
                       }
@@ -165,8 +165,45 @@
       "operator": "external",
       "name": "getBeWithAttributes",
       "params": {
-        "idField": "{{props.itemID}}",
-        "asField": "be"
+        "idField": "{{props.item.code}}",
+        "asField": "networkBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "userBe"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "userBe.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestInvites",
+      "params": {
+        "idField": "requests",
+        "asField": "invites",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestIntroductions",
+      "params": {
+        "idField": "requests",
+        "asField": "introductions",
+        "operator": "count",
+        "userCode": "{{userBe.code}}"
       }
     }
   ]
