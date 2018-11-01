@@ -21,16 +21,21 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "buttonComponent": [
-                  {
-                    "text": "Edit",
-                    "layoutName": "user-profile",
-                    "btnCode": "BTN_EDIT_INTERN"
-                  },
+                "renderButton": [
                   {
                     "text": "View",
-                    "layoutName": "user-profile",
-                    "btnCode": "BTN_VIEW_INTERN"
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "green",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_INTERN",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
                   }
               ]
               },

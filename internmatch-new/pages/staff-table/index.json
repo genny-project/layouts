@@ -21,13 +21,29 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "buttonComponent": [
+                "renderButton": [
                   {
                     "text": "View",
-                    "layoutName": "user-profile",
-                    "btnCode": "BTN_EDIT_STAFF"
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "green",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_STAFF",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
                   }
               ]
+              },
+
+              {
+                "Header": "Full Name",
+                "accessor": "fullName",
+                "filterType": "string"
               },
               {
                 "Header": "Mobile Phone",
@@ -91,7 +107,6 @@
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
           "email": "be.attributes.PRI_USERNAME.value",
           "attributeCode": "code"
-
         }
       }
     }

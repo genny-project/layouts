@@ -20,11 +20,21 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "buttonComponent": [
+                "renderButton": [
                   {
                     "text": "View",
-                    "layoutName": "user-profile",
-                    "btnCode": "BTN_EDIT_EDU_PROVIDER"
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "green",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_EDU_PROVIDER",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
                   }
               ]
               },
