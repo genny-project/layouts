@@ -1,0 +1,157 @@
+{
+  "barStyle": "light-content",
+  "renderHeader": {
+    "component": "Box",
+    "props": {
+      "justifyContent": "space-between",
+      "alignItems": "center",
+      "height": 65,
+      "paddingLeft": 20,
+      "paddingRight": 10,
+      "backgroundColor": "#233a4e"
+    },
+    "children": [
+      {
+        "component": "Box",
+        "children": [
+          {
+            "component": "Heading",
+            "props": {
+              "color": "white"
+            },
+            "children": "{{title}}"
+          }
+        ]
+      },
+      {
+        "component": "Box",
+        "props": {
+          "alignItems": "center"
+        },
+        "children": [
+          {
+            "component": "Touchable",
+            "props": {
+              "paddingX": 10,
+              "paddingY": 15,
+              "withFeedback": true
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "props": {
+                  "name": "notifications",
+                  "color": "white"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Touchable",
+            "props": {
+              "paddingX": 10,
+              "paddingY": 15,
+              "withFeedback": true
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "props": {
+                  "name": "chat",
+                  "color": "white"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Dropdown",
+            "props": {
+              "facingRight": true,
+              "menuButtonStyle": {
+                "backgroundColor": "transparent",
+                "border": 0,
+                "padding": 10,
+                "fontSize": 16,
+                "cursor": "pointer",
+                "color": "white"
+              },
+              "menuListStyle": {
+                "background": "#233a4e",
+                "borderWidth": 2,
+                "borderColor": "#192835",
+                "borderStyle": "solid"
+              },
+              "menuLinkStyle": {
+                "textAlign": "right",
+                "padding": 15,
+                "color": "white"
+              },
+              "items": [
+                {
+                  "text": "Profile",
+                  "icon": "person",
+                  "href": "profile"
+                },
+                {
+                  "text": "Logout",
+                  "icon": "exit-to-app",
+                  "href": "logout"
+                }
+              ]
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "ActivityIndicator",
+                        "dontShowIf": {
+                          "user.attributes.PRI_FIRSTNAME.value": {
+                            "$exists": true
+                          }
+                        },
+                        "props": {
+                          "color": "white",
+                          "size": "small"
+                        }
+                      },
+                      {
+                        "component": "Text",
+                        "onlyShowIf": {
+                          "user.attributes.PRI_FIRSTNAME.value": {
+                            "$exists": true
+                          }
+                        },
+                        "props": {
+                          "color": "white",
+                          "text": "{{user.attributes.PRI_FIRSTNAME.value}}"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "expand_more",
+                      "color": "white",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
