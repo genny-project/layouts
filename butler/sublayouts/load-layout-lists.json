@@ -4,218 +4,38 @@
          {
             "Selector":{
                "checkValues":"ROOT",
-               "showValues":"GRP_NEW_ITEMS",
+               "showValues":[
+                  "GRP_ORDER_ACTIVE_INTRANSIT",
+                  "GRP_ORDER_ACTIVE_DELIVERED",
+                  "GRP_ORDER_ACTIVE_COMPLETED",
+                  "GRP_ORDER_INACTIVE_RELEASES"
+               ],
                "children":[
-                  {
-                     "Selector":{
-                        "checkValues":"USER.PRI_IS_BUYER",
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "h4":{
-                                 "style":{
-                                    "margin":"0"
-                                 },
-                                 "children":"QUOTES RECEIVED"
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {
-                     "Selector":{
-                        "checkValues":"USER.PRI_IS_SELLER",
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "h4":{
-                                 "style":{
-                                    "margin":"0"
-                                 },
-                                 "children":"YOUR QUOTES"
-                              }
-                           }
-                        ]
-                     }
-                  },
                   {
                      "GennyList":{
                         "root":"BE.code",
+                        "title": "Container's OnBoard",
+                        "showEmpty":false,
                         "showLinks":[
-                           "OFFER"
+                           "CONTAINER"
                         ],
+                        "localAliases": {
+                           "PARENT": "ROOT"  
+                        },
                         "hideHeader":true,
                         "hideCount":true,
                         "gennyListStyle":{
                            "maxWidth":"700px"
                         },
+                         "listMainStyle":{
+                           "backgroundColor":"white",
+                           "padding":"0px"
+                        },
                         "style":{
                            "margin":"0",
                            "maxWidth":"700px",
-                           "background":"none"
+                           "backgroundColor":"#fff"
                         }
-                     }
-                  }
-               ]
-            }
-         },
-         {
-            "Selector":{
-               "checkValues":"ROOT",
-               "showValues":[
-                  "GRP_APPROVED",
-                  "GRP_COMPLETED",
-                  "GRP_IN_TRANSIT",
-                  "GRP_PAID"
-               ],
-               "children":[
-                  {
-                     "Selector":{
-                        "checkValues":[
-                           "USER.PRI_IS_BUYER",
-                           "USER.PRI_IS_ADMIN"
-                        ],
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "h4":{
-                                 "style":{
-                                    "margin":"0"
-                                 },
-                                 "children":"ACCEPTED QUOTE"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "ACCEPTED_OFFER"
-                                 ],
-                                 "itemsPerPage":1,
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "hideNav":true,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           },
-                           {
-                              "div":{
-                                 "className":"line-break"
-                              }
-                           },
-                           {
-                              "h4":{
-                                 "style":{
-                                    "margin":"0"
-                                 },
-                                 "children":"QUOTES RECEIVED"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OFFER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  },
-                  {
-                     "Selector":{
-                        "checkValues":[
-                           "USER.PRI_IS_SELLER",
-                           "USER.PRI_IS_ADMIN"
-                        ],
-                        "showValues":[
-                           true,
-                           "TRUE"
-                        ],
-                        "children":[
-                           {
-                              "div":{
-                                 "className":"line-break"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OWNER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "showEmpty":false,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           },
-                           {
-                              "div":{
-                                 "className":"line-break"
-                              }
-                           },
-                           {
-                              "h4":{
-                                 "style":{
-                                    "margin":"0"
-                                 },
-                                 "children":"YOUR QUOTES"
-                              }
-                           },
-                           {
-                              "GennyList":{
-                                 "root":"BE.code",
-                                 "showLinks":[
-                                    "OFFER"
-                                 ],
-                                 "hideHeader":true,
-                                 "hideCount":true,
-                                 "showEmpty":true,
-                                 "gennyListStyle":{
-                                    "maxWidth":"700px"
-                                 },
-                                 "style":{
-                                    "margin":"0",
-                                    "maxWidth":"700px",
-                                    "background":"none"
-                                 }
-                              }
-                           }
-                        ]
                      }
                   }
                ]

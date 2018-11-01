@@ -1,0 +1,125 @@
+{
+  "layout": {
+    "title": "Education Provider Representatives",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "editable": true,
+                "buttonComponent": [
+                  {
+                    "text": "Edit",
+                    "layoutName": "user-profile"
+                  },
+                  {
+                    "text": "View",
+                    "layoutName": "user-profile"
+                  }
+              ]
+              },
+              {
+                "Header": "Full Name",
+                "accessor": "firstName",
+                "filterType": "string",
+                "editable": true,
+                "sourceCode": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                "attributeCode": "PRI_FIRSTNAME",
+                "targetCode": "PER_RPGAYATRI_PLUS_STAGING_EDU_AT_GMAILCOM"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string"
+              },
+              {
+                "Header": "Phone Number",
+                "accessor": "mobilePhone",
+                "filterType": "string"
+              },
+              {
+                "Header": "University ",
+                "accessor": "university",
+                "filterType": "string"
+              }
+            ],
+            "tableBackgroundColor": "#cccccc",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px",
+            "itemsPerPage": 15
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+      "as": "hostCompanies"
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies.links",
+      "as": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "be.attributes.PRI_FIRSTNAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "university": "company.name"
+        }
+      }
+    }
+  ]
+}

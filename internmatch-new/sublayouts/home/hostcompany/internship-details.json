@@ -1,0 +1,105 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "dontShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flex": 1,
+        "width": "100%",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 10
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "No internship selected",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Text",
+          "props": {
+            "text": "Please select an active internship to the left",
+            "align": "center"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Sublayout",
+      "onlyShowIf": {
+        "query.internship.code": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "layoutName": "internship/details",
+        "code": "{{query.internship.code}}",
+        "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
+        "companyName": "{{query.internship.company.attributes.PRI_NAME.value}}",
+        "companyEmail": "{{query.internship.attributes.PRI_EMAIL.value}}",
+        "companyPhone": "{{query.internship.attributes.PRI_LANDLINE.value}}",
+        "internshipName": "{{query.internship.attributes.PRI_NAME.value}}",
+        "internshipAddress": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}",
+        "internshipStartDate": "{{query.internship.attributes.PRI_START_DATE.value}}",
+        "internshipDuration": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "internshipSkills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
+        "internshipDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
+        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
+        "createdOn": "{{query.internship.created}}"
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    }
+  ]
+}
