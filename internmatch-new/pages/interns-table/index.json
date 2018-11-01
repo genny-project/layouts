@@ -19,6 +19,28 @@
           "props": {
             "columns": [
               {
+                "Header": "Actions",
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_INTERN",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  }
+              ]
+              },
+              {
                 "Header": "Full Name",
                 "accessor": "firstName",
                 "id": "firstName",
@@ -100,7 +122,8 @@
           "firstName": "be.attributes.PRI_NAME.value",
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value"
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
         }
       }
     }

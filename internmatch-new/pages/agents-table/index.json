@@ -21,6 +21,28 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
+                "renderButton": [
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_AGENT",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  }
+              ]
+              },
+              {
+                "Header": "Actions",
+                "accessor": "actions",
                 "id": "actions",
                 "key": "actions"
               },
@@ -127,7 +149,9 @@
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
           "uname": "be.attributes.PRI_USERNAME.value",
-          "agency": "agency.attributes.PRI_NAME.value"
+          "agency": "agency.attributes.PRI_NAME.value",
+          "attributeCode": "code"
+
         }
       }
     }

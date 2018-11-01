@@ -279,51 +279,11 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "GRP_NOTES",
-      "as": "profile"
-    },
-    {
-      "operator": "scope",
-      "path": "profile.links",
-      "as": "notes",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "NOTE"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "notes",
-      "as": "notes",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "notes",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator":"scope",
-      "path":"notes",
-      "scope":{
-         "operator":"find",
-         "query":{
-            "code":{
-               "$exists":true
-            }
-         }
+      "operator": "external",
+      "name": "getAllAlerts",
+      "params": {
+        "asField": "notes",
+        "linksField": "notes.links"
       }
     }
   ]
