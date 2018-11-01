@@ -8,7 +8,12 @@
       "variant": "default"
     },
     "sidebarRight": {
-      "variant": "default"
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      }
     }
   },
   "children": [
@@ -68,7 +73,7 @@
                   "items": [
                     {
                       "text": "New internship",
-                      "buttonCode": "BTN_ADD_BEG_AGENT"
+                      "buttonCode": "BTN_ADD_INTERNSHIP"
                     },
                     {
                       "text": "New company",
@@ -129,24 +134,7 @@
                       },
                       "children": [
                         {
-                          "component": "ActivityIndicator",
-                          "dontShowIf": {
-                            "user.attributes.PRI_FIRSTNAME.value": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "color": "white",
-                            "size": "small"
-                          }
-                        },
-                        {
                           "component": "Text",
-                          "onlyShowIf": {
-                            "user.attributes.PRI_FIRSTNAME.value": {
-                              "$exists": true
-                            }
-                          },
                           "props": {
                             "color": "white",
                             "text": "ADD"
