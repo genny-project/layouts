@@ -110,9 +110,10 @@
                   },
                   "conditional": {
                     "if": {
-                      "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                        "$eq": true
-                      }
+                      "$or": [
+                        { "repeater.attributes.PRI_IS_DEACTIVATED.value": { "$eq": true } },
+                        { "repeater.attributes.PRI_IS_DECLINED.value": { "$eq": true } }
+                      ]
                     },
                     "then": {
                       "opacity": 0.7
@@ -487,6 +488,27 @@
                                 "bold": true
                               },
                               "children": "ON HOLD"
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "onlyShowIf": {
+                            "repeater.attributes.PRI_IS_DECLINED.value": {
+                              "$eq": true
+                            }
+                          },
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs",
+                                "bold": true
+                              },
+                              "children": "REJECTED"
                             }
                           ]
                         },
