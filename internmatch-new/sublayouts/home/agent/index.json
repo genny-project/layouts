@@ -85,11 +85,23 @@
               "children": [
                 {
                   "component": "Selection",
+                  "dontInjectContextIntoProps": ["dispatchActionOnChange"],
                   "props": {
                     "mode": "toggle",
-                    "selectFirstItemOnMount": true
+                    "selectFirstItemOnMount": true,
+                    "dispatchActionOnChange": {
+                      "type": "ALIAS_TOGGLE",
+                      "payload": {
+                        "alias": "CURRENT_NOTE",
+                        "value": "{{context.repeater.code}}"
+                      }
+                    }
                   },
                   "repeat": "_query.items",
+                  "sort": {
+                    "by": "repeater.created",
+                    "isDate": true
+                  },
                   "children": {
                     "component": "EventTouchable",
                     "conditional": {
@@ -117,14 +129,7 @@
                         "itemCode": "{{repeater.code}}"
                       },
                       "flexDirection": "column",
-                      "onPress": "_selection.onSelect",
-                      "dispatchActionOnClick": {
-                        "type": "ALIAS_TOGGLE",
-                        "payload": {
-                          "alias": "CURRENT_NOTE",
-                          "value": "{{repeater.code}}"
-                        }
-                      }
+                      "onPress": "_selection.onSelect"
                     },
                     "children": [
                       {
