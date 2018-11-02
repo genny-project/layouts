@@ -101,7 +101,8 @@
                       "component": "Sublayout",
                       "props": {
                         "title": "All Alerts",
-                        "layoutName": "alerts/alert.collapsible.header"
+                        "layoutName": "alerts/alert.collapsible.header",
+                        "alertCount": "_query.alertCount"
                       }
                     },
                     "wrapperProps": {
@@ -284,6 +285,19 @@
       "params": {
         "asField": "notes",
         "linksField": "notes.links"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "notes",
+      "as": "alertCount",
+      "scope": {
+        "operator":"count",
+        "query":{
+          "code": {
+            "$exists": true
+          }
+        }
       }
     }
   ]
