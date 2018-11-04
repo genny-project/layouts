@@ -1,0 +1,148 @@
+{
+  "layout": {
+    "title": "Connect Code",
+    "backgroundColor": "#f8f8f8",
+    "header": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "padding": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Direct Connect Code",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "This is a one use code to connect you to another user.",
+                    "color": "black",
+                    "size": "xs"
+                  }
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "The other member can go Accounts -> Connect, and enter the code below to be connected directly to you.",
+                    "color": "black",
+                    "size": "xs"
+                  }
+                },
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "large"
+                  },
+                  "dontShowIf": {
+                    "query.userBe.attributes": {
+                      "$exists": true
+                    }
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "backgroundColor": "white",
+                    "padding": 20,
+                    "width": "100%",
+                    "justifyContent": "center"
+                  },
+                  "onlyShowIf": {
+                    "query.userBe.attributes.PRI_INVITATION_CODE.value": {
+                      "$exists": true
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "{{query.userBe.attributes.PRI_INVITATION_CODE.value}}",
+                        "size": "md"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "backgroundColor": "white",
+                    "padding": 20,
+                    "width": "100%",
+                    "justifyContent": "center"
+                  },
+                  "dontShowIf": {
+                    "query.userBe.attributes.PRI_INVITATION_CODE.value": {
+                      "$exists": true
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "An error occured, no code found.",
+                        "color": "red",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "userBe"
+      }
+    }
+  ]
+}

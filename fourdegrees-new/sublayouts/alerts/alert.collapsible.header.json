@@ -30,6 +30,35 @@
         {
           "component": "Box",
           "props": {
+            "borderRadius": 10,
+            "minWidth": 20,
+            "height": 20,
+            "paddingX": 3,
+            "backgroundColor": "red",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginRight": 10
+          },
+          "onlyShowIf": {
+            "props.alertCount": {
+              "$gt": 0
+            }
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "align": "center",
+                "color": "white",
+                "size": "xxs",
+                "text": "{{props.alertCount}}"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
             "marginleft": 20,
             "alignItems": "center"
           },
@@ -43,14 +72,14 @@
                 "then": {
                   "transform": [
                     {
-                      "rotate": "180deg"
+                      "rotate": "0deg"
                     }
                   ]
                 },
                 "else": {
                   "transform": [
                     {
-                      "rotate": "0deg"
+                      "rotate": "180deg"
                     }
                   ]
                 }
