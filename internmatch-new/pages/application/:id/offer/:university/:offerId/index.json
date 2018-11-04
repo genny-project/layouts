@@ -22,7 +22,7 @@
         {
           "component": "Box",
           "props": {
-
+            "height": "calc(100vh - 65px - 450px)"
           },
           "children": [
             {
@@ -36,7 +36,18 @@
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "{{navigation.offerId}}"
+            "questionGroupCode": "{{navigation.offerId}}",
+            "style": {
+              "width": "100%"
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "showSpinnerOnClick": true,
+                "color": "green",
+                "width": "100%"
+              }
+            }
           }
         }
       ]

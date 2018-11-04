@@ -35,11 +35,24 @@
     "children": [
       {
         "component": "Box",
+        "conditional": {
+          "if": {
+            "sidebar.left.isOpen": {
+              "$eq": true
+            }
+          },
+          "then": {
+            "paddingTop": 15,
+            "justifyContent": "space-around"
+          },
+          "else": {
+            "paddingTop": 20,
+            "justifyContent": "center"
+          }
+        },
         "props": {
-          "paddingTop": 15,
           "paddingBottom": 0,
-          "height": 115,
-          "justifyContent": "space-around"
+          "height": 115
         },
         "children": [
           {
