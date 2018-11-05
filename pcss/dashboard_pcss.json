@@ -4,97 +4,11 @@
           "height":"100%"
        },
        "children":[  
-          {  
-             "Selector":{  
-                "checkValues":[
-                "USER.PRI_IS_BUYER",
-                "USER.PRI_IS_JOHN_HOLLAND"
-                ],
-                "showValues":[  
-                   true,
-                   "TRUE"
-                ],
-                "children":[  
-                   {  
-                      "Grid":{  
-                         "rows":[  
-                            {  
-                               "style":{  
-                                  "flexGrow":1
-                               }
-                            }
-                         ],
-                         "cols":[  
-                            {  
-                               "style":{  
-                                  "flexGrow":1,
-                                  "width":"100%"
-                               }
-                            }
-                         ],
-                         "children":[
-                            {  
-                               "TabContainer":{  
-                                  "position":[  
-                                     0,
-                                     0
-                                  ],
-                                  "views":[  
-                                     {  
-                                        "title":"Process View",
-                                        "icon":"dashboard",
-                                        "layout":{  
-                                           "layout":[  
-                                              {
-                                                "SplitView": {
-                                                    "position": [
-                                                        1,
-                                                        0
-                                                    ],
-                                                    "children": [
-                                                        {
-                                                            "GennyList": {
-                                                                "root": "GRP_NEW_ITEMS",
-                                                                "showTitle": true,
-                                                                "hideSelectedStyle": false,
-                                                                "selectedColor": "rgba(218, 35, 35, 0.22)"
-                                                            }
-                                                        },
-                                                        {
-                                                            "GennyBucketView": {
-                                                                "useLinkValueForLayout": true,
-                                                                "root": "GRP_APPLICATIONS"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                           ]
-                                        }
-                                     },
-                                     {  
-                                        "title":"Map View",
-                                        "icon":"public",
-                                        "layout":{  
-                                           "layout":[  
-                                              {  
-                                                 "GennyMap":{
-                                                    "hideRoutes":true,
-                                                    "root":"GRP_BEGS"
-                                                 }
-                                              }
-                                           ]
-                                        }
-                                     }
-                                  ]
-                               }
-                            }
-                         ]
-                      }
-                   }
-                ]
-             }
-          }
+           {
+            "iFrame": {
+                "src": "https://analytics.pcss.io/dashboard/1"
+            }
+           }
        ]
     }
  }
