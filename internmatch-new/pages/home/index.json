@@ -157,6 +157,49 @@
           ]
         },
         {
+          "component": "Box",
+          "props": {
+            "width": "100%",
+            "flex": 1,
+            "justifyContent": "center",
+            "alignItems": "center"
+          },
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            }
+          },
+          "children": [
+            {
+              "component": "ActivityIndicator",
+              "props": {
+                "size": "large"
+              }
+            }
+          ]
+        },
+        {
           "component": "Sublayout",
           "onlyShowIf": {
             "user.attributes.PRI_IS_AGENT.value": {
@@ -175,7 +218,7 @@
             }
           },
           "props": {
-            "layoutName": "home/agent"
+            "layoutName": "home/edu-provider"
           }
         },
         {
@@ -200,6 +243,7 @@
             "layoutName": "home/hostcompany"
           }
         }
+
       ]
     }
   ]

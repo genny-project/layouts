@@ -35,32 +35,50 @@
     "children": [
       {
         "component": "Box",
+        "conditional": {
+          "if": {
+            "sidebar.left.isOpen": {
+              "$eq": true
+            }
+          },
+          "then": {
+            "paddingTop": 15,
+            "justifyContent": "space-around"
+          },
+          "else": {
+            "paddingTop": 20,
+            "justifyContent": "center"
+          }
+        },
         "props": {
-          "paddingX": 20,
-          "paddingTop": 15,
           "paddingBottom": 0,
-          "height": 115,
-          "justifyContent": "space-between"
+          "height": 115
         },
         "children": [
           {
-            "component": "Image",
-            "onlyShowIf": {
-              "sidebar.left.isOpen": {
-                "$eq": true
-              }
-            },
+            "component": "Box",
             "props": {
-              "source": "https://puu.sh/BB7km.png",
-              "height": 70
-            }
+            },
+            "children": [
+              {
+                "component": "Image",
+                "onlyShowIf": {
+                  "sidebar.left.isOpen": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "source": "https://puu.sh/BB7km.png",
+                  "height": 70
+                }
+              }
+            ]
           },
           {
             "component": "Touchable",
             "props": {
               "withFeedback": true,
-              "onPress": "_onToggle",
-              "padding": 10
+              "onPress": "_onToggle"
             },
             "children": {
               "component": "Icon",

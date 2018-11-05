@@ -24,7 +24,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "text": "Notes",
+                    "text": "Feedback",
                     "size": "xxl"
                   }
                 }
@@ -33,7 +33,7 @@
             {
               "component": "Box",
               "props": {
-                "marginBottom": 20
+                "marginBottom": 40
               },
               "children": [
                 {
@@ -90,7 +90,10 @@
                     "maxWidth": "100%"
                   },
                   "repeat": "_query.notes",
-                  "sort": "reverse",
+                  "sort": {
+                    "by": "repeater.created",
+                    "isDate": true
+                  },
                   "children": {
                     "component": "Sublayout",
                     "conditional": {
