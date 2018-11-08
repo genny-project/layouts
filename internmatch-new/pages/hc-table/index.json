@@ -19,10 +19,26 @@
           "props": {
             "columns": [
               {
-                "Header": "Acions",
+                "Header": "Actions",
                 "accessor": "actions",
-                "id": "actions",
-                "key": "actions"
+                "renderButton": [
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_HOST_COMPANY",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  }
+              ]
               },
               {
                 "Header": "Company Name",
@@ -104,7 +120,8 @@
           "firstName": "be.attributes.PRI_NAME.value",
           "email": "be.attributes.PRI_EMAIL.value",
           "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "uname": "be.attributes.PRI_USERNAME.value"
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
         }
       }
     }

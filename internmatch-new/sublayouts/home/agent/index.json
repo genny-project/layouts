@@ -5,7 +5,8 @@
       "props": {
         "width": "100%",
         "flex": 1,
-        "position": "relative"
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
       },
       "children": [
         {
@@ -48,17 +49,59 @@
             },
             {
               "component": "Box",
+              "dontShowIf": {
+                "query.items": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              "props": {
+                "padding": 20,
+                "justifyContent": "center",
+                "alignItems": "center"
+              },
+              "children": [
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "small"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "query.items": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
               "props": {
                 "flexDirection": "column"
               },
               "children": [
                 {
                   "component": "Selection",
+                  "dontInjectContextIntoProps": ["dispatchActionOnChange"],
                   "props": {
                     "mode": "toggle",
-                    "selectFirstItemOnMount": true
+                    "selectFirstItemOnMount": true,
+                    "dispatchActionOnChange": {
+                      "type": "ALIAS_TOGGLE",
+                      "payload": {
+                        "alias": "CURRENT_NOTE",
+                        "value": "{{context.repeater.code}}"
+                      }
+                    }
                   },
                   "repeat": "_query.items",
+                  "sort": {
+                    "by": "repeater.created",
+                    "isDate": true
+                  },
                   "children": {
                     "component": "EventTouchable",
                     "conditional": {
@@ -86,14 +129,7 @@
                         "itemCode": "{{repeater.code}}"
                       },
                       "flexDirection": "column",
-                      "onPress": "_selection.onSelect",
-                      "dispatchActionOnClick": {
-                        "type": "ALIAS_TOGGLE",
-                        "payload": {
-                          "alias": "CURRENT_NOTE",
-                          "value": "{{repeater.code}}"
-                        }
-                      }
+                      "onPress": "_selection.onSelect"
                     },
                     "children": [
                       {

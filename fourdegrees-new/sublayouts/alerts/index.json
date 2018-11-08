@@ -65,7 +65,7 @@
           ]
         },
         {
-          "component": "Box",
+          "component": "ScrollView",
           "onlyShowIf": {
             "query.notes": {
               "$size": {
@@ -74,76 +74,230 @@
             }
           },
           "props": {
-            "flex": 1,
-            "width": "100%"
+            "width": "100%",
+            "flex": 1
           },
-          "children": {
-            "component": "FlatList",
-            "style": {
-              "flex": 1
-            },
-            "props": {
-              "data": "_query.notes",
-              "renderItem": {
-                "component": "Sublayout",
-                "props": {
-                  "layoutName": "alerts/alert.listitem",
-                  "alert": "_item"
+          "children": [
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "query.notes": {
+                  "$size": {
+                    "$gt": 0
+                  }
                 }
-              }
+              },
+              "props": {
+                "flex": 1,
+                "width": "100%",
+                "flexDirection": "column",
+                "alignItems": "flex-start"
+              },
+              "children": [
+                {
+                  "component": "Collapsible",
+                  "props": {
+                    "header": {
+                      "component": "Sublayout",
+                      "props": {
+                        "title": "All Alerts",
+                        "layoutName": "alerts/alert.collapsible.header",
+                        "alertCount": "_query.alertCount"
+                      }
+                    },
+                    "wrapperProps": {
+                      "width": "100%",
+                      "backgroundColor": "white",
+                      "marginBottom": 5
+                    }
+                  },
+                  "children": {
+                    "component": "FlatList",
+                    "style": {
+                      "flex": 1
+                    },
+                    "props": {
+                      "data": "_query.notes",
+                      "renderItem": {
+                        "component": "Sublayout",
+                        "props": {
+                          "layoutName": "alerts/alert.listitem",
+                          "alert": "_item"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "component": "Collapsible",
+                  "props": {
+                    "header": {
+                      "component": "Sublayout",
+                      "props": {
+                        "title": "Introduction Alerts",
+                        "layoutName": "alerts/alert.collapsible.header"
+                      }
+                    },
+                    "wrapperProps": {
+                      "width": "100%",
+                      "backgroundColor": "white",
+                      "marginBottom": 5
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "padding": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "color": "black"
+                          },
+                          "children": "No introduction alerts to show."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Collapsible",
+                  "props": {
+                    "header": {
+                      "component": "Sublayout",
+                      "props": {
+                        "title": "Connection Alerts",
+                        "layoutName": "alerts/alert.collapsible.header"
+                      }
+                    },
+                    "wrapperProps": {
+                      "width": "100%",
+                      "backgroundColor": "white",
+                      "marginBottom": 5
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "padding": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "color": "black"
+                          },
+                          "children": "No connection alerts to show."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Collapsible",
+                  "props": {
+                    "header": {
+                      "component": "Sublayout",
+                      "props": {
+                        "title": "Invite Alerts",
+                        "layoutName": "alerts/alert.collapsible.header"
+                      }
+                    },
+                    "wrapperProps": {
+                      "width": "100%",
+                      "backgroundColor": "white",
+                      "marginBottom": 5
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "padding": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "color": "black"
+                          },
+                          "children": "No invite alerts to show."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Collapsible",
+                  "props": {
+                    "header": {
+                      "component": "Sublayout",
+                      "props": {
+                        "title": "Message Alerts",
+                        "layoutName": "alerts/alert.collapsible.header"
+                      }
+                    },
+                    "wrapperProps": {
+                      "width": "100%",
+                      "backgroundColor": "white"
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "padding": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "color": "black"
+                          },
+                          "children": "No message alerts to show."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
-          }
+          ]
         }
       ]
     }
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "GRP_NOTES",
-      "as": "profile"
-    },
-    {
-      "operator": "scope",
-      "path": "profile.links",
-      "as": "notes",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "NOTE"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "notes",
-      "as": "notes",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "notes",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
+      "operator": "external",
+      "name": "getAllAlerts",
+      "params": {
+        "asField": "notes",
+        "linksField": "notes.links"
       }
     },
     {
       "operator":"scope",
-      "path":"notes",
-      "scope":{
-         "operator":"find",
-         "query":{
-            "code":{
-               "$exists":true
-            }
-         }
+      "path": "notes",
+      "as": "alertCount",
+      "scope": {
+        "operator":"count",
+        "query":{
+          "code": {
+            "$exists": true
+          }
+        }
       }
     }
   ]
