@@ -1,12 +1,13 @@
 {
   "layout": {
-    "title": "Accept/Decline PCS",
-    "appColor": "white",
-    "backgroundColor": "white",
-    "header":{
+    "title": "Terms of Use",
+    "header": {
       "variant": "default"
     },
     "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
       "variant": "default"
     }
   },
@@ -23,240 +24,213 @@
       },
       "children": [
         {
-            "component": "Box",
-            "props": {
-                "flex": 1,
-                "padding": 40
-            },
-            "children": [
-                {
-                    "component": "Image",
-                    "props": {
-                        "height": 100,
-                        "width": 400,
-                        "top": 50,
-                        "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
-                    }
-                }
-            ]
+          "component": "Image",
+          "props": {
+            "width":"50%",
+            "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
+          }
         },
         {
           "component": "Box",
           "props": {
-            "padding": 10
+            "padding": 10,
+            "marginTop":"20px",
+            "marginBottom":"20px"
           },
           "children": [
             {
               "component": "Heading",
               "props": {
-                "color": "#0592FD",
+                "color": "#000000",
                 "size": "xxl",
-                "bold": false
+                "bold": true
               },
               "children": "Terms of use"
             }
           ]
         },
         {
-          "component": "Form",
-          "props": {
-            "questionGroupCode": "QUE_TERMS_OF_USE_GRP",
-            "renderHeading": {
-              "component": "Box",
-              "props": {
-                "marginTop": 20,
-                "marginBottom": 20
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "color": "#0592FD",
-                    "size": "xl",
-                    "text": "{{heading}}"
-                  }
-                }
-              ]
-            },
-            "renderFormInputLabel": {
-            "component": "Box",
-            "props": {
-              "marginBottom": 5
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "size": "sm"
-                },
-                "children": "{{label}}"
-              }
-            ]
+          "component":"Box",
+          "props":{
+            "borderWidth":2,
+            "borderColor": "#000000"
           },
-            "renderSubheading": {
+          "children":
+          {
+            "component": "Form",
+            "props": {
+              "questionGroupCode": "QUE_TERMS_OF_USE_GRP",
+              "renderFormInputLabel": {
               "component": "Box",
               "props": {
-                "marginY": 20,
-                "marginBottom": 20
+                "borderColor": "#000000"
               },
               "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "color": "#0592FD",
-                    "size": "lg",
-                    "align": "left",
-                    "text": "{{subheading}}"
-                  }
-                }
               ]
             },
-            "renderFormInputWrapper": {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              }
-            },
-            "renderFormInput": {
-              "component": "FormInput",
-              "useThemeFrom": "Input",
-              "variant": "default",
-              "props": {
-                "placeholder": "{{label}}",
-                "borderWidth": 1,
-                "borderColor": "lightgray",
-                "borderRadius": 3
-              }
-            },
-            "renderSubmitButtonWrapper": {
-              "component": "Box",
-              "props": {
-                "marginTop": 10,
-                "flexDirection": "column",
-                "width": "100%"
-              }
-            },
-            "renderSubmitButton": {
-              "component": "Button",
-              "props": {
-                "inverted": true,
-                "showSpinnerOnClick": true,
-                "color": "black",
-                "width": "100%"
-              }
-            },
-            "renderLoading": {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "ActivityIndicator",
-                  "props": {
-                    "size": "large"
-                  }
+              "renderSubheading": {
+                "component": "Box",
+                "props": {
+                  "marginY": 20,
+                  "marginBottom": 20
                 },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginTop": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "props": {
-                        "text": "Loading form..."
-                      }
+                "children": [
+                  {
+                    "component": "Heading",
+                    "props": {
+                      "color": "#0592FD",
+                      "size": "lg",
+                      "align": "left",
+                      "text": "{{subheading}}"
                     }
-                  ]
-                },
-                {
-                   "component": "Box",
-                   "props": {
-                      "display": "flex"
-                   },
-                   "children": [
-                      {
-                         "component":"EventButton",
-                         "props":{
-                            "flex": "0.5",
-                            "alignItems":"center",
-                            "paddingX":0,
-                            "paddingY":0,
-                            "eventType":"ROUTE_CHANGE",
-                            "buttonCode":"owner-landing/privacy-policy",
-                            "value":{
-                               "itemCode":""
-                            }
-                         },
-                         "children":[
-                            {
-                               "component":"Box",
-                               "props":{
-                                  "alignItems":"center",
-                                  "shape":"rounded",
-                                  "borderStyle":"solid",
-                                  "borderWidth":1,
-                                  "borderColor":"white",
-                                  "padding":40
-                               },
-                               "children":[
-                                  {
-                                     "component":"Heading",
-                                     "props":{
-                                        "size":"md",
-                                        "bold":false,
-                                        "decoration":"underline"
-                                     },
-                                     "children":"Privacy Policy"
-                                  }
-                               ]
-                            }
-                         ]
-                      },
-                      {
-                         "component":"EventButton",
-                         "props":{
-                            "flex": "0.5",
-                            "alignItems":"center",
-                            "paddingX":0,
-                            "paddingY":0,
-                            "eventType":"ROUTE_CHANGE",
-                            "buttonCode":"owner-landing/terms-of-use",
-                            "value":{
-                               "itemCode":""
-                            }
-                         },
-                         "children":[
-                            {
-                               "component":"Box",
-                               "props":{
-                                  "alignItems":"center",
-                                  "shape":"rounded",
-                                  "borderStyle":"solid",
-                                  "borderWidth":1,
-                                  "borderColor":"white",
-                                  "padding":40
-                               },
-                               "children":[
-                                  {
-                                     "component":"Heading",
-                                     "props":{
-                                        "size":"md",
-                                        "bold":false,
-                                        "decoration":"underline"
-                                     },
-                                     "children":"Terms of Use"
-                                  }
-                               ]
-                            }
-                         ]
-                      }
-                   ]
+                  }
+                ]
+              },
+              "renderFormInputWrapper": {
+                "component": "Box",
+                "props": {
+                  "marginBottom": 20,
+                  "flexDirection": "column"
                 }
-              ]
+              },
+              "renderFormInput": {
+                "component": "FormInput",
+                "useThemeFrom": "Input",
+                "variant": "default",
+                "props": {
+                  "placeholder": "{{label}}",
+                  "borderWidth": 1,
+                  "borderColor": "lightgray",
+                  "borderRadius": 3
+                }
+              },
+              "renderSubmitButtonWrapper": {
+                "component": "Box",
+                "props": {
+                  "marginTop": 10,
+                  "flexDirection": "column"
+                }
+              },
+              "renderSubmitButton": {
+                "component": "Button",
+                "props": {
+                  "inverted": true,
+                  "showSpinnerOnClick": true,
+                  "color": "black"
+                }
+              },
+              "renderLoading": {
+                "component": "Box",
+                "props": {
+                  "flexDirection": "column"
+                },
+                "children": [
+                  {
+                    "component": "ActivityIndicator",
+                    "props": {
+                      "size": "large"
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginTop": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "Loading form..."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                     "component": "Box",
+                     "props": {
+                        "display": "flex"
+                     },
+                     "children": [
+                        {
+                           "component":"EventButton",
+                           "props":{
+                              "flex": "0.5",
+                              "alignItems":"center",
+                              "paddingX":0,
+                              "paddingY":0,
+                              "eventType":"ROUTE_CHANGE",
+                              "buttonCode":"owner-landing/privacy-policy",
+                              "value":{
+                                 "itemCode":""
+                              }
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "alignItems":"center",
+                                    "shape":"rounded",
+                                    "borderStyle":"solid",
+                                    "borderWidth":1,
+                                    "borderColor":"white",
+                                    "padding":40
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Heading",
+                                       "props":{
+                                          "size":"md",
+                                          "bold":false,
+                                          "decoration":"underline"
+                                       },
+                                       "children":"Privacy Policy"
+                                    }
+                                 ]
+                              }
+                           ]
+                        },
+                        {
+                           "component":"EventButton",
+                           "props":{
+                              "flex": "0.5",
+                              "alignItems":"center",
+                              "paddingX":0,
+                              "paddingY":0,
+                              "eventType":"ROUTE_CHANGE",
+                              "buttonCode":"owner-landing/terms-of-use",
+                              "value":{
+                                 "itemCode":""
+                              }
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "alignItems":"center",
+                                    "shape":"rounded",
+                                    "borderStyle":"solid",
+                                    "borderWidth":1,
+                                    "borderColor":"white",
+                                    "padding":40
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Heading",
+                                       "props":{
+                                          "size":"md",
+                                          "bold":false,
+                                          "decoration":"underline"
+                                       },
+                                       "children":"Terms of Use"
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     ]
+                  }
+                ]
+              }
             }
           }
         }
