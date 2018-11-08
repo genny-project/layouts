@@ -3,7 +3,7 @@
     "title": "Chat Conversation",
     "appColor": "dark",
     "header": {
-      "variant": "default"
+      "variant": "noback"
     },
     "sidebar": {
       "variant": "default"
@@ -15,14 +15,53 @@
       "props": {
         "justifyContent": "center",
         "padding": 20,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "backgroundColor": "#f8f8f8",
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "borderStyle": "solid"
       },
       "children": [
         {
-          "component": "Text",
+          "component": "Box",
           "props": {
-            "text": "Person Name",
-            "size": "sm"
+            "alignItems": "center",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component" : "BackButton"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 3
+          },
+          "children": [
+            {
+              "component": "Text",
+              "children": [
+                  {
+                    "component": "Join",
+                    "renderAsComponent": true,
+                    "props": {
+                      "delimiter": ", ",
+                      "items": "_query.names"
+                      }
+                  }
+                ]
+
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "alignItems": "center",
+            "flex": 1
           }
         }
       ]
@@ -31,16 +70,93 @@
       "component": "Box",
       "props": {
         "justifyContent": "center",
-        "flexDirection": "column"
+        "flexDirection": "column",
+        "backgroundColor": "#f8f8f8"
+      },
+      "onlyShowIf": {
+        "$or": [
+          {
+            "navigation.itemID": {
+              "$exists": true
+            }
+          },
+          {
+            "query.introductions": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          },
+          {
+            "query.invites": {
+              "$size": {
+                "$gt": 0
+              }
+            }
+          }
+        ]
       },
       "children": [
         {
           "component": "Sublayout",
+          "onlyShowIf": {
+            "$and":  [
+              {
+                "query.invites": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              {
+                "navigation.itemID": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
           "props": {
-            "layoutName": "cards/introduction/introduction.card",
-            "itemID": "PER_USER1"
+            "layoutName": "cards/invites/invites-summary.card",
+            "invites": "_query.invites",
+            "names": "_query.names"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "$or":  [
+              {
+                "query.introductions": {
+                  "$size": {
+                    "$gt": 0
+                  }
+                }
+              },
+              {
+                "navigation.itemID": {
+                  "$exists": true
+                }
+              }
+            ]
+          },
+          "props": {
+            "layoutName": "cards/introduction/introductions-summary.card",
+            "requests": "_query.introductions",
+            "names": "_query.names"
+          },
+          "conditional": {
+            "if" : {
+              "navigation.itemID": {
+                "$exists": true
+              }
+            },
+            "then": {
+              "layoutName": "cards/introduction/introduction.card",
+              "requestID": "{{navigation.itemID}}"
+            }
           }
         }
+
       ]
     },
     {
@@ -49,9 +165,11 @@
         "bubbleRightColor": "#09D0B7",
         "sendIcon": "chevron-right",
         "sendIconColor": "white",
-        "raw": "_query.results",
         "sendIconBackgroundColor": "#09D0B7",
-        "users": "_query.results.links",
+        "itemCode": "{{navigation.chatCode}}",
+        "users": "_query.users",
+        "messages": "_query.messages",
+        "names": "_query.names",
         "user": {
           "_id": "{{user.data.code}}"
         }
@@ -60,13 +178,39 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "{{navigation.chatCode}}",
-      "as": "results"
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{navigation.chatCode}}",
+        "asField": "chatBE"
+      }
+    },
+
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "chatBE.links",
+        "asField": "messages",
+        "linkValue": "message"
+      }
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "chatBE.links",
+      "as": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.attributeCode": {
+            "$eq": "LNK_USER"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -74,17 +218,133 @@
       }
     },
     {
-      "operator": "getLinkDepths",
-      "code": "{{user.data.code}}",
-      "as": "depths"
+      "operator":"scope",
+      "path":"users",
+      "scope":{
+         "operator":"find",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
+      }
     },
     {
       "operator": "scope",
-      "path": "results.links",
+      "path": "users",
       "scope": {
         "operator": "populateAttributes",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}"
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$ne": "{{user.data.code}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "users",
+      "as": "names",
+      "scope": {
+        "operator": "map",
+        "fields": "name"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"users",
+      "as": "otherUser",
+      "scope":{
+         "operator":"findOne",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{user.data.code}}",
+        "asField": "currentUser"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getLinkedBesWithAttributes",
+      "params": {
+        "linksField": "currentUser.links",
+        "asField": "requests",
+        "linkValue": "REQUEST"
+      }
+    },
+    {
+      "operator":"scope",
+      "path": "requests",
+      "scope": {
+        "operator":"find",
+        "query": {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{otherUser.code}}"
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{currentUser.code}}"
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "attributes.PRI_INTRODUCER_CODE.value": {
+                    "$eq": "{{currentUser.code}}"
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_CODE.value": {
+                    "$eq": "{{otherUser.code}}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestInvites",
+      "params": {
+        "idField": "requests",
+        "asField": "invites",
+        "operator": "find",
+        "userCode": "{{currentUser.code}}"
+      }
+    },
+    {
+      "operator": "external",
+      "name": "getRequestIntroductions",
+      "params": {
+        "idField": "requests",
+        "asField": "introductions",
+        "operator": "find",
+        "userCode": "{{currentUser.code}}"
       }
     }
   ]

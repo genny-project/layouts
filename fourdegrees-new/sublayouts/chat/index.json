@@ -1,0 +1,170 @@
+{
+  "layout": {
+    "title": "Chat",
+    "appColor": "dark",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "style": {
+          "flex": 1,
+          "backgroundColor": "#f8f8f8"
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "padding": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "Your Messages",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "flexDirection": "column"
+              },
+              "repeat": "_query.chats",
+              "onlyShowIf": {
+                "query.chats": {
+                  "$exists": true
+                }
+              },
+              "children": {
+                "component": "Sublayout",
+                "onlyShowIf": {
+                  "repeater.userCount": {
+                    "$gt": 1
+                  }
+                },
+                "props": {
+                  "layoutName": "chat/chat.listitem",
+                  "itemID": "{{repeater.code}}"
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "center",
+                "alignItems": "center",
+                "flexDirection": "column",
+                "flex": 1
+              },
+              "dontShowIf": {
+                "query.chats": {
+                  "$exists": true
+                }
+              },
+              "children": {
+                "component": "ActivityIndicator",
+                "props": {
+                  "size": "large"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_MESSAGES",
+      "as": "chats"
+    },
+    {
+      "operator": "scope",
+      "path": "chats.links",
+      "as": "chats",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"chats",
+      "scope":{
+        "operator":"find",
+        "query":{
+           "code":{
+              "$exists":true
+           }
+        }
+      }
+    },
+    {
+      "onlyShowIf": {
+        "chats" : {
+          "$size": {
+            "$exists": true
+          }
+        }
+      },
+      "query": [
+        {
+          "operator": "scope",
+          "path": "chats",
+          "scope": {
+            "operator": "populateLinkValues",
+            "basePath": "baseEntities.attributes",
+            "id": "{{link.targetCode}}",
+            "withAttributes": true
+          }
+        },
+        {
+          "operator": "scope",
+          "path": "chats",
+          "scope": {
+            "operator": "scope",
+            "path": "links",
+            "as": "userCount",
+            "scope": {
+              "operator": "count",
+              "query":{
+                "link.attributeCode":{
+                  "$eq": "LNK_USER"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

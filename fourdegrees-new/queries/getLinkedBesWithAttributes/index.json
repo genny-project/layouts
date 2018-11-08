@@ -1,0 +1,46 @@
+{
+  "query": [
+    {
+      "operator": "scope",
+      "path": "{{params.linksField}}",
+      "as": "{{params.asField}}",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "{{params.linkValue}}"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"{{params.asField}}",
+      "scope":{
+         "operator":"find",
+         "query":{
+            "code":{
+               "$exists":true
+            }
+         }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

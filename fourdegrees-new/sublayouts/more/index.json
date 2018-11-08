@@ -1,31 +1,227 @@
 {
   "layout": {
     "title": "More",
-    "appColor": "dark"
+    "backgroundColor": "#f8f8f8",
+    "header": {
+      "variant": "default"
+    }
   },
   "children": [
     {
       "component": "ScrollView",
       "props": {
-        "width": "100%",
-        "flex": 1
+        "style": {
+          "flex": 1
+        }
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "width": "100%",
             "flex": 1,
-            "backgroundColor": "lightgrey"
+            "flexDirection": "column"
           },
           "children": [
             {
-              "component": "Text",
+              "component": "Box",
               "props": {
-                "color": "black"
+                "padding": 20,
+                "flexDirection": "column",
+                "width": "100%"
               },
-              "children": "More Coming Soon"
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "props": {
+                        "text": "More",
+                        "size": "xl"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "backgroundColor": "#f8f8f8",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "EventButton",
+                "props": {
+                  "eventType": "BTN_CLICK",
+                  "buttonCode": "BTN_SHOW_SETTINGS_PRIVACY",
+                  "style": {
+                    "width": "100%"
+                  },
+                  "paddingX": 0,
+                  "paddingY": 0
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Privacy"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "EventButton",
+                "props": {
+                  "eventType": "BTN_CLICK",
+                  "buttonCode": "BTN_INVITE_NEW_USER",
+                  "style": {
+                    "width": "100%"
+                  },
+                  "paddingX": 0,
+                  "paddingY": 0
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Invite New Member"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "Link",
+                "props": {
+                  "to": "profile/",
+                  "params": {
+                    "userID": "{{user.data.code}}"
+                  },
+                  "style": {
+                    "width": "100%"
+                  }
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Profile"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "Link",
+                "props": {
+                  "to": "networks/",
+                  "params": {
+                    "userID": "{{user.data.code}}"
+                  },
+                  "style": {
+                    "width": "100%"
+                  }
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Networks"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "Link",
+                "props": {
+                  "to": "introductions/",
+                  "params": {
+                    "userID": "{{user.data.code}}"
+                  },
+                  "style": {
+                    "width": "100%"
+                  }
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Introductions"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "100%",
+                "marginBottom": 5
+              },
+              "children": {
+                "component": "EventButton",
+                "props": {
+                  "eventType": "ROUTE_CHANGE",
+                  "buttonCode": "connect/enter-code",
+                  "style": {
+                    "width": "100%"
+                  },
+                  "paddingX": 0,
+                  "paddingY": 0
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "cards/more/section.card",
+                      "title": "Direct Connect"
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
@@ -33,4 +229,3 @@
     }
   ]
 }
-

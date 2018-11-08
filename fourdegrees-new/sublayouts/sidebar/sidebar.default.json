@@ -1,11 +1,170 @@
 {
-  "sidebarRootCode": "GRP_NETWORKS",
-  "sidebarProps": {
-    "headerLayout": "sidebar/sidebar.header",
-    "footerLayout": "sidebar/sidebar.footer",
-    "sidebarItemProps": {
-      "hideLogout": true,
-      "sidebarItemLayout": "sidebar/sidebar.item"
-    }
+  "rootCode": "GRP_NETWORKS",
+  "renderBody": {
+    "component": "Box",
+    "props": {
+      "backgroundColor": "{{layout.appColor}}",
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "flex": 1
+    },
+    "children": [
+      {
+        "component": "Box",
+        "props": {
+          "padding": 30,
+          "marginTop": 20,
+          "alignItems": "center",
+          "justifyContent": "flex-start",
+          "width": "100%",
+          "borderBottomWidth": 1,
+          "borderColor": "grey"
+        },
+        "children": [
+          {
+            "component": "Heading",
+            "props": {
+              "text": "My Networks",
+              "color": "{{layout.textColor}}",
+              "fontWeight": "bold",
+              "size": "xl"
+            }
+          }
+        ]
+      },
+      {
+        "component": "Box",
+        "props": {
+          "width": "100%",
+          "flex": 1,
+          "flexDirection": "column"
+        },
+        "children": [
+          {
+            "component": "Box",
+            "props": {
+              "flex": 1,
+              "flexDirection": "column"
+            },
+            "repeat": "_items",
+            "children": {
+              "component": "Box",
+              "props": {
+                "padding": 10,
+                "alignItems": "center",
+                "justifyContent": "space-between",
+                "width": "100%",
+                "borderBottomWidth": 1,
+                "borderColor": "grey"
+              },
+              "children": [
+                {
+                  "component": "Sublayout",
+                  "props": {
+                    "layoutName": "sidebar/sidebar.card",
+                    "item": "_repeater"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "component": "EventButton",
+            "props": {
+              "alignItems": "flex-start",
+              "paddingX": 0,
+              "paddingY": 0,
+              "width": "100%",
+              "eventType": "ROUTE_CHANGE",
+              "buttonCode": "registration/add-network"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "padding": 20,
+                  "backgroundColor": "black"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "props": {
+                          "name": "add",
+                          "color": "white"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "Add Network",
+                      "size": "sm",
+                      "color": "white"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component": "Link",
+            "props": {
+              "alignItems": "flex-start",
+              "paddingX": 0,
+              "paddingY": 0,
+              "width": "100%",
+              "to": "logout"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "padding": 20,
+                  "backgroundColor": "black"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "props": {
+                          "name": "exit-to-app",
+                          "color": "white"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "Logout",
+                      "size": "sm",
+                      "color": "white"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

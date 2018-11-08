@@ -89,7 +89,11 @@
                               "component": "Input",
                               "props": {
                                 "type": "autocomplete",
+                                "eventCode": "SEARCH_KEYWORD",
+                                "items": "_query.results.links",
                                 "inputProps": {
+                                  "items": "_query.results.links",
+                                  "eventCode": "SEARCH_KEYWORD",
                                   "borderWidth": 0,
                                   "borderBottomWidth": 1,
                                   "borderColor": "lightgray",
@@ -99,7 +103,8 @@
                                   "borderRadius": 0,
                                   "borderTopLeftRadius": 10,
                                   "borderTopRightRadius": 10,
-                                  "backgroundColor": "white"
+                                  "backgroundColor": "white",
+                                  "test": "Test"
                                 }
                               }
                             }
@@ -351,6 +356,36 @@
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS",
+      "as": "results"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "getLinkDepths",
+      "code": "{{user.data.code}}",
+      "as": "depths"
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "populateAttributes",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}"
+      }
     }
   ]
 }

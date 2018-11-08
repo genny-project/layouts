@@ -10,93 +10,130 @@
         {
           "component": "Box",
           "props": {
-            "padding": 10
-          },
-          "onlyShowIf": {
-            "user.data.code": "{{props.userID}}"
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-interests",
-                "text": "Edit Interests",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "paddingY": 15,
-                "paddingX": 15
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
             "backgroundColor": "white",
             "padding": 10,
-            "paddingBottom": 20
-          },
-          "onlyShowIf": {
-            "query.profile.attributes.PRI_INTERESTS.value": {
-              "$size": {
-                "$gt": 0
-              }
-            }
+            "paddingBottom": 0
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "flexWrap": "wrap"
+                "flexWrap": "wrap",
+                "flex": 1
               },
-              "repeat": "_query.profile.attributes.PRI_INTERESTS.value",
-              "children": {
-                "component": "Box",
-                "props": {
-                  "backgroundColor": "lightgrey",
-                  "shape": "pill",
-                  "padding": 10,
-                  "marginRight": 10,
-                  "marginTop": 10
-                },
-                "children": [
-                  {
-                    "component": "Text",
-                    "props": {
-                      "text": "{{repeater}}",
-                      "color": "black",
-                      "size": "xs"
+              "children": [
+                {
+                  "component": "Fragment",
+                  "repeat": "_query.profile.attributes.PRI_INTERESTS.value",
+                  "onlyShowIf": {
+                    "query.profile.attributes.PRI_INTERESTS.value": {
+                      "$size": {
+                        "$gt": 0
+                      }
                     }
+                  },
+                  "children": {
+                    "component": "Box",
+                    "props": {
+                      "backgroundColor": "lightgrey",
+                      "shape": "pill",
+                      "padding": 10,
+                      "marginRight": 10,
+                      "marginBottom": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{repeater}}",
+                          "color": "black",
+                          "size": "xs"
+                        }
+                      }
+                    ]
                   }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "width": "100%",
-            "justifyContent": "center"
-          },
-          "dontShowIf": {
-            "query.profile.attributes.PRI_INTERESTS.value": {
-              "$size": {
-                "$gt": 0
-              }
-            }
-          },
-          "children": [
-            {
-              "component": "Text",
-              "props": {
-                "text": "No interests to show.",
-                "color": "black",
-                "size": "xs"
-              }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flex": 1,
+                    "justifyContent": "flex-end",
+                    "alignItems": "center",
+                    "marginRight": 10,
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "backgroundColor": "white",
+                        "flex": 1,
+                        "justifyContent": "center"
+                      },
+                      "dontShowIf": {
+                        "query.profile.attributes.PRI_INTERESTS.value": {
+                          "$size": {
+                            "$gt": 0
+                          }
+                        }
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "text": "No interests to show.",
+                            "color": "black",
+                            "size": "xs"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "EventButton",
+                      "props": {
+                        "eventType": "ROUTE_CHANGE",
+                        "buttonCode": "profile/add-interest",
+                        "color": "transparent",
+                        "paddingY": 0,
+                        "paddingX": 0
+                      },
+                      "onlyShowIf": {
+                        "user.data.code": "{{props.userID}}"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "padding": 8,
+                            "borderWidth": 1,
+                            "borderStyle": "solid",
+                            "borderColor": "{{layout.appColor}}",
+                            "alignItems": "center"
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "text": "Edit Interests",
+                                "color": "{{layout.appColor}}",
+                                "size": "xs"
+                              }
+                            },
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "edit",
+                                "color": "{{layout.appColor}}",
+                                "size": "sm"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

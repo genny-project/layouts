@@ -1,0 +1,69 @@
+{
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_NOTES",
+      "as": "{{params.asField}}"
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.linksField}}",
+      "as": "{{params.asField}}",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "link.targetCode": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "$and": [
+            {
+              "code": {
+                "$exists": true
+              }
+            },
+            {
+              "$or": [
+                {
+                  "attributes.PRI_TYPE.value": {
+                    "$eq": "alert"
+                  }
+                },
+                {
+                  "attributes.PRI_CREATOR_TYPE.value": {
+                    "$eq": "alert"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

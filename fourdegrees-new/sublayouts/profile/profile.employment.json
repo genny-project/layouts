@@ -10,42 +10,22 @@
         {
           "component": "Box",
           "props": {
-            "padding": 10
-          },
-          "children": [
-            {
-              "component": "EventButton",
-              "props": {
-                "eventType": "ROUTE_CHANGE",
-                "buttonCode": "profile/add-employment-history",
-                "text": "Add Employment",
-                "color": "#202532",
-                "textColor": "#FFF",
-                "paddingY": 15,
-                "paddingX": 15
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
             "paddingX": 10,
             "flexDirection": "column"
           },
           "onlyShowIf": {
-            "query.profile.links": {
+            "query.employmentLinks": {
               "$size": {
                 "$gt": 0
               }
             }
           },
-          "repeat": "_query.profile.links",
+          "repeat": "_query.employmentLinks",
           "children": {
             "component": "Sublayout",
             "props": {
-              "layoutName": "employment/employment.card",
-              "employmentID": "{{repeater.code}}"
+              "layoutName": "cards/employment/employment.card",
+              "itemID": "{{repeater.code}}"
             }
           }
         },
@@ -58,7 +38,7 @@
             "justifyContent": "center"
           },
           "dontShowIf": {
-            "query.profile.links": {
+            "query.employmentLinks": {
               "$size": {
                 "$gt": 0
               }
@@ -74,6 +54,66 @@
               }
             }
           ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingX": 10,
+            "paddingBottom": 10
+          },
+          "onlyShowIf": {
+            "user.data.code": "{{props.userID}}"
+          },
+          "children": [
+            {
+              "component": "EventButton",
+              "props": {
+                "eventType": "ROUTE_CHANGE",
+                "buttonCode": "profile/add-employment-history",
+                "color": "transparent",
+                "paddingY": 0,
+                "paddingX": 0
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "padding": 8,
+                    "borderWidth": 1,
+                    "borderStyle": "solid",
+                    "borderColor": "{{layout.appColor}}",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "flex": 1
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Add Employment",
+                        "color": "{{layout.appColor}}",
+                        "size": "xs"
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "width": 5
+                      }
+                    },
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "edit",
+                        "color": "{{layout.appColor}}",
+                        "size": "sm"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -86,7 +126,28 @@
     },
     {
       "operator": "scope",
+      "path": "profile",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
       "path": "profile.links",
+      "as": "employmentLinks",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "valueString": {
+            "$eq": "EMPLOYMENT"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "employmentLinks",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
