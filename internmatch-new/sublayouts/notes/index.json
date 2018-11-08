@@ -4,86 +4,231 @@
       "component": "Box",
       "props": {
         "paddingX": 20,
-        "marginBottom": 50
-      },
-      "children": [
-        {
-          "component": "Heading",
-          "props": {
-            "text": "Notes",
-            "size": "xxl"
-          }
-        }
-      ]
-    },
-    {
-      "component": "Box",
-      "props": {
-        "marginBottom": 20,
-        "width": "100%",
-        "flexDirection": "column"
+        "justifyContent": "space-between",
+        "flexDirection": "column",
+        "flex": 1
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "paddingX": 20
-          },
-          "dontShowIf": {
-            "query.notes": {
-              "$size": {
-                "$gt": 0
-              }
-            }
+            "flexDirection": "column"
           },
           "children": [
             {
-              "component": "Text",
+              "component": "Box",
               "props": {
-                "align": "center"
+                "marginBottom": 20
               },
-              "children": "No notes to display"
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "text": "Notes",
+                    "size": "xxl"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 40
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "conditional": {
+                    "if": {
+                      "query.currentNote.attributes.PRI_NAME.value": {
+                        "$exists": true
+                      }
+                    },
+                    "then": {
+                      "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
+                    },
+                    "else": {
+                      "text": ""
+                    }
+                  },
+                  "props": {
+                    "size": "lg"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "width": "100%",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "dontShowIf": {
+                    "query.notes": {
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "children": "No notes to display"
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.notes": {
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column",
+                    "maxWidth": "100%"
+                  },
+                  "repeat": "_query.notes",
+                  "sort": {
+                    "by": "repeater.created",
+                    "isDate": true
+                  },
+                  "children": {
+                    "component": "Sublayout",
+                    "conditional": {
+                      "if": {
+                        "repeater.attributes.PRI_CREATOR_TYPE.value": {
+                          "$eq": "SYSTEM"
+                        }
+                      },
+                      "then": {
+                        "layoutName": "notes/note-bubble-system"
+                      },
+                      "else": {
+                        "layoutName": "notes/note-bubble-user"
+                      }
+                    },
+                    "props": {
+                      "text": "{{repeater.attributes.PRI_CONTENT.value}}",
+                      "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
+                      "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
+                    }
+                  }
+                }
+              ]
             }
           ]
         },
         {
           "component": "Box",
           "onlyShowIf": {
-            "query.notes": {
-              "$size": {
-                "$gt": 0
-              }
+            "query.aliases.CURRENT_NOTE": {
+              "$exists": true
             }
           },
           "props": {
-            "flexDirection": "column",
-            "maxWidth": "100%",
-            "paddingX": 20
+            "marginY": 40,
+            "flexDirection": "column"
           },
-          "repeat": "_query.notes",
-          "sort": "reverse",
-          "children": {
-            "component": "Sublayout",
-            "conditional": {
-              "if": {
-                "repeater.attributes.PRI_CREATOR_TYPE.value": {
-                  "$eq": "SYSTEM"
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "margin": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Add a note",
+                    "bold": true
+                  }
                 }
-              },
-              "then": {
-                "layoutName": "notes/note-bubble-system"
-              },
-              "else": {
-                "layoutName": "notes/note-bubble-user"
-              }
+              ]
             },
-            "props": {
-              "text": "{{repeater.attributes.PRI_CONTENT.value}}",
-              "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
-              "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "FormGeneric",
+                  "props": {
+                    "onSubmitSendEvent": true,
+                    "eventType": "BTN_CLICK",
+                    "buttonCode": "BTN_ADD_NOTE",
+                    "value": {
+                      "userCode": "{{user.data.code}}",
+                      "itemCode": "{{query.aliases.CURRENT_NOTE}}"
+                    },
+                    "injectFormValuesIntoValue": {
+                      "message": "note"
+                    },
+                    "resetFormOnSubmit": true
+                  },
+                  "children": [
+                    {
+                      "component": "FormGenericInput",
+                      "props": {
+                        "type": "textarea",
+                        "name": "note",
+                        "maxLength": 250,
+                        "padding": 15,
+                        "borderStyle": "solid",
+                        "borderColor": "#DDD",
+                        "backgroundColor": "white",
+                        "borderWidth": 1,
+                        "showCharacterCount": true,
+                        "renderCharacterCount": {
+                          "component": "Box",
+                          "props": {
+                            "position": "absolute",
+                            "bottom": 5,
+                            "right": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs",
+                                "color": "grey",
+                                "paddingBottom": 20,
+                                "borderColor": "#ddd",
+                                "text": "{{characterCount}} / {{maxLength}}"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 10,
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "FormGenericSubmit",
+                          "props": {
+                            "width": "100%",
+                            "text": "Add note",
+                            "color": "green",
+                            "disabledWhenFormInvalid": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
-          }
+          ]
         }
+
       ]
     }
   ],
@@ -104,6 +249,20 @@
     {
       "operator": "scope",
       "path": "notes",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentNote"
+    },
+    {
+      "operator": "scope",
+      "path": "currentNote",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",

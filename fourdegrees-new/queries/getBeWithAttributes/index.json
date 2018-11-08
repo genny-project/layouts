@@ -1,0 +1,17 @@
+{
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{params.idField}}",
+      "as": "{{params.asField}}"
+    },
+    {
+      "operator": "scope",
+      "path": "{{params.asField}}",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

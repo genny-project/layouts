@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "HC  View",
+    "title": "Agents",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -18,6 +18,42 @@
           "component": "Table",
           "props": {
             "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_AGENT",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_VIEW_AGENT",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  }
+              ]
+              },
               {
                 "Header": "Actions",
                 "accessor": "actions",
@@ -127,7 +163,9 @@
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
           "uname": "be.attributes.PRI_USERNAME.value",
-          "agency": "agency.attributes.PRI_NAME.value"
+          "agency": "agency.attributes.PRI_NAME.value",
+          "attributeCode": "code"
+
         }
       }
     }

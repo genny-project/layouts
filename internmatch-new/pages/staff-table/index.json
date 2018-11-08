@@ -19,6 +19,29 @@
           "props": {
             "columns": [
               {
+                "Header": "Actions",
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "120px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_EDIT_STAFF",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  }
+              ]
+              },
+
+              {
                 "Header": "Full Name",
                 "accessor": "fullName",
                 "filterType": "string"
@@ -83,7 +106,8 @@
           
           "fullName": "be.attributes.PRI_NAME.value",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "email": "be.attributes.PRI_USERNAME.value"
+          "email": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
         }
       }
     }

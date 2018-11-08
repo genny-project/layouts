@@ -37,38 +37,115 @@
               "paddingY": 0,
               "size": "xs"
             },
+            "flex": 1,
+            "tabWrapperProps": {
+              "paddingLeft": 20,
+              "height": 50,
+              "flexBasis": "auto"
+            },
+            "textColor": "#FFF",
+            "tabBackground": "#41505d",
+            "activeTabBackground": "#fff",
+            "activeTabTextColor": "#000",
+            "tabProps": {
+              "paddingX": 20,
+              "paddingY": 20,
+              "minWidth": 180,
+              "justifyContent": "center"
+            },
+            "tabTitleProps": {
+              "size": "xs"
+            },
+            "activeTabTitleProps": {
+              "bold": true
+            },
+            "inactiveTabProps": {
+              "borderColor": "#233a4e",
+              "borderRightWidth": 1,
+              "borderStyle": "solid"
+            },
+            "childProps": {
+              "overflow": "auto",
+              "maxHeight": "calc(100vh - 65px - 50px)"
+            },
+            "overflowX": "auto",
+            "backgroundColor": "#f6f6f6",
+            "parentRoute": "home",
             "tabs": [
               {
                 "key": 0,
-                "route": "Search",
-                "title": "Search",
-                "icon": "search"
+                "route": "search",
+                "title": "Home",
+                "icon": "home"
               },
               {
                 "key": 1,
                 "route": "alerts",
                 "title": "Alerts",
-                "icon": "notifications"
+                "icon": "notifications",
+                "badge": "_query.alertCount"
               },
               {
                 "key": 2,
                 "route": "chat",
                 "title": "Chat",
-                "icon": "inbox"
+                "icon": "insert_comment"
               },
               {
                 "key": 3,
-                "route": "profile",
-                "title": "Profile",
-                "icon": "people"
-              },
-              {
-                "key": 4,
                 "route": "more",
-                "title": "More",
-                "icon": "settings"
+                "title": "Account",
+                "icon": "people"
               }
-            ]
+            ],
+            "renderIcon": {
+              "component": "Box",
+              "props": {
+                "position": "relative"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "position": "absolute",
+                    "top": -5,
+                    "right": -5,
+                    "borderRadius": 10,
+                    "zIndex": 5,
+                    "minWidth": 20,
+                    "height": 20,
+                    "paddingX": 5,
+                    "backgroundColor": "red",
+                    "alignItems": "center",
+                    "justifyContent": "center"
+                  },
+                  "onlyShowIf": {
+                    "route.badge": {
+                      "$gt": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "align": "center",
+                        "color": "white",
+                        "size": "xxs",
+                        "text": "{{route.badge}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Icon",
+                  "props": {
+                    "name": "{{iconProps.name}}",
+                    "size": "{{iconProps.size}}",
+                    "color": "{{iconProps.color}}"
+                  }
+                }
+              ]
+            }
           },
           "children": [
             {
@@ -92,19 +169,35 @@
             {
               "component": "Sublayout",
               "props": {
-                "layoutName": "profile",
-                "userID": "{{user.data.code}}"
-              }
-            },
-            {
-              "component": "Sublayout",
-              "props": {
                 "layoutName": "more"
               }
             }
           ]
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "external",
+      "name": "getAllAlerts",
+      "params": {
+        "asField": "alerts",
+        "linksField": "alerts.links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "alerts",
+      "as": "alertCount",
+      "scope": {
+        "operator": "count",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
     }
   ]
 }

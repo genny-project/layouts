@@ -1,0 +1,327 @@
+{
+  "layout": {
+    "title": "Invite Card",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "row",
+        "padding": 20,
+        "alignItems": "center",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginRight": 15,
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "component": "Image",
+              "props": {
+                "source": "{{query.recipientBe.attributes.PRI_IMAGE_URL.valueString}}",
+                "shape": "circle",
+                "width": 50,
+                "height": 50,
+                "fallbackIcon": "person"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.recipientBe.attributes.PRI_FIRSTNAME.valueString}}",
+                    "color": "black",
+                    "size": "md"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{query.recipientBe.attributes.PRI_EMAIL.valueString}}",
+                    "color": "grey",
+                    "size": "xs"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "ACCEPT_INVITE",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
+                }
+              },
+              {
+                "query.introducerBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Support",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "REJECT_INVITE",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
+                }
+              },
+              {
+                "query.introducerBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Reject",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "EventButton",
+          "props": {
+            "alignItems": "flex-start",
+            "paddingX": 0,
+            "paddingY": 0,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "CANCEL_INVITE",
+            "value": {
+              "itemCode": "{{props.requestID}}"
+            }
+          },
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.requestBe.attributes.STA_STATUS": {
+                  "$exists": false
+                }
+              },
+              {
+                "query.creatorBe.code": {
+                  "$eq": "{{user.data.code}}"
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginleft": 20,
+                "alignItems": "center",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "borderColor": "grey",
+                "borderRadius": 10,
+                "padding": 10
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Cancel",
+                        "color": "grey",
+                        "size": "xs"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "query.requestBe.attributes.STA_STATUS": {
+              "$exists": true
+            }
+          },
+          "props": {
+            "marginleft": 20,
+            "alignItems": "center",
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "Invite Sent",
+                "color": "grey",
+                "size": "xs"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{props.requestID}}",
+      "as": "requestBe"
+    },
+   {
+      "operator": "scope",
+      "path": "requestBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBe.attributes.PRI_CREATOR_CODE.value}}",
+      "as": "creatorBe"
+    },
+    {
+      "operator": "scope",
+      "path": "creatorBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBe.attributes.PRI_RECIPIENT_CODE.value}}",
+      "as": "recipientBe"
+    },
+    {
+      "operator": "scope",
+      "path": "recipientBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{requestBe.attributes.PRI_INTRODUCER_CODE.value}}",
+      "as": "introducerBe"
+    },
+    {
+      "operator": "scope",
+      "path": "introducerBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "layout": {
+    "title": "Application",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "height": "calc(100vh - 65px - 450px)"
+          },
+          "children": [
+            {
+              "component": "PdfViewer",
+              "props": {
+                "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Form",
+          "props": {
+            "questionGroupCode": "{{navigation.offerId}}",
+            "style": {
+              "width": "100%"
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "showSpinnerOnClick": true,
+                "color": "green",
+                "width": "100%"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "application"
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateLinkValues",
+        "withAttributes": true,
+        "as": "linkValues"
+      }
+    }
+  ]
+}

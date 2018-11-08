@@ -21,20 +21,41 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "editable": true,
-                "buttonComponent": [
+                "renderButton": [
                   {
-                    "text": "Edit",
-                    "layoutName": "user-profile"
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_EDU_PROVIDER_STAFF",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
                   },
                   {
-                    "text": "View",
-                    "layoutName": "user-profile"
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_VIEW_EDU_PROVIDER_STAFF",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
                   }
               ]
               },
               {
-                "Header": "Full Name",
+                "Header": "First Name",
                 "accessor": "firstName",
                 "filterType": "string",
                 "editable": true,
@@ -56,7 +77,14 @@
                 "Header": "University ",
                 "accessor": "university",
                 "filterType": "string"
+              },
+              {
+                "Header": "attribute code ",
+                "accessor": "attributeCode",
+                "filterType": "string",
+                "show": false
               }
+
             ],
             "tableBackgroundColor": "#cccccc",
             "data": "_query.tableData",
@@ -76,13 +104,12 @@
     },
     {
       "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
+      "path": "hostCompanies",
       "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.attributes",
-        "id": "{{link.targetCode}}",
-        "as": "be"
+        "operator": "populateLinkValues",
+        "withAttributes": true,
+        "multiple": true,
+        "as": "items"
       }
     },
     {
@@ -90,10 +117,11 @@
       "path": "hostCompanies",
       "scope": {
         "operator": "scope",
-        "path": "be",
+        "path": "items",
         "scope": {
-          "operator": "populateBEGAttributes",
-          "as": "attributes"
+          "operator": "getBE",
+          "as" : "company",
+          "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
         }
       }
     },
@@ -101,23 +129,31 @@
       "operator": "scope",
       "path": "hostCompanies",
       "scope": {
-        "operator": "getBE",
-        "as" : "company",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "scope",
+          "path": "company",
+          "scope": {
+            "operator": "populateAttributes",
+            "as" : "attributes",
+            "code": "{{code}}"
+          }
+        }
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "hostCompanies.items",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_FIRSTNAME.value",
-          "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "university": "company.name"
+          "firstName": "attributes.PRI_FIRSTNAME.value",
+          "email": "attributes.PRI_EMAIL.value",
+          "mobilePhone": "attributes.PRI_MOBILE.value",
+          "university": "company.attributes.PRI_NAME.value",
+          "attributeCode": "code"
         }
       }
     }

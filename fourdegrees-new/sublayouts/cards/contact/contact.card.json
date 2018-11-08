@@ -38,7 +38,7 @@
                 {
                   "component": "Image",
                   "props": {
-                    "source": "{{query.attributes.PRI_IMAGE_URL.valueString}}",
+                    "source": "{{query.be.attributes.PRI_IMAGE_URL.valueString}}",
                     "shape": "circle",
                     "width": 60,
                     "height": 60
@@ -62,7 +62,28 @@
                     {
                       "component": "Text",
                       "props": {
-                        "text": "{{query.attributes.PRI_FIRSTNAME.valueString}} {{query.attributes.PRI_LASTNAME.valueString}}",
+                        "text": "{{query.be.attributes.PRI_FIRSTNAME.valueString}} {{query.be.attributes.PRI_LASTNAME.valueString}}",
+                        "color": "black",
+                        "size": "sm"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 5
+                  },
+                  "onlyShowIf": {
+                    "query.attributes.PRI_NETWORK_NAME.valueString": {
+                      "$exists": true
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "{{query.be.attributes.PRI_NETWORK_NAME.valueString}}",
                         "color": "grey",
                         "size": "xs"
                       }
@@ -141,14 +162,12 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "{{props.itemID}}",
-      "as": "be"
-    },
-    {
-      "operator": "populateAttributes",
-      "code": "{{props.itemID}}",
-      "as": "attributes"
+      "operator": "external",
+      "name": "getBeWithAttributes",
+      "params": {
+        "idField": "{{props.itemID}}",
+        "asField": "be"
+      }
     }
   ]
 }
