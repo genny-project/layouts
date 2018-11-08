@@ -1,66 +1,66 @@
 {
-    "children": [
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "column",
-          "marginBottom": 15
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "marginBottom": 15
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 5
+          },
+          "children": [
+            {
+              "component": "Date",
+              "props": {
+                "date": "{{props.created}}",
+                "format": "calendar",
+                "size": "xxs",
+                "color": "#959595"
+              }
+            }
+          ]
         },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "marginBottom": 5
-            },
-            "children": [
-              {
-                "component": "Date",
-                "props": {
-                  "date": "{{props.created}}",
-                  "format": "calendar",
-                  "size": "xxs",
-                  "color": "#959595"
-                }
-              }
-            ]
+        {
+          "component": "Box",
+          "props": {
+            "marginBottom": 10
           },
-          {
-            "component": "Box",
-            "props": {
-              "marginBottom": 10
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "text": "{{props.creator}}",
-                  "size": "xs",
-                  "color": "#959595"
-                }
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{props.creator}}",
+                "size": "xs",
+                "color": "#959595"
               }
-            ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "paddingX": 10,
+            "paddingY": 15,
+            "backgroundColor": "#fff",
+            "marginBottom": 15,
+            "borderRadius": 10
           },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "paddingX": 10,
-              "paddingY": 15,
-              "backgroundColor": "#fff",
-              "marginBottom": 15,
-              "borderRadius": 10
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "text": "{{props.text}}"
-                }
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "text": "{{props.text}}"
               }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-  
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

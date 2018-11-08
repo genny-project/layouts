@@ -1,0 +1,153 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "dontShowIf": {
+        "query.questions.attributes.PRI_ADDRESS_FULL.value": {
+          "$exists": true
+        },
+        "query.questions.items.attributes.PRI_ADDRESS_FULL.value": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flex": 1,
+        "width": "100%",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": [
+        {
+          "component": "ActivityIndicator",
+          "props": {
+            "size": "large"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "onlyShowIf": {
+        "query.property.attributes.PRI_ADDRESS_FULL.value": {
+          "$exists": true
+        },
+        "query.property.company.attributes.PRI_ADDRESS_FULL.value": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flexDirection": "column",
+        "padding": 20
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "bold": true
+          },
+          "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+        },
+        {
+          "component": "Text",
+          "children": "Posted by {{query.property.company.attributes.PRI_ADDRESS_FULL.value}}"
+        },
+        {
+          "component": "Text",
+          "props": {
+            "size": "xs"
+          },
+          "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "marginTop": 40
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 5
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+                }
+              ]
+            },
+            {
+              "component": "Date",
+              "props": {
+                "format": "Do [of] MMMM, YYYY"
+              },
+              "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Form",
+          "props": {
+            "questionGroupCode": "BEG_DETAILS"
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "property"
+    },
+    {
+      "operator": "scope",
+      "path": "questions",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "question",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_PROPERTY_TYPE_SELECT.value}}",
+        "as": "items"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "questions",
+      "scope": {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    }
+  ]
+}
