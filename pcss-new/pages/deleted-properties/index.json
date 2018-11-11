@@ -38,7 +38,6 @@
                     }
                   }
                 ]
-<<<<<<< HEAD
               },
               {
                 "Header":"Address of Property",
@@ -61,61 +60,6 @@
             "height": "500px",
             "width": "500px",
             "itemsPerPage": 15
-=======
-                },
-                {
-                  "Header": "Address Of Property",
-                  "accessor": "address",
-                  "filterType": "string"
-                },  
-                {
-                  "Header": "Type Of Property",
-                  "accessor": "type",
-                  "filterType": "string"
-                },
-                {
-                  "Header": "Postcode",
-                  "accessor": "postcode",
-                  "filterType": "number"
-                }
-              ],
-              "tableBackgroundColor": "#e05b5b",
-              "data": "_query.tableData",
-              "height": "500px",
-              "width": "500px",
-              "itemsPerPage": 15
-            }
-          }
-        ]
-      }
-    ],
-    "query": [
-      {
-        "operator": "getBE",
-        "id": "GRP_BIN",
-        "as": "items"
-      },
-      {
-        "operator": "scope",
-        "path": "items.links",
-        "as": "items",
-        "scope": {
-          "operator": "getBE",
-          "basePath": "baseEntities.data",
-          "id": "{{link.targetCode}}",
-          "as": "be"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "scope",
-          "path": "be",
-          "scope": {
-            "operator": "populateBEGAttributes",
-            "as": "attributes"
->>>>>>> dev
           }
         }
       ]
