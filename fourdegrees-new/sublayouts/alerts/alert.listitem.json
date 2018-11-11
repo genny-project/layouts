@@ -1,127 +1,143 @@
 {
-  "layout": {
-    "title": "alert",
-    "appColor": "dark"
-  },
-  "children": [
-    {
-      "component": "Box",
-      "props": {
-        "flexDirection": "column",
-        "width": "100%"
-      },
-      "children": [
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "backgroundColor": "white",
-            "flex": 1,
-            "padding": 20,
-            "marginBottom": 5,
-            "alignItems": "center"
-          },
-          "children": [
+   "layout":{
+      "title":"alert",
+      "appColor":"dark"
+   },
+   "children":[
+      {
+         "component":"Box",
+         "props":{
+            "flexDirection":"column",
+            "width":"100%"
+         },
+         "children":[
             {
-              "component": "Box",
-              "props": {
-                "marginRight": 20,
-                "alignItems": "center",
-                "shape": "circle"
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "source": "{{query.profile.attributes.PRI_IMAGE_URL.value}}",
-                    "shape": "circle",
-                    "width": 60,
-                    "height": 60
+               "component":"Link",
+               "props":{
+                  "style":{
+                     "width":"100%"
+                  },
+                  "to":"profile/",
+                  "params":{
+                     "userID":"{{props.alert.attributes.PRI_RECIPIENT_CODE.value}}"
                   }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flex": 1,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 5
-                  },
-                  "children": [
-                    {
-                      "component": "Text",
-                      "props": {
-                        "color": "grey",
-                        "size": "xs",
-                        "text": "{{props.alert.attributes.PRI_CONTENT.value}}"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "dontShowIf": {
-                "props.alert.attributes.PRI_CREATOR_TYPE.value": {
-                  "$eq": "alert"
-                }
-              },
-              "props": {
-                "alignItems": "flex-start",
-                "paddingX": 0,
-                "paddingY": 0
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginleft": 20,
-                    "alignItems": "center"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {},
-                      "children": [
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "flexDirection":"row",
+                        "backgroundColor":"white",
+                        "flex":1,
+                        "padding":20,
+                        "marginBottom":5,
+                        "alignItems":"center"
+                     },
+                     "children":[
                         {
-                          "component": "Icon",
-                          "props": {
-                            "color": "black",
-                            "size": "lg",
-                            "name": "chevron-right"
-                          }
+                           "component":"Box",
+                           "props":{
+                              "marginRight":20,
+                              "alignItems":"center",
+                              "shape":"circle"
+                           },
+                           "children":[
+                              {
+                                 "component":"Image",
+                                 "props":{
+                                    "source":"{{query.profile.attributes.PRI_IMAGE_URL.value}}",
+                                    "shape":"circle",
+                                    "width":60,
+                                    "height":60
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "props":{
+                              "flex":1,
+                              "flexDirection":"column"
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginBottom":5
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Text",
+                                       "props":{
+                                          "color":"grey",
+                                          "size":"xs",
+                                          "text":"{{props.alert.attributes.PRI_CONTENT.value}}"
+                                       }
+                                    }
+                                 ]
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "dontShowIf":{
+                              "props.alert.attributes.PRI_CREATOR_TYPE.value":{
+                                 "$eq":"alert"
+                              }
+                           },
+                           "props":{
+                              "alignItems":"flex-start",
+                              "paddingX":0,
+                              "paddingY":0
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginleft":20,
+                                    "alignItems":"center"
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Box",
+                                       "props":{
+
+                                       },
+                                       "children":[
+                                          {
+                                             "component":"Icon",
+                                             "props":{
+                                                "color":"black",
+                                                "size":"lg",
+                                                "name":"chevron-right"
+                                             }
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           ]
                         }
-                      ]
-                    }
-                  ]
-                }
-              ]
+                     ]
+                  }
+               ]
             }
-          ]
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "{{props.alert.attributes.PRI_CREATOR_CODE.value}}",
-      "as": "profile"
-    },
-    {
-      "operator": "scope",
-      "path": "profile",
-      "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
+         ]
       }
-    }
-  ]
+   ],
+   "query":[
+      {
+         "operator":"getBE",
+         "id":"{{props.alert.attributes.PRI_CREATOR_CODE.value}}",
+         "as":"profile"
+      },
+      {
+         "operator":"scope",
+         "path":"profile",
+         "scope":{
+            "operator":"populateBEGAttributes",
+            "as":"attributes"
+         }
+      }
+   ]
 }
