@@ -1,0 +1,137 @@
+{
+    "layout": {
+      "title": "Deleted Properties View",
+      "appColor": "white",
+      "backgroundColor": "whitesmoke",
+      "header": {
+        "variant": "default"
+      },
+      "sidebar": {
+        "variant": "default"
+      }
+    },
+    "children": [
+      {
+        "component": "Box",
+        "children": [
+          {
+            "component": "Table",
+            "props": {
+              "columns": [
+                {
+                "Header": "Action",
+                "accessor": "actions",
+                "buttonComponent": [
+                  {
+                    "text": "Edit",
+                    "layoutName": "user-profile"
+                  },
+                  {
+                    "text": "View",
+                    "layoutName": "user-profile"
+                  }
+                ]
+                },
+                {
+                  "Header": "Address Of Property",
+                  "accessor": "address",
+                  "filterType": "string"
+                },  
+                {
+                  "Header": "Type Of Property",
+                  "accessor": "type",
+                  "filterType": "string"
+                },
+                {
+                  "Header": "Postcode",
+                  "accessor": "postcode",
+                  "filterType": "number"
+                }
+              ],
+              "tableBackgroundColor": "#e05b5b",
+              "data": "_query.tableData",
+              "height": "500px",
+              "width": "500px",
+              "itemsPerPage": 15
+            }
+          }
+        ]
+      }
+    ],
+    "query": [
+      {
+        "operator": "getBE",
+        "id": "GRP_BIN",
+        "as": "items"
+      },
+      {
+        "operator": "scope",
+        "path": "items.links",
+        "as": "items",
+        "scope": {
+          "operator": "getBE",
+          "basePath": "baseEntities.data",
+          "id": "{{link.targetCode}}",
+          "as": "be"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "scope",
+          "path": "be",
+          "scope": {
+            "operator": "populateBEGAttributes",
+            "as": "attributes"
+          }
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "getBE",
+          "as" : "company",
+          "basePath": "baseEntities.data",
+          "id": "{{be.attributes.LNK_COMPANY_PROVIDER.value}}"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "getBE",
+          "as" : "items",
+          "id": "{{be.attributes.LNK_AGENCY.value}}"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "scope",
+          "path": "items",
+          "scope": {
+            "operator": "populateAttributes",
+            "as" : "attributes",
+            "code": "{{code}}"
+          }
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "as": "tableData",
+        "scope": {
+          "operator": "map",
+          "fields": {
+            "address": "be.attributes.PRI_ADDRESS_FULL.value",
+            "type": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
+            "postcode": "be.attributes.PRI_ADDRESS_POSTCODE.value"
+          }
+        }
+      }
+    ]
+  }
+  
