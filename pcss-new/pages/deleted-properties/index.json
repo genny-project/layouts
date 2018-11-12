@@ -19,18 +19,26 @@
             "props": {
               "columns": [
                 {
-                "Header": "Action",
-                "accessor": "actions",
-                "buttonComponent": [
-                  {
-                    "text": "Edit",
-                    "layoutName": "user-profile"
-                  },
-                  {
-                    "text": "View",
-                    "layoutName": "user-profile"
-                  }
-                ]
+                  "Header": "Action",
+                  "editable": true,
+                  "accessor": "actions",
+                  "renderButton": [
+                    {
+                      "component": "EventButton",
+                      "props": {
+                        "buttonCode": "BTN_VIEW_BEG",
+                        "color": "#5fa5ec",
+                        "textColor": "#fff",
+                        "text": "Property Details",
+                        "padding": 5,
+                        "size": "xs",
+                        "value": {
+                          "itemCode":"{{code}}",
+                          "hint": "BTN_VIEW_BEG"
+                        }
+                      }
+                    }
+                  ]
                 },
                 {
                   "Header": "Address Of Property",

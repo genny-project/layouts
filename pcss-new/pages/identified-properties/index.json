@@ -42,19 +42,19 @@
                   ]
                 },
                 {
-                  "Header": "Address Of Property",
+                  "Header": "Address",
                   "accessor": "address",
                   "filterType": "string"
                 },  
                 {
                   "Header": "Precinct",
-                  "accessor": "type",
+                  "accessor": "precinct",
                   "filterType": "string"
                 },
                 {
-                  "Header": "Type",
-                  "accessor": "postcode",
-                  "filterType": "number"
+                  "Header": "Property Type",
+                  "accessor": "propertytype",
+                  "filterType": "string"
                 }
               ],
               "tableBackgroundColor": "#e05b5b",
@@ -136,8 +136,8 @@
           "operator": "map",
           "fields": {
             "address": "be.attributes.PRI_ADDRESS_FULL.value",
-            "type": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
-            "postcode": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
+            "precinct": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
+            "propertytype": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
             "code": "be.code"
           }
         }
