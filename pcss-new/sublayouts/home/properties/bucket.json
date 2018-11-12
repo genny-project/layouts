@@ -90,13 +90,7 @@
                 {
                   "component": "Box",
                   "dontShowIf": {
-                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
-                      "$exists": true
-                    },
-                    "repeater.company.attributes.PRI_NAME.value": {
-                      "$exists": true
-                    },
-                    "repeater.internship.attributes.PRI_NAME.value": {
+                    "repeater.property.attributes.PRI_ADDRESS_FULL.value": {
                       "$exists": true
                     }
                   },
@@ -117,13 +111,7 @@
                 {
                   "component": "Box",
                   "onlyShowIf": {
-                    "repeater.company.attributes.PRI_IMAGE_URL.value": {
-                      "$exists": true
-                    },
-                    "repeater.company.attributes.PRI_NAME.value": {
-                      "$exists": true
-                    },
-                    "repeater.internship.attributes.PRI_FULL_.value": {
+                    "repeater.property.attributes.PRI_ADDRESS_FULL.value": {
                       "$exists": true
                     }
                   },
@@ -176,7 +164,7 @@
                           "props": {
                             "size": "xxs"
                           },
-                          "children": "{{repeater.internship.attributes.PRI_ADDRESS_FULL.value}}"
+                          "children": "{{repeater.property.attributes.PRI_ADDRESS_FULL.value}}"
                         }
                       ]
                     }
@@ -255,6 +243,59 @@
       "scope": {
         "operator": "map",
         "fields": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_BEG_CODE.value}}",
+        "as": "property"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "property",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{property.attributes.LNK_HOST_COMPANY.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     }
   ]
