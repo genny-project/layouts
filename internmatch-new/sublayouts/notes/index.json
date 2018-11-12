@@ -16,6 +16,31 @@
           },
           "children": [
             {
+              "component": "Touchable",
+              "props": {
+                "withFeedback": true,
+                "onPress": "_props.onToggle"
+              },
+              "children": {
+                "component": "Icon",
+                "conditional": {
+                  "if": {
+                    "props.isOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "name": "close",
+                    "color": "black"
+                  },
+                  "else": {
+                    "name": "menu",
+                    "color": "black"
+                  }
+                }
+              }
+            },
+            {
               "component": "Box",
               "props": {
                 "marginBottom": 20
@@ -65,6 +90,7 @@
                 "flexDirection": "column"
               },
               "children": [
+                
                 {
                   "component": "Text",
                   "dontShowIf": {
