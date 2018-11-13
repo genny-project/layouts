@@ -1,0 +1,96 @@
+{
+  "layout": {
+    "title": "Sidebar Card",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "conditional": {
+        "if": {
+          "props.isSidebarOpen": {
+            "$eq": true
+          }
+        },
+        "then": {
+          "justifyContent": "space-between"
+        }
+      },
+      "props": {
+        "padding": 20,
+        "width": "100%",
+        "justifyContent": "center"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+          },
+          "children": [
+            {
+              "component": "Box",
+              "conditional": {
+                "if": {
+                  "props.isSidebarOpen": {
+                    "$eq": true
+                  }
+                },
+                "then": {
+                  "marginRight": 15
+                }
+              },
+              "children": [
+                {
+                  "component": "Icon",
+                  "props": {
+                    "color": "white",
+                    "name": "{{props.item.icon}}"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Text",
+              "onlyShowIf": {
+                "props.isSidebarOpen": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "color": "white",
+                "text": "{{props.item.name}}"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "props.isSidebarOpen": {
+              "$eq": true
+            }
+          },
+          "children": [
+            {
+              "component": "Icon",
+              "conditional": {
+                "if": {
+                  "props.isOpen": {
+                    "$eq": true
+                  }
+                },
+                "then": {
+                  "name": "keyboard_arrow_down"
+                }
+              },
+              "props": {
+                "color": "white",
+                "name": "keyboard_arrow_up"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

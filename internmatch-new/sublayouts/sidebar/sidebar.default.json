@@ -3,9 +3,9 @@
   "width": 80,
   "flex": 1,
   "inline": true,
+  "backgroundColor": "#233a4e",
   "openProps": {
-    "width": 300,
-    "backgroundColor": "#ffffff"
+    "width": 300
   },
   "renderBody": {
     "component": "Box",
@@ -16,12 +16,10 @@
         }
       },
       "then": {
-        "width": 300,
-        "backgroundColor": "#ffffff"
+        "width": 300
       },
       "else": {
-        "width": 80,
-        "backgroundColor": "#233a4e"
+        "width": 80
       }
     },
     "props": {
@@ -30,7 +28,8 @@
       "left": 0,
       "top": 0,
       "flexDirection": "column",
-      "transition": "300ms ease all"
+      "transition": "300ms ease all",
+      "backgroundColor": "#233a4e"
     },
     "children": [
       {
@@ -42,8 +41,9 @@
             }
           },
           "then": {
+            "paddingRight": 10,
             "paddingTop": 15,
-            "justifyContent": "space-around"
+            "justifyContent": "space-between"
           },
           "else": {
             "paddingTop": 20,
@@ -57,19 +57,21 @@
         "children": [
           {
             "component": "Box",
+            "onlyShowIf": {
+              "sidebar.left.isOpen": {
+                "$eq": true
+              }
+            },
             "props": {
+              "flex": 1,
+              "justifyContent": "center"
             },
             "children": [
               {
                 "component": "Image",
-                "onlyShowIf": {
-                  "sidebar.left.isOpen": {
-                    "$eq": true
-                  }
-                },
                 "props": {
                   "source": "https://puu.sh/BB7km.png",
-                  "height": 70
+                  "height": 80
                 }
               }
             ]
@@ -82,6 +84,10 @@
             },
             "children": {
               "component": "Icon",
+              "props": {
+                "color": "white",
+                "name": "menu"
+              },
               "conditional": {
                 "if": {
                   "sidebar.left.isOpen": {
@@ -89,12 +95,7 @@
                   }
                 },
                 "then": {
-                  "name": "close",
-                  "color": "black"
-                },
-                "else": {
-                  "name": "menu",
-                  "color": "white"
+                  "name": "close"
                 }
               }
             }
@@ -102,96 +103,56 @@
         ]
       },
       {
-        "component": "Box",
-        "props": {
-          "flexDirection": "column"
+        "component":"ScrollView",
+        "props":{
+           "style":{
+              "flex":1,
+              "backgroundColor":"green"
+           }
         },
-        "repeat": "_items",
-        "children": {
-          "component": "Touchable",
-          "conditional": {
-            "if": {
-              "sidebar.left.isOpen": {
-                "$eq": true
-              }
-            },
-            "then": {
-              "padding": 20,
-              "paddingLeft": 50
-            },
-            "else": {
-              "paddingY": 20,
-              "width": "100%",
-              "justifyContent": "center"
-            }
-          },
-          "props": {
-            "onPress": "_repeater.onPress",
-            "withFeedback": true,
-            "alignItems": "center"
-          },
-          "children": {
+        "children":[
+          {
             "component": "Box",
-            "children": [
-              {
-                "component": "Box",
-                "conditional": {
-                  "if": {
-                    "sidebar.left.isOpen": {
-                      "$eq": true
-                    }
-                  },
-                  "then": {
-                    "marginRight": 15
-                  }
-                },
-                "children": [
-                  {
-                    "component": "Icon",
-                    "conditional": {
-                      "if": {
-                        "sidebar.left.isOpen": {
-                          "$eq": true
-                        }
-                      },
-                      "then": {
-                        "color": "#959595"
-                      },
-                      "else": {
-                        "color": "white"
-                      }
-                    },
-                    "props": {
-                      "name": "{{repeater.icon}}"
-                    }
-                  }
-                ]
+            "props": {
+              "flexDirection": "column"
+            },
+            "repeat": "_items",
+            "children": {
+              "component": "Box",
+              "props": {
+
               },
-              {
-                "component": "Text",
-                "onlyShowIf": {
-                  "sidebar.left.isOpen": {
-                    "$eq": true
-                  }
-                },
-                "conditional": {
-                  "if": {
-                    "sidebar.left.isOpen": {
+              "children": [
+                {
+                  "component": "Sublayout",
+                  "onlyShowIf": {
+                    "repeater.isDropdown": {
                       "$eq": true
                     }
                   },
-                  "then": {
-                    "color": "#959595"
-                  },
-                  "else": {
-                    "color": "white"
+                  "props": {
+                    "layoutName": "sidebar/sidebar.dropdown",
+                    "item": "_repeater",
+                    "isSidebarOpen": "_sidebar.left.isOpen"
                   }
                 },
-                "children": "{{repeater.name}}"
-              }
-            ]
+                {
+                  "component": "Sublayout",
+                  "dontShowIf": {
+                    "repeater.isDropdown": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "layoutName": "sidebar/sidebar.card",
+                    "item": "_repeater",
+                    "isSidebarOpen": "_sidebar.left.isOpen"
+                  }
+                }
+              ]
+            }
           }
-        }
+        ]
       }
     ]
   },
