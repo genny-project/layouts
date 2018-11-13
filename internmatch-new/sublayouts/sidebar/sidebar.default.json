@@ -1,6 +1,6 @@
 {
   "rootCode": "GRP_ROOT",
-  "width": 80,
+  "width": 50,
   "flex": 1,
   "inline": true,
   "backgroundColor": "#233a4e",
@@ -17,9 +17,6 @@
       },
       "then": {
         "width": 300
-      },
-      "else": {
-        "width": 80
       }
     },
     "props": {
@@ -27,6 +24,7 @@
       "height": "100vh",
       "left": 0,
       "top": 0,
+      "width": 50,
       "flexDirection": "column",
       "transition": "300ms ease all",
       "backgroundColor": "#233a4e"
@@ -42,16 +40,13 @@
           },
           "then": {
             "paddingRight": 10,
-            "paddingTop": 15,
-            "justifyContent": "space-between"
-          },
-          "else": {
-            "paddingTop": 20,
             "justifyContent": "center"
           }
         },
         "props": {
+          "justifyContent": "center",
           "paddingBottom": 0,
+          "paddingTop": 10,
           "height": 115
         },
         "children": [
@@ -77,28 +72,36 @@
             ]
           },
           {
-            "component": "Touchable",
+            "component": "Box",
             "props": {
-              "withFeedback": true,
-              "onPress": "_onToggle"
+              "paddingTop": 15
             },
-            "children": {
-              "component": "Icon",
-              "props": {
-                "color": "white",
-                "name": "menu"
-              },
-              "conditional": {
-                "if": {
-                  "sidebar.left.isOpen": {
-                    "$eq": true
-                  }
+            "children": [
+              {
+                "component": "Touchable",
+                "props": {
+                  "withFeedback": true,
+                  "onPress": "_onToggle"
                 },
-                "then": {
-                  "name": "close"
+                "children": {
+                  "component": "Icon",
+                  "props": {
+                    "color": "white",
+                    "name": "menu"
+                  },
+                  "conditional": {
+                    "if": {
+                      "sidebar.left.isOpen": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "name": "close"
+                    }
+                  }
                 }
               }
-            }
+            ]
           }
         ]
       },
@@ -106,8 +109,7 @@
         "component":"ScrollView",
         "props":{
            "style":{
-              "flex":1,
-              "backgroundColor":"green"
+              "flex":1
            }
         },
         "children":[

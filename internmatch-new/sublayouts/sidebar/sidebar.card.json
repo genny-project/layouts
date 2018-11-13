@@ -6,41 +6,23 @@
   "children": [
     {
       "component": "Touchable",
-      "conditional": {
-        "if": {
-          "props.isSidebarOpen": {
-            "$eq": true
-          }
-        },
-        "then": {
-          "padding": 20
-        },
-        "else": {
-          "paddingY": 20,
-          "width": "100%",
-          "justifyContent": "center"
-        }
-      },
       "props": {
+        "paddingY": 15,
+        "paddingX": 10,
+        "width": "100%",
+        "justifyContent": "center",
         "onPress": "_props.item.onPress",
         "withFeedback": true,
         "alignItems": "center"
       },
       "children": {
         "component": "Box",
+        "props": {
+          "width": "100%"
+        },
         "children": [
           {
             "component": "Box",
-            "conditional": {
-              "if": {
-                "props.isSidebarOpen": {
-                  "$eq": true
-                }
-              },
-              "then": {
-                "marginRight": 15
-              }
-            },
             "children": [
               {
                 "component": "Icon",
@@ -62,16 +44,29 @@
             ]
           },
           {
-            "component": "Text",
+            "component": "Box",
             "onlyShowIf": {
               "props.isSidebarOpen": {
                 "$eq": true
               }
             },
             "props": {
-              "color": "white",
-              "text": "{{props.item.name}}"
-            }
+              "marginLeft": 15
+            },
+            "children": [
+              {
+                "component": "Text",
+                "onlyShowIf": {
+                  "props.isSidebarOpen": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "text": "{{props.item.name}}"
+                }
+              }
+            ]
           }
         ]
       }
