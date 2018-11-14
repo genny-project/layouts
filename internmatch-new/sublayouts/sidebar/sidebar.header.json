@@ -7,86 +7,107 @@
     {
       "component": "Box",
       "props": {
-        "paddingY": 15,
-        "paddingX": 10,
+        "padding": 5,
         "width": "100%",
-        "justifyContent": "center"
+        "justifyContent": "center",
+        "alignItems": "center"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Touchable",
           "props": {
-            "flex": 1
+            "flex": 1,
+            "paddingY": 10,
+            "paddingX": 5,
+            "justifyContent": "center",
+            "onPress": "_props.item.onPress",
+            "withFeedback": true,
+            "alignItems": "center"
           },
-          "children": [
-            {
-              "component": "Box",
-              "children": [
-                {
-                  "component": "Icon",
-                  "props": {
-                    "color": "white",
-                    "name": "{{props.item.icon}}"
-                  }
-                }
-              ]
+          "children": {
+            "component": "Box",
+            "props": {
+              "flex": 1
             },
-            {
-              "component": "Box",
-              "onlyShowIf": {
-                "props.isSidebarOpen": {
-                  "$eq": true
-                }
-              },
-              "props": {
-                "marginLeft": 15
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "onlyShowIf": {
-                    "props.isSidebarOpen": {
-                      "$eq": true
+            "children": [
+              {
+                "component": "Box",
+                "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "color": "white",
+                      "name": "{{props.item.icon}}"
                     }
-                  },
-                  "props": {
-                    "color": "white",
-                    "text": "{{props.item.name}}"
                   }
-                }
-              ]
-            }
-          ]
+                ]
+              },
+              {
+                "component": "Box",
+                "onlyShowIf": {
+                  "props.isSidebarOpen": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "marginLeft": 15
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "onlyShowIf": {
+                      "props.isSidebarOpen": {
+                        "$eq": true
+                      }
+                    },
+                    "props": {
+                      "color": "white",
+                      "text": "{{props.item.name}}"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
-          "component": "Box",
+          "component": "Touchable",
           "onlyShowIf": {
             "props.isSidebarOpen": {
               "$eq": true
             }
           },
           "props": {
-            "marginLeft": 15
+            "paddingY": 10,
+            "paddingX": 5,
+            "withFeedback": true,
+            "onPress": "_props.onPress"
           },
-          "children": [
-            {
-              "component": "Icon",
-              "conditional": {
-                "if": {
-                  "props.isOpen": {
-                    "$eq": true
+          "children": {
+            "component": "Box",
+            "props": {
+              "marginLeft": 15
+            },
+            "children": [
+              {
+                "component": "Icon",
+                "conditional": {
+                  "if": {
+                    "props.isOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "name": "keyboard_arrow_down"
                   }
                 },
-                "then": {
-                  "name": "keyboard_arrow_down"
+                "props": {
+                  "color": "white",
+                  "name": "keyboard_arrow_up"
                 }
-              },
-              "props": {
-                "color": "white",
-                "name": "keyboard_arrow_up"
               }
-            }
-          ]
+            ]
+          }
         }
       ]
     }
