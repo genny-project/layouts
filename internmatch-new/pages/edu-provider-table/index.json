@@ -16,6 +16,21 @@
         {
           "component": "Table",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
@@ -40,6 +55,11 @@
               ]
               },
               {
+                "Header": "select",
+                "accessor": "select",
+                "show": false
+              },
+              {
                 "Header": "Provider Name",
                 "accessor": "providerName",
                 "filterType": "string"
@@ -57,6 +77,11 @@
               {
                 "Header": "Address ",
                 "accessor": "address",
+                "filterType": "string"
+              },
+              {
+                "Header": "Selcet",
+                "accessor": "select",
                 "filterType": "string"
               }
             ],

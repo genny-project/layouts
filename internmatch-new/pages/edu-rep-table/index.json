@@ -17,6 +17,21 @@
         {
           "component": "Table",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
@@ -36,32 +51,13 @@
                         "itemCode": "{{attributeCode}}"
                       }
                     }
-                  },
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "70px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "View",
-                      "buttonCode": "BTN_VIEW_EDU_PROVIDER_STAFF",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      }
-                    }
                   }
               ]
               },
               {
                 "Header": "First Name",
                 "accessor": "firstName",
-                "filterType": "string",
-                "editable": true,
-                "sourceCode": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                "attributeCode": "PRI_FIRSTNAME",
-                "targetCode": "PER_RPGAYATRI_PLUS_STAGING_EDU_AT_GMAILCOM"
+                "filterType": "string"
               },
               {
                 "Header": "Email",
@@ -77,14 +73,7 @@
                 "Header": "University ",
                 "accessor": "university",
                 "filterType": "string"
-              },
-              {
-                "Header": "attribute code ",
-                "accessor": "attributeCode",
-                "filterType": "string",
-                "show": false
               }
-
             ],
             "tableBackgroundColor": "#cccccc",
             "data": "_query.tableData",
@@ -144,6 +133,19 @@
     },
     {
       "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "getBE",
+          "as" : "currentUser",
+          "id": "{{user.data.code}}"
+        }
+      }
+    },
+    {
+      "operator": "scope",
       "path": "hostCompanies.items",
       "as": "tableData",
       "scope": {
@@ -153,7 +155,10 @@
           "email": "attributes.PRI_EMAIL.value",
           "mobilePhone": "attributes.PRI_MOBILE.value",
           "university": "company.attributes.PRI_NAME.value",
-          "attributeCode": "code"
+          "extraFields": {
+          },
+          "attributeCode": "code",
+          "currentUser": "currentUser.code"
         }
       }
     }
