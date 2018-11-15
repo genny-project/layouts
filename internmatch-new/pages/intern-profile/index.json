@@ -1,14 +1,8 @@
 {
   "layout": {
-    "title": "Intern Profile",
+    "title": "Intern-Profile",
     "appColor": "white",
-    "backgroundColor": "whitesmoke",
-    "header": {
-      "variant": "default"
-    },
-    "sidebar": {
-      "variant": "default"
-    }
+    "backgroundColor": "silver"
   },
   "children": [
   {
@@ -17,549 +11,762 @@
       "flexDirection" : "column",
       "justifyContent": "center",
       "marginTop":"20px",
-      "minWIdth": "900px"
+      "minWIdth": "900px",
+      "width":"100%"
     },
     "children": [
+      {
+        "component": "Box",
+        "props":{
+          "flexDirection":"column",
+          "backgroundColor": "rgb(255,255,255)"
+        },
+        "children":[
           {
             "component": "Box",
             "props": {
-              "flexDirection": "column",
-              "alignItems": "center",
-              "width":"100%"
+              "flexDirection": "row",
+              "width":"100%",
+              "backgroundColor": "white"
             },
             "children": [
               {
-                "component": "Text",
+                "component": "Box",
                 "props": {
-                  "color":"#000000",
-                  "size":"xl",
-                  "bold": true
+                  "paddingTop": "20px",
+                  "paddingBottom": "20px",
+                  "paddingLeft": "20px",
+                  "paddingRight": "10px"
                 },
-                "children": "Profile Details"
+                "children":          
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "https://i.imgur.com/ziHkxPf.jpg",
+                    "shape": "square",
+                    "height":150,
+                    "width":150
+                  }
+                }
               },
               {
-                "component": "Image",
+                "component": "Box",
                 "props": {
-                  "source": "https://i.imgur.com/ziHkxPf.jpg",
-                  "shape": "square",
-                  "height":150,
-                  "width":150
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "marginLeft": "20px"
+                },
+                "children":
+                [
+                  {
+                    "component":"Box",
+                    "props": {
+    
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color":"#000000",
+                          "size":"xl",
+                          "bold": true
+                        },
+                        "children": "Name_placeHolder"
+                      }
+                    ]
+                  },
+                  {
+                    "component":"Box",
+                    "props": {
+                      "marginTop": "10px"
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color": "rgb(85, 148, 188)",
+                          "size":"md"
+                        },
+                        "children": "universityName_placeHolder"
+                      }
+                    ]
+                  },
+                  {
+                    "component":"Box",
+                    "props": {
+                      "marginTop": "10px"
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+    
+                        },
+                        "children":                  {    
+                          "component": "Text",
+                          "props": {
+                            "size":"md",
+                            "color": "rgb(169, 169, 169)"
+                          },
+                          "children": "Student ID:"
+                        }
+                      },
+                      {
+                        "component": "Box",
+                        "props": {
+                          "marginLeft": "10px"
+                        },
+                        "children":                  {    
+                          "component": "Text",
+                          "props": {
+                            "color": "rgb(169, 169, 169)",
+                            "size":"md"
+                          },
+                          "children": "student_id_placeholder"
+                        }
+                      }
+                    ]
+                  }
+                ]        
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "backgroundColor": "silver",
+              "height": "1px"
+            }
+          },
+          {
+            "component":"Box",
+            "props":{
+              "paddingTop": "20px",
+              "paddingLeft":"20px",
+              "marginBottom": "20px"
+            },
+            "children":[
+              {
+                "component": "Box",
+                "props":{
+                  "borderWidth": "1px",
+                  "borderColor": "rgb(85, 148, 188)"
+                },
+                "children":
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "height": "50px",
+                    "width": "150px",
+                    "borderRadius": 30,
+                    "showSpinnerOnClick": true,
+                    "color": "rgb(85, 148, 188)",
+                    "textColor": "#fff",
+                    "text": "Send Email",
+                    "buttonCode": "",
+                    "value": {
+                      "itemCode": "{{}}"
+                    }
+                  }
+                }
+              },
+              {
+                "component": "Box",
+                "props":{
+                  "marginLeft": "20px",
+                  "borderWidth": "1px",
+                  "borderColor": "rgb(85, 148, 188)"                },
+                "children":
+                {
+                  "component": "EventButton",
+                  "props": {
+                    "height": "50px",
+                    "width": "150px",
+                    "backgroundColor": "red",
+                    "color": "rgb(255, 255, 255)",
+                    "textColor": "rgb(85, 148, 188)",
+                    "textSize": "xl",
+                    "text": "Resume",
+                    "buttonCode": "",
+                    "value": {
+                      "itemCode": "{{}}"
+                    }
+                  }
                 }
               }
             ]
-          },
+          }
+        ]
+      },
       {
         "component": "Box",
         "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "backgroundColor":"#f5f5f5",
-          "height":70,
+          "flexDirection":"column",
+          "backgroundColor": "rgb(255,255,255)", 
+          "marginTop": "20px"
+      },
+        "children":
+      [
+        {
+          "component": "Box",
+          "props":{
+            "paddingTop": "10px",
+            "paddingLeft": "20px",
+            "paddingBottom": "10px"
+          },
+          "children":
+          {
+            "component": "Text",
+            "props":{
+              "size": "xl"
+            },
+            "children": "Summary"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": "1px"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "justifyContent": "flex-start",
+            "paddingLeft":"20px"
+          },
+          "children":         
+          {
+            "component": "Box",
+            "props": {
+              "width":"100%",
+              "paddingY": "20px"
+            },
+            "children": {
+              "component": "Text",
+              "children": "this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle  this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle"
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props":{
+            "paddingTop": "10px",
+            "paddingLeft": "20px",
+            "paddingBottom": "10px"
+          },
+          "children":
+          {
+            "component": "Text",
+            "props":{
+              "size": "xl"
+            },
+            "children": "Skills"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver"
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingX": "20px",
+            "paddingY": "20px"
+          },
+          "children":         
+          {
+            "component": "Box",
+            "children":          [
+              {
+                "component": "Box",
+                "props":{
+                  "width": "85%",
+                  "justifyContent": "space-around",
+                  "flexWrap": "wrap",
+                  "minHeight": "100px",
+                  "backgroundColor":"rgb(255,255,255)",
+                  "paddingY": "10px"
+                },
+                "children": 
+                [
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                      "flexWrap": "wrap"
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props":{
+                    },
+                    "children":                 
+                    {
+                      "component":"Button",
+                      "props":{
+                        "text":"View",
+                        "size": "md",
+                        "fontFamily": "arial",
+                        "color": "#283a4c",
+                        "fontWeight": "lighter",
+                        "textColor": "white",
+                        "width":"100px",
+                        "height":"30px"
+                      }
+                    }
+                  }
+                ]
+              }
+            ] 
+          }
+        }
+      ]
+      },
+      {
+        "component": "Box",
+        "props": {
+          "flexDirection":"column",
+          "backgroundColor": "rgb(255,255,255)",
           "marginTop":"20px"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"30%",
-              "paddingTop":"12px",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Resume:"
-              }
-            ]
+      },
+        "children":
+      [
+        {
+          "component": "Box",
+          "props":{
+            "paddingTop": "10px",
+            "paddingLeft": "20px",
+            "paddingBottom": "10px"
           },
+          "children":
           {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"70%",
-              "justifyContent":"center"
+            "component": "Text",
+            "props":{
+              "size": "xl"
             },
-            "children": [
-              {
-                "component": "DisplayHTML",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "html": "<a href='https://www.apple.com'>Visit Apples Website</a>"
-                },
-                "children":"placeholder"
-              }
-            ]
+            "children": "Contact"
           }
-        ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": "1px"
+          }
+        },
+        {
+          "component":"Box",
+          "props":{
+            "flexDirection":"column",
+            "marginX": "20px",
+            "marginY": "20px",
+            "justifyContent": "space-between",
+            "height":"45px"
+          },
+          "children":[
+            {
+              "component": "Text",
+              "props": {
+                "bold": true
+              },
+              "children": "Email:"
+            },
+            {
+          "component": "Text",
+          "props": {
+
+          },
+          "children": "emailPlaceHolder"
+            }
+          ]
+        },
+        {
+          "component":"Box",
+          "props":{
+            "flexDirection":"column",
+            "marginX": "20px",
+            "marginY": "20px",
+            "justifyContent": "space-between",
+            "height":"45px"
+          },
+          "children":[
+            {
+              "component": "Text",
+              "props": {
+                "bold": true
+              },
+              "children": "Mobile:"
+            },
+            {
+          "component": "Text",
+          "props": {
+            
+          },
+          "children": "mobilePlaceHolder"
+        }
+          ]
+        },
+        {
+          "component":"Box",
+          "props":{
+            "flexDirection":"column",
+            "marginX": "20px",
+            "marginY": "20px",
+            "justifyContent": "space-between",
+            "height":"45px"
+          },
+          "children":[
+            {
+              "component": "Text",
+              "props": {
+                "bold": true
+              },
+              "children": "Address:"
+            },
+            {
+          "component": "Text",
+          "props": {
+            
+          },
+          "children": "addressPlaceHolder"
+        }
+          ]
+        }
+      ]
       },
       {
         "component": "Box",
         "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "width":"100%",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Student ID:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": ""
-              }
-            ]
-          }
-        ]
+          "flexDirection":"column",
+          "backgroundColor": "rgb(255,255,255)",
+          "marginTop":"20px"
       },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "First Name:"
-              }
-            ]
+        "children":
+      [
+        {
+          "component": "Box",
+          "props":{
+            "paddingTop": "10px",
+            "paddingLeft": "20px",
+            "paddingBottom": "10px"
           },
+          "children":
           {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
+            "component": "Text",
+            "props":{
+              "size": "xl"
             },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Loris"
-              }
-            ]
+            "children": "Documents"
           }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
         },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Last Name:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Campanile"
-              }
-            ]
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": "1px"
           }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
         },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Preferred Name:"
-              }
-            ]
+        {
+          "component": "Box",
+          "props":{
+            "width": "90%",
+            "justifyContent": "flex-start",
+            "flexDirection":"column",
+            "height": "auto"
           },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
+          "children":[
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "paddingX": "20px",
+                "paddingY": "20px",
+                "marginLeft": "20px"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                          "size": "xl",
+                          "name": "description",
+                          "color":"grey"
+                          }
+                        }
+                    ],
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "height": 100,
+                        "width":10,
+                        "paddingLeft": 10,
+                        "paddingRight":30
+                      }
+                    },
+                    {
+                      "component": "EventButton",
+                      "children": {
+                        "component": "Box",
+                        "props": {
+                          "paddingLeft": "20px"
+                        },
+                        "children": {
+                          "component": "Text", 
+                          "children": "Document1"
+                        }
+                      }
+                    }
+                  ]
                 },
-                "children": "Loris"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                          "size": "xl",
+                          "name": "description",
+                          "color":"grey"
+                          }
+                        }
+                    ],
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "height": 100,
+                        "width":10,
+                        "paddingLeft": 10,
+                        "paddingRight":30
+                      }
+                    },
+                    {
+                      "component": "EventButton",
+                      "children": {
+                        "component": "Box",
+                        "props": {
+                          "paddingLeft": "20px"
+                        },
+                        "children": {
+                          "component": "Text", 
+                          "children": "Document2"
+                        }
+                      }
+                    }
+                  ]
                 },
-                "children": "DOB:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "2007-09-06"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Email:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "loris+intern@gmail.com"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Mobile Phone:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "0421959234"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Location"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": ""
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":70,
-          "marginTop":"5px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Details:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": ""
-              }
-            ]
-          }
-        ]
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Icon",
+                          "props": {
+                          "size": "xl",
+                          "name": "description",
+                          "color":"grey"
+                          }
+                        }
+                    ],
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "height": 100,
+                        "width":10,
+                        "paddingLeft": 10,
+                        "paddingRight":30
+                      }
+                    },
+                    {
+                      "component": "EventButton",
+                      "children": {
+                        "component": "Box",
+                        "props": {
+                          "paddingLeft": "20px"
+                        },
+                        "children": {
+                          "component": "Text", 
+                          "children": "Document3"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
       }
     ]
   }
  ]
 }
+
