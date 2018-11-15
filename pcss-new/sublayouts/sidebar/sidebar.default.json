@@ -1,11 +1,164 @@
 {
-    "rootCode": "GRP_ROOT",
-    "width": 300,
-    "flex": 1,
-    "inline": true,
-    "openProps": {
-      "width": 80
+  "rootCode": "GRP_ROOT",
+  "width": 50,
+  "flex": 1,
+  "inline": true,
+  "backgroundColor": "#df5a5b",
+  "openProps": {
+    "width": 300
+  },
+  "renderBody": {
+    "component": "Box",
+    "conditional": {
+      "if": {
+        "sidebar.left.isOpen": {
+          "$eq": true
+        }
+      },
+      "then": {
+        "width": 300
+      }
     },
-    "backgroundColor": "#e05b5b"
-  }
-  
+    "props": {
+      "position": "fixed",
+      "height": "100vh",
+      "left": 0,
+      "top": 0,
+      "width": 50,
+      "flexDirection": "column",
+      "transition": "300ms ease all",
+      "backgroundColor": "#df5a5b"
+    },
+    "children": [
+      {
+        "component": "Box",
+        "conditional": {
+          "if": {
+            "sidebar.left.isOpen": {
+              "$eq": true
+            }
+          },
+          "then": {
+            "paddingRight": 10,
+            "justifyContent": "center"
+          }
+        },
+        "props": {
+          "justifyContent": "center",
+          "paddingBottom": 0,
+          "paddingTop": 10,
+          "height": 115
+        },
+        "children": [
+          {
+            "component": "Box",
+            "onlyShowIf": {
+              "sidebar.left.isOpen": {
+                "$eq": true
+              }
+            },
+            "props": {
+              "flex": 1,
+              "justifyContent": "center"
+            },
+            "children": [
+              {
+                "component": "Image",
+                "props": {
+                  "source": "https://bouncer.outcome-hub.com/auth/resources/3.4.0.final/login/pcss/img/logo.png",
+                  "height": 80,
+                  "width": 200
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props": {
+              "paddingTop": 15
+            },
+            "children": [
+              {
+                "component": "Touchable",
+                "props": {
+                  "withFeedback": true,
+                  "onPress": "_onToggle"
+                },
+                "children": {
+                  "component": "Icon",
+                  "props": {
+                    "color": "white",
+                    "name": "menu"
+                  },
+                  "conditional": {
+                    "if": {
+                      "sidebar.left.isOpen": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "name": "close"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component":"ScrollView",
+        "props":{
+           "style":{
+              "flex":1
+           }
+        },
+        "children":[
+          {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column"
+            },
+            "repeat": "_items",
+            "children": {
+              "component": "Box",
+              "props": {
+
+              },
+              "children": [
+                {
+                  "component": "Sublayout",
+                  "onlyShowIf": {
+                    "repeater.isDropdown": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "layoutName": "sidebar/sidebar.dropdown",
+                    "item": "_repeater",
+                    "isSidebarOpen": "_sidebar.left.isOpen"
+                  }
+                },
+                {
+                  "component": "Sublayout",
+                  "dontShowIf": {
+                    "repeater.isDropdown": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "layoutName": "sidebar/sidebar.card",
+                    "item": "_repeater",
+                    "isSidebarOpen": "_sidebar.left.isOpen"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "sortBy": "weight",
+  "sortDirection": "asc"
+}

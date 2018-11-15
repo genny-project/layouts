@@ -1,0 +1,115 @@
+{
+    "layout": {
+      "title": "Sidebar Card",
+      "appColor": "dark"
+    },
+    "children": [
+      {
+        "component": "Box",
+        "props": {
+          "padding": 5,
+          "width": "100%",
+          "justifyContent": "center",
+          "alignItems": "center"
+        },
+        "children": [
+          {
+            "component": "Touchable",
+            "props": {
+              "flex": 1,
+              "paddingY": 10,
+              "paddingX": 5,
+              "justifyContent": "center",
+              "onPress": "_props.item.onPress",
+              "withFeedback": true,
+              "alignItems": "center"
+            },
+            "children": {
+              "component": "Box",
+              "props": {
+                "flex": 1
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "color": "white",
+                        "name": "{{props.item.icon}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.isSidebarOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "marginLeft": 15
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "onlyShowIf": {
+                        "props.isSidebarOpen": {
+                          "$eq": true
+                        }
+                      },
+                      "props": {
+                        "color": "white",
+                        "text": "{{props.item.name}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "component": "Touchable",
+            "onlyShowIf": {
+              "props.isSidebarOpen": {
+                "$eq": true
+              }
+            },
+            "props": {
+              "paddingY": 10,
+              "paddingX": 5,
+              "withFeedback": true,
+              "onPress": "_props.onPress"
+            },
+            "children": {
+              "component": "Box",
+              "props": {
+                "marginLeft": 15
+              },
+              "children": [
+                {
+                  "component": "Icon",
+                  "conditional": {
+                    "if": {
+                      "props.isOpen": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "name": "keyboard_arrow_down"
+                    }
+                  },
+                  "props": {
+                    "color": "white",
+                    "name": "keyboard_arrow_up"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }

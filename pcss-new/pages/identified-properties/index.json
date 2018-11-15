@@ -113,7 +113,8 @@
         "path": "items",
         "scope": {
           "operator": "getBE",
-          "as" : "items",
+          "as" : "property",
+          "basePath": "baseEntities.data",
           "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
         }
       },
@@ -138,8 +139,8 @@
           "operator": "map",
           "fields": {
             "address": "be.attributes.PRI_ADDRESS_FULL.value",
-            "precinct": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
-            "propertytype": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
+            "precinct": "company.name",
+            "propertytype": "property.name",
             "code": "be.code"
           }
         }
