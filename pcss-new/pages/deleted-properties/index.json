@@ -104,7 +104,7 @@
           "operator": "getBE",
           "as" : "company",
           "basePath": "baseEntities.data",
-          "id": "{{be.attributes.LNK_COMPANY_PROVIDER.value}}"
+          "id": "{{be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
         }
       },
       {
@@ -112,8 +112,9 @@
         "path": "items",
         "scope": {
           "operator": "getBE",
-          "as" : "items",
-          "id": "{{be.attributes.LNK_AGENCY.value}}"
+          "as" : "property",
+          "basePath": "baseEntities.data",
+          "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
         }
       },
       {
@@ -137,8 +138,8 @@
           "operator": "map",
           "fields": {
             "address": "be.attributes.PRI_ADDRESS_FULL.value",
-            "type": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
-            "postcode": "be.attributes.PRI_ADDRESS_POSTCODE.value"
+            "type": "company.name",
+            "postcode": "property.name"
           }
         }
       }

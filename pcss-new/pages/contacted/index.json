@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Contacted Workflow View",
+    "title": "Deleted Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -16,7 +16,6 @@
       "children": [
         {
           "component": "Table",
-          "layoutName": "edit-properties",
           "props": {
             "columns": [
               {
@@ -29,11 +28,12 @@
                     "props": {
                       "buttonCode": "BTN_VIEW_BEG",
                       "color": "#5fa5ec",
+                      "textColor": "#fff",
                       "height": 25,
                       "width": "100%",
-                      "padding": 15,
-                      "textColor": "#fff",
-                      "text": "Details",
+                      "text": "Property Details",
+                      "padding": 10,
+                      "size": "xs",
                       "value": {
                         "itemCode":"{{code}}",
                         "hint": "BTN_VIEW_BEG"
@@ -46,16 +46,16 @@
                 "Header": "Address Of Property",
                 "accessor": "address",
                 "filterType": "string"
-              },  
+              },
               {
                 "Header": "Precinct",
-                "accessor": "type",
+                "accessor": "precinct",
                 "filterType": "string"
               },
               {
-                "Header": "Type",
-                "accessor": "postcode",
-                "filterType": "number"
+                "Header": "Property Type",
+                "accessor": "propertytype",
+                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#e05b5b",
@@ -112,7 +112,8 @@
       "path": "items",
       "scope": {
         "operator": "getBE",
-        "as" : "items",
+        "as" : "property",
+        "basePath": "baseEntities.data",
         "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
       }
     },
@@ -137,8 +138,8 @@
         "operator": "map",
         "fields": {
           "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "type": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
-          "postcode": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
+          "precinct": "company.name",
+          "propertytype": "property.name",
           "code": "be.code"
         }
       }
