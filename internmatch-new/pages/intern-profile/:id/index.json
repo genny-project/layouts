@@ -1,0 +1,59 @@
+{
+  "layout": 
+  {
+    "title": "Intern Profile",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      },
+      "props": {
+        "currentNote": "{{aliases.CURRENT_NOTE}}",
+        "email": "{{query.intern.attributes.PRI_EMAIL.value}}",
+        "address": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "hello",
+        "code": "{{query.attributes}}"
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "intern"
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "attributes",
+      "scope": { 
+        "operator": "populateBEGAttributes",
+        "as": "bes"
+      }
+    }
+  ]
+}
+
