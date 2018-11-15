@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Internship Overview",
+    "title": "{{query.internship.attributes.PRI_NAME.value}}",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -52,11 +52,11 @@
               "borderStyle": "solid"
             },
             "tabs": [
-              { "title": "Internship Details", "key": 0 },
               {
-                "title": "Process Cards",
-                "key": 1
-              }
+                "title": "Process View",
+                "key": 0
+              },
+              { "title": "Internship Details", "key": 1 }
             ],
             "childProps": {
               "overflow": "auto",
@@ -69,18 +69,33 @@
             {
               "component": "Sublayout",
               "props": {
-                "layoutName": "home/agent/internship-details"
+                "layoutName": "home/agent/bucket"
               }
             },
             {
               "component": "Sublayout",
               "props": {
-                "layoutName": "home/agent/bucket"
+                "layoutName": "home/agent/internship-details"
               }
             }
           ]
         }
       ]
+    }
+  ],
+  "query": [{
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
     }
   ]
 }
