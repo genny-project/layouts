@@ -71,7 +71,7 @@
                           "size":"xl",
                           "bold": true
                         },
-                        "children": "Name_placeHolder"
+                        "children": "{{props.name}}"
                       }
                     ]
                   },
@@ -245,7 +245,9 @@
             },
             "children": {
               "component": "Text",
-              "children": "this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle  this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle this is just a test. again just a text and nothihng esle"
+              "props": {
+                "text": "{{query.attributes.PRI_INTERN_DETAILS.value}}"
+              }
             }
           }
         },
@@ -523,9 +525,8 @@
             {
           "component": "Text",
           "props": {
-
-          },
-          "children": "{{props.email}}"
+            "text": "{{props.attributes.PRI_EMAIL.value}}"
+          }
             }
           ]
         },
@@ -549,9 +550,8 @@
             {
           "component": "Text",
           "props": {
-            
-          },
-          "children": "{{props.code}}"
+            "text": "{{props.attributes.PRI_MOBILE.value}}"
+          }
         }
           ]
         },
@@ -577,7 +577,7 @@
           "props": {
             
           },
-          "children": "addressPlaceHolder"
+          "children": "{{props.attributes.PRI_ADDRESS_FULL.value}}"
         }
           ]
         }
