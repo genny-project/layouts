@@ -74,7 +74,7 @@
                       }
                     }
                   }
-              ]
+                ]
               },
               {
                 "Header": "Full Name",
@@ -112,53 +112,49 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_INTERNS",
-      "as": "internList"
+      "id": "GRP_RESULTS",
+      "as": "interns"
     },
     {
       "operator": "scope",
-      "path": "internList.links",
-      "as": "internList",
+      "path": "interns.links",
+      "as": "interns",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}",
-        "as": "be"
+        "id": "{{link.targetCode}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "scope": {
-        "operator": "scope",
-        "path": "be",
-        "scope": {
-          "operator": "populateBEGAttributes",
-          "as": "attributes"
-        }
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
+          "firstName": "attributes.PRI_NAME.value",
           "eduProvider": "company.name",
-          "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value",
+          "mobilePhone": "attributes.PRI_MOBILE.value",
+          "uname": "attributes.PRI_USERNAME.value",
           "attributeCode": "code"
         }
       }
