@@ -59,16 +59,48 @@
               "children": [
                 {
                   "component": "Heading",
-                  "conditional": {
-                    "if": {
-                      "query.currentNote.attributes.PRI_NAME.value": {
-                        "$exists": true
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_NAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
                       }
                     },
-                    "then": {
-                      "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_FULLNAME.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                      }
                     }
-                  },
+                  ],
                   "props": {
                     "text": "",
                     "size": "lg"
