@@ -14,12 +14,6 @@
         "user.attributes.PRI_IS_AGENT.value": {
           "$eq": true
         }
-      },
-      "props": {
-
-        "currentNote": "{{aliases.CURRENT_NOTE}}",
-        "email": "{{query.intern.attributes.PRI_EMAIL.value}",
-        "address": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
       }
     }
   },
@@ -28,7 +22,16 @@
       "component": "Sublayout",
       "props": {
         "layoutName": "hello",
-        "attributes": "_query.intern.attributes"
+        "attributes": "_query.intern.attributes",
+        "internDetails": "_query.intern.attributes.PRI_INTERN_DETAILS.value",
+        "studentId": "_query.intern.attributes.PRI_STUDENT_ID.value",
+        "fullName": "_query.intern.attributes.PRI_NAME.value",
+        "imageUrl": "_query.intern.attributes.PRI_IMAGE_URL.value",
+        "email": "_query.intern.attributes.PRI_EMAIL.value",
+        "mobile": "_query.intern.attributes.PRI_MOBILE.value",
+        "address": "_query.intern.attributes.PRI_ADDRESS_FULL.value",
+        "university": "_query.intern.uniAttrs.name"
+
       }
     }
   ],
@@ -45,6 +48,15 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "uniAttrs"
       }
     }
 

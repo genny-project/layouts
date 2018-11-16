@@ -42,7 +42,7 @@
                 {
                   "component": "Image",
                   "props": {
-                    "source": "https://i.imgur.com/ziHkxPf.jpg",
+                    "source": "{{props.imageUrl}}",
                     "shape": "square",
                     "height":150,
                     "width":150
@@ -71,7 +71,7 @@
                           "size":"xl",
                           "bold": true
                         },
-                        "children": "{{props.name}}"
+                        "children": "{{props.fullName}}"
                       }
                     ]
                   },
@@ -87,7 +87,7 @@
                           "color": "rgb(85, 148, 188)",
                           "size":"md"
                         },
-                        "children": "universityName_placeHolder"
+                        "children": "{{props.university}}"
                       }
                     ]
                   },
@@ -122,7 +122,7 @@
                             "color": "rgb(169, 169, 169)",
                             "size":"md"
                           },
-                          "children": "student_id_placeholder"
+                          "children": "{{props.studentId}}"
                         }
                       }
                     ]
@@ -244,9 +244,9 @@
               "paddingY": "20px"
             },
             "children": {
-              "component": "Text",
+              "component": "DisplayHTML",
               "props": {
-                "text": "{{query.attributes.PRI_INTERN_DETAILS.value}}"
+                "html": "{{props.internDetails}}"
               }
             }
           }
@@ -295,177 +295,7 @@
                 },
                 "children": 
                 [
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                      "flexWrap": "wrap"
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Box",
-                    "props":{
-                    },
-                    "children":                 
-                    {
-                      "component":"Button",
-                      "props":{
-                        "text":"View",
-                        "size": "md",
-                        "fontFamily": "arial",
-                        "color": "#283a4c",
-                        "fontWeight": "lighter",
-                        "textColor": "white",
-                        "width":"100px",
-                        "height":"30px"
-                      }
-                    }
-                  }
+         
                 ]
               }
             ] 
@@ -525,7 +355,7 @@
             {
           "component": "Text",
           "props": {
-            "text": "{{props.attributes.PRI_EMAIL.value}}"
+            "text": "{{props.email}}"
           }
             }
           ]
@@ -665,6 +495,8 @@
                       "children": {
                         "component": "Box",
                         "props": {
+                          "backgroundColor": "whitesmoke",
+                          "borderColor": "grey",
                           "paddingLeft": "20px"
                         },
                         "children": {
