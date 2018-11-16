@@ -16,8 +16,9 @@
         }
       },
       "props": {
+
         "currentNote": "{{aliases.CURRENT_NOTE}}",
-        "email": "{{query.intern.attributes.PRI_EMAIL.value}}",
+        "email": "{{query.intern.attributes.PRI_EMAIL.value}",
         "address": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
       }
     }
@@ -27,7 +28,7 @@
       "component": "Sublayout",
       "props": {
         "layoutName": "hello",
-        "code": "{{query.attributes}}"
+        "attributes": "_query.intern.attributes"
       }
     }
   ],
@@ -45,15 +46,8 @@
         "code": "{{code}}",
         "as": "attributes"
       }
-    },
-    {
-      "operator": "scope",
-      "path": "attributes",
-      "scope": { 
-        "operator": "populateBEGAttributes",
-        "as": "bes"
-      }
     }
+
   ]
 }
 

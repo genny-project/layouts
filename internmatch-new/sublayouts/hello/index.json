@@ -71,7 +71,7 @@
                           "size":"xl",
                           "bold": true
                         },
-                        "children": "Name_placeHolder"
+                        "children": "{{props.name}}"
                       }
                     ]
                   },
@@ -523,9 +523,8 @@
             {
           "component": "Text",
           "props": {
-
-          },
-          "children": "{{props.email}}"
+            "text": "{{props.attributes.PRI_EMAIL.value}}"
+          }
             }
           ]
         },
@@ -577,7 +576,7 @@
           "props": {
             
           },
-          "children": "addressPlaceHolder"
+          "children": "{{props.attributes.address}}"
         }
           ]
         }
