@@ -16,6 +16,21 @@
         {
           "component": "Table",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
@@ -26,18 +41,39 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "120px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_EDU_PROVIDER",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  },
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_EDIT_EDU_PROVIDER",
+                      "buttonCode": "BTN_VIEW_EDU_PROVIDER",
                       "value": {
                         "itemCode": "{{attributeCode}}"
                       }
                     }
                   }
               ]
+              },
+              {
+                "Header": "select",
+                "accessor": "select",
+                "show": false
               },
               {
                 "Header": "Provider Name",
@@ -57,6 +93,11 @@
               {
                 "Header": "Address ",
                 "accessor": "address",
+                "filterType": "string"
+              },
+              {
+                "Header": "Selcet",
+                "accessor": "select",
                 "filterType": "string"
               }
             ],

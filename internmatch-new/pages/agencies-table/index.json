@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Agencies Table",
+    "title": "Agencies",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -16,22 +16,51 @@
         {
           "component": "Table",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
                 "accessor": "actions",
                 "renderButton": [
                   {
-                    "text": "View",
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "120px",
+                      "width": "70px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_AGENCY",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "70px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_EDIT_AGENCY",
+                      "buttonCode": "BTN_VIEW_AGENCY",
                       "value": {
                         "itemCode": "{{attributeCode}}"
                       }

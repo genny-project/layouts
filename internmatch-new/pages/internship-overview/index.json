@@ -1,15 +1,27 @@
 {
+  "layout": {
+    "title": "{{query.internship.attributes.PRI_NAME.value}}",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
   "children": [
     {
       "component": "Box",
       "props": {
         "width": "100%",
         "flex": 1,
-        "position": "relative"
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Tabs",
           "props": {
             "flex": 1,
             "tabBarBackground": "#233a4e",
@@ -40,6 +52,11 @@
               "borderStyle": "solid"
             },
             "tabs": [
+              {
+                "title": "Process View",
+                "key": 0
+              },
+              { "title": "Internship Details", "key": 1 }
             ],
             "childProps": {
               "overflow": "auto",
@@ -52,7 +69,13 @@
             {
               "component": "Sublayout",
               "props": {
-                "layoutName": "home/edu-provider/bucket"
+                "layoutName": "home/agent/bucket"
+              }
+            },
+            {
+              "component": "Sublayout",
+              "props": {
+                "layoutName": "home/agent/internship-details"
               }
             }
           ]
@@ -60,49 +83,18 @@
       ]
     }
   ],
-  "query": [
-    {
-      "operator": "getLinks",
-      "id": "GRP_NEW_ITEMS",
-      "as": "items"
+  "query": [{
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "internship"
     },
     {
       "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "code"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
+      "path": "internship",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "id": "{{attributes.LNK_HOST_COMPANY.value}}",
-        "as": "company"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "company",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
       }
     }
   ]
