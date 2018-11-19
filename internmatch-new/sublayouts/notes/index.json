@@ -176,7 +176,9 @@
                     "props": {
                       "text": "{{repeater.attributes.PRI_CONTENT.value}}",
                       "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
-                      "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
+                      "creatorName": "{{repeater.attributes.PRI_CREATOR_NAME.value}}",
+                      "creatorCode": "{{repeater.attributes.PRI_CREATOR_CODE.value}}",
+                      "code": "{{repeater.code}}"
                     }
                   }
                 }
@@ -319,6 +321,18 @@
       "scope": {
         "operator": "getBE",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

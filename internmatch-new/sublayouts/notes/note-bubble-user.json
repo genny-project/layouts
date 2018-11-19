@@ -4,6 +4,7 @@
       "component": "Box",
       "props": {
         "flexDirection": "column",
+        "position": "relative",
         "marginBottom": 15
       },
       "children": [
@@ -33,10 +34,84 @@
             {
               "component": "Text",
               "props": {
-                "text": "{{props.creator}}",
+                "text": "{{props.creatorName}}",
                 "size": "xs",
                 "color": "#959595"
               }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "props.creatorCode": {
+              "$eq": "{{user.data.code}}"
+            }
+          },
+          "props": {
+            "position": "absolute",
+            "right": 5,
+            "top": 0,
+            "zIndex": 5
+          },
+          "children": [
+            {
+              "component": "Dropdown",
+              "props": {
+                "facingRight": true,
+                "menuButtonStyle": {
+                  "backgroundColor": "transparent",
+                  "border": 0,
+                  "padding": 5,
+                  "fontSize": 16,
+                  "cursor": "pointer",
+                  "color": "black"
+                },
+                "menuListStyle": {
+                  "background": "#fff",
+                  "borderWidth": 2,
+                  "borderColor": "#ddd",
+                  "borderStyle": "solid"
+                },
+                "menuItemStyle": {
+                  "textAlign": "right",
+                  "padding": 15,
+                  "color": "black"
+                },
+                "items": [
+                  {
+                    "text": "Edit",
+                    "buttonCode": "BTN_EDIT_NOTE",
+                    "value": {
+                      "itemCode": "{{props.code}}",
+                      "hint": "{{props.creatorCode}}"
+                    }
+                  },
+                  {
+                    "text": "Delete",
+                    "buttonCode": "BTN_DELETE_NOTE",
+                    "value": {
+                      "itemCode": "{{props.code}}",
+                      "hint": "{{props.creatorCode}}"
+                    }
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Icon",
+                      "props": {
+                        "name": "more_horiz",
+                        "color": "#959595",
+                        "size": "md"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
