@@ -53,37 +53,25 @@
                            "flexWrap": "no-wrap"
                         },
                         "children":[  
-                           {  
-                              "span":{  
-                                 "children":[  
-                                    {  
-                                       "Selector":{  
-                                          "checkValues":[  
-                                             "BE.PRI_UNIT_ID"
-                                          ],
-                                          "showIfNotNull":true,
-                                          "children":[  
-                                             {  
-                                                "span":{  
-                                                   "style":{  
-                                                      "fontSize":"1.2em"
-                                                   },
-                                                   "children":"Unit: ${BE.PRI_UNIT_ID}"
-                                                }
-                                             }
-                                          ]
+                           {
+                              "Selector": {
+                                 "checkValues": "BE.PRI_UNIT_ID",
+                                 "showIfNotNull": true,
+                                 "children": [
+                                    {
+                                       "span": {
+                                          "style":{  
+                                             "fontSize":"1.2em"
+                                          },
+                                          "children": "${BE.PRI_UNIT_ID}/"
                                        }
                                     }
                                  ]
                               }
                            },
-                           {  
-                              "span":{  
-                                 "position":[  
-                                    0,
-                                    1
-                                 ],
-                                 "children":[  
+                           {
+                              "span": {
+                                 "children": [
                                     {  
                                        "GennyAddressLabel":{  
                                           "style":{  
@@ -266,6 +254,61 @@
                            {  
                               "SublayoutLoader":{  
                                  "layoutCode":"unit_details-contacted",
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },{  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_INSPECTION"
+                        ],
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "padding-top":"5px"
+                        },
+                        "children":[  
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"unit_details-inspection",
+                                 "aliases":{  
+                                    "BE":"BE.code",
+                                    "GROUP":"ROOT"
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "Selector":{  
+                        "checkValues":[  
+                           "ROOT"
+                        ],
+                        "showValues":[  
+                           "GRP_COMPLETED"
+                        ],
+                        "position":[  
+                           1,
+                           0
+                        ],
+                        "style":{  
+                           "padding-top":"5px"
+                        },
+                        "children":[  
+                           {  
+                              "SublayoutLoader":{  
+                                 "layoutCode":"unit_details-completed",
                                  "aliases":{  
                                     "BE":"BE.code",
                                     "GROUP":"ROOT"
