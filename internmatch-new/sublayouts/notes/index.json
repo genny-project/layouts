@@ -59,16 +59,48 @@
               "children": [
                 {
                   "component": "Heading",
-                  "conditional": {
-                    "if": {
-                      "query.currentNote.attributes.PRI_NAME.value": {
-                        "$exists": true
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_NAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
                       }
                     },
-                    "then": {
-                      "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_FULLNAME.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                      }
                     }
-                  },
+                  ],
                   "props": {
                     "text": "",
                     "size": "lg"
@@ -144,7 +176,9 @@
                     "props": {
                       "text": "{{repeater.attributes.PRI_CONTENT.value}}",
                       "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
-                      "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
+                      "creatorName": "{{repeater.attributes.PRI_CREATOR_NAME.value}}",
+                      "creatorCode": "{{repeater.attributes.PRI_CREATOR_CODE.value}}",
+                      "code": "{{repeater.code}}"
                     }
                   }
                 }
@@ -225,6 +259,7 @@
                         "backgroundColor": "white",
                         "borderWidth": 1,
                         "showCharacterCount": true,
+                        "submitOnEnterPress": true,
                         "renderCharacterCount": {
                           "component": "Box",
                           "props": {
@@ -286,7 +321,19 @@
       "path": "notes",
       "scope": {
         "operator": "getBE",
-        "id": "code"
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

@@ -41,7 +41,7 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "70px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
@@ -49,6 +49,28 @@
                       "buttonCode": "BTN_EDIT_EDU_PROVIDER_STAFF",
                       "value": {
                         "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "80px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_VIEW_EDU_PROVIDER_STAFF",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      },
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_ADD",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{attributeCode}}"
+                        }
                       }
                     }
                   }
