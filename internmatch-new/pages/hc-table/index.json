@@ -38,21 +38,44 @@
                 "accessor": "actions",
                 "renderButton": [
                   {
-                    "text": "View",
+                    "text": "Edit",
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "120px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
-                      "text": "View",
+                      "text": "Edit",
                       "buttonCode": "BTN_EDIT_HOST_COMPANY",
                       "value": {
                         "itemCode": "{{attributeCode}}"
                       }
                     }
-                  }
+                  },
+                  {
+                    "text": "View",
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "80px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_VIEW_HOST_COMPANY",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      },
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_ADD",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{attributeCode}}"
+                        }
+                      }
+                    }
+                  } 
               ]
               },
               {
