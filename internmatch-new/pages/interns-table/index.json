@@ -17,6 +17,21 @@
         {
           "component": "Table",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
@@ -26,7 +41,7 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "70px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
@@ -41,7 +56,7 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "70px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
@@ -49,16 +64,35 @@
                       "buttonCode": "BTN_VIEW_INTERN",
                       "value": {
                         "itemCode": "{{attributeCode}}"
+                      },
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_ADD",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{attributeCode}}"
+                        }
                       }
                     }
                   }
-              ]
+                ]
               },
               {
                 "Header": "Full Name",
                 "accessor": "firstName",
                 "id": "firstName",
                 "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Student ID",
+                "accessor": "studentId",
+                "id": "studentId",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "uname",
                 "filterType": "string"
               },
               {
@@ -70,11 +104,6 @@
                 "Header": "Mobile Phone",
                 "accessor": "mobilePhone",
                 "filterType": "number"
-              },
-              {
-                "Header": "Username",
-                "accessor": "uname",
-                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#cccccc",
@@ -90,54 +119,51 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_INTERNS",
-      "as": "internList"
+      "id": "GRP_RESULTS",
+      "as": "interns"
     },
     {
       "operator": "scope",
-      "path": "internList.links",
-      "as": "internList",
+      "path": "interns.links",
+      "as": "interns",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}",
-        "as": "be"
+        "id": "{{link.targetCode}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "scope": {
-        "operator": "scope",
-        "path": "be",
-        "scope": {
-          "operator": "populateBEGAttributes",
-          "as": "attributes"
-        }
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internList",
+      "path": "interns",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
+          "firstName": "attributes.PRI_NAME.value",
           "eduProvider": "company.name",
-          "mobilePhone": "be.attributes.PRI_MOBILE.value",
-          "uname": "be.attributes.PRI_USERNAME.value",
-          "attributeCode": "code"
+          "mobilePhone": "attributes.PRI_MOBILE.value",
+          "uname": "attributes.PRI_USERNAME.value",
+          "attributeCode": "code",
+          "studentId": "attributes.PRI_STUDENT_ID.value"
         }
       }
     }

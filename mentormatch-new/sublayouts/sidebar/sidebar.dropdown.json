@@ -1,0 +1,72 @@
+{
+  "layout": {
+    "title": "Sidebar Dropdown",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Collapsible",
+      "props": {
+        "header": {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "sidebar/sidebar.header",
+            "item": "_props.item",
+            "isSidebarOpen": "_props.isSidebarOpen"
+          }
+        },
+        "wrapperProps": {
+          "flex": 1
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "props.isSidebarOpen": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "flexDirection": "column",
+            "marginLeft": 10
+          },
+          "repeat": "_props.item.items",
+          "children": {
+            "component": "Box",
+            "props": {
+            },
+            "children": [
+              {
+                "component": "Sublayout",
+                "onlyShowIf": {
+                  "repeater.isDropdown": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "layoutName": "sidebar/sidebar.dropdown",
+                  "item": "_repeater",
+                  "isSidebarOpen": "_props.isSidebarOpen"
+                }
+              },
+              {
+                "component": "Sublayout",
+                "dontShowIf": {
+                  "repeater.isDropdown": {
+                    "$eq": true
+                  }
+                },
+                "props": {
+                  "layoutName": "sidebar/sidebar.card",
+                  "item": "_repeater",
+                  "isSidebarOpen": "_props.isSidebarOpen"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

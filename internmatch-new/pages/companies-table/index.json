@@ -1,0 +1,144 @@
+{
+  "layout": {
+    "title": "All Companies",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [{
+    "component": "Box",
+    "children": [{
+      "component": "Table",
+      "props": {
+        "renderWrapper": {
+          "component": "EventButton",
+          "props": {
+            "height": "20px",
+            "fontWeight": "300",
+            "fontSize": 10,
+            "eventType": "BTN_CLICK",
+            "buttonCode": "BTN_TABLE_SELECT",
+            "value": {
+              "itemCode": "_celld.attributeCode",
+              "userCode": "{{user.data.code}}"
+            }
+          }
+        },
+        "columns": [{
+            "Header": "Actions",
+            "accessor": "actions",
+            "renderButton": [{
+                "component": "EventButton",
+                "props": {
+                  "height": "30px",
+                  "width": "80px",
+                  "backgroundColor": "red",
+                  "color": "#5173c6",
+                  "textColor": "#fff",
+                  "text": "View",
+                  "buttonCode": "BTN_VIEW_BUCKET",
+                  "value": {
+                    "itemCode": "{{code}}"
+                  },
+                  "dispatchActionOnClick": {
+                    "type": "ALIAS_ADD",
+                    "payload": {
+                      "alias": "CURRENT_NOTE",
+                      "value": "{{code}}"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "Header": "Comapany Name",
+            "accessor": "name",
+            "id": "name",
+            "key": "name",
+            "filterType": "string"
+          },
+          {
+            "Header": "Legal Name",
+            "accessor": "legalName",
+            "filterType": "string"
+          },
+          {
+            "Header": "Email",
+            "accessor": "email",
+            "filterType": "string"
+          }, {
+            "Header": "Contact Number",
+            "accessor": "contactNumber",
+            "filterType": "string"
+          }, {
+            "Header": "Website",
+            "accessor": "website",
+            "filterType": "string"
+          }, {
+            "Header": "Address",
+            "accessor": "address",
+            "filterType": "string"
+          }, {
+            "Header": "ABN",
+            "accessor": "abn",
+            "filterType": "string"
+          }
+        ],
+        "tableBackgroundColor": "#cccccc",
+        "data": "_query.tableData",
+        "tableHeight": "500px",
+        "tableWidth": "100%",
+        "itemsPerPage": 15
+      }
+    }]
+  }],
+  "query": [{
+      "operator": "getBE",
+      "id": "GRP_RESULTS",
+      "as": "companies"
+    },
+    {
+      "operator": "scope",
+      "path": "companies.links",
+      "as": "companies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "name": "attributes.PRI_NAME.value",
+          "legalName": "attributes.PRI_LEGAL_NAME.value",
+          "contactNumber": "companyRep.attributes.PRI_LANDLINE.value",
+          "website": "attributes.PRI_COMPANY_WEBSITE_URL.value",
+          "abn": "attributes.PRI_ABN.value",
+          "email": "attributes.PRI_EMAIL.value",
+          "address": "attributes.PRI_ADDRESS_ADDRESS1.value"
+        }
+      }
+    }
+  ]
+}

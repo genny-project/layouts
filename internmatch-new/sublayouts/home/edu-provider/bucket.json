@@ -70,38 +70,25 @@
               }
             },
             "children": {
-              "component": "Link",
-              "conditional": {
-                "if": {
-                  "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
-                    "$exists": true,
-                    "$ne": "undefined"
-                  }
-                },
-                "then": {
-                  "to": "application/{{repeater.code}}"
-                },
-                "else": {
-                  "to": "student/{{repeater.code}}"
-                }
-              },
+              "component": "EventButton",
               "props": {
+                "padding": 0,
+                "paddingX": 0,
+                "paddingY": 0,
                 "width": "100%",
-                "backgroundColor": "#ffffff",
-                "padding": 10,
-                "wrapperProps": {
-                  "style": {
-                    "width": "100%"
-                  }
+                "eventType": "BTN_CLICK",
+                "buttonCode": "SELECT_EVENT",
+                "value": {
+                  "itemCode": "{{repeater.code}}",
+                  "userCode": "{{user.data.code}}"
                 },
-                "hoverProps": {
-                  "style": {
-                    "transform": [
-                      { "scale": 1.02 }
-                    ]
+                "dispatchActionOnClick": {
+                  "type": "ALIAS_TOGGLE",
+                  "payload": {
+                    "alias": "CURRENT_NOTE",
+                    "value": "{{repeater.code}}"
                   }
-                },
-                "key": "{{repeater.code}}"
+                }
               },
               "children": [
                 {

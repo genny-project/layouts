@@ -23,6 +23,22 @@
             }
           ],
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "textSize": "11px",
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Actions",
@@ -32,7 +48,7 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "70px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
@@ -48,14 +64,21 @@
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
-                      "width": "70px",
+                      "width": "80px",
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_VIEW_HOST_COMPANY_REPRESENTATIVE",
+                      "buttonCode": "BTN_VIEW_HOST_COMPANY_STAFF",
                       "value": {
                         "itemCode": "{{attributeCode}}"
+                      },
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_ADD",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{attributeCode}}"
+                        }
                       }
                     }
                   }

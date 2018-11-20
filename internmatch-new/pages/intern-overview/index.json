@@ -1,0 +1,122 @@
+{
+  "layout": {
+    "title": "{{query.intern.attributes.PRI_NAME.value}}",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "width": "100%",
+        "flex": 1,
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
+      },
+      "children": [
+        {
+          "component": "Tabs",
+          "props": {
+            "flex": 1,
+            "tabBarBackground": "#233a4e",
+            "tabWrapperProps": {
+              "paddingLeft": 20,
+              "height": 50,
+              "flexBasis": "auto"
+            },
+            "textColor": "#FFF",
+            "tabBackground": "#41505d",
+            "activeTabBackground": "#f6f6f6",
+            "activeTabTextColor": "#000",
+            "tabProps": {
+              "paddingX": 20,
+              "paddingY": 15,
+              "minWidth": 180,
+              "justifyContent": "center"
+            },
+            "tabTitleProps": {
+              "size": "xs"
+            },
+            "activeTabTitleProps": {
+              "bold": true
+            },
+            "inactiveTabProps": {
+              "borderColor": "#233a4e",
+              "borderRightWidth": 1,
+              "borderStyle": "solid"
+            },
+            "tabs": [
+              {
+                "title": "Process View",
+                "key": 0
+              },
+              { "title": "Intern Details", "key": 1 }
+            ],
+            "childProps": {
+              "overflow": "auto",
+              "maxHeight": "calc(100vh - 65px - 50px)"
+            },
+            "overflowX": "auto",
+            "backgroundColor": "#f6f6f6"
+          },
+          "children": [
+            {
+              "component": "Sublayout",
+              "props": {
+                "layoutName": "home/agent/bucket"
+              }
+            },
+            {
+              "component": "Sublayout",
+              "props": {
+                "layoutName": "view-intern-profile",
+        "attributes": "_query.intern.attributes",
+        "internDetails": "_query.intern.attributes.PRI_INTERN_DETAILS.value",
+        "studentId": "_query.intern.attributes.PRI_STUDENT_ID.value",
+        "fullName": "_query.intern.attributes.PRI_NAME.value",
+        "imageUrl": "_query.intern.attributes.PRI_IMAGE_URL.value",
+        "email": "_query.intern.attributes.PRI_EMAIL.value",
+        "mobile": "_query.intern.attributes.PRI_MOBILE.value",
+        "address": "_query.intern.attributes.PRI_ADDRESS_FULL.value",
+        "university": "_query.intern.uniAttrs.name"
+
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [{
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "intern"
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "uniAttrs"
+      }
+    }
+
+    
+  ]
+}
