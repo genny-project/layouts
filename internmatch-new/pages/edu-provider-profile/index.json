@@ -1,273 +1,62 @@
 {
-  "layout": {
-    "title": "Education-Providers-Profile",
-    "backgroundColor": "white",
+  "layout": 
+  {
+    "title": "{{query.edu-pro.attributes.PRI_NAME.value}}",
     "header": {
-      "variant": "public-transparent"
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      }
     }
   },
   "children": [
-  {
-    "component": "Container",
-    "props": {
-      "flexDirection" : "column",
-      "marginTop":"20px"
-    },
-    "children": [
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "column",
-          "justifyContent":"center"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "row",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000",
-                  "size":"xl"
-                },
-                "children": "Education Providers Profile"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "paddingTop": "15px",
-              "justifyContent":"center",
-              "flexDirection":"row"
-            },
-            "children": [
-              {
-                "component": "Image",
-                "props": {
-                  "source": "https://i.imgur.com/ziHkxPf.jpg",
-                  "justifyContent":"center",
-                  "flexDirection":"column",
-                  "shape": "square",
-                  "height":150,
-                  "width":150
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"20px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Name:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Navitas"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"20px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Email:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Navitas@eduproviders.com"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"20px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Phone Number:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "0423453456"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection": "row",
-          "justifyContent":"space-around",
-          "height":50,
-          "marginTop":"20px",
-          "backgroundColor":"#f5f5f5"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center",
-              "paddingLeft":"7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Address:"
-              }
-            ]
-          },
-          {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width":"50%",
-              "justifyContent":"center"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent":"center",
-                  "color":"#000000"
-                },
-                "children": "Melbourne"
-              }
-            ]
-          }
-        ]
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "view-eduProviders-profile",
+        "attributes": "_query.edu-pro.attributes",
+        "fullName": "_query.edu-pro.attributes.PRI_NAME.value",
+        "imageUrl": "_query.edu-pro.attributes.PRI_IMAGE_URL.value",
+        "email": "_query.edu-pro.attributes.PRI_EMAIL.value",
+        "telephone": "_query.edu-pro.attributes.PRI_LANDLINE.value",
+        "description": "_query.edu-pro.attributes.PRI_COMPANY_DESCRIPTION.value",
+        "address": "_query.edu-pro.attributes.PRI_ADDRESS_STATE.value"
       }
-    ]
-  }
- ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "edu-pro"
+    },
+    {
+      "operator": "scope",
+      "path": "edu-pro",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "edu-pro",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "uniAttrs"
+      }
+    }
+
+  ]
 }
+
