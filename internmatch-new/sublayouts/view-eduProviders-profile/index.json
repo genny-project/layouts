@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Intern Profile",
+    "title": "Edu Provider Profile",
     "appColor": "white",
     "backgroundColor": "silver"
   },
@@ -10,7 +10,7 @@
     "props": {
       "flexDirection" : "column",
       "justifyContent": "center",
-      "marginTop":"650px",
+      "marginTop":"20px",
       "minWIdth": "900px",
       "width":"100%"
     },
@@ -82,47 +82,17 @@
                     },
                     "children": [
                       {
-                        "component": "Text",
-                        "props": {
-                          "color": "rgb(85, 148, 188)",
-                          "size":"md"
-                        },
-                        "children": "{{props.university}}"
-                      }
-                    ]
-                  },
-                  {
-                    "component":"Box",
-                    "props": {
-                      "marginTop": "10px"
-                    },
-                    "children": [
-                      {
                         "component": "Box",
                         "props": {
-    
+
                         },
                         "children":                  {    
                           "component": "Text",
                           "props": {
-                            "size":"md",
-                            "color": "rgb(169, 169, 169)"
-                          },
-                          "children": "Student ID:"
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "marginLeft": "10px"
-                        },
-                        "children":                  {    
-                          "component": "Text",
-                          "props": {
-                            "color": "rgb(169, 169, 169)",
+                            "color": "blue",
                             "size":"md"
                           },
-                          "children": "{{props.studentId}}"
+                          "children": "{{props.email}}"
                         }
                       }
                     ]
@@ -137,64 +107,6 @@
               "backgroundColor": "silver",
               "height": "1px"
             }
-          },
-          {
-            "component":"Box",
-            "props":{
-              "paddingTop": "20px",
-              "paddingLeft":"20px",
-              "marginBottom": "20px"
-            },
-            "children":[
-              {
-                "component": "Box",
-                "props":{
-                  "borderWidth": "1px",
-                  "borderColor": "rgb(85, 148, 188)"
-                },
-                "children":
-                {
-                  "component": "EventButton",
-                  "props": {
-                    "height": "50px",
-                    "width": "150px",
-                    "borderRadius": 30,
-                    "showSpinnerOnClick": true,
-                    "color": "rgb(85, 148, 188)",
-                    "textColor": "#fff",
-                    "text": "Send Email",
-                    "buttonCode": "",
-                    "value": {
-                      "itemCode": "{{}}"
-                    }
-                  }
-                }
-              },
-              {
-                "component": "Box",
-                "props":{
-                  "marginLeft": "20px",
-                  "borderWidth": "1px",
-                  "borderColor": "rgb(85, 148, 188)"                },
-                "children":
-                {
-                  "component": "EventButton",
-                  "props": {
-                    "height": "50px",
-                    "width": "150px",
-                    "backgroundColor": "red",
-                    "color": "rgb(255, 255, 255)",
-                    "textColor": "rgb(85, 148, 188)",
-                    "textSize": "xl",
-                    "text": "Resume",
-                    "buttonCode": "",
-                    "value": {
-                      "itemCode": "{{}}"
-                    }
-                  }
-                }
-              }
-            ]
           }
         ]
       },
@@ -220,96 +132,7 @@
             "props":{
               "size": "xl"
             },
-            "children": "Summary"
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "silver",
-            "height": "1px"
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "justifyContent": "flex-start",
-            "paddingLeft":"20px"
-          },
-          "children":         
-          {
-            "component": "Box",
-            "props": {
-              "width":"100%",
-              "paddingY": "20px"
-            },
-            "children": {
-              "component": "DisplayHTML",
-              "props": {
-                "html": "{{props.internDetails}}"
-              }
-            }
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "silver"
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "paddingX": "20px",
-            "paddingY": "20px"
-          },
-          "children":         
-          {
-            "component": "Box",
-            "children":          [
-              {
-                "component": "Box",
-                "props":{
-                  "width": "85%",
-                  "justifyContent": "space-around",
-                  "flexWrap": "wrap",
-                  "minHeight": "100px",
-                  "backgroundColor":"rgb(255,255,255)",
-                  "paddingY": "10px"
-                },
-                "children": 
-                [
-         
-                ]
-              }
-            ] 
-          }
-        }
-      ]
-      },
-      {
-        "component": "Box",
-        "props": {
-          "flexDirection":"column",
-          "backgroundColor": "rgb(255,255,255)",
-          "marginTop":"20px"
-      },
-        "children":
-      [
-        {
-          "component": "Box",
-          "props":{
-            "paddingTop": "10px",
-            "paddingLeft": "20px",
-            "paddingBottom": "10px"
-          },
-          "children":
-          {
-            "component": "Text",
-            "props":{
-              "size": "xl"
-            },
-            "children": "Contact"
+            "children": "Details"
           }
         },
         {
@@ -334,37 +157,12 @@
               "props": {
                 "bold": true
               },
-              "children": "Email:"
+              "children": "Phone Number:"
             },
             {
           "component": "Text",
           "props": {
-            "text": "{{props.email}}"
-          }
-            }
-          ]
-        },
-        {
-          "component":"Box",
-          "props":{
-            "flexDirection":"column",
-            "marginX": "20px",
-            "marginY": "20px",
-            "justifyContent": "space-between",
-            "height":"45px"
-          },
-          "children":[
-            {
-              "component": "Text",
-              "props": {
-                "bold": true
-              },
-              "children": "Mobile:"
-            },
-            {
-          "component": "Text",
-          "props": {
-            "text": "{{props.attributes.PRI_MOBILE.value}}"
+            "text": "{{props.telephone}}"
           }
         }
           ]
@@ -389,9 +187,8 @@
             {
           "component": "Text",
           "props": {
-            
-          },
-          "children": "{{props.attributes.PRI_ADDRESS_FULL.value}}"
+            "text": "{{props.address}}"
+          }
         }
           ]
         }
