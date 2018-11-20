@@ -5,7 +5,6 @@
         "children": [
           {
             "component": "Table",
-            "layoutName": "edit-properties",
             "props": {
                 "columns": [
                     {
@@ -49,7 +48,7 @@
               "tableBackgroundColor": "#e05b5b",
               "data": "_query.tableData",
               "height": "500px",
-              "width": "500px",
+              "tableWidth": 1000,
               "itemsPerPage": 15
             }
           }
@@ -114,6 +113,20 @@
               "operator": "populateAttributes",
               "as" : "attributes",
               "code": "{{code}}"
+            }
+          }
+        },
+        {
+          "operator": "scope",
+          "path": "items",
+          "as": "tableData",
+          "scope": {
+            "operator": "map",
+            "fields": {
+              "address": "be.attributes.PRI_ADDRESS_FULL.value",
+              "precinct": "company.name",
+              "propertytype": "property.name",
+              "code": "be.code"
             }
           }
         }

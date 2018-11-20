@@ -224,7 +224,7 @@
                               },
                               "else": {
                                 "if": {
-                                  "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
+                                  "repeater.attributes.PRI_GRP_CONTACTED_DATE.value": {
                                     "$exists": true,
                                     "$ne": "undefined"
                                   }
@@ -483,6 +483,26 @@
                                 "size": "xs",
                                 "bold": true
                               }
+                            },
+                            {
+                              "component": "Box",
+                              "conditional": {
+                                "if": {
+                                  "repeater.attributes.STA_PER_USER1.value": {
+                                    "$exists": true
+                                  }
+                                },
+                                "then": {
+                                  
+                                }
+                              },
+                              "props": {
+                                "size": "xs",
+                                "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
+                                "height": 40,
+                                "width": 10,
+                                "borderRadius": 20
+                              }
                             }
                           ]
                         },
@@ -531,7 +551,7 @@
                         {
                           "component": "Box",
                           "onlyShowIf": {
-                            "repeater.attributes.PRI_STUDENT_ID.value": {
+                            "repeater.attributes.PRI_UNIT_ID.value": {
                               "$exists": true
                             }
                           },
@@ -544,7 +564,7 @@
                               "props": {
                                 "size": "xxs"
                               },
-                              "children": "ID: {{repeater.attributes.PRI_STUDENT_ID.value}}"
+                              "children": "Unit: {{repeater.attributes.PRI_UNIT_ID.value}}"
                             }
                           ]
                         },
@@ -564,7 +584,7 @@
                             },
                             "else": {
                               "if": {
-                                "repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value": {
+                                "repeater.attributes.PRI_GRP_CONTACTED_DATE.value": {
                                   "$exists": true,
                                   "$ne": "undefined"
                                 }
@@ -572,7 +592,7 @@
                               "then": {
                                 "component": "Date",
                                 "format": "[Contacted on] Do MMM YY",
-                                "date": "{{repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value}}"
+                                "date": "{{repeater.attributes.PRI_GRP_CONTACTED_DATE.value}}"
                               },
                               "else": {
                                 "if": {
@@ -633,7 +653,7 @@
                                           "text": "{{repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value}}"
                                         },
                                         "else": {
-                                          "text": "No Date on record"
+                                          "text": "{{repeater.attributes.STA_PER_USER1.value}}"
                                         }
                                       }
                                     }
