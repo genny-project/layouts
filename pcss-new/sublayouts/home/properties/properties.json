@@ -11,10 +11,10 @@
         {
           "component": "Box",
           "props": {
-            "width": "100%",
+           
             "maxWidth": 350,
             "minWidth": 200,
-            "backgroundColor": "#e05b5b",
+            "backgroundColor": "#e05b5c",
             "flexDirection": "column",
             "padding": 10,
             "paddingTop": 0,
@@ -23,7 +23,8 @@
             "flex": 1,
             "borderRightWidth": 2,
             "borderColor": "#eaeaea",
-            "borderStyle": "solid"
+            "borderStyle": "solid",
+            "position": "absolute"
           },
           "children": [
             {
@@ -33,7 +34,8 @@
                 "alignItems": "flex-end",
                 "justifyContent": "center",
                 "marginBottom": 20,
-                "paddingBottom": 10
+                "paddingBottom": 10,
+                "position": "relative"
               },
               "children": [
                 {
@@ -122,7 +124,7 @@
                                 "props": {
                                   "size": "xs",
                                   "bold": false,
-                                  "text": "{{repeater.attributes.PRI_ADDRESS_FULL.value}}"
+                                  "text": "Unit: {{repeater.attributes.PRI_UNIT_ID.value}} {{repeater.attributes.PRI_ADDRESS_FULL.value}}"
                                 }
                               }
                             ]
@@ -135,8 +137,7 @@
               ]
             }
           ]
-        }
-        
+        }       
       ]
     }
   ],
