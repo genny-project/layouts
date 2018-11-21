@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Deleted Units View",
+    "title": "Pages/Deleted Units View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -47,7 +47,7 @@
                       "height": 25,
                       "width": "100%",
                       "text": "Property Details",
-                      "padding": 15,
+                      "padding": 10,
                       "size": "xs",
                       "value": {
                         "itemCode":"{{code}}",
@@ -58,19 +58,14 @@
                 ]
               },
               {
-                "Header": "Address Of Property",
-                "accessor": "address",
-                "filterType": "string"
-              },  
-              {
-                "Header": "Type Of Property",
-                "accessor": "type",
+                "Header": "Unit Number",
+                "accessor": "unitid",
                 "filterType": "string"
               },
               {
-                "Header": "Postcode",
-                "accessor": "postcode",
-                "filterType": "number"
+                "Header": "Address Of Property",
+                "accessor": "address",
+                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#e05b5b",
@@ -119,7 +114,7 @@
         "operator": "getBE",
         "as" : "company",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_COMPANY_PROVIDER.value}}"
+        "id": "{{be.attributes.LNK_INSPECTION_TYPE_OFFER.value}}"
       }
     },
     {
@@ -127,8 +122,9 @@
       "path": "items",
       "scope": {
         "operator": "getBE",
-        "as" : "items",
-        "id": "{{be.attributes.LNK_AGENCY.value}}"
+        "as" : "property",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_CONTACTED_METHOD.value}}"
       }
     },
     {
@@ -151,9 +147,8 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "type": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
-          "postcode": "be.attributes.PRI_ADDRESS_POSTCODE.value"
+          "unitid": "be.attributes.PRI_UNIT_ID.value",
+          "address": "be.attributes.PRI_ADDRESS_FULL.value"
         }
       }
     }

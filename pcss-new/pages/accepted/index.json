@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Accepted Properties View",
+    "title": "Pages/Accepted Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -16,8 +16,22 @@
       "children": [
         {
           "component": "Table",
-          "layoutName": "edit-properties",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_REQUESTED",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Action",
@@ -44,18 +58,13 @@
                 ]
               },
               {
-                "Header": "Address",
-                "accessor": "address",
-                "filterType": "string"
-              },  
-              {
-                "Header": "Precinct",
-                "accessor": "precinct",
+                "Header": "Unit Number",
+                "accessor": "unitid",
                 "filterType": "string"
               },
               {
-                "Header": "Property Type",
-                "accessor": "propertytype",
+                "Header": "Address Of Property",
+                "accessor": "address",
                 "filterType": "string"
               }
             ],
@@ -72,7 +81,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_ACCEPTED",
+      "id": "GRP_REQUESTED",
       "as": "items"
     },
     {
@@ -105,7 +114,7 @@
         "operator": "getBE",
         "as" : "company",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
+        "id": "{{be.attributes.LNK_INSPECTION_TYPE_OFFER.value}}"
       }
     },
     {
@@ -115,7 +124,7 @@
         "operator": "getBE",
         "as" : "property",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
+        "id": "{{be.attributes.LNK_CONTACTED_METHOD.value}}"
       }
     },
     {
@@ -138,10 +147,8 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "precinct": "company.name",
-          "propertytype": "property.name",
-          "code": "be.code"
+          "unitid": "be.attributes.PRI_UNIT_ID.value",
+          "address": "be.attributes.PRI_ADDRESS_FULL.value"
         }
       }
     }
