@@ -82,12 +82,12 @@
     {
       "operator": "getBE",
       "id": "GRP_REQUESTED",
-      "as": "identifiedProperties"
+      "as": "acceptedProperties"
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties.links",
-      "as": "identifiedProperties",
+      "path": "acceptedProperties.links",
+      "as": "acceptedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -97,7 +97,7 @@
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "acceptedProperties",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -109,7 +109,7 @@
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "acceptedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",

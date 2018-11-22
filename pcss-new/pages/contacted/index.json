@@ -82,12 +82,12 @@
     {
       "operator": "getBE",
       "id": "GRP_CONTACTED",
-      "as": "identifiedProperties"
+      "as": "contactedProperties"
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties.links",
-      "as": "identifiedProperties",
+      "path": "contactedProperties.links",
+      "as": "contactedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -97,7 +97,7 @@
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "contactedProperties",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -109,7 +109,7 @@
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "contactedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",

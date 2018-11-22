@@ -87,12 +87,12 @@
       {
         "operator": "getBE",
         "id": "GRP_BIN",
-        "as": "identifiedProperties"
+        "as": "deletedProperties"
       },
       {
         "operator": "scope",
-        "path": "identifiedProperties.links",
-        "as": "identifiedProperties",
+        "path": "deletedProperties.links",
+        "as": "deletedProperties",
         "scope": {
           "operator": "getBE",
           "basePath": "baseEntities.data",
@@ -102,7 +102,7 @@
       },
       {
         "operator": "scope",
-        "path": "identifiedProperties",
+        "path": "deletedProperties",
         "scope": {
           "operator": "scope",
           "path": "properties",
@@ -114,7 +114,7 @@
       },
       {
         "operator":"scope",
-        "path":"identifiedProperties",
+        "path":"deletedProperties",
         "scope":{
           "operator":"scope",
           "path":"properties",
@@ -132,7 +132,7 @@
       },
       {
         "operator":"scope",
-        "path":"identifiedProperties",
+        "path":"deletedProperties",
         "scope":{
           "operator":"scope",
           "path":"properties",
@@ -150,7 +150,7 @@
       },
       {
         "operator": "scope",
-        "path": "identifiedProperties",
+        "path": "deletedProperties",
         "as": "tableData",
         "scope": {
           "operator": "map",
