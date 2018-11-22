@@ -246,7 +246,20 @@
       "path": "items",
       "scope": {
         "operator": "getBE",
-        "id": "{{link.targetCode}}"
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {
