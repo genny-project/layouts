@@ -10,7 +10,7 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "user.attributes.PRI_IS_AGENT.value": {
+        "query.userBe.attributes.PRI_IS_AGENT.value": {
           "$eq": true
         }
       }
@@ -28,7 +28,7 @@
         {
           "component": "Box",
           "dontShowIf": {
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$eq": true
             }
           },
@@ -65,7 +65,7 @@
               },
               "conditional": {
                 "if": {
-                  "user.attributes.PRI_IS_AGENT.value": {
+                  "query.userBe.attributes.PRI_IS_AGENT.value": {
                     "$eq": true
                   }
                 },
@@ -87,7 +87,7 @@
                 },
                 "else": {
                   "if": {
-                    "user.attributes.PRI_IS_BUYER.value": {
+                    "query.userBe.attributes.PRI_IS_BUYER.value": {
                       "$eq": true
                     }
                   },
@@ -105,7 +105,7 @@
                   },
                   "else": {
                     "if": {
-                      "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
                         "$eq": true
                       }
                     },
@@ -165,25 +165,25 @@
             "alignItems": "center"
           },
           "onlyShowIf": {
-            "user.attributes.PRI_IS_AGENT.value": {
+            "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$or": [
                 { "$eq": "undefined" },
                 { "$eq": false }
               ]
             },
-            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+            "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$or": [
                 { "$eq": "undefined" },
                 { "$eq": false }
               ]
             },
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$or": [
                 { "$eq": "undefined" },
                 { "$eq": false }
               ]
             },
-            "user.attributes.PRI_IS_BUYER.value": {
+            "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$or": [
                 { "$eq": "undefined" },
                 { "$eq": false }
@@ -202,7 +202,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_AGENT.value": {
+            "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
           },
@@ -213,7 +213,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+            "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$eq": true
             }
           },
@@ -224,7 +224,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$eq": true
             }
           },
@@ -235,7 +235,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_BUYER.value": {
+            "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$eq": true
             }
           },
@@ -245,6 +245,21 @@
         }
 
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{user.data.code}}",
+      "as": "userBe"
+    },
+    {
+      "operator": "scope",
+      "path": "userBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
     }
   ]
 }
