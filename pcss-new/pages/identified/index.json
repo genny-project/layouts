@@ -88,25 +88,25 @@
     {
       "operator": "getBE",
       "id": "GRP_NEW_ITEMS",
-      "as": "items"
+      "as": "identifiedProperties"
     },
     {
       "operator": "scope",
-      "path": "items.links",
-      "as": "items",
+      "path": "identifiedProperties.links",
+      "as": "identifiedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}",
-        "as": "be"
+        "as": "properties"
       }
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "identifiedProperties",
       "scope": {
         "operator": "scope",
-        "path": "be",
+        "path": "properties",
         "scope": {
           "operator": "populateBEGAttributes",
           "as": "attributes"
@@ -114,49 +114,52 @@
       }
     },
     {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as" : "company",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
+      "operator":"scope",
+      "path":"identifiedProperties",
+      "scope":{
+        "operator":"scope",
+        "path":"properties",
+        "scope":{
+          "operator":"scope",
+          "path":"attributes",
+          "scope":{
+            "operator":"getBE",
+            "basePath": "baseEntities.data",
+            "id":"{{LNK_PROPERTY_PRECINCT_SELECT.value}}",
+            "as":"PrecinctTypeBE"
+          }
+        }
       }
     },
     {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as" : "property",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateAttributes",
-          "as" : "attributes",
-          "code": "{{code}}"
+      "operator":"scope",
+      "path":"identifiedProperties",
+      "scope":{
+        "operator":"scope",
+        "path":"properties",
+        "scope":{
+          "operator":"scope",
+          "path":"attributes",
+          "scope":{
+            "operator":"getBE",
+            "basePath": "baseEntities.data",
+            "id":"{{LNK_PROPERTY_TYPE_SELECT.value}}",
+            "as":"PropertyTypeNameBE"
+          }
         }
       }
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "identifiedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "precinct": "company.name",
-          "propertytype": "property.name",
-          "code": "be.code"
+          "address": "properties.attributes.PRI_ADDRESS_FULL.value",
+          "precinct": "properties.attributes.PrecinctTypeBE.name",
+          "propertytype": "properties.attributes.PropertyTypeNameBE.name",
+          "code": "properties.code"
         }
       }
     }
