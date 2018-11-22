@@ -11,16 +11,19 @@
       "flexDirection":"row",
       "width": "100%",
       "height": "100vh",
-      "backgroundColor":"#edf1ff"
+      "backgroundColor":"#edf1ff",
+      "flexWrap": "wrap"
     },
     "children": [
       {
         "component": "Box",
         "props": {
-          "flex":1,
-          "backgroundColor": "#edf1ff",
+          "flex": 1,
           "alignItems":"center",
           "justifyContent":"center",
+          "backgroundColor": "#fff",
+          "flexBasis": "400px",
+          "flexGrow": 1,
           "style": {
             "flex": 1
           },
@@ -34,7 +37,7 @@
             "props": {
               "flexDirection": "column",
               "alignItems": "center",
-              "justifyContent": "flex-start",
+              "justifyContent": "center",
               "flex": 1
             },
             "children": [
@@ -228,29 +231,31 @@
       {
         "component": "Box",
         "props": {
-          "flex":"1.5",
-          "flexDirection" : "column",
-          "width": "100%"
+          "flex": "1",
+          "flexDirection": "column",
+          "flexBasis": "400px",
+          "minWidth": "60%",
+          "flexGrow": 1
         },
         "children": [
           {
             "component": "Box",
-            "props": { 
-              "height":"100%",
+            "props": {
+              "height": "100%",
               "width": "100%"
             },
             "children": [
               {
                 "component": "Image",
                 "props": {
-                  "flex":1,
-                  "height":"100%",
+                  "flex": 1,
+                  "height": "100%",
                   "width": "100%",
                   "minWidth": "100%",
                   "resizeMode": "cover",
-                  "source": "https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                  "justifyContent":"center",
-                  "flexDirection":"column"
+                  "source": "https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                  "justifyContent": "center",
+                  "flexDirection": "column"
                 }
               }
             ]
