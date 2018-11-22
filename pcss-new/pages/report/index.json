@@ -85,25 +85,25 @@
       {
         "operator": "getBE",
         "id": "GRP_REPORTS",
-        "as": "items"
+        "as": "acceptedProperties"
       },
       {
         "operator": "scope",
-        "path": "items.links",
-        "as": "items",
+        "path": "acceptedProperties.links",
+        "as": "acceptedProperties",
         "scope": {
           "operator": "getBE",
           "basePath": "baseEntities.data",
           "id": "{{link.targetCode}}",
-          "as": "be"
+          "as": "properties"
         }
       },
       {
         "operator": "scope",
-        "path": "items",
+        "path": "acceptedProperties",
         "scope": {
           "operator": "scope",
-          "path": "be",
+          "path": "properties",
           "scope": {
             "operator": "populateBEGAttributes",
             "as": "attributes"
@@ -112,27 +112,14 @@
       },
       {
         "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "scope",
-          "path": "items",
-          "scope": {
-            "operator": "populateAttributes",
-            "as" : "attributes",
-            "code": "{{code}}"
-          }
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
+        "path": "acceptedProperties",
         "as": "tableData",
         "scope": {
           "operator": "map",
           "fields": {
-            "unitid": "be.attributes.PRI_UNIT_ID.value",
-            "address": "be.attributes.PRI_ADDRESS_FULL.value",
-            "code": "be.code"
+            "address": "properties.attributes.PRI_ADDRESS_FULL.value",
+            "unitid": "properties.attributes.PRI_UNIT_ID.value",
+            "code": "properties.code"
           }
         }
       }
