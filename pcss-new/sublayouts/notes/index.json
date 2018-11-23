@@ -3,65 +3,129 @@
     {
       "component": "Box",
       "props": {
-        "paddingX": 20,
+        "paddingX": 10,
         "justifyContent": "space-between",
+        "alignItems": "center",
         "flexDirection": "column",
-        "flex": 1
+        "height": "100%"
       },
       "children": [
         {
           "component": "Box",
           "props": {
-            "flexDirection": "column"
+            "flexDirection": "row",
+            "marginBottom": 10,
+            "width": 280,
+            "justifyContent": "flex-start",
+            "flexGrow": 1
+          },
+          "children": [
+            {
+              "component": "Touchable",
+              "props": {
+                "paddingY": 5,
+                "withFeedback": true,
+                "onPress": "_props.onToggle"
+              },
+              "children": {
+                "component": "Icon",
+                "conditional": {
+                  "if": {
+                    "props.isOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "name": "close"
+                  }
+                },
+                "props": {
+                  "name": "create",
+                  "color": "black"
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginLeft": 20,
+                "flex": 1
+              },
+              "onlyShowIf": {
+                "props.isOpen": {
+                  "$eq": true
+                }
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_ADDDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_ADDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                      }
+                    }
+                  ],
+                  "props": {
+                    "text": "",
+                    "size": "lg"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "ScrollView",
+          "props": {
+            "height": "100%",
+            "width": 260
+          },
+          "onlyShowIf": {
+            "props.isOpen": {
+              "$eq": true
+            }
           },
           "children": [
             {
               "component": "Box",
               "props": {
-                "marginBottom": 20
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "text": "Notes",
-                    "size": "xxl"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 40
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "conditional": {
-                    "if": {
-                      "query.currentNote.attributes.PRI_NAME.value": {
-                        "$exists": true
-                      }
-                    },
-                    "then": {
-                      "text": "{{query.currentNote.attributes.PRI_NAME.value}}"
-                    },
-                    "else": {
-                      "text": ""
-                    }
-                  },
-                  "props": {
-                    "size": "lg"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
                 "marginBottom": 20,
-                "width": "100%",
                 "flexDirection": "column"
               },
               "children": [
@@ -87,7 +151,7 @@
                   },
                   "props": {
                     "flexDirection": "column",
-                    "maxWidth": "100%"
+                    "width": "100%"
                   },
                   "repeat": "_query.notes",
                   "sort": {
@@ -112,7 +176,9 @@
                     "props": {
                       "text": "{{repeater.attributes.PRI_CONTENT.value}}",
                       "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
-                      "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
+                      "creatorName": "{{repeater.attributes.PRI_CREATOR_NAME.value}}",
+                      "creatorCode": "{{repeater.attributes.PRI_CREATOR_CODE.value}}",
+                      "code": "{{repeater.code}}"
                     }
                   }
                 }
@@ -123,13 +189,24 @@
         {
           "component": "Box",
           "onlyShowIf": {
-            "query.aliases.CURRENT_NOTE": {
-              "$exists": true
-            }
+            "$and": [
+              {
+                "query.aliases.CURRENT_NOTE": {
+                  "$exists": true
+                }
+              },
+              {
+                "props.isOpen": {
+                  "$eq": true
+                }
+              }
+            ]
           },
           "props": {
-            "marginY": 40,
-            "flexDirection": "column"
+            "marginTop": 10,
+            "flexDirection": "column",
+            "width": "100%",
+            "height": 220
           },
           "children": [
             {
@@ -182,6 +259,7 @@
                         "backgroundColor": "white",
                         "borderWidth": 1,
                         "showCharacterCount": true,
+                        "submitOnEnterPress": true,
                         "renderCharacterCount": {
                           "component": "Box",
                           "props": {
@@ -214,6 +292,7 @@
                         {
                           "component": "FormGenericSubmit",
                           "props": {
+                            "padding": 0,
                             "width": "100%",
                             "text": "Add note",
                             "color": "green",
@@ -228,7 +307,6 @@
             }
           ]
         }
-
       ]
     }
   ],
@@ -243,7 +321,19 @@
       "path": "notes",
       "scope": {
         "operator": "getBE",
-        "id": "code"
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {
