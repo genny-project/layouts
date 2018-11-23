@@ -20,7 +20,7 @@
     {
       "component": "Box",
       "props": {
-        "flex":1,
+        "flex": 1,
         "position": "relative",
         "backgroundColor": "#f6f6f6"
       },
@@ -167,26 +167,42 @@
           "onlyShowIf": {
             "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             }
           },
@@ -200,14 +216,14 @@
           ]
         },
         {
-          "component": "Heading",
+          "component": "Sublayout",
           "onlyShowIf": {
             "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
           },
           "props": {
-            "text": "Welcome {{user.attributes.PRI_FIRSTNAME.value}}. Loading Internmatch..."
+            "layoutName": "home/agent"
           }
         },
         {
@@ -243,7 +259,6 @@
             "layoutName": "home/hostcompany"
           }
         }
-
       ]
     }
   ],
