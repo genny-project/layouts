@@ -555,6 +555,26 @@
                               ]
                             },
                             {
+                              "component": "Box",
+                              "props": {
+                                "marginBottom": 5
+                              },
+                              "onlyShowIf": {
+                                "repeater.attributes.PRI_EDU_PROVIDER_NAME.value": {
+                                  "$exists": true
+                                }
+                              },
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xxs"
+                                  },
+                                  "children": "{{repeater.attributes.PRI_EDU_PROVIDER_NAME.value}}"
+                                }
+                              ]
+                            },
+                            {
                               "component": "Text",
                               "conditional": {
                                 "if": {
