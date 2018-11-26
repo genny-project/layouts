@@ -1,0 +1,130 @@
+{
+  "layout": {
+    "title": "Placed Internships",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "100px",
+        "marginLeft": "100px"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "children": "Test Profile page"
+        },
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Text",
+              "children": "{{user.attributes.PRI_IS_AGENT.value}}"
+            },
+            {
+              "component": "Form",
+              "onlyShowIf": {
+                "{{user.attributes.PRI_IS_AGENT.value}}": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "questionGroupCode": "QUE_EDIT_AGENT_PROFILE_GRP",
+                "style": {
+                  "width": "100%",
+                  "marginTop": "40px"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
+              }
+            },
+            {
+              "component": "Form",
+              "onlyShowIf": {
+                "currentUserData.value": {
+                  "$eq": "PRI_IS_BUYER"
+                }
+              },
+              "props": {
+                "questionGroupCode": "QUE_EDIT_BUYER_PROFILE_GRP",
+                "style": {
+                  "width": "100%",
+                  "marginTop": "40px"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
+              }
+            },
+            {
+              "component": "Form",
+              "onlyShowIf": {
+                "currentUserData.value": {
+                  "$eq": "PRI_IS_SELLER"
+                }
+              },
+              "props": {
+                "questionGroupCode": "QUE_EDIT_SELLER_PROFILE_GRP",
+                "style": {
+                  "width": "100%",
+                  "marginTop": "40px"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
+              }
+            },
+            {
+              "component": "Form",
+              "onlyShowIf": {
+                "currentUserData.value": {
+                  "$eq": "PRI_IS_EDU_PROVIDER"
+                }
+              },
+              "props": {
+                "questionGroupCode": "QUE_EDU_PROVIDER_STAFF_PROFILE_GRP",
+                "style": {
+                  "width": "100%",
+                  "marginTop": "40px"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
