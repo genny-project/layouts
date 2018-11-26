@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Internships",
+    "title": "{{props.title}}",
     "appColor": "white",
     "backgroundColor": "white"
   },
@@ -36,11 +36,7 @@
           "borderRightWidth": 1,
           "borderStyle": "solid"
         },
-        "tabs": [
-          { "title": "Table View", "key": 0 },
-          { "title": "Applications", "key": 1 },
-          { "title": "Details View", "key": 2 }
-        ],
+        "tabs": "_props.tabs",
         "childProps": {
           "overflowX": "auto",
           "overflowY": "auto",
@@ -48,26 +44,7 @@
         },
         "overflowX": "auto"
       },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "tables/internship-table"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "home/agent/bucket"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "home/agent/internship-details"
-          }
-        }
-      ]
+      "children": "_props.content"
     }
   ]
 }
