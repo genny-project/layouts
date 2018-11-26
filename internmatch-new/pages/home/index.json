@@ -10,7 +10,7 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "query.userBe.attributes.PRI_IS_AGENT.value": {
+        "user.attributes.PRI_IS_AGENT.value": {
           "$eq": true
         }
       }
@@ -20,7 +20,7 @@
     {
       "component": "Box",
       "props": {
-        "flex":1,
+        "flex": 1,
         "position": "relative",
         "backgroundColor": "#f6f6f6"
       },
@@ -167,26 +167,42 @@
           "onlyShowIf": {
             "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
             "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             }
           },
@@ -198,52 +214,7 @@
               }
             }
           ]
-        },
-        {
-          "component": "Sublayout",
-          "onlyShowIf": {
-            "query.userBe.attributes.PRI_IS_AGENT.value": {
-              "$eq": true
-            }
-          },
-          "props": {
-            "layoutName": "home/agent"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "onlyShowIf": {
-            "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-              "$eq": true
-            }
-          },
-          "props": {
-            "layoutName": "home/edu-provider"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "onlyShowIf": {
-            "query.userBe.attributes.PRI_IS_SELLER.value": {
-              "$eq": true
-            }
-          },
-          "props": {
-            "layoutName": "home/intern"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "onlyShowIf": {
-            "query.userBe.attributes.PRI_IS_BUYER.value": {
-              "$eq": true
-            }
-          },
-          "props": {
-            "layoutName": "home/hostcompany"
-          }
         }
-
       ]
     }
   ],

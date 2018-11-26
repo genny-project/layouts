@@ -6,6 +6,9 @@
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
           "component": "Table",
@@ -21,6 +24,13 @@
                   "itemCode": "{{celld.code}}",
                   "hint": "GRP_NEW_ITEMS",
                   "userCode": "{{user.data.code}}"
+                },
+                "dispatchActionOnClick": {
+                  "type": "ALIAS_ADD",
+                  "payload": {
+                    "alias": "CURRENT_NOTE",
+                    "value": "{{celld.code}}"
+                  }
                 }
               }
             },
