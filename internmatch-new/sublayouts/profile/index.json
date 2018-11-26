@@ -3,7 +3,34 @@
   "children": [
     {
       "component": "Text",
-      "children": " Hello World"
+      "children": "Profile"
     }
-  ]
+  ],
+  "Box": {
+    "props": {
+      "max-width": "700px",
+      "borderWidth": "1px",
+      "borderColor": "grey"
+    },
+    "children": [
+      {
+        "component": "Form",
+        "props": {
+          "questionGroupCode": "{{navigation.offerId}}",
+          "style": {
+            "width": "100%",
+            "marginTop": "40px"
+          },
+          "renderSubmitButton": {
+            "component": "Button",
+            "props": {
+              "showSpinnerOnClick": true,
+              "color": "green",
+              "width": "100%"
+            }
+          }
+        }
+      }
+    ]
+  }
 }
