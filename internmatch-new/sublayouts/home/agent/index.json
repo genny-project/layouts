@@ -3,7 +3,33 @@
     {
       "component": "Sublayout",
       "props": {
-        "layoutName": "tabs/internships-tabs"
+        "layoutName": "tabs/tabs-default",
+        "title": "Internships",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Applications", "key": 1 },
+          { "title": "Details View", "key": 2 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/table-internships"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/bucket"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/internship-details"
+            }
+          }
+        ]
       }
     }
   ]

@@ -1,0 +1,45 @@
+{
+  "layout": {
+    "title": "{{props.title}}",
+    "appColor": "white",
+    "backgroundColor": "white"
+  },
+  "children": [
+    {
+      "component": "Table",
+      "props": {
+        "cellContext": {
+          "rootCode": "{{props.rootCode}}",
+          "userCode": "{{user.data.code}}"
+        },
+        "renderWrapper": {
+          "component": "EventButton",
+          "props": {
+            "height": "20px",
+            "fontWeight": "300",
+            "fontSize": 10,
+            "eventType": "TABLE_SELECT",
+            "value": {
+              "itemCode": "{{celld.code}}",
+              "hint": "{{rootCode}}",
+              "userCode": "{{userCode}}"
+            },
+            "dispatchActionOnClick": {
+              "type": "ALIAS_ADD",
+              "payload": {
+                "alias": "CURRENT_NOTE",
+                "value": "{{celld.code}}"
+              }
+            }
+          }
+        },
+        "columns": "_props.columns",
+        "tableBackgroundColor": "#cccccc",
+        "data": "_props.data",
+        "height": "500px",
+        "width": "500px",
+        "itemsPerPage": 15
+      }
+    }
+  ]
+}

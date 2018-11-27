@@ -20,14 +20,14 @@
       "children": [
         {
           "component": "Text",
-          "children": "Test Profile page"
+          "children": "Profile page"
         },
         {
           "component": "Box",
           "children": [
             {
               "component": "Text",
-              "children": "{{user.attributes.PRI_IS_AGENT.value}}"
+              "children": "Profile"
             },
             {
               "component": "Form",
@@ -55,8 +55,8 @@
             {
               "component": "Form",
               "onlyShowIf": {
-                "currentUserData.value": {
-                  "$eq": "PRI_IS_BUYER"
+                "{{user.attributes.PRI_IS_BUYER.value}}": {
+                  "$eq": true
                 }
               },
               "props": {
@@ -78,8 +78,8 @@
             {
               "component": "Form",
               "onlyShowIf": {
-                "currentUserData.value": {
-                  "$eq": "PRI_IS_SELLER"
+                "{{user.attributes.PRI_IS_SELLER.value}}": {
+                  "$eq": true
                 }
               },
               "props": {
@@ -101,8 +101,8 @@
             {
               "component": "Form",
               "onlyShowIf": {
-                "currentUserData.value": {
-                  "$eq": "PRI_IS_EDU_PROVIDER"
+                "{{user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value}}": {
+                  "$eq": true
                 }
               },
               "props": {

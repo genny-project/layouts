@@ -1,44 +1,26 @@
 {
   "layout": {
-    "title": "Host Companies",
-    "appColor": "white",
-    "backgroundColor": "whitesmoke",
-    "header": {
-      "variant": "default"
-    },
-    "sidebar": {
-      "variant": "default"
-    }
+    "title": "Interns Table"
   },
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
                 "accessor": "actions",
                 "renderButton": [
                   {
-                    "text": "Edit",
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
@@ -47,14 +29,13 @@
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "Edit",
-                      "buttonCode": "BTN_EDIT_HOST_COMPANY",
+                      "buttonCode": "BTN_EDIT_INTERN",
                       "value": {
-                        "itemCode": "{{attributeCode}}"
+                        "itemCode": "{{code}}"
                       }
                     }
                   },
                   {
-                    "text": "View",
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
@@ -63,47 +44,51 @@
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_VIEW_HOST_COMPANY",
+                      "buttonCode": "BTN_VIEW_INTERN",
                       "value": {
-                        "itemCode": "{{attributeCode}}"
+                        "itemCode": "{{code}}"
                       },
                       "dispatchActionOnClick": {
                         "type": "ALIAS_ADD",
                         "payload": {
                           "alias": "CURRENT_NOTE",
-                          "value": "{{attributeCode}}"
+                          "value": "{{code}}"
                         }
                       }
                     }
                   }
-              ]
+                ]
               },
               {
-                "Header": "Company Name",
+                "Header": "Full Name",
                 "accessor": "firstName",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Student ID",
+                "accessor": "studentId",
+                "id": "studentId",
+                "key": "firstName",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
-                "accessor": "email",
+                "accessor": "uname",
                 "filterType": "string"
               },
               {
-                "Header": "Phone Number",
-                "accessor": "mobilePhone",
+                "Header": "Edu Provider",
+                "accessor": "eduProvider",
                 "filterType": "string"
               },
               {
-                "Header": "Address ",
+                "Header": "Mobile Phone",
                 "accessor": "mobilePhone",
-                "filterType": "string"
+                "filterType": "number"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -112,54 +97,51 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_HOST_COMPANIES",
-      "as": "hostCompanies"
+      "id": "GRP_RESULTS",
+      "as": "interns"
     },
     {
       "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
+      "path": "interns.links",
+      "as": "interns",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}",
-        "as": "be"
+        "id": "{{link.targetCode}}"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "interns",
       "scope": {
-        "operator": "scope",
-        "path": "be",
-        "scope": {
-          "operator": "populateBEGAttributes",
-          "as": "attributes"
-        }
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "interns",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "interns",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
-          "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "uname": "be.attributes.PRI_USERNAME.value",
-          "attributeCode": "code"
+          "firstName": "attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "attributes.PRI_MOBILE.value",
+          "uname": "attributes.PRI_USERNAME.value",
+          "code": "code",
+          "studentId": "attributes.PRI_STUDENT_ID.value"
         }
       }
     }
