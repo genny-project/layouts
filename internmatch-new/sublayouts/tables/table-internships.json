@@ -10,29 +10,11 @@
       },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "TABLE_SELECT",
-                "value": {
-                  "itemCode": "{{celld.code}}",
-                  "hint": "GRP_NEW_ITEMS",
-                  "userCode": "{{user.data.code}}"
-                },
-                "dispatchActionOnClick": {
-                  "type": "ALIAS_ADD",
-                  "payload": {
-                    "alias": "CURRENT_NOTE",
-                    "value": "{{celld.code}}"
-                  }
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
@@ -43,7 +25,6 @@
                     "props": {
                       "height": "30px",
                       "width": "80px",
-                      "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
@@ -114,12 +95,7 @@
                 "accessor": "countPlaced",
                 "filterType": "string"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "tableHeight": "500px",
-            "tableWidth": "100%",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -217,6 +193,11 @@
           "countShortlisted": "attributes.PRI_COUNT_GRP_SHORTLISTED.value"
         }
       }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
     }
   ]
 }
