@@ -109,37 +109,49 @@
                           "props": {
                             "backgroundColor": "#FFFFFF",
                             "padding": 15,
-                            "flexDirection": "column",
+                            "flexDirection": "row",
                             "borderBottomWidth": "2px",
                             "borderColor": "rgb(206, 199, 199)",
                             "borderBottomRightRadius": "3px",
                             "borderTopRightRadius": "3px",
                             "borderRightWidth": "2px",
                             "borderStyle":"outset"
-                          
                           },
                           "children": [
                             {
                               "component": "Box",
                               "props": {
-                                "marginBottom": 5
+                                "marginRight": 10,
+                                "flexShrink": 0
                               },
                               "children": [
                                 {
                                   "component": "Image",
                                   "props": {
-                                    "backgroundColor": "#e05b5b"
+                                     "source": "https://maps.googleapis.com/maps/api/streetview?location=29%20Clyde%20St,%2…202536,%20Australia&size=35x35&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
+                                    "height": 50,
+                                    "width": 50
                                   }
                                 }
                               ]
                             },
                             {
-                              "component": "Text",
+                              "component": "Box",
                               "props": {
-                                "size": "xxs",
-                                "text": "{{repeater.properties.attributes.PRI_ADDRESS_FULL.value}}"
+                                "flexDirection": "column",
+                                "flexShrink": 1,
+                                "width": "100%"
+                               },
+                               "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xxs",
+                                    "text": "{{repeater.properties.attributes.PRI_ADDRESS_FULL.value}}"
+                                  }
+                                }
+                               ]
                               }
-                            }
                           ]
                         }
                       ]
