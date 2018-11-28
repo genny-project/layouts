@@ -8,163 +8,47 @@
     },
     "sidebar": {
       "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      }
     }
   },
   "children": [
     {
-      "component": "Box",
-      "children": [
-        {
-          "component": "Table",
-          "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
-            "columns": [
-              {
-                "Header": "Actions",
-                "accessor": "actions",
-                "renderButton": [
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_INTERN",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      }
-                    }
-                  },
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "View",
-                      "buttonCode": "BTN_VIEW_INTERN",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      },
-                      "dispatchActionOnClick": {
-                        "type": "ALIAS_ADD",
-                        "payload": {
-                          "alias": "CURRENT_NOTE",
-                          "value": "{{attributeCode}}"
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "Header": "Full Name",
-                "accessor": "firstName",
-                "id": "firstName",
-                "key": "firstName",
-                "filterType": "string"
-              },
-              {
-                "Header": "Student ID",
-                "accessor": "studentId",
-                "id": "studentId",
-                "key": "firstName",
-                "filterType": "string"
-              },
-              {
-                "Header": "Email",
-                "accessor": "uname",
-                "filterType": "string"
-              },
-              {
-                "Header": "Edu Provider",
-                "accessor": "eduProvider",
-                "filterType": "string"
-              },
-              {
-                "Header": "Mobile Phone",
-                "accessor": "mobilePhone",
-                "filterType": "number"
-              }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tabs/tabs-default",
+        "title": "Internships",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Process View", "key": 1 },
+          { "title": "Details View", "key": 2 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/table-interns"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/bucket"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "view-intern-profile"
+            }
           }
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "GRP_RESULTS",
-      "as": "interns"
-    },
-    {
-      "operator": "scope",
-      "path": "interns.links",
-      "as": "interns",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "interns",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "interns",
-      "scope": {
-        "operator": "getBE",
-        "as": "company",
-        "basePath": "baseEntities.data",
-        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "interns",
-      "as": "tableData",
-      "scope": {
-        "operator": "map",
-        "fields": {
-          "firstName": "attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
-          "mobilePhone": "attributes.PRI_MOBILE.value",
-          "uname": "attributes.PRI_USERNAME.value",
-          "attributeCode": "code",
-          "studentId": "attributes.PRI_STUDENT_ID.value"
-        }
+        ]
       }
     }
   ]
