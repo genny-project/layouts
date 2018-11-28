@@ -28,23 +28,8 @@
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_INTERN",
-                      "value": {
-                        "itemCode": "{{code}}"
-                      }
-                    }
-                  },
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_VIEW_INTERN",
+                      "buttonCode": "BTN_VIEW_BUCKET_INTERN",
                       "value": {
                         "itemCode": "{{code}}"
                       },
@@ -127,6 +112,15 @@
         "as": "company",
         "basePath": "baseEntities.data",
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "scope": {
+        "operator": "sort",
+        "by": "created",
+        "direction": "desc"
       }
     },
     {
