@@ -79,8 +79,9 @@
                 "key": "{{repeater.code}}",
                 "position": "relative",
                 "withFeedback": true,
-                "showSpinnerOnClick": true,"value": {
-                  "hint": "GRP_APPLICATIONS",
+                "showSpinnerOnClick": true,
+                "value": {
+                  "hint": "GRP_NEW_ITEMS",
                   "itemCode": "{{repeater.code}}"
                 },
                 "flexDirection": "column",
@@ -203,7 +204,7 @@
                               "items": [
                                 {
                                   "text": "View Detail",
-                                  "href": "/application/{{repeater.code}}",
+                                  "href": "/view-property/{{repeater.code}}",
                                   "buttonCode": "BTN_VIEW_BEG",
                                   "value": {
                                   "itemCode":"{{code}}",
@@ -212,34 +213,34 @@
                                 },
                                 {
                                   "text": "Contact By Email",
-                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "buttonCode": "BTN_SEND_EMAIL",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_SEND_EMAIL"
                                   }
                                 },
                                 {
                                   "text": "Contact By Phone",
-                                  "buttonCode": "BTN_FINISH_INTERNSHIP",
+                                  "buttonCode": "BTN_CONTACTED_PHONE",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_PHONE"
                                   }
                                 },
                                 {
                                   "text": "Contact By Letter",
-                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "buttonCode": "BTN_CONTACTED_LETTER",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_LETTER"
                                   }
                                 },
                                 {
                                   "text": "Contact By Site Visit",
-                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "buttonCode": "BTN_CONTACTED_SITE_VISIT",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_SITE_VISIT"
                                   }
                                 }
                               ]
@@ -437,12 +438,66 @@
                               {
                                 "component": "Icon",
                                 "props": {
-                                  "name": "expand_more",
-                                  "color": "#233a4e",
+                                  "name": "more_horiz",
+                                  "color": "#bbbbbb",
                                   "size": "smd"
                                 }
                               }
                             ]
+                          },
+                          {
+                              "component": "Box",
+                              "conditional": {
+                                "if": {
+                                  "repeater.attributes.STA_PER_USER1.value": {
+                                    "$eq": "green"
+                                  }
+                                },
+                                "then": {
+                                  "size": "xs",
+                                "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
+                                "height": 40,
+                                "width": 10,
+                                "borderRadius": 20,
+                                "marginLeft": 8
+                                }
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "conditional": {
+                              "if": {
+                                "repeater.attributes.STA_PER_USER1.value": {
+                                  "$eq": "red"
+                                }
+                              },
+                              "then": {
+                                "size": "xs",
+                              "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
+                              "height": 40,
+                              "width": 10,
+                              "borderRadius": 20,
+                              "marginLeft": 8
+                              }
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "conditional": {
+                              "if": {
+                                "repeater.attributes.STA_PER_USER1.value": {
+                                  "$eq": "orange"
+                                }
+                              },
+                              "then": {
+                                "size": "xs",
+                              "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
+                              "height": 40,
+                              "width": 10,
+                              "borderRadius": 20,
+                              "marginLeft": 8
+                              }
+                            }
                           }
                         ]
                       }
@@ -458,7 +513,7 @@
                       {
                         "component": "Image",
                         "props": {
-                          "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                          "source": "https://maps.googleapis.com/maps/api/streetview?location=29%20Clyde%20St,%2…202536,%20Australia&size=35x35&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
                           "height": 50,
                           "width": 50
                         }
@@ -505,57 +560,6 @@
                         "props": {
                           "size": "xs",
                           "bold": false
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "conditional": {
-                          "if": {
-                            "repeater.attributes.STA_PER_USER1.value": {
-                              "$eq": "green"
-                            }
-                          },
-                          "then": {
-                            "size": "xs",
-                          "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
-                          "height": 40,
-                          "width": 10,
-                          "borderRadius": 20
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "conditional": {
-                          "if": {
-                            "repeater.attributes.STA_PER_USER1.value": {
-                              "$eq": "red"
-                            }
-                          },
-                          "then": {
-                            "size": "xs",
-                          "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
-                          "height": 40,
-                          "width": 10,
-                          "borderRadius": 20
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "conditional": {
-                          "if": {
-                            "repeater.attributes.STA_PER_USER1.value": {
-                              "$eq": "orange"
-                            }
-                          },
-                          "then": {
-                            "size": "xs",
-                          "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
-                          "height": 40,
-                          "width": 10,
-                          "borderRadius": 20
-                          }
                         }
                       }
                     ]
