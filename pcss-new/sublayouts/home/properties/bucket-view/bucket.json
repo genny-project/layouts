@@ -196,9 +196,8 @@
                           },
                           "else": {
                             "if": {
-                              "repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value": {
-                                "$exists": true,
-                                "$ne": "undefined"
+                              "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
+                                "$eq": 0
                               }
                             },
                             "then": {
@@ -248,17 +247,72 @@
                             },
                             "else": {
                               "if": {
-                                "repeater.attributes.PRI_GRP_CONTACTED_DATE.value": {
-                                  "$exists": true,
-                                  "$ne": "undefined"
+                                "repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value": {
+                                  "$exists": true
                                 }
                               },
                               "then": {
                                 "items": [
                                   {
                                     "text": "View Detail",
-                                    "href": "/applications/{{repeater.code}}"
+                                    "href": "/view-property/{{repeater.code}}",
+                                    "buttonCode": "BTN_VIEW_BEG",
+                                    "value": {
+                                    "itemCode":"{{code}}",
+                                    "hint": "BTN_VIEW_BEG"
+                                  }
                                   },
+                                  {
+                                    "text": "Contact By Email",
+                                    "buttonCode": "BTN_SEND_EMAIL",
+                                    "value": {
+                                      "itemCode": "{{repeater.code}}",
+                                      "hint": "BTN_SEND_EMAIL"
+                                    }
+                                  },
+                                  {
+                                    "text": "Contact By Phone",
+                                    "buttonCode": "BTN_CONTACTED_PHONE",
+                                    "value": {
+                                      "itemCode": "{{repeater.code}}",
+                                      "hint": "BTN_CONTACTED_PHONE"
+                                    }
+                                  },
+                                  {
+                                    "text": "Contact By Letter",
+                                    "buttonCode": "BTN_CONTACTED_LETTER",
+                                    "value": {
+                                      "itemCode": "{{repeater.code}}",
+                                      "hint": "BTN_CONTACTED_LETTER"
+                                    }
+                                  },
+                                  {
+                                    "text": "Contact By Site Visit",
+                                    "buttonCode": "BTN_CONTACTED_SITE_VISIT",
+                                    "value": {
+                                      "itemCode": "{{repeater.code}}",
+                                      "hint": "BTN_CONTACTED_SITE_VISIT"
+                                    }
+                                  }
+                                ]
+                              },
+                            "else": {
+                              "if": {
+                                "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
+                                  "$eq": 2
+                                }
+                              },
+                              "then": {
+                                "items": [
+                                  {
+                                    "text": "View Detail",
+                                    "href": "/view-property/{{repeater.code}}",
+                                    "buttonCode": "BTN_VIEW_BEG",
+                                    "value": {
+                                    "itemCode":"{{code}}",
+                                    "hint": "BTN_VIEW_BEG"
+                                  }
+                                },
                                   {
                                     "text": "Request Condition Report",
                                     "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
@@ -311,7 +365,7 @@
                               },
                               "else": {
                                 "if": {
-                                  "repeater.attributes.PRI_GRP_ACCEPTED_DATE.value": {
+                                  "repeater.attributes.PRI_ACCEPTED_DATETIME.value": {
                                     "$exists": true,
                                     "$ne": "undefined"
                                   }
@@ -320,8 +374,13 @@
                                   "items": [
                                     {
                                       "text": "View Detail",
-                                      "href": "/application/{{repeater.code}}"
-                                    },
+                                      "href": "/view-property/{{repeater.code}}",
+                                      "buttonCode": "BTN_VIEW_BEG",
+                                      "value": {
+                                      "itemCode":"{{code}}",
+                                      "hint": "BTN_VIEW_BEG"
+                                    }
+                                  },
                                     {
                                       "text": "Book Inspection",
                                       "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
@@ -334,7 +393,7 @@
                                 },
                                 "else": {
                                   "if": {
-                                    "repeater.attributes.PRI_INSPECTION_DATETIME.value": {
+                                    "repeater.attributes.PRI_INDENTIFIED_DATETIME.value": {
                                       "$exists": true,
                                       "$ne": "undefined"
                                     }
@@ -343,8 +402,13 @@
                                     "items": [
                                       {
                                         "text": "View Detail",
-                                        "href": "/application/{{repeater.code}}"
-                                      },
+                                        "href": "/view-property/{{repeater.code}}",
+                                        "buttonCode": "BTN_VIEW_BEG",
+                                        "value": {
+                                        "itemCode":"{{code}}",
+                                        "hint": "BTN_VIEW_BEG"
+                                      }
+                                    },
                                       {
                                         "text": "Rebook Appointment",
                                         "buttonCode": "BTN_OFFER_APPLICATION",
@@ -373,7 +437,7 @@
                                   },
                                   "else": {
                                     "if": {
-                                      "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
+                                      "repeater.attributes.PRI_GRP_REQUESTED_DATE.value": {
                                         "$exists": true,
                                         "$ne": "undefined"
                                       }
@@ -382,7 +446,12 @@
                                       "items": [
                                         {
                                           "text": "View Detail",
-                                          "href": "/application/{{repeater.code}}"
+                                          "href": "/view-property/{{repeater.code}}",
+                                          "buttonCode": "BTN_VIEW_BEG",
+                                          "value": {
+                                          "itemCode":"{{code}}",
+                                          "hint": "BTN_VIEW_BEG"
+                                          }
                                         },
                                         {
                                           "text": "Report Prepared",
@@ -412,7 +481,7 @@
                                     },
                                     "else": {
                                       "if": {
-                                        "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
+                                        "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
                                           "$exists": true,
                                           "$ne": "undefined"
                                         }
@@ -421,8 +490,13 @@
                                         "items": [
                                           {
                                             "text": "View Detail",
-                                            "href": "/application/{{repeater.code}}"
+                                            "href": "/view-property/{{repeater.code}}",
+                                            "buttonCode": "BTN_VIEW_BEG",
+                                            "value": {
+                                            "itemCode":"{{code}}",
+                                            "hint": "BTN_VIEW_BEG"
                                           }
+                                        }
                                         ]
                                       }
                                     }
@@ -430,6 +504,7 @@
                                 }
                               }
                             }
+                          }
                           }
                         },
                         "children": [
