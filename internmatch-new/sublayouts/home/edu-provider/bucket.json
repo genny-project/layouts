@@ -30,12 +30,14 @@
             "contentProps": {
               "minWidth": 240
             }
-          },
+          }, 
           "repeat": "_query",
           "children": {
             "component": "List",
             "repeat": "_repeater.items",
             "props": {
+              "height": "100vh",
+              "overflow": "scroll",
               "headerText": "{{repeater.name}}",
               "contentBackground": "#eaeaea",
               "headerProps": {
@@ -300,13 +302,13 @@
   ],
   "query": [
     {
-      "operator": "getBE",
+      "operator": "getLinks",
       "id": "GRP_APPLICATIONS",
       "as": "applications"
     },
     {
       "operator": "scope",
-      "path": "applications.links",
+      "path": "applications",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -317,7 +319,7 @@
     },
     {
       "operator": "map",
-      "fields": "applications.links"
+      "fields": "applications"
     },
     {
       "operator": "sort",
@@ -329,25 +331,19 @@
       "fields": "be"
     },
     {
+      "operator": "getLinks",
+      "id": "{{code}}",
+      "as": "links"
+    },
+    {
       "operator": "scope",
       "path": "links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "as": "be",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be.code": {
-            "$exists": true
-          }
-        }
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
       }
     },
     {
