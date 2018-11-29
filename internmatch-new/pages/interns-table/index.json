@@ -12,9 +12,23 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "user.attributes.PRI_IS_AGENT.value": {
-          "$eq": true
-        }
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
       }
     }
   },
