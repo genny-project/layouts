@@ -86,12 +86,12 @@
                       "props": {
                         "paddingBottom":"1px",
                         "borderColor":"rgb(61, 195, 159)",
-                        "key": "{{repeater.code}}",
+                        "key": "{{repeater.properties.code}}",
                         "withFeedback": true,
                         "showSpinnerOnClick": true,
                         "value": {
                           "hint": "GRP_NEW_ITEMS",
-                          "itemCode": "{{repeater.code}}"
+                          "itemCode": "{{repeater.properties.code}}"
                         },
                         "flexDirection": "column",
                         "onPress": "_selection.onSelect",
@@ -99,7 +99,7 @@
                           "type": "ALIAS_TOGGLE",
                           "payload": {
                             "alias": "CURRENT_NOTE",
-                            "value": "{{repeater.code}}"
+                            "value": "{{repeater.properties.code}}"
                           }
                         }
                       },
