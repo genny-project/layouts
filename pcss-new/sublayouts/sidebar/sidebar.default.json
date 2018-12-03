@@ -46,12 +46,12 @@
         "props": {
           "justifyContent": "center",
           "paddingBottom": 0,
-          "padding": 10,
+          "margin": 10,
           "height": 115
         },
         "children": [
           {
-            "component": "Box",
+            "component": "Link",
             "onlyShowIf": {
               "sidebar.left.isOpen": {
                 "$eq": true
@@ -59,14 +59,15 @@
             },
             "props": {
               "flex": 1,
-              "justifyContent": "center"
+              "justifyContent": "center",
+              "to": "home"
             },
             "children": [
               {
                 "component": "Image",
                 "props": {
                   "source": "https://images.pcss.io/https://i.imgur.com/jAAWx8I.png",
-                  "height" : "auto",
+                  "height" : 100,
                   "width": "100%"
                 }
               }
