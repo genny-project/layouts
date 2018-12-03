@@ -2,7 +2,24 @@
   "layout": {
     "title": "Internships",
     "appColor": "white",
-    "backgroundColor": "white"
+    "backgroundColor": "white",
+    "header":{
+      "variant":"default"
+  },
+  "sidebar":{
+      "variant":"default"
+  },
+  "sidebarRight":{
+      "variant":"default",
+      "onlyShowIf":{
+          "$or": [
+              { "user.attributes.PRI_IS_AGENT.value":{"$eq":true } },
+              { "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value":{"$eq":true } }
+          ]
+      }
+  }
+
+    
   },
   "children": [
     {
