@@ -8,7 +8,30 @@
     },
     "sidebar": {
       "variant": "default"
-    }  },
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
   "children": [
     {
       "component": "Box",
@@ -75,7 +98,7 @@
                       }
                     }
                   }
-              ]
+                ]
               },
               {
                 "Header": "select",
@@ -152,7 +175,7 @@
       "path": "hostCompanies",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
         "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
       }
@@ -169,7 +192,6 @@
           "mobilePhone": "be.attributes.PRI_LANDLINE.value",
           "address": "be.attributes.PRI_ADDRESS_STATE.value",
           "attributeCode": "code"
-
         }
       }
     }

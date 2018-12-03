@@ -8,6 +8,28 @@
     },
     "sidebar": {
       "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
@@ -45,7 +67,7 @@
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_VIEW_BUCKET",
+                      "buttonCode": "BTN_VIEW_BUCKET_INTERNSHIP",
                       "value": {
                         "itemCode": "{{code}}"
                       },
