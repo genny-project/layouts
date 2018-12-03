@@ -18,98 +18,89 @@
           },
           "children": [
             {
-              "component": "BucketView",
+              "component": "Pagination",
               "props": {
-                "tabBarSize": "md",
-                "backgroundColor": "#f6f6f6",
-                "tabBarBackground": "#3f3f3f",
-                "activeTabBackground": "#232323",
-                "iconColor": "white",
-                "iconSize": "md",
-                "labelColor": "white",
-                "labelProps": {
-                  "transform": "upperCase"
-                },
-                "overflowX": "auto",
-                "overflowY": "auto",
-                "width": "100%",
-                "gutter": 20,
-                "contentProps": {
-                  "minWidth": 240
-                }
+                "code": "GRP_APPLICATIONS"
               },
-              "repeat": "_query",
-              "children": {
-                "component": "List",
-                "props": {
-                  "headerText": "{{repeater.name}}",
-                  "contentBackground": "#eaeaea",
-                  "headerProps": {
-                    "paddingX": 20,
-                    "paddingY": 15,
-                    "justifyContent": "space-between",
-                    "alignItems": "center",
-                    "backgroundColor": "#eaeaea",
-                    "position": "sticky",
-                    "top": 0
-                  },
-                  "headerTextProps": {
-                    "bold": true
-                  },
-                  "showCountInHeader": true,
-                  "contentBodyProps": {
-                    "paddingX": 10,
-                    "paddingY": 20
-                  },
-                  "emptyProps": {
-                    "padding": 10
-                  },
-                  "headerCountTextProps": {
-                    "bold": true,
-                    "size": "xs"
-                  },
-                  "emptyTextProps": {
-                    "size": "xs"
-                  },
-                  "scrollViewProps": {
-                    "horizontal": true
-                  }
-                },
-                "repeat": "_repeater.items",
-                "children": {
-                  "component": "Selectable",
+              "children": [
+                {
+                  "component": "BucketView",
                   "props": {
-                    "padding": 0,
-                    "paddingX": 0,
-                    "paddingY": 0,
-                    "width": "100%",
-                    "key": "{{repeater.code}}",
-                    "eventType": "BTN_CLICK",
-                    "buttonCode": "SELECT_EVENT",
-                    "value": {
-                      "itemCode": "{{repeater.code}}",
-                      "userCode": "{{user.data.code}}"
+                    "tabBarSize": "md",
+                    "backgroundColor": "#f6f6f6",
+                    "tabBarBackground": "#3f3f3f",
+                    "activeTabBackground": "#232323",
+                    "iconColor": "white",
+                    "iconSize": "md",
+                    "labelColor": "white",
+                    "labelProps": {
+                      "transform": "upperCase"
                     },
-                    "selectionProps": "_selection",
-                    "id": "{{repeater.code}}",
-                    "item": "_repeater"
+                    "overflowX": "auto",
+                    "overflowY": "auto",
+                    "width": "100%",
+                    "gutter": 20,
+                    "contentProps": {
+                      "minWidth": 240
+                    },
+                    "onScroll": "_onScroll"
                   },
-                  "conditional": {
-                    "if": {
-                      "selection.selectedItem": {
-                        "$eq": "{{repeater.code}}"
+                  "repeat": "_query",
+                  "children": {
+                    "component": "List",
+                    "props": {
+                      "headerText": "{{repeater.name}}",
+                      "contentBackground": "#eaeaea",
+                      "headerProps": {
+                        "paddingX": 20,
+                        "paddingY": 15,
+                        "justifyContent": "space-between",
+                        "alignItems": "center",
+                        "backgroundColor": "#eaeaea",
+                        "position": "sticky",
+                        "top": 0
+                      },
+                      "headerTextProps": {
+                        "bold": true
+                      },
+                      "showCountInHeader": true,
+                      "contentBodyProps": {
+                        "paddingX": 10,
+                        "paddingY": 20
+                      },
+                      "emptyProps": {
+                        "padding": 10
+                      },
+                      "headerCountTextProps": {
+                        "bold": true,
+                        "size": "xs"
+                      },
+                      "emptyTextProps": {
+                        "size": "xs"
+                      },
+                      "scrollViewProps": {
+                        "horizontal": true
                       }
                     },
-                    "then": {
-                      "buttonCode": "DESELECT_EVENT"
-                    },
-                    "else": {
-                      "buttonCode": "SELECT_EVENT"
-                    }
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
+                    "repeat": "_repeater.items",
+                    "children": {
+                      "component": "Selectable",
+                      "props": {
+                        "padding": 0,
+                        "paddingX": 0,
+                        "paddingY": 0,
+                        "width": "100%",
+                        "key": "{{repeater.code}}",
+                        "eventType": "BTN_CLICK",
+                        "buttonCode": "SELECT_EVENT",
+                        "value": {
+                          "itemCode": "{{repeater.code}}",
+                          "userCode": "{{user.data.code}}"
+                        },
+                        "selectionProps": "_selection",
+                        "id": "{{repeater.code}}",
+                        "item": "_repeater"
+                      },
                       "conditional": {
                         "if": {
                           "selection.selectedItem": {
@@ -117,197 +108,135 @@
                           }
                         },
                         "then": {
-                          "borderColor": "#1597c5"
+                          "buttonCode": "DESELECT_EVENT"
                         },
                         "else": {
-                          "borderColor": "#fff"
+                          "buttonCode": "SELECT_EVENT"
                         }
-                      },
-                      "props": {
-                        "borderLeftWidth": 5,
-                        "borderStyle": "solid",
-                        "width": "100%",
-                        "backgroundColor": "#ffffff",
-                        "padding": 10,
-                        "paddingRight": 35,
-                        "key": "{{repeater.code}}",
-                        "position": "relative"
                       },
                       "children": [
                         {
                           "component": "Box",
-                          "dontShowIf": {
-                            "repeater.code": {
-                              "$exists": true
-                            }
-                          },
-                          "props": {
-                            "padding": 15,
-                            "width": "100%",
-                            "justifyContent": "center"
-                          },
-                          "children": [
-                            {
-                              "component": "ActivityIndicator",
-                              "props": {
-                                "size": "small"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "component": "Box",
-                          "onlyShowIf": {
-                            "repeater.code": {
-                              "$exists": true
-                            }
-                          },
                           "conditional": {
                             "if": {
-                              "$or": [
-                                {
-                                  "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                                    "$eq": true
-                                  }
-                                },
-                                {
-                                  "repeater.attributes.PRI_IS_DECLINED.value": {
-                                    "$eq": true
-                                  }
-                                }
-                              ]
+                              "selection.selectedItem": {
+                                "$eq": "{{repeater.code}}"
+                              }
                             },
                             "then": {
-                              "opacity": 0.7
+                              "borderColor": "#1597c5"
+                            },
+                            "else": {
+                              "borderColor": "#fff"
                             }
                           },
                           "props": {
+                            "borderLeftWidth": 5,
+                            "borderStyle": "solid",
                             "width": "100%",
-                            "position": "static"
+                            "backgroundColor": "#ffffff",
+                            "padding": 10,
+                            "paddingRight": 35,
+                            "key": "{{repeater.code}}",
+                            "position": "relative"
                           },
                           "children": [
                             {
                               "component": "Box",
+                              "dontShowIf": {
+                                "repeater.code": {
+                                  "$exists": true
+                                }
+                              },
                               "props": {
-                                "position": "absolute",
-                                "right": 5,
-                                "top": 5,
-                                "zIndex": 5
+                                "padding": 15,
+                                "width": "100%",
+                                "justifyContent": "center"
                               },
                               "children": [
                                 {
-                                  "component": "Dropdown",
+                                  "component": "ActivityIndicator",
                                   "props": {
-                                    "facingRight": true,
-                                    "menuButtonStyle": {
-                                      "backgroundColor": "transparent",
-                                      "border": 0,
-                                      "padding": 5,
-                                      "fontSize": 16,
-                                      "cursor": "pointer",
-                                      "color": "white"
-                                    },
-                                    "menuListStyle": {
-                                      "background": "#233a4e",
-                                      "borderWidth": 2,
-                                      "borderColor": "#192835",
-                                      "borderStyle": "solid"
-                                    },
-                                    "menuItemStyle": {
-                                      "textAlign": "right",
-                                      "padding": 15,
-                                      "color": "white"
-                                    }
-                                  },
-                                  "conditional": {
-                                    "if": {
+                                    "size": "small"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "onlyShowIf": {
+                                "repeater.code": {
+                                  "$exists": true
+                                }
+                              },
+                              "conditional": {
+                                "if": {
+                                  "$or": [
+                                    {
                                       "repeater.attributes.PRI_IS_DEACTIVATED.value": {
                                         "$eq": true
                                       }
                                     },
-                                    "then": {
-                                      "items": [
-                                        {
-                                          "text": "Re-Activate",
-                                          "buttonCode": "BTN_ACTIVATE_APPLICATION",
-                                          "value": {
-                                            "itemCode": "{{repeater.code}}",
-                                            "hint": "{{parentRepeater.code}}"
-                                          }
-                                        }
-                                      ]
-                                    },
-                                    "else": {
-                                      "if": {
-                                        "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
-                                          "$exists": true,
-                                          "$ne": "undefined"
+                                    {
+                                      "repeater.attributes.PRI_IS_DECLINED.value": {
+                                        "$eq": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "then": {
+                                  "opacity": 0.7
+                                }
+                              },
+                              "props": {
+                                "width": "100%",
+                                "position": "static"
+                              },
+                              "children": [
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "position": "absolute",
+                                    "right": 5,
+                                    "top": 5,
+                                    "zIndex": 5
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Dropdown",
+                                      "props": {
+                                        "facingRight": true,
+                                        "menuButtonStyle": {
+                                          "backgroundColor": "transparent",
+                                          "border": 0,
+                                          "padding": 5,
+                                          "fontSize": 16,
+                                          "cursor": "pointer",
+                                          "color": "white"
+                                        },
+                                        "menuListStyle": {
+                                          "background": "#233a4e",
+                                          "borderWidth": 2,
+                                          "borderColor": "#192835",
+                                          "borderStyle": "solid"
+                                        },
+                                        "menuItemStyle": {
+                                          "textAlign": "right",
+                                          "padding": 15,
+                                          "color": "white"
                                         }
                                       },
-                                      "then": {
-                                        "items": [
-                                          {
-                                            "text": "View Application",
-                                            "href": "/application/{{repeater.code}}"
-                                          },
-                                          {
-                                            "text": "View Internship Offer",
-                                            "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "{{parentRepeater.code}}"
-                                            }
-                                          },
-                                          {
-                                            "text": "Finish Internship",
-                                            "buttonCode": "BTN_FINISH_INTERNSHIP",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "{{parentRepeater.code}}"
-                                            }
-                                          },
-                                          {
-                                            "text": "On Hold",
-                                            "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "{{parentRepeater.code}}"
-                                            }
-                                          }
-                                        ]
-                                      },
-                                      "else": {
+                                      "conditional": {
                                         "if": {
-                                          "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
-                                            "$exists": true,
-                                            "$ne": "undefined"
+                                          "repeater.attributes.PRI_IS_DEACTIVATED.value": {
+                                            "$eq": true
                                           }
                                         },
                                         "then": {
                                           "items": [
                                             {
-                                              "text": "View Application",
-                                              "href": "/applications/{{repeater.code}}"
-                                            },
-                                            {
-                                              "text": "View Internship Offer",
-                                              "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                                              "value": {
-                                                "itemCode": "{{repeater.code}}",
-                                                "hint": "{{parentRepeater.code}}"
-                                              }
-                                            },
-                                            {
-                                              "text": "Start Internship",
-                                              "buttonCode": "BTN_START_INTERNSHIP",
-                                              "value": {
-                                                "itemCode": "{{repeater.code}}",
-                                                "hint": "{{parentRepeater.code}}"
-                                              }
-                                            },
-                                            {
-                                              "text": "On Hold",
-                                              "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                              "text": "Re-Activate",
+                                              "buttonCode": "BTN_ACTIVATE_APPLICATION",
                                               "value": {
                                                 "itemCode": "{{repeater.code}}",
                                                 "hint": "{{parentRepeater.code}}"
@@ -317,7 +246,7 @@
                                         },
                                         "else": {
                                           "if": {
-                                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
+                                            "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
                                               "$exists": true,
                                               "$ne": "undefined"
                                             }
@@ -337,6 +266,14 @@
                                                 }
                                               },
                                               {
+                                                "text": "Finish Internship",
+                                                "buttonCode": "BTN_FINISH_INTERNSHIP",
+                                                "value": {
+                                                  "itemCode": "{{repeater.code}}",
+                                                  "hint": "{{parentRepeater.code}}"
+                                                }
+                                              },
+                                              {
                                                 "text": "On Hold",
                                                 "buttonCode": "BTN_DEACTIVATE_APPLICATION",
                                                 "value": {
@@ -348,7 +285,7 @@
                                           },
                                           "else": {
                                             "if": {
-                                              "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
+                                              "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
                                                 "$exists": true,
                                                 "$ne": "undefined"
                                               }
@@ -357,11 +294,19 @@
                                               "items": [
                                                 {
                                                   "text": "View Application",
-                                                  "href": "/application/{{repeater.code}}"
+                                                  "href": "/applications/{{repeater.code}}"
                                                 },
                                                 {
-                                                  "text": "Make Offer",
-                                                  "buttonCode": "BTN_OFFER_APPLICATION",
+                                                  "text": "View Internship Offer",
+                                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                                  "value": {
+                                                    "itemCode": "{{repeater.code}}",
+                                                    "hint": "{{parentRepeater.code}}"
+                                                  }
+                                                },
+                                                {
+                                                  "text": "Start Internship",
+                                                  "buttonCode": "BTN_START_INTERNSHIP",
                                                   "value": {
                                                     "itemCode": "{{repeater.code}}",
                                                     "hint": "{{parentRepeater.code}}"
@@ -379,7 +324,7 @@
                                             },
                                             "else": {
                                               "if": {
-                                                "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
+                                                "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
                                                   "$exists": true,
                                                   "$ne": "undefined"
                                                 }
@@ -391,16 +336,8 @@
                                                     "href": "/application/{{repeater.code}}"
                                                   },
                                                   {
-                                                    "text": "Interview",
-                                                    "buttonCode": "BTN_INTERVIEW_APPLICATION",
-                                                    "value": {
-                                                      "itemCode": "{{repeater.code}}",
-                                                      "hint": "{{parentRepeater.code}}"
-                                                    }
-                                                  },
-                                                  {
-                                                    "text": "Reject",
-                                                    "buttonCode": "BTN_REJECT_APPLICATION",
+                                                    "text": "View Internship Offer",
+                                                    "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
                                                     "value": {
                                                       "itemCode": "{{repeater.code}}",
                                                       "hint": "{{parentRepeater.code}}"
@@ -418,7 +355,7 @@
                                               },
                                               "else": {
                                                 "if": {
-                                                  "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                                                  "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
                                                     "$exists": true,
                                                     "$ne": "undefined"
                                                   }
@@ -430,8 +367,8 @@
                                                       "href": "/application/{{repeater.code}}"
                                                     },
                                                     {
-                                                      "text": "Shortlist",
-                                                      "buttonCode": "BTN_SHORTLIST_APPLICATION",
+                                                      "text": "Make Offer",
+                                                      "buttonCode": "BTN_OFFER_APPLICATION",
                                                       "value": {
                                                         "itemCode": "{{repeater.code}}",
                                                         "hint": "{{parentRepeater.code}}"
@@ -448,269 +385,341 @@
                                                   ]
                                                 },
                                                 "else": {
-                                                  "items": [
-                                                    {
-                                                      "text": "View Student",
-                                                      "href": "/student/{{repeater.code}}"
+                                                  "if": {
+                                                    "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
+                                                      "$exists": true,
+                                                      "$ne": "undefined"
                                                     }
-                                                  ]
+                                                  },
+                                                  "then": {
+                                                    "items": [
+                                                      {
+                                                        "text": "View Application",
+                                                        "href": "/application/{{repeater.code}}"
+                                                      },
+                                                      {
+                                                        "text": "Interview",
+                                                        "buttonCode": "BTN_INTERVIEW_APPLICATION",
+                                                        "value": {
+                                                          "itemCode": "{{repeater.code}}",
+                                                          "hint": "{{parentRepeater.code}}"
+                                                        }
+                                                      },
+                                                      {
+                                                        "text": "Reject",
+                                                        "buttonCode": "BTN_REJECT_APPLICATION",
+                                                        "value": {
+                                                          "itemCode": "{{repeater.code}}",
+                                                          "hint": "{{parentRepeater.code}}"
+                                                        }
+                                                      },
+                                                      {
+                                                        "text": "On Hold",
+                                                        "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                                        "value": {
+                                                          "itemCode": "{{repeater.code}}",
+                                                          "hint": "{{parentRepeater.code}}"
+                                                        }
+                                                      }
+                                                    ]
+                                                  },
+                                                  "else": {
+                                                    "if": {
+                                                      "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                                                        "$exists": true,
+                                                        "$ne": "undefined"
+                                                      }
+                                                    },
+                                                    "then": {
+                                                      "items": [
+                                                        {
+                                                          "text": "View Application",
+                                                          "href": "/application/{{repeater.code}}"
+                                                        },
+                                                        {
+                                                          "text": "Shortlist",
+                                                          "buttonCode": "BTN_SHORTLIST_APPLICATION",
+                                                          "value": {
+                                                            "itemCode": "{{repeater.code}}",
+                                                            "hint": "{{parentRepeater.code}}"
+                                                          }
+                                                        },
+                                                        {
+                                                          "text": "On Hold",
+                                                          "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                                          "value": {
+                                                            "itemCode": "{{repeater.code}}",
+                                                            "hint": "{{parentRepeater.code}}"
+                                                          }
+                                                        }
+                                                      ]
+                                                    },
+                                                    "else": {
+                                                      "items": [
+                                                        {
+                                                          "text": "View Student",
+                                                          "href": "/student/{{repeater.code}}"
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
                                           }
                                         }
-                                      }
-                                    }
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Box",
+                                      },
                                       "children": [
                                         {
-                                          "component": "Icon",
-                                          "props": {
-                                            "name": "expand_more",
-                                            "color": "#233a4e",
-                                            "size": "smd"
-                                          }
+                                          "component": "Box",
+                                          "children": [
+                                            {
+                                              "component": "Icon",
+                                              "props": {
+                                                "name": "expand_more",
+                                                "color": "#233a4e",
+                                                "size": "smd"
+                                              }
+                                            }
+                                          ]
                                         }
                                       ]
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "component": "Box",
-                              "props": {
-                                "marginRight": 10,
-                                "flexShrink": 0
-                              },
-                              "children": [
-                                {
-                                  "component": "Image",
-                                  "props": {
-                                    "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
-                                    "height": 50,
-                                    "width": 50
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column",
-                                "flex": 1
-                              },
-                              "children": [
+                                },
                                 {
                                   "component": "Box",
                                   "props": {
-                                    "marginBottom": 5
+                                    "marginRight": 10,
+                                    "flexShrink": 0
                                   },
                                   "children": [
+                                    {
+                                      "component": "Image",
+                                      "props": {
+                                        "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                                        "height": 50,
+                                        "width": 50
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "props": {
+                                    "flexDirection": "column",
+                                    "flex": 1
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "marginBottom": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "conditional": {
+                                            "if": {
+                                              "repeater.attributes.PRI_NAME.value": {
+                                                "$exists": true
+                                              }
+                                            },
+                                            "then": {
+                                              "text": "{{repeater.attributes.PRI_NAME.value}}"
+                                            },
+                                            "else": {
+                                              "text": "{{repeater.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                                            }
+                                          },
+                                          "props": {
+                                            "size": "xs",
+                                            "bold": true
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "onlyShowIf": {
+                                        "repeater.attributes.PRI_IS_DEACTIVATED.value": {
+                                          "$eq": true
+                                        }
+                                      },
+                                      "props": {
+                                        "marginBottom": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs",
+                                            "bold": true
+                                          },
+                                          "children": "ON HOLD"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "onlyShowIf": {
+                                        "repeater.attributes.PRI_IS_DECLINED.value": {
+                                          "$eq": true
+                                        }
+                                      },
+                                      "props": {
+                                        "marginBottom": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs",
+                                            "bold": true
+                                          },
+                                          "children": "REJECTED"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "onlyShowIf": {
+                                        "repeater.attributes.PRI_STUDENT_ID.value": {
+                                          "$exists": true
+                                        }
+                                      },
+                                      "props": {
+                                        "marginBottom": 5
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs"
+                                          },
+                                          "children": "ID: {{repeater.attributes.PRI_STUDENT_ID.value}}"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component": "Box",
+                                      "props": {
+                                        "marginBottom": 5
+                                      },
+                                      "onlyShowIf": {
+                                        "repeater.attributes.PRI_EDU_PROVIDER_NAME.value": {
+                                          "$exists": true
+                                        }
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Text",
+                                          "props": {
+                                            "size": "xxs"
+                                          },
+                                          "children": "{{repeater.attributes.PRI_EDU_PROVIDER_NAME.value}}"
+                                        }
+                                      ]
+                                    },
                                     {
                                       "component": "Text",
                                       "conditional": {
                                         "if": {
-                                          "repeater.attributes.PRI_NAME.value": {
-                                            "$exists": true
-                                          }
-                                        },
-                                        "then": {
-                                          "text": "{{repeater.attributes.PRI_NAME.value}}"
-                                        },
-                                        "else": {
-                                          "text": "{{repeater.attributes.PRI_APPLICANT_FULLNAME.value}}"
-                                        }
-                                      },
-                                      "props": {
-                                        "size": "xs",
-                                        "bold": true
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "onlyShowIf": {
-                                    "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                                      "$eq": true
-                                    }
-                                  },
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs",
-                                        "bold": true
-                                      },
-                                      "children": "ON HOLD"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "onlyShowIf": {
-                                    "repeater.attributes.PRI_IS_DECLINED.value": {
-                                      "$eq": true
-                                    }
-                                  },
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs",
-                                        "bold": true
-                                      },
-                                      "children": "REJECTED"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "onlyShowIf": {
-                                    "repeater.attributes.PRI_STUDENT_ID.value": {
-                                      "$exists": true
-                                    }
-                                  },
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs"
-                                      },
-                                      "children": "ID: {{repeater.attributes.PRI_STUDENT_ID.value}}"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "onlyShowIf": {
-                                    "repeater.attributes.PRI_EDU_PROVIDER_NAME.value": {
-                                      "$exists": true
-                                    }
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs"
-                                      },
-                                      "children": "{{repeater.attributes.PRI_EDU_PROVIDER_NAME.value}}"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Text",
-                                  "conditional": {
-                                    "if": {
-                                      "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
-                                        "$exists": true,
-                                        "$ne": "undefined"
-                                      }
-                                    },
-                                    "then": {
-                                      "component": "Date",
-                                      "format": "[Since] Do MMM YY",
-                                      "date": "{{repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value}}"
-                                    },
-                                    "else": {
-                                      "if": {
-                                        "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
-                                          "$exists": true,
-                                          "$ne": "undefined"
-                                        }
-                                      },
-                                      "then": {
-                                        "component": "Date",
-                                        "format": "[Placed on] Do MMM YY",
-                                        "date": "{{repeater.attributes.PRI_GRP_PLACED_DATE.value}}"
-                                      },
-                                      "else": {
-                                        "if": {
-                                          "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
+                                          "repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value": {
                                             "$exists": true,
                                             "$ne": "undefined"
                                           }
                                         },
                                         "then": {
                                           "component": "Date",
-                                          "format": "[Offered on] Do MMM YY",
-                                          "date": "{{repeater.attributes.PRI_GRP_OFFERED_DATE.value}}"
+                                          "format": "[Since] Do MMM YY",
+                                          "date": "{{repeater.attributes.PRI_GRP_IN_PROGRESS_DATE.value}}"
                                         },
                                         "else": {
                                           "if": {
-                                            "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
+                                            "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
                                               "$exists": true,
                                               "$ne": "undefined"
                                             }
                                           },
                                           "then": {
                                             "component": "Date",
-                                            "format": "[Interviewed on] Do MMM YY",
-                                            "date": "{{repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value}}"
+                                            "format": "[Placed on] Do MMM YY",
+                                            "date": "{{repeater.attributes.PRI_GRP_PLACED_DATE.value}}"
                                           },
                                           "else": {
                                             "if": {
-                                              "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
+                                              "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
                                                 "$exists": true,
                                                 "$ne": "undefined"
                                               }
                                             },
                                             "then": {
                                               "component": "Date",
-                                              "format": "[Shortlisted on] Do MMM YY",
-                                              "date": "{{repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value}}"
+                                              "format": "[Offered on] Do MMM YY",
+                                              "date": "{{repeater.attributes.PRI_GRP_OFFERED_DATE.value}}"
                                             },
                                             "else": {
                                               "if": {
-                                                "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                                                "repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value": {
                                                   "$exists": true,
                                                   "$ne": "undefined"
                                                 }
                                               },
                                               "then": {
                                                 "component": "Date",
-                                                "format": "[Applied on] Do MMM YY",
-                                                "date": "{{repeater.attributes.PRI_GRP_APPLIED_DATE.value}}"
+                                                "format": "[Interviewed on] Do MMM YY",
+                                                "date": "{{repeater.attributes.PRI_GRP_INTERVIEWS_DATE.value}}"
                                               },
                                               "else": {
                                                 "if": {
-                                                  "repeater.attributes.PRI_MOBILE.value": {
+                                                  "repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value": {
                                                     "$exists": true,
                                                     "$ne": "undefined"
                                                   }
                                                 },
                                                 "then": {
-                                                  "text": "{{repeater.attributes.PRI_MOBILE.value}}"
+                                                  "component": "Date",
+                                                  "format": "[Shortlisted on] Do MMM YY",
+                                                  "date": "{{repeater.attributes.PRI_GRP_SHORTLISTED_DATE.value}}"
                                                 },
                                                 "else": {
-                                                  "text": "No mobile number on record"
+                                                  "if": {
+                                                    "repeater.attributes.PRI_GRP_APPLIED_DATE.value": {
+                                                      "$exists": true,
+                                                      "$ne": "undefined"
+                                                    }
+                                                  },
+                                                  "then": {
+                                                    "component": "Date",
+                                                    "format": "[Applied on] Do MMM YY",
+                                                    "date": "{{repeater.attributes.PRI_GRP_APPLIED_DATE.value}}"
+                                                  },
+                                                  "else": {
+                                                    "if": {
+                                                      "repeater.attributes.PRI_MOBILE.value": {
+                                                        "$exists": true,
+                                                        "$ne": "undefined"
+                                                      }
+                                                    },
+                                                    "then": {
+                                                      "text": "{{repeater.attributes.PRI_MOBILE.value}}"
+                                                    },
+                                                    "else": {
+                                                      "text": "No mobile number on record"
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
                                           }
                                         }
+                                      },
+                                      "props": {
+                                        "size": "xxs"
                                       }
                                     }
-                                  },
-                                  "props": {
-                                    "size": "xxs"
-                                  }
+                                  ]
                                 }
                               ]
                             }
@@ -718,9 +727,9 @@
                         }
                       ]
                     }
-                  ]
+                  }
                 }
-              }
+              ]
             }
           ]
         }

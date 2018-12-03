@@ -1,42 +1,51 @@
 {
   "children": [
     {
-        "component":"Box",
-        "props": {
+      "component": "Box",
+      "props": {
         "width": "100%",
         "backgroundColor": "white",
         "borderWidth": 1,
         "borderColor": "lightgray",
         "padding": 10,
         "flexDirection": "row"
-        },
-        "children": [
+      },
+      "children": [
         {
-            "component":"Heading",
-            "props": {
-                "text": "{{props.title}}",
-                "width": "100%",
-                "align": "left",
-                "size": "xs"
-            }
+          "component": "Heading",
+          "props": {
+            "text": "{{props.title}}",
+            "width": "100%",
+            "align": "left",
+            "size": "xs"
+          }
         },
         {
-            "component":"Box",
-            "props": {
-            },
-            "children": [
-                {
-                    "component": "Heading",
-                    "props": {
-                    "text": "{{props.value}}",
-                    "width": "100%",
-                    "align": "center",
-                    "size": "md"
-                    }
+          "component": "Box",
+          "props": {},
+          "children": [
+            {
+              "component": "Heading",
+              "conditional": {
+                "$if": {
+                  "props.value": {
+                    "$exists": false
+                  }
+                },
+                "$then": {
+                  "text": "-"
                 }
-            ]
+              },
+              "props": {
+                "text": "{{props.value}}",
+                "width": "100%",
+                "align": "center",
+                "size": "md"
+              }
+            }
+          ]
         }
-        ]
+      ]
     }
-]
+  ]
 }
