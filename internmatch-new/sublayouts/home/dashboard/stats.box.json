@@ -40,9 +40,18 @@
                   "component": "Heading",
                   "conditional": {
                     "if": {
-                      "props.value": {
-                        "$exists": true
-                      }
+                      "$and": [
+                        {
+                          "props.value": {
+                            "$ne": "undefined"
+                          }
+                        },
+                        {
+                          "props.value": {
+                            "$exists": true
+                          }
+                        }
+                      ]
                     },
                     "then": {
                       "text": "{{props.value}}"
