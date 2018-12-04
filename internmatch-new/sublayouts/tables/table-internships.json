@@ -176,6 +176,18 @@
       "operator": "scope",
       "path": "internships",
       "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
         "operator": "sort",
         "by": "created",
         "direction": "desc"
