@@ -32,66 +32,55 @@
       }
     }
   },
-  "children": [{
-    "component": "Box",
-    "children": [{
-      "component": "Table",
-      "props": {
-        "code": "GRP_CONTACTS",
-        "renderWrapper": {
-          "component": "EventButton",
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
           "props": {
-            "height": "20px",
-            "fontWeight": "300",
-            "fontSize": 10,
-            "eventType": "BTN_CLICK",
-            "buttonCode": "BTN_TABLE_SELECT",
-            "value": {
-              "itemCode": "_celld.attributeCode",
-              "userCode": "{{user.data.code}}"
-            }
-          }
-        },
-        "columns": [{
-            "Header": "Actions",
-            "accessor": "actions",
-            "renderButton": [
+            "layoutName": "tables/table-default",
+            "code": "GRP_CONTACTS",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "First Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Last Name",
+                "accessor": "lastName",
+                "attributeCode": "PRI_LASTNAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string",
+                "attributeCode": "PRI_EMAIL"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_MOBILE",
+                "filterType": "string"
+              }
             ]
-          },
-          {
-            "Header": "First Name",
-            "accessor": "firstName",
-            "attributeCode": "PRI_FIRSTNAME",
-            "id": "firstName",
-            "key": "firstName",
-            "filterType": "string"
-          },
-          {
-            "Header": "Last Name",
-            "accessor": "lastName",
-            "attributeCode": "PRI_LASTNAME",
-            "filterType": "string"
-          },
-          {
-            "Header": "Email",
-            "accessor": "email",
-            "filterType": "string"
-          }, {
-            "Header": "Contact Number",
-            "accessor": "contactNumber",
-            "attributeCode": "PRI_PHONE_NUMBER",
-            "filterType": "string"
           }
-        ],
-        "tableBackgroundColor": "#cccccc",
-        "data": "_query.tableData",
-        "tableHeight": "500px",
-        "tableWidth": "100%",
-        "itemsPerPage": 10
-      }
-    }]
-  }],
-  "query": [{
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
       "id": "GRP_RESULTS",
       "as": "contacts"
@@ -113,6 +102,18 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

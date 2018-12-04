@@ -35,24 +35,17 @@
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "code": "GRP_OFFERED_INTERNSHIPS",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
@@ -87,7 +80,8 @@
                 "accessor": "name",
                 "id": "name",
                 "key": "name",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_NAME"
               },
               {
                 "Header": "Host Company",
@@ -102,44 +96,46 @@
               {
                 "Header": "Contact Number",
                 "accessor": "contactNumber",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_MOBILE"
               },
               {
                 "Header": "Applied",
                 "accessor": "countApplied",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_APPLIED"
               },
               {
                 "Header": "Shortlisted",
                 "accessor": "countShortlisted",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_SHORTLISTED"
               },
               {
                 "Header": "Interviews",
                 "accessor": "countInterviews",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_INTERVIEWS"
               },
               {
                 "Header": "Offered",
                 "accessor": "countOffered",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_OFFERED"
               },
               {
                 "Header": "In Progress",
                 "accessor": "countInProgress",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_IN_PROGRESS"
               },
               {
                 "Header": "Placed",
                 "accessor": "countPlaced",
-                "filterType": "string"
+                "filterType": "string",
+                "attributeCode": "PRI_COUNT_GRP_PLACED"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "tableHeight": "500px",
-            "tableWidth": "100%",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -213,6 +209,18 @@
           "operator": "populateAttributes",
           "code": "{{code}}",
           "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
         }
       }
     },
