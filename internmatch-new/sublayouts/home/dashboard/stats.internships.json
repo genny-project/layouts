@@ -26,11 +26,21 @@
                   {
                      "component": "Sublayout",
                      "props": {
+                       "title": "All Internships",
+                       "value": "{{query.totalnternships}}",
+                       "layoutName": "home/dashboard/stats.box",
+                       "buttonCode": "GRP_ROOT",
+                       "buttonValue": "GRP_INTERNSHIPS"
+                     }
+                   },
+                  {
+                     "component": "Sublayout",
+                     "props": {
                         "title": "Available (No Applications)",
                         "value": "{{query.stats.attributes.PRI_GRP_AVAILABLE_INTERNSHIPS.valueDouble}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_ACTIVE"
                      }
                   },
                   {
@@ -39,8 +49,8 @@
                         "title": "Applied, Shortlisted or Interviewed",
                         "value": "{{query.processedInternships}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_SHORTLISTED"
                      }
                   },
                   {
@@ -49,8 +59,8 @@
                         "title": "Offered",
                         "value": "{{query.stats.attributes.PRI_GRP_OFFERED_INTERNSHIPS.valueDouble}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_OFFERED"
                      }
                   },
                   {
@@ -59,8 +69,8 @@
                         "title": "Placed (Waiting To Start)",
                         "value": "{{query.stats.attributes.PRI_GRP_PLACED_INTERNSHIPS.valueDouble}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_PLACED"
                      }
                   },
                   {
@@ -69,8 +79,8 @@
                         "title": "In Progress",
                         "value": "{{query.stats.attributes.PRI_GRP_IN_PROGRESS_INTERNSHIPS.valueDouble}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_IN_PROGRESS"
                      }
                   },
                   {
@@ -79,8 +89,8 @@
                         "title": "Completed (Internships)",
                         "value": "{{query.stats.attributes.PRI_GRP_COMPLETED_INTERNSHIPS.valueDouble}}",
                         "layoutName": "home/dashboard/stats.box",
-                        "buttonCode": "xx",
-                        "buttonValue": "xx"
+                        "buttonCode": "GRP_INTERNSHIPS",
+                        "buttonValue": "GRP_COMPLETED"
                      }
                   }
                ]
@@ -140,6 +150,18 @@
            "{{stats.attributes.PRI_GRP_SHORTLISTED_INTERNSHIPS.valueDouble}}",
            "{{stats.attributes.PRI_GRP_INTERVIEWED_INTERNSHIPS.valueDouble}}"
          ]
+      },
+      {
+        "operator": "add",
+        "as": "totalnternships",
+        "values": [
+          "{{stats.attributes.PRI_GRP_AVAILABLE_INTERNSHIPS.valueDouble}}",
+          "{{stats.attributes.PRI_GRP_OFFERED_INTERNSHIPS.valueDouble}}",
+          "{{stats.attributes.PRI_GRP_PLACED_INTERNSHIPS.valueDouble}}",
+          "{{stats.attributes.PRI_GRP_IN_PROGRESS_INTERNSHIPS.valueDouble}}",
+          "{{stats.attributes.PRI_GRP_COMPLETED_INTERNSHIPS.valueDouble}}",
+          "{{query.processedInternships}"
+        ]
       }
    ]
 }

@@ -25,14 +25,9 @@
           "children": [
             {
               "component": "Sublayout",
-              "onlyShowIf": {
-                "props.showAllStudentsRow": {
-                  "$eq": true
-                }
-              },
               "props": {
                 "title": "All Interns",
-                "value": "-",
+                "value": "{{query.totalnterns}}",
                 "layoutName": "home/dashboard/stats.box",
                 "buttonCode": "GRP_ROOT",
                 "buttonValue": "GRP_OVERVIEW"
@@ -153,6 +148,19 @@
       "values": [
         "{{stats.attributes.PRI_GRP_APPLIED_INTERNS.valueDouble}}",
         "{{stats.attributes.PRI_GRP_SHORTLISTED_INTERNS.valueDouble}}",
+        "{{stats.attributes.PRI_GRP_INTERVIEWED_INTERNS.valueDouble}}"
+      ]
+    },
+    {
+      "operator": "add",
+      "as": "totalnterns",
+      "values": [
+        "{{stats.attributes.PRI_GRP_AVAILABLE_INTERNS.valueDouble}}",
+        "{{stats.attributes.PRI_GRP_OFFERED_INTERNS.valueDouble}}",
+        "{{stats.attributes.PRI_GRP_PLACED_INTERNS.valueDouble}}",
+        "{{stats.attributes.PRI_GRP_IN_PROGRESS_INTERNS.valueDouble}}",
+        "{{stats.attributes.PRI_GRP_COMPLETED_INTERNS.valueDouble}}",
+        "{{query.processedInterns}",
         "{{stats.attributes.PRI_GRP_INTERVIEWED_INTERNS.valueDouble}}"
       ]
     }
