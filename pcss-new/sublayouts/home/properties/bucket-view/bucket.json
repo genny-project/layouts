@@ -82,7 +82,6 @@
                 "withFeedback": true,
                 "showSpinnerOnClick": true,
                 "value": {
-                  "hint": "GRP_NEW_ITEMS",
                   "itemCode": "{{repeater.code}}"
                 },
                 "flexDirection": "column",
@@ -648,91 +647,91 @@
       ]
     }
   ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "GRP_APPLICATIONS",
-      "as": "applications"
-    },
-    {
-      "operator": "scope",
-      "path": "applications.links",
-      "scope": {
+   "query": [
+      {
         "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "as": "be",
-        "id": "{{link.targetCode}}",
-        "filterOutEmpty": false
-      }
-    },
-    {
-      "operator": "map",
-      "fields": "applications.links"
-    },
-    {
-      "operator": "sort",
-      "by": "weight",
-      "direction": "asc"
-    },
-    {
-      "operator": "map",
-      "fields": "be"
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "as": "be",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be.code": {
-            "$exists": true
-          }
+        "id": "GRP_APPLICATIONS",
+        "as": "applications"
+      },
+      {
+        "operator": "scope",
+        "path": "applications.links",
+        "scope": {
+          "operator": "getBE",
+          "basePath": "baseEntities.data",
+          "as": "be",
+          "id": "{{link.targetCode}}",
+          "filterOutEmpty": false
         }
-      }
-    },
-    {
-      "operator": "map",
-      "fields": {
-        "name": "name",
-        "code": "code",
-        "items": "links"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
+      },
+      {
+        "operator": "map",
+        "fields": "applications.links"
+      },
+      {
+        "operator": "sort",
+        "by": "weight",
+        "direction": "asc"
+      },
+      {
         "operator": "map",
         "fields": "be"
+      },
+      {
+        "operator": "scope",
+        "path": "links",
+        "scope": {
+          "operator": "getBE",
+          "basePath": "baseEntities.data",
+          "as": "be",
+          "id": "{{link.targetCode}}"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "links",
+        "scope": {
+          "operator": "find",
+          "query": {
+            "be.code": {
+              "$exists": true
+            }
+          }
+        }
+      },
+      {
+        "operator": "map",
+        "fields": {
+          "name": "name",
+          "code": "code",
+          "items": "links"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "map",
+          "fields": "be"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "sort",
+          "by": "attributes.PRI_ADDRESS_FULL.value",
+          "direction": "asc"
+        }
       }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "sort",
-        "by": "attributes.PRI_ADDRESS_FULL.value",
-        "direction": "asc"
-      }
-    }
-  ]
+    ]
 }

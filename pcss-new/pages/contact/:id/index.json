@@ -1,6 +1,6 @@
 {
     "layout": {
-      "title": "Contact By Phone Form",
+      "title": "Question",
       "appColor": "dark",
       "backgroundColor": "white",
       "header": {
@@ -25,7 +25,7 @@
           {
             "component": "Form",
             "props": {
-              "questionGroupCode": "QUE_CONTACTED_DETAILS_GRP",
+              "questionGroupCode": "{{navigation.id}}",
               "renderHeading": {
                 "component": "Box",
                 "props": {
@@ -52,10 +52,10 @@
                   {
                     "component": "Heading",
                     "props": {
-                      "color": "red",
+                      "color": "#222",
                       "size": "lg",
                       "align": "left",
-                      "text": "ldfdlfkl"
+                      "text": "{{subheading}}"
                     }
                   }
                 ]
@@ -64,7 +64,8 @@
                 "component": "Box",
                 "props": {
                   "marginBottom": 20,
-                  "flexDirection": "column"
+                  "flexDirection": "column",
+                  "borderWidth": 2
                 }
               },
               "renderFormInput": {
@@ -72,90 +73,25 @@
                 "useThemeFrom": "Input",
                 "variant": "default",
                 "props": {
-                  "placeholder": "{{label}}",
-                 "appearance": "none",
-                  "height": 50,
-                  "borderRadius": 25,
-                  "paddingX": 20,
-                  "paddingY": 15,
-                  "borderWidth":1
-
+                  "placeholder": "{{label}}"
                 }
-              },
-              "renderFormInputLabel": {
-                "component": "Box",
-                "props": {
-                  "margin": 10,
-                  "alignItems": "center",
-                  "justifyContent": "space-between"
-                },
-                "children": [
-                  {
-                    "component": "Text",
-                    "props": {
-                      "text": "{{label}}"
-                    },
-                    "conditional": {
-                      "if": {
-                        "$or": [
-                          {
-                            "submitCount": { "$gt": 0 },
-                            "error": { "$exists": true }
-                          },
-                          {
-                            "touched": { "$eq": true },
-                            "error": { "$exists": true }
-                          }
-                        ]
-                      },
-                      "then": {
-                        "color": "red"
-                      }
-                    }
-                  },
-                  {
-                    "component": "Text",
-                    "onlyShowIf": {
-                      "$or": [
-                        { "required": { "$eq": true } },
-                        { "error": { "$exists": true } }
-                      ]
-                    },
-                    "conditional": {
-                      "if": {
-                        "error": { "$exists": true }
-                      },
-                      "then": {
-                        "color": "red",
-                        "text": "{{error}}"
-                      },
-                      "else": {
-                        "text": "*required"
-                      }
-                    },
-                    "props": {
-                      "size": "xs"
-                    }
-                  }
-                ]
               },
               "renderSubmitButtonWrapper": {
                 "component": "Box",
                 "props": {
                   "marginTop": 10,
-                  "flexDirection": "row"
+                  "flexDirection": "column"
                 }
               },
               "renderSubmitButton": {
-                "component": "Button",
+                "component": "EventButton",
                 "props": {
                   "inverted": true,
-                  "showSpinnerOnClick": true, 
-                  "width": "100%",
-                  "color": "black",
+                  "showSpinnerOnClick": true,
+                  "color": "#222",
                   "hoverProps": {
                     "color": "#093f7f",
-                    "textColor": "green"
+                    "textColor": "white"
                   }
                 }
               },
