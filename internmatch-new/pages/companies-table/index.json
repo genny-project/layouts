@@ -32,74 +32,66 @@
       }
     }
   },
-  "children": [{
-    "component": "Box",
-    "children": [{
-      "component": "Table",
-      "props": {
-        "renderWrapper": {
-          "component": "EventButton",
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
           "props": {
-            "height": "20px",
-            "fontWeight": "300",
-            "fontSize": 10,
-            "eventType": "BTN_CLICK",
-            "buttonCode": "BTN_TABLE_SELECT",
-            "value": {
-              "itemCode": "_celld.attributeCode",
-              "userCode": "{{user.data.code}}"
-            }
-          }
-        },
-        "columns": [{
-            "Header": "Actions",
-            "accessor": "actions",
-            "renderButton": [
+            "layoutName": "tables/table-default",
+            "code": "GRP_COMPANIES",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Comapany Name",
+                "accessor": "name",
+                "id": "name",
+                "key": "name",
+                "filterType": "string"
+              },
+              {
+                "Header": "Legal Name",
+                "accessor": "legalName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "filterType": "string"
+              },
+              {
+                "Header": "Website",
+                "accessor": "website",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address",
+                "accessor": "address",
+                "filterType": "string"
+              },
+              {
+                "Header": "ABN",
+                "accessor": "abn",
+                "filterType": "string"
+              }
             ]
-          },
-          {
-            "Header": "Comapany Name",
-            "accessor": "name",
-            "id": "name",
-            "key": "name",
-            "filterType": "string"
-          },
-          {
-            "Header": "Legal Name",
-            "accessor": "legalName",
-            "filterType": "string"
-          },
-          {
-            "Header": "Email",
-            "accessor": "email",
-            "filterType": "string"
-          }, {
-            "Header": "Contact Number",
-            "accessor": "contactNumber",
-            "filterType": "string"
-          }, {
-            "Header": "Website",
-            "accessor": "website",
-            "filterType": "string"
-          }, {
-            "Header": "Address",
-            "accessor": "address",
-            "filterType": "string"
-          }, {
-            "Header": "ABN",
-            "accessor": "abn",
-            "filterType": "string"
           }
-        ],
-        "tableBackgroundColor": "#cccccc",
-        "data": "_query.tableData",
-        "tableHeight": "500px",
-        "tableWidth": "100%",
-        "itemsPerPage": 15
-      }
-    }]
-  }],
-  "query": [{
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
       "id": "GRP_RESULTS",
       "as": "companies"
@@ -121,6 +113,18 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

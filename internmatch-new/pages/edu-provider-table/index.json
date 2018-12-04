@@ -35,25 +35,17 @@
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "code": "GRP_EDU_PROVIDERS",
+            "rootCode": "GRP_EDU_PROVIDERS",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
@@ -130,12 +122,7 @@
                 "accessor": "select",
                 "filterType": "string"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -178,6 +165,18 @@
         "as": "company",
         "basePath": "baseEntities.data",
         "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {
