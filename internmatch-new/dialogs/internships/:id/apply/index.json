@@ -85,7 +85,7 @@
               "children": [
                 {
                   "component": "Text",
-                  "children": "{{query.internship.attributes.LNK_INTERNSHIP_DURATION.value}}"
+                  "children": "{{query.internship.duration.name}}"
                 }
               ]
             },
@@ -142,6 +142,28 @@
       "scope": {
         "operator": "scope",
         "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "as": "duration"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "scope",
+        "path": "duration",
         "scope": {
           "operator": "populateAttributes",
           "code": "{{code}}",

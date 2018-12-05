@@ -10,76 +10,44 @@
       },
       "children": [
         {
-          "component": "Tabs",
+          "component": "Sublayout",
           "props": {
-            "flex": 1,
-            "tabBarBackground": "#233a4e",
-            "tabWrapperProps": {
-              "paddingLeft": 20,
-              "height": 50,
-              "flexBasis": "auto"
-            },
-            "textColor": "#FFF",
-            "tabBackground": "#41505d",
-            "activeTabBackground": "#f6f6f6",
-            "activeTabTextColor": "#000",
-            "tabProps": {
-              "paddingX": 20,
-              "paddingY": 15,
-              "minWidth": 180,
-              "justifyContent": "center"
-            },
-            "tabTitleProps": {
-              "size": "xs"
-            },
-            "activeTabTitleProps": {
-              "bold": true
-            },
-            "inactiveTabProps": {
-              "borderColor": "#233a4e",
-              "borderRightWidth": 1,
-              "borderStyle": "solid"
-            },
+            "layoutName": "tabs/tabs-default",
+            "title": "Internships",
             "tabs": [
               { "title": "Dashboard", "key": 0 }
             ],
-            "childProps": {
-              "overflow": "auto",
-              "maxHeight": "calc(100vh - 65px - 50px)"
-            },
-            "overflowX": "auto",
-            "backgroundColor": "#f6f6f6"
-          },
-          "children": [
-            {
-              "component":"Box",
-              "props": {
-                "width":"100%",
-                "height":"100%",
-                "flexDirection": "column",
-                "alignItems": "center"
-              },
-              "children": [
-                {
-                  "component": "Sublayout",
-                  "props": {
-                    "layoutName": "home/dashboard/stats.students"
-                  }
+            "content": [
+              {
+                "component":"Box",
+                "props": {
+                  "width":"100%",
+                  "height":"100%",
+                  "flexDirection": "column",
+                  "alignItems": "center"
                 },
-                {
-                  "component": "Sublayout",
-                  "props": {
-                    "layoutName": "home/dashboard/stats.internships"
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "home/dashboard/stats.students"
+                    }
+                  },
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "home/dashboard/stats.internships"
+                    }
                   }
-                }
-              ]
-            }
-          ]
+                ]
+              }
+            ]
+          }
         }
       ]
     }
   ],
   "query": [
-    
+
   ]
 }
