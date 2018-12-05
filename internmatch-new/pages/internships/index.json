@@ -3,85 +3,93 @@
     "title": "Internships",
     "appColor": "white",
     "backgroundColor": "white",
-    "header":{
-        "variant":"default"
+    "header": {
+      "variant": "default"
     },
-    "sidebar":{
-        "variant":"default"
+    "sidebar": {
+      "variant": "default"
     },
-    "sidebarRight":{
-        "variant":"default",
-        "onlyShowIf":{
-            "user.attributes.PRI_IS_AGENT.value":{
-                "$eq":true
-            }
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
         }
+      }
     }
   },
   "children": [
     {
-      "component": "Tabs",
+      "component": "Sublayout",
       "props": {
-        "flex": 1,
-        "tabBarBackground": "#233a4e",
-        "tabWrapperProps": {
-          "paddingLeft": 20,
-          "height": 50,
-          "flexBasis": "auto"
-        },
-        "textColor": "#FFF",
-        "tabBackground": "#41505d",
-        "activeTabBackground": "#f6f6f6",
-        "activeTabTextColor": "#000",
-        "tabProps": {
-          "paddingX": 20,
-          "paddingY": 15,
-          "minWidth": 180,
-          "justifyContent": "center"
-        },
-        "tabTitleProps": {
-          "size": "xs"
-        },
-        "activeTabTitleProps": {
-          "bold": true
-        },
-        "inactiveTabProps": {
-          "borderColor": "#233a4e",
-          "borderRightWidth": 1,
-          "borderStyle": "solid"
-        },
+        "layoutName": "tabs/tabs-default",
+        "title": "Internships",
         "tabs": [
-          { "title": "Table View", "key": 0 },
-          { "title": "Applications", "key": 1 },
-          { "title": "Details View", "key": 2 }
+          {
+            "title": "Table View",
+            "key": 0
+          },
+          {
+            "title": "Applications",
+            "key": 1
+          },
+          {
+            "title": "Details View",
+            "key": 2
+          }
         ],
-        "childProps": {
-          "overflowX": "auto",
-          "overflowY": "auto",
-          "maxHeight": "calc(100vh - 50px - 65px)"
-        },
-        "overflowX": "auto"
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "tables/table-internships"
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/table-internships"
+            }
+          },
+          {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "paddingX": 20,
+                  "paddingTop": 20
+                },
+                "children": [
+
+                  {
+                    "component": "Heading",
+                    "props": {
+                      "text": "{{query.currentItem.name}}"
+                    }
+                  }
+                ]
+              },
+              {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "home/agent/bucket"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/internship-details"
+            }
           }
-        },
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "home/agent/bucket"
-          }
-        },
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "home/agent/internship-details"
-          }
-        }
-      ]
+        ]
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
     }
   ]
 }

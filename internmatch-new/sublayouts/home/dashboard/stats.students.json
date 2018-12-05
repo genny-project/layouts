@@ -27,7 +27,7 @@
               "component": "Sublayout",
               "props": {
                 "title": "All Interns",
-                "value": "{{query.totalnterns}}",
+                "value": "{{query.totalInterns}}",
                 "layoutName": "home/dashboard/stats.box",
                 "buttonCode": "GRP_ROOT",
                 "buttonValue": "GRP_OVERVIEW"
@@ -153,14 +153,14 @@
     },
     {
       "operator": "add",
-      "as": "totalnterns",
+      "as": "totalInterns",
       "values": [
         "{{stats.attributes.PRI_GRP_AVAILABLE_INTERNS.valueDouble}}",
         "{{stats.attributes.PRI_GRP_OFFERED_INTERNS.valueDouble}}",
         "{{stats.attributes.PRI_GRP_PLACED_INTERNS.valueDouble}}",
         "{{stats.attributes.PRI_GRP_IN_PROGRESS_INTERNS.valueDouble}}",
         "{{stats.attributes.PRI_GRP_COMPLETED_INTERNS.valueDouble}}",
-        "{{query.processedInterns}",
+        "{{processedInterns}}",
         "{{stats.attributes.PRI_GRP_INTERVIEWED_INTERNS.valueDouble}}"
       ]
     }
