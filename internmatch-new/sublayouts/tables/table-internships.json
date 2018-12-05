@@ -16,6 +16,7 @@
             "code": "GRP_INTERNSHIPS",
             "rootCode": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
             "data": "_query.tableData",
+            "totalItems": "_query.internshipGroup.totalCount",
             "columns": [
               {
                 "Header": "Actions",
@@ -49,6 +50,7 @@
                 "accessor": "name",
                 "id": "name",
                 "key": "name",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
@@ -64,6 +66,7 @@
               {
                 "Header": "Contact Number",
                 "accessor": "contactNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
@@ -220,6 +223,11 @@
       "operator": "getFromAlias",
       "alias": "CURRENT_NOTE",
       "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
+      "as": "internshipGroup"
     }
   ]
 }
