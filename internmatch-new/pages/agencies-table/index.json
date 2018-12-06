@@ -8,29 +8,44 @@
     },
     "sidebar": {
       "variant": "default"
-    }  },
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "code": "GRP_AGENCIES",
+            "rootCode": "GRP_AGENCIES",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
@@ -73,34 +88,33 @@
                       }
                     }
                   }
-              ]
+                ]
               },
               {
                 "Header": "Company Name",
                 "accessor": "companyName",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "Phone Number",
                 "accessor": "phoneNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
                 "Header": "Address ",
                 "accessor": "fullAddress",
+                "attributeCode": "PRI_ADDRESS_FULL",
                 "filterType": "string"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -140,9 +154,21 @@
       "path": "agencies",
       "scope": {
         "operator": "getBE",
-        "as" : "company",
+        "as": "company",
         "basePath": "baseEntities.data",
         "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agencies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

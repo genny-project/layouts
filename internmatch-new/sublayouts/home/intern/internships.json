@@ -155,6 +155,18 @@
       "operator": "scope",
       "path": "items",
       "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"

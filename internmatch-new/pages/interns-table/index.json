@@ -12,9 +12,23 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "user.attributes.PRI_IS_AGENT.value": {
-          "$eq": true
-        }
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
       }
     }
   },
@@ -26,7 +40,7 @@
         "title": "Internships",
         "tabs": [
           { "title": "Table View", "key": 0 },
-          { "title": "Applications", "key": 1 },
+          { "title": "Process View", "key": 1 },
           { "title": "Details View", "key": 2 }
         ],
         "content": [

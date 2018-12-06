@@ -1,6 +1,8 @@
 {
   "layout": {
-    "title": "Profile",
+    "title": "Interns Overview",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
     "header": {
       "variant": "default"
     },
@@ -32,37 +34,10 @@
   },
   "children": [
     {
-      "component": "Box",
+      "component": "Sublayout",
       "props": {
-        "flex": 1
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "user-profile",
-            "user": "_query.student",
-            "showBackButton": true
-          }
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "{{navigation.id}}",
-      "as": "student"
-    },
-    {
-      "operator": "scope",
-      "path": "student",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
+        "layoutName": "home/edu-provider/bucket"
       }
     }
   ]
 }
-
