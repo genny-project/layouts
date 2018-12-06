@@ -248,56 +248,69 @@
                   },
                   "children": [
                     {
-                      "component": "FormGenericInput",
-                      "props": {
-                        "type": "textarea",
-                        "name": "note",
-                        "maxLength": 1000,
-                        "padding": 15,
-                        "borderStyle": "solid",
-                        "borderColor": "#DDD",
-                        "backgroundColor": "white",
-                        "borderWidth": 1,
-                        "showCharacterCount": true,
-                        "submitOnEnterPress": true,
-                        "renderCharacterCount": {
-                          "component": "Box",
-                          "props": {
-                            "position": "absolute",
-                            "bottom": 5,
-                            "right": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xxs",
-                                "color": "grey",
-                                "paddingBottom": 20,
-                                "borderColor": "#ddd",
-                                "text": "{{characterCount}} / {{maxLength}}"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    {
                       "component": "Box",
                       "props": {
-                        "marginTop": 10,
+                        "flexGrow": 1,
+                        "flexShrink": 0,
+                        "flexDirection": "column",
+                        "justifyContent": "space-between",
                         "width": "100%"
                       },
                       "children": [
                         {
-                          "component": "FormGenericSubmit",
+                          "component": "FormGenericInput",
                           "props": {
-                            "padding": 0,
-                            "width": "100%",
-                            "text": "Add note",
-                            "color": "green",
-                            "disabledWhenFormInvalid": true
+                            "type": "textarea",
+                            "name": "note",
+                            "maxLength": 1000,
+                            "padding": 15,
+                            "borderStyle": "solid",
+                            "borderColor": "#DDD",
+                            "backgroundColor": "white",
+                            "borderWidth": 1,
+                            "showCharacterCount": true,
+                            "submitOnEnterPress": true,
+                            "renderCharacterCount": {
+                              "component": "Box",
+                              "props": {
+                                "position": "absolute",
+                                "bottom": 5,
+                                "right": 10
+                              },
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xxs",
+                                    "color": "grey",
+                                    "paddingBottom": 20,
+                                    "borderColor": "#ddd",
+                                    "text": "{{characterCount}} / {{maxLength}}"
+                                  }
+                                }
+                              ]
+                            }
                           }
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginTop": 10,
+                            "width": "100%"
+                          },
+                          "children": [
+                            {
+                              "component": "FormGenericSubmit",
+                              "props": {
+                                "padding": 0,
+                                "width": "100%",
+                                "text": "Add note",
+                                "color": "green",
+                                "formProps": "_formProps",
+                                "disabledWhenFormInvalid": true
+                              }
+                            }
+                          ]
                         }
                       ]
                     }
