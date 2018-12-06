@@ -8,86 +8,81 @@
     },
     "sidebar": {
       "variant": "default"
-    }
-  },
-  "children": [{
-    "component": "Box",
-    "children": [{
-      "component": "Table",
-      "props": {
-        "renderWrapper": {
-          "component": "EventButton",
-          "props": {
-            "height": "20px",
-            "fontWeight": "300",
-            "fontSize": 10,
-            "eventType": "BTN_CLICK",
-            "buttonCode": "BTN_TABLE_SELECT",
-            "value": {
-              "itemCode": "_celld.attributeCode",
-              "userCode": "{{user.data.code}}"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
             }
           }
-        },
-        "columns": [{
-            "Header": "Actions",
-            "accessor": "actions",
-            "renderButton": [{
-                "component": "EventButton",
-                "props": {
-                  "height": "30px",
-                  "backgroundColor": "red",
-                  "color": "#5173c6",
-                  "textColor": "#fff",
-                  "text": "View",
-                  "buttonCode": "BTN_VIEW_BUCKET",
-                  "value": {
-                    "itemCode": "{{code}}"
-                  },
-                  "dispatchActionOnClick": {
-                    "type": "ALIAS_ADD",
-                    "payload": {
-                      "alias": "CURRENT_NOTE",
-                      "value": "{{code}}"
-                    }
-                  }
-                }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/table-default",
+            "code": "GRP_CONTACTS",
+            "rootCode": "GRP_RESULT_CONTACTS",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "First Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Last Name",
+                "accessor": "lastName",
+                "attributeCode": "PRI_LASTNAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string",
+                "attributeCode": "PRI_EMAIL"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_MOBILE",
+                "filterType": "string"
               }
             ]
-          },
-          {
-            "Header": "First Name",
-            "accessor": "firstName",
-            "id": "firstName",
-            "key": "firstName",
-            "filterType": "string"
-          },
-          {
-            "Header": "Last Name",
-            "accessor": "lastName",
-            "filterType": "string"
-          },
-          {
-            "Header": "Email",
-            "accessor": "email",
-            "filterType": "string"
-          }, {
-            "Header": "Contact Number",
-            "accessor": "contactNumber",
-            "filterType": "string"
           }
-        ],
-        "tableBackgroundColor": "#cccccc",
-        "data": "_query.tableData",
-        "tableHeight": "500px",
-        "tableWidth": "100%",
-        "itemsPerPage": 15
-      }
-    }]
-  }],
-  "query": [{
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
-      "id": "GRP_RESULTS",
+      "id": "GRP_RESULT_CONTACTS",
       "as": "contacts"
     },
     {
@@ -107,6 +102,18 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

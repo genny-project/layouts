@@ -8,97 +8,97 @@
     },
     "sidebar": {
       "variant": "default"
-    }
-  },
-  "children": [{
-    "component": "Box",
-    "children": [{
-      "component": "Table",
-      "props": {
-        "renderWrapper": {
-          "component": "EventButton",
-          "props": {
-            "height": "20px",
-            "fontWeight": "300",
-            "fontSize": 10,
-            "eventType": "BTN_CLICK",
-            "buttonCode": "BTN_TABLE_SELECT",
-            "value": {
-              "itemCode": "_celld.attributeCode",
-              "userCode": "{{user.data.code}}"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
             }
           }
-        },
-        "columns": [{
-            "Header": "Actions",
-            "accessor": "actions",
-            "renderButton": [{
-                "component": "EventButton",
-                "props": {
-                  "height": "30px",
-                  "width": "80px",
-                  "backgroundColor": "red",
-                  "color": "#5173c6",
-                  "textColor": "#fff",
-                  "text": "View",
-                  "buttonCode": "BTN_VIEW_BUCKET",
-                  "value": {
-                    "itemCode": "{{code}}"
-                  },
-                  "dispatchActionOnClick": {
-                    "type": "ALIAS_ADD",
-                    "payload": {
-                      "alias": "CURRENT_NOTE",
-                      "value": "{{code}}"
-                    }
-                  }
-                }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/table-default",
+            "code": "GRP_COMPANIES",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Comapany Name",
+                "accessor": "name",
+                "attributeCode": "PRI_COMPANY_NAME",
+                "id": "name",
+                "key": "name",
+                "filterType": "string"
+              },
+              {
+                "Header": "Legal Name",
+                "accessor": "legalName",
+                "attributeCode": "PRI_LEGAL_NAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Website",
+                "accessor": "website",
+                "attributeCode": "PRI_WEBSITE",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
+                "filterType": "string"
+              },
+              {
+                "Header": "ABN",
+                "accessor": "abn",
+                "attributeCode": "PRI_ABN",
+                "filterType": "string"
               }
             ]
-          },
-          {
-            "Header": "Comapany Name",
-            "accessor": "name",
-            "id": "name",
-            "key": "name",
-            "filterType": "string"
-          },
-          {
-            "Header": "Legal Name",
-            "accessor": "legalName",
-            "filterType": "string"
-          },
-          {
-            "Header": "Email",
-            "accessor": "email",
-            "filterType": "string"
-          }, {
-            "Header": "Contact Number",
-            "accessor": "contactNumber",
-            "filterType": "string"
-          }, {
-            "Header": "Website",
-            "accessor": "website",
-            "filterType": "string"
-          }, {
-            "Header": "Address",
-            "accessor": "address",
-            "filterType": "string"
-          }, {
-            "Header": "ABN",
-            "accessor": "abn",
-            "filterType": "string"
           }
-        ],
-        "tableBackgroundColor": "#cccccc",
-        "data": "_query.tableData",
-        "tableHeight": "500px",
-        "tableWidth": "100%",
-        "itemsPerPage": 15
-      }
-    }]
-  }],
-  "query": [{
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
       "id": "GRP_RESULTS",
       "as": "companies"
@@ -120,6 +120,18 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

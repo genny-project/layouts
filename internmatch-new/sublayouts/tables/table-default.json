@@ -7,7 +7,14 @@
   "children": [
     {
       "component": "Table",
+      "dontInjectContextIntoProps": [
+        "dispatchActionOnChange"
+      ],
       "props": {
+        "code": "{{props.code}}",
+        "isSelectable": true,
+        "selectFirstItemOnMount": true,
+        "itemToSelectFirst": "_query.currentItem",
         "cellContext": {
           "rootCode": "{{props.rootCode}}",
           "userCode": "{{user.data.code}}"
@@ -30,7 +37,15 @@
                 "alias": "CURRENT_NOTE",
                 "value": "{{celld.code}}"
               }
-            }
+            },
+            "onPress": "_onPress"
+          }
+        },
+        "dispatchActionOnChange": {
+          "type": "ALIAS_ADD",
+          "payload": {
+            "alias": "CURRENT_NOTE",
+            "value": "{{code}}"
           }
         },
         "columns": "_props.columns",
@@ -38,8 +53,16 @@
         "data": "_props.data",
         "height": "500px",
         "width": "500px",
-        "itemsPerPage": 15
+        "itemsPerPage": 15,
+        "totalItems": "_props.totalItems"
       }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
     }
   ]
 }
