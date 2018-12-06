@@ -47,7 +47,7 @@
                     "maxWidth": "300px",
                     "maxHeight": "60px"
                   },
-                  "children":                 
+                  "children":
                   {
                     "component": "Image",
                     "props": {
@@ -82,7 +82,29 @@
                     {
                       "component": "AuthenticationForm",
                       "props": {
-                        "type": "register"
+                        "type": "register",
+                        "validation": {
+                          "email": {
+                            "regex": "^(\\w[-._+\\w]*\\w@\\w[-._\\w]*\\w\\.\\w{2,20})$",
+                            "warning": "Invalid Email Address",
+                            "isRequired": true
+                          },
+                          "firstname": {
+                            "regex": "^[a-zA-Z\\_\\.]{1,100}$",
+                            "warning": "Please enter a first name",
+                            "isRequired": true
+                          },
+                          "lastname": {
+                            "regex": "^[a-zA-Z\\_\\.]{1,100}$",
+                            "warning": "Please enter a last name",
+                            "isRequired": true
+                          },
+                          "password": {
+                            "regex": "^.{4,}$",
+                            "warning": "Password must be at least 4 characters",
+                            "isRequired": true
+                          }
+                        }
                       },
                       "children": [
                         {
@@ -292,13 +314,15 @@
                                 {
                                   "component": "FormGenericSubmit",
                                   "props": {
+                                    "disabledWhenFormInvalid": true,
                                     "text": "Register",
                                     "color": "#3c67c8",
                                     "textColor": "white",
                                     "size": "xl",
                                     "height": "50px",
                                     "width": "300px",
-                                    "padding": "20px"
+                                    "padding": "20px",
+                                    "formProps": "_formProps"
                                   }
                                 }
                               ]
