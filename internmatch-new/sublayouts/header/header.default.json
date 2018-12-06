@@ -82,7 +82,7 @@
                 "borderStyle": "solid",
                 "color": "white",
                 "textAlign": "center",
-                "paddingRight": 10
+                "minWidth": 150
               },
               "menuLinkStyle": {
                 "textAlign": "right",
@@ -101,7 +101,40 @@
                   "icon": "exit-to-app",
                   "href": "logout"
                 }
-              ]
+              ],
+              "renderItem": {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "justifyContent": "flex-end",
+                  "padding": 15
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white"
+                    }
+                  }
+                ]
+              }
             },
             "children": [
               {
