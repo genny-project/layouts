@@ -24,44 +24,75 @@
         {
           "component": "Box",
           "props": {
-            "flexDirection": "column",
+            "flexDirection": "row",
             "alignItems": "center",
-            "width":"100%"
+            "width":"100%",
+            "justifyContent": "space-around"
           },
           "children": [
             {
             "component": "Button",
             "props": {
               "padding": 15,
+              "margin": 15,
               "color": "#e05b5c",
               "text": "Back",
               "textColor": "white",
               "isBackButton": true
             }
-          },    
+            },
             {
-              "component":"Box",
-              "props":{
-                "marginBottom":"10px"
-              },
-              "children":          {
-                "component": "Heading",
-                "props": {
-                  "color":"#000000",
-                  "size":"xxl"
-                },
-                "children": "Property Details"
+              "component": "Button",
+              "props": {
+                "padding": 15,
+                "color": "#e05b5c",
+                "text": "Edit",
+                "textColor": "white",
+                "isBackButton": true
               }
             },
+            {
+              "component": "Button",
+              "props": {
+                "padding": 15,
+                "color": "#e05b5c",
+                "text": "Delete",
+                "textColor": "white",
+                "isBackButton": true
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "width":"100%",
+            "position": "relative"
+          },
+          "children": [
             {
               "component": "Image",
               "props": {
                 "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
                 "shape": "square",
-                "height":"100%",
-                "width":"100%"
+                "position":"relative"
               }
-            }
+            },
+            {
+                "component": "Button",
+                "props": {
+                  "position": "absolute",
+                  "top": 30,
+                  "left": 20,
+                  "bottom": 10,
+                  "right": 20,
+                  "color": "#e05b5c",
+                  "text": "Deleteeeee",
+                  "textColor": "white",
+                  "isBackButton": true
+                }
+              }
           ]
         },
         {

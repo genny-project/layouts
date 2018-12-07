@@ -196,18 +196,18 @@
                           "else": {
                             "if": {
                               "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
-                                "$eq": 0
+                                "$eq": 1
                               }
                             },
                             "then": {
                               "items": [
                                 {
                                   "text": "View Detail",
-                                  "href": "/view-property/{{repeater.code}}",
-                                  "buttonCode": "BTN_VIEW_BEG",
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
                                   "value": {
                                   "itemCode":"{{code}}",
-                                  "hint": "BTN_VIEW_BEG"
+                                  "hint": "BTN_VIEW_APPLICATION"
                                 }
                                 },
                                 {
@@ -254,11 +254,11 @@
                                 "items": [
                                   {
                                     "text": "View Detail",
-                                    "href": "/view-property/{{repeater.code}}",
-                                    "buttonCode": "BTN_VIEW_BEG",
+                                    "href": "/view-unit/{{repeater.code}}",
+                                    "buttonCode": "BTN_VIEW_APPLICATION",
                                     "value": {
                                     "itemCode":"{{code}}",
-                                    "hint": "BTN_VIEW_BEG"
+                                    "hint": "BTN_VIEW_APPLICATION"
                                   }
                                   },
                                   {
@@ -305,11 +305,11 @@
                                 "items": [
                                   {
                                     "text": "View Detail",
-                                    "href": "/view-property/{{repeater.code}}",
-                                    "buttonCode": "BTN_VIEW_BEG",
+                                    "href": "/view-unit/{{repeater.code}}",
+                                    "buttonCode": "BTN_VIEW_APPLICATION",
                                     "value": {
                                     "itemCode":"{{code}}",
-                                    "hint": "BTN_VIEW_BEG"
+                                    "hint": "BTN_VIEW_APPLICATION"
                                   }
                                 },
                                   {
@@ -373,11 +373,11 @@
                                   "items": [
                                     {
                                       "text": "View Detail",
-                                      "href": "/view-property/{{repeater.code}}",
-                                      "buttonCode": "BTN_VIEW_BEG",
+                                      "href": "/view-unit/{{repeater.code}}",
+                                      "buttonCode": "BTN_VIEW_APPLICATION",
                                       "value": {
                                       "itemCode":"{{code}}",
-                                      "hint": "BTN_VIEW_BEG"
+                                      "hint": "BTN_VIEW_APPLICATION"
                                     }
                                   },
                                     {
@@ -401,11 +401,11 @@
                                     "items": [
                                       {
                                         "text": "View Detail",
-                                        "href": "/view-property/{{repeater.code}}",
-                                        "buttonCode": "BTN_VIEW_BEG",
+                                        "href": "/view-unit/{{repeater.code}}",
+                                        "buttonCode": "BTN_VIEW_APPLICATION",
                                         "value": {
                                         "itemCode":"{{code}}",
-                                        "hint": "BTN_VIEW_BEG"
+                                        "hint": "BTN_VIEW_APPLICATION"
                                       }
                                     },
                                       {
@@ -445,11 +445,11 @@
                                       "items": [
                                         {
                                           "text": "View Detail",
-                                          "href": "/view-property/{{repeater.code}}",
-                                          "buttonCode": "BTN_VIEW_BEG",
+                                          "href": "/view-unit/{{repeater.code}}",
+                                          "buttonCode": "BTN_VIEW_APPLICATION",
                                           "value": {
                                           "itemCode":"{{code}}",
-                                          "hint": "BTN_VIEW_BEG"
+                                          "hint": "BTN_VIEW_APPLICATION"
                                           }
                                         },
                                         {
@@ -489,11 +489,11 @@
                                         "items": [
                                           {
                                             "text": "View Detail",
-                                            "href": "/view-property/{{repeater.code}}",
-                                            "buttonCode": "BTN_VIEW_BEG",
+                                            "href": "/view-unit/{{repeater.code}}",
+                                            "buttonCode": "BTN_VIEW_APPLICATION",
                                             "value": {
                                             "itemCode":"{{code}}",
-                                            "hint": "BTN_VIEW_BEG"
+                                            "hint": "BTN_VIEW_APPLICATION"
                                           }
                                         }
                                         ]
@@ -661,7 +661,7 @@
           "basePath": "baseEntities.data",
           "as": "be",
           "id": "{{link.targetCode}}",
-          "filterOutEmpty": false
+          "filterOutEmpty": true
         }
       },
       {
