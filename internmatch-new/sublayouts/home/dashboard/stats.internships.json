@@ -1,4 +1,5 @@
 {
+  "onlyUpdateIf": [ "totalInternships" ],
   "children": [
     {
       "component": "Box",
@@ -99,6 +100,12 @@
       ]
     }
   ],
+  "cache": {
+    "id": "internship-stats",
+    "key": "{{user.data.code}}",
+    "onlyStoreIf": [ "stats" ],
+    "expiry": 300
+  },
   "query": [
     {
       "operator": "getLinks",
@@ -163,6 +170,10 @@
         "{{stats.attributes.PRI_GRP_COMPLETED_INTERNSHIPS.valueDouble}}",
         "{{processedInternships}}"
       ]
+    },
+    {
+      "operator": "clean",
+      "fields": ["stats", "totalInternships", "processedInternships"]
     }
   ]
 }
