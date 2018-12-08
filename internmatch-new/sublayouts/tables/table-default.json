@@ -14,6 +14,7 @@
         "code": "{{props.code}}",
         "isSelectable": true,
         "selectFirstItemOnMount": true,
+        "totalItems": "_query.rootGroup.totalCount",
         "itemToSelectFirst": "_query.currentItem",
         "cellContext": {
           "rootCode": "{{props.rootCode}}",
@@ -53,8 +54,7 @@
         "data": "_props.data",
         "height": "500px",
         "width": "500px",
-        "itemsPerPage": 15,
-        "totalItems": "_props.totalItems"
+        "itemsPerPage": 10
       }
     }
   ],
@@ -63,6 +63,11 @@
       "operator": "getFromAlias",
       "alias": "CURRENT_NOTE",
       "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "{{props.rootCode}}",
+      "as": "rootGroup"
     }
   ]
 }
