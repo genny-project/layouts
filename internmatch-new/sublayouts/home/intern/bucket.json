@@ -193,9 +193,18 @@
                     {
                       "component": "Dropdown",
                       "onlyShowIf": {
-                        "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                          "$eq": true
-                        }
+                        "$or": [
+                          {
+                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
+                              "$exists": true
+                            }
+                          },
+                          {
+                            "repeater.attributes.PRI_IS_DEACTIVATED.value": {
+                              "$eq": true
+                            }
+                          }
+                        ]
                       },
                       "props": {
                         "facingRight": true,
@@ -221,9 +230,14 @@
                       },
                       "conditional": {
                         "if": {
-                          "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                            "$eq": true
-                          }
+                          "$or": [
+                            {
+                              "repeater.attributes.PRI_GRP_OFFERED_DATE.value": { "$exists": true }
+                            },
+                            {
+                              "repeater.attributes.PRI_IS_DEACTIVATED.value": { "$exists": true }
+                            }
+                          ]
                         },
                         "then": {
                           "items": [
