@@ -31,7 +31,7 @@
         "marginX": "auto",
         "width": "50%",
         "padding": "40px",
-        "height": "440px",
+        "height": "540px",
         "borderColor": "#ece7e7",
         "borderWidth": "2px",
         "borderStyle": "solid",
@@ -56,25 +56,51 @@
             {
               "component": "Text",
               "props": {
+                "size":"md",
                 "bold": true
               },
               "children": "{{query.internship.attributes.PRI_NAME.value}}"
             },
             {
-              "component": "Text",
-              "props": {
-                "marginTop": "10px"
-              },
-              "children": "Posted by {{query.internship.company.attributes.PRI_NAME.value}}"
-            },
-            {
-              "component": "Text",
+              "component": "Box",
               "props": {
                 "marginTop": "10px",
-                "size": "xs"
-              },
-              "children": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
+                "children": [
+                  {
+                    "component": "Text",
+                    "children": "Posted by {{query.internship.company.attributes.PRI_NAME.value}}"
+                  }
+                ]
+              }
             },
+            {
+              "component": "Box",
+              "props": { 
+                "marginTop": "10px"
+              },
+              "children" :[
+                {
+                  "component": "Text",
+                  "children": "Posted by {{query.internship.company.attributes.PRI_NAME.value}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": { 
+                "marginTop": "10px"
+              },
+              "children" :[
+                {
+                  "component": "Text",
+                  "props": {
+                    "size": "xs"
+                  },
+                  "children": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}"
+                }
+              ]
+            },
+            
             {
               "component": "Box",
               "props": {
@@ -123,12 +149,14 @@
         },
         {
           "component": "Box",
+          "props": {
+            "paddingLeft": "20px",
+            "padding":"50px"
+          },
           "children": [
             {
               "component": "Form",
               "props": {
-                "paddingLeft": "20px",
-                "padding":"50px",
                 "questionGroupCode": "QUE_APPLY_INTERNSHIP_GRP"
               },
               "renderSubmitButtonWrapper": {
