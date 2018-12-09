@@ -1,4 +1,5 @@
 {
+  "onlyUpdateIf": ["rootGroup", "currentItem"],
   "layout": {
     "title": "{{props.title}}",
     "appColor": "white",
@@ -68,6 +69,10 @@
       "operator": "getBE",
       "id": "{{props.rootCode}}",
       "as": "rootGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["rootGroup", "currentItem"]
     }
   ]
 }
