@@ -49,7 +49,7 @@
                 "textColor": "white",
                 "buttonCode": "BTN_EDIT_UNIT_BUTTON",
                 "value": {
-                "itemCode":"{{code}}",
+                "itemCode":"{{navigation.id}}",
                 "hint": "BTN_EDIT_UNIT_BUTTON"
                 }
               }
@@ -63,7 +63,7 @@
                 "textColor": "white",
                 "buttonCode": "BTN_DELETE_UNIT_BUTTON",
                 "value": {
-                "itemCode":"{{code}}",
+                "itemCode":"{{navigation.id}}",
                 "hint": "BTN_DELETE_UNIT_BUTTON"
                 }
               }
@@ -1402,6 +1402,11 @@
         "code": "{{code}}",
         "as": "attributes"
       }
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_REP_TYPE",
+      "as": "representative"
     }
   ]
   }

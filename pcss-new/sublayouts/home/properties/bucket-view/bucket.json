@@ -195,8 +195,8 @@
                           },
                           "else": {
                             "if": {
-                              "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
-                                "$eq": 1
+                              "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
+                                "$exists": true
                               }
                             },
                             "then": {
@@ -209,45 +209,14 @@
                                   "itemCode":"{{code}}",
                                   "hint": "BTN_VIEW_APPLICATION"
                                 }
-                                },
-                                {
-                                  "text": "Contact By Email",
-                                  "buttonCode": "BTN_SEND_EMAIL",
-                                  "value": {
-                                    "itemCode": "{{repeater.code}}",
-                                    "hint": "BTN_SEND_EMAIL"
-                                  }
-                                },
-                                {
-                                  "text": "Contact By Phone",
-                                  "buttonCode": "BTN_CONTACTED_PHONE",
-                                  "value": {
-                                    "itemCode": "{{repeater.code}}",
-                                    "hint": "BTN_CONTACTED_PHONE"
-                                  }
-                                },
-                                {
-                                  "text": "Contact By Letter",
-                                  "buttonCode": "BTN_CONTACTED_LETTER",
-                                  "value": {
-                                    "itemCode": "{{repeater.code}}",
-                                    "hint": "BTN_CONTACTED_LETTER"
-                                  }
-                                },
-                                {
-                                  "text": "Contact By Site Visit",
-                                  "buttonCode": "BTN_CONTACTED_SITE_VISIT",
-                                  "value": {
-                                    "itemCode": "{{repeater.code}}",
-                                    "hint": "BTN_CONTACTED_SITE_VISIT"
-                                  }
                                 }
+                        
                               ]
                             },
                             "else": {
                               "if": {
-                                "repeater.attributes.PRI_GRP_IDENTIFIED_DATE.value": {
-                                  "$exists": true
+                                "repeater.parentCode": {
+                                  "$eq": "GRP_IDENTIFIED"
                                 }
                               },
                               "then": {
@@ -297,8 +266,8 @@
                               },
                             "else": {
                               "if": {
-                                "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
-                                  "$eq": 2
+                                "repeater.parentCode": {
+                                  "$eq": "GRP_CONTACTED"
                                 }
                               },
                               "then": {
@@ -364,9 +333,8 @@
                               },
                               "else": {
                                 "if": {
-                                  "repeater.attributes.PRI_ACCEPTED_DATETIME.value": {
-                                    "$exists": true,
-                                    "$ne": "undefined"
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_REQUESTED"
                                   }
                                 },
                                 "then": {
@@ -392,9 +360,8 @@
                                 },
                                 "else": {
                                   "if": {
-                                    "repeater.attributes.PRI_INDENTIFIED_DATETIME.value": {
-                                      "$exists": true,
-                                      "$ne": "undefined"
+                                    "repeater.parentCode": {
+                                      "$eq": "GRP_INSPECTION"
                                     }
                                   },
                                   "then": {
@@ -436,9 +403,8 @@
                                   },
                                   "else": {
                                     "if": {
-                                      "repeater.attributes.PRI_GRP_REQUESTED_DATE.value": {
-                                        "$exists": true,
-                                        "$ne": "undefined"
+                                      "repeater.parentCode": {
+                                        "$eq": "GRP_SIGNOFF"
                                       }
                                     },
                                     "then": {
@@ -612,7 +578,7 @@
                             }
                           },
                           "then": {
-                            "text": "{{repeater.attributes.PRI_UNIT_ID.value}}"
+                            "text": "Unit: {{repeater.attributes.PRI_UNIT_ID.value}}"
                           }
                         },
                         "props": {
