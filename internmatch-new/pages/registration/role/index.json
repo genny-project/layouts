@@ -41,6 +41,39 @@
         },
         {
           "component": "EventButton",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "query.userBe.attributes.PRI_IS_SELLER.value": {
+                  "$eq": true
+                }
+              },
+              {
+                "$and": [
+                  {
+                    "query.userBe.attributes.PRI_IS_AGENT.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_SELLER.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_BUYER.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_SELLER",
             "color": "teal",
@@ -66,7 +99,39 @@
         },
         {
           "component": "EventButton",
-
+          "onlyShowIf": {
+            "$or": [
+              {
+                "query.userBe.attributes.PRI_IS_BUYER.value": {
+                  "$eq": true
+                }
+              },
+              {
+                "$and": [
+                  {
+                    "query.userBe.attributes.PRI_IS_AGENT.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_SELLER.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_BUYER.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_BUYER",
             "text": "I am a Host Company Staff",
@@ -92,6 +157,34 @@
         },
         {
           "component": "EventButton",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                  "$eq": true
+                }
+              },
+              {
+                "$and": [
+                  {
+                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_SELLER.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_BUYER.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_EDU_PROVIDER_STAFF",
             "text": "I am an Education Provider Staff",
@@ -117,6 +210,39 @@
         },
         {
           "component": "EventButton",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "query.userBe.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              {
+                "$and": [
+                  {
+                    "query.userBe.attributes.PRI_IS_AGENT.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_SELLER.value": {
+                      "$exists": false
+                    }
+                  },
+                  {
+                    "query.userBe.attributes.PRI_IS_BUYER.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_AGENT",
             "text": "I am an Agent",
@@ -135,6 +261,25 @@
           }
         }
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{user.data.code}}",
+      "as": "userBe"
+    },
+    {
+      "operator": "scope",
+      "path": "userBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["userBe"]
     }
   ]
 }

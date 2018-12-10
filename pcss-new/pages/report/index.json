@@ -1,6 +1,6 @@
 {
     "layout": {
-      "title": "Pages/Deleted Properties View",
+      "title": "Pages/Report Properties View",
       "appColor": "white",
       "backgroundColor": "whitesmoke",
       "header": {
@@ -30,7 +30,7 @@
                   "buttonCode": "BTN_TABLE_SELECT",
                   "value": {
                     "itemCode": "_celld.attributeCode",
-                    "hint": "GRP_BIN",
+                    "hint": "GRP_SIGNOFF",
                     "userCode": "{{user.data.code}}"
                   }
                 }
@@ -53,8 +53,8 @@
                         "padding": 10,
                         "size": "xs",
                         "hoverProps": {
-                          "color": "#d2e8ff"
-                        },
+                            "color": "#d2e8ff"
+                          },
                         "value": {
                           "itemCode":"{{code}}",
                           "hint": "BTN_VIEW_BEG"
@@ -64,18 +64,13 @@
                   ]
                 },
                 {
-                  "Header": "Address Of Property",
-                  "accessor": "address",
-                  "filterType": "string"
-                },  
-                {
-                  "Header": "Precinct",
-                  "accessor": "precinct",
+                  "Header": "Unit Number",
+                  "accessor": "unitid",
                   "filterType": "string"
                 },
                 {
-                  "Header": "Precinct",
-                  "accessor": "propertytype",
+                  "Header": "Address Of Property",
+                  "accessor": "address",
                   "filterType": "string"
                 }
               ],
@@ -92,13 +87,13 @@
     "query": [
       {
         "operator": "getBE",
-        "id": "GRP_BIN",
-        "as": "deletedProperties"
+        "id": "GRP_SIGNOFF",
+        "as": "acceptedProperties"
       },
       {
         "operator": "scope",
-        "path": "deletedProperties.links",
-        "as": "deletedProperties",
+        "path": "acceptedProperties.links",
+        "as": "acceptedProperties",
         "scope": {
           "operator": "getBE",
           "basePath": "baseEntities.data",
@@ -108,7 +103,7 @@
       },
       {
         "operator": "scope",
-        "path": "deletedProperties",
+        "path": "acceptedProperties",
         "scope": {
           "operator": "scope",
           "path": "properties",
@@ -119,51 +114,14 @@
         }
       },
       {
-        "operator":"scope",
-        "path":"deletedProperties",
-        "scope":{
-          "operator":"scope",
-          "path":"properties",
-          "scope":{
-            "operator":"scope",
-            "path":"attributes",
-            "scope":{
-              "operator":"getBE",
-              "basePath": "baseEntities.data",
-              "id":"{{LNK_PROPERTY_PRECINCT_SELECT.value}}",
-              "as":"PrecinctTypeBE"
-            }
-          }
-        }
-      },
-      {
-        "operator":"scope",
-        "path":"deletedProperties",
-        "scope":{
-          "operator":"scope",
-          "path":"properties",
-          "scope":{
-            "operator":"scope",
-            "path":"attributes",
-            "scope":{
-              "operator":"getBE",
-              "basePath": "baseEntities.data",
-              "id":"{{LNK_PROPERTY_TYPE_SELECT.value}}",
-              "as":"PropertyTypeNameBE"
-            }
-          }
-        }
-      },
-      {
         "operator": "scope",
-        "path": "deletedProperties",
+        "path": "acceptedProperties",
         "as": "tableData",
         "scope": {
           "operator": "map",
           "fields": {
             "address": "properties.attributes.PRI_ADDRESS_FULL.value",
-            "precinct": "properties.attributes.PrecinctTypeBE.name",
-            "propertytype": "properties.attributes.PropertyTypeNameBE.name",
+            "unitid": "properties.attributes.PRI_UNIT_ID.value",
             "code": "properties.code"
           }
         }

@@ -2,152 +2,176 @@
   "children": [
     {
       "component": "Box",
-      "dontShowIf": {
-        "query.questions.attributes.PRI_ADDRESS_FULL.value": {
-          "$exists": true
-        },
-        "query.questions.items.attributes.PRI_ADDRESS_FULL.value": {
-          "$exists": true
-        }
-      },
-      "props": {
-        "flex": 1,
-        "width": "100%",
-        "justifyContent": "center",
-        "alignItems": "center"
-      },
-      "children": [
-        {
-          "component": "ActivityIndicator",
-          "props": {
-            "size": "large"
-          }
-        }
-      ]
-    },
-    {
-      "component": "Box",
-      "onlyShowIf": {
-        "query.property.attributes.PRI_ADDRESS_FULL.value": {
-          "$exists": true
-        },
-        "query.property.company.attributes.PRI_ADDRESS_FULL.value": {
-          "$exists": true
-        }
-      },
-      "props": {
-        "flexDirection": "column",
-        "padding": 20
-      },
-      "children": [
-        {
-          "component": "Text",
-          "props": {
-            "bold": true
-          },
-          "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
-        },
-        {
-          "component": "Text",
-          "children": "Posted by {{query.property.company.attributes.PRI_ADDRESS_FULL.value}}"
-        },
-        {
-          "component": "Text",
-          "props": {
-            "size": "xs"
-          },
-          "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "column",
-            "marginTop": 40
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 5
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
-                }
-              ]
-            },
-            {
-              "component": "Date",
-              "props": {
-                "format": "Do [of] MMMM, YYYY"
-              },
-              "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "component": "Box",
       "children": [
         {
           "component": "Form",
           "props": {
-            "questionGroupCode": "BEG_DETAILS"
+            "questionGroupCode": "{{dialog.params.id}}",
+            "renderHeading": {
+              "component": "Box",
+              "props": {
+                "marginTop": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "#222",
+                    "size": "xl",
+                    "text": "{{heading}}"
+                  }
+                }
+              ]
+            },
+            "renderSubheading": {
+              "component": "Box",
+              "props": {
+                "marginY": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "red",
+                    "size": "lg",
+                    "align": "left",
+                    "text": "ldfdlfkl"
+                  }
+                }
+              ]
+            },
+            "renderFormInputWrapper": {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              }
+            },
+            "renderFormInput": {
+              "component": "FormInput",
+              "useThemeFrom": "Input",
+              "variant": "default",
+              "props": {
+                "placeholder": "{{label}}",
+               "appearance": "none",
+                "height": 50,
+                "borderRadius": 25,
+                "paddingX": 20,
+                "paddingY": 15,
+                "borderWidth":1
+
+              }
+            },
+            "renderFormInputLabel": {
+              "component": "Box",
+              "props": {
+                "margin": 10,
+                "alignItems": "center",
+                "justifyContent": "space-between"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{label}}"
+                  },
+                  "conditional": {
+                    "if": {
+                      "$or": [
+                        {
+                          "submitCount": { "$gt": 0 },
+                          "error": { "$exists": true }
+                        },
+                        {
+                          "touched": { "$eq": true },
+                          "error": { "$exists": true }
+                        }
+                      ]
+                    },
+                    "then": {
+                      "color": "red"
+                    }
+                  }
+                },
+                {
+                  "component": "Text",
+                  "onlyShowIf": {
+                    "$or": [
+                      { "required": { "$eq": true } },
+                      { "error": { "$exists": true } }
+                    ]
+                  },
+                  "conditional": {
+                    "if": {
+                      "error": { "$exists": true }
+                    },
+                    "then": {
+                      "color": "red",
+                      "text": "{{error}}"
+                    },
+                    "else": {
+                      "text": "*required"
+                    }
+                  },
+                  "props": {
+                    "size": "xs"
+                  }
+                }
+              ]
+            },
+            "renderSubmitButtonWrapper": {
+              "component": "Box",
+              "props": {
+                "marginTop": 10,
+                "flexDirection": "row"
+              }
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "inverted": true,
+                "showSpinnerOnClick": true, 
+                "width": "100%",
+                "color": "black",
+                "hoverProps": {
+                  "color": "#093f7f",
+                  "textColor": "green"
+                }
+              }
+            },
+            "renderLoading": {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "large"
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginTop": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "#222",
+                        "text": "Loading form..."
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
           }
         }
       ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "{{navigation.id}}",
-      "as": "property"
-    },
-    {
-      "operator": "scope",
-      "path": "questions",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "question",
-      "scope": {
-        "operator": "getBE",
-        "id": "{{attributes.LNK_PROPERTY_TYPE_SELECT.value}}",
-        "as": "items"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "questions",
-      "scope": {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
-      }
     }
   ]
 }

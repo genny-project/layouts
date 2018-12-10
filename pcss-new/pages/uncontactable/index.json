@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Pages/Completed Properties View",
+    "title": "Pages/Uncontactable Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -30,7 +30,7 @@
                 "buttonCode": "BTN_TABLE_SELECT",
                 "value": {
                   "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_COMPLETED",
+                  "hint": "GRP_UNCONTACTABLE",
                   "userCode": "{{user.data.code}}"
                 }
               }
@@ -87,13 +87,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_COMPLETED",
-      "as": "completedProperties"
+      "id": "GRP_UNCONTACTABLE",
+      "as": "uncontactableProperties"
     },
     {
       "operator": "scope",
-      "path": "completedProperties.links",
-      "as": "completedProperties",
+      "path": "uncontactableProperties.links",
+      "as": "uncontactableProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -103,7 +103,7 @@
     },
     {
       "operator": "scope",
-      "path": "completedProperties",
+      "path": "uncontactableProperties",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -115,7 +115,7 @@
     },
     {
       "operator": "scope",
-      "path": "completedProperties",
+      "path": "uncontactableProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",
