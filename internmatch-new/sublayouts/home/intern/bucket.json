@@ -195,13 +195,8 @@
                       "onlyShowIf": {
                         "$or": [
                           {
-                            "repeater.attributes.PRI_GRP_OFFERED_DATE.value": {
-                              "$exists": true
-                            }
-                          },
-                          {
-                            "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                              "$eq": true
+                            "parentRepeater.code": {
+                              "$eq": "GRP_OFFERED"
                             }
                           }
                         ]
@@ -232,10 +227,9 @@
                         "if": {
                           "$or": [
                             {
-                              "repeater.attributes.PRI_GRP_OFFERED_DATE.value": { "$exists": true }
-                            },
-                            {
-                              "repeater.attributes.PRI_IS_DEACTIVATED.value": { "$exists": true }
+                              "parentRepeater.code": {
+                                "$eq": "GRP_OFFERED"
+                              }
                             }
                           ]
                         },
