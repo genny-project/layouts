@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Pages/Uncontactable Properties View",
+    "title": "Identified Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -19,6 +19,7 @@
       "children": [
         {
           "component": "Table",
+          "layoutName": "edit-properties",
           "props": {
             "renderWrapper": {
               "component": "EventButton",
@@ -30,7 +31,7 @@
                 "buttonCode": "BTN_TABLE_SELECT",
                 "value": {
                   "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_UNCONTACTABLE",
+                  "hint": "GRP_NEW_ITEMS",
                   "userCode": "{{user.data.code}}"
                 }
               }
@@ -44,7 +45,7 @@
                   {
                     "component": "EventButton",
                     "props": {
-                      "buttonCode": "BTN_VIEW_APPLICATION",
+                      "buttonCode": "BTN_VIEW_BEG",
                       "color": "#5fa5ec",
                       "textColor": "#fff",
                       "height": 25,
@@ -55,22 +56,28 @@
                       "hoverProps": {
                         "color": "#d2e8ff"
                       },
+                      "transitionDelay": "2s",
                       "value": {
                         "itemCode":"{{code}}",
-                        "hint": "BTN_VIEW_APPLICATION"
+                        "hint": "BTN_VIEW_BEG"
                       }
                     }
                   }
                 ]
               },
               {
-                "Header": "Unit Number",
-                "accessor": "unitid",
+                "Header": "Address",
+                "accessor": "address",
+                "filterType": "string"
+              },  
+              {
+                "Header": "Precinct",
+                "accessor": "precinct",
                 "filterType": "string"
               },
               {
-                "Header": "Address Of Property",
-                "accessor": "address",
+                "Header": "Property Type",
+                "accessor": "propertytype",
                 "filterType": "string"
               }
             ],
@@ -87,13 +94,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_UNCONTACTABLE",
-      "as": "uncontactableProperties"
+      "id": "GRP_NEW_ITEMS",
+      "as": "identifiedProperties"
     },
     {
       "operator": "scope",
-      "path": "uncontactableProperties.links",
-      "as": "uncontactableProperties",
+      "path": "identifiedProperties.links",
+      "as": "identifiedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -103,7 +110,7 @@
     },
     {
       "operator": "scope",
-      "path": "uncontactableProperties",
+      "path": "identifiedProperties",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -114,17 +121,58 @@
       }
     },
     {
+      "operator":"scope",
+      "path":"identifiedProperties",
+      "scope":{
+        "operator":"scope",
+        "path":"properties",
+        "scope":{
+          "operator":"scope",
+          "path":"attributes",
+          "scope":{
+            "operator":"getBE",
+            "basePath": "baseEntities.data",
+            "id":"{{LNK_PROPERTY_PRECINCT_SELECT.value}}",
+            "as":"PrecinctTypeBE"
+          }
+        }
+      }
+    },
+    {
+      "operator":"scope",
+      "path":"identifiedProperties",
+      "scope":{
+        "operator":"scope",
+        "path":"properties",
+        "scope":{
+          "operator":"scope",
+          "path":"attributes",
+          "scope":{
+            "operator":"getBE",
+            "basePath": "baseEntities.data",
+            "id":"{{LNK_PROPERTY_TYPE_SELECT.value}}",
+            "as":"PropertyTypeNameBE"
+          }
+        }
+      }
+    },
+    {
       "operator": "scope",
-      "path": "uncontactableProperties",
+      "path": "identifiedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
           "address": "properties.attributes.PRI_ADDRESS_FULL.value",
-          "unitid": "properties.attributes.PRI_UNIT_ID.value",
+          "precinct": "properties.attributes.PrecinctTypeBE.name",
+          "propertytype": "properties.attributes.PropertyTypeNameBE.name",
           "code": "properties.code"
         }
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["identifiedProperties"]
     }
   ]
 }

@@ -42,13 +42,17 @@
             }
             },
             {
-              "component": "Button",
+              "component": "EventButton",
               "props": {
                 "padding": 15,
                 "color": "#e05b5c",
                 "text": "Edit",
                 "textColor": "white",
-                "isBackButton": true
+                "buttonCode": "BTN_EDIT_UNIT_BUTTON",
+                "value": {
+                "itemCode":"{{navigation.id}}",
+                "hint": "BTN_EDIT_UNIT_BUTTON"
+                }
               }
             },
             {
@@ -78,21 +82,7 @@
                 "shape": "square",
                 "position":"relative"
               }
-            },
-            {
-                "component": "Button",
-                "props": {
-                  "position": "absolute",
-                  "top": 30,
-                  "left": 20,
-                  "bottom": 10,
-                  "right": 20,
-                  "color": "#e05b5c",
-                  "text": "Deleteeeee",
-                  "textColor": "white",
-                  "isBackButton": true
-                }
-              }
+            }
           ]
         },
         {
@@ -576,6 +566,10 @@
       "operator": "getBE",
       "id": "{{property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}",
       "as": "propertylocation"
+    },
+    {
+      "operator": "clean",
+      "fields": ["property"]
     }
   ]
   }
