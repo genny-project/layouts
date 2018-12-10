@@ -63,6 +63,29 @@
         },
         {
           "component": "Form",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$or": [
+                  {
+                    "user.attributes.PRI_IS_AGENT.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    }
+                  }
+                ]
+              },
+              {
+                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
           "props": {
             "questionGroupCode": "{{navigation.offerId}}",
             "style": {
