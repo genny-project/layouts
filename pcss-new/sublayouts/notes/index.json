@@ -1,114 +1,380 @@
 {
-    "children": [
-      {
-        "component": "Box",
-        "props": {
-          "paddingX": 20,
-          "marginBottom": 50
-        },
-        "children": [
-          {
-            "component": "Heading",
-            "props": {
-              "text": "Notes",
-              "size": "xxl"
-            }
-          }
-        ]
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "paddingX": 10,
+        "justifyContent": "space-between",
+        "alignItems": "center",
+        "flexDirection": "column",
+        "height": "100%"
       },
-      {
-        "component": "Box",
-        "props": {
-          "marginBottom": 20,
-          "width": "100%",
-          "flexDirection": "column"
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "paddingX": 20
-            },
-            "dontShowIf": {
-              "query.notes": {
-                "$size": {
-                  "$gt": 0
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "marginBottom": 10,
+            "width": 280,
+            "justifyContent": "flex-start",
+            "flexGrow": 1
+          },
+          "children": [
+            {
+              "component": "Touchable",
+              "props": {
+                "paddingY": 5,
+                "withFeedback": true,
+                "onPress": "_props.onToggle"
+              },
+              "children": {
+                "component": "Icon",
+                "conditional": {
+                  "if": {
+                    "props.isOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "name": "close"
+                  }
+                },
+                "props": {
+                  "name": "create",
+                  "color": "black"
                 }
               }
             },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "align": "center"
+            {
+              "component": "Box",
+              "props": {
+                "marginLeft": 20,
+                "flex": 1
+              },
+              "onlyShowIf": {
+                "props.isOpen": {
+                  "$eq": true
+                }
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "conditional": [
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_ADDDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_ADDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                      }
+                    }
+                  ],
+                  "props": {
+                    "text": "",
+                    "size": "lg"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "ScrollView",
+          "props": {
+            "height": "100%",
+            "width": 260
+          },
+          "onlyShowIf": {
+            "props.isOpen": {
+              "$eq": true
+            }
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "dontShowIf": {
+                    "query.notes": {
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "children": "No notes to display"
                 },
-                "children": "No notes to display"
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "query.notes": {
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "100%"
+                  },
+                  "repeat": "_query.notes",
+                  "sort": {
+                    "by": "repeater.created",
+                    "isDate": true
+                  },
+                  "children": {
+                    "component": "Sublayout",
+                    "conditional": {
+                      "if": {
+                        "repeater.attributes.PRI_CREATOR_TYPE.value": {
+                          "$eq": "SYSTEM"
+                        }
+                      },
+                      "then": {
+                        "layoutName": "notes/note-bubble-system"
+                      },
+                      "else": {
+                        "layoutName": "notes/note-bubble-user"
+                      }
+                    },
+                    "props": {
+                      "text": "{{repeater.attributes.PRI_CONTENT.value}}",
+                      "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
+                      "creatorName": "{{repeater.attributes.PRI_CREATOR_NAME.value}}",
+                      "creatorCode": "{{repeater.attributes.PRI_CREATOR_CODE.value}}",
+                      "code": "{{repeater.code}}"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "$and": [
+              {
+                "query.aliases.CURRENT_NOTE": {
+                  "$exists": true
+                }
+              },
+              {
+                "props.isOpen": {
+                  "$eq": true
+                }
               }
             ]
           },
-          {
-            "component": "Box",
-            "onlyShowIf": {
-              "query.notes": {
-                "$size": {
-                  "$gt": 0
-                }
-              }
-            },
-            "props": {
-              "flexDirection": "column",
-              "maxWidth": "100%",
-              "paddingX": 20
-            },
-            "repeat": "_query.notes",
-            "sort": "reverse",
-            "children": {
-              "component": "Sublayout",
-              "conditional": {
-                "if": {
-                  "repeater.attributes.PRI_CREATOR_TYPE.value": {
-                    "$eq": "SYSTEM"
-                  }
-                },
-                "then": {
-                  "layoutName": "notes/note-bubble-system"
-                },
-                "else": {
-                  "layoutName": "notes/note-bubble-user"
-                }
-              },
+          "props": {
+            "marginTop": 10,
+            "flexDirection": "column",
+            "width": "100%",
+            "height": 220
+          },
+          "children": [
+            {
+              "component": "Box",
               "props": {
-                "text": "{{repeater.attributes.PRI_CONTENT.value}}",
-                "created": "{{repeater.attributes.PRI_CREATED_DATE.value}}",
-                "creator": "{{repeater.attributes.PRI_CREATOR_NAME.value}}"
-              }
+                "margin": 10
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Add a note",
+                    "bold": true
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "FormGeneric",
+                  "props": {
+                    "onSubmitSendEvent": true,
+                    "eventType": "BTN_CLICK",
+                    "buttonCode": "BTN_ADD_NOTE",
+                    "value": {
+                      "userCode": "{{user.data.code}}",
+                      "itemCode": "{{query.aliases.CURRENT_NOTE}}"
+                    },
+                    "injectFormValuesIntoValue": {
+                      "message": "note"
+                    },
+                    "resetFormOnSubmit": true
+                  },
+                  "children": [
+                    {
+                      "component": "FormGenericInput",
+                      "props": {
+                        "type": "textarea",
+                        "name": "note",
+                        "maxLength": 250,
+                        "padding": 15,
+                        "borderStyle": "solid",
+                        "borderColor": "#DDD",
+                        "backgroundColor": "white",
+                        "borderWidth": 1,
+                        "showCharacterCount": true,
+                        "submitOnEnterPress": true,
+                        "renderCharacterCount": {
+                          "component": "Box",
+                          "props": {
+                            "position": "absolute",
+                            "bottom": 5,
+                            "right": 10
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs",
+                                "color": "grey",
+                                "paddingBottom": 20,
+                                "borderColor": "#ddd",
+                                "text": "{{characterCount}} / {{maxLength}}"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": 10,
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "FormGenericSubmit",
+                          "props": {
+                            "padding": 0,
+                            "width": "100%",
+                            "text": "Add note",
+                            "color": "green",
+                            "disabledWhenFormInvalid": true
+                          }
+                        }
+                      ]
+                    },
+                    
+                    {
+                      "component": "Box",
+                      "props": {
+                        "flexDirection": "column",
+                        "marginBottom": "20px"
+                      },
+                      "children": [
+                        {
+                          "component": "Heading",
+                          "children": "v 1.1 powered by: GADA Technology",
+                          "props": { 
+                            "marginBottom": "10px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getLinks",
+      "id": "GRP_NOTES",
+      "as": "notes"
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
           }
-        ]
-      }
-    ],
-    "query": [
-      {
-        "operator": "getLinks",
-        "id": "GRP_NOTES",
-        "as": "notes"
-      },
-      {
-        "operator": "scope",
-        "path": "notes",
-        "scope": {
-          "operator": "getBE",
-          "id": "code"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "notes",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
         }
       }
-    ]
-  }
+    },
+    {
+      "operator": "scope",
+      "path": "notes",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentNote"
+    },
+    {
+      "operator": "scope",
+      "path": "currentNote",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    }
+  ]
+}
