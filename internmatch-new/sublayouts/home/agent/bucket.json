@@ -505,7 +505,7 @@
                                     {
                                       "component": "Image",
                                       "props": {
-                                        "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                                        "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                                         "height": 50,
                                         "width": 50
                                       }
@@ -825,8 +825,30 @@
       "operator": "scope",
       "path": "items",
       "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_APPLICANT_CODE.value}}",
+        "as": "applicant"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "applicant",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "sort",
-        "by": "attributes.PRI_NAME.value",
+        "by": "attributes.PRI_GRP_SHORTLISTED_DATE.value",
         "direction": "asc"
       }
     }
