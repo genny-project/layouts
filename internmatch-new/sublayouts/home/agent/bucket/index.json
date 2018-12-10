@@ -140,7 +140,7 @@
                       },
                       "props": {
                         "layoutName": "home/agent/bucket/card",
-                        "imageUrl": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                        "imageUrl": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                         "studentId": "{{repeater.attributes.PRI_STUDENT_ID.value}}",
                         "mobile": "{{repeater.attributes.PRI_MOBILE.value}}",
                         "placedOn": "{{repeater.attributes.PRI_GRP_PLACED_DATE.value}}",
@@ -241,8 +241,30 @@
       "operator": "scope",
       "path": "items",
       "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_APPLICANT_CODE.value}}",
+        "as": "applicant"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "applicant",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "sort",
-        "by": "attributes.PRI_NAME.value",
+        "by": "created",
         "direction": "asc"
       }
     }
