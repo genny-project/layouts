@@ -11,11 +11,21 @@
       "dontInjectContextIntoProps": [
         "dispatchActionOnChange"
       ],
+      "conditional": {
+        "if": {
+          "query.rootGroup.totalCount": {
+            "$exists": true
+          }
+        },
+        "then": {
+          "totalItems": "_query.rootGroup.totalCount"
+        }
+      },
       "props": {
         "code": "{{props.code}}",
         "isSelectable": true,
         "selectFirstItemOnMount": true,
-        "totalItems": "_query.rootGroup.totalCount",
+        "totalItems": "1",
         "itemToSelectFirst": "_query.currentItem",
         "cellContext": {
           "rootCode": "{{props.rootCode}}",
