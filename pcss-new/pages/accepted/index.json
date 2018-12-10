@@ -1,12 +1,15 @@
 {
   "layout": {
-    "title": "Accepted Workflow View",
+    "title": "Pages/Accepted Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
       "variant": "default"
     },
     "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
       "variant": "default"
     }
   },
@@ -16,8 +19,22 @@
       "children": [
         {
           "component": "Table",
-          "layoutName": "edit-properties",
           "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_REQUESTED",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
             "columns": [
               {
                 "Header": "Action",
@@ -30,7 +47,14 @@
                       "buttonCode": "BTN_VIEW_BEG",
                       "color": "#5fa5ec",
                       "textColor": "#fff",
-                      "text": "Details",
+                      "height": 25,
+                      "width": "100%",
+                      "text": "Property Details",
+                      "padding": 10,
+                      "size": "xs",
+                      "hoverProps": {
+                        "color": "#d2e8ff"
+                      },
                       "value": {
                         "itemCode":"{{code}}",
                         "hint": "BTN_VIEW_BEG"
@@ -40,19 +64,14 @@
                 ]
               },
               {
-                "Header": "Address Of Property",
-                "accessor": "address",
-                "filterType": "string"
-              },  
-              {
-                "Header": "Precinct",
-                "accessor": "type",
+                "Header": "Unit Number",
+                "accessor": "unitid",
                 "filterType": "string"
               },
               {
-                "Header": "Type",
-                "accessor": "postcode",
-                "filterType": "number"
+                "Header": "Address Of Property",
+                "accessor": "address",
+                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#e05b5b",
@@ -68,26 +87,26 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_NEW_ITEMS",
-      "as": "items"
+      "id": "GRP_REQUESTED",
+      "as": "acceptedProperties"
     },
     {
       "operator": "scope",
-      "path": "items.links",
-      "as": "items",
+      "path": "acceptedProperties.links",
+      "as": "acceptedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "id": "{{link.targetCode}}",
-        "as": "be"
+        "as": "properties"
       }
     },
     {
       "operator": "scope",
-      "path": "items",
+      "path": "acceptedProperties",
       "scope": {
         "operator": "scope",
-        "path": "be",
+        "path": "properties",
         "scope": {
           "operator": "populateBEGAttributes",
           "as": "attributes"
@@ -96,47 +115,14 @@
     },
     {
       "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as" : "company",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as" : "items",
-        "id": "{{be.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateAttributes",
-          "as" : "attributes",
-          "code": "{{code}}"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
+      "path": "acceptedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "type": "be.attributes.LNK_PROPERTY_PRECINCT_SELECT.value",
-          "postcode": "be.attributes.LNK_PROPERTY_TYPE_SELECT.value",
-          "code": "be.code"
+          "address": "properties.attributes.PRI_ADDRESS_FULL.value",
+          "unitid": "properties.attributes.PRI_UNIT_ID.value",
+          "code": "properties.code"
         }
       }
     }

@@ -24,34 +24,75 @@
         {
           "component": "Box",
           "props": {
-            "flexDirection": "column",
+            "flexDirection": "row",
             "alignItems": "center",
-            "width":"100%"
+            "width":"100%",
+            "justifyContent": "space-around"
           },
           "children": [
             {
-              "component":"Box",
-              "props":{
-                "marginBottom":"10px"
-              },
-              "children":          {
-                "component": "Heading",
-                "props": {
-                  "color":"#000000",
-                  "size":"xxl"
-                },
-                "children": "Property Details"
+            "component": "Button",
+            "props": {
+              "padding": 15,
+              "margin": 15,
+              "color": "#e05b5c",
+              "text": "Back",
+              "textColor": "white",
+              "isBackButton": true
+            }
+            },
+            {
+              "component": "Button",
+              "props": {
+                "padding": 15,
+                "color": "#e05b5c",
+                "text": "Edit",
+                "textColor": "white",
+                "isBackButton": true
               }
             },
             {
-              "component": "Image",
+              "component": "Button",
               "props": {
-                "source": "{{query.property.attributes.PRI_IMAGE_URL.value}}",
-                "shape": "square",
-                "height":"100%",
-                "width":"100%"
+                "padding": 15,
+                "color": "#e05b5c",
+                "text": "Delete",
+                "textColor": "white",
+                "isBackButton": true
               }
             }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "width":"100%",
+            "position": "relative"
+          },
+          "children": [
+            {
+              "component": "Image",
+              "props": {
+                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
+                "shape": "square",
+                "position":"relative"
+              }
+            },
+            {
+                "component": "Button",
+                "props": {
+                  "position": "absolute",
+                  "top": 30,
+                  "left": 20,
+                  "bottom": 10,
+                  "right": 20,
+                  "color": "#e05b5c",
+                  "text": "Deleteeeee",
+                  "textColor": "white",
+                  "isBackButton": true
+                }
+              }
           ]
         },
         {
@@ -113,7 +154,7 @@
                     "color":"#000000",
                     "size":"lg"
                   },
-                  "children": "{{query.property.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
+                  "children": "{{query.propertytype.name}}"
                 }
               ]
             }
@@ -197,7 +238,7 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}"
+                  "children": "{{query.propertylocation.name}}"
                 }
               ]
             }
@@ -299,7 +340,7 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}"
+                  "children": "{{query.propertyprecinct.name}}"
                 }
               ]
             }
@@ -350,7 +391,7 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
+                  "children": "{{query.propertytype.name}}"
                 }
               ]
             }
@@ -520,6 +561,21 @@
         "code": "{{code}}",
         "as": "attributes"
       }
+    },
+    {
+      "operator": "getBE",
+      "id": "{{property.attributes.LNK_PROPERTY_TYPE_SELECT.value}}",
+      "as": "propertytype"
+    },
+    {
+      "operator": "getBE",
+      "id": "{{property.attributes.LNK_PROPERTY_PRECINCT_SELECT.value}}",
+      "as": "propertyprecinct"
+    },
+    {
+      "operator": "getBE",
+      "id": "{{property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}",
+      "as": "propertylocation"
     }
   ]
   }
