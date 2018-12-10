@@ -108,7 +108,7 @@
                     "borderColor":"white",
                     "backgroundColor":"#f9f9f9",
                     "marginY": 5
-                  
+
                   },
                   "children": [
                     {
@@ -178,6 +178,27 @@
                                 "bold": true
                               },
                               "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "onlyShowIf": {
+                            "repeater.attributes.PRI_IS_DECLINED.value": {
+                              "$eq": true
+                            }
+                          },
+                          "props": {
+                            "marginBottom": 5
+                          },
+                          "children": [
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs",
+                                "bold": true
+                              },
+                              "children": "REJECTED"
                             }
                           ]
                         },
@@ -262,10 +283,10 @@
                       ]
                     }
 
-                    
+
                   ]
                 }
-                
+
               ]
             }
           }
