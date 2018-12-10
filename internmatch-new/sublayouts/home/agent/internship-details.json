@@ -53,7 +53,7 @@
         "companyImage": "{{query.internship.company.attributes.PRI_IMAGE_URL.value}}",
         "companyName": "{{query.internship.company.attributes.PRI_NAME.value}}",
         "companyEmail": "{{query.internship.attributes.PRI_EMAIL.value}}",
-        "companyPhone": "{{query.internship.attributes.PRI_LANDLINE.value}}",
+        "companyPhone": "{{query.internship.company.attributes.PRI_LANDLINE.value}}",
         "internshipName": "{{query.internship.attributes.PRI_NAME.value}}",
         "internshipAddress": "{{query.internship.attributes.PRI_ADDRESS_FULL.value}}",
         "internshipStartDate": "{{query.internship.attributes.PRI_START_DATE.value}}",
@@ -108,7 +108,7 @@
       "path": "internship",
         "scope": {
           "operator": "getBE",
-          "id": "{{internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
+          "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
           "as": "bes"
       }
     },

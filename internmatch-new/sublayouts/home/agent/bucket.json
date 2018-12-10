@@ -83,6 +83,10 @@
                       }
                     },
                     "repeat": "_repeater.items",
+                    "sort": {
+                      "by": "repeater.created",
+                      "isDate": true
+                    },
                     "children": {
                       "component": "Selectable",
                       "props": {
@@ -848,8 +852,15 @@
       "path": "items",
       "scope": {
         "operator": "sort",
-        "by": "attributes.PRI_GRP_SHORTLISTED_DATE.value",
-        "direction": "asc"
+        "by": [
+          "attributes.PRI_GRP_IN_PROGRESS_DATE.value",
+          "attributes.PRI_GRP_PLACED_DATE.value",
+          "attributes.PRI_GRP_OFFERED_DATE.value",
+          "attributes.PRI_GRP_INTERVIEWS_DATE.value",
+          "attributes.PRI_GRP_SHORTLISTED_DATE.value",
+          "attributes.PRI_GRP_APPLIED_DATE.value"
+        ],
+        "direction": "desc"
       }
     }
   ]
