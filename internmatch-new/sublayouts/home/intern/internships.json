@@ -155,6 +155,18 @@
       "operator": "scope",
       "path": "items",
       "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
@@ -181,6 +193,19 @@
           "as": "attributes"
         }
       }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "sort",
+        "by": "created",
+        "direction": "desc"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["items"]
     }
   ]
 }

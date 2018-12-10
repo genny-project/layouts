@@ -1,0 +1,132 @@
+{
+  "layout": {
+    "title": "Dashboard",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex":1,
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "width": "100%",
+            "flex": 1,
+            "justifyContent": "center",
+            "alignItems": "center"
+          },
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            },
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$or": [
+                { "$eq": "undefined" },
+                { "$eq": false }
+              ]
+            }
+          },
+          "children": [
+            {
+              "component": "ActivityIndicator",
+              "props": {
+                "size": "large"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "dashboard/agent"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/edu-provider"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/intern"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/hostcompany"
+          }
+        }
+      ]
+    }
+  ]
+}

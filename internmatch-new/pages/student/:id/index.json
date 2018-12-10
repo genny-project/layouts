@@ -8,7 +8,26 @@
       "variant": "default"
     },
     "sidebarRight": {
-      "variant": "default"
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
@@ -43,6 +62,10 @@
         "code": "{{code}}",
         "as": "attributes"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["student"]
     }
   ]
 }

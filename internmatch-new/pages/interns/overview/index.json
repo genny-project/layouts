@@ -1,0 +1,43 @@
+{
+  "layout": {
+    "title": "Interns Overview",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "home/edu-provider/bucket"
+      }
+    }
+  ]
+}

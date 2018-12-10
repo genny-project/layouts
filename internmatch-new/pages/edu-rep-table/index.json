@@ -8,30 +8,44 @@
     },
     "sidebar": {
       "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
     {
       "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
+            "code": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+            "rootCode": "GRP_EDU_PROVIDER_REPRESENTATIVES",
+            "data": "_query.tableData",
             "columns": [
               {
                 "Header": "Actions",
@@ -79,29 +93,27 @@
               {
                 "Header": "First Name",
                 "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "Phone Number",
                 "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
-                "Header": "University ",
+                "Header": "University",
                 "accessor": "university",
                 "filterType": "string"
               }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            ]
           }
         }
       ]
@@ -168,6 +180,18 @@
     },
     {
       "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
       "path": "hostCompanies.items",
       "as": "tableData",
       "scope": {
@@ -183,6 +207,10 @@
           "currentUser": "currentUser.code"
         }
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData"]
     }
   ]
 }

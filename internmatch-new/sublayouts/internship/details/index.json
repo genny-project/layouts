@@ -168,6 +168,11 @@
                 },
                 {
                   "component": "Box",
+                  "onlyShowIf": {
+                    "props.internshipDuration": {
+                      "$exists": true
+                    }
+                  },
                   "children": [
                     {
                       "component": "Box",
@@ -309,7 +314,7 @@
                   ]
                 },
                 {
-                  "component": "Text",
+                  "component": "DisplayHTML",
                   "conditional": {
                     "if": {
                       "props.internshipLearningOutcomes": {
@@ -318,11 +323,38 @@
                       }
                     },
                     "then": {
-                      "text": "{{props.internshipLearningOutcomes}}"
+                      "html": "{{props.internshipLearningOutcomes}}"
                     },
                     "else": {
-                      "text": "None"
+                      "html": "None"
                     }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginTop": 20,
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginBottom": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Heading",
+                      "children": "Position Description"
+                    }
+                  ]
+                },
+                {
+                  "component": "DisplayHTML",
+                  "props": {
+                    "html": "{{props.positionDescription}}"
                   }
                 }
               ]

@@ -29,13 +29,16 @@
             "gutter": 20,
             "contentProps": {
               "minWidth": 240
-            }
-          },
+            },
+            "rootCode": "GRP_INTERNS"
+          }, 
           "repeat": "_query",
           "children": {
             "component": "List",
             "repeat": "_repeater.items",
             "props": {
+              "height": "100vh",
+              "overflow": "scroll",
               "headerText": "{{repeater.name}}",
               "contentBackground": "#eaeaea",
               "headerProps": {
@@ -44,6 +47,8 @@
                 "justifyContent": "space-between",
                 "alignItems": "center",
                 "backgroundColor": "#eaeaea",
+                "height": "100vh",
+                "overflow": "scroll",
                 "position": "sticky",
                 "top": 0
               },
@@ -52,6 +57,8 @@
               },
               "showCountInHeader": true,
               "contentBodyProps": {
+                "height": "100vh",
+                "overflow": "scroll",
                 "paddingX": 10,
                 "paddingY": 20
               },
@@ -120,7 +127,12 @@
                     }
                   },
                   "props": {
-                    "width": "100%"
+                    "width": "100%",
+                    "marginY": 5,
+                    "borderWidth":"1px",
+                    "borderColor":"white",
+                    "backgroundColor":"#f9f9f9",
+                    "padding": "5px"
                   },
                   "children": [
                     {
@@ -295,13 +307,13 @@
   ],
   "query": [
     {
-      "operator": "getBE",
+      "operator": "getLinks",
       "id": "GRP_APPLICATIONS",
       "as": "applications"
     },
     {
       "operator": "scope",
-      "path": "applications.links",
+      "path": "applications",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -312,7 +324,7 @@
     },
     {
       "operator": "map",
-      "fields": "applications.links"
+      "fields": "applications"
     },
     {
       "operator": "sort",
@@ -324,25 +336,19 @@
       "fields": "be"
     },
     {
+      "operator": "getLinks",
+      "id": "{{code}}",
+      "as": "links"
+    },
+    {
       "operator": "scope",
       "path": "links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "as": "be",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be.code": {
-            "$exists": true
-          }
-        }
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
       }
     },
     {

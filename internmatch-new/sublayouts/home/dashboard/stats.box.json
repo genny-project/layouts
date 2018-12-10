@@ -1,0 +1,74 @@
+{
+  "children": [
+    {
+      "component": "EventButton",
+      "props": {
+        "width": "100%",
+        "padding": 0,
+        "paddingX": 0,
+        "paddingY": 0,
+        "eventType": "TV_SELECT",
+        "buttonCode": "{{props.buttonCode}}",
+        "value": "{{props.buttonValue}}"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "width": "100%",
+            "backgroundColor": "white",
+            "borderWidth": 1,
+            "borderColor": "lightgray",
+            "padding": 10,
+            "flexDirection": "row"
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "text": "{{props.title}}",
+                "width": "100%",
+                "align": "left",
+                "size": "xs"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Heading",
+                  "conditional": {
+                    "if": {
+                      "$and": [
+                        {
+                          "props.value": {
+                            "$ne": "undefined"
+                          }
+                        },
+                        {
+                          "props.value": {
+                            "$exists": true
+                          }
+                        }
+                      ]
+                    },
+                    "then": {
+                      "text": "{{props.value}}"
+                    }
+                  },
+                  "props": {
+                    "text": "-",
+                    "width": "100%",
+                    "align": "center",
+                    "size": "md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

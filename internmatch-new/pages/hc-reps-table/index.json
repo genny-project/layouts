@@ -87,16 +87,19 @@
               {
                 "Header": "Full Name",
                 "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "uname",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "contact Number",
                 "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               }
             ],
@@ -104,7 +107,7 @@
             "data": "_query.tableData",
             "height": "500px",
             "width": "500px",
-            "itemsPerPage": 15
+            "itemsPerPage": 10
           }
         }
       ]
@@ -163,6 +166,10 @@
           "attributeCode": "code"
         }
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData"]
     }
   ]
 }

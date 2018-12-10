@@ -50,10 +50,22 @@
           },
           "children": [
             {
-              "component": "Sublayout",
+              "component":"Box",
               "props": {
-                "layoutName": "home/edu-provider/bucket"
-              }
+                "width":"100%",
+                "height":"100%",
+                "flexDirection": "column",
+                "alignItems": "center"
+              },
+              "children": [
+                {
+                  "component": "Sublayout",
+                  "props": {
+                    "layoutName": "home/dashboard/stats.students",
+                    "showAllStudentsRow": true
+                  }
+                }
+              ]
             }
           ]
         }
@@ -72,6 +84,18 @@
       "scope": {
         "operator": "getBE",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
       }
     },
     {

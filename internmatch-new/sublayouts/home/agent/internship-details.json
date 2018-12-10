@@ -1,4 +1,5 @@
 {
+  "onlyUpdateIf": ["internship"],
   "children": [
     {
       "component": "Box",
@@ -59,8 +60,9 @@
         "internshipDuration": "{{query.internship.bes.name}}",
         "internshipSkills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
         "internshipDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
-        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
-        "createdOn": "{{query.internship.created}}"
+        "internshipLearningOutcomes": "{{query.internship.attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value}}",
+        "createdOn": "{{query.internship.created}}",
+        "positionDescription": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}"
       }
     }
   ],
@@ -109,6 +111,10 @@
           "id": "{{internship.attributes.LNK_INTERNSHIP_DURATION.value}}",
           "as": "bes"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["internship"]
     }
   ]
 }

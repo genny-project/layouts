@@ -11,38 +11,49 @@
         "flexDirection": "row",
         "width": "100%",
         "height": "100vh",
-        "backgroundColor": "#edf1ff"
+        "backgroundColor": "#fff",
+        "flexWrap": "wrap"
       },
       "children": [
         {
           "component": "Box",
           "props": {
             "flex": 1,
-            "backgroundColor": "#edf1ff",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "style": {
-              "flex": 1
-            },
-            "contentContainerStyle": {
-              "flex": 1
-            }
+            "backgroundColor": "#203050",
+            "alignItems":"center"
           },
           "children": [
             {
               "component": "Box",
               "props": {
+                "borderRadius": "14px",
+                "backgroundColor": "#fff",
+                "marginY": "3em",
                 "flexDirection": "column",
                 "alignItems": "center",
-                "justifyContent": "flex-start",
-                "flex": 1
+                "justifyContent": "center",
+                "flex": 1,
+                "maxWidth": "400px",
+                "marginX": "auto",
+                "borderColor": "#a2b5d6",
+                "borderWidth":4,
+                "height": "700px",
+                "paddingY": "30px"
               },
               "children": [
                 {
-                  "component": "Image",
-                  "props": {
-                    "source": "https://i.imgur.com/0fodSXE.png",
-                    "width": "50%"
+                  "component": "Box",
+                  "props":{
+                    "maxWidth": "300px",
+                    "maxHeight": "60px"
+                  },
+                  "children":
+                  {
+                    "component": "Image",
+                    "props": {
+                      "source": "https://i.imgur.com/0fodSXE.png",
+                      "width": "100%"
+                    }
                   }
                 },
                 {
@@ -71,7 +82,29 @@
                     {
                       "component": "AuthenticationForm",
                       "props": {
-                        "type": "register"
+                        "type": "register",
+                        "validation": {
+                          "email": {
+                            "regex": "^(\\w[-._+\\w]*\\w@\\w[-._\\w]*\\w\\.\\w{2,20})$",
+                            "warning": "Invalid Email Address",
+                            "isRequired": true
+                          },
+                          "firstname": {
+                            "regex": "^[a-zA-Z\\_\\.]{1,100}$",
+                            "warning": "Please enter a first name",
+                            "isRequired": true
+                          },
+                          "lastname": {
+                            "regex": "^[a-zA-Z\\_\\.]{1,100}$",
+                            "warning": "Please enter a last name",
+                            "isRequired": true
+                          },
+                          "password": {
+                            "regex": "^.{4,}$",
+                            "warning": "Password must be at least 4 characters",
+                            "isRequired": true
+                          }
+                        }
                       },
                       "children": [
                         {
@@ -281,13 +314,15 @@
                                 {
                                   "component": "FormGenericSubmit",
                                   "props": {
+                                    "disabledWhenFormInvalid": true,
                                     "text": "Register",
                                     "color": "#3c67c8",
                                     "textColor": "white",
                                     "size": "xl",
                                     "height": "50px",
                                     "width": "300px",
-                                    "padding": "20px"
+                                    "padding": "20px",
+                                    "formProps": "_formProps"
                                   }
                                 }
                               ]
@@ -297,38 +332,6 @@
                       ]
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flex": "1.5",
-            "flexDirection": "column",
-            "width": "100%"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "height": "100%",
-                "width": "100%"
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "flex": 1,
-                    "height": "100%",
-                    "width": "100%",
-                    "minWidth": "100%",
-                    "resizeMode": "cover",
-                    "source": "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                    "justifyContent": "center",
-                    "flexDirection": "column"
-                  }
                 }
               ]
             }

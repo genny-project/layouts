@@ -30,6 +30,144 @@
         },
         "children": [
           {
+            "component": "Dropdown",
+            "onlyShowIf": {
+              "$or": [
+                {
+                  "user.attributes.PRI_IS_AGENT.value": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "user.attributes.PRI_IS_BUYER.value": {
+                    "$eq": true
+                  }
+                }
+              ]
+            },
+            "props": {
+              "facingRight": true,
+              "menuButtonStyle": {
+                "backgroundColor": "transparent",
+                "border": 0,
+                "padding": 10,
+                "fontSize": 16,
+                "cursor": "pointer",
+                "color": "white"
+              },
+              "menuListStyle": {
+                "background": "#233a4e",
+                "borderWidth": 2,
+                "borderColor": "#192835",
+                "borderStyle": "solid"
+              },
+              "menuItemStyle": {
+                "textAlign": "right",
+                "padding": 15,
+                "color": "white"
+              }
+            },
+            "conditional": {
+              "if": {
+                "user.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              "then": {
+                "items": [
+                  {
+                    "text": "New internship",
+                    "buttonCode": "BTN_ADD_INTERNSHIP"
+                  },
+                  {
+                    "text": "New company",
+                    "buttonCode": "BTN_ADD_COMPANY"
+                  },
+                  {
+                    "text": "New person",
+                    "buttonCode": "BTN_ADD_PEOPLE"
+                  }
+                ]
+              },
+              "else": {
+                "if": {
+                  "user.attributes.PRI_IS_BUYER.value": {
+                    "$eq": true
+                  }
+                },
+                "then": {
+                  "items": [
+                    {
+                      "text": "New internship",
+                      "buttonCode": "BTN_ADD_INTERNSHIP"
+                    },
+                    {
+                      "text": "New person",
+                      "buttonCode": "BTN_ADD_PEOPLE"
+                    }
+                  ]
+                },
+                "else": {
+                  "if": {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "items": [
+                      {
+                        "text": "New person",
+                        "buttonCode": "BTN_ADD_PEOPLE"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "borderWidth": "1px",
+                  "borderStyle": "solid",
+                  "borderColor": "white",
+                  "padding": "8px"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color": "white",
+                          "text": "ADD"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "expand_more",
+                      "color": "white",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "component": "Touchable",
             "props": {
               "paddingX": 10,
@@ -79,7 +217,10 @@
                 "background": "#233a4e",
                 "borderWidth": 2,
                 "borderColor": "#192835",
-                "borderStyle": "solid"
+                "borderStyle": "solid",
+                "color": "white",
+                "textAlign": "center",
+                "minWidth": 150
               },
               "menuLinkStyle": {
                 "textAlign": "right",
@@ -90,14 +231,48 @@
                 {
                   "text": "Profile",
                   "icon": "person",
-                  "href": "profile"
+                  "buttonCode": "PROFILE",
+                  "eventType": "PROFILE"
                 },
                 {
                   "text": "Logout",
                   "icon": "exit-to-app",
                   "href": "logout"
                 }
-              ]
+              ],
+              "renderItem": {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "justifyContent": "flex-end",
+                  "padding": 15
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white"
+                    }
+                  }
+                ]
+              }
             },
             "children": [
               {

@@ -10,9 +10,23 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "user.attributes.PRI_IS_AGENT.value": {
-          "$eq": true
-        }
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
       }
     }
   },
@@ -20,7 +34,7 @@
     {
       "component": "Box",
       "props": {
-        "flex":1,
+        "flex": 1,
         "position": "relative",
         "backgroundColor": "#f6f6f6"
       },
@@ -28,7 +42,7 @@
         {
           "component": "Box",
           "dontShowIf": {
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$eq": true
             }
           },
@@ -39,121 +53,6 @@
             "zIndex": 5
           },
           "children": [
-            {
-              "component": "Dropdown",
-              "props": {
-                "facingRight": true,
-                "menuButtonStyle": {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "padding": 10,
-                  "fontSize": 16,
-                  "cursor": "pointer",
-                  "color": "white"
-                },
-                "menuListStyle": {
-                  "background": "#233a4e",
-                  "borderWidth": 2,
-                  "borderColor": "#192835",
-                  "borderStyle": "solid"
-                },
-                "menuItemStyle": {
-                  "textAlign": "right",
-                  "padding": 15,
-                  "color": "white"
-                }
-              },
-              "conditional": {
-                "if": {
-                  "user.attributes.PRI_IS_AGENT.value": {
-                    "$eq": true
-                  }
-                },
-                "then": {
-                  "items": [
-                    {
-                      "text": "New internship",
-                      "buttonCode": "BTN_ADD_INTERNSHIP"
-                    },
-                    {
-                      "text": "New company",
-                      "buttonCode": "BTN_ADD_COMPANY"
-                    },
-                    {
-                      "text": "New person",
-                      "buttonCode": "BTN_ADD_PEOPLE"
-                    }
-                  ]
-                },
-                "else": {
-                  "if": {
-                    "user.attributes.PRI_IS_BUYER.value": {
-                      "$eq": true
-                    }
-                  },
-                  "then": {
-                    "items": [
-                      {
-                        "text": "New internship",
-                        "buttonCode": "BTN_ADD_INTERNSHIP"
-                      },
-                      {
-                        "text": "New person",
-                        "buttonCode": "BTN_ADD_PEOPLE"
-                      }
-                    ]
-                  },
-                  "else": {
-                    "if": {
-                      "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                        "$eq": true
-                      }
-                    },
-                    "then": {
-                      "items": [
-                        {
-                          "text": "New person",
-                          "buttonCode": "BTN_ADD_PEOPLE"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "alignItems": "center"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 10
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "color": "white",
-                            "text": "ADD"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Icon",
-                      "props": {
-                        "name": "expand_more",
-                        "color": "white",
-                        "size": "xs"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
           ]
         },
         {
@@ -165,28 +64,44 @@
             "alignItems": "center"
           },
           "onlyShowIf": {
-            "user.attributes.PRI_IS_AGENT.value": {
+            "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
-            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+            "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             },
-            "user.attributes.PRI_IS_BUYER.value": {
+            "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$or": [
-                { "$eq": "undefined" },
-                { "$eq": false }
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
               ]
             }
           },
@@ -202,7 +117,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_AGENT.value": {
+            "query.userBe.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
           },
@@ -213,7 +128,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+            "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
               "$eq": true
             }
           },
@@ -224,7 +139,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_SELLER.value": {
+            "query.userBe.attributes.PRI_IS_SELLER.value": {
               "$eq": true
             }
           },
@@ -235,7 +150,7 @@
         {
           "component": "Sublayout",
           "onlyShowIf": {
-            "user.attributes.PRI_IS_BUYER.value": {
+            "query.userBe.attributes.PRI_IS_BUYER.value": {
               "$eq": true
             }
           },
@@ -243,8 +158,26 @@
             "layoutName": "home/hostcompany"
           }
         }
-
       ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{user.data.code}}",
+      "as": "userBe"
+    },
+    {
+      "operator": "scope",
+      "path": "userBe",
+      "scope": {
+        "operator": "populateBEGAttributes",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["userBe"]
     }
   ]
 }

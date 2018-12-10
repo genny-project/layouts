@@ -1,194 +1,85 @@
 {
   "layout": {
-    "title": "Available Internships",
+    "title": "Internships",
     "appColor": "white",
-    "backgroundColor": "white"
+    "backgroundColor": "white",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      }
+    }
   },
   "children": [
     {
-      "component": "Box",
-      "repeat": "_query.items",
+      "component": "Sublayout",
       "props": {
-        "marginTop": "10px",
-        "flexDirection": "column"
-      },
-      "children": {
-        "component": "Box",
-        "props": {
-          "padding": 5,
-          "marginBottom": 5,
-          "backgroundColor": "grey",
-          "flexDirection": "row",
-          "justifyContent": "center"
-        },
-        "children": [
+        "layoutName": "tabs/tabs-default",
+        "title": "Internships",
+        "tabs": [
           {
-            "component": "Container",
+            "title": "Table View",
+            "key": 0
+          },
+          {
+            "title": "Applications",
+            "key": 1
+          },
+          {
+            "title": "Details View",
+            "key": 2
+          }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
             "props": {
-              "flexDirection": "row",
-              "display": "flex",
-              "flex-wrap": "wrap",
-              "width": "100%"
+              "layoutName": "tables/table-internships"
+            }
+          },
+          {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column"
             },
             "children": [
               {
                 "component": "Box",
                 "props": {
-                  "width": "100%",
-                  "backgroundColor": "white",
-                  "flexDirection": "row",
-                  "display": "flex"
+                  "paddingX": 20,
+                  "paddingTop": 20
                 },
                 "children": [
+
                   {
-                    "component": "Box",
+                    "component": "Heading",
                     "props": {
-                      "backgroundColor": "white",
-                      "width": "100px",
-                      "justifyContent": "center",
-                      "paddingTop": "10px",
-                      "padddingBottom": "10px",
-                      "paddingLeft": "10px",
-                      "paddingRight": "10px"
-                    },
-                    "children": [
-                      {
-                        "component": "Image",
-                        "props": {
-                          "source": "https://i.imgur.com/ziHkxPf.jpg",
-                          "height": "100%",
-                          "width": "100%",
-                          "shape": "circle"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "component": "Box",
-                    "props": {
-                      "width": "70%",
-                      "flexDirection": "column",
-                      "backgroundColor": "white"
-                    },
-                    "children": [
-                      {
-                        "component": "Box",
-                        "props": {},
-                        "children": [
-                          {
-                            "component": "Box",
-                            "children": {
-                              "component": "Text",
-                              "children": "Javascript developer",
-                              "props": {
-                                "color": "#444444",
-                                "fontWeight": "bold"
-                              }
-                            },
-                            "props": {
-                              "color": "red",
-                              "paddingTop": "10px"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "paddingTop": "5px"
-                        },
-                        "children": [
-                          {
-                            "component": "Box",
-                            "children": {
-                              "component": "Text",
-                              "children": "Blaze Acumen",
-                              "props": {
-                                "color": "#e7a57d"
-                              }
-                            },
-                            "props": {
-                              "color": "red"
-                            }
-                          },
-                          {
-                            "component": "Box",
-                            "children": {
-                              "component": "Text",
-                              "children": "Ashburton VIC",
-                              "props": {
-                                "color": "black"
-                              }
-                            },
-                            "props": {
-                              "color": "red",
-                              "paddingLeft": "20px"
-                            }
-                          },
-                          {
-                            "component": "Box",
-                            "children": {
-                              "component": "Text",
-                              "children": "28 days ago",
-                              "props": {
-                                "color": "black"
-                              }
-                            },
-                            "props": {
-                              "color": "red",
-                              "paddingLeft": "10px"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "component": "Box",
-                        "children": [
-                          {
-                            "component": "Box",
-                            "children": {
-                              "component": "Text",
-                              "children": "Looking for a talented JavaScript Developer (FrontEnd + Backend) to join a growing team of Niche Educational product based organization.",
-                              "props": {
-                                "color": "#332f2d"
-                              }
-                            },
-                            "props": {
-                              "color": "red",
-                              "width": "100%",
-                              "paddingTop": "15px",
-                              "paddingBottom": "10px"
-                            }
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "component": "Box",
-                    "props": {
-                      "backgroundColor": "white",
-                      "width": "15%"
-                    },
-                    "children":[
-                      {
-                        "component":"Button",
-                        "props":{
-                          "text":"View",
-                          "size": "md",
-                          "fontFamily": "arial",
-                          "color": "#283a4c",
-                          "fontWeight": "lighter",
-                          "textColor": "white",
-                          "width":"100px",
-                          "height":"30px"
-                        }
-                      }   
-                    ]
+                      "text": "{{query.currentItem.name}}"
+                    }
                   }
                 ]
+              },
+              {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "home/agent/bucket"
+                }
               }
             ]
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/internship-details"
+            }
           }
         ]
       }
@@ -196,57 +87,13 @@
   ],
   "query": [
     {
-      "operator": "getBE",
-      "id": "GRP_NEW_ITEMS",
-      "as": "internshipList"
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
     },
     {
-      "operator": "scope",
-      "path": "internshipList",
-      "scope": {
-        "operator": "populateBEGAttributes",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "internshipList.links",
-      "as": "items",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "valueString": {
-            "$eq": "BEG"
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "populateAttributes",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as": "company",
-        "basePath": "baseEntities.data",
-        "id": "{{attributes.LNK_HOST_COMPANY.value}}"
-      }
+      "operator": "clean",
+      "fields": ["currentItem"]
     }
   ]
 }
