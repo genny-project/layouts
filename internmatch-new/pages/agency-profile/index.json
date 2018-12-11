@@ -1,5 +1,6 @@
 {
-  "layout": 
+  "onlyUpdateIf": ["agencyProfile"],
+  "layout":
   {
     "title": "{{query.agencyProfile.PRI_NAME.value}}",
     "header": {
@@ -11,9 +12,23 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "user.attributes.PRI_IS_AGENT.value": {
-          "$eq": true
-        }
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
       }
     }
   },
@@ -60,6 +75,10 @@
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
         "as": "uniAttrs"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["agencyProfile"]
     }
   ]
 }

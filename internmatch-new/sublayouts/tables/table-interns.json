@@ -1,4 +1,5 @@
 {
+  "onlyUpdateIf": ["internGroup", "tableData"],
   "layout": {
     "title": "Interns Table"
   },
@@ -13,7 +14,9 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/table-default",
-            "rootCode": "GRP_RESULTS",
+            "code": "GRP_INTERNS",
+            "rootCode": "GRP_RESULTS_INTERNS",
+            "totalItems": "_query.internGroup.totalCount",
             "data": "_query.tableData",
             "columns": [
               {
@@ -28,23 +31,8 @@
                       "backgroundColor": "red",
                       "color": "#5173c6",
                       "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_INTERN",
-                      "value": {
-                        "itemCode": "{{code}}"
-                      }
-                    }
-                  },
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
                       "text": "View",
-                      "buttonCode": "BTN_VIEW_INTERN",
+                      "buttonCode": "BTN_VIEW_BUCKET_INTERN",
                       "value": {
                         "itemCode": "{{code}}"
                       },
@@ -62,6 +50,7 @@
               {
                 "Header": "Full Name",
                 "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
                 "id": "firstName",
                 "key": "firstName",
                 "filterType": "string"
@@ -69,6 +58,7 @@
               {
                 "Header": "Student ID",
                 "accessor": "studentId",
+                "attributeCode": "PRI_STUDENT_ID",
                 "id": "studentId",
                 "key": "firstName",
                 "filterType": "string"
@@ -76,16 +66,19 @@
               {
                 "Header": "Email",
                 "accessor": "uname",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "Edu Provider",
+                "attributeCode": "PRI_EDUCATION_PROVIDER",
                 "accessor": "eduProvider",
                 "filterType": "string"
               },
               {
                 "Header": "Mobile Phone",
                 "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "number"
               }
             ]
@@ -97,7 +90,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULTS",
+      "id": "GRP_RESULTS_INTERNS",
       "as": "interns"
     },
     {
@@ -131,6 +124,27 @@
     },
     {
       "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "scope": {
+        "operator": "sort",
+        "by": "created",
+        "direction": "desc"
+      }
+    },
+    {
+      "operator": "scope",
       "path": "interns",
       "as": "tableData",
       "scope": {
@@ -144,6 +158,15 @@
           "studentId": "attributes.PRI_STUDENT_ID.value"
         }
       }
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS_INTERNS",
+      "as": "internGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["internGroup", "tableData"]
     }
   ]
 }

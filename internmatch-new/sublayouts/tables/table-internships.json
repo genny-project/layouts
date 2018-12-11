@@ -13,8 +13,10 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/table-default",
-            "rootCode": "GRP_RESULTS",
+            "code": "GRP_INTERNSHIPS",
+            "rootCode": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
             "data": "_query.tableData",
+            "totalItems": "_query.internshipGroup.totalCount",
             "columns": [
               {
                 "Header": "Actions",
@@ -48,21 +50,25 @@
                 "accessor": "name",
                 "id": "name",
                 "key": "name",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
                 "Header": "Host Company",
                 "accessor": "company",
+                "attributeCode": "PRI_HOST_COMPANY",
                 "filterType": "string"
               },
               {
                 "Header": "Representative",
                 "accessor": "companyRep",
+                "attributeCode": "PRI_HOST_COMPANY_REP",
                 "filterType": "string"
               },
               {
                 "Header": "Contact Number",
                 "accessor": "contactNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
@@ -104,7 +110,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_NEW_ITEMS",
+      "id": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
       "as": "internships"
     },
     {
@@ -175,6 +181,27 @@
     {
       "operator": "scope",
       "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "sort",
+        "by": "created",
+        "direction": "desc"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
       "as": "tableData",
       "scope": {
         "operator": "map",
@@ -198,6 +225,15 @@
       "operator": "getFromAlias",
       "alias": "CURRENT_NOTE",
       "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
+      "as": "internshipGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData", "internshipGroup"]
     }
   ]
 }

@@ -29,13 +29,16 @@
             "gutter": 20,
             "contentProps": {
               "minWidth": 240
-            }
+            },
+            "rootCode": "GRP_INTERNS"
           },
           "repeat": "_query",
           "children": {
             "component": "List",
             "repeat": "_repeater.items",
             "props": {
+              "height": "100vh",
+              "overflow": "scroll",
               "headerText": "{{repeater.name}}",
               "contentBackground": "#eaeaea",
               "headerProps": {
@@ -44,6 +47,8 @@
                 "justifyContent": "space-between",
                 "alignItems": "center",
                 "backgroundColor": "#eaeaea",
+                "height": "100vh",
+                "overflow": "scroll",
                 "position": "sticky",
                 "top": 0
               },
@@ -52,6 +57,8 @@
               },
               "showCountInHeader": true,
               "contentBodyProps": {
+                "height": "100vh",
+                "overflow": "scroll",
                 "paddingX": 10,
                 "paddingY": 20
               },
@@ -137,8 +144,18 @@
                       "children": [
                         {
                           "component": "Image",
+                          "conditional": {
+                            "if": {
+                              "repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "source": "{{repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value}}"
+                            }
+                          },
                           "props": {
-                            "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                            "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                             "height": 50,
                             "width": 50
                           }
@@ -300,13 +317,13 @@
   ],
   "query": [
     {
-      "operator": "getBE",
+      "operator": "getLinks",
       "id": "GRP_APPLICATIONS",
       "as": "applications"
     },
     {
       "operator": "scope",
-      "path": "applications.links",
+      "path": "applications",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -317,7 +334,7 @@
     },
     {
       "operator": "map",
-      "fields": "applications.links"
+      "fields": "applications"
     },
     {
       "operator": "sort",
@@ -329,25 +346,19 @@
       "fields": "be"
     },
     {
+      "operator": "getLinks",
+      "id": "{{code}}",
+      "as": "links"
+    },
+    {
       "operator": "scope",
       "path": "links",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
         "as": "be",
-        "id": "{{link.targetCode}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "links",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "be.code": {
-            "$exists": true
-          }
-        }
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
       }
     },
     {
@@ -373,6 +384,28 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_APPLICANT_CODE}}",
+        "as": "applicant"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "applicant",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     },
     {

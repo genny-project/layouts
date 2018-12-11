@@ -168,6 +168,11 @@
                 },
                 {
                   "component": "Box",
+                  "onlyShowIf": {
+                    "props.internshipDuration": {
+                      "$exists": true
+                    }
+                  },
                   "children": [
                     {
                       "component": "Box",
@@ -309,7 +314,7 @@
                   ]
                 },
                 {
-                  "component": "Text",
+                  "component": "DisplayHTML",
                   "conditional": {
                     "if": {
                       "props.internshipLearningOutcomes": {
@@ -318,10 +323,10 @@
                       }
                     },
                     "then": {
-                      "text": "{{props.internshipLearningOutcomes}}"
+                      "html": "{{props.internshipLearningOutcomes}}"
                     },
                     "else": {
-                      "text": "None"
+                      "html": "None"
                     }
                   }
                 }
@@ -347,8 +352,10 @@
                   ]
                 },
                 {
-                  "component": "Text",
-                  "children": "{{props.positionDescription}}"
+                  "component": "DisplayHTML",
+                  "props": {
+                    "html": "{{props.positionDescription}}"
+                  }
                 }
               ]
             }
@@ -456,7 +463,7 @@
                       "component": "Text",
                       "conditional": {
                         "if": {
-                          "props.companyPhone": {
+                          "{{props.companyPhone}}": {
                             "$exists": true,
                             "$ne": "undefined"
                           }

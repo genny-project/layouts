@@ -1,36 +1,53 @@
 {
   "children": [
     {
-      "component": "Sublayout",
+      "component": "Box",
       "props": {
-        "layoutName": "tabs/tabs-default",
-        "title": "Internships",
-        "tabs": [
-          { "title": "Table View", "key": 0 },
-          { "title": "Process View", "key": 1 },
-          { "title": "Details View", "key": 2 }
-        ],
-        "content": [
-          {
-            "component": "Sublayout",
-            "props": {
-              "layoutName": "tables/table-internships"
-            }
-          },
-          {
-            "component": "Sublayout",
-            "props": {
-              "layoutName": "home/agent/bucket"
-            }
-          },
-          {
-            "component": "Sublayout",
-            "props": {
-              "layoutName": "home/agent/internship-details"
-            }
+        "width": "100%",
+        "flex": 1,
+        "position": "relative",
+        "backgroundColor": "#f6f6f6"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tabs/tabs-default",
+            "title": "Internships",
+            "tabs": [
+              { "title": "Dashboard", "key": 0 }
+            ],
+            "content": [
+              {
+                "component":"Box",
+                "props": {
+                  "width":"100%",
+                  "height":"100%",
+                  "flexDirection": "column",
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "home/dashboard/stats.students"
+                    }
+                  },
+                  {
+                    "component": "Sublayout",
+                    "props": {
+                      "layoutName": "home/dashboard/stats.internships"
+                    }
+                  }
+                ]
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     }
+  ],
+  "query": [
+
   ]
 }

@@ -8,6 +8,28 @@
     },
     "sidebar": {
       "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
@@ -114,8 +136,10 @@
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
         "as": "uniAttrs"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["intern"]
     }
-
-
   ]
 }

@@ -81,21 +81,25 @@
               {
                 "Header": "Company Name",
                 "accessor": "firstName",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "Phone Number",
                 "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
                 "Header": "Address ",
-                "accessor": "mobilePhone",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
                 "filterType": "string"
               }
             ],
@@ -103,7 +107,7 @@
             "data": "_query.tableData",
             "height": "500px",
             "width": "500px",
-            "itemsPerPage": 15
+            "itemsPerPage": 10
           }
         }
       ]
@@ -162,6 +166,10 @@
           "attributeCode": "code"
         }
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData"]
     }
   ]
 }

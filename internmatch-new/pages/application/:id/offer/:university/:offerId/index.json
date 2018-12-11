@@ -8,7 +8,26 @@
       "variant": "default"
     },
     "sidebarRight": {
-      "variant": "default"
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
@@ -17,7 +36,8 @@
       "props": {
         "marginX": "auto",
         "marginY": "100px",
-        "width": "60%",
+        "maxWidth": "700px",
+        "minWidth": "500px",
         "flex": 1,
         "flexDirection": "column"
       },
@@ -31,7 +51,6 @@
             "style": {
               "overflow": "scroll"
             }
-            
           },
           "children": [
             {
@@ -44,6 +63,29 @@
         },
         {
           "component": "Form",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$or": [
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$eq": false
+                    }
+                  },
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              },
+              {
+                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
           "props": {
             "questionGroupCode": "{{navigation.offerId}}",
             "style": {
@@ -86,6 +128,10 @@
         "withAttributes": true,
         "as": "linkValues"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["application"]
     }
   ]
 }
