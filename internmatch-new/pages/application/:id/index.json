@@ -23,7 +23,9 @@
           "props": {
             "layoutName": "application/details",
             "application": "_query.application",
-            "showBackButton": true
+            "showBackButton": true,
+            "internshipDescription": "_query.application.internships.PRI_INTERNSHIP_DESCRIPTION.value",
+            "internshipLearningOutcomes": "_query.application.internships.PRI_INTERNSHIP_LEARNING_OUTCOMES.value"
           }
         }
       ]
@@ -50,6 +52,15 @@
       "scope": {
         "operator": "populateLinkValues",
         "withAttributes": true
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{attributes.PRI_BEG_CODE.value}}",
+        "as": "internships"
       }
     },
     {
