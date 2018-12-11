@@ -249,7 +249,7 @@
                     },
                     {
                       "component": "Text",
-                      "children": "{{props.application.attributes.PRI_NAME.value}} ({{props.application.attributes.PRI_PREFERRED_NAME.value}})"
+                      "children": "{{props.studentName}} ({{props.studentName}})"
                     }
                   ]
                 },
@@ -358,13 +358,13 @@
                       "component": "Text",
                       "conditional": {
                         "if": {
-                          "props.application.attributes.PRI_MOBILE.value": {
+                          "props.mobilePhone": {
                             "$exists": true,
                             "$ne": "undefined"
                           }
                         },
                         "then": {
-                          "text": "{{props.application.attributes.PRI_MOBILE.value}}"
+                          "text": "{{props.mobilePhone}}"
                         },
                         "else": {
                           "text": "No phone number"
@@ -444,7 +444,7 @@
                 {
                   "component": "Box",
                   "onlyShowIf": {
-                    "props.application.attributes.LNK_OCCUPATION.value": {
+                    "props.occupation": {
                       "$exists": true,
                       "$ne": "undefined",
                       "$size": {
@@ -455,7 +455,7 @@
                   "props": {
                     "flexDirection": "column"
                   },
-                  "repeat": "_props.application.attributes.LNK_OCCUPATION.value",
+                  "repeat": "_props.occupation",
                   "children": {
                     "component": "Box",
                     "props": {
@@ -576,7 +576,7 @@
                     "then": {
                       "text": "{{props.application.attributes.LNK_INDUSTRY.value}}"
                     },
-                    "else": { 
+                    "else": {
                       "text": "No industry"
                     }
                   }
