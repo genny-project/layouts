@@ -31,7 +31,7 @@
               "minWidth": 240
             },
             "rootCode": "GRP_INTERNS"
-          }, 
+          },
           "repeat": "_query",
           "children": {
             "component": "List",
@@ -144,6 +144,16 @@
                       "children": [
                         {
                           "component": "Image",
+                          "conditional": {
+                            "if": {
+                              "repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "source": "{{repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value}}"
+                            }
+                          },
                           "props": {
                             "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                             "height": 50,

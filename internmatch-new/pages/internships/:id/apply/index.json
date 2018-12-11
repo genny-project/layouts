@@ -43,7 +43,7 @@
           "width": "50%",
           "padding": "40px",
           "height": "540px",
-          "borderColor": "#ece7e7",
+          "borderColor": "#000000",
           "borderWidth": "2px",
           "borderStyle": "solid",
           "flexDirection": "column"
@@ -86,7 +86,7 @@
               },
               {
                 "component": "Box",
-                "props": { 
+                "props": {
                   "marginTop": "10px"
                 },
                 "children" :[
@@ -98,7 +98,7 @@
               },
               {
                 "component": "Box",
-                "props": { 
+                "props": {
                   "marginTop": "10px"
                 },
                 "children" :[
@@ -111,7 +111,7 @@
                   }
                 ]
               },
-              
+
               {
                 "component": "Box",
                 "props": {
@@ -161,29 +161,31 @@
           {
             "component": "Box",
             "props": {
-              "paddingLeft": "20px",
-              "padding":"50px"
+              "padding":"20px"
             },
             "children": [
               {
                 "component": "Form",
                 "props": {
-                  "questionGroupCode": "QUE_APPLY_INTERNSHIP_GRP"
-                },
-                "renderSubmitButtonWrapper": {
-                  "component": "Box",
-                  "props": {
-                    "marginTop": 10,
-                    "flexDirection": "column",
-                    "width": "100%"
-                  }
-                },
-                "renderSubmitButton": {
-                  "component": "Button",
-                  "props": {
-                    "showSpinnerOnClick": true,
-                    "color": "green",
-                    "width": "100%"
+                  "questionGroupCode": "QUE_APPLY_INTERNSHIP_GRP",
+                  "renderSubmitButtonWrapper": {
+                    "component": "Box",
+                    "props": {
+                      "marginTop": 10,
+                      "flexDirection": "column",
+                      "width": "100%",
+                      "color": "green",
+                      "borderWidth":"2px",
+                      "borderColor":"light-green"
+                    }
+                  },
+                  "renderSubmitButton": {
+                   "component":"EventButton",
+                    "props": {
+                      "showSpinnerOnClick": true,
+                      "width": "100%",
+                      "color": "green"
+                    }
                   }
                 }
               }
@@ -191,7 +193,6 @@
           }
         ]
       }
-      
     ],
     "query": [
       {
@@ -256,7 +257,7 @@
         "operator": "clean",
         "fields": ["internship"]
       }
-    ] 
+    ]
 }
 
 
