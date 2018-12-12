@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Pages/Uncontactable Properties View",
+    "title": "Pages/Contacted Properties View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -30,7 +30,7 @@
                 "buttonCode": "BTN_TABLE_SELECT",
                 "value": {
                   "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_UNCONTACTABLE",
+                  "hint": "GRP_CONTACTED",
                   "userCode": "{{user.data.code}}"
                 }
               }
@@ -44,7 +44,7 @@
                   {
                     "component": "EventButton",
                     "props": {
-                      "buttonCode": "BTN_VIEW_APPLICATION",
+                      "buttonCode": "BTN_VIEW_BEG",
                       "color": "#5fa5ec",
                       "textColor": "#fff",
                       "height": 25,
@@ -57,7 +57,7 @@
                       },
                       "value": {
                         "itemCode":"{{code}}",
-                        "hint": "BTN_VIEW_APPLICATION"
+                        "hint": "BTN_VIEW_BEG"
                       }
                     }
                   }
@@ -87,13 +87,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_UNCONTACTABLE",
-      "as": "uncontactableProperties"
+      "id": "GRP_CONTACTED",
+      "as": "contactedProperties"
     },
     {
       "operator": "scope",
-      "path": "uncontactableProperties.links",
-      "as": "uncontactableProperties",
+      "path": "contactedProperties.links",
+      "as": "contactedProperties",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -103,7 +103,7 @@
     },
     {
       "operator": "scope",
-      "path": "uncontactableProperties",
+      "path": "contactedProperties",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -115,7 +115,7 @@
     },
     {
       "operator": "scope",
-      "path": "uncontactableProperties",
+      "path": "contactedProperties",
       "as": "tableData",
       "scope": {
         "operator": "map",
@@ -125,6 +125,10 @@
           "code": "properties.code"
         }
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["contactedProperties"]
     }
   ]
 }
