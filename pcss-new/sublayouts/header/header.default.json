@@ -76,32 +76,66 @@
                 "color": "white"
               },
               "menuListStyle": {
-                "background": "#e05b5b",
+                "background": "#e05b5c",
                 "borderWidth": 2,
-                "borderColor": "#ffff"
-              },
-              "menuLinkStyle": {
-                "textAlign": "left",
-                "padding": 15,
-                "color": "white"
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "color": "white",
+                "textAlign": "center",
+                "minWidth": 150
               },
               "items": [
                 {
-                  "text": "Profile",
                   "icon": "person",
-                 "href": "profile"
+                  "text": "Profile",
+                  "buttonCode": "PROFILE",
+                  "eventType": "PROFILE"
                 },
-                {
-                  "text": "Account",
+                {  
                   "icon": "settings",
-                  "href": "profile"
+                  "text": "Account",
+                  "buttonCode": "ACCOUNT",
+                  "eventType": "ACCOUNT"
                 },
                 {
-                  "text": "Log Out",
                   "icon": "exit-to-app",
+                  "text": "Logout",
                   "href": "logout"
                 }
-              ]
+              ],
+              "renderItem": {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "justifyContent": "flex-end",
+                  "padding": 15
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 15
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white"
+                    }
+                  }
+                ]
+              }
             },
             "children": [
               {
