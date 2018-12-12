@@ -71,8 +71,8 @@
             },
             "repeat": "_repeater.items",
             "children": {
-              "component" : "Touchable",
-              "props":{
+              "component": "Touchable",
+              "props": {
                 "width": "100%",
                 "backgroundColor": "#ffffff",
                 "padding": 10,
@@ -128,8 +128,7 @@
                 },
                 "conditional": {
                   "if": {
-                    "$or": [
-                    ]
+                    "$or": []
                   },
                   "then": {
                     "opacity": 0.7
@@ -206,11 +205,10 @@
                                   "href": "/view-unit/{{repeater.code}}",
                                   "buttonCode": "BTN_VIEW_APPLICATION",
                                   "value": {
-                                  "itemCode":"{{code}}",
-                                  "hint": "BTN_VIEW_APPLICATION"
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
                                 }
-                                }
-                        
                               ]
                             },
                             "else": {
@@ -226,9 +224,9 @@
                                     "href": "/view-unit/{{repeater.code}}",
                                     "buttonCode": "BTN_VIEW_APPLICATION",
                                     "value": {
-                                    "itemCode":"{{code}}",
-                                    "hint": "BTN_VIEW_APPLICATION"
-                                  }
+                                      "itemCode": "{{code}}",
+                                      "hint": "BTN_VIEW_APPLICATION"
+                                    }
                                   },
                                   {
                                     "text": "Contact By Email",
@@ -265,77 +263,10 @@
                                   }
                                 ]
                               },
-                            "else": {
-                              "if": {
-                                "repeater.parentCode": {
-                                  "$eq": "GRP_CONTACTED"
-                                }
-                              },
-                              "then": {
-                                "items": [
-                                  {
-                                    "text": "View Detail",
-                                    "href": "/view-unit/{{repeater.code}}",
-                                    "buttonCode": "BTN_VIEW_APPLICATION",
-                                    "value": {
-                                    "itemCode":"{{code}}",
-                                    "hint": "BTN_VIEW_APPLICATION"
-                                  }
-                                },
-                                  {
-                                    "text": "Request Condition Report",
-                                    "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  },
-                                  {
-                                    "text": "Decline Condition Report",
-                                    "buttonCode": "BTN_START_INTERNSHIP",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  },
-                                  {
-                                    "text": "ReContact By Email",
-                                    "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  },
-                                  {
-                                    "text": "ReContact By Phone",
-                                    "buttonCode": "BTN_FINISH_INTERNSHIP",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  },
-                                  {
-                                    "text": "ReContact By Letter",
-                                    "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  },
-                                  {
-                                    "text": "ReContact By Site Visit",
-                                    "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "{{parentRepeater.code}}"
-                                    }
-                                  }
-                                ]
-                              },
                               "else": {
                                 "if": {
                                   "repeater.parentCode": {
-                                    "$eq": "GRP_REQUESTED"
+                                    "$eq": "GRP_CONTACTED"
                                   }
                                 },
                                 "then": {
@@ -345,13 +276,53 @@
                                       "href": "/view-unit/{{repeater.code}}",
                                       "buttonCode": "BTN_VIEW_APPLICATION",
                                       "value": {
-                                      "itemCode":"{{code}}",
-                                      "hint": "BTN_VIEW_APPLICATION"
-                                    }
-                                  },
+                                        "itemCode": "{{code}}",
+                                        "hint": "BTN_VIEW_APPLICATION"
+                                      }
+                                    },
                                     {
-                                      "text": "Book Inspection",
+                                      "text": "Request Condition Report",
                                       "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                      "value": {
+                                        "itemCode": "{{repeater.code}}",
+                                        "hint": "{{parentRepeater.code}}"
+                                      }
+                                    },
+                                    {
+                                      "text": "Decline Condition Report",
+                                      "buttonCode": "BTN_START_INTERNSHIP",
+                                      "value": {
+                                        "itemCode": "{{repeater.code}}",
+                                        "hint": "{{parentRepeater.code}}"
+                                      }
+                                    },
+                                    {
+                                      "text": "ReContact By Email",
+                                      "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                      "value": {
+                                        "itemCode": "{{repeater.code}}",
+                                        "hint": "{{parentRepeater.code}}"
+                                      }
+                                    },
+                                    {
+                                      "text": "ReContact By Phone",
+                                      "buttonCode": "BTN_FINISH_INTERNSHIP",
+                                      "value": {
+                                        "itemCode": "{{repeater.code}}",
+                                        "hint": "{{parentRepeater.code}}"
+                                      }
+                                    },
+                                    {
+                                      "text": "ReContact By Letter",
+                                      "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                      "value": {
+                                        "itemCode": "{{repeater.code}}",
+                                        "hint": "{{parentRepeater.code}}"
+                                      }
+                                    },
+                                    {
+                                      "text": "ReContact By Site Visit",
+                                      "buttonCode": "BTN_DEACTIVATE_APPLICATION",
                                       "value": {
                                         "itemCode": "{{repeater.code}}",
                                         "hint": "{{parentRepeater.code}}"
@@ -362,7 +333,7 @@
                                 "else": {
                                   "if": {
                                     "repeater.parentCode": {
-                                      "$eq": "GRP_INSPECTION"
+                                      "$eq": "GRP_REQUESTED"
                                     }
                                   },
                                   "then": {
@@ -372,29 +343,13 @@
                                         "href": "/view-unit/{{repeater.code}}",
                                         "buttonCode": "BTN_VIEW_APPLICATION",
                                         "value": {
-                                        "itemCode":"{{code}}",
-                                        "hint": "BTN_VIEW_APPLICATION"
-                                      }
-                                    },
-                                      {
-                                        "text": "Rebook Appointment",
-                                        "buttonCode": "BTN_OFFER_APPLICATION",
-                                        "value": {
-                                          "itemCode": "{{repeater.code}}",
-                                          "hint": "{{parentRepeater.code}}"
+                                          "itemCode": "{{code}}",
+                                          "hint": "BTN_VIEW_APPLICATION"
                                         }
                                       },
                                       {
-                                        "text": "Upload Building Condition Report",
-                                        "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                        "value": {
-                                          "itemCode": "{{repeater.code}}",
-                                          "hint": "{{parentRepeater.code}}"
-                                        }
-                                      },
-                                      {
-                                        "text": "Inspection Completed",
-                                        "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                        "text": "Book Inspection",
+                                        "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
                                         "value": {
                                           "itemCode": "{{repeater.code}}",
                                           "hint": "{{parentRepeater.code}}"
@@ -405,7 +360,7 @@
                                   "else": {
                                     "if": {
                                       "repeater.parentCode": {
-                                        "$eq": "GRP_SIGNOFF"
+                                        "$eq": "GRP_INSPECTION"
                                       }
                                     },
                                     "then": {
@@ -415,28 +370,28 @@
                                           "href": "/view-unit/{{repeater.code}}",
                                           "buttonCode": "BTN_VIEW_APPLICATION",
                                           "value": {
-                                          "itemCode":"{{code}}",
-                                          "hint": "BTN_VIEW_APPLICATION"
+                                            "itemCode": "{{code}}",
+                                            "hint": "BTN_VIEW_APPLICATION"
                                           }
                                         },
                                         {
-                                          "text": "Report Prepared",
-                                          "buttonCode": "BTN_INTERVIEW_APPLICATION",
+                                          "text": "Rebook Appointment",
+                                          "buttonCode": "BTN_OFFER_APPLICATION",
                                           "value": {
                                             "itemCode": "{{repeater.code}}",
                                             "hint": "{{parentRepeater.code}}"
                                           }
                                         },
                                         {
-                                          "text": "Report Reloaded",
-                                          "buttonCode": "BTN_REJECT_APPLICATION",
+                                          "text": "Upload Building Condition Report",
+                                          "buttonCode": "BTN_DEACTIVATE_APPLICATION",
                                           "value": {
                                             "itemCode": "{{repeater.code}}",
                                             "hint": "{{parentRepeater.code}}"
                                           }
                                         },
                                         {
-                                          "text": "Upload Condition Report",
+                                          "text": "Inspection Completed",
                                           "buttonCode": "BTN_DEACTIVATE_APPLICATION",
                                           "value": {
                                             "itemCode": "{{repeater.code}}",
@@ -447,9 +402,8 @@
                                     },
                                     "else": {
                                       "if": {
-                                        "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
-                                          "$exists": true,
-                                          "$ne": "undefined"
+                                        "repeater.parentCode": {
+                                          "$eq": "GRP_SIGNOFF"
                                         }
                                       },
                                       "then": {
@@ -459,18 +413,62 @@
                                             "href": "/view-unit/{{repeater.code}}",
                                             "buttonCode": "BTN_VIEW_APPLICATION",
                                             "value": {
-                                            "itemCode":"{{code}}",
-                                            "hint": "BTN_VIEW_APPLICATION"
+                                              "itemCode": "{{code}}",
+                                              "hint": "BTN_VIEW_APPLICATION"
+                                            }
+                                          },
+                                          {
+                                            "text": "Report Prepared",
+                                            "buttonCode": "BTN_INTERVIEW_APPLICATION",
+                                            "value": {
+                                              "itemCode": "{{repeater.code}}",
+                                              "hint": "{{parentRepeater.code}}"
+                                            }
+                                          },
+                                          {
+                                            "text": "Report Reloaded",
+                                            "buttonCode": "BTN_REJECT_APPLICATION",
+                                            "value": {
+                                              "itemCode": "{{repeater.code}}",
+                                              "hint": "{{parentRepeater.code}}"
+                                            }
+                                          },
+                                          {
+                                            "text": "Upload Condition Report",
+                                            "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                            "value": {
+                                              "itemCode": "{{repeater.code}}",
+                                              "hint": "{{parentRepeater.code}}"
+                                            }
                                           }
-                                        }
                                         ]
+                                      },
+                                      "else": {
+                                        "if": {
+                                          "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
+                                            "$exists": true,
+                                            "$ne": "undefined"
+                                          }
+                                        },
+                                        "then": {
+                                          "items": [
+                                            {
+                                              "text": "View Detail",
+                                              "href": "/view-unit/{{repeater.code}}",
+                                              "buttonCode": "BTN_VIEW_APPLICATION",
+                                              "value": {
+                                                "itemCode": "{{code}}",
+                                                "hint": "BTN_VIEW_APPLICATION"
+                                              }
+                                            }
+                                          ]
+                                        }
                                       }
                                     }
                                   }
                                 }
                               }
                             }
-                          }
                           }
                         },
                         "children": [
@@ -488,57 +486,45 @@
                             ]
                           },
                           {
-                              "component": "Box",
-                              "conditional": {
+                            "component": "Box",
+                            "conditional": [
+                              {
                                 "if": {
-                                  "repeater.attributes.STA_PER_USER1.value": {
-                                    "$eq": "green"
+                                  "repeater.attributes.STA_GREEN.value": {
+                                    "$in": "{{user.data.code}}"
                                   }
                                 },
                                 "then": {
-                                  "size": "xs",
-                                "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
-                                "height": 40,
-                                "width": 10,
-                                "borderRadius": 20,
-                                "marginLeft": 8
-                                }
-                            }
-                          },
-                          {
-                            "component": "Box",
-                            "conditional": {
-                              "if": {
-                                "repeater.attributes.STA_PER_USER1.value": {
-                                  "$eq": "red"
+                                  "backgroundColor": "green"
                                 }
                               },
-                              "then": {
-                                "size": "xs",
-                              "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
+                              {
+                                "if": {
+                                  "repeater.attributes.STA_ORANGE.value": {
+                                    "$in": "{{user.data.code}}"
+                                  }
+                                },
+                                "then": {
+                                  "backgroundColor": "orange"
+                                }
+                              },
+                              {
+                                "if": {
+                                  "repeater.attributes.STA_RED.value": {
+                                    "$in": "{{user.data.code}}"
+                                  }
+                                },
+                                "then": {
+                                  "backgroundColor": "red"
+                                }
+                              }
+                            ],
+                            "props": {
+                              "size": "xs",
                               "height": 40,
                               "width": 10,
                               "borderRadius": 20,
                               "marginLeft": 8
-                              }
-                            }
-                          },
-                          {
-                            "component": "Box",
-                            "conditional": {
-                              "if": {
-                                "repeater.attributes.STA_PER_USER1.value": {
-                                  "$eq": "orange"
-                                }
-                              },
-                              "then": {
-                                "size": "xs",
-                              "backgroundColor": "{{repeater.attributes.STA_PER_USER1.value}}",
-                              "height": 40,
-                              "width": 10,
-                              "borderRadius": 20,
-                              "marginLeft": 8
-                              }
                             }
                           }
                         ]
@@ -553,11 +539,11 @@
                     },
                     "children": [
                       {
-                        "component": "Image",
+                        "component": "Icon",
                         "props": {
-                          "source": "https://maps.googleapis.com/maps/api/streetview?location={{repeater.attributes.PRI_ADDRESS_FULL.value}}&size=35x35&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
-                          "height": 50,
-                          "width": 50
+                          "name": "store",
+                          "color": "#e05b5c",
+                          "size": "md"
                         }
                       }
                     ]
@@ -603,6 +589,32 @@
                           "size": "xs",
                           "bold": false
                         }
+                      },
+                      {
+                        "component": "Text",
+                        "conditional": {
+                          "if": {
+                            "$and": [
+                              {
+                                "repeater.parentCode": {
+                                  "$eq": "GRP_INSPECTION"
+                                }
+                              },
+                              {
+                                "repeater.attributes.PRI_REP _FIRSTNAME.value": {
+                                  "$exists": true
+                                }
+                              }
+                            ]
+                          },
+                          "then": {
+                            "text": "{{repeater.attributes.PRI_REP_FIRSTNAME.value}}"
+                          }
+                        },
+                        "props": {
+                          "size": "xs",
+                          "bold": false
+                        }
                       }
                     ]
                   }
@@ -614,91 +626,91 @@
       ]
     }
   ],
-   "query": [
-      {
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_APPLICATIONS",
+      "as": "applications"
+    },
+    {
+      "operator": "scope",
+      "path": "applications.links",
+      "scope": {
         "operator": "getBE",
-        "id": "GRP_APPLICATIONS",
-        "as": "applications"
-      },
-      {
-        "operator": "scope",
-        "path": "applications.links",
-        "scope": {
-          "operator": "getBE",
-          "basePath": "baseEntities.data",
-          "as": "be",
-          "id": "{{link.targetCode}}",
-          "filterOutEmpty": true
-        }
-      },
-      {
-        "operator": "map",
-        "fields": "applications.links"
-      },
-      {
-        "operator": "sort",
-        "by": "weight",
-        "direction": "asc"
-      },
-      {
-        "operator": "map",
-        "fields": "be"
-      },
-      {
-        "operator": "scope",
-        "path": "links",
-        "scope": {
-          "operator": "getBE",
-          "basePath": "baseEntities.data",
-          "as": "be",
-          "id": "{{link.targetCode}}"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "links",
-        "scope": {
-          "operator": "find",
-          "query": {
-            "be.code": {
-              "$exists": true
-            }
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}",
+        "filterOutEmpty": true
+      }
+    },
+    {
+      "operator": "map",
+      "fields": "applications.links"
+    },
+    {
+      "operator": "sort",
+      "by": "weight",
+      "direction": "asc"
+    },
+    {
+      "operator": "map",
+      "fields": "be"
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "as": "be",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "links",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be.code": {
+            "$exists": true
           }
         }
-      },
-      {
-        "operator": "map",
-        "fields": {
-          "name": "name",
-          "code": "code",
-          "items": "links"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "map",
-          "fields": "be"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "populateAttributes",
-          "code": "{{code}}",
-          "as": "attributes"
-        }
-      },
-      {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "sort",
-          "by": "attributes.PRI_ADDRESS_FULL.value",
-          "direction": "asc"
-        }
       }
-    ]
+    },
+    {
+      "operator": "map",
+      "fields": {
+        "name": "name",
+        "code": "code",
+        "items": "links"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "map",
+        "fields": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "sort",
+        "by": "attributes.PRI_ADDRESS_FULL.value",
+        "direction": "asc"
+      }
+    }
+  ]
 }

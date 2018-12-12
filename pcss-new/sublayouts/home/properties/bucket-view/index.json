@@ -1,214 +1,282 @@
 {
-    "children": [
-      {
-        "component": "Box",
-        "props": {
-          "width": "100%",
-          "flex": 1,
-          "position": "relative",
-          "backgroundColor": "rgba(247, 241, 241, 0.48)"
-
-        },
-        "children": [
-          {
-            "component": "Box",
-            "props": {
-              "width": "100%",
-              "maxWidth": 250,
-              "minWidth": 200,
-              "flexDirection": "column",
-              "padding": 20,
-              "paddingTop": 0,
-              "overflowY": "auto",
-              "maxHeight": "calc(100vh - 65px)",
-              "flex": 1,
-              "borderRightWidth": 2,
-              "borderTopWidth":2,
-              "borderColor": "rgba(210, 67, 67, 0.95)",
-              "borderStyle": "solid",
-              "backgroundColor": "rgba(210, 67, 67, 0.92)",
-              "borderTopRightRadius": "5px"
-            },
-            "children": [
-              {
-                "component": "Box",
-                "props": {
-                  "height": 50,
-                  "alignItems": "flex-end",
-                  "justifyContent": "center",
-                  "marginBottom": 20,
-                  "paddingBottom": 10
-                },
-                "children": [
-                  {
-                    "component": "Heading",
-                    "props": {
-                      "size": "sm",
-                      "align": "center",
-                      "color": "white"
-                    },
-                    "children": "Identified Properties"
-                  }
-                ]
-              },
-              {
-                "component": "Box",
-                "props": {
-                  "flexDirection": "column"
-                },
-                "children": [
-                  {
-                    "component": "Selection",
-                    "props": {
-                      "mode": "toggle",
-                      "selectFirstItemOnMount": true
-                    },
-                    "repeat": "_query.identifiedProperties",
-                    "children": {
-                      "component": "EventTouchable",
-                      "conditional": {
-                        "if": {
-                          "selection.isSelected": {
-                            "$eq": true
-                          }
-                        },
-                        "then": {
-                          "borderLeftWidth": 5,
-                          "borderColor": "#1597c5",
-                          "borderStyle": "solid",
-                          "buttonCode": "DESELECT_EVENT"
-                        },
-                        "else": {
-                          "buttonCode": "SELECT_EVENT"
-                        }
-                      },
-                      "showCountInHeader": true,
-                      "props": {
-                        "paddingBottom":"1px",
-                        "borderColor":"rgb(61, 195, 159)",
-                        "key": "{{repeater.properties.code}}",
-                        "withFeedback": true,
-                        "showSpinnerOnClick": true,
-                        "value": {
-                          "hint": "GRP_NEW_ITEMS",
-                          "itemCode": "{{repeater.properties.code}}"
-                        },
-                        "flexDirection": "column",
-                        "onPress": "_selection.onSelect",
-                        "dispatchActionOnClick": {
-                          "type": "ALIAS_TOGGLE",
-                          "payload": {
-                            "alias": "CURRENT_NOTE",
-                            "value": "{{repeater.properties.code}}"
-                          }
-                        }
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "props": {
-                            "backgroundColor": "#FFFFFF",
-                            "padding": 15,
-                            "flexDirection": "row",
-                            "borderBottomWidth": "2px",
-                            "borderColor": "rgb(206, 199, 199)",
-                            "borderBottomRightRadius": "3px",
-                            "borderTopRightRadius": "3px",
-                            "borderRightWidth": "2px",
-                            "borderStyle":"outset"
-                          },
-                          "children": [
-                            {
-                              "component": "Box",
-                              "props": {
-                                "marginRight": 10,
-                                "flexShrink": 0
-                              },
-                              "children": [
-                                {
-                                  "component": "Image",
-                                  "props": {
-                                     "source": "https://maps.googleapis.com/maps/api/streetview?location={{repeater.properties.attributes.PRI_ADDRESS_FULL.value}}&size=35x35&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
-                                    "height": 50,
-                                    "width": 50
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "component": "Box",
-                              "props": {
-                                "flexDirection": "column",
-                                "flexShrink": 1,
-                                "width": "100%"
-                               },
-                               "children": [
-                                {
-                                  "component": "Text",
-                                  "props": {
-                                    "size": "xxs",
-                                    "text": "{{repeater.properties.attributes.PRI_ADDRESS_FULL.value}}"
-                                  }
-                                }
-                               ]
-                              }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "width": "100%",
+        "flex": 1,
+        "position": "relative",
+        "backgroundColor": "rgba(247, 241, 241, 0.48)"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "width": "100%",
+            "maxWidth": 250,
+            "minWidth": 200,
+            "flexDirection": "column",
+            "padding": 20,
+            "paddingTop": 0,
+            "overflowY": "auto",
+            "maxHeight": "calc(100vh - 65px)",
+            "flex": 1,
+            "borderRightWidth": 2,
+            "borderTopWidth": 2,
+            "borderColor": "rgba(210, 67, 67, 0.95)",
+            "borderStyle": "solid",
+            "backgroundColor": "rgba(210, 67, 67, 0.92)",
+            "borderTopRightRadius": "5px"
           },
-          {
-            "component":"Box",
-            "props": {
-                "width": "100%",
-                "flex": 1,
-                "position": "relative"
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "height": 50,
+                "alignItems": "flex-end",
+                "justifyContent": "center",
+                "marginBottom": 20,
+                "paddingBottom": 10
               },
-              "children":[
+              "children": [
                 {
-                    "component": "Sublayout",
-                    "props": {
-                        "layoutName": "home/properties/bucket-view/bucket"
-                    }
+                  "component": "Heading",
+                  "props": {
+                    "size": "sm",
+                    "align": "center",
+                    "color": "white"
+                  },
+                  "children": "Identified Properties"
                 }
               ]
-          }
-        ]
-      }
-    ],
-    "query":[
-        {
-            "operator": "getBE",
-            "id": "GRP_NEW_ITEMS",
-            "as": "identifiedProperties"
-          },
-          {
-            "operator": "scope",
-            "path": "identifiedProperties.links",
-            "as": "identifiedProperties",
-            "scope": {
-              "operator": "getBE",
-              "basePath": "baseEntities.data",
-              "id": "{{link.targetCode}}",
-              "as": "properties"
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Selection",
+                  "props": {
+                    "mode": "toggle",
+                    "selectFirstItemOnMount": true
+                  },
+                  "repeat": "_query.identifiedProperties",
+                  "children": {
+                    "component": "EventTouchable",
+                    "conditional": {
+                      "if": {
+                        "selection.isSelected": {
+                          "$eq": true
+                        }
+                      },
+                      "then": {
+                        "borderLeftWidth": 5,
+                        "borderColor": "#1597c5",
+                        "borderStyle": "solid",
+                        "buttonCode": "DESELECT_EVENT"
+                      },
+                      "else": {
+                        "buttonCode": "SELECT_EVENT"
+                      }
+                    },
+                    "showCountInHeader": true,
+                    "props": {
+                      "paddingBottom": "1px",
+                      "borderColor": "rgb(61, 195, 159)",
+                      "key": "{{repeater.properties.code}}",
+                      "withFeedback": true,
+                      "showSpinnerOnClick": true,
+                      "value": {
+                        "hint": "GRP_NEW_ITEMS",
+                        "itemCode": "{{repeater.properties.code}}"
+                      },
+                      "flexDirection": "column",
+                      "onPress": "_selection.onSelect",
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_TOGGLE",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{repeater.properties.code}}"
+                        }
+                      }
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                          "backgroundColor": "#FFFFFF",
+                          "padding": 15,
+                          "flexDirection": "row",
+                          "borderBottomWidth": "2px",
+                          "borderColor": "rgb(206, 199, 199)",
+                          "borderBottomRightRadius": "3px",
+                          "borderTopRightRadius": "3px",
+                          "borderRightWidth": "2px",
+                          "borderStyle": "outset"
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "marginRight": 10,
+                              "flexShrink": 0,
+                              "backgroundColor": "#ebeff3"
+                            },
+                            "children": [
+                              {
+                                "component": "Icon",
+                                "conditional": [
+                                  {
+                                    "if": {
+                                      "$or": [
+                                        {
+                                          "repeater.properties.attributes.PropertyTypeNameBE.name": {
+                                            "$eq": "Residential (Multiple)"
+                                          }
+                                        },
+                                        {
+                                          "repeater.properties.attributes.PropertyTypeNameBE.name": {
+                                            "$eq": "Commercial (Multiple)"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "then": {
+                                      "name": "location_city"
+                                    }
+                                  },
+                                  {
+                                    "if": {
+                                      "$or": [
+                                        {
+                                          "repeater.properties.attributes.PropertyTypeNameBE.name": {
+                                            "$eq": "Residential (Single)"
+                                          }
+                                        },
+                                        {
+                                          "repeater.properties.attributes.PropertyTypeNameBE.name": {
+                                            "$eq": "Commercial (Single)"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "then": {
+                                      "name": "store"
+                                    }
+                                  },
+                                  {
+                                    "if": {
+                                      "repeater.properties.attributes.PropertyTypeNameBE.name": {
+                                        "$eq": "Parks"
+                                      }
+                                    },
+                                    "then": {
+                                      "name": "spa"
+                                    }
+                                  }
+                                ],
+                                "props": {
+                                  "color": "#e05b5c",
+                                  "size": "xl",
+                                  "marginTop": "30px"
+                                }
+                              }
+                            ]
+                          },
+                      
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "flexShrink": 1,
+                              "width": "100%"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "size": "xxs",
+                                  "text": "{{repeater.properties.attributes.PRI_ADDRESS_FULL.value}}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "width": "100%",
+            "flex": 1,
+            "position": "relative"
           },
-          {
-            "operator": "scope",
-            "path": "identifiedProperties",
-            "scope": {
-              "operator": "scope",
-              "path": "properties",
-              "scope": {
-                "operator": "populateBEGAttributes",
-                "as": "attributes"
+          "children": [
+            {
+              "component": "Sublayout",
+              "props": {
+                "layoutName": "home/properties/bucket-view/bucket"
               }
             }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_NEW_ITEMS",
+      "as": "identifiedProperties"
+    },
+    {
+      "operator": "scope",
+      "path": "identifiedProperties.links",
+      "as": "identifiedProperties",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "properties"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "identifiedProperties",
+      "scope": {
+        "operator": "scope",
+        "path": "properties",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "identifiedProperties",
+      "scope": {
+        "operator": "scope",
+        "path": "properties",
+        "scope": {
+          "operator": "scope",
+          "path": "attributes",
+          "scope": {
+            "operator": "getBE",
+            "basePath": "baseEntities.data",
+            "id": "{{LNK_PROPERTY_TYPE_SELECT.value}}",
+            "as": "PropertyTypeNameBE"
           }
-    ]
-  }
-  
+        }
+      }
+    }
+  ]
+}
