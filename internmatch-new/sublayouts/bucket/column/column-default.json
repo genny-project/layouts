@@ -1,0 +1,50 @@
+{
+  "children": [
+    {
+      "component": "List",
+      "props": {
+        "headerText": "{{props.columnData.name}}",
+        "contentBackground": "#eaeaea",
+        "headerProps": {
+          "paddingX": 20,
+          "paddingY": 15,
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "backgroundColor": "#eaeaea",
+          "position": "sticky",
+          "top": 0
+        },
+        "headerTextProps": {
+          "bold": true
+        },
+        "showCountInHeader": true,
+        "contentBodyProps": {
+          "paddingX": 10,
+          "paddingY": 20
+        },
+        "emptyProps": {
+          "padding": 10
+        },
+        "headerCountTextProps": {
+          "bold": true,
+          "size": "xs"
+        },
+        "emptyTextProps": {
+          "size": "xs"
+        },
+        "scrollViewProps": {
+          "horizontal": true
+        }
+      },
+      "repeat": "_props.columnData.items",
+      "children": {
+        "component": "Sublayout",
+        "props": {
+          "layoutName": "bucket/column/card/card-default",
+          "cardData": "_repeater",
+          "cardLayout": "{{props.cardLayout}}"
+        }
+      }
+    }
+  ]
+}
