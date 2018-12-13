@@ -451,6 +451,11 @@
             },
             {
               "component": "Box",
+              "onlyShowIf": {
+                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                  "$exists": true
+                }
+              },
               "props": {
                 "width": "90%",
                 "justifyContent": "flex-start",
@@ -500,7 +505,9 @@
                           {
                             "component": "Text",
                             "props":{
-                              "text": "{{repeater.name}}"
+                              "text": "{{repeater.name}}",
+                              "color": "blue",
+                              "decoration": "underline"
                             }
                           }
                         ]
@@ -509,6 +516,28 @@
                   }
                 ]
               }
+            },
+            {
+              "component": "Box",
+              "dontShowIf": {
+                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                  "$exists": true
+                }
+              },
+              "props": {
+                "width": "90%",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "padding": 20
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "This user hasn't uploaded any documents."
+                  }
+                }
+              ]
             }
           ]
         }
