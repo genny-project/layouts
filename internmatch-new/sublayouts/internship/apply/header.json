@@ -1,0 +1,41 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "justifyContent": "space-between",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_SELLER.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginRight": 10
+              },
+              "children": [
+                {
+                  "component": "Button",
+                  "props": {
+                    "padding": 15,
+                    "color": "white",
+                    "text": "Back",
+                    "isBackButton": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

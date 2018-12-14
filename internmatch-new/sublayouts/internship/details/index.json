@@ -13,7 +13,7 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "internship/details/header",
-            "code": "{{props.code}}"
+            "code": "{{props.internship.code}}"
           }
         },
         {
@@ -33,7 +33,7 @@
                 {
                   "component": "Image",
                   "props": {
-                    "source": "{{props.companyImage}}",
+                    "source": "{{props.company.image}}",
                     "width": 100,
                     "height": 100
                   }
@@ -54,8 +54,18 @@
                   "children": [
                     {
                       "component": "Heading",
+                      "conditional": {
+                        "if": {
+                          "props.internship.name": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.internship.name}}"
+                        }
+                      },
                       "props": {
-                        "text": "{{props.internshipName}}",
+                        "text": "No internship name",
                         "bold": true
                       }
                     }
@@ -69,8 +79,18 @@
                   "children": [
                     {
                       "component": "Text",
+                      "conditional": {
+                        "if": {
+                          "props.company.name": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.company.name}}"
+                        }
+                      },
                       "props": {
-                        "text": "{{props.companyName}}"
+                        "text": "No company name"
                       }
                     }
                   ]
@@ -84,10 +104,26 @@
                     },
                     {
                       "component": "Date",
+                      "onlyShowIf": {
+                        "props.internship.created": {
+                          "$exists": true
+                        }
+                      },
                       "props": {
                         "format": "calendar"
                       },
-                      "children": "{{props.createdOn}}"
+                      "children": "{{props.internship.created}}"
+                    },
+                    {
+                      "component": "Text",
+                      "dontShowIf": {
+                        "props.internship.created": {
+                          "$exists": true
+                        }
+                      },
+                      "props": {
+                        "text": "No created date found"
+                      }
                     }
                   ]
                 }
@@ -132,7 +168,19 @@
                     },
                     {
                       "component": "Text",
-                      "children": "{{props.internshipAddress}}"
+                      "conditional": {
+                        "if": {
+                          "props.internship.address": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.internship.address}}"
+                        }
+                      },
+                      "props": {
+                        "text": "No address found"
+                      }
                     }
                   ]
                 },
@@ -159,9 +207,25 @@
                     },
                     {
                       "component": "Date",
+                      "onlyShowIf": {
+                        "props.internship.startDate": {
+                          "$exists": true
+                        }
+                      },
                       "props": {
                         "format": "[Begins] DD MMM YYYY",
-                        "date": "{{props.internshipStartDate}}"
+                        "date": "{{props.internship.startDate}}"
+                      }
+                    },
+                    {
+                      "component": "Text",
+                      "dontShowIf": {
+                        "props.internship.startDate": {
+                          "$exists": true
+                        }
+                      },
+                      "props": {
+                        "text": "No start date found"
                       }
                     }
                   ]
@@ -169,7 +233,7 @@
                 {
                   "component": "Box",
                   "onlyShowIf": {
-                    "props.internshipDuration": {
+                    "props.internship.duration": {
                       "$exists": true
                     }
                   },
@@ -191,7 +255,19 @@
                     },
                     {
                       "component": "Text",
-                      "children": "{{props.internshipDuration}} long"
+                      "conditional": {
+                        "if": {
+                          "props.internship.duration": {
+                            "$exists": true
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.internship.duration}} long"
+                        }
+                      },
+                      "props": {
+                        "text": "No duration found"
+                      }
                     }
                   ]
                 }
@@ -230,7 +306,7 @@
                 {
                   "component": "Box",
                   "onlyShowIf": {
-                    "props.internshipSkills": {
+                    "props.internship.skills": {
                       "$exists": true,
                       "$ne": "undefined",
                       "$size": {
@@ -241,7 +317,7 @@
                   "props": {
                     "flexDirection": "column"
                   },
-                  "repeat": "_props.internshipSkills",
+                  "repeat": "_props.internship.skills",
                   "children": {
                     "component": "Box",
                     "props": {
@@ -258,7 +334,7 @@
                 {
                   "component": "Text",
                   "dontShowIf": {
-                    "props.internshipSkills": {
+                    "props.internship.skills": {
                       "$exists": true,
                       "$ne": "undefined",
                       "$size": {
@@ -291,7 +367,19 @@
                 },
                 {
                   "component": "Text",
-                  "children": "{{props.internshipDescription}}"
+                  "conditional": {
+                    "if": {
+                      "props.internship.description": {
+                        "$exists": true
+                      }
+                    },
+                    "then": {
+                      "text": "{{props.internship.description}}"
+                    }
+                  },
+                  "props": {
+                    "text": "No Internship Description"
+                  }
                 }
               ]
             },
@@ -317,17 +405,17 @@
                   "component": "DisplayHTML",
                   "conditional": {
                     "if": {
-                      "props.internshipLearningOutcomes": {
+                      "props.internship.learningOutcomes": {
                         "$exists": true,
                         "$ne": "undefined"
                       }
                     },
                     "then": {
-                      "html": "{{props.internshipLearningOutcomes}}"
-                    },
-                    "else": {
-                      "html": "None"
+                      "html": "{{props.internship.learningOutcomes}}"
                     }
+                  },
+                  "props": {
+                    "html": "No Learning Outcomes"
                   }
                 }
               ]
@@ -347,14 +435,25 @@
                   "children": [
                     {
                       "component": "Heading",
-                      "children": "Position Description"
+                      "children": "Position description"
                     }
                   ]
                 },
                 {
                   "component": "DisplayHTML",
+                  "conditional": {
+                    "if": {
+                      "props.position.description": {
+                        "$exists": true,
+                        "$ne": "undefined"
+                      }
+                    },
+                    "then": {
+                      "html": "{{props.position.description}}"
+                    }
+                  },
                   "props": {
-                    "html": "{{props.internshipLearningOutcomes}}"
+                    "html": "No Position Description"
                   }
                 }
               ]
@@ -397,7 +496,20 @@
                     },
                     {
                       "component": "Text",
-                      "children": "{{props.companyName}}"
+                      "conditional": {
+                        "if": {
+                          "props.supervisor.name": {
+                            "$exists": true,
+                            "$ne": "undefined"
+                          }
+                        },
+                        "then": {
+                          "text": "{{props.supervisor.name}}"
+                        }
+                      },
+                      "props": {
+                        "text": "No Supervisor Name"
+                      }
                     }
                   ]
                 },
@@ -426,17 +538,17 @@
                       "component": "Text",
                       "conditional": {
                         "if": {
-                          "props.companyEmail": {
+                          "props.supervisor.email": {
                             "$exists": true,
                             "$ne": "undefined"
                           }
                         },
                         "then": {
-                          "text": "{{props.companyEmail}}"
-                        },
-                        "else": {
-                          "text": "No company email"
+                          "text": "{{props.supervisor.email}}"
                         }
+                      },
+                      "props": {
+                        "text": "No email"
                       }
                     }
                   ]
@@ -463,17 +575,17 @@
                       "component": "Text",
                       "conditional": {
                         "if": {
-                          "{{props.companyPhone}}": {
+                          "props.supervisor.phone": {
                             "$exists": true,
                             "$ne": "undefined"
                           }
                         },
                         "then": {
-                          "text": "{{props.companyPhone}}"
-                        },
-                        "else": {
-                          "text": "No company phone number"
+                          "text": "{{props.supervisor.phone}}"
                         }
+                      },
+                      "props": {
+                        "text": "No phone number"
                       }
                     }
                   ]
