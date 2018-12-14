@@ -1,0 +1,280 @@
+{
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "#f6f6f6",
+        "padding": 20,
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "backgroundColor": "#f6f6f6",
+            "padding": 20,
+            "flex": 1
+          },
+          "children": [
+            {
+              "component": "Sublayout",
+              "props": {
+                "layoutName": "internship/apply/header",
+                "code": "{{props.internship.code}}"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "white",
+                "padding": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginRight": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Image",
+                      "props": {
+                        "source": "{{props.company.image}}",
+                        "width": 100,
+                        "height": 100
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Heading",
+                          "conditional": {
+                            "if": {
+                              "props.internship.name": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{props.internship.name}}"
+                            }
+                          },
+                          "props": {
+                            "text": "No internship name",
+                            "bold": true
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 10
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "props.company.name": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{props.company.name}}"
+                            }
+                          },
+                          "props": {
+                            "text": "No company name"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "children": [
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "props.internship.description": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{props.internship.description}}"
+                            }
+                          },
+                          "props": {
+                            "text": "No Internship Description"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "white",
+                "padding": 20
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginRight": 15
+                          },
+                          "children": [
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "place",
+                                "color": "black"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "props.internship.address": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{props.internship.address}}"
+                            }
+                          },
+                          "props": {
+                            "text": "No address found"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginBottom": 20
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginRight": 15
+                          },
+                          "children": [
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "event",
+                                "color": "black"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Date",
+                          "onlyShowIf": {
+                            "props.internship.startDate": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "format": "[Begins] DD MMM YYYY",
+                            "date": "{{props.internship.startDate}}"
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "dontShowIf": {
+                            "props.internship.startDate": {
+                              "$exists": true
+                            }
+                          },
+                          "props": {
+                            "text": "No start date found"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "onlyShowIf": {
+                        "props.internship.duration": {
+                          "$exists": true
+                        }
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginRight": 15
+                          },
+                          "children": [
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "schedule",
+                                "color": "black"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Text",
+                          "conditional": {
+                            "if": {
+                              "props.internship.duration": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "{{props.internship.duration}} long"
+                            }
+                          },
+                          "props": {
+                            "text": "No duration found"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
