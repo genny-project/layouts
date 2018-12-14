@@ -28,7 +28,9 @@
             "internshipLearningOutcomes": "_query.application.internships.PRI_INTERNSHIP_LEARNING_OUTCOMES.value",
             "studentName": "_query.application.attributes.PRI_APPLICANT_FULLNAME.value",
             "mobilePhone": "_query.application.APPLICANT.attributes.PRI_MOBILE.value",
-            "occupation": "_query.application.occupation"
+            "occupation": "_query.application.occupation",
+            "industry": "_query.applicayion.industry.name",
+            "educationProvider": "_query.application.educationProvider.name"
           }
         }
       ]
@@ -73,6 +75,24 @@
         "operator": "getBE",
         "id": "{{APPLICANT.attributes.LNK_OCCUPATION.value}}",
         "as": "occupation"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{APPLICANT.attributes.LNK_INDUSTRY.value}}",
+        "as": "industry"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{APPLICANT.attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "educationProvider"
       }
     },
     {
