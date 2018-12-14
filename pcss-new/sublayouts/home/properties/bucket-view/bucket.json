@@ -412,16 +412,17 @@
                               ]
                             }
                           },
-                          { 
+                          {
                             "if": {
                               "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
                                 "$exists": true
                               }
                             },
-                            "then":{
+                            "then": {
                               "items": [
                                 {
                                   "text": "View Detail",
+                                  
                                   "href": "/view-unit/{{repeater.code}}",
                                   "buttonCode": "BTN_VIEW_APPLICATION",
                                   "value": {
@@ -431,7 +432,6 @@
                                 }
                               ]
                             }
-
                           }
                         ],
                         "children": [
@@ -443,7 +443,7 @@
                                 "props": {
                                   "name": "more_horiz",
                                   "color": "#bbbbbb",
-                                  "size":"sm"
+                                  "size": "sm"
                                 }
                               }
                             ]
@@ -505,9 +505,9 @@
                   },
                   {
                     "component": "Box",
-                    "props":{
+                    "props": {
                       "margin": 10,
-                      "marginRight":20,
+                      "marginRight": 20,
                       "flexShrink": 0,
                       "backgroundColor": "#ebeff3",
                       "alignItems": "center"
@@ -615,12 +615,61 @@
                         }
                       },
                       {
-                        "component": "Icon",
-                        "props": {
-                          "name": "expand_more",
-                          "color": "black",
-                          "size": "md"
-                        }
+                        "component": "Collapsible",
+                        "props":{
+                          "headerWrapperProps": {
+                            "border": 0,
+                            "padding": 5,
+                            "fontSize": 12,
+                            "cursor": "pointer",
+                            "color": "white"
+                          },
+                          "headerIconProps": {
+                            "background": "red",
+                            "borderWidth": 1,
+                            "borderColor": "#bbbbbb",
+                            "borderStyle": "solid"
+                          }
+                        },
+                        "children":[
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}  {{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}"
+                              },
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_EMAIL.value}}"
+                              },
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_MOBILE.value}}"
+                              }
+                            ]
+                          }
+                         ] 
                       }
                     ]
                   }
