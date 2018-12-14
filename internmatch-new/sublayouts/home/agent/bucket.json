@@ -83,6 +83,10 @@
                       }
                     },
                     "repeat": "_repeater.items",
+                    "sort": {
+                      "by": "repeater.created",
+                      "isDate": true
+                    },
                     "children": {
                       "component": "Selectable",
                       "props": {
@@ -505,7 +509,7 @@
                                     {
                                       "component": "Image",
                                       "props": {
-                                        "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                                        "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                                         "height": 50,
                                         "width": 50
                                       }
@@ -825,9 +829,38 @@
       "operator": "scope",
       "path": "items",
       "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_APPLICANT_CODE.value}}",
+        "as": "applicant"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "applicant",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
         "operator": "sort",
-        "by": "attributes.PRI_NAME.value",
-        "direction": "asc"
+        "by": [
+          "attributes.PRI_GRP_IN_PROGRESS_DATE.value",
+          "attributes.PRI_GRP_PLACED_DATE.value",
+          "attributes.PRI_GRP_OFFERED_DATE.value",
+          "attributes.PRI_GRP_INTERVIEWS_DATE.value",
+          "attributes.PRI_GRP_SHORTLISTED_DATE.value",
+          "attributes.PRI_GRP_APPLIED_DATE.value"
+        ],
+        "direction": "desc"
       }
     }
   ]

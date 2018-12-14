@@ -31,7 +31,7 @@
               "minWidth": 240
             },
             "rootCode": "GRP_INTERNS"
-          }, 
+          },
           "repeat": "_query",
           "children": {
             "component": "List",
@@ -144,8 +144,18 @@
                       "children": [
                         {
                           "component": "Image",
+                          "conditional": {
+                            "if": {
+                              "repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "source": "{{repeater.applicant.attributes.PRI_USER_PROFILE_PICTURE.value}}"
+                            }
+                          },
                           "props": {
-                            "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}",
+                            "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                             "height": 50,
                             "width": 50
                           }
@@ -374,6 +384,28 @@
         "operator": "populateAttributes",
         "code": "{{code}}",
         "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_APPLICANT_CODE}}",
+        "as": "applicant"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "applicant",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     },
     {
