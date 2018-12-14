@@ -568,13 +568,13 @@
                   "component": "Text",
                   "conditional": {
                     "if": {
-                      "props.application.attributes.LNK_INDUSTRY.value": {
+                      "props.industry": {
                         "$exists": true,
                         "$ne": "undefined"
                       }
                     },
                     "then": {
-                      "text": "{{props.application.attributes.LNK_INDUSTRY.value}}"
+                      "text": "{{props.industry}}"
                     },
                     "else": {
                       "text": "No industry"
