@@ -32,8 +32,9 @@
             {
               "component": "Image",
               "props": {
-                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
-                "shape": "square"
+                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
+                "shape": "square",
+                "position":"relative"
               }
             },
             {
@@ -53,7 +54,7 @@
                   "padding": 15,
                   "margin": 15,
                   "color": "#e05b5c",
-                  "text": "Back",
+                  "text": "Backeee",
                   "textColor": "white",
                   "isBackButton": true
                 }
@@ -139,7 +140,9 @@
                   "color": "#000000",
                   "size": "xl"
                 },
+                "conditional":{
                 "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}"
+                }
               }
             ]
           }
@@ -222,7 +225,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_OWNER_FIRSTNAME.value}}"
+                  "children": "{{query.unit.attributes.PRI_OWNER_FIRSTNAME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_OWNER_FIRSTNAME.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -273,7 +281,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_EMAIL.value}}"
+                  "children": "{{query.unit.attributes.PRI_EMAIL.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_EMAIL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -324,7 +337,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_MOBILE.value}}"
+                  "children": "{{query.unit.attributes.PRI_MOBILE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_MOBILE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -375,7 +393,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_OWNER_COMPANY.value}}"
+                  "children": "{{query.unit.attributes.PRI_OWNER_COMPANY.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_OWNER_COMPANY.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -459,7 +482,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.propertylocation.name}}"
+                  "children": "{{query.propertylocation.name}}",
+                  "onlyShowIf": {
+                    "query.propertylocation.name":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -510,7 +538,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_REP_FIRSTNAME.value}}"
+                  "children": "{{query.unit.attributes.PRI_REP_FIRSTNAME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_REP_FIRSTNAME.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -561,7 +594,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_REP_EMAIL.value}}"
+                  "children": "{{query.unit.attributes.PRI_REP_EMAIL.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_REP_EMAIL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -612,7 +650,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_REP_MOBILE.value}}"
+                  "children": "{{query.unit.attributes.PRI_REP_MOBILE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_REP_MOBILE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -663,7 +706,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_REP_COMPANY.value}}"
+                  "children": "{{query.unit.attributes.PRI_REP_COMPANY.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_REP_COMPANY.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -714,7 +762,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}"
+                  "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_ADDRESS_FULL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -798,7 +851,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_TENANT_FIRSTNAME.value}}"
+                  "children": "{{query.unit.attributes.PRI_TENANT_FIRSTNAME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_TENANT_FIRSTNAME.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -849,7 +907,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_TENANT_EMAIL.value}}"
+                  "children": "{{query.unit.attributes.PRI_TENANT_EMAIL.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_TENANT_EMAIL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -900,7 +963,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_TENANT_MOBILE.value}}"
+                  "children": "{{query.unit.attributes.PRI_TENANT_MOBILE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_TENANT_MOBILE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -985,7 +1053,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1036,7 +1109,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_CONTACTED_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_CONTACTED_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_CONTACTED_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1087,7 +1165,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1138,7 +1221,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_INSPECTION_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1189,7 +1277,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1240,7 +1333,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_REQUESTED_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_REQUESTED_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_REQUESTED_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1291,7 +1389,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_COMPLETED_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_COMPLETED_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_COMPLETED_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1342,7 +1445,12 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value}}"
+                  "children": "{{query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1400,7 +1508,12 @@
                     "color": "#000000",
                     "size": "xl"
                   },
-                  "children": "{{query.unit.attributes.PRI_VERIFICATION_CODE.value}}"
+                  "children": "{{query.unit.attributes.PRI_VERIFICATION_CODE.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_VERIFICATION_CODE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -1428,10 +1541,6 @@
       "operator": "getBE",
       "id": "GRP_REP_TYPE",
       "as": "representative"
-    },
-    {
-      "operator": "clean",
-      "fields": ["unit"]
     }
   ]
 }

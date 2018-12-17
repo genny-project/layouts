@@ -31,7 +31,7 @@
             {
               "component": "Image",
               "props": {
-                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDKDQp98g2ip6m1GtdEb7MZxxJLE_840VE",
+                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
                 "shape": "square",
                 "position":"relative"
               }
@@ -140,7 +140,12 @@
                     "color":"#000000",
                     "size":"xl"
                   },
-                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}",
+                  "onlyShowIf": {
+                    "query.property.attributes.PRI_ADDRESS_FULL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -172,7 +177,12 @@
                     "color":"#000000",
                     "size":"lg"
                   },
-                  "children": "{{query.propertytype.name}}"
+                  "children": "{{query.propertytype.name}}",
+                  "onlyShowIf": {
+                    "query.propertytype.name":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -256,7 +266,12 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.propertylocation.name}}"
+                  "children": "{{query.propertylocation.name}}",
+                  "onlyShowIf": {
+                    "query.propertylocation.name":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -307,7 +322,12 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.PRI_ADDRESS_POSTCODE.value}}"
+                  "children": "{{query.property.attributes.PRI_ADDRESS_POSTCODE.value}}",
+                  "onlyShowIf": {
+                    "query.property.attributes.PRI_ADDRESS_POSTCODE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -358,7 +378,12 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.propertyprecinct.name}}"
+                  "children": "{{query.propertyprecinct.name}}",
+                  "onlyShowIf": {
+                    "query.propertyprecinct.name":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -409,7 +434,12 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.propertytype.name}}"
+                  "children": "{{query.propertytype.name}}",
+                  "onlyShowIf": {
+                    "query.propertytype.name":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -460,7 +490,12 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}"
+                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}",
+                  "onlyShowIf": {
+                    "query.property.attributes.PRI_ADDRESS_FULL.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
@@ -556,7 +591,12 @@
                     "color":"#000000",
                     "size":"xl"
                   },
-                  "children": "{{query.property.attributes.PRI_VERIFICATION_CODE.value}}"
+                  "children": "{{query.property.attributes.PRI_VERIFICATION_CODE.value}}",
+                  "onlyShowIf": {
+                    "query.property.attributes.PRI_VERIFICATION_CODE.value":{
+                      "$exists":true
+                    } 
+                  }
                 }
               ]
             }
