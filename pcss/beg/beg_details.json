@@ -40,7 +40,7 @@
                                           },
                                           "buttonCode":"BTN_BACK_BUTTON",
                                           "value":{  
-                                             "itemCode":"BE.code"
+                                             "itemCode":"${BE.code}"
                                           },
                                           "children":[  
                                              {  
@@ -201,7 +201,7 @@
                                           "style":{  
                                              "margin":"5px"
                                           },
-                                          "children":"Property Precinct: ${BE.LNK_PROPERTY_PRECINCT_SELECT.name}"
+                                          "children":"Location to Bridge: ${BE.LNK_PROPERTY_PRECINCT_SELECT.name}"
                                        }
                                     },
                                     {  
@@ -286,7 +286,19 @@
                                           "style":{  
                                              "margin":"5px"
                                           },
-                                          "children":"Company: ${BE.PRI_REP_ADDRESS}"
+                                          "children":"Company: ${BE.PRI_REP_COMPANY}"
+                                       }
+                                    },
+                                    {  
+                                       "p":{  
+                                          "position":[  
+                                             0,
+                                             0
+                                          ],
+                                          "style":{  
+                                             "margin":"5px"
+                                          },
+                                          "children":"Address: ${BE.PRI_REP_ADDRESS_FULL}"
                                        }
                                     },
                                     {  
@@ -392,7 +404,9 @@
                                                    ],
                                                    "showValues":[  
                                                       "Residential (Multiple)",
-                                                      "Commercial (Multiple)"
+                                                      "Commercial (Multiple)",
+                                                      "Road and Verges",
+                                                      "Parks"
                                                    ],
                                                    "children":[  
                                                       {  
