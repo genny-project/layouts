@@ -1,0 +1,323 @@
+{
+  "layout": {
+    "title": "Owner Details",
+    "appColor": "white",
+    "backgroundColor": "white"
+  },
+  "children": [
+    {
+      "component": "Container",
+      "props": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1,
+        "height": "100%",
+        "maxWidth": 700
+      },
+      "children": [
+        {
+            "component": "Box",
+            "props": {
+                "flex": 1,
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
+                    }
+                }
+            ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Heading",
+              "props": {
+                "color": "#0592FD",
+                "size": "xxl",
+                "bold": false
+              },
+              "children": "Property Details"
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "If you are the current owner if you can please complete the first section \"Owners Details\"."
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "If you are not the owner could you please complete the second section \"Authorised Owner Representative Details\" to advise us who we should contact on behalf of the owner."
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "If you are the tenant if you can please complete both the \"Authorised Owner Representative Details\" and the \"Tenant Details\" section would be appreciated."
+            }
+          ]
+        },
+        {
+          "component": "Form",
+          "props": {
+            "questionGroupCode": "QUE_UPDATE_DETAILS_OF_PROPERTY_GRP",
+            "renderHeading": {
+              "component": "Box",
+              "props": {
+                "marginTop": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "#0592FD",
+                    "size": "xl",
+                    "text": "{{heading}}"
+                  }
+                }
+              ]
+            },
+            "renderFormInputLabel": {
+            "component": "Box",
+            "props": {
+              "marginBottom": 5
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "size": "sm"
+                },
+                "children": "{{label}}"
+              }
+            ]
+          },
+            "renderSubheading": {
+              "component": "Box",
+              "props": {
+                "marginY": 20,
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "color": "#0592FD",
+                    "size": "lg",
+                    "align": "left",
+                    "text": "{{subheading}}"
+                  }
+                }
+              ]
+            },
+            "renderFormInputWrapper": {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20,
+                "flexDirection": "column"
+              }
+            },
+            "renderFormInput": {
+              "component": "FormInput",
+              "useThemeFrom": "Input",
+              "variant": "default",
+              "props": {
+                "borderWidth": 1,
+                "borderColor": "lightgray",
+                "borderRadius": 3
+              }
+            },
+            "renderSubmitButtonWrapper": {
+              "component": "Box",
+              "props": {
+                "marginTop": 10,
+                "flexDirection": "column",
+                "width": "100%"
+              }
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "inverted": true,
+                "showSpinnerOnClick": true,
+                "color": "black",
+                "width": "100%"
+              }
+            },
+            "renderLoading": {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "ActivityIndicator",
+                  "props": {
+                    "size": "large"
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginTop": 10
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "text": "Loading form..."
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "padding": 10
+          },
+          "children": [
+            {
+              "component": "Text",
+              "props": {
+                "size": "xs",
+                "bold": false
+              },
+              "children": "By submitting your information to us, you are authorising us to gather information of the property owner, property owner's authorised representative and property's tenant details for the use towards organising the Building Inspection."
+            }
+          ]
+        },
+        {
+           "component": "Box",
+           "props": {
+              "display": "flex"
+           },
+           "children": [
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/privacy-policy",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Privacy Policy"
+                          }
+                       ]
+                    }
+                 ]
+              },
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/terms-of-use",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Terms of Use"
+                          }
+                       ]
+                    }
+                 ]
+              }
+           ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "layout": {
     "title": "Owner Confirmation",
     "appColor": "white",
-    "backgroundColor": "#e05b5b"
+    "backgroundColor": "white"
   },
   "children": [
     {
@@ -17,6 +17,23 @@
       },
       "children": [
         {
+            "component": "Box",
+            "props": {
+                "padding": 40
+            },
+            "children": [
+                {
+                    "component": "Image",
+                    "props": {
+                        "height": 100,
+                        "width": 400,
+                        "top": 50,
+                        "source": "https://raw.githubusercontent.com/genny-project/layouts/master/pcss/email_templates/images/SURETY_PPOPERTY2_CMYK.gif"
+                    }
+                }
+            ]
+        },
+        {
           "component": "Box",
           "props": {
             "padding": 10
@@ -25,11 +42,11 @@
             {
               "component": "Heading",
               "props": {
-                "color": "white",
+                "color": "#0592FD",
                 "size": "xxl",
                 "bold": false
               },
-              "children": "Welcome"
+              "children": "Property Address Confirmation"
             }
           ]
         },
@@ -42,11 +59,11 @@
             {
               "component": "Text",
               "props": {
-                "color": "white",
                 "size": "xs",
-                "bold": false
+                "bold": false,
+                "align": "center"
               },
-              "children": "Is there more than one unit on this property? If yes, please enter the number of units below."
+              "children": "If this address is incorrect, please contact Surety Property team on 1300 767 741 or send an email to bbaybridge@suretyproperty.com.au so we can resolve this for you."
             }
           ]
         },
@@ -64,8 +81,7 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
-                    "size": "xl",
+                    "size": "lg",
                     "text": "{{heading}}"
                   }
                 }
@@ -80,7 +96,6 @@
                 {
                   "component": "Heading",
                   "props": {
-                    "color": "white",
                     "size": "lg",
                     "align": "left",
                     "text": "{{subheading}}"
@@ -107,7 +122,8 @@
               "component": "Box",
               "props": {
                 "marginTop": 10,
-                "flexDirection": "column"
+                "flexDirection": "column",
+                "width": "100%"
               }
             },
             "renderSubmitButton": {
@@ -115,7 +131,7 @@
               "props": {
                 "inverted": true,
                 "showSpinnerOnClick": true,
-                "color": "white"
+                "width": "100%"
               }
             },
             "renderLoading": {
@@ -139,7 +155,6 @@
                     {
                       "component": "Text",
                       "props": {
-                        "color": "white",
                         "text": "Loading form..."
                       }
                     }
@@ -148,6 +163,90 @@
               ]
             }
           }
+        },
+        {
+           "component": "Box",
+           "props": {
+              "display": "flex"
+           },
+           "children": [
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/privacy-policy",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Privacy Policy"
+                          }
+                       ]
+                    }
+                 ]
+              },
+              {
+                 "component":"EventButton",
+                 "props":{
+                    "flex": "0.5",
+                    "alignItems":"center",
+                    "paddingX":0,
+                    "paddingY":0,
+                    "eventType":"ROUTE_CHANGE",
+                    "buttonCode":"owner-landing/terms-of-use",
+                    "value":{
+                       "itemCode":""
+                    }
+                 },
+                 "children":[
+                    {
+                       "component":"Box",
+                       "props":{
+                          "alignItems":"center",
+                          "shape":"rounded",
+                          "borderStyle":"solid",
+                          "borderWidth":1,
+                          "borderColor":"white",
+                          "padding":40
+                       },
+                       "children":[
+                          {
+                             "component":"Heading",
+                             "props":{
+                                "size":"md",
+                                "bold":false,
+                                "decoration":"underline"
+                             },
+                             "children":"Terms of Use"
+                          }
+                       ]
+                    }
+                 ]
+              }
+           ]
         }
       ]
     }
