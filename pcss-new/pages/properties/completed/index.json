@@ -1,0 +1,134 @@
+{
+  "layout": {
+    "title": "Pages/Completed Properties View",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children": [
+        {
+          "component": "Table",
+          "props": {
+            "renderWrapper": {
+              "component": "EventButton",
+              "props": {
+                "height": "20px",
+                "fontWeight": "300",
+                "fontSize": 10,
+                "eventType": "BTN_CLICK",
+                "buttonCode": "BTN_TABLE_SELECT",
+                "value": {
+                  "itemCode": "_celld.attributeCode",
+                  "hint": "GRP_COMPLETED",
+                  "userCode": "{{user.data.code}}"
+                }
+              }
+            },
+            "columns": [
+              {
+                "Header": "Action",
+                "editable": true,
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "buttonCode": "BTN_VIEW_BEG",
+                      "color": "#5fa5ec",
+                      "textColor": "#fff",
+                      "height": 25,
+                      "width": "100%",
+                      "text": "Property Details",
+                      "padding": 10,
+                      "size": "xs",
+                      "hoverProps": {
+                        "color": "#d2e8ff"
+                      },
+                      "value": {
+                        "itemCode":"{{code}}",
+                        "hint": "BTN_VIEW_BEG"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "Header": "Unit Number",
+                "accessor": "unitid",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address Of Property",
+                "accessor": "address",
+                "filterType": "string"
+              }
+            ],
+            "tableBackgroundColor": "#e05b5b",
+            "data": "_query.tableData",
+            "height": "500px",
+            "width": "500px",
+            "itemsPerPage": 15
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_COMPLETED",
+      "as": "completedProperties"
+    },
+    {
+      "operator": "scope",
+      "path": "completedProperties.links",
+      "as": "completedProperties",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "properties"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "completedProperties",
+      "scope": {
+        "operator": "scope",
+        "path": "properties",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "completedProperties",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "address": "properties.attributes.PRI_ADDRESS_FULL.value",
+          "unitid": "properties.attributes.PRI_UNIT_ID.value",
+          "code": "properties.code"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["completedProperties"]
+    }
+  ]
+}

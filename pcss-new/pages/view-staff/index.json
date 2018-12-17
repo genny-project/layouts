@@ -1,0 +1,173 @@
+{
+    "layout": {
+      "title": "View Staff",
+      "appColor": "white",
+      "backgroundColor": "whitesmoke",
+      "header": {
+        "variant": "default"
+      },
+      "sidebar": {
+        "variant": "default"
+      },
+      "sidebarRight": {
+        "variant": "default"
+      }
+    },
+    "children": [
+      {
+        "component": "Box",
+        "children": [
+          {
+            "component": "Table",
+            "props": {
+              "renderWrapper": {
+                "component": "EventButton",
+                "props": {
+                  "height": "20px",
+                  "fontWeight": "300",
+                  "fontSize": 10,
+                  "eventType": "BTN_CLICK",
+                  "buttonCode": "BTN_TABLE_SELECT",
+                  "value": {
+                    "itemCode": "_celld.attributeCode",
+                    "hint": "GRP_VIEW_STAFF",
+                    "userCode": "{{user.data.code}}"
+                  }
+                }
+              },
+              "columns": [
+                {
+                  "Header": "Action",
+                  "editable": true,
+                  "accessor": "actions",
+                  "renderButton": [
+                    {
+                      "component": "EventButton",
+                      "props": {
+                        "buttonCode": "BTN_EDIT_STAFF",
+                        "color": "#5fa5ec",
+                        "textColor": "#fff",
+                        "text": "View Staff Details",
+                        "padding": 5,
+                        "size": "xs",
+                        "hoverProps": {
+                          "color": "#d2e8ff"
+                        },
+                        "value": {
+                          "itemCode":"{{code}}",
+                          "hint": "BTN_EDIT_STAFF"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Header": "First Name",
+                  "accessor": "fname",
+                  "filterType": "string"
+                },  
+                {
+                  "Header": "Last Name",
+                  "accessor": "lname",
+                  "filterType": "string"
+                },
+                {
+                  "Header": "Email",
+                  "accessor": "email",
+                  "filterType": "string"
+                },
+                {
+                    "Header": "Mobile",
+                    "accessor": "mobile",
+                    "filterType": "number"
+                  }
+              ],
+              "tableBackgroundColor": "#e05b5b",
+              "data": "_query.tableData",
+              "height": "500px",
+              "width": "500px",
+              "itemsPerPage": 15
+            }
+          }
+        ]
+      }
+    ],
+    "query": [
+      {
+        "operator": "getBE",
+        "id": "GRP_VIEW_STAFF",
+        "as": "items"
+      },
+      {
+        "operator": "scope",
+        "path": "items.links",
+        "as": "items",
+        "scope": {
+          "operator": "getBE",
+          "basePath": "baseEntities.data",
+          "id": "{{link.targetCode}}",
+          "as": "be"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "scope",
+          "path": "be",
+          "scope": {
+            "operator": "populateBEGAttributes",
+            "as": "attributes"
+          }
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "getBE",
+          "as" : "company",
+          "basePath": "baseEntities.data",
+          "id": "{{be.attributes.LNK_COMPANY_PROVIDER.value}}"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "getBE",
+          "as" : "items",
+          "id": "{{be.attributes.LNK_AGENCY.value}}"
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "scope": {
+          "operator": "scope",
+          "path": "items",
+          "scope": {
+            "operator": "populateAttributes",
+            "as" : "attributes",
+            "code": "{{code}}"
+          }
+        }
+      },
+      {
+        "operator": "scope",
+        "path": "items",
+        "as": "tableData",
+        "scope": {
+          "operator": "map",
+          "fields": {
+            "fname": "be.attributes.PRI_FIRSTNAME.value",
+            "lname": "be.attributes.PRI_LASTNAME.value",
+            "email": "be.attributes.PRI_EMAIL.value",
+            "mobile": "be.attributes.PRI_MOBILE.value",
+            "code": "be.code"
+          }
+        }
+      }
+    ]
+  }
+  

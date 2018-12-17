@@ -1,0 +1,80 @@
+{
+ "children": [
+   {
+     "component": "Box",
+     "props": {
+       "width": "100%",
+       "flex": 1,
+       "position": "relative",
+       "backgroundColor": "#f6f6f6"
+     },
+     "children": [
+       {
+         "component": "Tabs",
+         "props": {
+           "flex": 1,
+           "tabBarBackground": "#e05b5c",
+           "tabWrapperProps": {
+             "paddingLeft": 20,
+             "height": 50,
+             "flexBasis": "auto"
+           },
+           "textColor": "#FFF",
+           "tabBackground": "#e05b5c",
+           "activeTabBackground": "#f6f6f6",
+           "activeTabTextColor": "#000",
+           "tabProps": {
+             "paddingX": 20,
+             "paddingY": 15,
+             "minWidth": 180,
+             "justifyContent": "center"
+           },
+           "tabTitleProps": {
+             "size": "xs"
+           },
+           "activeTabTitleProps": {
+             "bold": true
+           },
+           "inactiveTabProps": {
+             "borderColor": "#233a4e",
+             "borderRightWidth": 1,
+             "borderStyle": "solid"
+           },
+           "tabs": [
+             { "title": "Table View", "key": 0},
+             { "title": "Process View", "key": 1 },
+             { "title": "Map View", "key": 2 }
+           ],
+           "childProps": {
+             "overflow": "auto",
+             "maxHeight": "calc(100vh - 65px - 50px)"
+           },
+           "overflowX": "auto",
+           "backgroundColor": "#f6f6f6"
+         },
+         "children": [
+           {
+             "component": "Sublayout",
+             "props": {
+               "layoutName": "home/properties/table-view"
+             }
+           },
+           {
+             "component": "Sublayout",
+             "props": {
+               "layoutName": "home/properties/bucket-view"
+             }
+           },
+           {
+             "component": "Sublayout",
+             "props": {
+               "layoutName": "home/properties/map-view"
+             }
+           }
+         ]
+       }
+     ]
+   }
+ ]
+
+}

@@ -1,57 +1,60 @@
 {
   "layout": {
     "title": "Login",
-    "appColor": "white",
-    "backgroundColor": "#e05b5b",
-    "header": {
-      "variant": "public-transparent"
-    }
+    "appColor": "red",
+    "backgroundColor": "white"
   },
   "children": [
     {
-      "component": "StatusBar",
+      "component": "Box",
       "props": {
-        "barStyle": "light-content"
-      }
-    },
-    {
-      "component": "KeyboardAwareScrollView",
-      "props": {
-        "style": {
-          "flex": 1
-        },
-        "contentContainerStyle": {
-          "flex": 1
-        }
+        "flexDirection": "row",
+        "width": "100%",
+        "height": "100vh",
+        "backgroundColor": "#fff",
+        "flexWrap": "wrap"
       },
       "children": [
         {
-          "component": "Container",
+          "component": "Box",
+          "props": {
+            "flex": 1,
+            "backgroundColor": "#e0daca",
+            "alignItems":"center"
+          },
           "children": [
             {
               "component": "Box",
               "props": {
+                "borderRadius": "14px",
+                "backgroundColor": "#fff",
+                "marginY": "3em",
+                "flexDirection": "column",
+                "alignItems": "center",
+                "justifyContent": "center",
                 "flex": 1,
-                "padding": 20,
-                "paddingBottom": 40,
-                "flexDirection": "column"
+                "maxWidth": "400px",
+                "marginX": "auto",
+                "borderColor": "#C96567",
+                "borderWidth":4,
+                "height": "500px",
+                "paddingY": "20px"
               },
               "children": [
                 {
                   "component": "Box",
-                  "props": {
-                    "flex": 1,
-                    "alignItems": "center"
+                  "props":{
+                    "maxWidth": "300px",
+                    "maxHeight": "60px"
                   },
-                  "children": [
-                    {
-                      "component": "Image",
-                      "props": {
-                        "source": "https://i.imgur.com/jAAWx8I.png",
-                        "width": "50%"
-                      }
+                  "children":                 
+                  {
+                    "component": "Image",
+                    "props": {
+                      "source": "https://bouncer.outcome-hub.com/auth/resources/3.4.0.final/login/pcss/img/logo.png",
+                      "width": "100%"
                     }
-                  ]
+                  }
                 },
                 {
                   "component": "Box",
@@ -62,18 +65,11 @@
                   },
                   "children": [
                     {
-                      "component": "Heading",
-                      "props": {
-                        "color": "white",
-                        "size": "xxl",
-                        "bold": false
-                      },
-                      "children": "Enter your details"
-                    },
-                    {
                       "component": "Box",
                       "props": {
-                        "marginTop": 40
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "flex": 1
                       },
                       "children": [
                         {
@@ -101,17 +97,32 @@
                                     {
                                       "component": "Box",
                                       "props": {
+                                        "flexDirection": "column",
                                         "marginBottom": 20
                                       },
                                       "children": [
+                                        {
+                                          "component": "Text",
+                                          "children": "Email:",
+                                          "props": { 
+                                            "marginBottom": "10px"
+                                          }
+                                        },
                                         {
                                           "component": "FormGenericInput",
                                           "useThemeFrom": "Input",
                                           "variant": "default",
                                           "props": {
+                                            "marginTop": "10px",
                                             "type": "text",
                                             "placeholder": "Username",
-                                            "name": "username"
+                                            "name": "username",
+                                            "icon": "email",
+                                            "color": "#093f7f",
+                                            "borderWidth":"1px",
+                                            "borderColor":"#000000",
+                                            "borderRadius":"5px",
+                                            "backgroundColor":"#FFFFFF"
                                           }
                                         }
                                       ]
@@ -119,17 +130,32 @@
                                     {
                                       "component": "Box",
                                       "props": {
-                                        "marginBottom": 20
+                                        "marginBottom": 20,
+                                        "flexDirection": "column"
                                       },
                                       "children": [
+                                        {
+                                          "component": "Text",
+                                          "children": "Password:",
+                                          "props": { 
+                                            "marginBottom": "10px"
+                                          }
+                                        },
                                         {
                                           "component": "FormGenericInput",
                                           "useThemeFrom": "Input",
                                           "variant": "default",
                                           "props": {
+                                            "marginTop":"10px",
                                             "type": "password",
+                                            "icon": "lock",
                                             "placeholder": "Password",
-                                            "name": "password"
+                                            "name": "password",
+                                            "color": "#093f7f",
+                                            "borderWidth":"1px",
+                                            "borderColor":"#000000",
+                                            "borderRadius":"5px",
+                                            "backgroundColor":"#FFFFFF"
                                           }
                                         }
                                       ]
@@ -145,13 +171,13 @@
                                     {
                                       "component": "Box",
                                       "props": {
-                                        "marginBottom": 20
+                                        "paddingTop": "20px"
                                       },
                                       "children": [
                                         {
                                           "component": "FormGenericStatus",
                                           "props": {
-                                            "wrapperProps": {
+                                              "wrapperProps": {
                                               "borderWidth": 2,
                                               "borderColor": "red",
                                               "borderStyle": "solid",
@@ -173,9 +199,33 @@
                                     {
                                       "component": "FormGenericSubmit",
                                       "props": {
-                                        "text": "Next",
-                                        "inverted": true,
-                                        "color": "white"
+                                        "color": "#D34545",
+                                        "text": "Login",
+                                        "textColor": "#fff",
+                                        "size": "xl",
+                                        "height": "50px",
+                                        "width": "300px",
+                                        "formProps": "_formProps",
+                                        "hoverProps": {
+                                          "color": "#C96567",
+                                          "textColor": "#ffffff"
+                                        },
+                                        "formProps": "_formProps"
+                                      }
+                                    },
+                                    {
+                                      "component": "LinkButton",
+                                      "props": {
+                                        "text": "Forgot Password?",
+                                        "textColor": "#696969",
+                                        "to": "resetPassword",
+                                        "borderbottom": 1,
+                                        "borderColor": "#e3e3e3",
+                                        "paddingX": 0,
+                                        "paddingY": 20,
+                                        "hoverProps": {
+                                          "textColor": "#696969"
+                                        }
                                       }
                                     }
                                   ]

@@ -1,0 +1,75 @@
+{
+    "layout": {
+      "title": "Sidebar Card",
+      "appColor": "dark"
+    },
+    "children": [
+      {
+        "component": "Touchable",
+        "props": {
+          "paddingY": 15,
+          "paddingX": 10,
+          "width": "100%",
+          "justifyContent": "center",
+          "onPress": "_props.item.onPress",
+          "withFeedback": true,
+          "alignItems": "center"
+        },
+        "children": {
+          "component": "Box",
+          "props": {
+            "width": "100%"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "children": [
+                {
+                  "component": "Icon",
+                  "conditional": {
+                    "if": {
+                      "props.item.icon": {
+                        "$exists": true
+                      }
+                    },
+                    "then": {
+                      "name": "{{props.item.icon}}"
+                    }
+                  },
+                  "props": {
+                    "color": "white",
+                    "name": "fiber_manual_record"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "props.isSidebarOpen": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "marginLeft": 15
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "onlyShowIf": {
+                    "props.isSidebarOpen": {
+                      "$eq": true
+                    }
+                  },
+                  "props": {
+                    "color": "white",
+                    "text": "{{props.item.name}}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
