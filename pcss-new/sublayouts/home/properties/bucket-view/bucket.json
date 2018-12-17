@@ -255,7 +255,7 @@
                                 },
                                 {
                                   "text": "Decline Condition Report",
-                                  "buttonCode": "BTN_START_INTERNSHIP",
+                                  "buttonCode": "BTN_REQUEST_DECLINE",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
                                     "hint": "{{parentRepeater.code}}"
@@ -263,34 +263,35 @@
                                 },
                                 {
                                   "text": "ReContact By Email",
-                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "buttonCode": "BTN_SEND_EMAIL_AGAIN",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
-                                  }
+                                    "hint": "BTN_SEND_EMAIL_AGAIN"
+                                  },
+                                  "isDisabled": "{{repeater.disabled}}"
                                 },
                                 {
                                   "text": "ReContact By Phone",
-                                  "buttonCode": "BTN_FINISH_INTERNSHIP",
+                                  "buttonCode": "BTN_CONTACTED_PHONE_AGAIN",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_PHONE_AGAIN"
                                   }
                                 },
                                 {
                                   "text": "ReContact By Letter",
-                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "buttonCode": "BTN_CONTACTED_LETTER_AGAIN",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_LETTER_AGAIN"
                                   }
                                 },
                                 {
                                   "text": "ReContact By Site Visit",
-                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "buttonCode": "BTN_CONTACTED_SITE_VISIT_AGAIN",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_CONTACTED_SITE_VISIT_AGAIN"
                                   }
                                 }
                               ]
@@ -315,7 +316,7 @@
                                 },
                                 {
                                   "text": "Book Inspection",
-                                  "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                  "buttonCode": "BTN_REQUEST_INSPECTION_DATE",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
                                     "hint": "{{parentRepeater.code}}"
@@ -343,7 +344,7 @@
                                 },
                                 {
                                   "text": "Rebook Appointment",
-                                  "buttonCode": "BTN_OFFER_APPLICATION",
+                                  "buttonCode": "BTN_REBOOK_APPOINTMENT",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
                                     "hint": "{{parentRepeater.code}}"
@@ -359,10 +360,10 @@
                                 },
                                 {
                                   "text": "Inspection Completed",
-                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "buttonCode": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF"
                                   }
                                 }
                               ]
@@ -387,18 +388,18 @@
                                 },
                                 {
                                   "text": "Report Prepared",
-                                  "buttonCode": "BTN_INTERVIEW_APPLICATION",
+                                  "buttonCode": "BTN_MARK_REPORT_AS_PREPARED",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_MARK_REPORT_AS_PREPARED"
                                   }
                                 },
                                 {
                                   "text": "Report Reloaded",
-                                  "buttonCode": "BTN_REJECT_APPLICATION",
+                                  "buttonCode": "BTN_MARK_REPORT_AS_RELEASED",
                                   "value": {
                                     "itemCode": "{{repeater.code}}",
-                                    "hint": "{{parentRepeater.code}}"
+                                    "hint": "BTN_MARK_REPORT_AS_RELEASED"
                                   }
                                 },
                                 {
@@ -647,7 +648,18 @@
                                   "justifyContent": "center",
                                   "color": "#000000"
                                 },
-                                "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}  {{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}"
+                                "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}  {{repeater.attributes.PRI_OWNER_LASTNAME.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
+                                  },
+                                  "repeater.attributes.PRI_OWNER_FIRSTNAME.value":{
+                                    "$neq":null
+                                  },
+                                  "repeater.attributes.PRI_OWNER_LASTNAME.value":{
+                                    "$neq":null
+                                  }
+                                }
                               },
                               {
                                 "component": "Text",
@@ -656,7 +668,15 @@
                                   "justifyContent": "center",
                                   "color": "#000000"
                                 },
-                                "children": "{{repeater.attributes.PRI_EMAIL.value}}"
+                                "children": "{{repeater.attributes.PRI_EMAIL.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
+                                  },
+                                  "repeater.attributes.PRI_EMAIL.value":{
+                                    "$neq":null
+                                  }
+                                }
                               },
                               {
                                 "component": "Text",
@@ -665,7 +685,182 @@
                                   "justifyContent": "center",
                                   "color": "#000000"
                                 },
-                                "children": "{{repeater.attributes.PRI_MOBILE.value}}"
+                                "children": "{{repeater.attributes.PRI_MOBILE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
+                                  },
+                                  "repeater.attributes.PRI_MOBILE.value":{
+                                    "$neq":null
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_LAST_CONTACT_METHOD.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
+                                  },
+                                  "repeater.attributes.PRI_LAST_CONTACT_METHOD.value":{
+                                    "$neq":null
+                                  }
+                                }
+                              },
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_LAST_CONTACT_DATETIME.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
+                                  },
+                                  "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value":{
+                                    "$neq":null
+                                  }                                  
+                                }
+                              },
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
+                                  },
+                                  "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value":{
+                                    "$neq":null
+                                  } 
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_INSPECTION"
+                                  },
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value":{
+                                    "$neq":null
+                                  } 
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_COMPLETED_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
+                                    "$exists": true
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_SIGNOFF"
+                                  },
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value": {
+                                    "$exists": true
+                                  }
+
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "flexDirection": "column",
+                              "width": "100%",
+                              "justifyContent": "center"
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "flexDirection": "column",
+                                  "justifyContent": "center",
+                                  "color": "#000000"
+                                },
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_REQUESTED"
+                                  },
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value": {
+                                    "$exists": true
+                                  }
+                                }
                               }
                             ]
                           }
