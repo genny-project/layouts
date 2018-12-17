@@ -1,67 +1,88 @@
-{
-    "div": {
-        "children": [{
-            "ImageMapView": {
-                "position": [
-                    0,
-                    0
-                ],
-                "style": {
-                    "overflow": "hidden",
-                    "backgroundPositionX": "50%",
-                    "width": "initial"
-                },
-                "height": 300,
-                "width": 1000,
-                "address": "BE.PRI_ADDRESS_FULL",
-                "children": [{
-                    "Grid": {
-                        "position": [
-                            1,
-                            0
+{  
+   "div":{  
+      "children":[  
+         {  
+            "ImageMapView":{  
+               "position":[  
+                  0,
+                  0
+               ],
+               "style":{  
+                  "overflow":"hidden",
+                  "backgroundPositionX":"50%",
+                  "width":"initial"
+               },
+               "height":300,
+               "width":1000,
+               "address":"BE.PRI_ADDRESS_FULL",
+               "children":[  
+                  {  
+                     "Grid":{  
+                        "position":[  
+                           1,
+                           0
                         ],
-                        "cols": 1,
-                        "rows": 2,
-                        "children": [{
-                                "GennyAddressLabel": {
-                                    "position": [
-                                        0,
-                                        0
-                                    ],
-                                    "style": {
-                                        "fontSize": "2em"
-                                    },
-                                    "attributePrefix": "PRI_ADDRESS",
-                                    "root": "BE.code"
-                                }
-                            },
-                            {
-                                "Selector": {
-                                    "checkValues": [
-                                        "BE.LNK_PROPERTY_TYPE_SELECT.name"
-                                    ],
-                                    "position": [
-                                                   1,
-                                                   0
-                                                ],
-                                    "showIfNotNull": true,
-                                    "children": [{
-                                            "span": {
-                                                "style": {
-                                                    "color": "black",
-                                                    "fontSize": "1.5em"
-                                                },
-                                                "children": "BE.LNK_PROPERTY_TYPE_SELECT.name"
-                                            }
-                                        }
-
-                                    ]
-                                }
-                            }
+                        "cols":1,
+                        "rows":2,
+                        "children":[ 
+                           {
+                              "p": {
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "style": {
+                                     "fontSize":"2em",
+                                     "padding": "0 3.3em",
+                                     "marginBottom": "0px"
+                                 },
+                                 "children": "BE.PRI_PROPERTY_NAME"
+                              }
+                           },
+                           {  
+                              "GennyAddressLabel":{  
+                                 "position":[  
+                                    0,
+                                    0
+                                 ],
+                                 "style":{  
+                                    "fontSize":"2em",
+                                    "padding":"0.5em 3.3em"
+                                 },
+                                 "attributePrefix":"PRI_ADDRESS",
+                                 "root":"BE.code"
+                              }
+                           },
+                           {  
+                              "Selector":{  
+                                 "checkValues":[  
+                                    "BE.LNK_PROPERTY_TYPE_SELECT.name"
+                                 ],
+                                 "position":[  
+                                    1,
+                                    0
+                                 ],
+                                 "showIfNotNull":true,
+                                 "children":[  
+                                    {  
+                                       "span":{  
+                                          "style":{  
+                                             "color":"black",
+                                             "fontSize":"1.5em",
+                                             "padding":"0.0em 4.5em"
+                                          },
+                                          "children":"Property Type: ${BE.LNK_PROPERTY_TYPE_SELECT.name}"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
                         ]
-                    }
-                }]
+                     }
+                  }
+               ]
             }
-        }]
-    }
+         }
+      ]
+   }
 }

@@ -1,0 +1,85 @@
+{
+   "div":{
+      "children":[
+         {
+            "p":{
+               "children":"Contact By Email"
+            }
+         },
+         {
+            "GennyForm":{
+               "root":"QUE_CONTACTED_DETAILS_EMAIL_GRP"
+            }
+         },
+         {
+            "Selector":{
+               "checkValues":"BE.PRI_SECOND_S3_CORRESPONDENCE_LINK",
+               "showIfNull":true,
+               "children":[
+                  {
+                     "p":{
+                        "children":"Generating PDF..."
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "Selector":{
+               "checkValues":"BE.PRI_SECOND_S3_CORRESPONDENCE_LINK",
+               "showIfNotNull":true,
+               "children":[
+                  {
+                     "FileViewer":{
+                        "root": "BE.code",
+                        "attribute": "PRI_SECOND_S3_CORRESPONDENCE_LINK",
+                        "title": "View Correspondence"
+                     }
+                  }
+               ]
+            }
+         },
+         {
+            "div": {
+               "style": {
+                  "display": "flex"
+               },
+               "children": [
+                  {
+                     "GennyButton": {
+                        "buttonCode": "BTN_EMAILCONTACT_ACCEPT_BOOK_INSPECTION",
+                        "value": {
+                           "targetCode": "BE.code"
+                        },
+                        "children": "Book Inspection",
+                        "style": {
+                           "flex": 0.5,
+                           "margin": 30
+                        },
+                        "buttonStyle": {
+                           "background": "#66B5F5"
+                        }
+                     }
+                  },
+                  {
+                     "GennyButton": {
+                        "buttonCode": "BTN_DECLINE",
+                         "value": {
+                           "targetCode": "BE.code"
+                        },
+                        "children": "Decline Condition Report",
+                        "style": {
+                           "flex": 0.5,
+                           "margin": 30
+                        },
+                        "buttonStyle": {
+                           "background": "red"
+                        }
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
+}
