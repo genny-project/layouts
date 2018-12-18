@@ -107,14 +107,22 @@
                 "component": "Box",
                 "props": {
                   "alignItems": "center",
-                  "justifyContent": "flex-end",
+                  "justifyContent": "space-around",
                   "padding": 15
                 },
                 "children": [
                   {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white",
+                      "align":"left"
+                    }
+                  },
+                  {
                     "component": "Box",
                     "props": {
-                      "marginRight": 15
+                      "marginRight": 5
                     },
                     "children": [
                       {
@@ -126,13 +134,6 @@
                         }
                       }
                     ]
-                  },
-                  {
-                    "component": "Icon",
-                    "props": {
-                      "name": "{{item.icon}}",
-                      "color": "white"
-                    }
                   }
                 ]
               }
