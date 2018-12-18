@@ -774,14 +774,14 @@
                                   "if": {
                                     "$and": [
                                       {
-                                        "repeater.attributes.PRI_LAST_CONTACT_METHOD.value": {
+                                        "repeater.attributes.PRI_LAST_CONTACT_METHOD.name": {
                                           "$exists": true
                                         }
                                       }
                                     ]
                                   },
                                   "then":{
-                                    "text": "Contact Type: {{repeater.attributes.PRI_LAST_CONTACT_METHOD.value}}"
+                                    "text": "Contact Type: {{repeater.attributes.PRI_LAST_CONTACT_METHOD.name}}"
                                   }
                                 }
                               },
@@ -1122,6 +1122,16 @@
         "as": "propertyType",
         "basePath": "baseEntities.data",
         "id": "{{parentBEG.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "as": "propertyType",
+        "basePath": "baseEntities.data",
+        "id": "{{parentBEG.attributes.PRI_LAST_CONTACT_METHOD.value}}"
       }
     },
     {
