@@ -167,10 +167,6 @@
               "children": [
                 {
                   "component": "Box",
-                  "props": {
-                    "borderWidth": "1px",
-                    "borderColor": "rgb(85, 148, 188)"
-                  },
                   "children": {
                     "component": "EventButton",
                     "props": {
@@ -190,26 +186,44 @@
                 },
                 {
                   "component": "Box",
-                  "props": {
-                    "marginLeft": "20px",
-                    "borderWidth": "1px",
-                    "borderColor": "rgb(85, 148, 188)"
-                  },
-                  "children": {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "50px",
-                      "width": "150px",
-                      "backgroundColor": "red",
-                      "color": "rgb(255, 255, 255)",
-                      "textColor": "rgb(85, 148, 188)",
-                      "textSize": "xl",
-                      "text": "Resume",
-                      "buttonCode": "",
-                      "value": {
-                        "itemCode": "{{}}"
-                      }
+                  "onlyShowIf": {
+                    "query.intern.attributes.PRI_RESUME": {
+                      "$exists": true
                     }
+                  },
+                  "props": {
+                    "marginLeft": "20px"
+                  },
+                  "repeat": "_query.intern.attributes.PRI_RESUME.value",
+                  "children": {
+                    "component": "Link",
+                    "props": {
+                      "to": "{{repeater.uploadURL}}",
+                      "externalLink": true
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                          "backgroundColor": "rgb(85, 148, 188)",
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "height": 50,
+                          "padding": 20
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "size": "sm",
+                              "color": "white",
+                              "bold": true,
+                              "text": "View Resume"
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   }
                 }
               ]
@@ -437,151 +451,91 @@
             },
             {
               "component": "Box",
+              "onlyShowIf": {
+                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                  "$exists": true
+                }
+              },
               "props": {
                 "width": "90%",
                 "justifyContent": "flex-start",
                 "flexDirection": "column",
                 "height": "auto"
               },
+              "repeat": "_query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value",
+              "children": {
+                "component": "Link",
+                "props": {
+                  "to": "{{repeater.uploadURL}}",
+                  "externalLink": true
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "flexDirection": "row",
+                      "alignItems": "center",
+                      "paddingY": 5
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                          "justifyContent": "center",
+                          "padding": 20
+                        },
+                        "children": [
+                          {
+                            "component": "Icon",
+                            "props": {
+                              "size": "xl",
+                              "name": "description",
+                              "color": "grey"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "props": {
+                          "flexDirection": "column",
+                          "justifyContent": "flex-start"
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props":{
+                              "text": "{{repeater.name}}",
+                              "color": "blue",
+                              "decoration": "underline"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "dontShowIf": {
+                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                  "$exists": true
+                }
+              },
+              "props": {
+                "width": "90%",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "padding": 20
+              },
               "children": [
                 {
-                  "component": "Box",
+                  "component": "Text",
                   "props": {
-                    "flexDirection": "column",
-                    "paddingX": "20px",
-                    "paddingY": "20px",
-                    "marginLeft": "20px"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "row"
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "children": [
-                            {
-                              "component": "Icon",
-                              "props": {
-                                "size": "xl",
-                                "name": "description",
-                                "color": "grey"
-                              }
-                            }
-                          ],
-                          "props": {
-                            "flexDirection": "column",
-                            "justifyContent": "center",
-                            "height": 100,
-                            "width": 10,
-                            "paddingLeft": 10,
-                            "paddingRight": 30
-                          }
-                        },
-                        {
-                          "component": "EventButton",
-                          "children": {
-                            "component": "Box",
-                            "props": {
-                              "backgroundColor": "whitesmoke",
-                              "borderColor": "grey",
-                              "paddingLeft": "20px"
-                            },
-                            "children": {
-                              "component": "Text",
-                              "children": "Document1"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "row"
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "children": [
-                            {
-                              "component": "Icon",
-                              "props": {
-                                "size": "xl",
-                                "name": "description",
-                                "color": "grey"
-                              }
-                            }
-                          ],
-                          "props": {
-                            "flexDirection": "column",
-                            "justifyContent": "center",
-                            "height": 100,
-                            "width": 10,
-                            "paddingLeft": 10,
-                            "paddingRight": 30
-                          }
-                        },
-                        {
-                          "component": "EventButton",
-                          "children": {
-                            "component": "Box",
-                            "props": {
-                              "paddingLeft": "20px"
-                            },
-                            "children": {
-                              "component": "Text",
-                              "children": "Document2"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "row"
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "children": [
-                            {
-                              "component": "Icon",
-                              "props": {
-                                "size": "xl",
-                                "name": "description",
-                                "color": "grey"
-                              }
-                            }
-                          ],
-                          "props": {
-                            "flexDirection": "column",
-                            "justifyContent": "center",
-                            "height": 100,
-                            "width": 10,
-                            "paddingLeft": 10,
-                            "paddingRight": 30
-                          }
-                        },
-                        {
-                          "component": "EventButton",
-                          "children": {
-                            "component": "Box",
-                            "props": {
-                              "paddingLeft": "20px"
-                            },
-                            "children": {
-                              "component": "Text",
-                              "children": "Document3"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  ]
+                    "text": "This user hasn't uploaded any documents."
+                  }
                 }
               ]
             }
