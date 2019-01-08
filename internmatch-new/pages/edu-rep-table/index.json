@@ -32,179 +32,164 @@
       }
     }
   },
-  "children": [
-    {
-      "component": "Box",
-      "props" : {
-        "width" : "100%"
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "tables/table-default",
-            "code": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-            "rootCode": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-            "data": "_query.tableData",
-            "columns": [
+  "children": [{
+    "component": "Box",
+    "props": {
+      "width": "100%"
+    },
+    "children": [{
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tables/table-default",
+        "code": "GRP_RESULT_EDUCATION_PROVIDER_REP",
+        "rootCode": "GRP_RESULT_EDUCATION_PROVIDER_REP",
+        "data": "_query.tableData",
+        "columns": [{
+            "Header": "Actions",
+            "accessor": "actions",
+            "renderButton": [{
+                "component": "EventButton",
+                "props": {
+                  "height": "30px",
+                  "width": "80px",
+                  "backgroundColor": "red",
+                  "color": "#5173c6",
+                  "textColor": "#fff",
+                  "text": "Edit",
+                  "buttonCode": "BTN_EDIT_EDU_PROVIDER_REP",
+                  "value": {
+                    "itemCode": "{{attributeCode}}"
+                  }
+                }
+              },
               {
-                "Header": "Actions",
-                "accessor": "actions",
-                "renderButton": [
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_EDU_PROVIDER_STAFF",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      }
-                    }
+                "component": "EventButton",
+                "props": {
+                  "height": "30px",
+                  "width": "80px",
+                  "backgroundColor": "red",
+                  "color": "#5173c6",
+                  "textColor": "#fff",
+                  "text": "View",
+                  "buttonCode": "BTN_VIEW_EDU_PROVIDER_REP",
+                  "value": {
+                    "itemCode": "{{attributeCode}}"
                   },
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "View",
-                      "buttonCode": "BTN_VIEW_EDU_PROVIDER_STAFF",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      },
-                      "dispatchActionOnClick": {
-                        "type": "ALIAS_ADD",
-                        "payload": {
-                          "alias": "CURRENT_NOTE",
-                          "value": "{{attributeCode}}"
-                        }
-                      }
+                  "dispatchActionOnClick": {
+                    "type": "ALIAS_ADD",
+                    "payload": {
+                      "alias": "CURRENT_NOTE",
+                      "value": "{{attributeCode}}"
                     }
                   }
-              ]
-              },
-              {
-                "Header": "First Name",
-                "accessor": "firstName",
-                "attributeCode": "PRI_FIRSTNAME",
-                "filterType": "string"
-              },
-              {
-                "Header": "Email",
-                "accessor": "email",
-                "attributeCode": "PRI_EMAIL",
-                "filterType": "string"
-              },
-              {
-                "Header": "Phone Number",
-                "accessor": "mobilePhone",
-                "attributeCode": "PRI_PHONE_NUMBER",
-                "filterType": "string"
-              },
-              {
-                "Header": "University",
-                "accessor": "university",
-                "filterType": "string"
+                }
               }
             ]
+          },
+          {
+            "Header": "Full Name",
+            "accessor": "firstName",
+            "attributeCode": "PRI_FIRSTNAME",
+            "filterType": "string"
+          },
+          {
+            "Header": "Email",
+            "accessor": "uname",
+            "attributeCode": "PRI_EMAIL",
+            "filterType": "string"
+          },
+          {
+            "Header": "Contact Number",
+            "accessor": "mobilePhone",
+            "attributeCode": "PRI_PHONE_NUMBER",
+            "filterType": "string"
+          },
+          {
+            "Header": "Edu Provider",
+            "accessor": "eduProvider",
+            "attributeCode": "LNK_EDU_PROVIDER",
+            "filterType": "string"
           }
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
+        ]
+      }
+    }]
+  }],
+  "query": [{
       "operator": "getBE",
-      "id": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-      "as": "hostCompanies"
+      "id": "GRP_RESULT_EDUCATION_PROVIDER_REP",
+      "as": "eduProviderRepList"
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "eduProviderRepList.links",
+      "as": "eduProviderRepList",
       "scope": {
-        "operator": "populateLinkValues",
-        "withAttributes": true,
-        "multiple": true,
-        "as": "items"
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
-      "scope": {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "getBE",
-          "as" : "company",
-          "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies",
+      "path": "eduProviderRepList",
       "scope": {
         "operator": "scope",
-        "path": "items",
+        "path": "be",
         "scope": {
-          "operator": "scope",
-          "path": "company",
-          "scope": {
-            "operator": "populateAttributes",
-            "as" : "attributes",
-            "code": "{{code}}"
-          }
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
         }
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
+      "path": "eduProviderRepList",
       "scope": {
-        "operator": "scope",
-        "path": "items",
-        "scope": {
-          "operator": "getBE",
-          "as" : "currentUser",
-          "id": "{{user.data.code}}"
-        }
+        "operator": "getBE",
+        "as": "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_CONTACT.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "hostCompanies",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$exists": true
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies.items",
+      "path": "eduProviderRepList",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "attributes.PRI_FIRSTNAME.value",
-          "email": "attributes.PRI_EMAIL.value",
-          "mobilePhone": "attributes.PRI_MOBILE.value",
-          "university": "company.attributes.PRI_NAME.value",
-          "extraFields": {
-          },
-          "attributeCode": "code",
-          "currentUser": "currentUser.code"
+          "firstName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "hostCompany": "be.attributes.LNK_EDU_PROVIDER.value",
+          "attributeCode": "code"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "tableData",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{eduProvider}}",
+        "as": "eduProviderAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "tableData",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "firstName",
+          "eduProvider": "eduProvider",
+          "mobilePhone": "mobilePhone",
+          "uname": "uname",
+          "hostCompany": "eduProviderAttributes.PRI_NAME.value",
+          "attributeCode": "attributeCode"
         }
       }
     },
