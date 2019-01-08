@@ -2,6 +2,16 @@
   "children": [
     {
       "component": "Box",
+      "conditional": {
+        "if": {
+          "props.deviceSize": {
+            "$eq": "sm"
+          }
+        },
+        "then": {
+          "width": "100%"
+        }
+      },
       "props": {
         "paddingX": 10,
         "justifyContent": "space-between",
@@ -12,6 +22,16 @@
       "children": [
         {
           "component": "Box",
+          "conditional": {
+            "if": {
+              "props.deviceSize": {
+                "$eq": "sm"
+              }
+            },
+            "then": {
+              "width": "100%"
+            }
+          },
           "props": {
             "flexDirection": "row",
             "marginBottom": 10,
@@ -21,29 +41,92 @@
           },
           "children": [
             {
-              "component": "Touchable",
-              "props": {
-                "paddingY": 5,
-                "withFeedback": true,
-                "onPress": "_props.onToggle"
-              },
-              "children": {
-                "component": "Icon",
-                "conditional": {
-                  "if": {
-                    "props.isOpen": {
-                      "$eq": true
+              "component": "Box",
+              "conditional": {
+                "if": {
+                  "$and": [
+                    {
+                      "props.deviceSize": {
+                        "$eq": "sm"
+                      }
+                    },
+                    {
+                      "props.isOpen": {
+                        "$eq": false
+                      }
                     }
-                  },
-                  "then": {
-                    "name": "close"
-                  }
+                  ]
                 },
-                "props": {
-                  "name": "create",
-                  "color": "black"
+                "then": {
+                  "position": "fixed",
+                  "right": 10,
+                  "top": 15
                 }
-              }
+              },
+              "props": {
+              },
+              "children": [
+                {
+                  "component": "Touchable",
+                  "props": {
+                    "withFeedback": true,
+                    "onPress": "_props.onToggle"
+                  },
+                  "children": {
+                    "component": "Box",
+                    "conditional": {
+                      "if": {
+                        "props.deviceSize": {
+                          "$eq": "sm"
+                        }
+                      },
+                      "then": {
+                        "padding": 10
+                      }
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "conditional": [
+                          {
+                            "if": {
+                              "$and": [
+                                {
+                                  "props.deviceSize": {
+                                    "$eq": "sm"
+                                  }
+                                },
+                                {
+                                  "props.isOpen": {
+                                    "$eq": false
+                                  }
+                                }
+                              ]
+                            },
+                            "then": {
+                              "color": "white"
+                            }
+                          },
+                          {
+                            "if": {
+                              "props.isOpen": {
+                                "$eq": true
+                              }
+                            },
+                            "then": {
+                              "name": "close"
+                            }
+                          }
+                        ],
+                        "props": {
+                          "name": "create",
+                          "color": "black"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "component": "Box",
@@ -112,6 +195,16 @@
         },
         {
           "component": "ScrollView",
+          "conditional": {
+            "if": {
+              "props.deviceSize": {
+                "$eq": "sm"
+              }
+            },
+            "then": {
+              "width": "100%"
+            }
+          },
           "props": {
             "height": "100%",
             "width": 260

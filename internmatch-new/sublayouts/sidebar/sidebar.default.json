@@ -1,24 +1,90 @@
 {
   "rootCode": "GRP_ROOT",
-  "width": 50,
+  "width": {
+    "default": 50,
+    "sm": 0
+  },
   "flex": 1,
   "inline": true,
   "backgroundColor": "#233a4e",
   "openProps": {
-    "width": 300
+    "default": {
+      "width": 300
+    },
+    "sm": {
+      "width": "100vw"
+    }
   },
   "renderBody": {
     "component": "Box",
-    "conditional": {
-      "if": {
-        "sidebar.left.isOpen": {
-          "$eq": true
+    "conditional": [
+      {
+        "if": {
+          "$and": [
+            {
+              "sidebar.left.isOpen": {
+                "$eq": true
+              }
+            },
+            {
+              "$or": [
+                {
+                  "deviceSize": {
+                    "$eq": "md"
+                  }
+                },
+                {
+                  "deviceSize": {
+                    "$eq": "lg"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "width": 300
         }
       },
-      "then": {
-        "width": 300
+      {
+        "if": {
+          "$and": [
+            {
+              "sidebar.left.isOpen": {
+                "$eq": true
+              }
+            },
+            {
+              "deviceSize": {
+                "$eq": "sm"
+              }
+            }
+          ]
+        },
+        "then": {
+          "width": "100vw"
+        }
+      },
+      {
+        "if": {
+          "$and": [
+            {
+              "sidebar.left.isOpen": {
+                "$eq": false
+              }
+            },
+            {
+              "deviceSize": {
+                "$eq": "sm"
+              }
+            }
+          ]
+        },
+        "then": {
+          "width": 0
+        }
       }
-    },
+    ],
     "props": {
       "position": "fixed",
       "height": "100vh",
@@ -73,6 +139,25 @@
           },
           {
             "component": "Box",
+            "conditional": {
+              "if": {
+                "$and": [
+                  {
+                    "sidebar.left.isOpen": {
+                      "$eq": false
+                    }
+                  },
+                  {
+                    "deviceSize": {
+                      "$eq": "sm"
+                    }
+                  }
+                ]
+              },
+              "then": {
+                "marginLeft": 50
+              }
+            },
             "props": {
               "paddingTop": 15
             },

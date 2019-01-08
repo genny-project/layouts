@@ -2,13 +2,25 @@
   "barStyle": "light-content",
   "renderHeader": {
     "component": "Box",
+    "conditional": {
+      "if": {
+        "deviceSize": {
+          "$eq": "sm"
+        }
+      },
+      "then": {
+        "paddingLeft": 50,
+        "paddingRight": 40
+      }
+    },
     "props": {
       "justifyContent": "space-between",
       "alignItems": "center",
       "height": 65,
       "paddingLeft": 20,
       "paddingRight": 10,
-      "backgroundColor": "#233a4e"
+      "backgroundColor": "#233a4e",
+      "overflowX": "hidden"
     },
     "children": [
       {
@@ -143,6 +155,11 @@
                 "children": [
                   {
                     "component": "Box",
+                    "onlyShowIf": {
+                      "deviceSize": {
+                        "$ne": "sm"
+                      }
+                    },
                     "props": {
                       "marginRight": 10
                     },
@@ -158,47 +175,31 @@
                   },
                   {
                     "component": "Icon",
+                    "onlyShowIf": {
+                      "deviceSize": {
+                        "$ne": "sm"
+                      }
+                    },
                     "props": {
                       "name": "expand_more",
                       "color": "white",
                       "size": "xs"
                     }
+                  },
+                  {
+                    "component": "Icon",
+                    "onlyShowIf": {
+                      "deviceSize": {
+                        "$eq": "sm"
+                      }
+                    },
+                    "props": {
+                      "name": "add",
+                      "color": "white",
+                      "size": "xs"
+                    }
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "component": "Touchable",
-            "props": {
-              "paddingX": 10,
-              "paddingY": 15,
-              "withFeedback": true
-            },
-            "children": [
-              {
-                "component": "Icon",
-                "props": {
-                  "name": "notifications",
-                  "color": "white"
-                }
-              }
-            ]
-          },
-          {
-            "component": "Touchable",
-            "props": {
-              "paddingX": 10,
-              "paddingY": 15,
-              "withFeedback": true
-            },
-            "children": [
-              {
-                "component": "Icon",
-                "props": {
-                  "name": "chat",
-                  "color": "white"
-                }
               }
             ]
           },
