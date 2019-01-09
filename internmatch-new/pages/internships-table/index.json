@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "All Internships",
+    "title": "Active Internships",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -36,8 +36,87 @@
     {
       "component": "Sublayout",
       "props": {
-        "layoutName": "tables/table-internships"
+        "layoutName": "tabs/tabs-default",
+        "title": "Internships",
+        "tabs": [
+          {
+            "title": "Table View",
+            "key": 0
+          },
+          {
+            "title": "Applications",
+            "key": 1
+          },
+          {
+            "title": "Details View",
+            "key": 2
+          }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/internships/table-internships-active"
+            }
+          },
+          {
+            "component": "Box",
+            "conditional": {
+              "if": {
+                "media.size": {
+                  "$eq": "sm"
+                }
+              },
+              "then": {
+                "width": "100%"
+              }
+            },
+            "props": {
+              "flexDirection": "column"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "paddingX": 20,
+                  "paddingTop": 20
+                },
+                "children": [
+                  {
+                    "component": "Heading",
+                    "props": {
+                      "text": "{{query.currentItem.name}}"
+                    }
+                  }
+                ]
+              },
+              {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "home/agent/bucket"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/internship-details"
+            }
+          }
+        ]
       }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
+    },
+    {
+      "operator": "clean",
+      "fields": ["currentItem"]
     }
   ]
 }

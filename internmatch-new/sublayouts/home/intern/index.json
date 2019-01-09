@@ -2,6 +2,20 @@
   "children": [
     {
       "component": "Tabs",
+      "conditional": {
+        "if": {
+          "media.size": {
+            "$eq": "sm"
+          }
+        },
+        "then": {
+          "tabWrapperProps": {
+            "paddingLeft": 0,
+            "height": 50,
+            "flexBasis": "auto"
+          }
+        }
+      },
       "props": {
         "flex": 1,
         "tabBarBackground": "#233a4e",
