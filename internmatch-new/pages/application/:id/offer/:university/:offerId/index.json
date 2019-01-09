@@ -48,7 +48,17 @@
             {
               "component": "PdfViewer",
               "props": {
-                "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                "conditional": {
+                  "if": {
+                        "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}": { "$exists": true }
+                  },
+                  "then": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}"
+                  },
+                  "else": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                  }
+                }
               }
             }
           ]
