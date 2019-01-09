@@ -1,7 +1,8 @@
+
 {
   "onlyUpdateIf": ["internGroup", "tableData"],
   "layout": {
-    "title": "Interns Table"
+    "title": "Contacts Table"
   },
   "children": [
     {
@@ -14,8 +15,8 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/table-default",
-            "code": "GRP_INTERNS",
-            "rootCode": "GRP_RESULTS_INTERNS",
+            "code": "GRP_CONTACTS",
+            "rootCode": "GRP_RESULT_CONTACTS",
             "totalItems": "_query.internGroup.totalCount",
             "data": "_query.tableData",
             "columns": [
@@ -25,7 +26,7 @@
                 "fakeButton": "View"
               },
               {
-                "Header": "Full Name",
+                "Header": "First Name",
                 "accessor": "firstName",
                 "attributeCode": "PRI_FIRSTNAME",
                 "id": "firstName",
@@ -33,30 +34,22 @@
                 "filterType": "string"
               },
               {
-                "Header": "Student ID",
-                "accessor": "studentId",
-                "attributeCode": "PRI_STUDENT_ID",
-                "id": "studentId",
-                "key": "firstName",
+                "Header": "Last Name",
+                "accessor": "lastName",
+                "attributeCode": "PRI_LASTNAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
-                "accessor": "uname",
-                "attributeCode": "PRI_EMAIL",
-                "filterType": "string"
+                "accessor": "email",
+                "filterType": "string",
+                "attributeCode": "PRI_EMAIL"
               },
               {
-                "Header": "Edu Provider",
-                "attributeCode": "PRI_EDUCATION_PROVIDER",
-                "accessor": "eduProvider",
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_MOBILE",
                 "filterType": "string"
-              },
-              {
-                "Header": "Mobile Phone",
-                "accessor": "mobilePhone",
-                "attributeCode": "PRI_PHONE_NUMBER",
-                "filterType": "number"
               }
             ]
           }
@@ -67,13 +60,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULTS_INTERNS",
-      "as": "interns"
+      "id": "GRP_RESULT_CONTACTS",
+      "as": "contacts"
     },
     {
       "operator": "scope",
-      "path": "interns.links",
-      "as": "interns",
+      "path": "contacts.links",
+      "as": "contacts",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -82,7 +75,7 @@
     },
     {
       "operator": "scope",
-      "path": "interns",
+      "path": "contacts",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
@@ -91,21 +84,11 @@
     },
     {
       "operator": "scope",
-      "path": "interns",
-      "scope": {
-        "operator": "getBE",
-        "as": "company",
-        "basePath": "baseEntities.data",
-        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
-      }
-    },
-    {
-      "operator": "scope",
       "path": "internships",
       "scope": {
         "operator": "find",
         "query": {
-          "be": {
+          "code": {
             "$exists": true
           }
         }
@@ -113,26 +96,16 @@
     },
     {
       "operator": "scope",
-      "path": "interns",
-      "scope": {
-        "operator": "sort",
-        "by": "created",
-        "direction": "desc"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "interns",
+      "path": "contacts",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
-          "firstName": "attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
-          "mobilePhone": "attributes.PRI_MOBILE.value",
-          "uname": "attributes.PRI_USERNAME.value",
           "code": "code",
-          "studentId": "attributes.PRI_STUDENT_ID.value"
+          "firstName": "attributes.PRI_FIRSTNAME.value",
+          "lastName": "attributes.PRI_LASTNAME.value",
+          "contactNumber": "companyRep.attributes.PRI_MOBILE.value",
+          "email": "attributes.PRI_EMAIL.value"
         }
       }
     },
