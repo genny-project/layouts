@@ -43,7 +43,7 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/table-default",
-            "code": "GRP_COMPANIES",
+            "code": "GRP_RESULT_COMPANIES",
             "rootCode": "GRP_RESULT_COMPANIES",
             "data": "_query.tableData",
             "columns": [
@@ -53,12 +53,6 @@
                 "attributeCode": "PRI_COMPANY_NAME",
                 "id": "name",
                 "key": "name",
-                "filterType": "string"
-              },
-              {
-                "Header": "Legal Name",
-                "accessor": "legalName",
-                "attributeCode": "PRI_LEGAL_NAME",
                 "filterType": "string"
               },
               {
@@ -74,21 +68,9 @@
                 "filterType": "string"
               },
               {
-                "Header": "Website",
-                "accessor": "website",
-                "attributeCode": "PRI_WEBSITE",
-                "filterType": "string"
-              },
-              {
                 "Header": "Address",
                 "accessor": "address",
                 "attributeCode": "PRI_ADDRESS_FULL",
-                "filterType": "string"
-              },
-              {
-                "Header": "ABN",
-                "accessor": "abn",
-                "attributeCode": "PRI_ABN",
                 "filterType": "string"
               }
             ]
@@ -100,7 +82,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULTS",
+      "id": "GRP_RESULT_COMPANIES",
       "as": "companies"
     },
     {
