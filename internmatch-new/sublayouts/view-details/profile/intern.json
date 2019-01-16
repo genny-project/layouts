@@ -66,12 +66,17 @@
                             "size": "xl",
                             "bold": true
                           },
-                          "children": "{{query.intern.attributes.PRI_NAME.value}}"
+                          "children": "{{query.intern.attributes.PRI_FIRSTNAME.value}} {{query.intern.attributes.PRI_LASTNAME.value}}"
                         }
                       ]
                     },
                     {
                       "component": "Box",
+                      "onlyShowIf": {
+                        "query.intern.educationProvider": {
+                          "$exists": true
+                        }
+                      },
                       "props": {
                         "marginTop": "10px"
                       },
@@ -82,7 +87,7 @@
                             "color": "rgb(85, 148, 188)",
                             "size": "md"
                           },
-                          "children": "{{query.intern.uniAttrs.name}}"
+                          "children": "{{query.intern.educationProvider.name}}"
                         }
                       ]
                     },
@@ -565,7 +570,7 @@
       "scope": {
         "operator": "getBE",
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
-        "as": "uniAttrs"
+        "as": "educationProvider"
       }
     },
     {

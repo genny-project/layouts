@@ -8,168 +8,55 @@
     },
     "sidebar": {
       "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
     }
   },
   "children": [
     {
-      "component": "Box",
-      "children": [
-        {
-          "component": "Table",
-          "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_EDU_PROVIDER_REPRESENTATIVES",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
-            "columns": [
-              {
-                "Header": "Actions",
-                "accessor": "actions",
-                "renderButton": [
-                  {
-                    "text": "Edit",
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_HOST_COMPANY",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      }
-                    }
-                  },
-                  {
-                    "text": "View",
-                    "component": "EventButton",
-                    "props": {
-                      "height": "30px",
-                      "width": "80px",
-                      "backgroundColor": "red",
-                      "color": "#5173c6",
-                      "textColor": "#fff",
-                      "text": "View",
-                      "buttonCode": "BTN_VIEW_HOST_COMPANY",
-                      "value": {
-                        "itemCode": "{{attributeCode}}"
-                      },
-                      "dispatchActionOnClick": {
-                        "type": "ALIAS_ADD",
-                        "payload": {
-                          "alias": "CURRENT_NOTE",
-                          "value": "{{attributeCode}}"
-                        }
-                      }
-                    }
-                  }
-              ]
-              },
-              {
-                "Header": "Company Name",
-                "accessor": "firstName",
-                "attributeCode": "PRI_NAME",
-                "filterType": "string"
-              },
-              {
-                "Header": "Email",
-                "accessor": "email",
-                "attributeCode": "PRI_EMAIL",
-                "filterType": "string"
-              },
-              {
-                "Header": "Phone Number",
-                "accessor": "mobilePhone",
-                "attributeCode": "PRI_PHONE_NUMBER",
-                "filterType": "string"
-              },
-              {
-                "Header": "Address ",
-                "accessor": "address",
-                "attributeCode": "PRI_ADDRESS_FULL",
-                "filterType": "string"
-              }
-            ],
-            "tableBackgroundColor": "#cccccc",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 10
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tabs/default",
+        "title": "All Host Companies",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Details View", "key": 1 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/companies/host-companies"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "view-details/main"
+            }
           }
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "GRP_HOST_COMPANIES",
-      "as": "hostCompanies"
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies.links",
-      "as": "hostCompanies",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}",
-        "as": "be"
+        ]
       }
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies",
-      "scope": {
-        "operator": "scope",
-        "path": "be",
-        "scope": {
-          "operator": "populateBEGAttributes",
-          "as": "attributes"
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies",
-      "scope": {
-        "operator": "getBE",
-        "as" : "company",
-        "basePath": "baseEntities.data",
-        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "hostCompanies",
-      "as": "tableData",
-      "scope": {
-        "operator": "map",
-        "fields": {
-          "firstName": "be.attributes.PRI_NAME.value",
-          "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "uname": "be.attributes.PRI_USERNAME.value",
-          "attributeCode": "code"
-        }
-      }
-    },
-    {
-      "operator": "clean",
-      "fields": ["tableData"]
     }
   ]
 }

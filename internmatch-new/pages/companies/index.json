@@ -34,109 +34,29 @@
   },
   "children": [
     {
-      "component": "Box",
-      "props" : {
-        "width" : "100%"
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "tables/table-default",
-            "code": "GRP_RESULT_COMPANIES",
-            "rootCode": "GRP_RESULT_COMPANIES",
-            "data": "_query.tableData",
-            "columns": [
-              {
-                "Header": "Comapany Name",
-                "accessor": "name",
-                "attributeCode": "PRI_COMPANY_NAME",
-                "id": "name",
-                "key": "name",
-                "filterType": "string"
-              },
-              {
-                "Header": "Email",
-                "accessor": "email",
-                "attributeCode": "PRI_EMAIL",
-                "filterType": "string"
-              },
-              {
-                "Header": "Contact Number",
-                "accessor": "contactNumber",
-                "attributeCode": "PRI_PHONE_NUMBER",
-                "filterType": "string"
-              },
-              {
-                "Header": "Address",
-                "accessor": "address",
-                "attributeCode": "PRI_ADDRESS_FULL",
-                "filterType": "string"
-              }
-            ]
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tabs/default",
+        "title": "All Companies",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Details View", "key": 1 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/companies/companies"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "view-details/company"
+            }
           }
-        }
-      ]
-    }
-  ],
-  "query": [
-    {
-      "operator": "getBE",
-      "id": "GRP_RESULT_COMPANIES",
-      "as": "companies"
-    },
-    {
-      "operator": "scope",
-      "path": "companies.links",
-      "as": "companies",
-      "scope": {
-        "operator": "getBE",
-        "basePath": "baseEntities.data",
-        "id": "{{link.targetCode}}"
+        ]
       }
-    },
-    {
-      "operator": "scope",
-      "path": "companies",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "companies",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$exists": true
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "companies",
-      "as": "tableData",
-      "scope": {
-        "operator": "map",
-        "fields": {
-          "code": "code",
-          "name": "attributes.PRI_NAME.value",
-          "legalName": "attributes.PRI_LEGAL_NAME.value",
-          "contactNumber": "companyRep.attributes.PRI_LANDLINE.value",
-          "website": "attributes.PRI_COMPANY_WEBSITE_URL.value",
-          "abn": "attributes.PRI_ABN.value",
-          "email": "attributes.PRI_EMAIL.value",
-          "address": "attributes.PRI_ADDRESS_ADDRESS1.value"
-        }
-      }
-    },
-    {
-      "operator": "clean",
-      "fields": ["tableData"]
     }
   ]
 }

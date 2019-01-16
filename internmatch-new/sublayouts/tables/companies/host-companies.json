@@ -1,8 +1,7 @@
-
 {
-  "onlyUpdateIf": ["eduProviderRepList", "tableData"],
+  "onlyUpdateIf": ["hostCompanies", "tableData"],
   "layout": {
-    "title": "Education Provider Representatives"
+    "title": "All Host Companies Table"
   },
   "children": [
     {
@@ -15,9 +14,9 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/default",
-            "code": "GRP_RESULT_EDUCATION_PROVIDER_REP",
-            "rootCode": "GRP_RESULT_EDUCATION_PROVIDER_REP",
-            "totalItems": "_query.eduProviderRepList.totalCount",
+            "code": "GRP_RESULT_HOST_COMPANIES",
+            "rootCode": "GRP_RESULT_HOST_COMPANIES",
+            "totalItems": "_query.hostCompanies.totalCount",
             "data": "_query.tableData",
             "columns": [
               {
@@ -25,6 +24,7 @@
                 "accessor": "actions",
                 "renderButton": [
                   {
+                    "text": "Edit",
                     "component": "EventButton",
                     "props": {
                       "height": "30px",
@@ -33,7 +33,7 @@
                       "color": "#5173c6",
                       "textColor": "#fff",
                       "text": "Edit",
-                      "buttonCode": "BTN_EDIT_EDU_PROVIDER_STAFF",
+                      "buttonCode": "BTN_EDIT_HOST_COMPANY",
                       "value": {
                         "itemCode": "{{attributeCode}}"
                       }
@@ -42,27 +42,27 @@
                 ]
               },
               {
-                "Header": "Full Name",
+                "Header": "Company Name",
                 "accessor": "firstName",
-                "attributeCode": "PRI_FIRSTNAME",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
-                "accessor": "uname",
+                "accessor": "email",
                 "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
-                "Header": "Contact Number",
+                "Header": "Phone Number",
                 "accessor": "mobilePhone",
                 "attributeCode": "PRI_PHONE_NUMBER",
                 "filterType": "string"
               },
               {
-                "Header": "Edu Provider",
-                "accessor": "eduProvider",
-                "attributeCode": "LNK_EDU_PROVIDER",
+                "Header": "Address ",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
                 "filterType": "string"
               }
             ]
@@ -74,13 +74,13 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULT_EDUCATION_PROVIDER_REP",
-      "as": "eduProviderRepList"
+      "id": "GRP_RESULT_HOST_COMPANIES",
+      "as": "hostCompanies"
     },
     {
       "operator": "scope",
-      "path": "eduProviderRepList.links",
-      "as": "eduProviderRepList",
+      "path": "hostCompanies.links",
+      "as": "hostCompanies",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -90,7 +90,7 @@
     },
     {
       "operator": "scope",
-      "path": "eduProviderRepList",
+      "path": "hostCompanies",
       "scope": {
         "operator": "scope",
         "path": "be",
@@ -102,33 +102,33 @@
     },
     {
       "operator": "scope",
-      "path": "eduProviderRepList",
+      "path": "hostCompanies",
       "scope": {
         "operator": "getBE",
-        "as": "company",
+        "as" : "company",
         "basePath": "baseEntities.data",
         "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "eduProviderRepList",
+      "path": "hostCompanies",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
+          "code": "code",
           "firstName": "be.attributes.PRI_NAME.value",
-          "eduProvider": "company.name",
-          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
           "uname": "be.attributes.PRI_USERNAME.value",
-          "hostCompany": "be.attributes.LNK_EDU_PROVIDER.value",
           "attributeCode": "code"
         }
       }
     },
     {
       "operator": "clean",
-      "fields": ["tableData"]
+      "fields": ["hostCompanies", "tableData"]
     }
   ]
 }

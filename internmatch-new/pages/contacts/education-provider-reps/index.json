@@ -36,7 +36,26 @@
     {
       "component": "Sublayout",
       "props": {
-        "layoutName": "tables/contacts/edu-provider-reps"
+        "layoutName": "tabs/default",
+        "title": "Internships",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Details View", "key": 1 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/contacts/education-provider-reps"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "view-details/main"
+            }
+          }
+        ]
       }
     }
   ]
