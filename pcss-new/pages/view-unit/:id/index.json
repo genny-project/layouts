@@ -211,7 +211,7 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "Name:"
+                  "children": "FirstName:"
                 }
               ]
             },
@@ -233,6 +233,62 @@
                   "children": "{{query.unit.attributes.PRI_OWNER_FIRSTNAME.value}}",
                   "onlyShowIf": {
                     "query.unit.attributes.PRI_OWNER_FIRSTNAME.value":{
+                      "$exists":true
+                    } 
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "color": "#000000"
+                  },
+                  "children": "LastName:"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "50%",
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "color": "#000000"
+                  },
+                  "children": "{{query.unit.attributes.PRI_OWNER_LASTNAME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_OWNER_LASTNAME.value":{
                       "$exists":true
                     } 
                   }
@@ -524,7 +580,7 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "Name:"
+                  "children": "FirstnName:"
                 }
               ]
             },
@@ -546,6 +602,62 @@
                   "children": "{{query.unit.attributes.PRI_REP_FIRSTNAME.value}}",
                   "onlyShowIf": {
                     "query.unit.attributes.PRI_REP_FIRSTNAME.value":{
+                      "$exists":true
+                    } 
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "color": "#000000"
+                  },
+                  "children": "LastName:"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "width": "50%",
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "color": "#000000"
+                  },
+                  "children": "{{query.unit.attributes.PRI_REP_LASTNAME.value}}",
+                  "onlyShowIf": {
+                    "query.unit.attributes.PRI_REP_LASTNAME.value":{
                       "$exists":true
                     } 
                   }
@@ -1525,6 +1637,12 @@
           ]
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "footer"
+      }
     }
   ],
   "query": [
