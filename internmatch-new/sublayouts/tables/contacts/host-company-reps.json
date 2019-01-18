@@ -14,8 +14,8 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/default",
-            "code": "GRP_RESULT_HOST_COMPANY_REP",
-            "rootCode": "GRP_RESULT_HOST_COMPANY_REP",
+            "code": "GRP_RESULT_HOST_COMPANY_REPS",
+            "rootCode": "GRP_RESULT_HOST_COMPANY_REPS",
             "totalItems": "_query.hcRepList.totalCount",
             "data": "_query.tableData",
             "columns": [
@@ -57,7 +57,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULT_HOST_COMPANY_REP",
+      "id": "GRP_RESULT_HOST_COMPANY_REPS",
       "as": "hcRepList"
     },
     {
@@ -100,6 +100,7 @@
       "scope": {
         "operator": "map",
         "fields": {
+          "code": "code",
           "firstName": "be.attributes.PRI_NAME.value",
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
@@ -125,6 +126,7 @@
       "scope": {
         "operator": "map",
         "fields": {
+          "code": "code",
           "firstName": "firstName",
           "eduProvider": "eduProvider",
           "mobilePhone": "mobilePhone",

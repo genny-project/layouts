@@ -14,8 +14,8 @@
           "component": "Sublayout",
           "props": {
             "layoutName": "tables/default",
-            "code": "GRP_RESULT_EDUCATION_PROVIDER_REP",
-            "rootCode": "GRP_RESULT_EDUCATION_PROVIDER_REP",
+            "code": "GRP_RESULT_EDUCATION_PROVIDER_REPS",
+            "rootCode": "GRP_RESULT_EDUCATION_PROVIDER_REPS",
             "totalItems": "_query.eduProviderRepList.totalCount",
             "data": "_query.tableData",
             "columns": [
@@ -57,7 +57,7 @@
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_RESULT_EDUCATION_PROVIDER_REP",
+      "id": "GRP_RESULT_EDUCATION_PROVIDER_REPS",
       "as": "eduProviderRepList"
     },
     {
@@ -100,6 +100,7 @@
       "scope": {
         "operator": "map",
         "fields": {
+          "code": "be.code",
           "firstName": "be.attributes.PRI_NAME.value",
           "eduProvider": "company.name",
           "mobilePhone": "be.attributes.PRI_MOBILE.value",
