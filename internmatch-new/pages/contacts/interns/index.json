@@ -1,0 +1,72 @@
+{
+  "layout": {
+    "title": "All Interns",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tabs/default",
+        "title": "Internships",
+        "tabs": [
+          { "title": "Table View", "key": 0 },
+          { "title": "Process View", "key": 1 },
+          { "title": "Details View", "key": 2 }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/contacts/interns/interns"
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/bucket",
+              "props": {
+                "rootCode": "GRP_INTERNS"
+              }
+            }
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "view-details/main"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

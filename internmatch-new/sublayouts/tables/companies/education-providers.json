@@ -1,0 +1,135 @@
+{
+  "onlyUpdateIf": ["educationProviders", "tableData"],
+  "layout": {
+    "title": "All Education Providers Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULT_EDU_PROVIDERS",
+            "rootCode": "GRP_RESULT_EDU_PROVIDERS",
+            "totalItems": "_query.educationProviders.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "select",
+                "accessor": "select",
+                "show": false
+              },
+              {
+                "Header": "Provider Name",
+                "accessor": "providerName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string"
+              },
+              {
+                "Header": "Phone Number",
+                "accessor": "mobilePhone",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address ",
+                "accessor": "address",
+                "filterType": "string"
+              },
+              {
+                "Header": "Selcet",
+                "accessor": "select",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_EDU_PROVIDERS",
+      "as": "educationProviders"
+    },
+    {
+      "operator": "scope",
+      "path": "educationProviders.links",
+      "as": "educationProviders",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "educationProviders",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "educationProviders",
+      "scope": {
+        "operator": "getBE",
+        "as": "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "educationProviders",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "educationProviders",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "providerName": "be.attributes.PRI_NAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
+          "address": "be.attributes.PRI_ADDRESS_STATE.value",
+          "attributeCode": "code"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["educationProviders", "tableData"]
+    }
+  ]
+}

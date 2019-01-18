@@ -1,0 +1,149 @@
+{
+  "onlyUpdateIf": ["internGroup", "tableData"],
+  "layout": {
+    "title": "Placed Interns Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULTS_PLACED_INTERNS",
+            "rootCode": "GRP_RESULTS_PLACED_INTERNS",
+            "totalItems": "_query.internGroup.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "Full Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Student ID",
+                "accessor": "studentId",
+                "attributeCode": "PRI_STUDENT_ID",
+                "id": "studentId",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "uname",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Edu Provider",
+                "attributeCode": "PRI_EDUCATION_PROVIDER",
+                "accessor": "eduProvider",
+                "filterType": "string"
+              },
+              {
+                "Header": "Mobile Phone",
+                "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "number"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS_PLACED_INTERNS",
+      "as": "interns"
+    },
+    {
+      "operator": "scope",
+      "path": "interns.links",
+      "as": "interns",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "scope": {
+        "operator": "getBE",
+        "as": "company",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "be": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "scope": {
+        "operator": "sort",
+        "by": "created",
+        "direction": "desc"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "interns",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "firstName": "attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "attributes.PRI_MOBILE.value",
+          "uname": "attributes.PRI_USERNAME.value",
+          "code": "code",
+          "studentId": "attributes.PRI_STUDENT_ID.value"
+        }
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS_INTERNS",
+      "as": "internGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["internGroup", "tableData"]
+    }
+  ]
+}

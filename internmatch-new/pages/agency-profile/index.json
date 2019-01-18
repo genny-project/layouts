@@ -1,8 +1,8 @@
 {
-  "onlyUpdateIf": ["agencyProfile"],
+  "onlyUpdateIf": ["agency"],
   "layout":
   {
-    "title": "{{query.agencyProfile.PRI_NAME.value}}",
+    "title": "{{query.agency.PRI_NAME.value}}",
     "header": {
       "variant": "default"
     },
@@ -36,19 +36,20 @@
     {
       "component": "Sublayout",
       "props": {
-        "layoutName": "view-agency-details-profile",
-        "attributes": "_query.agencyProfile.attributes",
-        "fullName": "_query.agencyProfile.attributes.PRI_NAME.value",
-        "imageUrl": "_query.agencyProfile.attributes.PRI_IMAGE_URL.value",
-        "email": "_query.agencyProfile.attributes.PRI_EMAIL.value",
-        "telephone": "_query.agencyProfile.attributes.PRI_LANDLINE.value",
-        "description": "_query.agencyProfile.attributes.PRI_COMPANY_DESCRIPTION.value",
-        "address": "_query.agencyProfile.attributes.PRI_ADDRESS_STATE.value",
-        "ABN": "_query.agencyProfile.attributes.PRI_ABN.value",
-        "legalName": "_query.agencyProfile.attributes.PRI_LEGAL_NAME.value",
-        "postCode": "_query.agencyProfile.attributes.PRI_ADDRESS_POSTCODE.value",
-        "website": "_query.agencyProfile.attributes.PRI_COMPANY_WEBSITE_URL.value",
-        "agencyCode": "_query.agencyProfile.code"
+        "layoutName": "view-details/profile/agency",
+         "company": {
+          "name": "_query.agency.attributes.PRI_NAME.value",
+          "image": "_query.agency.attributes.PRI_IMAGE_URL.value",
+          "email": "_query.agency.attributes.PRI_EMAIL.value",
+          "phone": "_query.agency.attributes.PRI_LANDLINE.value",
+          "description": "_query.agency.attributes.PRI_COMPANY_DESCRIPTION.value",
+          "address": "_query.agency.attributes.PRI_ADDRESS_FULL.value",
+          "abn": "_query.agency.attributes.PRI_ABN.value",
+          "legalName": "_query.agency.attributes.PRI_LEGAL_NAME.value",
+          "postCode": "_query.agency.attributes.PRI_ADDRESS_POSTCODE.value",
+          "website": "_query.agency.attributes.PRI_COMPANY_WEBSITE_URL.value",
+          "code": "_query.agency.code"
+        }
       }
     }
   ],
@@ -56,7 +57,7 @@
     {
       "operator": "getFromAlias",
       "alias": "CURRENT_NOTE",
-      "as": "agencyProfile"
+      "as": "agency"
     },
     {
       "operator": "scope",
@@ -69,7 +70,7 @@
     },
     {
       "operator": "scope",
-      "path": "agencyProfile",
+      "path": "agency",
       "scope": {
         "operator": "getBE",
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
@@ -78,7 +79,7 @@
     },
     {
       "operator": "clean",
-      "fields": ["agencyProfile"]
+      "fields": ["agency"]
     }
   ]
 }

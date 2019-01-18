@@ -1,0 +1,356 @@
+{
+  "layout": {
+    "title": "Agency Details",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "Container",
+      "props": {
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "marginTop": "20px",
+        "minWIdth": "900px",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "backgroundColor": "rgb(255,255,255)"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "width": "100%",
+                "backgroundColor": "white"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "paddingTop": "20px",
+                    "paddingBottom": "20px",
+                    "paddingLeft": "20px",
+                    "paddingRight": "10px"
+                  },
+                  "children": {
+                    "component": "Image",
+                    "props": {
+                      "source": "{{props.company.image}}",
+                      "shape": "square",
+                      "height": 150,
+                      "width": 150
+                    }
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "marginLeft": "20px"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "color": "#000000",
+                            "size": "xl",
+                            "bold": true
+                          },
+                          "children": "{{props.company.fullName}}"
+                        }
+                      ]
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginTop": "10px"
+                      },
+                      "children": [
+                        {
+                          "component": "Box",
+                          "props": {},
+                          "children": {
+                            "component": "Text",
+                            "props": {
+                              "color": "blue",
+                              "size": "md"
+                            },
+                            "children": "{{props.company.website}}"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "paddingTop": "20px",
+                    "flex": 1,
+                    "justifyContent": "flex-end",
+                    "paddingRight": "10px"
+                  },
+                  "children": {
+                    "component": "EventButton",
+                    "props": {
+                      "padding": 15,
+                      "height": "50px",
+                      "width": "100px",
+                      "borderRadius": 30,
+                      "showSpinnerOnClick": true,
+                      "color": "rgb(85, 148, 188)",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_AGENCY",
+                      "value": {
+                        "itemCode": "{{props.company.code}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "silver",
+                "height": "1px"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "column",
+            "backgroundColor": "rgb(255,255,255)",
+            "marginTop": "20px"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "paddingTop": "10px",
+                "paddingLeft": "20px",
+                "paddingBottom": "10px"
+              },
+              "children": {
+                "component": "Text",
+                "props": {
+                  "size": "xl"
+                },
+                "children": "Company Description"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "silver",
+                "height": "1px"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "justifyContent": "flex-start",
+                "paddingLeft": "20px"
+              },
+              "children": {
+                "component": "Box",
+                "props": {
+                  "width": "100%",
+                  "paddingY": "20px"
+                },
+                "children": {
+                  "component": "DisplayHTML",
+                  "props": {
+                    "html": "{{props.company.description}}"
+                  }
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "paddingTop": "10px",
+                "paddingLeft": "20px",
+                "paddingBottom": "10px"
+              },
+              "children": {
+                "component": "Text",
+                "props": {
+                  "size": "xl"
+                },
+                "children": "Details"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "backgroundColor": "silver",
+                "height": "1px"
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Email"
+                },
+                {
+                  "component": "Text",
+                  "props": {},
+                  "children": "{{props.company.email}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Company Phone Number"
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{props.company.phone}}"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Company Address"
+                },
+                {
+                  "component": "Text",
+                  "props": {},
+                  "children": "{{props.company.address}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Company ABN"
+                },
+                {
+                  "component": "Text",
+                  "props": {},
+                  "children": "{{props.company.abn}}"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Legal Name"
+                },
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "{{props.company.legalName}}"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "marginX": "20px",
+                "marginY": "20px",
+                "justifyContent": "space-between",
+                "height": "45px"
+              },
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "bold": true
+                  },
+                  "children": "Post Code"
+                },
+                {
+                  "component": "Text",
+                  "props": {},
+                  "children": "{{props.company.postCode}}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

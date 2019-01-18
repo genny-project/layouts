@@ -1,0 +1,117 @@
+{
+  "onlyUpdateIf": ["hostCompanies", "tableData"],
+  "layout": {
+    "title": "All Host Companies Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULT_HOST_COMPANIES",
+            "rootCode": "GRP_RESULT_HOST_COMPANIES",
+            "totalItems": "_query.hostCompanies.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "Company Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_NAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Phone Number",
+                "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address ",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_HOST_COMPANIES",
+      "as": "hostCompanies"
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies.links",
+      "as": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostCompanies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "firstName": "be.attributes.PRI_NAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "attributeCode": "code"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["hostCompanies", "tableData"]
+    }
+  ]
+}
