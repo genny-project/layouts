@@ -1,0 +1,165 @@
+{
+  "layout": {
+    "title": "Induction Document",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "children":[
+        {
+          "component": "Box",
+          "props": {
+            "maxWidth": "700px",
+            "minWidth": "500px",
+            "flex": 1,
+            "height": "auto",
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "width": "auto",
+                "height":"100%"
+              },
+              "children": [
+                {
+                  "component": "DisplayHTML",
+                  "props": {
+                    "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
+                  },
+                  "onlyShowIf": {
+                    "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
+                      "$exists": true
+                    }
+                  }
+                },
+                {
+                  "component": "PdfViewer",
+                  "props": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
+                  },
+                  "onlyShowIf": {
+                    "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
+                      "$exists": false
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        
+      ]
+    },
+    {
+      "component": "Box",
+      "props":{
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Form",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$or": [
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$eq": false
+                    }
+                  },
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              },
+              {
+                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
+          "props": {
+            "questionGroupCode": "{{navigation.offerId}}",
+            "height": 400,
+            "width": 600,
+            "style": {
+              "width": "100%",
+              "marginTop": "40px"
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "showSpinnerOnClick": true,
+                "color": "green",
+                "width": "100%"
+              }
+            }
+          }
+        }
+      ]
+    }  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "application"
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateLinkValues",
+        "withAttributes": true,
+        "as": "linkValues"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": [
+        "application"
+      ]
+    }
+  ]
+}

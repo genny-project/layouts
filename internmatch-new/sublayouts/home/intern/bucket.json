@@ -274,6 +274,37 @@
                                 "userCode": "{{user.data.code}}"                            }
                             }
                           ]
+                        },
+                        "else": {
+                          "if": {
+                            "$or": [
+                              {
+                                "parentRepeater.code": {
+                                  "$eq": "GRP_PLACED"
+                                }
+                              }
+                            ]
+                          },
+                          "then": {
+                            "items": [
+                              {
+                                "text": "View Internship Offer",
+                                "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                "value": {
+                                  "itemCode": "{{repeater.code}}",
+                                  "hint": "{{parentRepeater.code}}"
+                                }
+                              },
+                              {
+                                "text": "View Induction Document",
+                                "buttonCode": "BTN_SHOW_INDUCTION_DOCUMENT",
+                                "value": {
+                                  "itemCode": "{{repeater.code}}",
+                                  "hint": "{{parentRepeater.code}}"
+                                }
+                              }
+                            ]
+                          }
                         }
                       },
                       "children": [

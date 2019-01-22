@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Application",
+    "title": "Agreement Document",
     "header": {
       "variant": "default"
     },
@@ -44,67 +44,76 @@
       "children": [
         {
           "component": "Box",
+          "props": {
+            "width": "100%"
+          },
           "children": [
+            {
+              "component": "DisplayHTML",
+              "props": {
+                "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+              },
+              "onlyShowIf": {
+                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                  "$exists": true
+                }
+              }
+            },
             {
               "component": "PdfViewer",
               "props": {
-                "conditional": {
-                  "if": {
-                        "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}": { "$exists": true }
-                  },
-                  "then": {
-                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}"
-                  },
-                  "else": {
-                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
-                  }
+                "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+              },
+              "onlyShowIf": {
+                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                  "$exists": false
                 }
               }
             }
           ]
-        },
-        {
-          "component": "Form",
-          "onlyShowIf": {
+        }
+      ]
+    },
+    {
+      "component": "Form",
+      "onlyShowIf": {
+        "$or": [
+          {
             "$or": [
               {
-                "$or": [
-                  {
-                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$eq": false
-                    }
-                  },
-                  {
-                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$exists": false
-                    }
-                  }
-                ]
+                "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                  "$eq": false
+                }
               },
               {
-                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+                "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
                   "$exists": false
                 }
               }
             ]
           },
-          "props": {
-            "questionGroupCode": "{{navigation.offerId}}",
-            "style": {
-              "width": "100%",
-              "marginTop": "40px"
-            },
-            "renderSubmitButton": {
-              "component": "Button",
-              "props": {
-                "showSpinnerOnClick": true,
-                "color": "green",
-                "width": "100%"
-              }
+          {
+            "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+              "$exists": false
             }
           }
+        ]
+      },
+      "props": {
+        "questionGroupCode": "{{navigation.offerId}}",
+        "style": {
+          "width": "100%",
+          "marginTop": "40px"
+        },
+        "renderSubmitButton": {
+          "component": "Button",
+          "props": {
+            "showSpinnerOnClick": true,
+            "color": "green",
+            "width": "100%"
+          }
         }
-      ]
+      }
     }
   ],
   "query": [
@@ -133,7 +142,9 @@
     },
     {
       "operator": "clean",
-      "fields": ["application"]
+      "fields": [
+        "application"
+      ]
     }
   ]
 }
