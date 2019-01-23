@@ -136,7 +136,9 @@
                 },
                 "props": {
                   "width": "100%",
-                  "position": "static"
+                  "flexWrap": "wrap",
+                  "flexDirection": "row",
+                  "flex": 1
                 },
                 "children": [
                   {
@@ -144,9 +146,12 @@
                     "props": {
                       "margin": 10,
                       "marginRight": 20,
-                      "flexShrink": 1,
+                      "flexDirection": "column",
+                      "flex": 1,
+                      "flexBasis": "100%",
                       "backgroundColor": "#ebeff3",
-                      "alignItems": "center"
+                      "alignItems": "center",
+                      "flexShrink":1
                     },
                     "children": [
                       {
@@ -212,8 +217,9 @@
                     "component": "Box",
                     "props": {
                       "flexDirection": "column",
+                      "flexBasis": "100%",
                       "flexShrink": 1,
-                      "width": "100%"
+                      "flex": 1
                     },
                     "children": [
                       {
@@ -255,11 +261,11 @@
                   {
                     "component": "Box",
                     "props": {
-                      "flexShrink": 1,
-                      "width": "100%"
+                      "flexDirection": "column",
+                      "flexBasis": "100%",
+                      "flex": 1
                     },
                     "children": [
-                      
                       {
                         "component": "Dropdown",
                         "props": {
@@ -335,7 +341,8 @@
                           {
                             "component": "Box",
                             "props": {
-                              "alignItems": "center"
+                              "alignItems": "center",
+                              "flexDirection": "column"
                             },
                             "children": [
                               {
@@ -347,99 +354,160 @@
                                 }
                               }
                             ]
-                          }
-                        ]
-                      },
-                      {
-                        "component": "Collapsible",
-                        "props": {
-                          "headerWrapperProps": {
-                            "border": 0,
-                            "padding": 5,
-                            "fontSize": 12,
-                            "cursor": "pointer",
-                            "color": "white"
                           },
-                          "headerIconProps": {
-                            "background": "red",
-                            "borderWidth": 1,
-                            "borderColor": "#bbbbbb",
-                            "borderStyle": "solid"
-                          }
-                        },
-                        "children": [
                           {
-                            "component": "Text",
+                            "component": "Box",
                             "props": {
                               "flexDirection": "column",
-                              "justifyContent": "center",
-                              "color": "#000000",
-                              "size": "xs",
-                              "bold": false
+                              "flexBasis": "100%",
+                              "flex": 1
                             },
-                            "conditonal": {
-                              "if": {
-                                "$and": [
+                            "children": [
+                              {
+                                "component": "Box",
+                                "conditional": [
                                   {
-                                    "repeater.attributes.PRI_OWNER_FIRSTNAME.value": {
-                                      "$exists": true
+                                    "if": {
+                                      "repeater.attributes.STA_GREEN.value": {
+                                        "$in": "{{user.data.code}}"
+                                      }
+                                    },
+                                    "then": {
+                                      "backgroundColor": "green"
                                     }
                                   },
                                   {
-                                    "repeater.attributes.PRI_OWNER_LASTNAME.value": {
-                                      "$exists": true
+                                    "if": {
+                                      "repeater.attributes.STA_ORANGE.value": {
+                                        "$in": "{{user.data.code}}"
+                                      }
+                                    },
+                                    "then": {
+                                      "backgroundColor": "orange"
+                                    }
+                                  },
+                                  {
+                                    "if": {
+                                      "repeater.attributes.STA_RED.value": {
+                                        "$in": "{{user.data.code}}"
+                                      }
+                                    },
+                                    "then": {
+                                      "backgroundColor": "red"
                                     }
                                   }
-                                ]
-                              },
-                              "then": {
-                                "text": "Owner: {{repeater.attributes.PRI_OWNER_FIRSTNAME.value}} {{repeater.attributes.PRI_OWNER_LASTNAME.value}}"
-                              }
-                            }
-                          },
-                          {
-                            "component": "Text",
-                            "props": {
-                              "flexDirection": "column",
-                              "justifyContent": "center",
-                              "color": "#000000",
-                              "size": "xs",
-                              "bold": false
-                            },
-                            "conditional": {
-                              "if": {
-                                "repeater.attributes.PRI_EMAIL.value": {
-                                  "$exists": true
+                                ],
+                                "props": {
+                                  "size": "xs",
+                                  "height": 40,
+                                  "width": 10,
+                                  "borderRadius": 20,
+                                  "marginTop": 20,
+                                  "marginRight": 10
                                 }
-                              },
-                              "then": {
-                                "text": "Owner Email: {{repeater.attributes.PRI_EMAIL.value}}"
                               }
-                            }
-                          },
-                          {
-                            "component": "Text",
-                            "props": {
-                              "flexDirection": "column",
-                              "justifyContent": "center",
-                              "color": "#000000",
-                              "size": "xs",
-                              "bold": false
-                            },
-                            "conditional": {
-                              "if": {
-                                "repeater.attributes.PRI_MOBILE.value": {
-                                  "$exists": true
-                                }
-                              },
-                              "then": {
-                                "text": "Owner Mobile: {{repeater.attributes.PRI_MOBILE.value}}"
-                              }
-                            }
+                            ]
                           }
                         ]
                       }
                     ]
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "flexDirection": "column",
+                      "width": "100%",
+                      "flexWrap": "wrap"
+                    },
+                    "children": {
+                      "component": "Collapsible",
+                      "props": {
+                        "headerWrapperProps": {
+                          "border": 0,
+                          "padding": 5,
+                          "fontSize": 12,
+                          "cursor": "pointer",
+                          "color": "white"
+                        },
+                        "headerIconProps": {
+                          "background": "red",
+                          "borderWidth": 1,
+                          "borderColor": "#bbbbbb",
+                          "borderStyle": "solid"
+                        }
+                      },
+                      "children": [
+                        {
+                          "component": "Text",
+                          "props": {
+                            "flexDirection": "column",
+                            "justifyContent": "center",
+                            "color": "#000000",
+                            "size": "xs",
+                            "bold": false
+                          },
+                          "conditonal": {
+                            "if": {
+                              "$and": [
+                                {
+                                  "repeater.attributes.PRI_OWNER_FIRSTNAME.value": {
+                                    "$exists": true
+                                  }
+                                },
+                                {
+                                  "repeater.attributes.PRI_OWNER_LASTNAME.value": {
+                                    "$exists": true
+                                  }
+                                }
+                              ]
+                            },
+                            "then": {
+                              "text": "Owner: {{repeater.attributes.PRI_OWNER_FIRSTNAME.value}} {{repeater.attributes.PRI_OWNER_LASTNAME.value}}"
+                            }
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "flexDirection": "column",
+                            "justifyContent": "center",
+                            "color": "#000000",
+                            "size": "xs",
+                            "bold": false
+                          },
+                          "conditional": {
+                            "if": {
+                              "repeater.attributes.PRI_EMAIL.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "Owner Email: {{repeater.attributes.PRI_EMAIL.value}}"
+                            }
+                          }
+                        },
+                        {
+                          "component": "Text",
+                          "props": {
+                            "flexDirection": "column",
+                            "justifyContent": "center",
+                            "color": "#000000",
+                            "size": "xs",
+                            "bold": false
+                          },
+                          "conditional": {
+                            "if": {
+                              "repeater.attributes.PRI_MOBILE.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "text": "Owner Mobile: {{repeater.attributes.PRI_MOBILE.value}}"
+                            }
+                          }
+                        }
+                      ]
+                    }
                   }
                 ]
               }
