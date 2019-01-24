@@ -2,6 +2,16 @@
   "children": [
     {
       "component": "Box",
+      "conditional": {
+        "if": {
+          "props.deviceSize": {
+            "$eq": "sm"
+          }
+        },
+        "then": {
+          "width": "100%"
+        }
+      },
       "props": {
         "paddingX": 10,
         "justifyContent": "space-between",
@@ -12,6 +22,16 @@
       "children": [
         {
           "component": "Box",
+          "conditional": {
+            "if": {
+              "props.deviceSize": {
+                "$eq": "sm"
+              }
+            },
+            "then": {
+              "width": "100%"
+            }
+          },
           "props": {
             "flexDirection": "row",
             "marginBottom": 10,
@@ -21,29 +41,93 @@
           },
           "children": [
             {
-              "component": "Touchable",
-              "props": {
-                "paddingY": 5,
-                "withFeedback": true,
-                "onPress": "_props.onToggle"
-              },
-              "children": {
-                "component": "Icon",
-                "conditional": {
-                  "if": {
-                    "props.isOpen": {
-                      "$eq": true
+              "component": "Box",
+              "conditional": {
+                "if": {
+                  "$and": [
+                    {
+                      "props.deviceSize": {
+                        "$eq": "sm"
+                      }
+                    },
+                    {
+                      "props.isOpen": {
+                        "$eq": false
+                      }
                     }
-                  },
-                  "then": {
-                    "name": "close"
-                  }
+                  ]
                 },
-                "props": {
-                  "name": "create",
-                  "color": "black"
+                "then": {
+                  "position": "fixed",
+                  "right": 10,
+                  "top": 15
                 }
-              }
+              },
+              "props": {
+              },
+              "children": [
+                {
+                  "component": "Touchable",
+                  "props": {
+                    "withFeedback": true,
+                    "onPress": "_props.onToggle"
+                  },
+                  "children": {
+                    "component": "Box",
+                    "conditional": {
+                      "if": {
+                        "props.deviceSize": {
+                          "$eq": "sm"
+                        }
+                      },
+                      "then": {
+                        "padding": 10
+                      }
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "conditional": [
+                          {
+                            "if": {
+                              "$and": [
+                                {
+                                  "props.deviceSize": {
+                                    "$eq": "sm"
+                                  }
+                                },
+                                {
+                                  "props.isOpen": {
+                                    "$eq": false
+                                  }
+                                }
+                              ]
+                            },
+                            "then": {
+                              "color": "white"
+                            }
+                          },
+                          {
+                            "if": {
+                              "props.isOpen": {
+                                "$eq": true
+                              }
+                            },
+                            "then": {
+                              "name": "create",
+                              "color":"white"
+                            }
+                          }
+                        ],
+                        "props": {
+                          "name": "create",
+                          "color": "white"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "component": "Box",
@@ -62,26 +146,6 @@
                   "conditional": [
                     {
                       "if": {
-                        "query.currentNote.attributes.PRI_ADDDRESS_FULL.value": {
-                          "$exists": true
-                        }
-                      },
-                      "then": {
-                        "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
-                      }
-                    },
-                    {
-                      "if": {
-                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
-                          "$exists": true
-                        }
-                      },
-                      "then": {
-                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
-                      }
-                    },
-                    {
-                      "if": {
                         "query.currentNote.attributes.PRI_ADDRESS_FULL.value": {
                           "$exists": true
                         }
@@ -89,21 +153,12 @@
                       "then": {
                         "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
                       }
-                    },
-                    {
-                      "if": {
-                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
-                          "$exists": true
-                        }
-                      },
-                      "then": {
-                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
-                      }
                     }
                   ],
                   "props": {
                     "text": "",
-                    "size": "lg"
+                    "size": "lg",
+                    "color":"white"
                   }
                 }
               ]
@@ -112,6 +167,16 @@
         },
         {
           "component": "ScrollView",
+          "conditional": {
+            "if": {
+              "props.deviceSize": {
+                "$eq": "sm"
+              }
+            },
+            "then": {
+              "width": "100%"
+            }
+          },
           "props": {
             "height": "100%",
             "width": 260
@@ -137,6 +202,9 @@
                         "$gt": 0
                       }
                     }
+                  },
+                  "props":{
+                    "color":"white"
                   },
                   "children": "No notes to display"
                 },
@@ -219,7 +287,8 @@
                   "component": "Text",
                   "props": {
                     "text": "Add a note",
-                    "bold": true
+                    "bold": true,
+                    "color": "white"
                   }
                 }
               ]
@@ -248,57 +317,69 @@
                   },
                   "children": [
                     {
-                      "component": "FormGenericInput",
-                      "props": {
-                        "type": "textarea",
-                        "name": "note",
-                        "maxLength": 250,
-                        "padding": 15,
-                        "borderStyle": "solid",
-                        "borderColor": "#DDD",
-                        "backgroundColor": "white",
-                        "borderWidth": 1,
-                        "showCharacterCount": true,
-                        "submitOnEnterPress": true,
-                        "renderCharacterCount": {
-                          "component": "Box",
-                          "props": {
-                            "position": "absolute",
-                            "bottom": 5,
-                            "right": 10
-                          },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xxs",
-                                "color": "grey",
-                                "paddingBottom": 20,
-                                "borderColor": "#ddd",
-                                "text": "{{characterCount}} / {{maxLength}}"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    {
                       "component": "Box",
                       "props": {
-                        "marginTop": 10,
+                        "flexGrow": 1,
+                        "flexShrink": 0,
+                        "flexDirection": "column",
+                        "justifyContent": "space-between",
                         "width": "100%"
                       },
                       "children": [
                         {
-                          "component": "FormGenericSubmit",
+                          "component": "FormGenericInput",
                           "props": {
-                            "padding": 0,
-                            "width": "50%",
-                            "height": "10",
-                            "text": "Add note",
-                            "color": "green",
-                            "disabledWhenFormInvalid": true
+                            "type": "textarea",
+                            "name": "note",
+                            "maxLength": 1000,
+                            "padding": 15,
+                            "borderStyle": "solid",
+                            "borderColor": "#DDD",
+                            "backgroundColor": "white",
+                            "borderWidth": 1,
+                            "showCharacterCount": true,
+                            "submitOnEnterPress": true,
+                            "renderCharacterCount": {
+                              "component": "Box",
+                              "props": {
+                                "position": "absolute",
+                                "bottom": 5,
+                                "right": 10
+                              },
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xxs",
+                                    "color": "grey",
+                                    "paddingBottom": 20,
+                                    "borderColor": "#ddd",
+                                    "text": "{{characterCount}} / {{maxLength}}"
+                                  }
+                                }
+                              ]
+                            }
                           }
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "marginTop": 10,
+                            "width": "100%"
+                          },
+                          "children": [
+                            {
+                              "component": "FormGenericSubmit",
+                              "props": {
+                                "padding": 0,
+                                "width": "100%",
+                                "text": "Add note",
+                                "color": "green",
+                                "formProps": "_formProps",
+                                "disabledWhenFormInvalid": true
+                              }
+                            }
+                          ]
                         }
                       ]
                     }
@@ -359,6 +440,10 @@
         "code": "{{code}}",
         "as": "attributes"
       }
+    },
+    {
+      "operator": "clean",
+      "fields": ["currentNote", "notes", "aliases"]
     }
   ]
 }
