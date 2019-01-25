@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Identified Properties View",
+    "title": "Identified View",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -21,24 +21,9 @@
       },
       "children": [
         {
-          "component": "Table",
-          "layoutName": "edit-properties",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_NEW_ITEMS",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
             "columns": [
               {
                 "Header": "Action",
@@ -48,7 +33,7 @@
                   {
                     "component": "EventButton",
                     "props": {
-                      "buttonCode": "BTN_VIEW_BEG",
+                      "buttonCode": "BTN_VIEW_APPLICATION",
                       "color": "#5fa5ec",
                       "textColor": "#fff",
                       "height": 25,
@@ -59,51 +44,48 @@
                       "hoverProps": {
                         "color": "#d2e8ff"
                       },
-                      "transitionDelay": "2s",
                       "value": {
                         "itemCode":"{{code}}",
-                        "hint": "BTN_VIEW_BEG"
+                        "hint": "BTN_VIEW_APPLICATION"
                       }
                     }
                   }
                 ]
               },
               {
-                "Header": "Address",
-                "accessor": "address",
-                "filterType": "string"
-              },  
-              {
-                "Header": "Precinct",
-                "accessor": "precinct",
+                "Header": "Unit Number",
+                "accessor": "unitid",
                 "filterType": "string"
               },
               {
-                "Header": "Property Type",
-                "accessor": "propertytype",
+                "Header": "Address Of Property",
+                "accessor": "address",
                 "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#e05b5b",
-            "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            "data": "_query.tableData"
           }
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "footer"
+      }
     }
   ],
   "query": [
     {
       "operator": "getBE",
-      "id": "GRP_NEW_ITEMS",
-      "as": "identifiedProperties"
+      "id": "GRP_IDENTIFIED",
+      "as": "identified"
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties.links",
-      "as": "identifiedProperties",
+      "path": "identified.links",
+      "as": "identified",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -113,7 +95,7 @@
     },
     {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "identified",
       "scope": {
         "operator": "scope",
         "path": "properties",
@@ -124,51 +106,14 @@
       }
     },
     {
-      "operator":"scope",
-      "path":"identifiedProperties",
-      "scope":{
-        "operator":"scope",
-        "path":"properties",
-        "scope":{
-          "operator":"scope",
-          "path":"attributes",
-          "scope":{
-            "operator":"getBE",
-            "basePath": "baseEntities.data",
-            "id":"{{LNK_PROPERTY_PRECINCT_SELECT.value}}",
-            "as":"PrecinctTypeBE"
-          }
-        }
-      }
-    },
-    {
-      "operator":"scope",
-      "path":"identifiedProperties",
-      "scope":{
-        "operator":"scope",
-        "path":"properties",
-        "scope":{
-          "operator":"scope",
-          "path":"attributes",
-          "scope":{
-            "operator":"getBE",
-            "basePath": "baseEntities.data",
-            "id":"{{LNK_PROPERTY_TYPE_SELECT.value}}",
-            "as":"PropertyTypeNameBE"
-          }
-        }
-      }
-    },
-    {
       "operator": "scope",
-      "path": "identifiedProperties",
+      "path": "identified",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
           "address": "properties.attributes.PRI_ADDRESS_FULL.value",
-          "precinct": "properties.attributes.PrecinctTypeBE.name",
-          "propertytype": "properties.attributes.PropertyTypeNameBE.name",
+          "unitid": "properties.attributes.PRI_UNIT_ID.value",
           "code": "properties.code"
         }
       }
