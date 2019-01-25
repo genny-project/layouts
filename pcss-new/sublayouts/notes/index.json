@@ -153,6 +153,36 @@
                       "then": {
                         "text": "{{query.currentNote.attributes.PRI_ADDRESS_FULL.value}}"
                       }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_BEG_TITLE.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_BEG_TITLE.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_FULLNAME.value}}"
+                      }
+                    },
+                    {
+                      "if": {
+                        "query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value": {
+                          "$exists": true
+                        }
+                      },
+                      "then": {
+                        "text": "{{query.currentNote.attributes.PRI_APPLICANT_FULLNAME.value}}"
+                      }
                     }
                   ],
                   "props": {
