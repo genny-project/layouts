@@ -12,33 +12,6 @@
             "layoutName": "tables/table-default",
             "columns": [
               {
-                "Header": "Action",
-                "editable": true,
-                "accessor": "actions",
-                "renderButton": [
-                  {
-                    "component": "EventButton",
-                    "props": {
-                      "buttonCode": "BTN_VIEW_BEG",
-                      "color": "#5fa5ec",
-                      "textColor": "#fff",
-                      "text": "Property Details",
-                      "height": 25,
-                      "width": "100%",
-                      "padding": 5,
-                      "size": "xs",
-                      "hoverProps": {
-                        "color": "#d2e8ff"
-                      },
-                      "value": {
-                        "itemCode": "{{code}}",
-                        "hint": "BTN_VIEW_BEG"
-                      }
-                    }
-                  }
-                ]
-              },
-              {
                 "Header": "Address",
                 "accessor": "address",
                 "filterType": "string"
@@ -52,6 +25,56 @@
                 "Header": "Property Type",
                 "accessor": "propertytype",
                 "filterType": "string"
+              },
+              {
+                "Header": "Action",
+                "editable": true,
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "buttonCode": "BTN_VIEW_BEG",
+                      "color": "#5fa5ec",
+                      "textColor": "#fff",
+                      "text": "Property Details",
+                      "height": 25,
+                      "padding": 5,
+                      "size": "xs",
+                      "hoverProps": {
+                        "color": "#d2e8ff"
+                      },
+                      "value": {
+                        "itemCode": "{{code}}",
+                        "hint": "BTN_VIEW_BEG"
+                      }
+                    }
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "add",
+                      "color": "orange",
+                      "size": "md"
+                    }
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "edit",
+                      "color": "green",
+                      "size": "md"
+                    }
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "delete",
+                      "color": "red",
+                      "size": "md"
+                    }
+                  }
+                ]
               }
             ],
             "tableBackgroundColor": "#e05b5b",

@@ -52,11 +52,13 @@
               },
               "items": [
                 {
+                  "icon": "business_center",
                   "text": "Property",
                   "buttonCode": "ADD_PROPERTY",
                   "eventType": "BTN_CLICK"
                 },
                 {  
+                  "icon": "person_add",
                   "text": "Staff",
                   "buttonCode": "ADD_STAFF",
                   "eventType": "BTN_CLICK"
@@ -66,10 +68,18 @@
                 "component": "Box",
                 "props": {
                   "alignItems": "center",
-                  "justifyContent": "flex-end",
+                  "justifyContent": "space-around",
                   "padding": 15
                 },
                 "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white",
+                      "align":"left"
+                    }
+                  },
                   {
                     "component": "Box",
                     "props": {
@@ -81,7 +91,7 @@
                         "props": {
                           "text": "{{item.text}}",
                           "color": "white",
-                          "align": "center"
+                          "align": "right"
                         }
                       }
                     ]
@@ -103,7 +113,6 @@
                       "marginRight": 10
                     },
                     "children": [
-                     
                       {
                         "component": "Text",
                         "props": {
