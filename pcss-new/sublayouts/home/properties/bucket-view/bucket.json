@@ -211,13 +211,22 @@
                         {
                           "component": "Box",
                           "props": {
-                            "flexDirection": "column",
+                            "flexDirection": "row",
                             "flexShrink": 1
                           },
                           "children": [
                             {
                               "component": "Text",
-                              "text": "{{repeater.attributes.PRI_UNIT_ID.value}}/{{repeater.attributes.PRI_ADDRESS_FULL.value}}",
+                              "conditional": {
+                                "if": {
+                                  "repeater.attributes.PRI_UNIT_ID.value": {
+                                    "$exists": true
+                                  }
+                                },
+                                "then": {
+                                  "text": "{{repeater.attributes.PRI_UNIT_ID.value}}/"
+                                }
+                              },
                               "props": {
                                 "size": "xs",
                                 "bold": false
@@ -431,12 +440,6 @@
                                 "borderColor": "#bbbbbb",
                                 "borderStyle": "solid"
                               }
-                            },
-                            "onlyShowIf":{
-                              "repeater.parentCode": {
-                                "$eq": "GRP_IDENTIFIED"
-                              }
-  
                             },
                             "children": [
                               {
