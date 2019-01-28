@@ -6,8 +6,7 @@
         "flexDirection": "column",
         "alignItems": "center",
         "justifyContent": "center",
-        "flex": 1,
-        "padding": 20
+        "flex": 1
       },
       "children": [
         {
@@ -26,7 +25,7 @@
             "overflowX": "auto",
             "overflowY": "auto",
             "width": "100%",
-            "gutter": 20,
+            "gutter": 10,
             "contentProps": {
               "minWidth": 300
             }
@@ -52,8 +51,6 @@
               },
               "showCountInHeader": true,
               "contentBodyProps": {
-                "paddingX": 10,
-                "paddingY": 20
               },
               "emptyProps": {
                 "padding": 10
@@ -251,6 +248,7 @@
                             "flexDirection": "column",
                            "flexShrink":1
                           },
+                        
                           "children": [
                             {
                               "component": "Dropdown",
@@ -278,6 +276,12 @@
                                   "borderWidth": 1,
                                   "marginTop": 5,
                                   "backgroundColor": "#ebeff3"
+                                },
+                                "onlyShowIf":{
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
+                                  }
+      
                                 },
                                 "items": [
                                   {
@@ -427,6 +431,12 @@
                                 "borderColor": "#bbbbbb",
                                 "borderStyle": "solid"
                               }
+                            },
+                            "onlyShowIf":{
+                              "repeater.parentCode": {
+                                "$eq": "GRP_IDENTIFIED"
+                              }
+  
                             },
                             "children": [
                               {
