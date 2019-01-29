@@ -79,23 +79,55 @@
       "onlyShowIf": {
         "$or": [
           {
-            "$or": [
+            "$and": [
               {
-                "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                  "$eq": false
+                "user.attributes.PRI_IS_BUYER.value": {
+                  "$eq": true
                 }
               },
               {
-                "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                  "$exists": false
+                "query.document.attributes.PRI_HOST_COMPANY_ACCEPTED.value": {
+                  "$ne": true
                 }
               }
             ]
           },
           {
-            "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
-              "$exists": false
-            }
+            "$and": [
+              {
+                "user.attributes.PRI_IS_SELLER.value": {
+                  "$eq": true
+                }
+              },
+              {
+                "query.document.attributes.PRI_INTERN_ACCEPTED.value": {
+                  "$ne": true
+                }
+              }
+            ]
+          },
+          {
+            "$and": [
+              {
+                "$or": [
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "user.attributes.PRI_IS_AGENT.value": {
+                      "$eq": true
+                    }
+                  }
+                ]
+              },
+              {
+                "query.document.attributes.PRI_EDU_PROVIDER_ACCEPTED.value": {
+                  "$ne": true
+                }
+              }
+            ]
           }
         ]
       },
@@ -141,9 +173,64 @@
       }
     },
     {
+      "operator": "getLinks",
+      "id": "application",
+      "as": "application.links"
+    },
+    {
+      "operator": "scope",
+      "path": "application.links",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application.links",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application.links",
+      "as": "document",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "$and": [{
+              "code": {
+                "$exists": true
+              }
+            },
+            {
+              "linkValue": {
+                "$eq": "INT_AGMT"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application.links",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
       "operator": "clean",
       "fields": [
-        "application"
+        "application", "document"
       ]
     }
   ]
