@@ -1,0 +1,107 @@
+{
+  "layout": {
+    "title": "Profile Header",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "rgb(255,255,255)",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flexDirection": "row",
+            "width": "100%",
+            "backgroundColor": "white"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "paddingTop": "20px",
+                "paddingBottom": "20px",
+                "paddingLeft": "20px",
+                "paddingRight": "10px"
+              },
+              "children": {
+                "component": "Image",
+                "props": {
+                  "source": "{{props.attributes.imageUrl}}",
+                  "shape": "square",
+                  "height": 150,
+                  "width": 150
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "marginLeft": "20px"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {},
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "#000000",
+                        "size": "xl",
+                        "bold": true
+                      },
+                      "children": "{{props.attributes.name}}"
+                    }
+                  ]
+                },
+                {
+                  "component": "Fragment",
+                  "children":"_props.mainContent"
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "user.attributes.PRI_IS_AGENT.value": {
+                  "$eq": true
+                }
+              },
+              "props": {
+                "paddingTop": "20px",
+                "flex": 1,
+                "justifyContent": "flex-end",
+                "paddingRight": 20
+              },
+              "children": {
+                "component": "EventButton",
+                "props": {
+                  "padding": 15,
+                  "height": "50px",
+                  "width": "100px",
+                  "borderRadius": 30,
+                  "showSpinnerOnClick": true,
+                  "color": "rgb(85, 148, 188)",
+                  "textColor": "#fff",
+                  "text": "Edit",
+                  "buttonCode": "{{props.buttonCode}}",
+                  "value": {
+                    "itemCode": "{{props.attributes.code}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
