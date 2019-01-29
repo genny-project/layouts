@@ -1,0 +1,53 @@
+{
+  "layout": {
+    "title": "Weekly report",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+{
+  "component": "Box",
+  "props": {
+    "marginTop": "50px",
+    "alignSelf": "center",
+    "marginX": "auto"
+  },
+  "children": [
+    {
+      "component": "Text",
+      "props": {
+        "align": "center",
+        "size": "lg",
+        "text": "Internship Learnings to be filled by an intern"
+      }
+    }
+  ]
+}
+  ]
+}
