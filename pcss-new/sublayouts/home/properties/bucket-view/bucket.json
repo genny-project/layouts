@@ -78,35 +78,10 @@
                 "buttonCode": "SELECT_EVENT",
                 "value": {
                   "itemCode": "{{repeater.code}}",
-                  "hint": "GRP_IDENTIFIED",
+                  "hint": "GRP_APPLICATIONS",
                   "userCode": "{{user.data.code}}"
                 },
                 "flexDirection": "column"
-              },
-              "conditional": {
-                "if": {
-                  "repeater.code": {
-                    "$exists": false
-                  }
-                },
-                "then": {
-                  "children": {
-                    "component": "Box",
-                    "props": {
-                      "padding": 15,
-                      "width": "100%",
-                      "justifyContent": "center"
-                    },
-                    "children": [
-                      {
-                        "component": "ActivityIndicator",
-                        "props": {
-                          "size": "small"
-                        }
-                      }
-                    ]
-                  }
-                }
               },
               "children": [
                 {
@@ -257,7 +232,6 @@
                             "flexDirection": "column",
                            "flexShrink":1
                           },
-                        
                           "children": [
                             {
                               "component": "Dropdown",
@@ -286,12 +260,7 @@
                                   "marginTop": 5,
                                   "backgroundColor": "#ebeff3"
                                 },
-                                "onlyShowIf":{
-                                  "repeater.name": {
-                                    "$eq": "GRP_CONTACTED"
-                                  }
-      
-                                },
+
                                 "items": [
                                   {
                                     "text": "View Detail",
