@@ -44,7 +44,7 @@
       "props": {
         "align": "center",
         "size": "lg",
-        "text": "Internship Learnings to be filled by an intern"
+        "text": " Internship Journal Week 1"
       }
     }
   ]
@@ -169,7 +169,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "day 1 date "
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D1.value}}"
               }
             }
           ]
@@ -183,7 +183,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "day 1 hours worked"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}"
               }
             }
           ]
@@ -197,7 +197,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "day 1 task details"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D1.value}}"
               }
             }
           ]
@@ -236,7 +236,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "day2 date"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}"
               }
             }
           ]
@@ -250,7 +250,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "day 2 date"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D2.value}}"
               }
             }
           ]
@@ -264,7 +264,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "task details"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D2.value}}"
               }
             }
           ]
@@ -303,7 +303,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "_"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D3.value}}"
               }
             }
           ]
@@ -317,7 +317,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}"
               }
             }
           ]
@@ -331,7 +331,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
               }
             }
           ]
@@ -370,7 +370,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "_"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
               }
             }
           ]
@@ -384,7 +384,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
               }
             }
           ]
@@ -398,7 +398,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
               }
             }
           ]
@@ -437,7 +437,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "_"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
               }
             }
           ]
@@ -451,7 +451,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
               }
             }
           ]
@@ -465,7 +465,7 @@
             {
               "component": "Text",
               "props":{
-                "text": "__"
+                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
               }
             }
           ]
@@ -572,9 +572,35 @@
       }
     },
     {
-      "operator": "clean",
-      "fields": ["student"]
+      "operator": "scope",
+      "path": "student.links",
+      "as": "studentlinks",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+            "link.linkValue": {
+                "$eq": "INT_AGMT"
+            }
+          }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "studentlinks",
+      "as": "docBeg",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "docBeg",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "docAttributes"
+      }
     }
   ]
 }
-
