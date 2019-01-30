@@ -10,8 +10,7 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "$or": [
-          {
+        "$or": [{
             "user.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
@@ -30,94 +29,100 @@
       }
     }
   },
-  "children": [
-    {
-      "component": "Box",
-      "children":[
-        {
-          "component": "Box",
+  "children": [{
+    "component": "Box",
+    "props": {
+      "flex": 1,
+      "height": "calc( 100vh - 65px )",
+      "flexDirection": "column",
+      "padding": 30
+    },
+
+    "children": [{
+        "component": "Box",
+        "props": {
+          "flex": 1
+        },
+        "children": [{
+          "component": "ScrollView",
           "props": {
-            "maxWidth": "700px",
-            "minWidth": "500px",
-            "flex": 1,
-            "height": "auto",
-            "flexDirection": "column"
+            "style": {
+              "flex": 1
+            },
+            "height": "100%"
           },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "width": "auto",
-                "height":"100%"
+          "children": [{
+            "component": "Box",
+            "props": {
+              "justifyContent": "center",
+              "width": "100%"
+            },
+            "children": [{
+                "component": "DisplayHTML",
+                "props": {
+                  "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
+                },
+                "onlyShowIf": {
+                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
+                    "$exists": true
+                  }
+                }
               },
-              "children": [
-                {
-                  "component": "DisplayHTML",
-                  "props": {
-                    "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
-                  },
-                  "onlyShowIf": {
-                    "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
-                      "$exists": true
-                    }
+              {
+                "component": "PdfViewer",
+                "props": {
+                  "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
+                },
+                "onlyShowIf": {
+                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
+                    "$exists": false
+                  }
+                }
+              }
+            ]
+          }]
+        }]
+      },
+      {
+        "component": "Box",
+        "onlyShowIf": {
+          "$or": [{
+              "$and": [{
+                  "user.attributes.PRI_IS_BUYER.value": {
+                    "$eq": true
                   }
                 },
                 {
-                  "component": "PdfViewer",
-                  "props": {
-                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
-                  },
-                  "onlyShowIf": {
-                    "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
-                      "$exists": false
-                    }
+                  "query.document.attributes.PRI_HOST_COMPANY_INDUCT_SIGNED_DATE.value": {
+                    "$ne": true
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [{
+                  "user.attributes.PRI_IS_SELLER.value": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "query.document.attributes.PRI_INTERN_INDUCT_SIGNED_DATE.value": {
+                    "$ne": true
                   }
                 }
               ]
             }
           ]
-        }
-        
-      ]
-    },
-    {
-      "component": "Box",
-      "props":{
-        "width": "100%"
-      },
-      "children": [
-        {
+        },
+        "props": {
+          "flexShrink": 0
+        },
+        "children": [{
           "component": "Form",
-          "onlyShowIf": {
-            "$or": [
-              {
-                "$or": [
-                  {
-                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$eq": false
-                    }
-                  },
-                  {
-                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$exists": false
-                    }
-                  }
-                ]
-              },
-              {
-                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
-                  "$exists": false
-                }
-              }
-            ]
-          },
           "props": {
             "questionGroupCode": "{{navigation.offerId}}",
-            "height": 400,
-            "width": 600,
             "style": {
-              "width": "100%",
-              "marginTop": "40px"
+              "width": "100%"
             },
             "renderSubmitButton": {
               "component": "Button",
@@ -128,11 +133,11 @@
               }
             }
           }
-        }
-      ]
-    }  ],
-  "query": [
-    {
+        }]
+      }
+    ]
+  }],
+  "query": [{
       "operator": "getBE",
       "id": "{{navigation.id}}",
       "as": "application"
@@ -156,9 +161,42 @@
       }
     },
     {
+      "operator": "getLinks",
+      "id": "{{application.code}}",
+      "as": "applicationLinks"
+    },
+    {
+      "operator": "scope",
+      "path": "applicationLinks",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    }, {
+      "operator": "scope",
+      "path": "applicationLinks",
+      "as": "document",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "$and": [{
+              "code": {
+                "$exists": true
+              }
+            },
+            {
+              "linkValue": {
+                "$eq": "INT_AGMT"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
       "operator": "clean",
       "fields": [
-        "application"
+        "application", "document"
       ]
     }
   ]
