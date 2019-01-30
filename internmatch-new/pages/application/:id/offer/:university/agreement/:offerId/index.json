@@ -184,39 +184,16 @@
     },
     {
       "operator": "getLinks",
-      "id": "application",
+      "id": "{{application.code}}",
       "as": "applicationLinks"
-    },
-    {
+    }, {
       "operator": "scope",
       "path": "applicationLinks",
       "scope": {
         "operator": "getBE",
         "id": "{{link.targetCode}}"
       }
-    },
-    {
-      "operator": "scope",
-      "path": "applicationLinks",
-      "scope": {
-        "operator": "find",
-        "query": {
-          "code": {
-            "$exists": true
-          }
-        }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "applicationLinks",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
-      }
-    },
-    {
+    }, {
       "operator": "scope",
       "path": "applicationLinks",
       "as": "document",
