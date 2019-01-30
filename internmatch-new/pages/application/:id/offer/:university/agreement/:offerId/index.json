@@ -10,8 +10,7 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "$or": [
-          {
+        "$or": [{
             "user.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
@@ -30,126 +29,137 @@
       }
     }
   },
-  "children": [
-    {
-      "component": "Box",
-      "props": {
-        "marginX": "auto",
-        "marginY": "100px",
-        "maxWidth": "700px",
-        "minWidth": "500px",
-        "flex": 1,
-        "flexDirection": "column"
-      },
-      "children": [
-        {
-          "component": "Box",
+  "children": [{
+    "component": "Box",
+    "props": {
+      "flex": 1,
+      "height": "calc( 100vh - 65px )",
+      "flexDirection": "column",
+      "padding": 30
+    },
+
+    "children": [{
+        "component": "Box",
+        "props": {
+          "flex": 1
+        },
+        "children": [{
+          "component": "ScrollView",
           "props": {
-            "width": "100%"
+            "style": {
+              "flex": 1
+            },
+            "height": "100%"
           },
-          "children": [
-            {
-              "component": "DisplayHTML",
-              "props": {
-                "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+          "children": [{
+            "component": "Box",
+            "props": {
+              "justifyContent": "center",
+              "width": "100%"
+            },
+            "children": [{
+                "component": "DisplayHTML",
+                "props": {
+                  "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+                },
+                "onlyShowIf": {
+                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                    "$exists": true
+                  }
+                }
               },
-              "onlyShowIf": {
-                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
-                  "$exists": true
+              {
+                "component": "PdfViewer",
+                "props": {
+                  "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                },
+                "onlyShowIf": {
+                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                    "$exists": false
+                  }
                 }
               }
+            ]
+          }]
+        }]
+      },
+      {
+        "component": "Box",
+        "onlyShowIf": {
+          "$or": [{
+              "$and": [{
+                  "user.attributes.PRI_IS_BUYER.value": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "query.document.attributes.PRI_HOST_COMPANY_ACCEPTED.value": {
+                    "$ne": true
+                  }
+                }
+              ]
             },
             {
-              "component": "PdfViewer",
-              "props": {
-                "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
-              },
-              "onlyShowIf": {
-                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
-                  "$exists": false
+              "$and": [{
+                  "user.attributes.PRI_IS_SELLER.value": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "query.document.attributes.PRI_INTERN_ACCEPTED.value": {
+                    "$ne": true
+                  }
                 }
-              }
+              ]
+            },
+            {
+              "$and": [{
+                  "$or": [{
+                      "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                        "$eq": true
+                      }
+                    },
+                    {
+                      "user.attributes.PRI_IS_AGENT.value": {
+                        "$eq": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "query.document.attributes.PRI_EDU_PROVIDER_ACCEPTED.value": {
+                    "$ne": true
+                  }
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "component": "Form",
-      "onlyShowIf": {
-        "$or": [
-          {
-            "$and": [
-              {
-                "user.attributes.PRI_IS_BUYER.value": {
-                  "$eq": true
-                }
-              },
-              {
-                "query.document.attributes.PRI_HOST_COMPANY_ACCEPTED.value": {
-                  "$ne": true
-                }
-              }
-            ]
-          },
-          {
-            "$and": [
-              {
-                "user.attributes.PRI_IS_SELLER.value": {
-                  "$eq": true
-                }
-              },
-              {
-                "query.document.attributes.PRI_INTERN_ACCEPTED.value": {
-                  "$ne": true
-                }
-              }
-            ]
-          },
-          {
-            "$and": [
-              {
-                "$or": [
-                  {
-                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$eq": true
-                    }
-                  },
-                  {
-                    "user.attributes.PRI_IS_AGENT.value": {
-                      "$eq": true
-                    }
-                  }
-                ]
-              },
-              {
-                "query.document.attributes.PRI_EDU_PROVIDER_ACCEPTED.value": {
-                  "$ne": true
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "props": {
-        "questionGroupCode": "{{navigation.offerId}}",
-        "style": {
-          "width": "100%",
-          "marginTop": "40px"
         },
-        "renderSubmitButton": {
-          "component": "Button",
+        "props": {
+          "flexShrink": 0
+        },
+        "children": [{
+          "component": "Form",
           "props": {
-            "showSpinnerOnClick": true,
-            "color": "green",
-            "width": "100%"
+            "questionGroupCode": "{{navigation.offerId}}",
+            "style": {
+              "width": "100%",
+              "marginTop": "40px"
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "showSpinnerOnClick": true,
+                "color": "green",
+                "width": "100%"
+              }
+            }
           }
-        }
+        }]
       }
-    }
-  ],
-  "query": [
-    {
+    ]
+  }],
+  "query": [{
       "operator": "getBE",
       "id": "{{navigation.id}}",
       "as": "application"
@@ -175,11 +185,11 @@
     {
       "operator": "getLinks",
       "id": "application",
-      "as": "application.links"
+      "as": "applicationLinks"
     },
     {
       "operator": "scope",
-      "path": "application.links",
+      "path": "applicationLinks",
       "scope": {
         "operator": "getBE",
         "id": "{{link.targetCode}}"
@@ -187,7 +197,7 @@
     },
     {
       "operator": "scope",
-      "path": "application.links",
+      "path": "applicationLinks",
       "scope": {
         "operator": "find",
         "query": {
@@ -199,7 +209,16 @@
     },
     {
       "operator": "scope",
-      "path": "application.links",
+      "path": "applicationLinks",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "applicationLinks",
       "as": "document",
       "scope": {
         "operator": "findOne",
@@ -216,15 +235,6 @@
             }
           ]
         }
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "application.links",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "attributes"
       }
     },
     {
