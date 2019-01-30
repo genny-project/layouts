@@ -184,6 +184,18 @@
               "component": "Text",
               "props":{
                 "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}"
+              },
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}":
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -322,7 +334,7 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D3.value}}": 
                   { "$exists": true }
                 },
                 "then": {
@@ -345,7 +357,7 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D3.value}}": 
                   { "$exists": true }
                 },
                 "then": {
@@ -408,7 +420,7 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}": 
                   { "$exists": true }
                 },
                 "then": {
@@ -425,13 +437,13 @@
           "component": "Box",
           "props":{
             "width": "120px"
-          },    
+          },
           "children": [
             {
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}": 
                   { "$exists": true }
                 },
                 "then": {
@@ -493,11 +505,11 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}": 
                   { "$exists": true }
                 },
                 "then": {
-                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}"
                 },
                 "else": {
                   "text": "Not Filled By Intern"
@@ -516,11 +528,11 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}": 
                   { "$exists": true }
                 },
                 "then": {
-                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D5.value}}"
                 },
                 "else": {
                   "text": "Not Filled By Intern"
@@ -539,11 +551,11 @@
               "component": "Text",
               "conditional": {
                 "if": {
-                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}": 
                   { "$exists": true }
                 },
                 "then": {
-                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
                 },
                 "else": {
                   "text": "Not Filled By Intern"
