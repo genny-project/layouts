@@ -204,9 +204,9 @@
           },    
           "children": [
             {
-              "component": "Text",
+              "component": "DisplayHTML",
               "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D1.value}}"
+                "html": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D1.value}}"
               }
             }
           ]
@@ -289,9 +289,9 @@
           },    
           "children": [
             {
-              "component": "Text",
+              "component": "DisplayHTML",
               "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D2.value}}"
+                "html": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D2.value}}"
               }
             }
           ]
@@ -374,9 +374,9 @@
           },    
           "children": [
             {
-              "component": "Text",
+              "component": "DisplayHTML",
               "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
+                "html": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
               }
             }
           ]
@@ -410,7 +410,6 @@
           "props":{
             "width": "120px"
           },
-
           "children": [
 
             {
@@ -460,9 +459,9 @@
           },    
           "children": [
             {
-              "component": "Text",
+              "component": "DisplayHTML",
               "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+                "html": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
               }
             }
           ]
@@ -545,18 +544,9 @@
           },    
           "children": [
             {
-              "component": "Text",
-              "conditional": {
-                "if": {
-                  "query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value": 
-                  { "$exists": true }
-                },
-                "then": {
-                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
-                },
-                "else": {
-                  "text": "Not Filled By Intern"
-                }
+              "component": "DisplayHTML",
+                "props": {
+                  "html": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
               }
             }
           ]
