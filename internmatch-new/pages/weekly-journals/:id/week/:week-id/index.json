@@ -235,8 +235,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -249,8 +258,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D2.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D2.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -302,8 +320,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
                 "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D3.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -316,8 +343,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -367,10 +403,20 @@
           },
 
           "children": [
+
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -383,8 +429,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -436,8 +491,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -450,8 +514,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
@@ -464,8 +537,17 @@
           "children": [
             {
               "component": "Text",
-              "props":{
-                "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+              "conditional": {
+                "if": {
+                  "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}": 
+                  { "$exists": true }
+                },
+                "then": {
+                  "text": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+                },
+                "else": {
+                  "text": "Not Filled By Intern"
+                }
               }
             }
           ]
