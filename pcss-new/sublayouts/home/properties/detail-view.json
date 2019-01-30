@@ -263,9 +263,9 @@
                     "justifyContent": "center",
                     "color": "#000000"
                   },
-                  "children": "{{query.propertyprecinct.name}}",
+                  "children": "{{query.propertylocationhighway.name}}",
                   "onlyShowIf": {
-                    "query.propertyprecinct.name": {
+                    "query.propertylocationhighway.name": {
                       "$exists": true
                     }
                   }
@@ -535,7 +535,7 @@
     {
       "operator": "getBE",
       "id": "{{property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}",
-      "as": "propertylocation"
+      "as": "propertylocationhighway"
     }
   ]
 }
