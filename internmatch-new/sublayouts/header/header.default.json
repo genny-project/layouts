@@ -258,10 +258,30 @@
                     "children": [
                       {
                         "component": "Text",
+                        "onlyShowIf": {
+                          "item.text": {
+                            "$eq": "Profile"
+                          }
+                        },
                         "props": {
                           "text": "{{item.text}}",
                           "color": "white",
-                          "align": "right"
+                          "align": "right",
+                          "testID": "SEL_USER_PROFILE"
+                        }
+                      },
+                      {
+                        "component": "Text",
+                        "onlyShowIf": {
+                          "item.text": {
+                            "$eq": "Logout"
+                          }
+                        },
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right",
+                          "testID": "SEL_USER_LOGOUT"
                         }
                       }
                     ]
@@ -275,7 +295,7 @@
                   }
                 ]
               },
-              "testID": "USER_DROPDOWN"
+              "testID": "QUE_SELECT_ACCOUNT_FUNCTIONS"
             },
             "children": [
               {
