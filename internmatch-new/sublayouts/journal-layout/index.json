@@ -225,8 +225,20 @@
             "children": [
               {
                 "component": "DisplayHTML",
-                "props":{
-                  "html": "{{repeater.taskDetails}}"
+                "conditional": {
+                  "if": {
+                    "repeater.taskDetails":
+                    { 
+                      "$exists": true ,
+                      "$ne": "undefined"
+                    }
+                  },
+                  "then": {
+                    "html": "{{repeater.taskDetails}}"
+                  },
+                  "else": {
+                    "html": "{{repeater.taskDetails}}"
+                  }
                 }
               }
             ]
