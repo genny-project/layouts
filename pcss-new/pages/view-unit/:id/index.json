@@ -13,1518 +13,1540 @@
   },
   "children": [
     {
-      "component": "Container",
+      "component": "ScrollView",
       "props": {
-        "flexDirection": "column",
-        "justifyContent": "center",
-        "marginTop": "20px",
-        "minWIdth": "900px"
+        "height": "calc(100vh - 100px)"
       },
       "children": [
         {
           "component": "Box",
           "props": {
             "flexDirection": "column",
-            "width": "100%",
-            "position": "relative"
+            "justifyContent": "center",
+            "marginTop": "10px",
+            "margin": "100px",
+            "maxWidth": "70%"
           },
           "children": [
             {
-              "component": "Image",
+              "component": "Box",
               "props": {
-                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.unit.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
-                "shape": "square",
-                "position":"relative"
+                "flexDirection": "column",
+                "width": "100%",
+                "position": "relative"
+              },
+              "children": [
+                {
+                  "component": "Image",
+                  "props": {
+                    "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.unit.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
+                    "shape": "square",
+                    "position": "relative"
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "position": "absolute",
+                    "left": 0,
+                    "top": 0,
+                    "height": 50,
+                    "backgroundColor": "#f5f5f5"
+                  },
+                  "children": {
+                    "component": "Button",
+                    "props": {
+                      "padding": 15,
+                      "margin": 15,
+                      "color": "#e05b5c",
+                      "text": "Back",
+                      "textColor": "white",
+                      "isBackButton": true
+                    }
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "position": "absolute",
+                    "left": 0,
+                    "top": 60,
+                    "height": 50,
+                    "backgroundColor": "#f5f5f5"
+                  },
+                  "children": {
+                    "component": "EventButton",
+                    "props": {
+                      "padding": 15,
+                      "color": "#e05b5c",
+                      "text": "Edit",
+                      "textColor": "white",
+                      "buttonCode": "BTN_EDIT_UNIT_BUTTON",
+                      "value": {
+                        "itemCode": "{{navigation.id}}",
+                        "hint": "BTN_EDIT_UNIT_BUTTON"
+                      }
+                    }
+                  }
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "position": "absolute",
+                    "left": 0,
+                    "top": 120,
+                    "height": 50,
+                    "backgroundColor": "#f5f5f5"
+                  },
+                  "children": {
+                    "component": "EventButton",
+                    "props": {
+                      "padding": 15,
+                      "color": "#e05b5c",
+                      "text": "Delete",
+                      "textColor": "white",
+                      "buttonCode": "BTN_DELETE_UNIT_BUTTON",
+                      "value": {
+                        "itemCode": "{{navigation.id}}",
+                        "hint": "BTN_DELETE_UNIT_BUTTON"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "height": 50,
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "30px"
+              },
+              "children": {
+                "component": "Box",
+                "props": {
+                  "flexDirection": "column",
+                  "width": "50%",
+                  "justifyContent": "center",
+                  "paddingLeft": "7px"
+                },
+                "children": [
+                  {
+                    "component": "Heading",
+                    "props": {
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "color": "#000000",
+                      "size": "xl"
+                    },
+                    "conditional": {
+                      "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_ADDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             },
             {
               "component": "Box",
               "props": {
                 "flexDirection": "row",
-                "position": "absolute",
-                "left": 0,
-                "top": 0,
                 "height": 50,
-                "width": "10%",
-                "backgroundColor": "#f5f5f5"
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "20px",
+                "borderWidth": 2,
+                "borderColor": "#000000"
               },
               "children": {
-                "component": "Button",
+                "component": "Box",
                 "props": {
-                  "padding": 15,
-                  "margin": 15,
-                  "color": "#e05b5c",
-                  "text": "Back",
-                  "textColor": "white",
-                  "isBackButton": true
-                }
+                  "flexDirection": "column",
+                  "width": "50%",
+                  "justifyContent": "center",
+                  "paddingLeft": "7px"
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "color": "#000000",
+                      "size": "xl"
+                    },
+                    "children": "Owner Details"
+                  }
+                ]
               }
             },
             {
               "component": "Box",
               "props": {
                 "flexDirection": "row",
-                "position": "absolute",
-                "left": 0,
-                "top": 60,
+                "justifyContent": "space-around",
                 "height": 50,
-                "width": "auto",
+                "marginTop": "5px",
                 "backgroundColor": "#f5f5f5"
               },
-              "children": {
-                "component": "EventButton",
-                "props": {
-                  "padding": 15,
-                  "color": "#e05b5c",
-                  "text": "Edit",
-                  "textColor": "white",
-                  "buttonCode": "BTN_EDIT_UNIT_BUTTON",
-                  "value": {
-                    "itemCode": "{{navigation.id}}",
-                    "hint": "BTN_EDIT_UNIT_BUTTON"
-                  }
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Name:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "row",
+                    "width": "50%",
+                    "marginTop": "12px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_OWNER_FIRSTNAME.value}} ",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_OWNER_FIRSTNAME.value": {
+                          "$exists": true
+                        }
+                      }
+                    },
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "#000000"
+                      },
+                      "children": " {{query.unit.attributes.PRI_OWNER_LASTNAME.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_OWNER_LASTNAME.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Email:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_EMAIL.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_EMAIL.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Mobile:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_MOBILE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_MOBILE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Company:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_OWNER_COMPANY.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_OWNER_COMPANY.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "height": 50,
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "20px",
+                "borderWidth": 2,
+                "borderColor": "#000000"
+              },
+              "children": {
+                "component": "Box",
+                "props": {
+                  "flexDirection": "column",
+                  "width": "50%",
+                  "justifyContent": "center",
+                  "paddingLeft": "7px"
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "color": "#000000",
+                      "size": "xl"
+                    },
+                    "children": "Owner Representative Details"
+                  }
+                ]
               }
             },
             {
               "component": "Box",
               "props": {
                 "flexDirection": "row",
-                "position": "absolute",
-                "left": 0,
-                "top": 120,
+                "justifyContent": "space-around",
                 "height": 50,
-                "width": "10%",
+                "marginTop": "5px",
                 "backgroundColor": "#f5f5f5"
               },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Type of representative:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.propertylocation.name}}",
+                      "onlyShowIf": {
+                        "query.propertylocation.name": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Name:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_REP_FIRSTNAME.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_REP_FIRSTNAME.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Email:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_REP_EMAIL.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_REP_EMAIL.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Mobile:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_REP_MOBILE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_REP_MOBILE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Company:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_REP_COMPANY.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_REP_COMPANY.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Address:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_ADDRESS_FULL.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "height": 50,
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "20px",
+                "borderWidth": 2,
+                "borderColor": "#000000"
+              },
               "children": {
-                "component": "EventButton",
-                "props": {
-                  "padding": 15,
-                  "color": "#e05b5c",
-                  "text": "Delete",
-                  "textColor": "white",
-                  "buttonCode": "BTN_DELETE_UNIT_BUTTON",
-                  "value": {
-                    "itemCode": "{{navigation.id}}",
-                    "hint": "BTN_DELETE_UNIT_BUTTON"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "30px"
-          },
-          "children": {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width": "50%",
-              "justifyContent": "center",
-              "paddingLeft": "7px"
-            },
-            "children": [
-              {
-                "component": "Heading",
+                "component": "Box",
                 "props": {
                   "flexDirection": "column",
+                  "width": "50%",
                   "justifyContent": "center",
-                  "color": "#000000",
-                  "size": "xl"
+                  "paddingLeft": "7px"
                 },
-                "conditional":{
-                "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
-                "onlyShowIf": {
-                  "query.unit.attributes.PRI_ADDRESS_FULL.value":{
-                    "$exists":true
-                  } 
-                }
-                }
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "color": "#000000",
+                      "size": "xl"
+                    },
+                    "children": "Tenant Details"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "20px",
-            "borderWidth": 2,
-            "borderColor": "#000000"
-          },
-          "children": {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width": "50%",
-              "justifyContent": "center",
-              "paddingLeft": "7px"
             },
-            "children": [
-              {
-                "component": "Text",
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Name:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_TENANT_FIRSTNAME.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_TENANT_FIRSTNAME.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Email:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_TENANT_EMAIL.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_TENANT_EMAIL.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Mobile:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_TENANT_MOBILE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_TENANT_MOBILE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "height": 50,
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "20px",
+                "borderbottom": 1,
+                "borderWidth": 2,
+                "borderColor": "#000000"
+              },
+              "children": {
+                "component": "Box",
                 "props": {
                   "flexDirection": "column",
+                  "width": "50%",
                   "justifyContent": "center",
-                  "color": "#000000",
-                  "size": "xl"
+                  "paddingLeft": "7px"
                 },
-                "children": "Owner Details"
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "color": "#000000",
+                      "size": "xl"
+                    },
+                    "children": "WORKFLOW"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Name:"
-                }
-              ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_OWNER_FIRSTNAME.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_OWNER_FIRSTNAME.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Email:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_EMAIL.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_EMAIL.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Mobile:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_MOBILE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_MOBILE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Company:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_OWNER_COMPANY.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_OWNER_COMPANY.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "20px",
-            "borderWidth": 2,
-            "borderColor": "#000000"
-          },
-          "children": {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width": "50%",
-              "justifyContent": "center",
-              "paddingLeft": "7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "color": "#000000",
-                  "size": "xl"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Identified:"
+                    }
+                  ]
                 },
-                "children": "Owner Representative Details"
-              }
-            ]
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Type of representative:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.propertylocation.name}}",
-                  "onlyShowIf": {
-                    "query.propertylocation.name":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Name:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_REP_FIRSTNAME.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_REP_FIRSTNAME.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Email:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_REP_EMAIL.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_REP_EMAIL.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Mobile:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_REP_MOBILE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_REP_MOBILE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Company:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_REP_COMPANY.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_REP_COMPANY.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Address:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_ADDRESS_FULL.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "20px",
-            "borderWidth": 2,
-            "borderColor": "#000000"
-          },
-          "children": {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width": "50%",
-              "justifyContent": "center",
-              "paddingLeft": "7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "color": "#000000",
-                  "size": "xl"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Contacted:"
+                    }
+                  ]
                 },
-                "children": "Tenant Details"
-              }
-            ]
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Name:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_CONTACTED_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_CONTACTED_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_TENANT_FIRSTNAME.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_TENANT_FIRSTNAME.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Email:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_TENANT_EMAIL.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_TENANT_EMAIL.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Mobile:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_TENANT_MOBILE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_TENANT_MOBILE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "20px",
-            "borderbottom": 1,
-            "borderWidth": 2,
-            "borderColor": "#000000"
-          },
-          "children": {
-            "component": "Box",
-            "props": {
-              "flexDirection": "column",
-              "width": "50%",
-              "justifyContent": "center",
-              "paddingLeft": "7px"
-            },
-            "children": [
-              {
-                "component": "Text",
-                "props": {
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "color": "#000000",
-                  "size": "xl"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Accepted:"
+                    }
+                  ]
                 },
-                "children": "WORKFLOW"
-              }
-            ]
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Identified:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_IDENTIFIED_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Inspection:"
+                    }
+                  ]
+                },
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Contacted:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_GRP_CONTACTED_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_CONTACTED_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Accepted:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_INSPECTION_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_ACCEPTED_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Inspection Time:"
+                    }
+                  ]
+                },
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Inspection:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_INSPECTION_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Inspection Time:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_INSPECTION_DATETIME.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Report:"
+                    }
+                  ]
+                },
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Report:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_GRP_REQUESTED_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_REQUESTED_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "Completed:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_REQUESTED_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_REQUESTED_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_GRP_COMPLETED_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_COMPLETED_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "marginTop": "5px",
-            "backgroundColor": "#f5f5f5"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Completed:"
+                    }
+                  ]
+                },
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
+                    "width": "50%",
+                    "justifyContent": "center"
                   },
-                  "children": "Uncontactable:"
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000"
-                  },
-                  "children": "{{query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value":{
-                      "$exists":true
-                    } 
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "row",
-            "justifyContent": "space-around",
-            "height": 50,
-            "width": "100%",
-            "backgroundColor": "#f5f5f5",
-            "marginTop": "20px",
-            "borderbottom": 1,
-            "borderWidth": 2,
-            "borderColor": "#000000"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "color": "#000000",
-                    "size": "xl"
-                  },
-                  "children": "Web Verification Code:"
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_COMPLETED_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_COMPLETED_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             },
             {
               "component": "Box",
               "props": {
-                "flexDirection": "column",
-                "width": "50%",
-                "justifyContent": "center",
-                "paddingLeft": "7px"
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "marginTop": "5px",
+                "backgroundColor": "#f5f5f5"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
                     "flexDirection": "column",
+                    "width": "50%",
                     "justifyContent": "center",
-                    "color": "#000000",
-                    "size": "xl"
+                    "paddingLeft": "7px"
                   },
-                  "children": "{{query.unit.attributes.PRI_VERIFICATION_CODE.value}}",
-                  "onlyShowIf": {
-                    "query.unit.attributes.PRI_VERIFICATION_CODE.value":{
-                      "$exists":true
-                    } 
-                  }
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "Uncontactable:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000"
+                      },
+                      "children": "{{query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_GRP_UNCONTACTABLE_DATE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "height": 50,
+                "width": "100%",
+                "backgroundColor": "#f5f5f5",
+                "marginTop": "20px",
+                "borderbottom": 1,
+                "borderWidth": 2,
+                "borderColor": "#000000"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000",
+                        "size": "xl"
+                      },
+                      "children": "Web Verification Code:"
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "flexDirection": "column",
+                    "width": "50%",
+                    "justifyContent": "center",
+                    "paddingLeft": "7px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "flexDirection": "column",
+                        "justifyContent": "center",
+                        "color": "#000000",
+                        "size": "xl"
+                      },
+                      "children": "{{query.unit.attributes.PRI_VERIFICATION_CODE.value}}",
+                      "onlyShowIf": {
+                        "query.unit.attributes.PRI_VERIFICATION_CODE.value": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             }
           ]
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "footer"
+      }
     }
   ],
   "query": [

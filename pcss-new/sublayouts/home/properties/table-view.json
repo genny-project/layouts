@@ -12,6 +12,26 @@
             "layoutName": "tables/table-default",
             "columns": [
               {
+                "Header": "Address",
+                "accessor": "address",
+                "filterType": "string"
+              },
+              {
+                "Header": "Property Type",
+                "accessor": "propertytype",
+                "filterType": "string"
+              },
+              {
+                "Header": "Bridge Location",
+                "accessor": "precinct",
+                "filterType": "string"
+              },
+              {
+                "Header": "Highway Location",
+                "accessor": "highway",
+                "filterType": "string"
+              },
+              {
                 "Header": "Action",
                 "editable": true,
                 "accessor": "actions",
@@ -19,39 +39,141 @@
                   {
                     "component": "EventButton",
                     "props": {
-                      "buttonCode": "BTN_VIEW_BEG",
-                      "color": "#5fa5ec",
-                      "textColor": "#fff",
-                      "text": "Property Details",
                       "height": 25,
-                      "width": "100%",
                       "padding": 5,
                       "size": "xs",
-                      "hoverProps": {
-                        "color": "#d2e8ff"
-                      },
+                      "eventType": "BTN_CLICK",
+                      "buttonCode": "BTN_VIEW_BEG",
                       "value": {
                         "itemCode": "{{code}}",
                         "hint": "BTN_VIEW_BEG"
                       }
-                    }
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                             
+                            },
+                            "children": [
+                              {
+                                "component": "Icon",
+                                "props": {
+                                  "name": "",
+                                  "color": "black"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "View",
+                              "size": "sm",
+                              "color": "black"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": 25,
+                      "padding": 5,
+                      "size": "xs",
+                      "eventType": "BTN_CLICK",
+                      "buttonCode": "BTN_EDIT_PROPERTY_BUTTON",
+                      "value": {
+                        "itemCode": "{{code}}",
+                        "hint": "BTN_EDIT_PROPERTY_BUTTON"
+                      }
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                             
+                            },
+                            "children": [
+                              {
+                                "component": "Icon",
+                                "props": {
+                                  "name": "edit",
+                                  "color": "green"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "",
+                              "size": "sm",
+                              "color": "white"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": 25,
+                      "padding": 5,
+                      "size": "xs",
+                      "eventType": "BTN_CLICK",
+                      "buttonCode": "BTN_VIEW_BEG",
+                      "value": {
+                        "itemCode": "{{code}}",
+                        "hint": "BTN_VIEW_BEG"
+                      }
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                            },
+                            "children": [
+                              {
+                                "component": "Icon",
+                                "props": {
+                                  "name": "delete",
+                                  "color": "red"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "",
+                              "size": "sm",
+                              "color": "white"
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
-              },
-              {
-                "Header": "Address",
-                "accessor": "address",
-                "filterType": "string"
-              },
-              {
-                "Header": "Precinct",
-                "accessor": "precinct",
-                "filterType": "string"
-              },
-              {
-                "Header": "Property Type",
-                "accessor": "propertytype",
-                "filterType": "string"
               }
             ],
             "tableBackgroundColor": "#e05b5b",
@@ -123,6 +245,24 @@
           "scope": {
             "operator": "getBE",
             "basePath": "baseEntities.data",
+            "id": "{{LNK_LOCATION_TO_HIGHWAY.value}}",
+            "as": "PropertyLocationHighway"
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "identifiedProperties",
+      "scope": {
+        "operator": "scope",
+        "path": "properties",
+        "scope": {
+          "operator": "scope",
+          "path": "attributes",
+          "scope": {
+            "operator": "getBE",
+            "basePath": "baseEntities.data",
             "id": "{{LNK_PROPERTY_TYPE_SELECT.value}}",
             "as": "PropertyTypeNameBE"
           }
@@ -138,6 +278,7 @@
         "fields": {
           "address": "properties.attributes.PRI_ADDRESS_FULL.value",
           "precinct": "properties.attributes.PrecinctTypeBE.name",
+          "highway": "properties.attributes.PropertyLocationHighway.name",
           "propertytype": "properties.attributes.PropertyTypeNameBE.name",
           "code": "properties.code"
         }

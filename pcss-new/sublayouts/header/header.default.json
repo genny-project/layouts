@@ -30,21 +30,109 @@
         },
         "children": [
           {
-            "component": "EventButton",
+            "component": "Dropdown",
             "props": {
-              "buttonCode": "ADD_PROPERTY",
-              "textColor": "#fff",
-              "borderWidth":1,
-              "borderColor":"white",
-              "height": 25,
-              "text": "Add Property",
-              "padding":5,
-              "size": "xs",
-              "value": {
-                "eventType":"BTN_CLICK",
-                "value":""
+              "facingRight": true,
+              "menuButtonStyle": {
+                "backgroundColor": "transparent",
+                "border": 0,
+                "padding": 10,
+                "fontSize": 16,
+                "cursor": "pointer",
+                "color": "white"
+              },
+              "menuListStyle": {
+                "background": "#e05b5c",
+                "borderWidth": 2,
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "color": "white",
+                "textAlign": "center",
+                "minWidth": 150
+              },
+              "items": [
+                {
+                  "icon": "business_center",
+                  "text": "Property",
+                  "buttonCode": "ADD_PROPERTY",
+                  "eventType": "BTN_CLICK"
+                },
+                {  
+                  "icon": "person_add",
+                  "text": "Staff",
+                  "buttonCode": "ADD_STAFF",
+                  "eventType": "BTN_CLICK"
+                }
+              ],
+              "renderItem": {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "justifyContent": "space-around",
+                  "padding": 15
+                },
+                "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white",
+                      "align":"left"
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 5
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "testID": "USER_DROPDOWN"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color": "white",
+                          "text": "ADD"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "expand_more",
+                      "color": "white",
+                      "size": "xs"
+                    }
+                  }
+                ]
               }
-            }
+            ]
           },
           {
             "component": "Touchable",
