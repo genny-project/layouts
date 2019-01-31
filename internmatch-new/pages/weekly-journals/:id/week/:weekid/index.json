@@ -1,0 +1,398 @@
+{
+  "layout": {
+    "title": "Weekly report",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "journal-layout"
+      },
+      "conditional": [
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "1"
+            }
+          },
+          "then":{
+            "title": "Week 1 from parent",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_WD3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 2
+            }
+          },
+          "then":{
+            "title": "Week 2",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 3
+            }
+          },
+          "then":{
+            "title": "Week 3",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 4
+            }
+          },
+          "then":{
+            "title": "Week 4",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 5
+            }
+          },
+          "then":{
+            "title": "Week 5",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 6
+            }
+          },
+          "then":{
+            "title": "Week 6",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 7
+            }
+          },
+          "then":{
+            "title": "Week 7",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 8
+            }
+          },
+          "then":{
+            "title": "Week 8",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 9
+            }
+          },
+          "then":{
+            "title": "Week 9",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 10
+            }
+          },
+          "then":{
+            "title": "Week 10",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 11
+            }
+          },
+          "then":{
+            "title": "Week 11",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": 12
+            }
+          },
+          "then":{
+            "title": "Week 12",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              },
+              {
+                "day": "Day 2",
+                "date": "",
+                "hoursWorked": "",
+                "taskDetails": "Task Details"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "student"
+    },
+    {
+      "operator": "scope",
+      "path": "student",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "student.links",
+      "as": "studentlinks",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+            "link.linkValue": {
+                "$eq": "INT_AGMT"
+            }
+          }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "studentlinks",
+      "as": "docBeg",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "docBeg",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "docAttributes"
+      }
+    }
+  ]
+}
