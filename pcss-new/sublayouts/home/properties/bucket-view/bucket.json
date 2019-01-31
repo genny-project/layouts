@@ -204,17 +204,17 @@
                                       }
                                     },
                                     {
-                                      "repeater.attributes.PRI_ADDRESS_FULL.value": {
+                                      "repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value": {
                                         "$exists": true
                                       }
                                     }
                                   ]
                                 },
                                 "then": {
-                                  "text": "{{repeater.attributes.PRI_UNIT_ID.value}} / {{repeater.attributes.PRI_ADDRESS_FULL.value}}"
+                                  "text": "{{repeater.attributes.PRI_UNIT_ID.value}} / {{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}} {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
                                 },
                                 "else": {
-                                  "text": "{{repeater.attributes.PRI_ADDRESS_FULL.value}}"
+                                  "text": "{{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
                                 }
                               }
                             }
