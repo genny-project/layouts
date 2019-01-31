@@ -330,9 +330,18 @@
                                       "conditional": [
                                         {
                                           "if": {
-                                            "repeater.attributes.STA_PER_USER1.value": {
-                                              "$exists": true
-                                            }
+                                            "$or": [
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "success"
+                                                }
+                                              },
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "green"
+                                                }
+                                              }
+                                            ]
                                           },
                                           "then": {
                                             "backgroundColor": "green"
@@ -340,9 +349,18 @@
                                         },
                                         {
                                           "if": {
-                                            "repeater.attributes.STA_PER_USER1.value": {
-                                              "$in": "{{user.data.code}}"
-                                            }
+                                            "$or": [
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "warning"
+                                                }
+                                              },
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "orange"
+                                                }
+                                              }
+                                            ]
                                           },
                                           "then": {
                                             "backgroundColor": "orange"
@@ -350,9 +368,18 @@
                                         },
                                         {
                                           "if": {
-                                            "repeater.attributes.STA_PER_USER1.value": {
-                                              "$in": "{{user.data.code}}"
-                                            }
+                                            "$or": [
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "error"
+                                                }
+                                              },
+                                              {
+                                                "repeater.attributes.STA_PER_USER1.value": {
+                                                  "$eq": "red"
+                                                }
+                                              }
+                                            ]
                                           },
                                           "then": {
                                             "backgroundColor": "red"
