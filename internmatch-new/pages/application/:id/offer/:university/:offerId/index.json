@@ -44,37 +44,24 @@
       "children": [
         {
           "component": "Box",
-            "conditional": {
-              "if": {
-                "error": { "$exists": true }
-              },
-              "then": {
-                "children": [
-                  {
-                    "component": "DisplayHTML",
-                    "props": {
-                    "_html": "<p> hello safal </p>"
-                  }
-                  }
-                ]
-              },
-              "else": {
-                "children": [
-                  {
-                    "component": "PdfViewer",
-                    "props": {
-                      "file": "https://google.com"
-                    }
+          "children": [
+            {
+              "component": "PdfViewer",
+              "props": {
+                "conditional": {
+                  "if": {
+                        "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}": { "$exists": true }
                   },
-                  {
-                    "component": "DisplayHTML",
-                    "props": {
-                      "_html": "<p> hello safal </p>"
-                    }
+                  "then": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}"
+                  },
+                  "else": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
                   }
-                ]
+                }
               }
             }
+          ]
         },
         {
           "component": "Form",
