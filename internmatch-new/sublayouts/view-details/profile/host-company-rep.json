@@ -6,226 +6,50 @@
   },
   "children": [
     {
-      "component": "Container",
+      "component": "Box",
       "props": {
         "flexDirection": "column",
-        "justifyContent": "center",
-        "marginTop": "20px",
-        "minWIdth": "900px",
-        "width": "100%"
+        "backgroundColor": "rgb(255,255,255)"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "row",
-                "width": "100%",
-                "backgroundColor": "white"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "paddingTop": "20px",
-                    "paddingBottom": "20px",
-                    "paddingLeft": "20px",
-                    "paddingRight": "10px"
-                  },
-                  "children": {
-                    "component": "Image",
-                    "props": {
-                      "source": "{{props.imageUrl}}",
-                      "shape": "square",
-                      "height": 150,
-                      "width": 150
-                    }
-                  }
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "marginLeft": "20px"
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "column"
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "color": "#000000",
-                            "size": "xl",
-                            "bold": true
-                          },
-                          "children": "{{props.fullName}}"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "paddingTop": "20px",
-                    "flex": 1,
-                    "justifyContent": "flex-end",
-                    "paddingRight": "10px"
-                  },
-                  "children": {
-                    "component": "EventButton",
-                    "props": {
-                      "padding": 15,
-                      "height": "50px",
-                      "width": "100px",
-                      "borderRadius": 30,
-                      "showSpinnerOnClick": true,
-                      "color": "rgb(85, 148, 188)",
-                      "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_HOST_COMPANY_STAFF",
-                      "value": {
-                        "itemCode": "{{props.code}}"
-                      }
-                    }
-                  }
-                }
-              ]
+            "layoutName": "view-details/header",
+            "attributes": {
+              "code": "{{props.code}}",
+              "name": "{{props.fullName}}",
+              "imageUrl": "{{props.imageUrl}}"
             },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "paddingTop": "20px",
-                "paddingLeft": "20px",
-                "marginBottom": "20px"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "borderWidth": "1px",
-                    "borderColor": "rgb(85, 148, 188)"
-                  },
-                  "children": {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "50px",
-                      "width": "150px",
-                      "borderRadius": 30,
-                      "showSpinnerOnClick": true,
-                      "color": "rgb(85, 148, 188)",
-                      "textColor": "#fff",
-                      "text": "Send Email",
-                      "buttonCode": "",
-                      "value": {
-                        "itemCode": "{{}}"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
+            "buttonCode": "BTN_EDIT_HOST_COMPANY_STAFF"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "rgb(255,255,255)",
+        "marginTop": "20px"
+      },
+      "children": [
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)",
-            "marginTop": "20px"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "paddingTop": "10px",
-                "paddingLeft": "20px",
-                "paddingBottom": "10px"
+            "layoutName": "view-details/content",
+            "title": "Contact",
+            "content": [
+              {
+                "label": "Email:",
+                "text": "{{props.email}}"
               },
-              "children": {
-                "component": "Text",
-                "props": {
-                  "size": "xl"
-                },
-                "children": "Contact"
+              {
+                "label": "Mobile:",
+                "text": "{{props.attributes.PRI_MOBILE.value}}"
               }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "marginX": "20px",
-                "marginY": "20px",
-                "justifyContent": "space-between",
-                "height": "45px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "bold": true
-                  },
-                  "children": "Email:"
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{props.email}}"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "marginX": "20px",
-                "marginY": "20px",
-                "justifyContent": "space-between",
-                "height": "45px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "bold": true
-                  },
-                  "children": "Mobile:"
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{props.attributes.PRI_MOBILE.value}}"
-                  }
-                }
-              ]
-            }
-          ]
+            ]
+          }
         }
       ]
     }

@@ -1,473 +1,163 @@
 {
   "layout": {
-    "title": "{{query.intern.attributes.PRI_NAME.value}}",
+    "title": "Intern Profile",
     "appColor": "white",
     "backgroundColor": "silver"
   },
   "children": [
     {
-      "component": "Container",
+      "component": "Box",
       "props": {
-        "flexDirection": "column",
-        "marginTop": 20,
-        "minWIdth": 900,
+        "backgroundColor": "white",
+        "marginBottom": 20,
         "width": "100%"
       },
       "children": [
         {
-          "component": "Box",
+          "component": "Sublayout",
           "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)"
-          },
-          "children": [
-            {
+            "layoutName": "view-details/header",
+            "attributes": {
+              "code": "{{query.intern.code}}",
+              "name": "{{query.intern.attributes.PRI_FIRSTNAME.value}} {{query.intern.attributes.PRI_LASTNAME.value}}",
+              "imageUrl": "{{query.intern.attributes.PRI_IMAGE_URL.value}}",
+              "educationProvider": "{{query.intern.educationProvider.name}}",
+              "studentID": "{{query.intern.attributes.PRI_STUDENT_ID.value}}"
+            },
+            "buttonCode": "BTN_EDIT_INTERN",
+            "mainContent": {
               "component": "Box",
+              "renderAsComponent": true,
               "props": {
-                "flexDirection": "row",
-                "width": "100%",
-                "backgroundColor": "white"
+                "flexDirection": "column"
               },
               "children": [
                 {
                   "component": "Box",
-                  "props": {
-                    "paddingTop": "20px",
-                    "paddingBottom": "20px",
-                    "paddingLeft": "20px",
-                    "paddingRight": "10px"
-                  },
-                  "children": {
-                    "component": "Image",
-                    "props": {
-                      "source": "{{query.intern.attributes.PRI_IMAGE_URL.value}}",
-                      "shape": "square",
-                      "height": 150,
-                      "width": 150
+                  "onlyShowIf": {
+                    "props.attributes.educationProvider": {
+                      "$exists": true
                     }
-                  }
-                },
-                {
-                  "component": "Box",
+                  },
                   "props": {
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "marginLeft": "20px"
+                    "marginTop": "10px"
                   },
                   "children": [
                     {
-                      "component": "Box",
-                      "props": {},
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "color": "#000000",
-                            "size": "xl",
-                            "bold": true
-                          },
-                          "children": "{{query.intern.attributes.PRI_FIRSTNAME.value}} {{query.intern.attributes.PRI_LASTNAME.value}}"
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "onlyShowIf": {
-                        "query.intern.educationProvider": {
-                          "$exists": true
-                        }
-                      },
+                      "component": "Text",
                       "props": {
-                        "marginTop": "10px"
-                      },
-                      "children": [
-                        {
-                          "component": "Text",
-                          "props": {
-                            "color": "rgb(85, 148, 188)",
-                            "size": "md"
-                          },
-                          "children": "{{query.intern.educationProvider.name}}"
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginTop": "10px"
-                      },
-                      "children": [
-                        {
-                          "component": "Box",
-                          "props": {},
-                          "children": {
-                            "component": "Text",
-                            "props": {
-                              "size": "md",
-                              "color": "rgb(169, 169, 169)"
-                            },
-                            "children": "Student ID:"
-                          }
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "marginLeft": "10px"
-                          },
-                          "children": {
-                            "component": "Text",
-                            "props": {
-                              "color": "rgb(169, 169, 169)",
-                              "size": "md"
-                            },
-                            "children": "{{query.intern.attributes.PRI_STUDENT_ID.value}}"
-                          }
-                        }
-                      ]
+                        "color": "rgb(85, 148, 188)",
+                        "size": "md",
+                        "text": "{{props.attributes.educationProvider}}"
+                      }
                     }
                   ]
                 },
                 {
                   "component": "Box",
                   "props": {
-                    "paddingTop": "20px",
-                    "flex": 1,
-                    "justifyContent": "flex-end",
-                    "paddingRight": "10px"
+                    "marginTop": "10px"
                   },
-                  "children": {
-                    "component": "EventButton",
-                    "props": {
-                      "padding": 15,
-                      "height": "50px",
-                      "width": "100px",
-                      "borderRadius": 30,
-                      "showSpinnerOnClick": true,
-                      "color": "rgb(85, 148, 188)",
-                      "textColor": "#fff",
-                      "text": "Edit",
-                      "buttonCode": "BTN_EDIT_INTERN",
-                      "value": {
-                        "itemCode": "{{query.intern.code}}"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "paddingTop": "20px",
-                "paddingLeft": "20px",
-                "marginBottom": "20px"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "children": {
-                    "component": "EventButton",
-                    "props": {
-                      "height": "50px",
-                      "width": "150px",
-                      "borderRadius": 30,
-                      "showSpinnerOnClick": true,
-                      "color": "rgb(85, 148, 188)",
-                      "textColor": "#fff",
-                      "text": "Send Email",
-                      "buttonCode": "",
-                      "value": {
-                        "itemCode": "{{}}"
-                      }
-                    }
-                  }
-                },
-                {
-                  "component": "Box",
                   "onlyShowIf": {
-                    "query.intern.attributes.PRI_RESUME": {
+                    "props.attributes.studentID": {
                       "$exists": true
                     }
                   },
-                  "props": {
-                    "marginLeft": "20px"
-                  },
-                  "repeat": "_query.intern.attributes.PRI_RESUME.value",
-                  "children": {
-                    "component": "Link",
-                    "props": {
-                      "to": "{{repeater.uploadURL}}",
-                      "externalLink": true
-                    },
-                    "children": [
-                      {
-                        "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": {
+                        "component": "Text",
                         "props": {
-                          "backgroundColor": "rgb(85, 148, 188)",
-                          "alignItems": "center",
-                          "justifyContent": "center",
-                          "height": 50,
-                          "padding": 20
+                          "size": "md",
+                          "color": "rgb(169, 169, 169)"
                         },
-                        "children": [
-                          {
-                            "component": "Text",
-                            "props": {
-                              "size": "sm",
-                              "color": "white",
-                              "bold": true,
-                              "text": "View Resume"
-                            }
-                          }
-                        ]
+                        "children": "Student ID:"
                       }
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)",
-            "marginTop": "20px"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "paddingTop": "10px",
-                "paddingLeft": "20px",
-                "paddingBottom": "10px"
-              },
-              "children": {
-                "component": "Text",
-                "props": {
-                  "size": "xl"
-                },
-                "children": "Summary"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "justifyContent": "flex-start",
-                "paddingLeft": "20px"
-              },
-              "children": {
-                "component": "Box",
-                "props": {
-                  "width": "100%",
-                  "paddingY": "20px"
-                },
-                "children": {
-                  "component": "DisplayHTML",
-                  "props": {
-                    "html": "{{query.intern.attributes.PRI_INTERN_DETAILS.value}}"
-                  }
-                }
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "paddingX": "20px",
-                "paddingY": "20px"
-              },
-              "children": {
-                "component": "Box",
-                "children": [
-                  {
-                    "component": "Box",
-                    "props": {
-                      "width": "85%",
-                      "justifyContent": "space-around",
-                      "flexWrap": "wrap",
-                      "minHeight": "100px",
-                      "backgroundColor": "rgb(255,255,255)",
-                      "paddingY": "10px"
                     },
-                    "children": []
-                  }
-                ]
-              }
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginLeft": "10px"
+                      },
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "color": "rgb(169, 169, 169)",
+                          "size": "md",
+                          "text": "{{props.attributes.studentID}}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
-          ]
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "marginTop": -20,
+        "width": "100%",
+        "flexDirection": "column"
+      },
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": 1
+          }
         },
         {
           "component": "Box",
           "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)",
-            "marginTop": "20px"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "paddingTop": "10px",
-                "paddingLeft": "20px",
-                "paddingBottom": "10px"
-              },
-              "children": {
-                "component": "Text",
-                "props": {
-                  "size": "xl"
-                },
-                "children": "Contact"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "marginX": "20px",
-                "marginY": "20px",
-                "justifyContent": "space-between",
-                "height": "45px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "bold": true
-                  },
-                  "children": "Email:"
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.intern.attributes.PRI_EMAIL.value}}"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "marginX": "20px",
-                "marginY": "20px",
-                "justifyContent": "space-between",
-                "height": "45px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "bold": true
-                  },
-                  "children": "Mobile:"
-                },
-                {
-                  "component": "Text",
-                  "props": {
-                    "text": "{{query.intern.attributes.PRI_MOBILE.value}}"
-                  }
-                }
-              ]
-            },
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "marginX": "20px",
-                "marginY": "20px",
-                "justifyContent": "space-between",
-                "height": "45px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "bold": true
-                  },
-                  "children": "Address:"
-                },
-                {
-                  "component": "Text",
-                  "props": {},
-                  "children": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "flexDirection": "column",
-            "backgroundColor": "rgb(255,255,255)",
-            "marginTop": 20,
+            "paddingTop": 20,
+            "paddingLeft": 20,
             "marginBottom": 20
           },
           "children": [
             {
               "component": "Box",
-              "props": {
-                "paddingTop": "10px",
-                "paddingLeft": "20px",
-                "paddingBottom": "10px"
-              },
               "children": {
-                "component": "Text",
+                "component": "EventButton",
                 "props": {
-                  "size": "xl"
-                },
-                "children": "Documents"
-              }
-            },
-            {
-              "component": "Box",
-              "props": {
-                "backgroundColor": "silver",
-                "height": "1px"
+                  "height": "50px",
+                  "width": "150px",
+                  "borderRadius": 30,
+                  "showSpinnerOnClick": true,
+                  "color": "rgb(85, 148, 188)",
+                  "textColor": "#fff",
+                  "text": "Send Email",
+                  "buttonCode": "",
+                  "value": {
+                    "itemCode": "{{}}"
+                  }
+                }
               }
             },
             {
               "component": "Box",
               "onlyShowIf": {
-                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                "query.intern.attributes.PRI_RESUME": {
                   "$exists": true
                 }
               },
               "props": {
-                "width": "90%",
-                "justifyContent": "flex-start",
-                "flexDirection": "column",
-                "height": "auto"
+                "marginLeft": "20px"
               },
-              "repeat": "_query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value",
+              "repeat": "_query.intern.attributes.PRI_RESUME.value",
               "children": {
                 "component": "Link",
                 "props": {
@@ -478,44 +168,21 @@
                   {
                     "component": "Box",
                     "props": {
-                      "flexDirection": "row",
+                      "backgroundColor": "rgb(85, 148, 188)",
                       "alignItems": "center",
-                      "paddingY": 5
+                      "justifyContent": "center",
+                      "height": 50,
+                      "padding": 20
                     },
                     "children": [
                       {
-                        "component": "Box",
+                        "component": "Text",
                         "props": {
-                          "justifyContent": "center",
-                          "padding": 20
-                        },
-                        "children": [
-                          {
-                            "component": "Icon",
-                            "props": {
-                              "size": "xl",
-                              "name": "description",
-                              "color": "grey"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "flexDirection": "column",
-                          "justifyContent": "flex-start"
-                        },
-                        "children": [
-                          {
-                            "component": "Text",
-                            "props": {
-                              "text": "{{repeater.name}}",
-                              "color": "blue",
-                              "decoration": "underline"
-                            }
-                          }
-                        ]
+                          "size": "sm",
+                          "color": "white",
+                          "bold": true,
+                          "text": "View Resume"
+                        }
                       }
                     ]
                   }
@@ -525,26 +192,112 @@
             {
               "component": "Box",
               "dontShowIf": {
-                "query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value": {
+                "query.intern.attributes.PRI_RESUME": {
                   "$exists": true
                 }
               },
               "props": {
-                "width": "90%",
-                "justifyContent": "center",
-                "alignItems": "center",
-                "padding": 20
+                "marginLeft": "20px"
               },
               "children": [
                 {
-                  "component": "Text",
+                  "component": "Box",
                   "props": {
-                    "text": "This user hasn't uploaded any documents."
-                  }
+                    "backgroundColor": "#ddd",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "height": 50,
+                    "padding": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "sm",
+                        "color": "white",
+                        "bold": true,
+                        "text": "No Resume Uploaded"
+                      }
+                    }
+                  ]
                 }
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "onlyShowIf": {
+        "query.intern.attributes.PRI_INTERN_DETAILS.value": {
+          "$exists": true
+        }
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/description",
+            "title": "Summary",
+            "content": [
+              {
+                "content": "{{query.intern.attributes.PRI_INTERN_DETAILS.value}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/content",
+            "title": "Details",
+            "content": [
+              {
+                "label": "Email:",
+                "text": "{{query.intern.attributes.PRI_EMAIL.value}}"
+              },
+              {
+                "label": "Mobile:",
+                "text": "{{query.intern.attributes.PRI_MOBILE.value}}"
+              },
+              {
+                "label": "Address:",
+                "text": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/documents",
+            "title": "Documents",
+            "content": "_query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value"
+          }
         }
       ]
     }

@@ -1,0 +1,124 @@
+{
+  "layout": {
+    "title": "{{query.currentEntity.attributes.PRI_NAME.value}}",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "ScrollView",
+      "props": {
+        "height": "100%",
+        "flex": 1
+      },
+      "children": [
+        {
+          "component": "Container",
+          "props": {
+            "flexDirection": "column",
+            "width": "100%",
+            "justifyContent": "flex-start",
+            "padding": 20
+          },
+          "children": [
+            {
+              "component": "Sublayout",
+              "conditional": [
+                {
+                  "if": {
+                    "query.currentEntity.attributes.PRI_IS_EDU_PROVIDER.value": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "layoutName": "view-details/profile/education-provider",
+                    "attributes": "_query.currentEntity.attributes",
+                    "fullName": "_query.currentEntity.attributes.PRI_NAME.value",
+                    "imageUrl": "_query.currentEntity.attributes.PRI_IMAGE_URL.value",
+                    "email": "_query.currentEntity.attributes.PRI_EMAIL.value",
+                    "telephone": "_query.currentEntity.attributes.PRI_LANDLINE.value",
+                    "description": "_query.currentEntity.attributes.PRI_COMPANY_DESCRIPTION.value",
+                    "address": "_query.currentEntity.attributes.PRI_ADDRESS_STATE.value"
+                  }
+                },
+                {
+                  "if": {
+                    "query.currentEntity.attributes.PRI_IS_HOST_COMPANY.value": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "layoutName": "view-details/profile/host-company",
+                    "attributes": "_query.currentEntity.attributes",
+                    "fullName": "_query.currentEntity.attributes.PRI_NAME.value",
+                    "imageUrl": "_query.currentEntity.attributes.PRI_IMAGE_URL.value",
+                    "email": "_query.currentEntity.attributes.PRI_EMAIL.value",
+                    "telephone": "_query.currentEntity.attributes.PRI_LANDLINE.value",
+                    "description": "_query.currentEntity.attributes.PRI_COMPANY_DESCRIPTION.value",
+                    "ABN": "_query.currentEntity.attributes.PRI_ABN.value",
+                    "postCode": "_query.currentEntity.attributes.PRI_ADDRESS_POSTCODE.value"
+                  }
+                },
+                {
+                  "if": {
+                    "query.currentEntity.attributes.PRI_IS_AGENCY.value": {
+                      "$eq": true
+                    }
+                  },
+                  "then": {
+                    "layoutName": "view-details/profile/agency",
+                    "company": {
+                      "name": "_query.currentEntity.attributes.PRI_NAME.value",
+                      "image": "_query.currentEntity.attributes.PRI_IMAGE_URL.value",
+                      "email": "_query.currentEntity.attributes.PRI_EMAIL.value",
+                      "phone": "_query.currentEntity.attributes.PRI_LANDLINE.value",
+                      "description": "_query.currentEntity.attributes.PRI_COMPANY_DESCRIPTION.value",
+                      "address": "_query.currentEntity.attributes.PRI_ADDRESS_FULL.value",
+                      "abn": "_query.currentEntity.attributes.PRI_ABN.value",
+                      "legalName": "_query.currentEntity.attributes.PRI_LEGAL_NAME.value",
+                      "postCode": "_query.currentEntity.attributes.PRI_ADDRESS_POSTCODE.value",
+                      "website": "_query.currentEntity.attributes.PRI_COMPANY_WEBSITE_URL.value",
+                      "code": "_query.currentEntity.code"
+                    }
+                  }
+                }
+              ],
+              "props": {
+                "layoutName": "view-details/default"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentEntity"
+    },
+    {
+      "operator": "scope",
+      "path": "currentEntity",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "currentEntity",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "educationProvider"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["currentEntity"]
+    }
+  ]
+}
