@@ -44,7 +44,7 @@
       "props": {
         "align": "center",
         "size": "lg",
-        "text": " Internship Journal Week 1"
+        "text": " Internship Journal {{props.title}}"
       }
     }
   ]
@@ -245,44 +245,89 @@
           }
         ]
       }
-    }          
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "50px",
+        "height": "1",
+        "borderWidth": 1,
+        "borderColor": "#e3e3e3",
+        "borderStyle": "solid"
+      }
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "50px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "fontWeight": "500",
+            "text": "Total Days",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "Text",
+          "props": {
+            "text": "{{props.totalDays}}"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "10px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "text": "Total Hours",
+            "fontWeight": "500",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "Text",
+          "props": {
+            "text": "{{props.totalHours}}"
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "10px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "text": "Learnings",
+            "fontWeight": "500",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "DisplayHTML",
+          "props": {
+              "props": {
+            "html": "{{props.learnings}}"
+          }
+        }
+      }
+      ]
+    }     
   ]
-},
-{
-  "component": "Text",
-  "props": {
-    "text": "Total Days"
-  }
-},
-{
-  "component": "Text",
-  "props": {
-    "text": "{{props.totalDays}}"
-  }
-},
-{
-  "component": "Text",
-  "props": {
-    "text": "Total Hours"
-  }
-},
-{
-  "component": "Text",
-  "props": {
-    "text": "{{props.totalHours}}"
-  }
-},
-{
-  "component": "Text",
-  "props": {
-    "text": "Learnings"
-  }
-},
-{
-  "component": "DisplayHTML",
-  "props": {
-    "html": "{{props.learnings}}"
-  }
 }
   ]
 }
