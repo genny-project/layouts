@@ -33,8 +33,8 @@
     "component": "Box",
     "props": {
       "flex": 1,
-      "height": "calc( 100vh - 65px )",
       "flexDirection": "column",
+      "alignItems": "center",
       "padding": 30
     },
 
@@ -138,24 +138,36 @@
         "props": {
           "flexShrink": 0
         },
-        "children": [{
-          "component": "Form",
-          "props": {
-            "questionGroupCode": "{{navigation.offerId}}",
-            "style": {
-              "width": "100%",
-              "marginTop": "40px"
+        "children": [
+          {
+            "component": "Box",
+            "props": {
+              "justifyContent": "center",
+              "maxWidth": "700px",
+              "width": "100%"
             },
-            "renderSubmitButton": {
-              "component": "Button",
-              "props": {
-                "showSpinnerOnClick": true,
-                "color": "green",
-                "width": "100%"
+            "children": [
+              {
+                "component": "Form",
+                "props": {
+                  "questionGroupCode": "{{navigation.offerId}}",
+                  "style": {
+                    "width": "100%",
+                    "marginTop": "40px"
+                  },
+                  "renderSubmitButton": {
+                    "component": "Button",
+                    "props": {
+                      "showSpinnerOnClick": true,
+                      "color": "green",
+                      "width": "100%"
+                    }
+                  }
+                }
               }
-            }
+            ]
           }
-        }]
+      ]
       }
     ]
   }],
