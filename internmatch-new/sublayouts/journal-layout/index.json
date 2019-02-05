@@ -273,8 +273,20 @@
         },
         {
           "component": "Text",
-          "props": {
-            "text": "{{props.totalDays}}"
+          "conditional": {
+            "if": {
+              "props.totalDays":
+              {
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "text": "{{props.totalDays}}"
+            },
+            "else": {
+              "text": "Not Available"
+            }
           }
         }
       ]
@@ -296,8 +308,20 @@
         },
         {
           "component": "Text",
-          "props": {
-            "text": "{{props.totalHours}}"
+          "conditional": {
+            "if": {
+              "props.totalHours":
+              {
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "text": "{{props.totalHours}}"
+            },
+            "else": {
+              "text": "Not Available"
+            }
           }
         }
       ]
@@ -319,11 +343,21 @@
         },
         {
           "component": "DisplayHTML",
-          "props": {
-              "props": {
-            "html": "{{props.learnings}}"
+          "conditional": {
+            "if": {
+              "props.learnings":
+              { 
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "html": "{{props.learnings}}"
+            },
+            "else": {
+              "html": "<p> Not filled </p>"
+            }
           }
-        }
       }
       ]
     }     
