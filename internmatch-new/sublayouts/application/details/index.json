@@ -1,608 +1,1538 @@
 {
-  "children": [
-    {
-      "component": "Box",
-      "props": {
-        "flexDirection": "column",
-        "backgroundColor": "#f6f6f6",
-        "padding": 20,
-        "flex": 1
-      },
-      "children": [
-        {
-          "component": "Sublayout",
-          "props": {
-            "layoutName": "application/details/header",
-            "showBackButton": "_props.showBackButton"
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20
-          },
-          "children": [
+   "children":[
+      {
+         "component":"Box",
+         "props":{
+            "flexDirection":"column",
+            "backgroundColor":"#f6f6f6",
+            "padding":20,
+            "flex":1
+         },
+         "children":[
             {
-              "component": "Box",
-              "props": {
-                "marginRight": 20
-              },
-              "children": [
-                {
-                  "component": "Image",
-                  "props": {
-                    "source": "{{props.application.APPLICANT.attributes.PRI_IMAGE_URL.value}}",
-                    "width": 100,
-                    "height": 100
-                  }
-                }
-              ]
+               "component":"Sublayout",
+               "props":{
+                  "layoutName":"application/details/header",
+                  "showBackButton":"_props.showBackButton"
+               }
             },
             {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
+               "component":"Box",
+               "props":{
+                  "backgroundColor":"white",
+                  "padding":20,
+                  "marginBottom":20
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginRight":20
+                     },
+                     "children":[
+                        {
+                           "component":"Image",
+                           "props":{
+                              "source":"{{props.application.APPLICANT.attributes.PRI_IMAGE_URL.value}}",
+                              "width":100,
+                              "height":100
+                           }
+                        }
+                     ]
                   },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "props": {
-                        "text": "{{props.application.APPLICANT.attributes.PRI_NAME.value}}",
-                        "bold": true
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "children": [
-                    {
-                      "component": "Date",
-                      "props": {
-                        "date": "_props.application.created",
-                        "format": "[Submitted on] Do MMM YYYY"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20,
-            "flexDirection": "column"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Preferred skills"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "onlyShowIf": {
-                    "props.internshipSkills": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "props": {
-                    "flexDirection": "column"
-                  },
-                  "repeat": "_props.internshipSkills",
-                  "children": {
-                    "component": "Box",
-                    "props": {
-                      "marginRight": 15
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "children": "{{repeater}}"
-                      }
-                    ]
+                  {
+                     "component":"Box",
+                     "props":{
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "props":{
+                                    "text":"{{props.application.APPLICANT.attributes.PRI_NAME.value}}",
+                                    "bold":true
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "children":[
+                              {
+                                 "component":"Date",
+                                 "props":{
+                                    "date":"_props.application.created",
+                                    "format":"[Submitted on] Do MMM YYYY"
+                                 }
+                              }
+                           ]
+                        }
+                     ]
                   }
-                },
-                {
-                  "component": "Text",
-                  "dontShowIf": {
-                    "props.internshipSkills": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "children": "None"
-                }
-              ]
+               ]
             },
             {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
+               "component":"Box",
+               "props":{
+                  "backgroundColor":"white",
+                  "padding":20,
+                  "marginBottom":20,
+                  "flexDirection":"column"
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginBottom":20,
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Preferred skills"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "onlyShowIf":{
+                              "props.internshipSkills":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "props":{
+                              "flexDirection":"column"
+                           },
+                           "repeat":"_props.internshipSkills",
+                           "children":{
+                              "component":"Box",
+                              "props":{
+                                 "marginRight":15
+                              },
+                              "children":[
+                                 {
+                                    "component":"Text",
+                                    "children":"{{repeater}}"
+                                 }
+                              ]
+                           }
+                        },
+                        {
+                           "component":"Text",
+                           "dontShowIf":{
+                              "props.internshipSkills":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "children":"None"
+                        }
+                     ]
                   },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Internship description"
-                    }
-                  ]
-                },
-                {
-                  "component": "Text",
-                  "children": "{{props.internshipDescription}}"
-                }
-              ]
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginBottom":20,
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Internship description"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Text",
+                           "children":"{{props.internshipDescription}}"
+                        }
+                     ]
+                  },
+                  {
+                     "component":"Box",
+                     "props":{
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Learning outcomes"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Text",
+                           "conditional":{
+                              "if":{
+                                 "props.internshipLearningOutcomes":{
+                                    "$exists":true,
+                                    "$ne":"undefined"
+                                 }
+                              },
+                              "then":{
+                                 "text":"{{props.internshipLearningOutcomes}}"
+                              },
+                              "else":{
+                                 "text":"None"
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ]
             },
             {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Learning outcomes"
-                    }
-                  ]
-                },
-                {
-                  "component": "Text",
-                  "conditional": {
-                    "if": {
-                      "props.internshipLearningOutcomes": {
-                        "$exists": true,
-                        "$ne": "undefined"
-                      }
-                    },
-                    "then": {
-                      "text": "{{props.internshipLearningOutcomes}}"
-                    },
-                    "else": {
-                      "text": "None"
-                    }
+               "component":"Box",
+               "props":{
+                  "backgroundColor":"white",
+                  "padding":20,
+                  "marginBottom":20
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":20
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginRight":15
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Icon",
+                                       "props":{
+                                          "name":"person",
+                                          "color":"black"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "component":"Text",
+                                 "children":"{{props.studentName}} ({{props.studentName}})"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":20
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginRight":15
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Icon",
+                                       "props":{
+                                          "name":"school",
+                                          "color":"black"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "component":"Text",
+                                 "conditional":{
+                                    "if":{
+                                       "props.application.attributes.PRI_STUDENT_ID.value":{
+                                          "$exists":true,
+                                          "$ne":"undefined"
+                                       }
+                                    },
+                                    "then":{
+                                       "text":"Student ID: {{props.application.attributes.PRI_STUDENT_ID.value}}"
+                                    },
+                                    "else":{
+                                       "text":"No student ID"
+                                    }
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":20
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginRight":15
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Icon",
+                                       "props":{
+                                          "name":"mail",
+                                          "color":"black"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "component":"Text",
+                                 "conditional":{
+                                    "if":{
+                                       "props.application.attributes.PRI_EMAIL.value":{
+                                          "$exists":true,
+                                          "$ne":"undefined"
+                                       }
+                                    },
+                                    "then":{
+                                       "text":"{{props.application.attributes.PRI_EMAIL.value}}"
+                                    },
+                                    "else":{
+                                       "text":"No email"
+                                    }
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":20
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginRight":15
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Icon",
+                                       "props":{
+                                          "name":"call",
+                                          "color":"black"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "component":"Text",
+                                 "conditional":{
+                                    "if":{
+                                       "props.mobilePhone":{
+                                          "$exists":true,
+                                          "$ne":"undefined"
+                                       }
+                                    },
+                                    "then":{
+                                       "text":"{{props.mobilePhone}}"
+                                    },
+                                    "else":{
+                                       "text":"No phone number"
+                                    }
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "marginRight":15
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Icon",
+                                       "props":{
+                                          "name":"event",
+                                          "color":"black"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "component":"Text",
+                                 "conditional":{
+                                    "if":{
+                                       "props.application.attributes.PRI_DOB.value":{
+                                          "$exists":true,
+                                          "$ne":"undefined"
+                                       }
+                                    },
+                                    "then":{
+                                       "text":"Born {{props.application.attributes.PRI_DOB.value}}"
+                                    },
+                                    "else":{
+                                       "text":"No date of birth"
+                                    }
+                                 }
+                              }
+                           ]
+                        }
+                     ]
                   }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "marginBottom": 20
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "person",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "children": "{{props.studentName}} ({{props.studentName}})"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "school",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "props.application.attributes.PRI_STUDENT_ID.value": {
-                            "$exists": true,
-                            "$ne": "undefined"
-                          }
-                        },
-                        "then": {
-                          "text": "Student ID: {{props.application.attributes.PRI_STUDENT_ID.value}}"
-                        },
-                        "else": {
-                          "text": "No student ID"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "mail",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "props.application.attributes.PRI_EMAIL.value": {
-                            "$exists": true,
-                            "$ne": "undefined"
-                          }
-                        },
-                        "then": {
-                          "text": "{{props.application.attributes.PRI_EMAIL.value}}"
-                        },
-                        "else": {
-                          "text": "No email"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 20
-                  },
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "call",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "props.mobilePhone": {
-                            "$exists": true,
-                            "$ne": "undefined"
-                          }
-                        },
-                        "then": {
-                          "text": "{{props.mobilePhone}}"
-                        },
-                        "else": {
-                          "text": "No phone number"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "children": [
-                    {
-                      "component": "Box",
-                      "props": {
-                        "marginRight": 15
-                      },
-                      "children": [
-                        {
-                          "component": "Icon",
-                          "props": {
-                            "name": "event",
-                            "color": "black"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Text",
-                      "conditional": {
-                        "if": {
-                          "props.application.attributes.PRI_DOB.value": {
-                            "$exists": true,
-                            "$ne": "undefined"
-                          }
-                        },
-                        "then": {
-                          "text": "Born {{props.application.attributes.PRI_DOB.value}}"
-                        },
-                        "else": {
-                          "text": "No date of birth"
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "white",
-            "padding": 20,
-            "flexDirection": "column"
-          },
-          "children": [
-            {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Occupation"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "onlyShowIf": {
-                    "props.occupation": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "props": {
-                    "flexDirection": "column"
-                  },
-                  "repeat": "_props.occupation",
-                  "children": {
-                    "component": "Box",
-                    "props": {
-                      "marginRight": 15
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "children": "{{repeater}}"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "component": "Text",
-                  "dontShowIf": {
-                    "props.application.attributes.LNK_OCCUPATION.value": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "children": "No occupation"
-                }
-              ]
+               ]
             },
             {
-              "component": "Box",
-              "props": {
-                "marginBottom": 20,
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
+               "component":"Box",
+               "props":{
+                  "backgroundColor":"white",
+                  "padding":20,
+                  "flexDirection":"column"
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginBottom":20,
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Occupation"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "onlyShowIf":{
+                              "props.occupation":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "props":{
+                              "flexDirection":"column"
+                           },
+                           "repeat":"_props.occupation",
+                           "children":{
+                              "component":"Box",
+                              "props":{
+                                 "marginRight":15
+                              },
+                              "children":[
+                                 {
+                                    "component":"Text",
+                                    "children":"{{repeater}}"
+                                 }
+                              ]
+                           }
+                        },
+                        {
+                           "component":"Text",
+                           "dontShowIf":{
+                              "props.application.attributes.LNK_OCCUPATION.value":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "children":"No occupation"
+                        }
+                     ]
                   },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Education provider"
-                    }
-                  ]
-                },
-                {
-                  "component": "Box",
-                  "onlyShowIf": {
-                    "props.application.attributes.LNK_EDU_PROVIDER.value": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginBottom":20,
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Education provider"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "onlyShowIf":{
+                              "props.application.attributes.LNK_EDU_PROVIDER.value":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "props":{
+                              "flexDirection":"column"
+                           },
+                           "repeat":"_props.application.attributes.LNK_EDU_PROVIDER.value",
+                           "children":{
+                              "component":"Box",
+                              "props":{
+                                 "marginRight":15
+                              },
+                              "children":[
+                                 {
+                                    "component":"Text",
+                                    "children":"{{repeater}}"
+                                 }
+                              ]
+                           }
+                        },
+                        {
+                           "component":"Text",
+                           "dontShowIf":{
+                              "props.application.attributes.LNK_EDU_PROVIDER.value":{
+                                 "$exists":true,
+                                 "$ne":"undefined",
+                                 "$size":{
+                                    "$gt":0
+                                 }
+                              }
+                           },
+                           "children":"No education provider"
+                        }
+                     ]
                   },
-                  "props": {
-                    "flexDirection": "column"
-                  },
-                  "repeat": "_props.application.attributes.LNK_EDU_PROVIDER.value",
-                  "children": {
-                    "component": "Box",
-                    "props": {
-                      "marginRight": 15
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "children": "{{repeater}}"
-                      }
-                    ]
+                  {
+                     "component":"Box",
+                     "props":{
+                        "flexDirection":"column"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginBottom":10
+                           },
+                           "children":[
+                              {
+                                 "component":"Heading",
+                                 "children":"Industry"
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Text",
+                           "conditional":{
+                              "if":{
+                                 "props.industry":{
+                                    "$exists":true,
+                                    "$ne":"undefined"
+                                 }
+                              },
+                              "then":{
+                                 "text":"{{props.industry}}"
+                              },
+                              "else":{
+                                 "text":"No industry"
+                              }
+                           }
+                        }
+                     ]
                   }
-                },
-                {
-                  "component": "Text",
-                  "dontShowIf": {
-                    "props.application.attributes.LNK_EDU_PROVIDER.value": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "children": "No education provider"
-                }
-              ]
+               ]
             },
             {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
-                  "props": {
-                    "marginBottom": 10
-                  },
-                  "children": [
-                    {
-                      "component": "Heading",
-                      "children": "Industry"
-                    }
-                  ]
-                },
-                {
-                  "component": "Text",
-                  "conditional": {
-                    "if": {
-                      "props.industry": {
-                        "$exists": true,
-                        "$ne": "undefined"
-                      }
-                    },
-                    "then": {
-                      "text": "{{props.industry}}"
-                    },
-                    "else": {
-                      "text": "No industry"
-                    }
+               "component":"Box",
+               "props":{
+                  "backgroundColor":"#FFF",
+                  "marginY":20
+               },
+               "children":[
+                  {
+                     "component":"Box",
+                     "props":{
+                        "marginTop":"10px"
+                     },
+                     "children":[
+                        {
+                           "component":"Box",
+                           "props":{
+                              "backgroundColor":"black",
+                              "content":" ",
+                              "marginLeft":"-1px",
+                              "position":"absolute",
+                              "top":"0",
+                              "left":"2em",
+                              "width":"2px",
+                              "height":"auto"
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "backgroundColor":"black",
+                                    "width":"2px",
+                                    "height":"auto"
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Box",
+                                       "props":{
+                                          "height":"auto",
+                                          "color":"#444",
+                                          "width":"100%",
+                                          "position":"relative",
+                                          "listStyle":"none"
+                                       },
+                                       "children":[
+                                          {
+                                             "component":"Text",
+                                             "text":"Compliance Forms"
+                                          },
+                                          {
+                                             "component":"Box",
+                                             "props":{
+                                                "padding":"2em 2em 0 2em",
+                                                "position":"relative",
+                                                "left":"2em",
+                                                "width":"95%",
+                                                "display":"flex",
+                                                "flexDirection":"column"
+                                             },
+                                             "children":[
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "justifyContent":"space-between",
+                                                            "alignItems":"center",
+                                                            "width":"150px"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"black",
+                                                                  "text":"Agreement",
+                                                                  "buttonCode":"BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "transform":"rotate(45deg)",
+                                                            "display":"block",
+                                                            "margin":"0.5em 0.5em 0.5em -0.5em",
+                                                            "position":"absolute",
+                                                            "top":"0",
+                                                            "left":"-3.0em"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"Icon",
+                                                               "props":{
+                                                                  "name":"lens",
+                                                                  "size":"md",
+                                                                  "color":"#444"
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "justifyContent":"space-between",
+                                                            "alignItems":"center",
+                                                            "width":"150px"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "fontSize":"22px",
+                                                                  "textColor":"#444",
+                                                                  "textSize":"md",
+                                                                  "text":"Induction Document",
+                                                                  "buttonCode":"BTN_SHOW_INDUCTION_DOCUMENT",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "transform":"rotate(45deg)",
+                                                            "display":"block",
+                                                            "margin":"0.5em 0.5em 0.5em -0.5em",
+                                                            "position":"absolute",
+                                                            "top":"0",
+                                                            "left":"-3.0em"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"Icon",
+                                                               "props":{
+                                                                  "name":"lens",
+                                                                  "size":"md",
+                                                                  "color":"#444"
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "justifyContent":"space-between",
+                                                            "alignItems":"center",
+                                                            "width":"150px"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "fontSize":"22px",
+                                                                  "textColor":"#444",
+                                                                  "textSize":"md",
+                                                                  "text":"Internship Journal"
+                                                               }
+                                                            }
+                                                         ]
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "transform":"rotate(45deg)",
+                                                            "display":"block",
+                                                            "margin":"0.5em 0.5em 0.5em -0.5em",
+                                                            "position":"absolute",
+                                                            "top":"0",
+                                                            "left":"-3.0em"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"Icon",
+                                                               "props":{
+                                                                  "name":"lens",
+                                                                  "size":"md",
+                                                                  "color":"#444"
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                }
+                                             ]
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           ]
+                        },
+                        {
+                           "component":"Box",
+                           "props":{
+                              "marginTop":"200px",
+                              "backgroundColor":"black",
+                              "marginLeft":"100px",
+                              "content":" ",
+                              "width":"2px",
+                              "height":"auto"
+                           },
+                           "children":[
+                              {
+                                 "component":"Box",
+                                 "props":{
+                                    "backgroundColor":"black",
+                                    "width":"2px",
+                                    "height":"auto"
+                                 },
+                                 "children":[
+                                    {
+                                       "component":"Box",
+                                       "props":{
+                                          "height":"auto",
+                                          "color":"#444",
+                                          "width":"100%",
+                                          "position":"relative",
+                                          "listStyle":"none"
+                                       },
+                                       "children":[
+                                          {
+                                             "component":"Box",
+                                             "props":{
+                                                "padding":"2em 2em 0 2em",
+                                                "position":"relative",
+                                                "left":"2em",
+                                                "width":"95%",
+                                                "display":"flex",
+                                                "flexDirection":"column"
+                                             },
+                                             "children":[
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around",
+                                                      "alignItems":"center"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButtonLink",
+                                                         "props":{
+                                                            "textColor":"#444",
+                                                            "text":"Week 1",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W1",
+                                                            "to":"/weekly-journals/{{props.navigationId}}/week/1",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W1",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "transform":"rotate(45deg)",
+                                                            "display":"block",
+                                                            "margin":"0.5em 0.5em 0.5em -0.5em",
+                                                            "position":"absolute",
+                                                            "top":"0",
+                                                            "left":"-3.0em"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"Icon",
+                                                               "props":{
+                                                                  "name":"lens",
+                                                                  "size":"md",
+                                                                  "color":"#444"
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 2",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W2",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W2",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 3",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W3",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W3",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 4",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W4",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W4",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 5",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W5",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W5",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 6",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W6",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W6",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 7",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W7",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W7",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 8",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W8",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W8",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 9",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W9",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W9",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 10",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W10",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W10",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 11",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W11",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W11",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "name":"single-item",
+                                                   "component":"Box",
+                                                   "props":{
+                                                      "textAlign":"left",
+                                                      "marginTop":"20px",
+                                                      "lineHeight":"1.5em",
+                                                      "width":"200px",
+                                                      "display":"flex",
+                                                      "flexDirection":"row",
+                                                      "justifyContent":"space-around"
+                                                   },
+                                                   "children":[
+                                                      {
+                                                         "component":"EventButton",
+                                                         "props":{
+                                                            "fontSize":"22px",
+                                                            "textColor":"#444",
+                                                            "textSize":"md",
+                                                            "text":"Week 12",
+                                                            "buttonCode":"BTN_SHOW_LOGBOOK_QUESTION_W12",
+                                                            "value":{
+                                                               "itemCode":"{{props.navigationId}}"
+                                                            }
+                                                         }
+                                                      },
+                                                      {
+                                                         "component":"Box",
+                                                         "props":{
+                                                            "alignItems":"center"
+                                                         },
+                                                         "children":[
+                                                            {
+                                                               "component":"EventButton",
+                                                               "props":{
+                                                                  "textColor":"#444",
+                                                                  "text":"Edit / ADD",
+                                                                  "icon":"edit",
+                                                                  "buttonCode":"BTN_ASK_LOGBOOK_QUESTION_W12",
+                                                                  "value":{
+                                                                     "itemCode":"{{props.navigationId}}"
+                                                                  }
+                                                               },
+                                                               "onlyShowIf":{
+                                                                  "user.attributes.PRI_IS_SELLER.value":{
+                                                                     "$eq":true
+                                                                  }
+                                                               }
+                                                            }
+                                                         ]
+                                                      }
+                                                   ]
+                                                }
+                                             ]
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     ]
                   }
-                }
-              ]
+               ]
             }
-          ]
-        },
-        {
-          "component": "Box",
-          "props": {
-            "backgroundColor": "#FFF",
-            "marginY": 20
-          },
-          "children":[
-            {
-              "component": "Sublayout",
-              "props": {
-                "layoutName": "timeline",
-                "navigationId": "{{props.id}}"
-              }
-                
-            }
-          ]
-        }
-      ]
-    }
-  ]
+         ]
+      }
+   ]
 }
