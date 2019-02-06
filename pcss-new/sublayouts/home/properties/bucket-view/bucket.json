@@ -600,7 +600,7 @@
                       "component": "Text",
                       "props": {
                         "color": "#e05b5c",
-                        "text": "This is footer This is footerThis is footer This is footerThis is footer",
+                        "text": "{{repeater.attributes.PRI_LEGEND_GREEN.value}}",
                         "size": "sm"
                       }
                     }
@@ -628,6 +628,19 @@
         "as": "be",
         "id": "{{link.targetCode}}",
         "filterOutEmpty": true
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "applications.links",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     },
     {
@@ -670,7 +683,8 @@
       "fields": {
         "name": "name",
         "code": "code",
-        "items": "links"
+        "items": "links",
+        "attributes":"attributes"
       }
     },
     {
