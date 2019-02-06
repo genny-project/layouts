@@ -32,509 +32,428 @@
           },
           "repeat": "_query",
           "children": {
-            "component": "List",
+            "component": "Box",
             "props": {
-              "headerText": "{{repeater.name}}",
-              "contentBackground": "#eaeaea",
-              "overflowX": "auto",
-              "headerProps": {
-                "paddingX": 20,
-                "paddingY": 15,
-                "justifyContent": "space-between",
-                "alignItems": "center",
-                "backgroundColor": "#eaeaea",
-                "position": "sticky",
-                "top": 0
-              },
-              "headerTextProps": {
-                "bold": true
-              },
-              "showCountInHeader": true,
-              "contentBodyProps": {},
-              "emptyProps": {
-                "padding": 10
-              },
-              "headerCountTextProps": {
-                "bold": true,
-                "size": "xs"
-              },
-              "emptyTextProps": {
-                "size": "xs"
-              },
-              "scrollViewProps": {
-                "horizontal": true
-              }
+              "width": 300,
+              "flexDirection": "column"
             },
-            "repeat": "_repeater.items",
-            "children": {
-              "component": "EventButton",
-              "props": {
-                "width": "100%",
-                "key": "{{repeater.code}}",
-                "position": "relative",
-                "withFeedback": true,
-                "showSpinnerOnClick": true,
-                "buttonCode": "SELECT_EVENT",
-                "value": {
-                  "itemCode": "{{repeater.code}}",
-                  "hint": "GRP_IDENTIFIED",
-                  "userCode": "{{user.data.code}}"
-                },
-                "dispatchActionOnClick": {
-                  "type": "ALIAS_TOGGLE",
-                  "payload": {
-                    "alias": "CURRENT_NOTE",
-                    "value": "{{repeater.code}}"
+            "children": [
+              {
+                "component": "List",
+                "props": {
+                  "headerText": "{{repeater.name}}",
+                  "contentBackground": "#eaeaea",
+                  "overflowX": "auto",
+                  "headerProps": {
+                    "paddingX": 20,
+                    "paddingY": 15,
+                    "justifyContent": "space-between",
+                    "alignItems": "center",
+                    "backgroundColor": "#eaeaea",
+                    "position": "sticky",
+                    "top": 0
+                  },
+                  "headerTextProps": {
+                    "bold": true
+                  },
+                  "showCountInHeader": true,
+                  "contentBodyProps": {},
+                  "emptyProps": {
+                    "padding": 10
+                  },
+                  "headerCountTextProps": {
+                    "bold": true,
+                    "size": "xs"
+                  },
+                  "emptyTextProps": {
+                    "size": "xs"
+                  },
+                  "scrollViewProps": {
+                    "horizontal": true
                   }
                 },
-                "flexDirection": "column"
-              },
-              "children": [
-                {
-                  "component": "Box",
+                "repeat": "_repeater.items",
+                "children": {
+                  "component": "EventButton",
                   "props": {
-                    "padding": 10,
-                    "paddingRight": 35,
-                    "flexDirection": "column",
-                    "backgroundColor": "#FFF",
-                    "width": "100%"
+                    "width": "100%",
+                    "key": "{{repeater.code}}",
+                    "position": "relative",
+                    "withFeedback": true,
+                    "showSpinnerOnClick": true,
+                    "buttonCode": "SELECT_EVENT",
+                    "value": {
+                      "itemCode": "{{repeater.code}}",
+                      "hint": "GRP_IDENTIFIED",
+                      "userCode": "{{user.data.code}}"
+                    },
+                    "dispatchActionOnClick": {
+                      "type": "ALIAS_TOGGLE",
+                      "payload": {
+                        "alias": "CURRENT_NOTE",
+                        "value": "{{repeater.code}}"
+                      }
+                    },
+                    "flexDirection": "column"
                   },
                   "children": [
                     {
                       "component": "Box",
-                      "onlyShowIf": {
-                        "repeater.code": {
-                          "$exists": true
-                        }
-                      },
-                      "conditional": {
-                        "if": {
-                          "$or": []
-                        },
-                        "then": {
-                          "opacity": 0.7
-                        }
-                      },
                       "props": {
-                        "flexDirection": "row",
-                        "flex": 1
+                        "padding": 10,
+                        "paddingRight": 35,
+                        "flexDirection": "column",
+                        "backgroundColor": "#FFF",
+                        "width": "100%"
                       },
                       "children": [
                         {
                           "component": "Box",
-                          "props": {
-                            "margin": 10,
-                            "marginRight": 20,
-                            "flexShrink": 1,
-                            "alignItems": "center",
-                            "flexDirection": "column"
-                          },
-                          "children": [
-                            {
-                              "component": "Icon",
-                              "conditional": [
-                                {
-                                  "if": {
-                                    "$or": [
-                                      {
-                                        "repeater.propertyType.name": {
-                                          "$eq": "Residential (Multiple)"
-                                        }
-                                      },
-                                      {
-                                        "repeater.propertyType.name": {
-                                          "$eq": "Commercial (Multiple)"
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "then": {
-                                    "name": "location_city"
-                                  }
-                                },
-                                {
-                                  "if": {
-                                    "$or": [
-                                      {
-                                        "repeater.propertyType.name": {
-                                          "$eq": "Residential (Single)"
-                                        }
-                                      },
-                                      {
-                                        "repeater.propertyType.name": {
-                                          "$eq": "Commercial (Single)"
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "then": {
-                                    "name": "store"
-                                  }
-                                },
-                                {
-                                  "if": {
-                                    "repeater.propertyType.name": {
-                                      "$eq": "Parks"
-                                    }
-                                  },
-                                  "then": {
-                                    "name": "spa"
-                                  }
-                                }
-                              ],
-                              "props": {
-                                "color": "#e05b5c",
-                                "size": "xl"
-                              }
+                          "onlyShowIf": {
+                            "repeater.code": {
+                              "$exists": true
                             }
-                          ]
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "flexDirection": "column",
-                            "flexShrink": 1
                           },
-                          "children": [
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xs",
-                                "bold": false
-                              },
-                              "conditional": {
-                                "if": {
-                                  "$and": [
-                                    {
-                                      "repeater.attributes.PRI_UNIT_ID.value": {
-                                        "$exists": true
-                                      }
-                                    },
-                                    {
-                                      "repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value": {
-                                        "$exists": true
-                                      }
-                                    }
-                                  ]
-                                },
-                                "then": {
-                                  "text": "{{repeater.attributes.PRI_UNIT_ID.value}} / {{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}} {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
-                                },
-                                "else": {
-                                  "text": "{{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
-                                }
-                              }
+                          "conditional": {
+                            "if": {
+                              "$or": []
+                            },
+                            "then": {
+                              "opacity": 0.7
                             }
-                          ]
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "flexDirection": "column",
-                            "flexShrink": 1
                           },
-
+                          "props": {
+                            "flexDirection": "row",
+                            "flex": 1
+                          },
                           "children": [
                             {
-                              "component": "Dropdown",
+                              "component": "Box",
                               "props": {
-                                "facingRight": true,
-                                "menuButtonStyle": {
-                                  "backgroundColor": "transparent",
-                                  "border": 0,
-                                  "padding": 10,
-                                  "fontSize": 16,
-                                  "cursor": "pointer",
-                                  "color": "white"
-                                },
-                                "menuListStyle": {
-                                  "background": "#e05b5c",
-                                  "textAlign": "center",
-                                  "padding": 5,
-                                  "color": "white",
-                                  "minWidth": 150
-                                },
-                                "menuItemStyle": {
-                                  "textAlign": "center",
-                                  "padding": 5,
-                                  "color": "#3d4457",
-                                  "borderWidth": 1,
-                                  "marginTop": 5,
-                                  "backgroundColor": "#ebeff3"
-                                },
-                                "items": [
-                                  {
-                                    "text": "View Detail",
-                                    "href": "/view-unit/{{repeater.code}}",
-                                    "buttonCode": "BTN_VIEW_APPLICATION",
-                                    "value": {
-                                      "itemCode": "{{code}}",
-                                      "hint": "BTN_VIEW_APPLICATION"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Email",
-                                    "buttonCode": "BTN_SEND_EMAIL",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_SEND_EMAIL"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Phone",
-                                    "buttonCode": "BTN_CONTACTED_PHONE",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_PHONE"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Letter",
-                                    "buttonCode": "BTN_CONTACTED_LETTER",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_LETTER"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Site Visit",
-                                    "buttonCode": "BTN_CONTACTED_SITE_VISIT",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_SITE_VISIT"
-                                    }
-                                  }
-                                ]
+                                "margin": 10,
+                                "marginRight": 20,
+                                "flexShrink": 1,
+                                "alignItems": "center",
+                                "flexDirection": "column"
                               },
                               "children": [
                                 {
-                                  "component": "Box",
-                                  "props": {
-                                    "alignItems": "center",
-                                    "flexDirection": "column",
-                                    "position": "absolute",
-                                    "top": 0
-                                  },
-                                  "children": [
+                                  "component": "Icon",
+                                  "conditional": [
                                     {
-                                      "component": "Icon",
-                                      "props": {
-                                        "name": "more_horiz",
-                                        "color": "#bbbbbb",
-                                        "size": "sm"
+                                      "if": {
+                                        "$or": [
+                                          {
+                                            "repeater.propertyType.name": {
+                                              "$eq": "Residential (Multiple)"
+                                            }
+                                          },
+                                          {
+                                            "repeater.propertyType.name": {
+                                              "$eq": "Commercial (Multiple)"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "then": {
+                                        "name": "location_city"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "$or": [
+                                          {
+                                            "repeater.propertyType.name": {
+                                              "$eq": "Residential (Single)"
+                                            }
+                                          },
+                                          {
+                                            "repeater.propertyType.name": {
+                                              "$eq": "Commercial (Single)"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "then": {
+                                        "name": "store"
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "repeater.propertyType.name": {
+                                          "$eq": "Parks"
+                                        }
+                                      },
+                                      "then": {
+                                        "name": "spa"
                                       }
                                     }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
+                                  ],
                                   "props": {
-                                    "flexDirection": "column"
+                                    "color": "#e05b5c",
+                                    "size": "xl"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flexDirection": "column",
+                                "flexShrink": 1
+                              },
+                              "children": [
+                                {
+                                  "component": "Text",
+                                  "props": {
+                                    "size": "xs",
+                                    "bold": false
+                                  },
+                                  "conditional": {
+                                    "if": {
+                                      "$and": [
+                                        {
+                                          "repeater.attributes.PRI_UNIT_ID.value": {
+                                            "$exists": true
+                                          }
+                                        },
+                                        {
+                                          "repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value": {
+                                            "$exists": true
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "then": {
+                                      "text": "{{repeater.attributes.PRI_UNIT_ID.value}} / {{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}} {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
+                                    },
+                                    "else": {
+                                      "text": "{{repeater.parentBEG.attributes.PRI_ADDRESS_ADDRESS1.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_SUBURB.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_STATE.value}}, {{repeater.parentBEG.attributes.PRI_ADDRESS_POSTCODE.value}}"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flexDirection": "column",
+                                "flexShrink": 1
+                              },
+  
+                              "children": [
+                                {
+                                  "component": "Dropdown",
+                                  "props": {
+                                    "facingRight": true,
+                                    "menuButtonStyle": {
+                                      "backgroundColor": "transparent",
+                                      "border": 0,
+                                      "padding": 10,
+                                      "fontSize": 16,
+                                      "cursor": "pointer",
+                                      "color": "white"
+                                    },
+                                    "menuListStyle": {
+                                      "background": "#e05b5c",
+                                      "textAlign": "center",
+                                      "padding": 5,
+                                      "color": "white",
+                                      "minWidth": 150
+                                    },
+                                    "menuItemStyle": {
+                                      "textAlign": "center",
+                                      "padding": 5,
+                                      "color": "#3d4457",
+                                      "borderWidth": 1,
+                                      "marginTop": 5,
+                                      "backgroundColor": "#ebeff3"
+                                    },
+                                    "items": [
+                                      {
+                                        "text": "View Detail",
+                                        "href": "/view-unit/{{repeater.code}}",
+                                        "buttonCode": "BTN_VIEW_APPLICATION",
+                                        "value": {
+                                          "itemCode": "{{code}}",
+                                          "hint": "BTN_VIEW_APPLICATION"
+                                        }
+                                      },
+                                      {
+                                        "text": "Contact By Email",
+                                        "buttonCode": "BTN_SEND_EMAIL",
+                                        "value": {
+                                          "itemCode": "{{repeater.code}}",
+                                          "hint": "BTN_SEND_EMAIL"
+                                        }
+                                      },
+                                      {
+                                        "text": "Contact By Phone",
+                                        "buttonCode": "BTN_CONTACTED_PHONE",
+                                        "value": {
+                                          "itemCode": "{{repeater.code}}",
+                                          "hint": "BTN_CONTACTED_PHONE"
+                                        }
+                                      },
+                                      {
+                                        "text": "Contact By Letter",
+                                        "buttonCode": "BTN_CONTACTED_LETTER",
+                                        "value": {
+                                          "itemCode": "{{repeater.code}}",
+                                          "hint": "BTN_CONTACTED_LETTER"
+                                        }
+                                      },
+                                      {
+                                        "text": "Contact By Site Visit",
+                                        "buttonCode": "BTN_CONTACTED_SITE_VISIT",
+                                        "value": {
+                                          "itemCode": "{{repeater.code}}",
+                                          "hint": "BTN_CONTACTED_SITE_VISIT"
+                                        }
+                                      }
+                                    ]
                                   },
                                   "children": [
                                     {
                                       "component": "Box",
-                                      "conditional": [
+                                      "props": {
+                                        "alignItems": "center",
+                                        "flexDirection": "column",
+                                        "position": "absolute",
+                                        "top": 0
+                                      },
+                                      "children": [
                                         {
-                                          "if": {
-                                            "$or": [
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "success"
-                                                }
-                                              },
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "green"
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "then": {
-                                            "backgroundColor": "green"
-                                          }
-                                        },
-                                        {
-                                          "if": {
-                                            "$or": [
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "warning"
-                                                }
-                                              },
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "orange"
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "then": {
-                                            "backgroundColor": "orange"
-                                          }
-                                        },
-                                        {
-                                          "if": {
-                                            "$or": [
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "error"
-                                                }
-                                              },
-                                              {
-                                                "repeater.attributes.STA_PER_USER1.value": {
-                                                  "$eq": "red"
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "then": {
-                                            "backgroundColor": "red"
+                                          "component": "Icon",
+                                          "props": {
+                                            "name": "more_horiz",
+                                            "color": "#bbbbbb",
+                                            "size": "sm"
                                           }
                                         }
-                                      ],
+                                      ]
+                                    },
+                                    {
+                                      "component": "Box",
                                       "props": {
-                                        "size": "xs",
-                                        "width": 10,
-                                        "flexShrink": 1,
-                                        "borderRadius": 20,
-                                        "marginTop": 10,
-                                        "height": 30,
-                                        "marginLeft": 5
-                                      }
+                                        "flexDirection": "column"
+                                      },
+                                      "children": [
+                                        {
+                                          "component": "Box",
+                                          "conditional": [
+                                            {
+                                              "if": {
+                                                "$or": [
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "success"
+                                                    }
+                                                  },
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "green"
+                                                    }
+                                                  }
+                                                ]
+                                              },
+                                              "then": {
+                                                "backgroundColor": "green"
+                                              }
+                                            },
+                                            {
+                                              "if": {
+                                                "$or": [
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "warning"
+                                                    }
+                                                  },
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "orange"
+                                                    }
+                                                  }
+                                                ]
+                                              },
+                                              "then": {
+                                                "backgroundColor": "orange"
+                                              }
+                                            },
+                                            {
+                                              "if": {
+                                                "$or": [
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "error"
+                                                    }
+                                                  },
+                                                  {
+                                                    "repeater.attributes.STA_PER_USER1.value": {
+                                                      "$eq": "red"
+                                                    }
+                                                  }
+                                                ]
+                                              },
+                                              "then": {
+                                                "backgroundColor": "red"
+                                              }
+                                            }
+                                          ],
+                                          "props": {
+                                            "size": "xs",
+                                            "width": 10,
+                                            "flexShrink": 1,
+                                            "borderRadius": 20,
+                                            "marginTop": 10,
+                                            "height": 30,
+                                            "marginLeft": 5
+                                          }
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
                               ]
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "component": "Box",
-                      "props": {
-                        "flexDirection": "row",
-                        "width": "100%"
-                      },
-                      "children": [
+                        },
                         {
                           "component": "Box",
                           "props": {
-                            "flexDirection": "column",
-                            "flexBasis": "100%"
+                            "flexDirection": "row",
+                            "width": "100%"
                           },
-                          "children": {
-                            "component": "Collapsible",
-                            "props": {
-                              "headerWrapperProps": {
-                                "border": 0,
-                                "padding": 5,
-                                "fontSize": 8,
-                                "cursor": "pointer",
-                                "color": "white"
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "flexDirection": "column",
+                                "flexBasis": "100%"
                               },
-                              "headerIconProps": {
-                                "background": "red",
-                                "borderWidth": 1,
-                                "borderColor": "#bbbbbb",
-                                "borderStyle": "solid"
-                              }
-                            },
-                            "children": [
-                              {
-                                "component": "Box",
+                              "children": {
+                                "component": "Collapsible",
                                 "props": {
-                                  "flexDirection": "row",
-                                  "flexWrap": "wrap"
-                                },
-                                "children": [
-                                  {
-                                    "component": "Text",
-                                    "props": {
-                                      "bold": true,
-                                      "size": "xs"
-                                    },
-                                    "children": "Owner Name: "
+                                  "headerWrapperProps": {
+                                    "border": 0,
+                                    "padding": 5,
+                                    "fontSize": 8,
+                                    "cursor": "pointer",
+                                    "color": "white"
                                   },
-                                  {
-                                    "component": "Box",
-                                    "props": {},
-                                    "children": [
-                                      {
-                                        "component": "Text",
-                                        "props": {
-                                          "size": "xs"
-                                        },
-                                        "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}} ",
-                                        "onlyShowIf": {
-                                          "repeater.attributes.PRI_OWNER_FIRSTNAME.value": {
-                                            "$exists": true
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "component": "Text",
-                                        "props": {
-                                          "size": "xs"
-                                        },
-                                        "children": " {{repeater.attributes.PRI_OWNER_LASTNAME.value}}",
-                                        "onlyShowIf": {
-                                          "repeater.attributes.PRI_OWNER_LASTNAME.value": {
-                                            "$exists": true
-                                          }
-                                        }
-                                      }
-                                    ]
+                                  "headerIconProps": {
+                                    "background": "red",
+                                    "borderWidth": 1,
+                                    "borderColor": "#bbbbbb",
+                                    "borderStyle": "solid"
                                   }
-                                ]
-                              },
-                              {
-                                "component": "Box",
-                                "props": {
-                                  "flexDirection": "row",
-                                  "flexWrap": "wrap"
-                                },
-                                "children": [
-                                  {
-                                    "component": "Text",
-                                    "props": {
-                                      "bold": true,
-                                      "size": "xs"
-                                    },
-                                    "children": "Owner Email: "
-                                  },
-                                  {
-                                    "component": "Box",
-                                    "props": {},
-                                    "children": [
-                                      {
-                                        "component": "Text",
-                                        "props": {
-                                          "size": "xs"
-                                        },
-                                        "children": "{{repeater.attributes.PRI_EMAIL.value}} ",
-                                        "onlyShowIf": {
-                                          "repeater.attributes.PRI_EMAIL.value": {
-                                            "$exists": true
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                ]
-                              },
-                              {
-                                "component": "Box",
-                                "props": {
-                                  "flexDirection": "row",
-                                  "flexWrap": "wrap"
                                 },
                                 "children": [
                                   {
                                     "component": "Box",
                                     "props": {
-                                      "flexDirection": "row"
+                                      "flexDirection": "row",
+                                      "flexWrap": "wrap"
                                     },
                                     "children": [
                                       {
@@ -543,33 +462,152 @@
                                           "bold": true,
                                           "size": "xs"
                                         },
-                                        "children": "Owner Mobile: "
+                                        "children": "Owner Name: "
                                       },
+                                      {
+                                        "component": "Box",
+                                        "props": {},
+                                        "children": [
+                                          {
+                                            "component": "Text",
+                                            "props": {
+                                              "size": "xs"
+                                            },
+                                            "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}} ",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_OWNER_FIRSTNAME.value": {
+                                                "$exists": true
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "component": "Text",
+                                            "props": {
+                                              "size": "xs"
+                                            },
+                                            "children": " {{repeater.attributes.PRI_OWNER_LASTNAME.value}}",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_OWNER_LASTNAME.value": {
+                                                "$exists": true
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "props": {
+                                      "flexDirection": "row",
+                                      "flexWrap": "wrap"
+                                    },
+                                    "children": [
                                       {
                                         "component": "Text",
                                         "props": {
+                                          "bold": true,
                                           "size": "xs"
                                         },
-                                        "children": " {{repeater.attributes.PRI_MOBILE.value}}",
-                                        "onlyShowIf": {
-                                          "repeater.attributes.PRI_MOBILE.value": {
-                                            "$exists": true
+                                        "children": "Owner Email: "
+                                      },
+                                      {
+                                        "component": "Box",
+                                        "props": {},
+                                        "children": [
+                                          {
+                                            "component": "Text",
+                                            "props": {
+                                              "size": "xs"
+                                            },
+                                            "children": "{{repeater.attributes.PRI_EMAIL.value}} ",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_EMAIL.value": {
+                                                "$exists": true
+                                              }
+                                            }
                                           }
-                                        }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "component": "Box",
+                                    "props": {
+                                      "flexDirection": "row",
+                                      "flexWrap": "wrap"
+                                    },
+                                    "children": [
+                                      {
+                                        "component": "Box",
+                                        "props": {
+                                          "flexDirection": "row"
+                                        },
+                                        "children": [
+                                          {
+                                            "component": "Text",
+                                            "props": {
+                                              "bold": true,
+                                              "size": "xs"
+                                            },
+                                            "children": "Owner Mobile: "
+                                          },
+                                          {
+                                            "component": "Text",
+                                            "props": {
+                                              "size": "xs"
+                                            },
+                                            "children": " {{repeater.attributes.PRI_MOBILE.value}}",
+                                            "onlyShowIf": {
+                                              "repeater.attributes.PRI_MOBILE.value": {
+                                                "$exists": true
+                                              }
+                                            }
+                                          }
+                                        ]
                                       }
                                     ]
                                   }
                                 ]
                               }
-                            ]
-                          }
+                            }
+                          ]
                         }
                       ]
                     }
                   ]
                 }
-              ]
-            }
+              },
+              {
+                "component": "Box",
+                "props": {
+                  "padding": 10,
+                  "paddingRight": 35,
+                  "marginBottom": 20,
+                  "flexDirection": "column",
+                  "backgroundColor": "#FFF",
+                  "width": "100%",
+                  "overflowX": "auto"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "overflowX": "auto",
+                      "overflowY": "auto"
+                    },
+                    "children": {
+                      "component": "Text",
+                      "props": {
+                        "color": "#e05b5c",
+                        "text": "This is footer This is footerThis is footer This is footerThis is footer",
+                        "size": "sm"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
           }
         }
       ]
