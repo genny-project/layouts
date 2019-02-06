@@ -194,18 +194,21 @@
                   "icon": "person",
                   "text": "Profile",
                   "buttonCode": "PROFILE",
-                  "eventType": "BTN_CLICK"
+                  "eventType": "BTN_CLICK",
+                  "testID":"SEL_USER_PROFILE"
                 },
                 {  
                   "icon": "settings",
                   "text": "Account",
                   "buttonCode": "ACCOUNT",
-                  "eventType": "BTN_CLICK"
+                  "eventType": "BTN_CLICK",
+                  "testID":"SEL_USER_ACCOUNT"
                 },
                 {
                   "icon": "exit-to-app",
                   "text": "Logout",
-                  "href": "logout"
+                  "href": "logout",
+                  "testID":"SEL_USER_LOGOUT"
                 }
               ],
               "renderItem": {
@@ -236,7 +239,8 @@
                           "text": "{{item.text}}",
                           "color": "white",
                           "align": "right"
-                        }
+                        },
+                        "testID": "{{item.testID}}"
                       }
                     ]
                   }
