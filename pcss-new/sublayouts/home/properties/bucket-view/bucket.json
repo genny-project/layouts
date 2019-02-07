@@ -240,7 +240,7 @@
                                 "flexDirection": "column",
                                 "flexShrink": 1
                               },
-  
+
                               "children": [
                                 {
                                   "component": "Dropdown",
@@ -591,19 +591,107 @@
                 },
                 "children": [
                   {
-                    "component": "Box",
+                    "component": "Collapsible",
                     "props": {
-                      "overflowX": "auto",
-                      "overflowY": "auto"
-                    },
-                    "children": {
-                      "component": "Text",
-                      "props": {
-                        "color": "#e05b5c",
-                        "text": "{{repeater.attributes.PRI_LEGEND_GREEN.value}}",
-                        "size": "sm"
+                      "headerWrapperProps": {
+                        "border": 0,
+                        "padding": 5,
+                        "fontSize": 8,
+                        "cursor": "pointer",
+                        "color": "green"
+                      },
+                      "headerIconProps": {
+                        "background": "red",
+                        "borderWidth": 1,
+                        "borderColor": "#bbbbbb",
+                        "borderStyle": "solid"
                       }
-                    }
+                    },
+                    "children": [
+                      {
+                        "component": "Box",
+                        "props": {
+                          "margin":10
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "color": "black",
+                              "text": "{{repeater.attributes.PRI_LEGEND_GREEN.value}}",
+                              "size": "xs"
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "size": "xs",
+                              "width": 10,
+                              "flexShrink": 1,
+                              "borderRadius": 20,
+                              "height": 30,
+                              "backgroundColor": "green"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "props": {
+                          "margin":10
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "color": "black",
+                              "text": "{{repeater.attributes.PRI_LEGEND_ORANGE.value}}",
+                              "size": "xs"
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "size": "xs",
+                              "width": 10,
+                              "flexShrink": 1,
+                              "borderRadius": 20,
+                              "height": 30,
+                              "backgroundColor": "orange"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "component": "Box",
+                        "props": {
+                          "margin":10
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "color": "black",
+                              "text": "{{repeater.attributes.PRI_LEGEND_RED.value}}",
+                              "size": "xs",
+                              "flexWrap": "wrap",
+                              "textAign":"left"
+                            }
+                          },
+                          {
+                            "component": "Box",
+                            "props": {
+                              "size": "xs",
+                              "width": 10,
+                              "flexShrink": 1,
+                              "borderRadius": 20,
+                              "height": 30,
+                              "backgroundColor": "red"
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               }
@@ -684,7 +772,7 @@
         "name": "name",
         "code": "code",
         "items": "links",
-        "attributes":"attributes"
+        "attributes": "attributes"
       }
     },
     {
