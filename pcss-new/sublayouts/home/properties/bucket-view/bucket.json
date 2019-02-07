@@ -593,25 +593,36 @@
                   {
                     "component": "Collapsible",
                     "props": {
-                      "headerWrapperProps": {
-                        "border": 0,
-                        "padding": 5,
-                        "fontSize": 8,
-                        "cursor": "pointer",
-                        "color": "green"
-                      },
-                      "headerIconProps": {
-                        "background": "red",
-                        "borderWidth": 1,
-                        "borderColor": "#bbbbbb",
-                        "borderStyle": "solid"
+                      "header": {
+                        "component": "Box",
+                        "props": {
+                          "padding": 5
+                        },
+                        "children": [
+                          {
+                            "component": "Text",
+                            "props": {
+                              "text": "Status Legend",
+                              "size": "xs",
+                              "bold": true
+                            }
+                          },
+                          {
+                            "component":"Icon",
+                            "props":{
+                              "name":"keyboard_arrow_down",
+                              "color": "black",
+                              "size": "sm"
+                            }
+                          }
+                        ]
                       }
                     },
                     "children": [
                       {
                         "component": "Box",
                         "props": {
-                          "margin":10
+                          "margin": 10
                         },
                         "children": [
                           {
@@ -629,7 +640,7 @@
                               "width": 10,
                               "flexShrink": 1,
                               "borderRadius": 20,
-                              "height": 30,
+                              "height": 20,
                               "backgroundColor": "green"
                             }
                           }
@@ -638,7 +649,7 @@
                       {
                         "component": "Box",
                         "props": {
-                          "margin":10
+                          "margin": 10
                         },
                         "children": [
                           {
@@ -656,7 +667,7 @@
                               "width": 10,
                               "flexShrink": 1,
                               "borderRadius": 20,
-                              "height": 30,
+                              "height": 20,
                               "backgroundColor": "orange"
                             }
                           }
@@ -665,7 +676,7 @@
                       {
                         "component": "Box",
                         "props": {
-                          "margin":10
+                          "margin": 10
                         },
                         "children": [
                           {
@@ -675,7 +686,7 @@
                               "text": "{{repeater.attributes.PRI_LEGEND_RED.value}}",
                               "size": "xs",
                               "flexWrap": "wrap",
-                              "textAign":"left"
+                              "textAign": "left"
                             }
                           },
                           {
@@ -685,7 +696,7 @@
                               "width": 10,
                               "flexShrink": 1,
                               "borderRadius": 20,
-                              "height": 30,
+                              "height": 20,
                               "backgroundColor": "red"
                             }
                           }
