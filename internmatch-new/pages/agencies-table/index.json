@@ -1,0 +1,195 @@
+{
+  "onlyUpdateIf": [ "tableData" ],
+  "layout": {
+    "title": "Agencies",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/table-default",
+            "code": "GRP_AGENCIES",
+            "rootCode": "GRP_AGENCIES",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "renderButton": [
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "80px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Edit",
+                      "buttonCode": "BTN_EDIT_AGENCY",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      }
+                    }
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "80px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "View",
+                      "buttonCode": "BTN_VIEW_AGENCY",
+                      "value": {
+                        "itemCode": "{{attributeCode}}"
+                      },
+                      "dispatchActionOnClick": {
+                        "type": "ALIAS_ADD",
+                        "payload": {
+                          "alias": "CURRENT_NOTE",
+                          "value": "{{attributeCode}}"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "Header": "Company Name",
+                "accessor": "companyName",
+                "attributeCode": "PRI_NAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Phone Number",
+                "accessor": "phoneNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address ",
+                "accessor": "fullAddress",
+                "attributeCode": "PRI_ADDRESS_FULL",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_AGENCIES",
+      "as": "agencies"
+    },
+    {
+      "operator": "scope",
+      "path": "agencies.links",
+      "as": "agencies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.attributes",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agencies",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agencies",
+      "scope": {
+        "operator": "getBE",
+        "as": "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agencies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agencies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "companyName": "be.attributes.PRI_NAME.value",
+          "email": "be.attributes.PRI_EMAIL.value",
+          "phoneNumber": "be.attributes.PRI_LANDLINE.value",
+          "fullAddress": "be.attributes.PRI_ADDRESS_FULL.value",
+          "attributeCode": "code"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData"]
+    }
+  ]
+}

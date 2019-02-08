@@ -1,0 +1,160 @@
+{
+  "layout": {
+    "title": "All Companies",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/table-default",
+            "code": "GRP_COMPANIES",
+            "rootCode": "GRP_RESULTS",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Company Name",
+                "accessor": "name",
+                "attributeCode": "PRI_COMPANY_NAME",
+                "id": "name",
+                "key": "name",
+                "filterType": "string"
+              },
+              {
+                "Header": "Legal Name",
+                "accessor": "legalName",
+                "attributeCode": "PRI_LEGAL_NAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Website",
+                "accessor": "website",
+                "attributeCode": "PRI_WEBSITE",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
+                "filterType": "string"
+              },
+              {
+                "Header": "ABN",
+                "accessor": "abn",
+                "attributeCode": "PRI_ABN",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULTS",
+      "as": "companies"
+    },
+    {
+      "operator": "scope",
+      "path": "companies.links",
+      "as": "companies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "companies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "name": "attributes.PRI_NAME.value",
+          "legalName": "attributes.PRI_LEGAL_NAME.value",
+          "contactNumber": "companyRep.attributes.PRI_LANDLINE.value",
+          "website": "attributes.PRI_COMPANY_WEBSITE_URL.value",
+          "abn": "attributes.PRI_ABN.value",
+          "email": "attributes.PRI_EMAIL.value",
+          "address": "attributes.PRI_ADDRESS_ADDRESS1.value"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData"]
+    }
+  ]
+}

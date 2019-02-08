@@ -1,0 +1,139 @@
+{
+  "layout": {
+    "title": "Application",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "marginX": "auto",
+        "marginY": "100px",
+        "maxWidth": "700px",
+        "minWidth": "500px",
+        "flex": 1,
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "PdfViewer",
+              "props": {
+                "conditional": {
+                  "if": {
+                        "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}": { "$exists": true }
+                  },
+                  "then": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_FINAL_S3_AGREEMENT_LINK.value}}"
+                  },
+                  "else": {
+                    "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "component": "Form",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$or": [
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$eq": false
+                    }
+                  },
+                  {
+                    "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                      "$exists": false
+                    }
+                  }
+                ]
+              },
+              {
+                "query.application.attributes.PRI_GRP_OFFERED_DATE.value": {
+                  "$exists": false
+                }
+              }
+            ]
+          },
+          "props": {
+            "questionGroupCode": "{{navigation.offerId}}",
+            "style": {
+              "width": "100%",
+              "marginTop": "40px"
+            },
+            "renderSubmitButton": {
+              "component": "Button",
+              "props": {
+                "showSpinnerOnClick": true,
+                "color": "green",
+                "width": "100%"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "application"
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateLinkValues",
+        "withAttributes": true,
+        "as": "linkValues"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["application"]
+    }
+  ]
+}

@@ -36,15 +36,51 @@
                 {
                   "component": "Box",
                   "props": {
-                    "marginBottom": 20
+                    "marginBottom": 20,
+                    "display": "flex",
+                    "flexDirection": "column"
                   },
                   "children": [
                     {
                       "component": "Heading",
                       "props": {
                         "text": "Your Messages",
-                        "size": "xl"
+                        "size": "xl",
+                        "flex": 1
                       }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "float": "right",
+                        "flex": 1,
+                        "height": 50,
+                        "flexDirection": "column",
+                        "marginTop": 20,
+                        "backgroundColor":"#212531"
+                      },
+                      "children": [
+                        {
+                          "component": "EventButtonLink",
+                          "props": {
+                            "buttonCode": "CREATE_MESSAGE",
+                            "value": "CREATE_MESSAGE",
+                            "to": "search/search-results"
+                          },
+                          "children": [
+                            {
+                              "component": "Heading",
+                              "props": {
+
+                                "text": "New",
+                                "color": "white",
+                                "align": "center",
+                                "backgroundColor": "#212531"
+                              }
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
