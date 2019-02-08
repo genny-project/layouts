@@ -680,6 +680,12 @@
           "props": {
             "backgroundColor": "#FFF"
           },
+          "if": {
+            "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
+              "$exists": true,
+              "$ne": "undefined"
+            }
+          },
           "children":[
             {
               "component": "Sublayout",
