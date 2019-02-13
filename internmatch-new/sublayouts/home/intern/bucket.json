@@ -120,7 +120,15 @@
                 },
                 "repeater.internship.attributes.PRI_NAME.value": {
                   "$exists": false
-                }
+                },
+              "dispatchActionOnClick": {
+                  "type": "ALIAS_TOGGLE",
+                  "payload": {
+                    "alias": "CURRENT_NOTE",
+                    "value": "{{repeater.code}}"
+                  }
+                },
+                "testID": "BTN_SELECT {{repeater.code}}"
               },
               "props": {
                 "padding": "5px",
@@ -245,7 +253,8 @@
                       "textAlign": "right",
                       "padding": 15,
                       "color": "white"
-                    }
+                    },
+                    "testID": "CARD_ACTIONS_DROPDOWN"
                   },
                   "conditional": {
                     "if": {
