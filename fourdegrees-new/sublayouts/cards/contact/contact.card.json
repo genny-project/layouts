@@ -13,7 +13,7 @@
         "to": "profile/",
         "params": {
           "userID": "{{props.itemID}}",
-          "degree": "_props.depth"
+          "degree": "_props.depths.{{props.itemID}}"
         }
       },
       "children": [
@@ -104,7 +104,7 @@
                       "conditional": [
                         {
                           "if": {
-                            "props.depth": 1
+                            "props.depths.{{props.itemID}}": 1
                           },
                           "then": {
                             "text": "1st Degree"
@@ -112,7 +112,7 @@
                         },
                         {
                           "if": {
-                            "props.depth": 2
+                            "props.depths.{{props.itemID}}": 2
                           },
                           "then": {
                             "text": "2nd Degree"
@@ -120,7 +120,7 @@
                         },
                         {
                           "if": {
-                            "props.depth": 3
+                            "props.depths.{{props.itemID}}": 3
                           },
                           "then": {
                             "text": "3rd Degree"
