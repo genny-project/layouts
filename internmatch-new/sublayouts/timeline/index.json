@@ -637,6 +637,65 @@
                             "flexDirection": "row",
                             "justifyContent": "space-around"
                           },
+                          "children": [{
+                              "component": "EventButton",
+                              "conditional": {
+                                "if": {
+                                  "user.PRI_IS_BUYER": {
+                                    "buttonCode": "BTN_EDIT_MID_WEEK_PERFORMANCE_REVIEW"
+                                  }
+                                },
+                                "else": {
+                                  "buttonCode": "BTN_SHOW_FINAL_WEEK_PERFORMANCE_REVIEW"
+                                }
+                              },
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Mid week performance review",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [{
+                                "component": "EventButton",
+                                "props": {
+                                  "textColor": "#444",
+                                  "text": "Edit / ADD",
+                                  "icon": "edit",
+                                  "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W6",
+                                  "value": {
+                                    "itemCode": "{{props.navigationId}}"
+                                  }
+                                },
+                                "onlyShowIf": {
+                                  "user.attributes.PRI_IS_SELLER.value": {
+                                    "$eq": true
+                                  }
+                                }
+                              }]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
                           "children": [
                             {
                               "component": "EventButton",
@@ -945,6 +1004,68 @@
                               ]
                             }
                             
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                                "conditional": {
+                                  "if": {
+                                    "user.PRI_IS_BUYER": {
+                                      "buttonCode": "BTN_EDIT_FINAL_WEEK_PERFORMANCE_REVIEW"
+                                    }
+                                  },
+                                  "else": {
+                                    "buttonCode": "BTN_SHOW_FINAL_WEEK_PERFORMANCE_REVIEW"
+                                  }
+                                },
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Final week performance review",                                
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                "component": "EventButton",
+                                "props": {
+                                  "textColor": "#444",
+                                  "text": "Edit / ADD",
+                                  "icon": "edit",
+                                  "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W12",
+                                  "value": {
+                                    "itemCode": "{{props.navigationId}}"
+                                  }
+                                },
+                                "onlyShowIf": {
+                                  "user.attributes.PRI_IS_SELLER.value": {
+                                    "$eq": true
+                                  }
+                                }
+                              }]
+                            }
+
                           ]
                         }
                       ]
