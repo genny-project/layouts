@@ -591,13 +591,14 @@
                       "width": "200px",
                       "display": "flex",
                       "flexDirection": "row",
-                      "justifyContent": "space-around"
+                      "justifyContent": "space-around",
+                      "marginLeft": "120px"
                     },
                     "children": [{
                         "component": "EventButton",
                         "conditional": {
                           "if": {
-                            "user.PRI_IS_BUYER": {
+                            "user.attributes.PRI_IS_BUYER": {
                               "buttonCode": "BTN_EDIT_MID_WEEK_PERFORMANCE_REVIEW"
                             }
                           },
@@ -954,13 +955,15 @@
                       "width": "200px",
                       "display": "flex",
                       "flexDirection": "row",
-                      "justifyContent": "space-around"
+                      "justifyContent": "space-around",
+                      "marginLeft": "120px"
                     },
-                    "children": [{
+                    "children": [
+                      {
                         "component": "EventButton",
                         "conditional": {
                           "if": {
-                            "user.PRI_IS_BUYER": {
+                            "user.attributes.PRI_IS_BUYER": {
                               "buttonCode": "BTN_EDIT_FINAL_WEEK_PERFORMANCE_REVIEW"
                             }
                           },
