@@ -227,11 +227,18 @@
                 {
                   "component": "Dropdown",
                   "onlyShowIf": {
-                    "$or": [{
-                      "parentRepeater.code": {
-                        "$eq": "GRP_OFFERED"
+                    "$or": [
+                      {
+                        "parentRepeater.code": {
+                          "$eq": "GRP_OFFERED"
+                        }
+                      },
+                      {
+                        "parentRepeater.code": {
+                          "$eq": "GRP_PLACED"
+                        }
                       }
-                    }]
+                    ]
                   },
                   "props": {
                     "facingRight": true,
