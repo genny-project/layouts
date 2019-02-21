@@ -72,10 +72,67 @@
                       }
                     }
                   ]
+                },
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.educationProvider": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "flexDirection": "column",
+                    "marginTop": 20
+                  },
+                  "children": {
+                    "component": "Text",
+                    "children": "Education Provider: {{props.educationProvider}}"
+                  }
+                },
+                {
+                  "component": "Box",
+                  "dontShowIf": {
+                    "props.educationProvider": {
+                      "$exists": true,
+                      "$ne": "undefined",
+                      "$size": {
+                        "$gt": 0
+                      }
+                    }
+                  },
+                  "props": {
+                    "marginTop": 10
+                  },
+                  "children": {
+                    "component": "Text",
+                    "props": {
+                      "text": "No education provider"
+                    }
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20,
+            "flexDirection": "column"
+          },
+          "children": {
+            "component": "Text",
+            "props": {
+              "text": "Internship Details",
+              "size": "lg"
+            }
+          }
         },
         {
           "component": "Box",
@@ -211,6 +268,22 @@
               ]
             }
           ]
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20,
+            "flexDirection": "column"
+          },
+          "children": {
+            "component": "Text",
+            "props": {
+              "text": "Student Details",
+              "size": "lg"
+            }
+          }
         },
         {
           "component": "Box",
@@ -588,8 +661,30 @@
         {
           "component": "Box",
           "props": {
-            "backgroundColor": "#FFF",
-            "marginY": 20
+            "backgroundColor": "white",
+            "padding": 20,
+            "marginBottom": 20,
+            "marginTop": 20,
+            "flexDirection": "column"
+          },
+          "children": {
+            "component": "Text",
+            "props": {
+              "text": "Compliance Documents",
+              "size": "lg"
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "#FFF"
+          },
+          "if": {
+            "repeater.attributes.PRI_GRP_PLACED_DATE.value": {
+              "$exists": true,
+              "$ne": "undefined"
+            }
           },
           "children":[
             {
@@ -598,7 +693,6 @@
                 "layoutName": "timeline",
                 "navigationId": "{{props.id}}"
               }
-                
             }
           ]
         }

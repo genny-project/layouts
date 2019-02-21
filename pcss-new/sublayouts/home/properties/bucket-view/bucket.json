@@ -174,28 +174,11 @@
                             "marginTop": 5
                           }
                         },
-                        "conditional": {
-                          "if": {
-                            "repeater.attributes.PRI_IS_DEACTIVATED.value": {
-                              "$eq": true
-                            }
-                          },
-                          "then": {
-                            "items": [
-                              {
-                                "text": "Re-Activate",
-                                "buttonCode": "BTN_ACTIVATE_APPLICATION",
-                                "value": {
-                                  "itemCode": "{{repeater.code}}",
-                                  "hint": "{{parentRepeater.code}}"
-                                }
-                              }
-                            ]
-                          },
-                          "else": {
+                        "conditional": [
+                          {
                             "if": {
-                              "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
-                                "$exists": true
+                              "repeater.parentCode": {
+                                "$eq": "GRP_IDENTIFIED"
                               }
                             },
                             "then": {
@@ -208,268 +191,250 @@
                                     "itemCode": "{{code}}",
                                     "hint": "BTN_VIEW_APPLICATION"
                                   }
+                                },
+                                {
+                                  "text": "Contact By Email",
+                                  "buttonCode": "BTN_SEND_EMAIL",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_SEND_EMAIL"
+                                  },
+                                  "isDisabled": "{{repeater.disabled}}"
+                                },
+                                {
+                                  "text": "Contact By Phone",
+                                  "buttonCode": "BTN_CONTACTED_PHONE",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_PHONE"
+                                  }
+                                },
+                                {
+                                  "text": "Contact By Letter",
+                                  "buttonCode": "BTN_CONTACTED_LETTER",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_LETTER"
+                                  }
+                                },
+                                {
+                                  "text": "Contact By Site Visit",
+                                  "buttonCode": "BTN_CONTACTED_SITE_VISIT",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_SITE_VISIT"
+                                  }
                                 }
                               ]
-                            },
-                            "else": {
-                              "if": {
-                                "repeater.parentCode": {
-                                  "$eq": "GRP_IDENTIFIED"
-                                }
-                              },
-                              "then": {
-                                "items": [
-                                  {
-                                    "text": "View Detail",
-                                    "href": "/view-unit/{{repeater.code}}",
-                                    "buttonCode": "BTN_VIEW_APPLICATION",
-                                    "value": {
-                                      "itemCode": "{{code}}",
-                                      "hint": "BTN_VIEW_APPLICATION"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Email",
-                                    "buttonCode": "BTN_SEND_EMAIL",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_SEND_EMAIL"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Phone",
-                                    "buttonCode": "BTN_CONTACTED_PHONE",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_PHONE"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Letter",
-                                    "buttonCode": "BTN_CONTACTED_LETTER",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_LETTER"
-                                    }
-                                  },
-                                  {
-                                    "text": "Contact By Site Visit",
-                                    "buttonCode": "BTN_CONTACTED_SITE_VISIT",
-                                    "value": {
-                                      "itemCode": "{{repeater.code}}",
-                                      "hint": "BTN_CONTACTED_SITE_VISIT"
-                                    }
-                                  }
-                                ]
-                              },
-                              "else": {
-                                "if": {
-                                  "repeater.parentCode": {
-                                    "$eq": "GRP_CONTACTED"
-                                  }
-                                },
-                                "then": {
-                                  "items": [
-                                    {
-                                      "text": "View Detail",
-                                      "href": "/view-unit/{{repeater.code}}",
-                                      "buttonCode": "BTN_VIEW_APPLICATION",
-                                      "value": {
-                                        "itemCode": "{{code}}",
-                                        "hint": "BTN_VIEW_APPLICATION"
-                                      }
-                                    },
-                                    {
-                                      "text": "Request Condition Report",
-                                      "buttonCode": "BTN_REQUEST_INSPECTION",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_REQUEST_INSPECTION"
-                                      }
-                                    },
-                                    {
-                                      "text": "Decline Condition Report",
-                                      "buttonCode": "BTN_REQUEST_DECLINE",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_REQUEST_DECLINE"
-                                      }
-                                    },
-                                    {
-                                      "text": "ReContact By Email",
-                                      "buttonCode": "BTN_SEND_EMAIL_AGAIN",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_SEND_EMAIL_AGAIN"
-                                      }
-                                    },
-                                    {
-                                      "text": "ReContact By Phone",
-                                      "buttonCode": "BTN_CONTACTED_PHONE_AGAIN",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_CONTACTED_PHONE_AGAIN"
-                                      }
-                                    },
-                                    {
-                                      "text": "ReContact By Letter",
-                                      "buttonCode": "BTN_CONTACTED_LETTER_AGAIN",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_CONTACTED_LETTER_AGAIN"
-                                      }
-                                    },
-                                    {
-                                      "text": "ReContact By Site Visit",
-                                      "buttonCode": "BTN_CONTACTED_SITE_VISIT_AGAIN",
-                                      "value": {
-                                        "itemCode": "{{repeater.code}}",
-                                        "hint": "BTN_CONTACTED_SITE_VISIT_AGAIN"
-                                      }
-                                    }
-                                  ]
-                                },
-                                "else": {
-                                  "if": {
-                                    "repeater.parentCode": {
-                                      "$eq": "GRP_REQUESTED"
-                                    }
-                                  },
-                                  "then": {
-                                    "items": [
-                                      {
-                                        "text": "View Detail",
-                                        "href": "/view-unit/{{repeater.code}}",
-                                        "buttonCode": "BTN_VIEW_APPLICATION",
-                                        "value": {
-                                          "itemCode": "{{code}}",
-                                          "hint": "BTN_VIEW_APPLICATION"
-                                        }
-                                      },
-                                      {
-                                        "text": "Book Inspection",
-                                        "buttonCode": "BTN_REQUEST_INSPECTION_DATE",
-                                        "value": {
-                                          "itemCode": "{{repeater.code}}",
-                                          "hint": "BTN_REQUEST_INSPECTION_DATE"
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "else": {
-                                    "if": {
-                                      "repeater.parentCode": {
-                                        "$eq": "GRP_INSPECTION"
-                                      }
-                                    },
-                                    "then": {
-                                      "items": [
-                                        {
-                                          "text": "View Detail",
-                                          "href": "/view-unit/{{repeater.code}}",
-                                          "buttonCode": "BTN_VIEW_APPLICATION",
-                                          "value": {
-                                            "itemCode": "{{code}}",
-                                            "hint": "BTN_VIEW_APPLICATION"
-                                          }
-                                        },
-                                        {
-                                          "text": "Rebook Appointment",
-                                          "buttonCode": "BTN_REBOOK_APPOINTMENT",
-                                          "value": {
-                                            "itemCode": "{{repeater.code}}",
-                                            "hint": "BTN_REBOOK_APPOINTMENT"
-                                          }
-                                        },
-                                        {
-                                          "text": "Upload Building Condition Report",
-                                          "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                          "value": {
-                                            "itemCode": "{{repeater.code}}",
-                                            "hint": "{{parentRepeater.code}}"
-                                          }
-                                        },
-                                        {
-                                          "text": "Inspection Completed",
-                                          "buttonCode": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF",
-                                          "value": {
-                                            "itemCode": "{{repeater.code}}",
-                                            "hint": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF"
-                                          }
-                                        }
-                                      ]
-                                    },
-                                    "else": {
-                                      "if": {
-                                        "repeater.parentCode": {
-                                          "$eq": "GRP_SIGNOFF"
-                                        }
-                                      },
-                                      "then": {
-                                        "items": [
-                                          {
-                                            "text": "View Detail",
-                                            "href": "/view-unit/{{repeater.code}}",
-                                            "buttonCode": "BTN_VIEW_APPLICATION",
-                                            "value": {
-                                              "itemCode": "{{code}}",
-                                              "hint": "BTN_VIEW_APPLICATION"
-                                            }
-                                          },
-                                          {
-                                            "text": "Report Prepared",
-                                            "buttonCode": "BTN_MARK_REPORT_AS_PREPARED",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "BTN_MARK_REPORT_AS_PREPARED"
-                                            }
-                                          },
-                                          {
-                                            "text": "Report Released",
-                                            "buttonCode": "BTN_MARK_REPORT_AS_RELEASED",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "BTN_MARK_REPORT_AS_RELEASED"
-                                            }
-                                          },
-                                          {
-                                            "text": "Upload Condition Report",
-                                            "buttonCode": "BTN_DEACTIVATE_APPLICATION",
-                                            "value": {
-                                              "itemCode": "{{repeater.code}}",
-                                              "hint": "{{parentRepeater.code}}"
-                                            }
-                                          }
-                                        ]
-                                      },
-                                      "else": {
-                                        "if": {
-                                          "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
-                                            "$exists": true,
-                                            "$ne": "undefined"
-                                          }
-                                        },
-                                        "then": {
-                                          "items": [
-                                            {
-                                              "text": "View Detail",
-                                              "href": "/view-unit/{{repeater.code}}",
-                                              "buttonCode": "BTN_VIEW_APPLICATION",
-                                              "value": {
-                                                "itemCode": "{{code}}",
-                                                "hint": "BTN_VIEW_APPLICATION"
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
+                            }
+                          },
+                          {
+                            "if": {
+                              "repeater.parentCode": {
+                                "$eq": "GRP_CONTACTED"
                               }
+                            },
+                            "then": {
+                              "items": [
+                                {
+                                  "text": "View Detail",
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
+                                },
+                                {
+                                  "text": "Request Condition Report",
+                                  "buttonCode": "BTN_REQUEST_REPORT",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_REQUEST_REPORT"
+                                  }
+                                },
+                                {
+                                  "text": "Decline Condition Report",
+                                  "buttonCode": "BTN_REQUEST_DECLINE",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "{{parentRepeater.code}}"
+                                  }
+                                },
+                                {
+                                  "text": "ReContact By Email",
+                                  "buttonCode": "BTN_SEND_EMAIL_AGAIN",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_SEND_EMAIL_AGAIN"
+                                  },
+                                  "isDisabled": "{{repeater.disabled}}"
+                                },
+                                {
+                                  "text": "ReContact By Phone",
+                                  "buttonCode": "BTN_CONTACTED_PHONE_AGAIN",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_PHONE_AGAIN"
+                                  }
+                                },
+                                {
+                                  "text": "ReContact By Letter",
+                                  "buttonCode": "BTN_CONTACTED_LETTER_AGAIN",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_LETTER_AGAIN"
+                                  }
+                                },
+                                {
+                                  "text": "ReContact By Site Visit",
+                                  "buttonCode": "BTN_CONTACTED_SITE_VISIT_AGAIN",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_CONTACTED_SITE_VISIT_AGAIN"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "repeater.parentCode": {
+                                "$eq": "GRP_REQUESTED"
+                              }
+                            },
+                            "then": {
+                              "items": [
+                                {
+                                  "text": "View Detail",
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
+                                },
+                                {
+                                  "text": "Book Inspection",
+                                  "buttonCode": "BTN_REQUEST_INSPECTION_DATE",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "{{parentRepeater.code}}"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "repeater.parentCode": {
+                                "$eq": "GRP_INSPECTION"
+                              }
+                            },
+                            "then": {
+                              "items": [
+                                {
+                                  "text": "View Detail",
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
+                                },
+                                {
+                                  "text": "Rebook Appointment",
+                                  "buttonCode": "BTN_REBOOK_APPOINTMENT",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "{{parentRepeater.code}}"
+                                  }
+                                },
+                                {
+                                  "text": "Upload Building Condition Report",
+                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "{{parentRepeater.code}}"
+                                  }
+                                },
+                                {
+                                  "text": "Inspection Completed",
+                                  "buttonCode": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_MOVE_PROPERTY_TO_SIGNED_OFF"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "repeater.parentCode": {
+                                "$eq": "GRP_SIGNOFF"
+                              }
+                            },
+                            "then": {
+                              "items": [
+                                {
+                                  "text": "View Detail",
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
+                                },
+                                {
+                                  "text": "Report Prepared",
+                                  "buttonCode": "BTN_MARK_REPORT_AS_PREPARED",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_MARK_REPORT_AS_PREPARED"
+                                  }
+                                },
+                                {
+                                  "text": "Report Reloaded",
+                                  "buttonCode": "BTN_MARK_REPORT_AS_RELEASED",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "BTN_MARK_REPORT_AS_RELEASED"
+                                  }
+                                },
+                                {
+                                  "text": "Upload Condition Report",
+                                  "buttonCode": "BTN_DEACTIVATE_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{repeater.code}}",
+                                    "hint": "{{parentRepeater.code}}"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "repeater.attributes.PRI_GRP_COMPLETED_DATE.value": {
+                                "$exists": true
+                              }
+                            },
+                            "then": {
+                              "items": [
+                                {
+                                  "text": "View Detail",
+                                  
+                                  "href": "/view-unit/{{repeater.code}}",
+                                  "buttonCode": "BTN_VIEW_APPLICATION",
+                                  "value": {
+                                    "itemCode": "{{code}}",
+                                    "hint": "BTN_VIEW_APPLICATION"
+                                  }
+                                }
+                              ]
                             }
                           }
-                        },
+                        ],
                         "children": [
                           {
                             "component": "Box",
@@ -652,7 +617,7 @@
                       },
                       {
                         "component": "Collapsible",
-                        "props": {
+                        "props":{
                           "headerWrapperProps": {
                             "border": 0,
                             "padding": 5,
@@ -667,14 +632,9 @@
                             "borderStyle": "solid"
                           }
                         },
-                        "children": [
+                        "children":[
                           {
                             "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_IDENTIFIED"
-                              }
-                            },
                             "props": {
                               "flexDirection": "column",
                               "width": "100%",
@@ -686,26 +646,18 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Owner"
+                                  "color": "#000000"
                                 },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_OWNER_FIRSTNAME.value": {
-                                          "$exists": true
-                                        }
-                                      },
-                                      {
-                                        "repeater.attributes.PRI_OWNER_LASTNAME.value": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
+                                "children": "{{repeater.attributes.PRI_OWNER_FIRSTNAME.value}}  {{repeater.attributes.PRI_OWNER_LASTNAME.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
                                   },
-                                  "then":{
-                                    "text": "Owner: {{repeater.attributes.PRI_OWNER_FIRSTNAME.value}} {{repeater.attributes.PRI_OWNER_LASTNAME.value}}"
+                                  "repeater.attributes.PRI_OWNER_FIRSTNAME.value":{
+                                    "$neq":null
+                                  },
+                                  "repeater.attributes.PRI_OWNER_LASTNAME.value":{
+                                    "$neq":null
                                   }
                                 }
                               },
@@ -714,17 +666,15 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Owner Email:"
+                                  "color": "#000000"
                                 },
-                                "conditional": {
-                                  "if": {
-                                    "repeater.attributes.PRI_EMAIL.value": {
-                                      "$exists": true
-                                    }
+                                "children": "{{repeater.attributes.PRI_EMAIL.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
                                   },
-                                  "then": {
-                                    "text": "Owner Email: {{repeater.attributes.PRI_EMAIL.value}}"
+                                  "repeater.attributes.PRI_EMAIL.value":{
+                                    "$neq":null
                                   }
                                 }
                               },
@@ -733,17 +683,15 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Owner Mobile"
+                                  "color": "#000000"
                                 },
-                                "conditional": {
-                                  "if": {
-                                    "repeater.attributes.PRI_MOBILE.value": {
-                                      "$exists": true
-                                    }
+                                "children": "{{repeater.attributes.PRI_MOBILE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_IDENTIFIED"
                                   },
-                                  "then": {
-                                    "text": "Owner Mobile: {{repeater.attributes.PRI_MOBILE.value}}"
+                                  "repeater.attributes.PRI_MOBILE.value":{
+                                    "$neq":null
                                   }
                                 }
                               }
@@ -751,11 +699,6 @@
                           },
                           {
                             "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_CONTACTED"
-                              }
-                            },
                             "props": {
                               "flexDirection": "column",
                               "width": "100%",
@@ -767,21 +710,15 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Contact Method"
+                                  "color": "#000000"
                                 },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_LAST_CONTACT_METHOD.name": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
+                                "children": "{{repeater.attributes.PRI_LAST_CONTACT_METHOD.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
                                   },
-                                  "then":{
-                                    "text": "Contact Type: {{repeater.attributes.PRI_LAST_CONTACT_METHOD.name}}"
+                                  "repeater.attributes.PRI_LAST_CONTACT_METHOD.value":{
+                                    "$neq":null
                                   }
                                 }
                               },
@@ -790,18 +727,16 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Last Contact Date"
+                                  "color": "#000000"
                                 },
-                                "conditional": {
-                                  "if": {
-                                    "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value": {
-                                      "$exists": true
-                                    }
+                                "children": "{{repeater.attributes.PRI_LAST_CONTACT_DATETIME.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
                                   },
-                                  "then": {
-                                    "text": "Last Contact Date: {{repeater.attributes.PRI_LAST_CONTACT_DATETIME.value}}"
-                                  }
+                                  "repeater.attributes.PRI_LAST_CONTACT_DATETIME.value":{
+                                    "$neq":null
+                                  }                                  
                                 }
                               },
                               {
@@ -809,29 +744,22 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "No of Times Contacted:"
+                                  "color": "#000000"
                                 },
-                                "conditional": {
-                                  "if": {
-                                    "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value": {
-                                      "$exists": true
-                                    }
+                                "children": "{{repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_CONTACTED"
                                   },
-                                  "then": {
-                                    "text": "No of Times Contacted:: {{repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value}}"
-                                  }
+                                  "repeater.attributes.PRI_NUMBER_OF_TIMES_CONTACTED.value":{
+                                    "$neq":null
+                                  } 
                                 }
                               }
                             ]
                           },
                           {
                             "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_INSPECTION"
-                              }
-                            },
                             "props": {
                               "flexDirection": "column",
                               "width": "100%",
@@ -843,27 +771,20 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Inspection Date:"
+                                  "color": "#000000"
                                 },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_INSPECTION_DATE.value": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_INSPECTION"
                                   },
-                                  "then":{
-                                    "text": "Inspection Date: {{repeater.attributes.PRI_INSPECTION_DATE.value}}"
-                                  }
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value":{
+                                    "$neq":null
+                                  } 
                                 }
                               }
                             ]
                           },
-
                           {
                             "component": "Box",
                             "props": {
@@ -890,11 +811,6 @@
                           },
                           {
                             "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_SIGNOFF"
-                              }
-                            },
                             "props": {
                               "flexDirection": "column",
                               "width": "100%",
@@ -906,33 +822,23 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Inspection Date:"
+                                  "color": "#000000"
                                 },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_INSPECTION_DATE.value": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_SIGNOFF"
                                   },
-                                  "then":{
-                                    "text": "Inspection Date: {{repeater.attributes.PRI_INSPECTION_DATE.value}}"
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value": {
+                                    "$exists": true
                                   }
+
                                 }
                               }
                             ]
                           },
                           {
                             "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_REQUESTED"
-                              }
-                            },
                             "props": {
                               "flexDirection": "column",
                               "width": "100%",
@@ -944,65 +850,21 @@
                                 "props": {
                                   "flexDirection": "column",
                                   "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Inspection Date:"
+                                  "color": "#000000"
                                 },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_INSPECTION_DATE.value": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
+                                "children": "{{repeater.attributes.PRI_INSPECTION_DATE.value}}",
+                                "onlyShowIf": {
+                                  "repeater.parentCode": {
+                                    "$eq": "GRP_REQUESTED"
                                   },
-                                  "then":{
-                                    "text": "Inspection Date: {{repeater.attributes.PRI_INSPECTION_DATE.value}}"
-                                  }
-                                }
-                              }
-                            ]
-                          },
-                          {
-                            "component": "Box",
-                            "onlyShowIf": {
-                              "repeater.parentCode": {
-                                "$eq": "GRP_COMPLETED"
-                              }
-                            },
-                            "props": {
-                              "flexDirection": "column",
-                              "width": "100%",
-                              "justifyContent": "center"
-                            },
-                            "children": [
-                              {
-                                "component": "Text",
-                                "props": {
-                                  "flexDirection": "column",
-                                  "justifyContent": "center",
-                                  "color": "#000000",
-                                  "text": "Report Released Date:"
-                                },
-                                "conditonal": {
-                                  "if": {
-                                    "$and": [
-                                      {
-                                        "repeater.attributes.PRI_REPORT_RELEASED_DATE.value": {
-                                          "$exists": true
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "then":{
-                                    "text": "Report Released Date: {{repeater.attributes.PRI_REPORT_RELEASED_DATE.value}}"
+                                  "repeater.attributes.PRI_INSPECTION_DATE.value": {
+                                    "$exists": true
                                   }
                                 }
                               }
                             ]
                           }
-                        ]
+                         ] 
                       }
                     ]
                   }
@@ -1122,16 +984,6 @@
         "as": "propertyType",
         "basePath": "baseEntities.data",
         "id": "{{parentBEG.attributes.LNK_PROPERTY_TYPE_SELECT.value}}"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "items",
-      "scope": {
-        "operator": "getBE",
-        "as": "propertyType",
-        "basePath": "baseEntities.data",
-        "id": "{{parentBEG.attributes.PRI_LAST_CONTACT_METHOD.value}}"
       }
     },
     {

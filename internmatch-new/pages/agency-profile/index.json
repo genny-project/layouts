@@ -36,6 +36,7 @@
     {
       "component": "Sublayout",
       "props": {
+<<<<<<< HEAD
         "layoutName": "view-details/profile/agency",
          "company": {
           "name": "_query.agency.attributes.PRI_NAME.value",
@@ -50,6 +51,21 @@
           "website": "_query.agency.attributes.PRI_COMPANY_WEBSITE_URL.value",
           "code": "_query.agency.code"
         }
+=======
+        "layoutName": "view-agency-details-profile",
+        "attributes": "_query.agencyProfile.attributes",
+        "fullName": "_query.agencyProfile.attributes.PRI_NAME.value",
+        "imageUrl": "_query.agencyProfile.attributes.PRI_IMAGE_URL.value",
+        "email": "_query.agencyProfile.attributes.PRI_EMAIL.value",
+        "telephone": "_query.agencyProfile.attributes.PRI_LANDLINE.value",
+        "description": "_query.agencyProfile.attributes.PRI_COMPANY_DESCRIPTION.value",
+        "address": "_query.agencyProfile.attributes.PRI_ADDRESS_STATE.value",
+        "ABN": "_query.agencyProfile.attributes.PRI_ABN.value",
+        "legalName": "_query.agencyProfile.attributes.PRI_LEGAL_NAME.value",
+        "postCode": "_query.agencyProfile.attributes.PRI_ADDRESS_POSTCODE.value",
+        "website": "_query.agencyProfile.attributes.PRI_COMPANY_WEBSITE_URL.value",
+        "agencyCode": "_query.agencyProfile.code"
+>>>>>>> master
       }
     }
   ],
@@ -57,7 +73,11 @@
     {
       "operator": "getFromAlias",
       "alias": "CURRENT_NOTE",
+<<<<<<< HEAD
       "as": "agency"
+=======
+      "as": "agencyProfile"
+>>>>>>> master
     },
     {
       "operator": "scope",
@@ -70,7 +90,11 @@
     },
     {
       "operator": "scope",
+<<<<<<< HEAD
       "path": "agency",
+=======
+      "path": "agencyProfile",
+>>>>>>> master
       "scope": {
         "operator": "getBE",
         "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
@@ -79,7 +103,11 @@
     },
     {
       "operator": "clean",
+<<<<<<< HEAD
       "fields": ["agency"]
+=======
+      "fields": ["agencyProfile"]
+>>>>>>> master
     }
   ]
 }

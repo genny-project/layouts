@@ -247,7 +247,7 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "Location To BriHighway:"
+                  "children": "Location To Bridge:"
                 }
               ]
             },
@@ -266,9 +266,9 @@
                     "justifyContent":"center",
                     "color":"#000000"
                   },
-                  "children": "{{query.property.attributes.propertylocation.name}}",
+                  "children": "{{query.propertylocation.name}}",
                   "onlyShowIf": {
-                    "query.property.attributes.propertylocation.name}":{
+                    "query.propertylocation.name":{
                       "$exists":true
                     } 
                   }
@@ -634,6 +634,13 @@
       "operator": "getBE",
       "id": "{{property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}",
       "as": "propertylocation"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "operator": "clean",
+      "fields": ["property"]
+>>>>>>> master
     }
   ]
   }

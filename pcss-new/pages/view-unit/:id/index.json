@@ -32,7 +32,7 @@
             {
               "component": "Image",
               "props": {
-                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.unit.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
+                "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
                 "shape": "square",
                 "position":"relative"
               }
@@ -54,7 +54,7 @@
                   "padding": 15,
                   "margin": 15,
                   "color": "#e05b5c",
-                  "text": "Back",
+                  "text": "Backeee",
                   "textColor": "white",
                   "isBackButton": true
                 }
@@ -141,12 +141,7 @@
                   "size": "xl"
                 },
                 "conditional":{
-                "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}",
-                "onlyShowIf": {
-                  "query.unit.attributes.PRI_ADDRESS_FULL.value":{
-                    "$exists":true
-                  } 
-                }
+                "children": "{{query.unit.attributes.PRI_ADDRESS_FULL.value}}"
                 }
               }
             ]
