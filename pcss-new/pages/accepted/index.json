@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Pages/Accepted Properties View",
+    "title": "Properties > Accepted Properties",
     "appColor": "white",
     "backgroundColor": "whitesmoke",
     "header": {
@@ -16,25 +16,14 @@
   "children": [
     {
       "component": "Box",
+      "props": {
+        "width": "100%"
+      },
       "children": [
         {
-          "component": "Table",
+          "component": "Sublayout",
           "props": {
-            "renderWrapper": {
-              "component": "EventButton",
-              "props": {
-                "height": "20px",
-                "fontWeight": "300",
-                "fontSize": 10,
-                "eventType": "BTN_CLICK",
-                "buttonCode": "BTN_TABLE_SELECT",
-                "value": {
-                  "itemCode": "_celld.attributeCode",
-                  "hint": "GRP_REQUESTED",
-                  "userCode": "{{user.data.code}}"
-                }
-              }
-            },
+            "layoutName": "tables/table-default",
             "columns": [
               {
                 "Header": "Action",
@@ -56,7 +45,7 @@
                         "color": "#d2e8ff"
                       },
                       "value": {
-                        "itemCode":"{{code}}",
+                        "itemCode": "{{code}}",
                         "hint": "BTN_VIEW_APPLICATION"
                       }
                     }
@@ -76,12 +65,16 @@
             ],
             "tableBackgroundColor": "#e05b5b",
             "data": "_query.tableData",
-            "height": "500px",
-            "width": "500px",
-            "itemsPerPage": 15
+            "rootCode": "GRP_REQUESTED"
           }
         }
       ]
+    },
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "footer"
+      }
     }
   ],
   "query": [

@@ -36,14 +36,15 @@
              "bold": true
            },
            "inactiveTabProps": {
-             "borderColor": "#233a4e",
+             "borderColor": "#bbbbbb",
              "borderRightWidth": 1,
              "borderStyle": "solid"
            },
            "tabs": [
-             { "title": "Table View", "key": 0},
-             { "title": "Process View", "key": 1 },
-             { "title": "Map View", "key": 2 }
+             { "title": "Table View", "key": 0, "testID": "SEL_TABLE_VIEW"},
+             { "title": "Process View", "key": 1 ,"testID": "SEL_PROCESS_VIEW"},
+             { "title": "Detail View", "key": 2 ,"testID": "SEL_DETAIL_VIEW"},
+             { "title": "Map View", "key": 3 ,"testID": "SEL_MAP_VIEW"}
            ],
            "childProps": {
              "overflow": "auto",
@@ -65,6 +66,12 @@
                "layoutName": "home/properties/bucket-view"
              }
            },
+           {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/properties/detail-view"
+            }
+          },
            {
              "component": "Sublayout",
              "props": {
