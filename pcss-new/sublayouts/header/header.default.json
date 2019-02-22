@@ -30,6 +30,114 @@
         },
         "children": [
           {
+            "component": "Dropdown",
+            "props": {
+              "facingRight": true,
+              "menuButtonStyle": {
+                "backgroundColor": "transparent",
+                "border": 0,
+                "padding": 10,
+                "fontSize": 16,
+                "cursor": "pointer",
+                "color": "white"
+              },
+              "menuListStyle": {
+                "background": "#e05b5c",
+                "borderWidth": 2,
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "color": "white",
+                "textAlign": "center",
+                "minWidth": 150
+              },
+              "items": [
+                {
+                  "icon": "location_city",
+                  "text": "Property",
+                  "buttonCode": "ADD_PROPERTY",
+                  "eventType": "BTN_CLICK",
+                  "testID":"dropdown-item SEL_ADD_PROPERTY"
+                },
+                {  
+                  "icon": "person_add",
+                  "text": "Staff",
+                  "buttonCode": "ADD_STAFF",
+                  "eventType": "BTN_CLICK",
+                  "testID":"dropdown-item SEL_ADD_STAFF"
+                }
+              ],
+              "renderItem": {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center",
+                  "justifyContent": "space-around",
+                  "padding": 15
+                },
+                "children": [
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white",
+                      "align":"left"
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 5
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "text": "{{item.text}}",
+                          "color": "white",
+                          "align": "right",
+                          "testID": "{{item.testID}}"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "testID": "QUE_ADD_ITEM"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginRight": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color": "white",
+                          "text": "ADD"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component": "Icon",
+                    "props": {
+                      "name": "expand_more",
+                      "color": "white",
+                      "size": "xs"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "component": "Touchable",
             "props": {
               "paddingX": 10,
@@ -89,32 +197,43 @@
                   "icon": "person",
                   "text": "Profile",
                   "buttonCode": "PROFILE",
-                  "eventType": "PROFILE"
+                  "eventType": "BTN_CLICK",
+                  "testID":"dropdown-item SEL_USER_PROFILE"
                 },
                 {  
                   "icon": "settings",
                   "text": "Account",
                   "buttonCode": "ACCOUNT",
-                  "eventType": "ACCOUNT"
+                  "eventType": "BTN_CLICK",
+                  "testID":"dropdown-item SEL_USER_ACCOUNT"
                 },
                 {
                   "icon": "exit-to-app",
                   "text": "Logout",
-                  "href": "logout"
+                  "href": "logout",
+                  "testID":"dropdown-item SEL_USER_LOGOUT"
                 }
               ],
               "renderItem": {
                 "component": "Box",
                 "props": {
                   "alignItems": "center",
-                  "justifyContent": "flex-end",
+                  "justifyContent": "space-around",
                   "padding": 15
                 },
                 "children": [
                   {
+                    "component": "Icon",
+                    "props": {
+                      "name": "{{item.icon}}",
+                      "color": "white",
+                      "align":"left"
+                    }
+                  },
+                  {
                     "component": "Box",
                     "props": {
-                      "marginRight": 15
+                      "marginRight": 5
                     },
                     "children": [
                       {
@@ -122,21 +241,15 @@
                         "props": {
                           "text": "{{item.text}}",
                           "color": "white",
-                          "align": "right"
+                          "align": "right",
+                          "testID": "{{item.testID}}"
                         }
                       }
                     ]
-                  },
-                  {
-                    "component": "Icon",
-                    "props": {
-                      "name": "{{item.icon}}",
-                      "color": "white"
-                    }
                   }
                 ]
               },
-              "testID": "USER_DROPDOWN"
+              "testID": "QUE_SELECT_ACCOUNT_FUNCTIONS"
             },
             "children": [
               {

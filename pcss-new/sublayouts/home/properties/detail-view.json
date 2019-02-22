@@ -1,23 +1,23 @@
 {
-    "layout": {
-      "title": "PCSS",
-      "header": {
-        "variant": "default"
-      },
-      "sidebar": {
-        "variant": "default"
-      },
-      "sidebarRight": {
-        "variant": "default"
-      }
+  "layout": {
+    "title": "PCSS",
+    "header": {
+      "variant": "default"
     },
-    "children": [
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default"
+    }
+  },
+  "children": [
     {
       "component": "Container",
       "props": {
-        "flexDirection" : "column",
+        "flexDirection": "column",
         "justifyContent": "center",
-        "marginTop":"20px",
+        "marginTop": "20px",
         "minWidth": "900px"
       },
       "children": [
@@ -25,7 +25,7 @@
           "component": "Box",
           "props": {
             "flexDirection": "column",
-            "width":"100%"
+            "width": "100%"
           },
           "children": [
             {
@@ -33,7 +33,7 @@
               "props": {
                 "source": "https://maps.googleapis.com/maps/api/streetview?location={{query.property.attributes.PRI_ADDRESS_FULL.value}}&size=1000x300&key=AIzaSyDYJRqloatpm4HjY7JydV4Jiii1ZOEapQM",
                 "shape": "square",
-                "position":"relative"
+                "position": "relative"
               }
             },
             {
@@ -55,7 +55,8 @@
                   "color": "#e05b5c",
                   "text": "Back",
                   "textColor": "white",
-                  "isBackButton": true
+                  "isBackButton": true,
+                  "testID": "SEL_BACK"
                 }
               }
             },
@@ -78,8 +79,9 @@
                   "text": "Edit",
                   "textColor": "white",
                   "buttonCode": "BTN_EDIT_PROPERTY_BUTTON",
+                  "testID": "SEL_EDIT",
                   "value": {
-                    "itemCode": "{{navigation.id}}",
+                    "itemCode": "{{query.property.code}}",
                     "hint": "BTN_EDIT_PROPERTY_BUTTON"
                   }
                 }
@@ -102,10 +104,11 @@
                   "padding": 15,
                   "color": "#e05b5c",
                   "text": "Delete",
+                  "testID": "SEL_DELETE",
                   "textColor": "white",
                   "buttonCode": "BTN_DELETE_BEG",
                   "value": {
-                    "itemCode": "{{navigation.id}}",
+                    "itemCode": "{{query.property.code}}",
                     "hint": "GRP_NEW_ITEMS"
                   }
                 }
@@ -117,135 +120,132 @@
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "height":50,
-            "width":"100%",
-            "backgroundColor":"#f5f5f5",
-            "marginTop":"30px"
+            "height": 50,
+            "width": "100%",
+            "backgroundColor": "#f5f5f5",
+            "marginTop": "30px"
           },
-          "children":
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000",
-                    "size":"xl"
-                  },
-                  "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}",
-                  "onlyShowIf": {
-                    "query.property.attributes.PRI_ADDRESS_FULL.value":{
-                      "$exists":true
-                    } 
+          "children": {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column",
+              "width": "50%",
+              "justifyContent": "center",
+              "paddingLeft": "7px"
+            },
+            "children": [
+              {
+                "component": "Heading",
+                "props": {
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "color": "#000000",
+                  "size": "xl"
+                },
+                "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}",
+                "onlyShowIf": {
+                  "query.property.attributes.PRI_ADDRESS_FULL.value": {
+                    "$exists": true
                   }
                 }
-              ]
-            }
+              }
+            ]
+          }
         },
         {
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "height":50,
-            "width":"100%",
-            "backgroundColor":"#f5f5f5",
-            "marginTop":"30px"
+            "height": 50,
+            "width": "100%",
+            "backgroundColor": "#f5f5f5",
+            "marginTop": "30px"
           },
-          "children":
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
-              },
-              "children": [
-                {
-                  "component": "Heading",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000",
-                    "size":"lg"
-                  },
-                  "children": "{{query.propertytype.name}}",
-                  "onlyShowIf": {
-                    "query.propertytype.name":{
-                      "$exists":true
-                    } 
+          "children": {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column",
+              "width": "50%",
+              "justifyContent": "center",
+              "paddingLeft": "7px"
+            },
+            "children": [
+              {
+                "component": "Heading",
+                "props": {
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "color": "#000000",
+                  "size": "lg"
+                },
+                "children": "{{query.propertytype.name}}",
+                "onlyShowIf": {
+                  "query.propertytype.name": {
+                    "$exists": true
                   }
                 }
-              ]
-            }
+              }
+            ]
+          }
         },
         {
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "height":50,
-            "width":"100%",
-            "backgroundColor":"#f5f5f5",
-            "marginTop":"20px",
-            "borderWidth":2,
+            "height": 50,
+            "width": "100%",
+            "backgroundColor": "#f5f5f5",
+            "marginTop": "20px",
+            "borderWidth": 2,
             "borderColor": "#000000"
           },
-          "children":
-            {
-              "component": "Box",
-              "props": {
-                "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
-              },
-              "children": [
-                {
-                  "component": "Text",
-                  "props": {
-                    "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000",
-                    "size":"xl"
-                  },
-                  "children": "Property Location"
-                }
-              ]
-            }
+          "children": {
+            "component": "Box",
+            "props": {
+              "flexDirection": "column",
+              "width": "50%",
+              "justifyContent": "center",
+              "paddingLeft": "7px"
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props": {
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "color": "#000000",
+                  "size": "xl"
+                },
+                "children": "Property Location"
+              }
+            ]
+          }
         },
         {
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "justifyContent":"space-around",
-            "height":50,
-            "marginTop":"5px",
-            "backgroundColor":"#f5f5f5"
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "Highway Location:"
                 }
@@ -255,22 +255,22 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center"
+                "width": "50%",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
-                  "children": "{{query.propertyprecinct.name}}",
+                  "children": "{{query.propertylocationhighway.name}}",
                   "onlyShowIf": {
-                    "query.propertyprecinct.name":{
-                      "$exists":true
-                    } 
+                    "query.propertylocationhighway.name": {
+                      "$exists": true
+                    }
                   }
                 }
               ]
@@ -281,27 +281,27 @@
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "justifyContent":"space-around",
-            "height":50,
-            "marginTop":"5px",
-            "backgroundColor":"#f5f5f5"
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "Postcode:"
                 }
@@ -311,22 +311,22 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center"
+                "width": "50%",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "{{query.property.attributes.PRI_ADDRESS_POSTCODE.value}}",
                   "onlyShowIf": {
-                    "query.property.attributes.PRI_ADDRESS_POSTCODE.value":{
-                      "$exists":true
-                    } 
+                    "query.property.attributes.PRI_ADDRESS_POSTCODE.value": {
+                      "$exists": true
+                    }
                   }
                 }
               ]
@@ -337,27 +337,27 @@
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "justifyContent":"space-around",
-            "height":50,
-            "marginTop":"5px",
-            "backgroundColor":"#f5f5f5"
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "Bridge Location:"
                 }
@@ -367,22 +367,22 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center"
+                "width": "50%",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "{{query.propertyprecinct.name}}",
                   "onlyShowIf": {
-                    "query.propertyprecinct.name":{
-                      "$exists":true
-                    } 
+                    "query.propertyprecinct.name": {
+                      "$exists": true
+                    }
                   }
                 }
               ]
@@ -393,27 +393,27 @@
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "justifyContent":"space-around",
-            "height":50,
-            "marginTop":"5px",
-            "backgroundColor":"#f5f5f5"
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "Property Type:"
                 }
@@ -423,22 +423,22 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center"
+                "width": "50%",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "{{query.propertytype.name}}",
                   "onlyShowIf": {
-                    "query.propertytype.name":{
-                      "$exists":true
-                    } 
+                    "query.propertytype.name": {
+                      "$exists": true
+                    }
                   }
                 }
               ]
@@ -449,27 +449,27 @@
           "component": "Box",
           "props": {
             "flexDirection": "row",
-            "justifyContent":"space-around",
-            "height":50,
-            "marginTop":"5px",
-            "backgroundColor":"#f5f5f5"
+            "justifyContent": "space-around",
+            "height": 50,
+            "marginTop": "5px",
+            "backgroundColor": "#f5f5f5"
           },
           "children": [
             {
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center",
-                "paddingLeft":"7px"
+                "width": "50%",
+                "justifyContent": "center",
+                "paddingLeft": "7px"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "Address:"
                 }
@@ -479,22 +479,22 @@
               "component": "Box",
               "props": {
                 "flexDirection": "column",
-                "width":"50%",
-                "justifyContent":"center"
+                "width": "50%",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Text",
                   "props": {
                     "flexDirection": "column",
-                    "justifyContent":"center",
-                    "color":"#000000"
+                    "justifyContent": "center",
+                    "color": "#000000"
                   },
                   "children": "{{query.property.attributes.PRI_ADDRESS_FULL.value}}",
                   "onlyShowIf": {
-                    "query.property.attributes.PRI_ADDRESS_FULL.value":{
-                      "$exists":true
-                    } 
+                    "query.property.attributes.PRI_ADDRESS_FULL.value": {
+                      "$exists": true
+                    }
                   }
                 }
               ]
@@ -509,11 +509,11 @@
         "layoutName": "footer"
       }
     }
-   ],
-   "query": [
+  ],
+  "query": [
     {
-      "operator": "getBE",
-      "id": "{{navigation.id}}",
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
       "as": "property"
     },
     {
@@ -538,7 +538,7 @@
     {
       "operator": "getBE",
       "id": "{{property.attributes.LNK_LOCATION_TO_HIGHWAY.value}}",
-      "as": "propertylocation"
+      "as": "propertylocationhighway"
     }
   ]
-  }
+}
