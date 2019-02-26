@@ -1,0 +1,79 @@
+{
+  "layout": {
+    "title": "Education Provider Profile",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "rgb(255,255,255)"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/header",
+            "attributes": {
+              "code": "{{attributeCode}}",
+              "name": "{{props.fullName}}",
+              "imageUrl": "{{props.imageUrl}}",
+              "email": "{{props.email}}"
+            },
+            "buttonCode": "BTN_EDIT_EDU_PROVIDER",
+            "mainContent": {
+              "component": "Box",
+              "renderAsComponent": true,
+              "props": {
+                "marginTop": "10px"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "children": {
+                    "component": "Text",
+                    "props": {
+                      "color": "blue",
+                      "size": "md",
+                      "text": "{{props.attributes.email}}"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "flexDirection": "column",
+        "backgroundColor": "rgb(255,255,255)",
+        "marginTop": "20px"
+      },
+      "children": [
+
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/content",
+            "title": "Details",
+            "content": [
+              {
+                "label": "Telephone:",
+                "text": "{{props.telephone}}"
+              },
+              {
+                "label": "Address:",
+                "text": "{{props.address}}"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

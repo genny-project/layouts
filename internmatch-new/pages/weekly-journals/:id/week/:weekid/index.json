@@ -1,0 +1,646 @@
+{
+  "layout": {
+    "title": "Weekly report",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "journal-layout"
+      },
+      "conditional": [
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "1"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W1.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W1.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W1.value}}",
+            "title": "Week 1",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_WD3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "2"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W2.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W2.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W2.value}}",
+            "title": "Week 2",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W2D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W2D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W2D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W2D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W2D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W2D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W2D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W2D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W2D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "3"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W3.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W3.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W3.value}}",
+            "title": "Week 3",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W3D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W3D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W3D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W3D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W3D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "4"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W4.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W4.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W4.value}}",
+            "title": "Week 4",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W4D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W4D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W4D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W4D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W4D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "5"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W5.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W5.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W5.value}}",
+            "title": "Week 5",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W5D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W5D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W5D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W5D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W5D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D5.value}}"
+              }
+             
+            ]
+
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "6"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W6.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W6.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W6.value}}",
+            "title": "Week 6",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W6D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W6D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W6D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W6D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W6D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D5.value}}"
+              }
+             
+            ]
+
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "7"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W7.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W7.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W7.value}}",
+            "title": "Week 7",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W7D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W7D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W7D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W7D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W7D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "8"
+            }
+          },
+          "then":{
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W8.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W8.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W8.value}}",
+            "title": "Week 8",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W8D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W8D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W8D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W8D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W8D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D5.value}}"
+              }
+             
+            ]
+
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "9"
+            }
+          },
+          "then":{
+            "title": "Week 9",
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W9.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W9.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W9.value}}",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W9D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W9D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W9D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W9D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W9D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "10"
+            }
+          },
+          "then":{
+            "title": "Week 10",
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W10.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W10.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W10.value}}",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W10D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W10D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W10D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W10D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W10D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "11"
+            }
+          },
+          "then":{
+            "title": "Week 11",
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W11.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W11.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W11.value}}",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W11D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W11D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W11D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W11D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W11D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D5.value}}"
+              }
+             
+            ]
+          }
+        },
+        {
+          "if": {
+            "navigation.weekid": {
+              "$eq": "12"
+            }
+          },
+          "then":{
+            "title": "Week 12",
+            "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W12.value}}",
+            "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W12.value}}",
+            "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W12.value}}",
+            "items": [
+              {
+                "day": "Day 1",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W12D1.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D1.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D1.value}}"
+              },
+              {
+                "day": "Day 2",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W12D2.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D2.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D2.value}}"
+              },
+              {
+                "day": "Day 3",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W12D3.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D3.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D3.value}}"
+              },
+              {
+                "day": "Day 4",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W12D4.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D4.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D4.value}}"
+              },
+              {
+                "day": "Day 5",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W12D5.value}}",
+                "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D5.value}}",
+                "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D5.value}}"
+              }
+             
+            ]
+          }
+        }
+      ]
+    }
+  
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "student"
+    },
+    {
+      "operator": "scope",
+      "path": "student",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "student.links",
+      "as": "studentlinks",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+            "link.linkValue": {
+                "$eq": "INT_AGMT"
+            }
+          }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "studentlinks",
+      "as": "docBeg",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "docBeg",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "docAttributes"
+      }
+    }
+  ]
+}

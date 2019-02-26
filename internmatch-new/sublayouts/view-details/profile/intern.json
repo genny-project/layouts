@@ -1,0 +1,336 @@
+{
+  "layout": {
+    "title": "Intern Profile",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/header",
+            "attributes": {
+              "code": "{{query.intern.code}}",
+              "name": "{{query.intern.attributes.PRI_FIRSTNAME.value}} {{query.intern.attributes.PRI_LASTNAME.value}}",
+              "imageUrl": "{{query.intern.attributes.PRI_IMAGE_URL.value}}",
+              "educationProvider": "{{query.intern.educationProvider.name}}",
+              "studentID": "{{query.intern.attributes.PRI_STUDENT_ID.value}}"
+            },
+            "buttonCode": "BTN_EDIT_INTERN",
+            "mainContent": {
+              "component": "Box",
+              "renderAsComponent": true,
+              "props": {
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "onlyShowIf": {
+                    "props.attributes.educationProvider": {
+                      "$exists": true
+                    }
+                  },
+                  "props": {
+                    "marginTop": "10px"
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "color": "rgb(85, 148, 188)",
+                        "size": "md",
+                        "text": "{{props.attributes.educationProvider}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "Box",
+                  "props": {
+                    "marginTop": "10px"
+                  },
+                  "onlyShowIf": {
+                    "props.attributes.studentID": {
+                      "$exists": true
+                    }
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {},
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "size": "md",
+                          "color": "rgb(169, 169, 169)"
+                        },
+                        "children": "Student ID:"
+                      }
+                    },
+                    {
+                      "component": "Box",
+                      "props": {
+                        "marginLeft": "10px"
+                      },
+                      "children": {
+                        "component": "Text",
+                        "props": {
+                          "color": "rgb(169, 169, 169)",
+                          "size": "md",
+                          "text": "{{props.attributes.studentID}}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "marginTop": -20,
+        "width": "100%",
+        "flexDirection": "column"
+      },
+      "onlyShowIf": {
+        "user.attributes.PRI_IS_AGENT.value": {
+          "$eq": true
+        }
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": 1
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "paddingTop": 20,
+            "paddingLeft": 20,
+            "marginBottom": 20
+          },
+          "children": [
+            {
+              "component": "Box",
+              "children": {
+                "component": "EventButton",
+                "props": {
+                  "height": "50px",
+                  "width": "150px",
+                  "borderRadius": 30,
+                  "showSpinnerOnClick": true,
+                  "color": "rgb(85, 148, 188)",
+                  "textColor": "#fff",
+                  "text": "Send Email",
+                  "buttonCode": "",
+                  "value": {
+                    "itemCode": "{{}}"
+                  }
+                }
+              }
+            },
+            {
+              "component": "Box",
+              "onlyShowIf": {
+                "query.intern.attributes.PRI_RESUME": {
+                  "$exists": true
+                }
+              },
+              "props": {
+                "marginLeft": "20px"
+              },
+              "repeat": "_query.intern.attributes.PRI_RESUME.value",
+              "children": {
+                "component": "Link",
+                "props": {
+                  "to": "{{repeater.uploadURL}}",
+                  "externalLink": true
+                },
+                "children": [
+                  {
+                    "component": "Box",
+                    "props": {
+                      "backgroundColor": "rgb(85, 148, 188)",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "height": 50,
+                      "padding": 20
+                    },
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "size": "sm",
+                          "color": "white",
+                          "bold": true,
+                          "text": "View Resume"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "component": "Box",
+              "dontShowIf": {
+                "query.intern.attributes.PRI_RESUME": {
+                  "$exists": true
+                }
+              },
+              "props": {
+                "marginLeft": "20px"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "backgroundColor": "#ddd",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "height": 50,
+                    "padding": 20
+                  },
+                  "children": [
+                    {
+                      "component": "Text",
+                      "props": {
+                        "size": "sm",
+                        "color": "white",
+                        "bold": true,
+                        "text": "No Resume Uploaded"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "onlyShowIf": {
+        "query.intern.attributes.PRI_INTERN_DETAILS.value": {
+          "$exists": true
+        }
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/description",
+            "title": "Summary",
+            "content": [
+              {
+                "content": "{{query.intern.attributes.PRI_INTERN_DETAILS.value}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white",
+        "marginBottom": 20,
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/content",
+            "title": "Details",
+            "content": [
+              {
+                "label": "Email:",
+                "text": "{{query.intern.attributes.PRI_EMAIL.value}}"
+              },
+              {
+                "label": "Mobile:",
+                "text": "{{query.intern.attributes.PRI_MOBILE.value}}"
+              },
+              {
+                "label": "Address:",
+                "text": "{{query.intern.attributes.PRI_ADDRESS_FULL.value}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "backgroundColor": "white"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "view-details/documents",
+            "title": "Documents",
+            "content": "_query.intern.attributes.PRI_OTHER_INTERN_REGISTRATION_DOCUMENTS.value"
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "intern"
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "intern",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_EDU_PROVIDER.value}}",
+        "as": "educationProvider"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": [
+        "intern"
+      ]
+    }
+  ]
+}

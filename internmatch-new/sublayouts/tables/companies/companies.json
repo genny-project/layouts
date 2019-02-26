@@ -1,0 +1,119 @@
+{
+  "onlyUpdateIf": ["allCompanies", "tableData"],
+  "layout": {
+    "title": "All Companies Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULT_COMPANIES",
+            "rootCode": "GRP_RESULT_COMPANIES",
+            "totalItems": "_query.allCompanies.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "Company Name",
+                "accessor": "name",
+                "attributeCode": "PRI_COMPANY_NAME",
+                "id": "name",
+                "key": "name",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Address",
+                "accessor": "address",
+                "attributeCode": "PRI_ADDRESS_FULL",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_COMPANIES",
+      "as": "allCompanies"
+    },
+    {
+      "operator": "scope",
+      "path": "allCompanies.links",
+      "as": "allCompanies",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "allCompanies",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "allCompanies",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "allCompanies",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "name": "attributes.PRI_NAME.value",
+          "legalName": "attributes.PRI_LEGAL_NAME.value",
+          "contactNumber": "companyRep.attributes.PRI_LANDLINE.value",
+          "website": "attributes.PRI_COMPANY_WEBSITE_URL.value",
+          "abn": "attributes.PRI_ABN.value",
+          "email": "attributes.PRI_EMAIL.value",
+          "address": "attributes.PRI_ADDRESS_ADDRESS1.value"
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["allCompanies", "tableData"]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "layout": {
+    "title": "All Active Internships",
+    "appColor": "white",
+    "backgroundColor": "whitesmoke",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Sublayout",
+      "props": {
+        "layoutName": "tabs/default",
+        "title": "Internships",
+        "tabs": [
+          { "title": "Table View", "key": 0, "testID": "SEL_TABLE_VIEW" },
+          { "title": "Process View", "key": 1, "testID": "SEL_PROCESS_VIEW" },
+          { "title": "Details View", "key": 2, "testID": "SEL_DETAILS_VIEW" }
+        ],
+        "content": [
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "tables/internships/active"
+            }
+          },
+          {
+            "component": "Box",
+            "conditional": {
+              "if": {
+                "media.size": {
+                  "$eq": "sm"
+                }
+              },
+              "then": {
+                "width": "100%"
+              }
+            },
+            "props": {
+              "flexDirection": "column"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "paddingX": 20,
+                  "paddingTop": 20
+                },
+                "children": [
+                  {
+                    "component": "Heading",
+                    "props": {
+                      "text": "{{query.currentItem.name}}"
+                    }
+                  }
+                ]
+              },
+              {
+                "component": "Sublayout",
+                "props": {
+                  "layoutName": "home/agent/bucket"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Sublayout",
+            "props": {
+              "layoutName": "home/agent/internship-details"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
+    },
+    {
+      "operator": "clean",
+      "fields": ["currentItem"]
+    }
+  ]
+}

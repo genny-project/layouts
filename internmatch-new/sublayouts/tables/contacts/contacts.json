@@ -1,0 +1,122 @@
+
+{
+  "onlyUpdateIf": ["contactsGroup", "tableData"],
+  "layout": {
+    "title": "Contacts Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULT_CONTACTS",
+            "rootCode": "GRP_RESULT_CONTACTS",
+            "totalItems": "_query.contactsGroup.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "First Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
+                "id": "firstName",
+                "key": "firstName",
+                "filterType": "string"
+              },
+              {
+                "Header": "Last Name",
+                "accessor": "lastName",
+                "attributeCode": "PRI_LASTNAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "email",
+                "filterType": "string",
+                "attributeCode": "PRI_EMAIL"
+              },
+              {
+                "Header": "Contact Number",
+                "accessor": "contactNumber",
+                "attributeCode": "PRI_MOBILE",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_CONTACTS",
+      "as": "contacts"
+    },
+    {
+      "operator": "scope",
+      "path": "contacts.links",
+      "as": "contacts",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "contacts",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "contacts",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "firstName": "attributes.PRI_FIRSTNAME.value",
+          "lastName": "attributes.PRI_LASTNAME.value",
+          "contactNumber": "companyRep.attributes.PRI_MOBILE.value",
+          "email": "attributes.PRI_EMAIL.value"
+        }
+      }
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_CONTACTS",
+      "as": "contactsGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["contactsGroup", "tableData"]
+    }
+  ]
+}
