@@ -117,25 +117,15 @@
         },
         "children": [
           {
-            "component": "Box",
+            "component": "Sublayout",
             "onlyShowIf": {
               "sidebar.left.isOpen": {
                 "$eq": true
               }
             },
             "props": {
-              "flex": 1,
-              "justifyContent": "center"
-            },
-            "children": [
-              {
-                "component": "Image",
-                "props": {
-                  "source": "https://puu.sh/BB7km.png",
-                  "height": 80
-                }
-              }
-            ]
+              "layoutName": "sidebar/sidebar.image"
+            }
           },
           {
             "component": "Box",
@@ -166,7 +156,8 @@
                 "component": "Touchable",
                 "props": {
                   "withFeedback": true,
-                  "onPress": "_onToggle"
+                  "onPress": "_onToggle",
+                  "testID": "sidebar-menu SEL_SIDEBAR_LEFT"
                 },
                 "children": {
                   "component": "Icon",

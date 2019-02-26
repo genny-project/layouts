@@ -1,0 +1,152 @@
+{
+  "onlyUpdateIf": ["agentsList", "tableData"],
+  "layout": {
+    "title": "Agents Table"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props" : {
+        "width" : "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_RESULT_AGENTS",
+            "rootCode": "GRP_RESULT_AGENTS",
+            "totalItems": "_query.agentsList.totalCount",
+            "data": "_query.tableData",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "Full Name",
+                "accessor": "firstName",
+                "attributeCode": "PRI_FIRSTNAME",
+                "filterType": "string"
+              },
+              {
+                "Header": "Email",
+                "accessor": "uname",
+                "attributeCode": "PRI_EMAIL",
+                "filterType": "string"
+              },
+              {
+                "Header": "contact Number",
+                "accessor": "mobilePhone",
+                "attributeCode": "PRI_PHONE_NUMBER",
+                "filterType": "string"
+              },
+              {
+                "Header": "Agency",
+                "accessor": "agency",
+                "filterType": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+     {
+      "operator": "getBE",
+      "id": "GRP_RESULT_AGENTS",
+      "as": "agentsList"
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList.links",
+      "as": "agentsList",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}",
+        "as": "be"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "scope": {
+        "operator": "scope",
+        "path": "be",
+        "scope": {
+          "operator": "populateBEGAttributes",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "company",
+        "basePath": "baseEntities.data",
+        "id": "{{be.attributes.LNK_EDU_PROVIDER.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "scope": {
+        "operator": "getBE",
+        "as" : "agency",
+        "id": "{{be.attributes.LNK_AGENCY.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "scope": {
+        "operator": "scope",
+        "path": "agency",
+        "scope": {
+          "operator": "populateAttributes",
+          "as" : "attributes",
+          "code": "{{code}}"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "agentsList",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "be.code",
+          "firstName": "be.attributes.PRI_NAME.value",
+          "eduProvider": "company.name",
+          "mobilePhone": "be.attributes.PRI_MOBILE.value",
+          "uname": "be.attributes.PRI_USERNAME.value",
+          "agency": "agency.attributes.PRI_NAME.value",
+          "attributeCode": "code"
+
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData", "agentsList"]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "onlyUpdateIf": ["rootGroup", "currentItem"],
+  "layout": {
+    "title": "{{props.title}}",
+    "appColor": "white",
+    "backgroundColor": "white"
+  },
+  "children": [
+    {
+      "component": "Table",
+      "dontInjectContextIntoProps": [
+        "dispatchActionOnChange"
+      ],
+      "conditional": {
+        "if": {
+          "query.rootGroup.totalCount": {
+            "$exists": true
+          }
+        },
+        "then": {
+          "totalItems": "_query.rootGroup.totalCount"
+        }
+      },
+      "props": {
+        "code": "{{props.code}}",
+        "isSelectable": true,
+        "selectFirstItemOnMount": true,
+        "itemToSelectFirst": "_query.currentItem",
+        "cellContext": {
+          "rootCode": "{{props.rootCode}}",
+          "userCode": "{{user.data.code}}"
+        },
+        "renderWrapper": {
+          "component": "EventButton",
+          "props": {
+            "height": "20px",
+            "fontWeight": "300",
+            "fontSize": 10,
+            "eventType": "TABLE_SELECT",
+            "value": {
+              "itemCode": "{{celld.code}}",
+              "hint": "{{rootCode}}",
+              "userCode": "{{userCode}}"
+            },
+            "testID": "table-cell {{celld.code}}",
+            "dispatchActionOnClick": {
+              "type": "ALIAS_ADD",
+              "payload": {
+                "alias": "CURRENT_NOTE",
+                "value": "{{celld.code}}"
+              }
+            },
+            "onPress": "_onPress"
+          }
+        },
+        "dispatchActionOnChange": {
+          "type": "ALIAS_ADD",
+          "payload": {
+            "alias": "CURRENT_NOTE",
+            "value": "{{code}}"
+          }
+        },
+        "columns": "_props.columns",
+        "tableBackgroundColor": "#cccccc",
+        "data": "_props.data",
+        "height": "500px",
+        "width": "500px",
+        "itemsPerPage": 10
+      }
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "{{props.rootCode}}",
+      "as": "rootGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["rootGroup", "currentItem"]
+    }
+  ]
+}

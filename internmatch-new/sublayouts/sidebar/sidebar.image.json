@@ -1,0 +1,48 @@
+{
+  "layout": {
+    "title": "Sidebar Image",
+    "appColor": "dark"
+  },
+  "children": [
+    {
+      "component": "Box",
+
+      "props": {
+        "flex": 1,
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": [
+        {
+          "component": "Image",
+          "props": {
+            "source": "{{query.project.attributes.PRI_LOGO.value}}",
+            "height": 80
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getFromAlias",
+      "alias": "PROJECT",
+      "as": "project"
+    },
+    {
+      "operator": "scope",
+      "path": "project",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": [
+        "project"
+      ]
+    }
+  ]
+}

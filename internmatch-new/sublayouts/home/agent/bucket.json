@@ -90,7 +90,8 @@
                       },
                       "scrollViewProps": {
                         "horizontal": true
-                      }
+                      },
+                      "testID": "{{repeater.code}}"
                     },
                     "repeat": "_repeater.items",
                     "sort": {
@@ -113,7 +114,8 @@
                         },
                         "selectionProps": "_selection",
                         "id": "{{repeater.code}}",
-                        "item": "_repeater"
+                        "item": "_repeater",
+                        "testID": "SELECT_EVENT {{repeater.code}}"
                       },
                       "conditional": {
                         "if": {
@@ -238,7 +240,8 @@
                                           "textAlign": "right",
                                           "padding": 15,
                                           "color": "white"
-                                        }
+                                        },
+                                        "testID": "CARD_ACTIONS_DROPDOWN"
                                       },
                                       "conditional": {
                                         "if": {
@@ -269,11 +272,20 @@
                                             "items": [
                                               {
                                                 "text": "View Application",
-                                                "href": "/application/{{repeater.code}}"
+                                                "href": "/application/{{repeater.code}}",
+                                                "testID": "BTN_VIEW_APPLICATION"
                                               },
                                               {
                                                 "text": "View Internship Offer",
                                                 "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                                "value": {
+                                                  "itemCode": "{{repeater.code}}",
+                                                  "hint": "{{parentRepeater.code}}"
+                                                }
+                                              },
+                                              {
+                                                "text": "View Induction Document",
+                                                "buttonCode": "BTN_SHOW_INDUCTION_DOCUMENT",
                                                 "value": {
                                                   "itemCode": "{{repeater.code}}",
                                                   "hint": "{{parentRepeater.code}}"
@@ -308,11 +320,20 @@
                                               "items": [
                                                 {
                                                   "text": "View Application",
-                                                  "href": "/applications/{{repeater.code}}"
+                                                  "href": "/application/{{repeater.code}}",
+                                                  "testID": "BTN_VIEW_APPLICATION"
                                                 },
                                                 {
                                                   "text": "View Internship Offer",
                                                   "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                                  "value": {
+                                                    "itemCode": "{{repeater.code}}",
+                                                    "hint": "{{parentRepeater.code}}"
+                                                  }
+                                                },
+                                                {
+                                                  "text": "View Induction Document",
+                                                  "buttonCode": "BTN_SHOW_INDUCTION_DOCUMENT",
                                                   "value": {
                                                     "itemCode": "{{repeater.code}}",
                                                     "hint": "{{parentRepeater.code}}"
@@ -355,7 +376,8 @@
                                                 "items": [
                                                   {
                                                     "text": "View Application",
-                                                    "href": "/application/{{repeater.code}}"
+                                                    "href": "/application/{{repeater.code}}",
+                                                    "testID": "BTN_VIEW_APPLICATION"
                                                   },
                                                   {
                                                     "text": "View Internship Offer",
@@ -386,7 +408,8 @@
                                                   "items": [
                                                     {
                                                       "text": "View Application",
-                                                      "href": "/application/{{repeater.code}}"
+                                                      "href": "/application/{{repeater.code}}",
+                                                      "testID": "BTN_VIEW_APPLICATION"
                                                     },
                                                     {
                                                       "text": "Make Offer",
@@ -417,7 +440,8 @@
                                                     "items": [
                                                       {
                                                         "text": "View Application",
-                                                        "href": "/application/{{repeater.code}}"
+                                                        "href": "/application/{{repeater.code}}",
+                                                        "testID": "BTN_VIEW_APPLICATION"
                                                       },
                                                       {
                                                         "text": "Interview",
@@ -456,7 +480,8 @@
                                                       "items": [
                                                         {
                                                           "text": "View Application",
-                                                          "href": "/application/{{repeater.code}}"
+                                                          "href": "/application/{{repeater.code}}",
+                                                          "testID": "BTN_VIEW_APPLICATION"
                                                         },
                                                         {
                                                           "text": "Shortlist",
@@ -478,10 +503,6 @@
                                                     },
                                                     "else": {
                                                       "items": [
-                                                        {
-                                                          "text": "View Student",
-                                                          "href": "/student/{{repeater.code}}"
-                                                        }
                                                       ]
                                                     }
                                                   }
@@ -627,43 +648,6 @@
                                       "component": "Box",
                                       "props": {
                                         "marginBottom": 5
-                                      },
-                                      "children": [
-                                        {
-                                          "component": "Text",
-                                          "onlyShowIf": {
-                                            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                                              "$eq": true
-                                            }
-                                          },
-                                          "conditional": {
-                                            "if": {
-                                              "repeater.attributes.PRI_HOST_COMPANY_NAME.value": {
-                                                "$exists": true
-                                              }
-                                            },
-                                            "then": {
-                                              "text": "{{repeater.attributes.PRI_HOST_COMPANY_NAME.value}}"
-                                            },
-                                            "else": {
-                                              "text": "Not provided"
-                                            }
-                                          },
-                                          "props": {
-                                            "size": "xxs"
-                                          }
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "component": "Box",
-                                      "props": {
-                                        "marginBottom": 5
-                                      },
-                                      "dontShowIf": {
-                                        "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                                          "$eq": true
-                                        }
                                       },
                                       "onlyShowIf": {
                                         "repeater.attributes.PRI_EDU_PROVIDER_NAME.value": {

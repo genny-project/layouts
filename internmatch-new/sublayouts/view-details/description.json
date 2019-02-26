@@ -1,0 +1,68 @@
+{
+  "layout": {
+    "title": "Profile Content",
+    "appColor": "white",
+    "backgroundColor": "silver"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "onlyShowIf": {
+        "props.description": {
+          "$exists": true
+        }
+      },
+      "props": {
+        "flexDirection": "column",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "paddingLeft": 20,
+            "paddingBottom": 10
+          },
+          "children": {
+            "component": "Text",
+            "props": {
+              "size": "xl",
+              "text": "{{props.title}}"
+            }
+          }
+        },
+        {
+          "component": "Box",
+          "props": {
+            "backgroundColor": "silver",
+            "height": "1px"
+          }
+        },
+        {
+          "component": "Fragment",
+          "repeat": "_props.content",
+          "children": {
+            "component": "Box",
+            "props": {
+              "justifyContent": "flex-start",
+              "paddingLeft": "20px"
+            },
+            "children": {
+              "component": "Box",
+              "props": {
+                "width": "100%",
+                "paddingY": "20px"
+              },
+              "children": {
+                "component": "DisplayHTML",
+                "props": {
+                  "html": "{{repeater.content}}"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

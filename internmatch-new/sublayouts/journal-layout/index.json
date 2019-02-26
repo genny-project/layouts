@@ -1,0 +1,367 @@
+{
+  "layout": {
+    "title": "Weekly Internship Journal",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+{
+  "component": "Box",
+  "props": {
+    "marginTop": "50px",
+    "alignSelf": "center",
+    "marginX": "auto"
+  },
+  "children": [
+    {
+      "component": "Text",
+      "props": {
+        "align": "center",
+        "size": "lg",
+        "text": " Internship Journal {{props.title}}"
+      }
+    }
+  ]
+},
+{
+  "component": "Box",
+  "props": {
+    "marginX": "auto",
+    "marginY": "30px",
+    "flex": 1,
+    "padding": "50px",
+    "position": "relative",
+    "backgroundColor": "#f6f6f6",
+    "borderRadius": "10px",
+    "flexDirection": "column",
+    "borderWidth": "1px",
+    "borderColor": "#ecebeb",
+    "borderStyle": "solid"
+  },
+  "children": [
+    { 
+      "component": "Box",
+      "props":{
+        "paddingY": 10,
+        "borderBottomWidth": 1,
+        "borderColor": "#e3e3e3",
+        "borderStyle": "solid"
+      },
+      "children":[
+        {
+          "component": "Box",
+          "props":{
+            "width": "120px"
+          },
+
+          "children": [
+            {
+              "component": "Text",
+              "props":{
+                "fontWeight":"500",
+                "text": "Week"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props":{
+            "width": "120px"
+          },
+
+          "children": [
+            {
+              "component": "Text",
+              "props":{
+                "fontWeight":"500",
+                "text": "Date"
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props":{
+            "width": "120px"
+          },    
+          "children": [
+            {
+              "component": "Text",
+              "props":{
+                "fontWeight":"500",
+                "text": "Hours Worked "
+              }
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "props":{
+            "width": "300px"
+          },    
+          "children": [
+            {
+              "component": "Text",
+              "props":{
+                "fontWeight":"500",
+                "text": "Task Details"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    { 
+      "component": "Box",
+
+      "repeat": "_props.items",
+      "props":{
+        "marginTop": "50px",
+        "flexDirection": "column"
+      },
+      "children":{
+        "component": "Box",
+        "props":{
+          "flexDirection": "row"
+        },
+        "children":[
+          {
+            "component": "Box",
+            "props":{
+              "width": "120px"
+            },
+            "children": [
+              {
+                "component": "Text",
+                "props":{
+                  "text": "{{repeater.day}}"
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props":{
+              "width": "120px"
+            },
+  
+            "children": [
+              {
+                "component": "Text",
+                "conditional": {
+                  "if": {
+                    "repeater.date":
+                    { "$exists": true ,
+                      "$ne": "undefined"
+                    }
+                  },
+                  "then": {
+                    "text": "{{repeater.date}}"
+                  },
+                  "else": {
+                    "text": "Not filled"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props":{
+              "width": "120px"
+            },    
+            "children": [
+              {
+                "component": "Text",
+                "conditional": {
+                  "if": {
+                    "repeater.hoursWorked":
+                    { "$exists": true ,
+                      "$ne": "undefined"
+                    }
+                  },
+                  "then": {
+                    "text": "{{repeater.hoursWorked}}"
+                  },
+                  "else": {
+                    "text": "Not filled"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "component": "Box",
+            "props":{
+              "width": "300px"
+            },    
+            "children": [
+              {
+                "component": "DisplayHTML",
+                "conditional": {
+                  "if": {
+                    "repeater.taskDetails":
+                    { 
+                      "$exists": true ,
+                      "$ne": "undefined"
+                    }
+                  },
+                  "then": {
+                    "html": "{{repeater.taskDetails}}"
+                  },
+                  "else": {
+                    "html": "{{repeater.taskDetails}}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "50px",
+        "height": "1",
+        "borderWidth": 1,
+        "borderColor": "#e3e3e3",
+        "borderStyle": "solid"
+      }
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "50px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "fontWeight": "500",
+            "text": "Total Days",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "Text",
+          "conditional": {
+            "if": {
+              "props.totalDays":
+              {
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "text": "{{props.totalDays}}"
+            },
+            "else": {
+              "text": "Not Available"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "10px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "text": "Total Hours",
+            "fontWeight": "500",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "Text",
+          "conditional": {
+            "if": {
+              "props.totalHours":
+              {
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "text": "{{props.totalHours}}"
+            },
+            "else": {
+              "text": "Not Available"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "Box",
+      "props": {
+        "marginTop": "10px",
+        "flexDirection": "row"
+      },
+      "children": [
+        {
+          "component": "Text",
+          "props": {
+            "text": "Learnings",
+            "fontWeight": "500",
+            "marginRight": "20"
+          }
+        },
+        {
+          "component": "DisplayHTML",
+          "conditional": {
+            "if": {
+              "props.learnings":
+              { 
+                "$exists": true ,
+                "$ne": "undefined"
+              }
+            },
+            "then": {
+              "html": "{{props.learnings}}"
+            },
+            "else": {
+              "html": "<p> Not filled </p>"
+            }
+          }
+      }
+      ]
+    }     
+  ]
+}
+  ]
+}
