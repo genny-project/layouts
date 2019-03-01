@@ -41,9 +41,50 @@
     "children": [{
         "component": "Box",
         "props": {
-          "flex": 1
+          "flex": 1,
+          "flexDirection": "column"
         },
         "children": [{
+            "component": "Box",
+            "onlyShowIf": {
+              "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK": {
+                "$exists": true
+              }
+            },
+            "props": {
+              "marginLeft": "20px",
+              "width": "100%"
+            },
+            "children": [
+              {
+                "component": "Link",
+                "props": {
+                  "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
+                  "externalLink": true
+                },
+                "children": [{
+                  "component": "Box",
+                  "props": {
+                    "backgroundColor": "rgb(85, 148, 188)",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "height": 50,
+                    "padding": 20
+                  },
+                  "children": [{
+                    "component": "Text",
+                    "props": {
+                      "size": "sm",
+                      "color": "white",
+                      "bold": true,
+                      "text": "Download Internship Agreement Document"
+                    }
+                  }]
+                }]
+              }
+            ]
+          }, 
+          {
           "component": "ScrollView",
           "props": {
             "style": {
