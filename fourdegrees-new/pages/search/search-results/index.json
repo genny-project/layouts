@@ -124,6 +124,7 @@
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
+        "as": "be",
         "id": "{{link.targetCode}}"
       }
     },
@@ -144,7 +145,41 @@
       "scope": {
         "operator": "populateAttributes",
         "basePath": "baseEntities.attributes",
+        "as": "attributes",
         "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "be": "be",
+          "attributes": "attributes",
+          "depth": {
+            "operator": "findOne",
+            "global": true,
+            "path": "depths",
+            "query": {
+              "beCode": {
+                "$eq": "{{be.code}}"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "results.links",
+      "scope": {
+        "operator": "sort",
+        "by": [
+          "depth.value",
+          "attributes.PRI_FIRSTNAME.value"
+        ],
+        "direction": "asc"
       }
     }
   ]

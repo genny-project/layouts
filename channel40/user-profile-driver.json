@@ -1,85 +1,186 @@
 {
-    "div": {
-       "style": {
-           "width": "100%",
-           "height": "100%"  
-        },
-        "children": [
-            {
-                "TabContainer": {
-                    "isVertical": true,
-                    "contentStyle": {
-                        "background": "#fff"
-                    },
-                    "views": [
-                        {
-                            "title" : "PROFILE INFO",
-                            "icon": "person",
-                            "layout" : {
-                                "layout" : [
-                                    {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "root": "QUE_SELLER_GRP"
-                                        }
-                                    }
-                                ]
-                            }
+   "div": {
+      "style": {
+         "height": "100vh"
+      },
+      "children":[
+         {
+            "Capability":{
+               "capabilities":[
+                  "CAP_UPDATE_COMPANY_DETAILS"
+               ],
+               "children":[
+                  {
+                     "TabContainer":{
+                        "isVertical":true,
+                        "contentStyle":{
+                           "background":"#fff"
                         },
-                        {
-                            "title" : "COMPANY INFO",
-                            "icon": "work",
-                            "layout" : {
-                                "layout" : [
+                        "views":[
+                           {
+                              "title":"PROFILE INFO",
+                              "icon":"person",
+                              "layout":{
+                                 "layout":[
                                     {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "root": "QUE_USER_COMPANY_GRP"
-                                        }
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_SELLER_GRP"
+                                       }
                                     }
-                                ]
-                            }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"COMPANY INFO",
+                              "icon":"work",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_USER_COMPANY_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"BANK DETAILS",
+                              "icon":"credit_card",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "isAccountsManagement":true,
+                                          "root":"QUE_PAYMENT_METHOD_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"USER DOCUMENTS",
+                              "icon":"folder_shared",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_USER_DOCUMENTS_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"LOADS TYPES",
+                              "icon":"local_shipping",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_DRIVER_PROFILE_LOAD_TYPES_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "defaultChildren":[
+                  {
+                     "TabContainer":{
+                        "isVertical":true,
+                        "contentStyle":{
+                           "background":"#fff"
                         },
-                        {
-                            "title" : "BANK DETAILS",
-                            "icon": "credit_card",
-                            "layout" : {
-                                "layout" : [
+                        "views":[
+                           {
+                              "title":"PROFILE INFO",
+                              "icon":"person",
+                              "layout":{
+                                 "layout":[
                                     {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "isAccountsManagement" : true,
-                                            "root": "QUE_PAYMENT_METHOD_GRP"
-                                        }
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_SELLER_GRP"
+                                       }
                                     }
-                                ]
-                            }
-                        },
-                        {
-                            "title" : "USER DOCUMENTS",
-                            "icon": "folder_shared",
-                            "layout" : {
-                                "layout" : [
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"BANK DETAILS",
+                              "icon":"credit_card",
+                              "layout":{
+                                 "layout":[
                                     {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "root": "QUE_USER_DOCUMENTS_GRP"
-                                        }
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "isAccountsManagement":true,
+                                          "root":"QUE_PAYMENT_METHOD_GRP"
+                                       }
                                     }
-                                ]
-                            }
-                        }
-                    ]
-                }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"USER DOCUMENTS",
+                              "icon":"folder_shared",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_USER_DOCUMENTS_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"LOADS TYPES",
+                              "icon":"local_shipping",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_DRIVER_PROFILE_LOAD_TYPES_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         }
+      ]
+   }
 }

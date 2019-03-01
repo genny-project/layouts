@@ -1,0 +1,290 @@
+{
+  "GennyDropdown": {
+    "inline": true,
+    "isSlide": false,
+    "animateHeader": false,
+    "animateFooter": true,
+    "style": {
+      "backgroundColor": "white"
+    },
+    "contentStyle": {
+      "backgroundColor": "white",
+      "marginTop": "0"
+    },
+    "header": [
+      {
+        "div": {
+          "style": {
+            "padding": "10px",
+            "display": "flex",
+            "justifyContent": "space-between",
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "span": {
+                "style": {
+                  "margin": "0",
+                  "display": "flex"
+                },
+                "children": [
+                  {
+                    "h3": {
+                      "style": {
+                        "marginRight": "20px"
+                      },
+                      "children": "BE.PRI_TITLE"
+                    }
+                  },
+                  {
+                    "h3": {
+                      "children": " #${BE.PRI_JOB_ID}"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "h3": {
+                "style": {
+                      "position": "absolute",
+                      "right": "25%",
+                      "height": "100%",
+                      "margin": "0px",
+                      "marginTop": "30px"
+                },
+                "children": "BE.PRI_JOB_PAYMENT_PRICE"
+              }
+            },
+            {
+              "GennyButton": {
+                "buttonCode": "BTN_LOAD_SEE_MORE",
+                "value": {
+                  "itemCode": "BE.code",
+                  "hint": "ROOT"
+                },
+                "style": {
+                  "height": "30px",
+                  "width": "150px"
+                },
+                "buttonStyle": {
+                  "backgroundColor": "#000"
+                },
+                "children": [
+                  {
+                    "span": {
+                      "style": {
+                        "fontSize": "0.8em"
+                      },
+                      "children": "View Load Details"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": [
+      {
+        "div": {
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "backgroundColor": "white"
+          },
+          "children": [
+            {
+              "div": {
+                "style": {
+                  "marginBottom": "10px"
+                },
+                "children": [
+                  {
+                    "MapDisplay": {
+                      "routes": [
+                        {
+                          "origin": "BE.PRI_PICKUP_ADDRESS_FULL",
+                          "dest": "BE.PRI_DROPOFF_ADDRESS_FULL"
+                        }
+                      ],
+                      "style": {
+                        "height": "200px"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "div": {
+                "style": {
+                  "display": "flex",
+                  "justifyContent": "space-between",
+                  "alignItems": "center"
+                },
+                "children": [
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "flex": "2 1 0",
+                        "background": "#f5f5f5"
+                      },
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "display": "flex",
+                              "flexDirection": "row",
+                              "alignItems": "center"
+                            },
+                            "children": [
+                              {
+                                "IconSmall": {
+                                  "style": {
+                                    "marginRight": "5px"
+                                  },
+                                  "name": "location_on"
+                                }
+                              },
+                              {
+                                "span": {
+                                  "style": {},
+                                  "children": "BE.PRI_PICKUP_ADDRESS_FULL"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "div": {
+                            "style": {
+                              "display": "flex",
+                              "flexDirection": "row",
+                              "alignItems": "center"
+                            },
+                            "children": [
+                              {
+                                "IconSmall": {
+                                  "style": {
+                                    "marginRight": "5px"
+                                  },
+                                  "name": "schedule"
+                                }
+                              },
+                              {
+                                "DateLabel": {
+                                  "format": "DD MMM YYYY hh:mm",
+                                  "style": {},
+                                  "children": "BE.PRI_PICKUP_DATETIME"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "center",
+                        "flex": "0.5 1 0"
+                      },
+                      "children": [
+                        {
+                          "IconSmall": {
+                            "style": {},
+                            "name": "trending_flat"
+                          }
+                        },
+                        {
+                          "MeasurementLabel": {
+                            "showDecimal": 2,
+                            "style": {},
+                            "children": "BE.PRI_TOTAL_DISTANCE_M"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "div": {
+                      "style": {
+                        "padding": "5px",
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "flex": "2 1 0",
+                        "background": "#f5f5f5"
+                      },
+                      "children": [
+                        {
+                          "div": {
+                            "style": {
+                              "display": "flex",
+                              "flexDirection": "row",
+                              "alignItems": "center"
+                            },
+                            "children": [
+                              {
+                                "IconSmall": {
+                                  "style": {
+                                    "marginRight": "5px"
+                                  },
+                                  "name": "location_on"
+                                }
+                              },
+                              {
+                                "span": {
+                                  "style": {},
+                                  "children": "BE.PRI_DROPOFF_ADDRESS_FULL"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "div": {
+                            "style": {
+                              "display": "flex",
+                              "flexDirection": "row",
+                              "alignItems": "center"
+                            },
+                            "children": [
+                              {
+                                "IconSmall": {
+                                  "style": {
+                                    "marginRight": "5px"
+                                  },
+                                  "name": "schedule"
+                                }
+                              },
+                              {
+                                "DateLabel": {
+                                  "format": "DD MMM YYYY hh:mm",
+                                  "style": {},
+                                  "children": "BE.PRI_DROPOFF_DATETIME"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

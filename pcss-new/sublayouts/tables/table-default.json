@@ -25,7 +25,7 @@
         "code": "{{props.code}}",
         "isSelectable": true,
         "selectFirstItemOnMount": true,
-        "totalItems": "",
+        "totalItems": "1",
         "itemToSelectFirst": "_query.currentItem",
         "cellContext": {
           "rootCode": "{{props.rootCode}}",
@@ -64,6 +64,7 @@
         "tableBackgroundColor": "#cccccc",
         "data": "_props.data",
         "height": "500px",
+        "width": "500px",
         "itemsPerPage": 10
       }
     }
@@ -78,6 +79,10 @@
       "operator": "getBE",
       "id": "{{props.rootCode}}",
       "as": "rootGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["rootGroup", "currentItem"]
     }
   ]
 }
