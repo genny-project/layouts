@@ -42,91 +42,128 @@
       "children": [
         {
           "component": "Box",
-          "props": {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center"
-          },
           "children": [
             {
               "component": "Box",
-              "onlyShowIf": {
-                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value": {
-                  "$exists": true
-                }
-              },
               "props": {
-                "marginLeft": "20px",
-                "marginBottom": "50px"
-              },
-              "children": {
-                "component": "Link",
-                "props": {
-                  "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
-                  "externalLink": true
-                },
-                "children": [
-                  {
-                    "component": "Box",
-                    "props": {
-                      "backgroundColor": "rgb(85, 148, 188)",
-                      "alignItems": "center",
-                      "justifyContent": "center",
-                      "height": 50,
-                      "padding": 20
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "props": {
-                          "size": "sm",
-                          "color": "white",
-                          "bold": true,
-                          "text": "Download Agreement Document"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "component": "ScrollView",
-              "props": {
-                "style": {
-                  "flex": 1
-                },
-                "height": "100%"
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Box",
-                  "props": {
-                    "justifyContent": "center",
-                    "width": "100%"
-                  },
                   "children": [
                     {
-                      "component": "DisplayHTML",
-                      "props": {
-                        "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
-                      },
+                      "component": "Box",
                       "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value": {
                           "$exists": true
                         }
+                      },
+                      "props": {
+                        "marginLeft": "20px",
+                        "marginBottom": "50px"
+                      },
+                      "children": {
+                        "component": "Link",
+                        "props": {
+                          "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
+                          "externalLink": true
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "backgroundColor": "rgb(85, 148, 188)",
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "height": 50,
+                              "padding": 20
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "size": "sm",
+                                  "color": "white",
+                                  "bold": true,
+                                  "text": "Download Agreement Document"
+                                }
+                              }
+                            ]
+                          }
+                        ]
                       }
                     },
                     {
-                      "component": "PdfViewer",
+                      "component": "Box",
                       "props": {
-                        "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                        "paddingTop": "20px",
+                        "flex": 1,
+                        "justifyContent": "flex-end",
+                        "paddingRight": "10px"
                       },
-                      "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
-                          "$exists": false
+                      "children": {
+                        "component": "EventButton",
+                        "props": {
+                          "padding": 15,
+                          "height": "50px",
+                          "width": "100px",
+                          "borderRadius": 30,
+                          "showSpinnerOnClick": true,
+                          "color": "black",
+                          "textColor": "#fff",
+                          "text": "Edit",
+                          "testID": "BTN_SEND_INTERNSHIP_AGREEMENT_DOC",
+                          "buttonCode": "BTN_SEND_INTERNSHIP_AGREEMENT_DOC",
+                          "value": {
+                            "itemCode": "{{code}}"
+                          }
                         }
                       }
+                    }
+                  ]
+                },
+                {
+                  "component": "ScrollView",
+                  "props": {
+                    "style": {
+                      "flex": 1
+                    },
+                    "height": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "justifyContent": "center",
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "DisplayHTML",
+                          "props": {
+                            "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": true
+                            }
+                          }
+                        },
+                        {
+                          "component": "PdfViewer",
+                          "props": {
+                            "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": false
+                            }
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
