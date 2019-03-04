@@ -42,91 +42,101 @@
       "children": [
         {
           "component": "Box",
-          "props": {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center"
-          },
           "children": [
             {
               "component": "Box",
-              "onlyShowIf": {
-                "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value": {
-                  "$exists": true
-                }
-              },
               "props": {
-                "marginLeft": "20px",
-                "marginBottom": "50px"
-              },
-              "children": {
-                "component": "Link",
-                "props": {
-                  "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
-                  "externalLink": true
-                },
-                "children": [
-                  {
-                    "component": "Box",
-                    "props": {
-                      "backgroundColor": "rgb(85, 148, 188)",
-                      "alignItems": "center",
-                      "justifyContent": "center",
-                      "height": 50,
-                      "padding": 20
-                    },
-                    "children": [
-                      {
-                        "component": "Text",
-                        "props": {
-                          "size": "sm",
-                          "color": "white",
-                          "bold": true,
-                          "text": "Download Agreement Document"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "component": "ScrollView",
-              "props": {
-                "style": {
-                  "flex": 1
-                },
-                "height": "100%"
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center"
               },
               "children": [
                 {
                   "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "onlyShowIf": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value": {
+                          "$exists": true
+                        }
+                      },
+                      "props": {
+                        "marginLeft": "20px",
+                        "marginBottom": "50px"
+                      },
+                      "children": {
+                        "component": "Link",
+                        "props": {
+                          "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
+                          "externalLink": true
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "backgroundColor": "rgb(85, 148, 188)",
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "height": 50,
+                              "padding": 20
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "size": "sm",
+                                  "color": "white",
+                                  "bold": true,
+                                  "text": "Download Agreement Document"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "ScrollView",
                   "props": {
-                    "justifyContent": "center",
-                    "width": "100%"
+                    "style": {
+                      "flex": 1
+                    },
+                    "height": "100%"
                   },
                   "children": [
                     {
-                      "component": "DisplayHTML",
+                      "component": "Box",
                       "props": {
-                        "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+                        "justifyContent": "center",
+                        "width": "100%"
                       },
-                      "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
-                          "$exists": true
+                      "children": [
+                        {
+                          "component": "DisplayHTML",
+                          "props": {
+                            "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": true
+                            }
+                          }
+                        },
+                        {
+                          "component": "PdfViewer",
+                          "props": {
+                            "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": false
+                            }
+                          }
                         }
-                      }
-                    },
-                    {
-                      "component": "PdfViewer",
-                      "props": {
-                        "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
-                      },
-                      "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
-                          "$exists": false
-                        }
-                      }
+                      ]
                     }
                   ]
                 }
