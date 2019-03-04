@@ -1,0 +1,162 @@
+{
+  "layout": {
+    "title": "Search - Categories",
+    "appColor": "dark",
+    "hideHeaderRight": true,
+    "header": {
+      "variant": "default"
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "height": "100%",
+        "backgroundColor": "lightgrey",
+        "flexDirection": "column"
+      },
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "padding": 20,
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Search By",
+                    "color": "gray",
+                    "size": "xs"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {
+                "marginBottom": 20
+              },
+              "children": [
+                {
+                  "component": "Heading",
+                  "props": {
+                    "text": "{{query.name}}",
+                    "size": "xl"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "Box",
+              "props": {},
+              "children": [
+                {
+                  "component": "Text",
+                  "props": {
+                    "text": "Select a Category",
+                    "color": "gray",
+                    "size": "xxs"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "ScrollView",
+          "props": {},
+          "repeat": "_query.linkBEs",
+          "children": {
+            "component": "EventButton",
+            "props": {
+              "color": "white",
+              "alignItems": "flex-start",
+              "paddingX": 0,
+              "paddingY": 0,
+              "width": "100%",
+              "eventType": "ROUTE_CHANGE",
+              "buttonCode": "search/category-refinement",
+              "value": "{{repeater.code}}"
+            },
+            "children": [
+              {
+                "component": "Box",
+                "props": {
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "padding": 20,
+                  "marginBottom": 2,
+                  "backgroundColor": "white"
+                },
+                "children": [
+                  {
+                    "component": "Text",
+                    "props": {
+                      "text": "{{repeater.name}}",
+                      "size": "sm"
+                    }
+                  },
+                  {
+                    "component": "Box",
+                    "props": {
+                      "marginLeft": 10
+                    },
+                    "children": [
+                      {
+                        "component": "Icon",
+                        "props": {
+                          "name": "chevron-right",
+                          "color": "black"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.searchID}}",
+      "as": "search"
+    },
+    {
+      "operator": "map",
+      "fields": "search"
+    },
+    {
+      "operator": "populateLinkValues",
+      "multiple": true,
+      "as": "linkBEs"
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "populateAttributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "linkBEs",
+      "scope": {
+        "operator": "sort",
+        "by": "weight",
+        "direction": "asc"
+      }
+    }
+  ]
+}

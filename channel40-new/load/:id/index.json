@@ -543,9 +543,6 @@
                   "onlyShowIf": {
                     "user.attributes.PRI_IS_BUYER.value": {
                       "$eq": true
-                    },
-                    "user.capabilities.CAP_UPDATE_ITEM": {
-                      "$eq": true
                     }
                   },
                   "props": {
@@ -1136,6 +1133,14 @@
           "children": [
             {
               "component": "ToggleButton",
+              "onlyShowIf": {
+                "query.attributes.PRI_PICKUP_ADDRESS_LATITUDE.valueDouble": {
+                  "$exists": true
+                },
+                "query.attributes.PRI_DROPOFF_ADDRESS_LATITUDE.valueDouble": {
+                  "$exists": true
+                }
+              },
               "props": {
                 "text": "Press to open map",
                 "color": "green"
@@ -1160,6 +1165,18 @@
                   }
                 }
               ]
+            },
+            {
+              "component": "Text",
+              "dontShowIf": {
+                "query.attributes.PRI_PICKUP_ADDRESS_LATITUDE.valueDouble": {
+                  "$exists": true
+                },
+                "query.attributes.PRI_DROPOFF_ADDRESS_LATITUDE.valueDouble": {
+                  "$exists": true
+                }
+              },
+              "children": "Trucking is not available"
             }
           ]
         },
@@ -1401,9 +1418,6 @@
                                     "onlyShowIf": {
                                       "user.attributes.PRI_IS_BUYER.value": {
                                         "$eq": true
-                                      },
-                                      "user.capabilities.CAP_ACCEPT_QUOTE": {
-                                        "$exists": true
                                       }
                                     },
                                     "props": {
@@ -1433,9 +1447,6 @@
                                       },
                                       "repeater.attributes.PRI_NEXT_ACTION.value": {
                                         "$eq": "OWNER"
-                                      },
-                                      "user.capabilities.CAP_UPDATE_QUOTE": {
-                                        "$eq": true
                                       }
                                     },
                                     "props": {
@@ -1461,9 +1472,6 @@
                                     "component": "Box",
                                     "onlyShowIf": {
                                       "user.attributes.PRI_IS_BUYER.value": {
-                                        "$eq": true
-                                      },
-                                      "user.capabilities.CAP_ADD_CHAT_MESSAGE": {
                                         "$eq": true
                                       }
                                     },

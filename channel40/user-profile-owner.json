@@ -1,69 +1,132 @@
 {
-    "div": {
-       "style": {
-           "width": "100%",
-           "height": "100%"  
-        },
-        "children": [
-            {
-                "TabContainer": {
-                    "isVertical": true,
-                    "contentStyle": {
-                        "background": "#fff"
-                    },
-                    "views": [
-                        {
-                            "title" : "PROFILE INFO",
-                            "icon": "person",
-                            "layout" : {
-                                "layout" : [
-                                    {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "root": "QUE_BUYER_GRP"
-                                        }
-                                    }
-                                ]
-                            }
+   "div":{
+      "style": {
+         "height": "100vh"
+      },
+      "children":[
+         {
+            "Capability":{
+               "capabilities":[
+                  "CAP_UPDATE_COMPANY_DETAILS"
+               ],
+               "children":[
+                  {
+                     "div":{
+                        "style":{
+                           "width":"100%",
+                           "height":"100%"
                         },
-                        {
-                            "title" : "COMPANY INFO",
-                            "icon": "work",
-                            "layout" : {
-                                "layout" : [
+                        "children":[
+                           {
+                              "TabContainer":{
+                                 "isVertical":true,
+                                 "contentStyle":{
+                                    "background":"#fff"
+                                 },
+                                 "views":[
                                     {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "root": "QUE_USER_COMPANY_GRP"
-                                        }
+                                       "title":"PROFILE INFO",
+                                       "icon":"person",
+                                       "layout":{
+                                          "layout":[
+                                             {
+                                                "GennyForm":{
+                                                   "style":{
+                                                      "overflowY":"visible"
+                                                   },
+                                                   "root":"QUE_BUYER_GRP"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {
+                                       "title":"COMPANY INFO",
+                                       "icon":"work",
+                                       "layout":{
+                                          "layout":[
+                                             {
+                                                "GennyForm":{
+                                                   "style":{
+                                                      "overflowY":"visible"
+                                                   },
+                                                   "root":"QUE_USER_COMPANY_GRP"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    {
+                                       "title":"BANK DETAILS",
+                                       "icon":"credit_card",
+                                       "layout":{
+                                          "layout":[
+                                             {
+                                                "GennyForm":{
+                                                   "style":{
+                                                      "overflowY":"visible"
+                                                   },
+                                                   "isAccountsManagement":true,
+                                                   "root":"QUE_PAYMENT_METHOD_GRP"
+                                                }
+                                             }
+                                          ]
+                                       }
                                     }
-                                ]
-                            }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "defaultChildren":[
+                  {
+                     "TabContainer":{
+                        "isVertical":true,
+                        "contentStyle":{
+                           "background":"#fff"
                         },
-                        {
-                            "title" : "BANK DETAILS",
-                            "icon": "credit_card",
-                            "layout" : {
-                                "layout" : [
+                        "views":[
+                           {
+                              "title":"PROFILE INFO",
+                              "icon":"person",
+                              "layout":{
+                                 "layout":[
                                     {
-                                        "GennyForm": {
-                                            "style": {
-                                               "overflowY": "visible"
-                                            },
-                                            "isAccountsManagement" : true,
-                                            "root": "QUE_PAYMENT_METHOD_GRP"
-                                        }
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "root":"QUE_BUYER_GRP"
+                                       }
                                     }
-                                ]
-                            }
-                        }
-                    ]
-                }
+                                 ]
+                              }
+                           },
+                           {
+                              "title":"BANK DETAILS",
+                              "icon":"credit_card",
+                              "layout":{
+                                 "layout":[
+                                    {
+                                       "GennyForm":{
+                                          "style":{
+                                             "overflowY":"visible"
+                                          },
+                                          "isAccountsManagement":true,
+                                          "root":"QUE_PAYMENT_METHOD_GRP"
+                                       }
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
             }
-        ]
-    }
+         }
+      ]
+   }
 }
