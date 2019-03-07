@@ -262,6 +262,7 @@
                                             {
                                               "text": "Delete Application",
                                               "buttonCode": "BTN_DELETE_APPLICATION",
+                                              "isConfirmable": true,
                                               "value": {
                                                 "itemCode": "{{repeater.code}}",
                                                 "hint": "{{parentRepeater.code}}"
@@ -327,6 +328,7 @@
                                               {
                                                 "text": "Delete Application",
                                                 "buttonCode": "BTN_DELETE_APPLICATION",
+                                                "isConfirmable": true,
                                                 "value": {
                                                   "itemCode": "{{repeater.code}}",
                                                   "hint": "{{parentRepeater.code}}"
@@ -417,6 +419,7 @@
                                                 },
                                                 {
                                                   "text": "Delete Application",
+                                                  "isConfirmable": true,
                                                   "buttonCode": "BTN_DELETE_APPLICATION",
                                                   "value": {
                                                     "itemCode": "{{repeater.code}}",
@@ -466,6 +469,7 @@
                                                   },
                                                   {
                                                     "text": "Delete Application",
+                                                    "isConfirmable": true,
                                                     "buttonCode": "BTN_DELETE_APPLICATION",
                                                     "value": {
                                                       "itemCode": "{{repeater.code}}",
@@ -506,6 +510,7 @@
                                                     },
                                                     {
                                                       "text": "Delete Application",
+                                                      "isConfirmable": true,
                                                       "buttonCode": "BTN_DELETE_APPLICATION",
                                                       "value": {
                                                         "itemCode": "{{repeater.code}}",
@@ -554,6 +559,7 @@
                                                       },
                                                       {
                                                         "text": "Delete Application",
+                                                        "isConfirmable": true,
                                                         "buttonCode": "BTN_DELETE_APPLICATION",
                                                         "value": {
                                                           "itemCode": "{{repeater.code}}",
@@ -594,6 +600,7 @@
                                                         },
                                                         {
                                                           "text": "Delete Application",
+                                                          "isConfirmable": true,
                                                           "buttonCode": "BTN_DELETE_APPLICATION",
                                                           "value": {
                                                             "itemCode": "{{repeater.code}}",
@@ -762,7 +769,7 @@
                                               "text": "{{repeater.attributes.PRI_HOST_COMPANY_NAME.value}}"
                                             },
                                             "else": {
-                                              "text": "Not provided"
+                                              "text": "Company Not provided"
                                             }
                                           },
                                           "props": {
@@ -773,6 +780,11 @@
                                     },
                                     {
                                       "component": "Box",
+                                      "dontShowIf": {
+                                        "user.attributes.PRI_IS_EDU_PROVIDER.value": {
+                                          "$eq": true
+                                        }
+                                      },
                                       "props": {
                                         "marginBottom": 5
                                       },
