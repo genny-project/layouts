@@ -1,104 +1,80 @@
 {
   "children": [
     {
-    "component": "Box",
-    "conditional": {
-      "if": {
-        "media.size": {
-          "$eq": "sm"
-        }
-      },
-      "then": {
-        "padding": 0
-      }
-    },
-    "props": {
-      "flexDirection": "column",
-      "alignItems": "center",
-      "justifyContent": "center",
-      "flex": 1,
-      "padding": 20
-    },
-    "children": [
-      {
-      "component": "BucketView",
-      "props": {
-        "tabBarSize": "md",
-        "backgroundColor": "#f6f6f6",
-        "tabBarBackground": "#3f3f3f",
-        "activeTabBackground": "#232323",
-        "iconColor": "white",
-        "iconSize": "md",
-        "labelColor": "white",
-        "labelProps": {
-          "transform": "upperCase"
-        },
-        "overflowX": "auto",
-        "width": "100%",
-        "gutter": 20,
-        "contentProps": {
-          "minWidth": 240
-        }
-      },
-      "repeat": "_query",
-      "children": {
-        "component": "List",
-        "repeat": "_repeater.items",
-        "props": {
-          "headerText": "{{repeater.name}}",
-          "contentBackground": "#eaeaea",
-          "headerProps": {
-            "paddingX": 20,
-            "paddingY": 15,
-            "justifyContent": "space-between",
-            "alignItems": "center"
-          },
-          "headerTextProps": {
-            "bold": true
-          },
-          "showCountInHeader": true,
-          "contentBodyProps": {
-            "paddingX": 10,
-            "paddingY": 20
-          },
-          "emptyProps": {
-            "padding": 10
-          },
-          "headerCountTextProps": {
-            "bold": true,
-            "size": "xs"
-          },
-          "emptyTextProps": {
-            "size": "xs"
-          },
-          "scrollViewProps": {
-            "horizontal": true
+      "component": "Box",
+      "conditional": {
+        "if": {
+          "media.size": {
+            "$eq": "sm"
           }
         },
-        "children": {
-          "component": "Box",
+        "then": {
+          "padding": 0
+        }
+      },
+      "props": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flex": 1,
+        "padding": 20
+      },
+      "children": [
+        {
+          "component": "BucketView",
           "props": {
-            "width": "100%"
+            "tabBarSize": "md",
+            "backgroundColor": "#f6f6f6",
+            "tabBarBackground": "#3f3f3f",
+            "activeTabBackground": "#232323",
+            "iconColor": "white",
+            "iconSize": "md",
+            "labelColor": "white",
+            "labelProps": {
+              "transform": "upperCase"
+            },
+            "overflowX": "auto",
+            "width": "100%",
+            "gutter": 20,
+            "contentProps": {
+              "minWidth": 240
+            }
           },
-          "children": [
-            {
-              "component": "Box",
-              "dontShowIf": {
-                "repeater.company.attributes.PRI_IMAGE_URL.value": {
-                  "$exists": true
-                },
-                "repeater.company.attributes.PRI_NAME.value": {
-                  "$exists": true
-                },
-                "repeater.internship.attributes.PRI_NAME.value": {
-                  "$exists": true
-                }
+          "repeat": "_query",
+          "children": {
+            "component": "List",
+            "repeat": "_repeater.items",
+            "props": {
+              "headerText": "{{repeater.name}}",
+              "contentBackground": "#eaeaea",
+              "headerProps": {
+                "paddingX": 20,
+                "paddingY": 15,
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              },
+              "headerTextProps": {
+                "bold": true
+              },
+              "showCountInHeader": true,
+              "contentBodyProps": {
+                "paddingX": 10,
+                "paddingY": 20
+              },
+              "emptyProps": {
+                "padding": 10
+              },
+              "headerCountTextProps": {
+                "bold": true,
+                "size": "xs"
+              },
+              "emptyTextProps": {
+                "size": "xs"
               },
               "scrollViewProps": {
                 "horizontal": true
               }
             },
-            {
             "children": {
               "component": "Box",
               "props": {
@@ -187,73 +163,83 @@
                         },
                         "to": "/application/{{repeater.code}}"
                       },
-                      "children": [{
-                          "component": "Box",
-                          "props": {
-                            "marginRight": 10,
-                            "flexShrink": 0
-                          },
-                          "children": [
-                            {
-                              "component": "Image",
-                              "props": {
-                                "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
-                                "height": 50,
-                                "width": 50
-                              }
-                            }
-                          ]
-                        },
+                      "children": [
                         {
-                          "component": "Box",
+                          "component": "Selection",
                           "props": {
-                            "flexDirection": "column",
-                            "flex": 1
+                            "mode": "toggle",
+                            "selectFirstItemOnMount": true
                           },
                           "children": [
                             {
                               "component": "Box",
                               "props": {
-                                "marginBottom": 5
+                                "marginRight": 10,
+                                "flexShrink": 0
                               },
                               "children": [
                                 {
-                                  "component": "Text",
+                                  "component": "Image",
                                   "props": {
-                                    "size": "xs",
-                                    "bold": true
-                                  },
-                                  "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                                    "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
+                                    "height": 50,
+                                    "width": 50
+                                  }
                                 }
                               ]
                             },
                             {
                               "component": "Box",
-                              "onlyShowIf": {
-                                "repeater.attributes.PRI_IS_DECLINED.value": {
-                                  "$eq": true
-                                }
-                              },
                               "props": {
-                                "marginBottom": 5
+                                "flexDirection": "column",
+                                "flex": 1
                               },
                               "children": [
                                 {
+                                  "component": "Box",
+                                  "props": {
+                                    "marginBottom": 5
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Text",
+                                      "props": {
+                                        "size": "xs",
+                                        "bold": true
+                                      },
+                                      "children": "{{repeater.company.attributes.PRI_NAME.value}}"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "component": "Box",
+                                  "onlyShowIf": {
+                                    "repeater.attributes.PRI_IS_DECLINED.value": {
+                                      "$eq": true
+                                    }
+                                  },
+                                  "props": {
+                                    "marginBottom": 5
+                                  },
+                                  "children": [
+                                    {
+                                      "component": "Text",
+                                      "props": {
+                                        "size": "xxs",
+                                        "bold": true
+                                      },
+                                      "children": "REJECTED"
+                                    }
+                                  ]
+                                },
+                                {
                                   "component": "Text",
                                   "props": {
-                                    "size": "xxs",
-                                    "bold": true
+                                    "size": "xxs"
                                   },
-                                  "children": "REJECTED"
+                                  "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
                                 }
                               ]
-                            },
-                            {
-                              "component": "Text",
-                              "props": {
-                                "size": "xxs"
-                              },
-                              "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
                             }
                           ]
                         }
@@ -359,90 +345,34 @@
                             ]
                           }
                         }
-                      }
-                    ]
-                  },
-                  "props": {
-                    "facingRight": true,
-                    "menuButtonStyle": {
-                      "backgroundColor": "transparent",
-                      "border": 0,
-                      "padding": 5,
-                      "fontSize": 16,
-                      "cursor": "pointer",
-                      "color": "white"
-                    },
-                    "menuListStyle": {
-                      "background": "#233a4e",
-                      "borderWidth": 2,
-                      "borderColor": "#192835",
-                      "borderStyle": "solid"
-                    },
-                    "menuItemStyle": {
-                      "textAlign": "right",
-                      "padding": 15,
-                      "color": "white"
-                    },
-                    "testID": "CARD_ACTIONS_DROPDOWN"
-                  },
-                  "conditional": {
-                    "if": {
-                      "$or": [{
-                        "parentRepeater.code": {
-                          "$eq": "GRP_OFFERED"
-                        }
-                      }]
-                    },
-                    "then": {
-                      "items": [{
-                          "text": "Sign Document",
-                          "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                          "value": {
-                            "itemCode": "{{repeater.attributes.PRI_APPLICANT_CODE.baseEntityCode}}",
-                            "userCode": "{{user.data.code}}"
-                          }
-                        },
+                      },
+                      "children": [
                         {
-                          "text": "View Application",
-                          "href": "/application/{{repeater.code}}"
+                          "component": "Box",
+                          "children": [
+                            {
+                              "component": "Icon",
+                              "props": {
+                                "name": "expand_more",
+                                "color": "#233a4e",
+                                "size": "smd"
+                              }
+                            }
+                          ]
                         }
                       ]
-                    },
-                    "else": {
-                      "if": {
-                        "$or": [{
-                          "parentRepeater.code": {
-                            "$eq": "GRP_PLACED"
-                          }
-                        }]
-                      },
-                      "then": {
-                        "items": [{
-                            "text": "View Internship Offer",
-                            "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                            "value": {
-                              "itemCode": "{{repeater.code}}",
-                              "hint": "{{parentRepeater.code}}"
-                            }
-                          },
-                          {
-                            "text": "View Application",
-                            "href": "/application/{{repeater.code}}"
-                          }
-                        ]
-                      }
                     }
                   ]
                 }
               ]
             }
-          ]
+          }
         }
-      }
-  ]
-  }
-],
-  "query": [{
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
       "id": "GRP_APPLICATIONS",
       "as": "applications"
