@@ -10,7 +10,8 @@
     "sidebarRight": {
       "variant": "default",
       "onlyShowIf": {
-        "$or": [{
+        "$or": [
+          {
             "user.attributes.PRI_IS_AGENT.value": {
               "$eq": true
             }
@@ -29,115 +30,139 @@
       }
     }
   },
-  "children": [{
-    "component": "Box",
-    "props": {
-      "flex": 1,
-      "height": "calc( 100vh - 65px )",
-      "flexDirection": "column",
-      "padding": 30
-    },
-
-    "children": [{
-        "component": "Box",
-        "props": {
-          "flex": 1
-        },
-        "children": [{
-          "component": "ScrollView",
-          "props": {
-            "style": {
-              "flex": 1
-            },
-            "height": "100%"
-          },
-          "children": [{
-            "component": "Box",
-            "props": {
-              "justifyContent": "center",
-              "width": "100%"
-            },
-            "children": [{
-                "component": "DisplayHTML",
-                "props": {
-                  "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
-                },
-                "onlyShowIf": {
-                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
-                    "$exists": true
-                  }
-                }
-              },
-              {
-                "component": "PdfViewer",
-                "props": {
-                  "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
-                },
-                "onlyShowIf": {
-                  "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
-                    "$exists": false
-                  }
-                }
-              }
-            ]
-          }]
-        }]
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "height": "calc( 100vh - 65px )",
+        "flexDirection": "column",
+        "padding": 30
       },
-      {
-        "component": "Box",
-        "onlyShowIf": {
-          "$or": [{
-              "$and": [{
-                  "user.attributes.PRI_IS_BUYER.value": {
-                    "$eq": true
-                  }
-                },
-                {
-                  "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
-                    "$exists": false
-                  }
-                }
-              ]
-            },
+
+      "children": [
+        {
+          "component": "Box",
+          "props": {
+            "flex": 1
+          },
+          "children": [
             {
-              "$and": [{
-                  "user.attributes.PRI_IS_SELLER.value": {
-                    "$eq": true
-                  }
+              "component": "ScrollView",
+              "props": {
+                "style": {
+                  "flex": 1
                 },
+                "height": "100%"
+              },
+              "children": [
                 {
-                  "query.document.attributes.PRI_INTERN_INDUCT_SIGNED_DATE.value": {
-                    "$exists": false
-                  }
+                  "component": "Box",
+                  "props": {
+                    "justifyContent": "center",
+                    "width": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "DisplayHTML",
+                      "props": {
+                        "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
+                      },
+                      "onlyShowIf": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
+                          "$exists": true
+                        }
+                      }
+                    },
+                    {
+                      "component": "PdfViewer",
+                      "props": {
+                        "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
+                      },
+                      "onlyShowIf": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
+                          "$exists": false
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
             }
           ]
         },
-        "props": {
-          "flexShrink": 0
-        },
-        "children": [{
-          "component": "Form",
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$and": [
+                  {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
+                      "$or": [
+                        {
+                          "$exists": false,
+                          "$eq": "null"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "$and": [
+                  {
+                    "user.attributes.PRI_IS_SELLER.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
+                      "$or": [
+                        {
+                          "$exists": false,
+                          "$eq": "null"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           "props": {
-            "questionGroupCode": "{{navigation.offerId}}",
-            "style": {
-              "width": "100%"
-            },
-            "renderSubmitButton": {
-              "component": "Button",
+            "flexShrink": 0
+          },
+          "children": [
+            {
+              "component": "Form",
               "props": {
-                "showSpinnerOnClick": true,
-                "color": "green",
-                "width": "100%"
+                "questionGroupCode": "{{navigation.offerId}}",
+                "style": {
+                  "width": "100%"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
               }
             }
-          }
-        }]
-      }
-    ]
-  }],
-  "query": [{
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
       "operator": "getBE",
       "id": "{{navigation.id}}",
       "as": "application"
@@ -172,14 +197,16 @@
         "operator": "getBE",
         "id": "{{link.targetCode}}"
       }
-    }, {
+    },
+    {
       "operator": "scope",
       "path": "applicationLinks",
       "as": "document",
       "scope": {
         "operator": "findOne",
         "query": {
-          "$and": [{
+          "$and": [
+            {
               "code": {
                 "$exists": true
               }
@@ -195,9 +222,7 @@
     },
     {
       "operator": "clean",
-      "fields": [
-        "application", "document"
-      ]
+      "fields": ["application", "document"]
     }
   ]
 }
