@@ -626,13 +626,26 @@
                             "display": "flex",
                             "flexDirection": "row",
                             "justifyContent": "space-around",
-                            "marginLeft": "60px"
+                            "marginLeft": "150px",
+                            "alignItems": "center"
                           },
                           "children": [
                             {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "buttonCode": "BTN_SHOW_MID_WEEK_PERFORMANCE_REVIEW",
+                                "text": "Mid term performance review",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
                               "component": "Box",
                               "props": {
-                                "marginLeft": "150px",
                                 "alignItems": "center"
                               },
                               "children": [
@@ -648,25 +661,12 @@
                                     }
                                   },
                                   "onlyShowIf": {
-                                    "user.attributes.PRI_IS_SELLER.value": {
+                                    "user.attributes.PRI_IS_BUYER.value": {
                                       "$eq": true
                                     }
                                   }
                                 }
                               ]
-                            },
-                            {
-                              "component": "EventButton",
-                              "props": {
-                                "fontSize": "22px",
-                                "textColor": "#444",
-                                "textSize": "md",
-                                "buttonCode": "BTN_SHOW_MID_WEEK_PERFORMANCE_REVIEW",
-                                "text": "Mid term performance review",
-                                "value": {
-                                  "itemCode": "{{props.navigationId}}"
-                                }
-                              }
                             }
                           ]
                         },
