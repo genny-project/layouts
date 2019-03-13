@@ -165,81 +165,72 @@
                       },
                       "children": [
                         {
-                          "component": "Selection",
+                          "component": "Box",
                           "props": {
-                            "mode": "toggle",
-                            "selectFirstItemOnMount": true
+                            "marginRight": 10,
+                            "flexShrink": 0
+                          },
+                          "children": [
+                            {
+                              "component": "Image",
+                              "props": {
+                                "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
+                                "height": 50,
+                                "width": 50
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "component": "Box",
+                          "props": {
+                            "flexDirection": "column",
+                            "flex": 1
                           },
                           "children": [
                             {
                               "component": "Box",
                               "props": {
-                                "marginRight": 10,
-                                "flexShrink": 0
+                                "marginBottom": 5
                               },
                               "children": [
                                 {
-                                  "component": "Image",
+                                  "component": "Text",
                                   "props": {
-                                    "source": "{{repeater.company.attributes.PRI_IMAGE_URL.value}}",
-                                    "height": 50,
-                                    "width": 50
-                                  }
+                                    "size": "xs",
+                                    "bold": true
+                                  },
+                                  "children": "{{repeater.company.attributes.PRI_NAME.value}}"
                                 }
                               ]
                             },
                             {
                               "component": "Box",
+                              "onlyShowIf": {
+                                "repeater.attributes.PRI_IS_DECLINED.value": {
+                                  "$eq": true
+                                }
+                              },
                               "props": {
-                                "flexDirection": "column",
-                                "flex": 1
+                                "marginBottom": 5
                               },
                               "children": [
                                 {
-                                  "component": "Box",
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xs",
-                                        "bold": true
-                                      },
-                                      "children": "{{repeater.company.attributes.PRI_NAME.value}}"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "component": "Box",
-                                  "onlyShowIf": {
-                                    "repeater.attributes.PRI_IS_DECLINED.value": {
-                                      "$eq": true
-                                    }
-                                  },
-                                  "props": {
-                                    "marginBottom": 5
-                                  },
-                                  "children": [
-                                    {
-                                      "component": "Text",
-                                      "props": {
-                                        "size": "xxs",
-                                        "bold": true
-                                      },
-                                      "children": "REJECTED"
-                                    }
-                                  ]
-                                },
-                                {
                                   "component": "Text",
                                   "props": {
-                                    "size": "xxs"
+                                    "size": "xxs",
+                                    "bold": true
                                   },
-                                  "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
+                                  "children": "REJECTED"
                                 }
                               ]
+                            },
+                            {
+                              "component": "Text",
+                              "props": {
+                                "size": "xxs"
+                              },
+                              "children": "{{repeater.internship.attributes.PRI_NAME.value}}"
                             }
                           ]
                         }
@@ -322,14 +313,6 @@
                           },
                           "then": {
                             "items": [
-                              {
-                                "text": "Sign Document",
-                                "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                                "value": {
-                                  "itemCode": "{{repeater.attributes.PRI_APPLICANT_CODE.baseEntityCode}}",
-                                  "userCode": "{{user.data.code}}"
-                                }
-                              },
                               {
                                 "text": "View Internship Offer",
                                 "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
