@@ -25,6 +25,11 @@
             "user.attributes.PRI_IS_BUYER.value": {
               "$eq": true
             }
+          },
+          {
+            "user.attributes.PRI_IS_REFERRER.value": {
+              "$eq": true
+            }
           }
         ]
       }
@@ -103,6 +108,16 @@
                   "$eq": false
                 }
               ]
+            },
+            "query.userBe.attributes.PRI_IS_REFERRER.value": {
+              "$or": [
+                {
+                  "$eq": "undefined"
+                },
+                {
+                  "$eq": false
+                }
+              ]
             }
           },
           "children": [
@@ -156,6 +171,17 @@
           },
           "props": {
             "layoutName": "home/hostcompany"
+          }
+        },
+        {
+          "component": "Sublayout",
+          "onlyShowIf": {
+            "query.userBe.attributes.PRI_IS_REFERRER.value": {
+              "$eq": true
+            }
+          },
+          "props": {
+            "layoutName": "home/referrer"
           }
         }
       ]
