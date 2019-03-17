@@ -1,1 +1,295 @@
-{}
+{
+  "layout": {
+    "title": "Agreement Document",
+    "header": {
+      "variant": "default"
+    },
+    "sidebar": {
+      "variant": "default"
+    },
+    "sidebarRight": {
+      "variant": "default",
+      "onlyShowIf": {
+        "$or": [
+          {
+            "user.attributes.PRI_IS_AGENT.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "flex": 1,
+        "height": "calc( 100vh - 65px )",
+        "flexDirection": "column",
+        "padding": 30
+      },
+      "children": [
+        {
+          "component": "Box",
+          "children": [
+            {
+              "component": "Box",
+              "props": {
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "component": "Box",
+                  "children": [
+                    {
+                      "component": "Box",
+                      "onlyShowIf": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value": {
+                          "$exists": true
+                        }
+                      },
+                      "props": {
+                        "marginLeft": "20px",
+                        "marginBottom": "50px"
+                      },
+                      "children": {
+                        "component": "Link",
+                        "props": {
+                          "to": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}",
+                          "externalLink": true
+                        },
+                        "children": [
+                          {
+                            "component": "Box",
+                            "props": {
+                              "backgroundColor": "rgb(85, 148, 188)",
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "height": 50,
+                              "padding": 20
+                            },
+                            "children": [
+                              {
+                                "component": "Text",
+                                "props": {
+                                  "size": "sm",
+                                  "color": "white",
+                                  "bold": true,
+                                  "text": "Download Agreement Document"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "component": "ScrollView",
+                  "props": {
+                    "style": {
+                      "flex": 1
+                    },
+                    "height": "100%"
+                  },
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "justifyContent": "center",
+                        "width": "100%"
+                      },
+                      "children": [
+                        {
+                          "component": "DisplayHTML",
+                          "props": {
+                            "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": true
+                            }
+                          }
+                        },
+                        {
+                          "component": "PdfViewer",
+                          "props": {
+                            "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_LINK.value}}"
+                          },
+                          "onlyShowIf": {
+                            "query.application.linkValues.INT_AGMT.attributes.PRI_S3_AGREEMENT_HTML.value": {
+                              "$exists": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "Box",
+          "onlyShowIf": {
+            "$or": [
+              {
+                "$and": [
+                  {
+                    "user.attributes.PRI_IS_BUYER.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "query.document.attributes.PRI_HOST_COMPANY_ACCEPTED.value": {
+                      "$ne": true
+                    }
+                  }
+                ]
+              },
+              {
+                "$and": [
+                  {
+                    "user.attributes.PRI_IS_SELLER.value": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "query.document.attributes.PRI_INTERN_ACCEPTED.value": {
+                      "$ne": true
+                    }
+                  }
+                ]
+              },
+              {
+                "$and": [
+                  {
+                    "$or": [
+                      {
+                        "user.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
+                          "$eq": true
+                        }
+                      },
+                      {
+                        "user.attributes.PRI_IS_AGENT.value": {
+                          "$eq": true
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "query.document.attributes.PRI_EDU_PROVIDER_ACCEPTED.value": {
+                      "$ne": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "props": {
+            "flexShrink": 0
+          },
+          "children": [
+            {
+              "component": "Form",
+              "props": {
+                "questionGroupCode": "{{navigation.offerId}}",
+                "style": {
+                  "width": "100%",
+                  "marginTop": "40px"
+                },
+                "renderSubmitButton": {
+                  "component": "Button",
+                  "props": {
+                    "showSpinnerOnClick": true,
+                    "color": "green",
+                    "width": "100%"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "{{navigation.id}}",
+      "as": "application"
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "application",
+      "scope": {
+        "operator": "populateLinkValues",
+        "withAttributes": true,
+        "as": "linkValues"
+      }
+    },
+    {
+      "operator": "getLinks",
+      "id": "{{application.code}}",
+      "as": "applicationLinks"
+    },
+    {
+      "operator": "scope",
+      "path": "applicationLinks",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "applicationLinks",
+      "as": "document",
+      "scope": {
+        "operator": "findOne",
+        "query": {
+          "$and": [
+            {
+              "code": {
+                "$exists": true
+              }
+            },
+            {
+              "linkValue": {
+                "$eq": "INT_AGMT"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operator": "clean",
+      "fields": ["application", "document"]
+    }
+  ]
+}
