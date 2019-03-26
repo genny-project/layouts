@@ -103,17 +103,21 @@
                     }
                   },
                   {
-                    "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
-                      "$or": [
-                        {
-                          "$exists": false,
+                    "or": [
+                      {
+                        "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
+                          "$exists": false
+                        }
+                      },
+                      {
+                        "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
                           "$eq": "null"
                         }
-                      ]
-                    }
+                      }
+                  ]
                   }
                 ]
-              },
+                },
               {
                 "$and": [
                   {
@@ -122,18 +126,24 @@
                     }
                   },
                   {
-                    "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
-                      "$or": [
-                        {
-                          "$exists": false,
-                          "$eq": "null"
+                    "or": [
+                      {
+                        "query.document.attributes.PRI_INTERN_INDUCTION_SIGNATURE.value": {
+                            "$exists": false
                         }
-                      ]
-                    }
+                      },
+                      {
+                        "query.document.attributes.PRI_INTERN_INDUCTION_SIGNATURE.value": {
+                            "$eq": "null"
+                        }
+                      }
+                  ]
                   }
                 ]
-              }
-            ]
+                }
+                  
+                ]
+            
           },
           "props": {
             "flexShrink": 0
