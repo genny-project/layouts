@@ -99,7 +99,7 @@
       "scope": {
         "operator": "find",
         "query": {
-          "code": {
+          "be.code": {
             "$exists": true
           }
         }
@@ -112,12 +112,12 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "code": "code",
+          "code": "be.code",
           "providerName": "be.attributes.PRI_NAME.value",
           "email": "be.attributes.PRI_EMAIL.value",
           "phoneNumber": "be.attributes.PRI_LANDLINE.value",
           "address": "be.attributes.PRI_ADDRESS_FULL.value",
-          "attributeCode": "code"
+          "attributeCode": "be.code"
         }
       }
     },
