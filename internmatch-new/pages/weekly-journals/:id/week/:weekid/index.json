@@ -34,7 +34,10 @@
     {
       "component": "Sublayout",
       "props": {
-        "layoutName": "journal-layout"
+        "layoutName": "journal-layout",
+        "learnings": "Learning",
+        "totalHours": "",
+        "totalDays": ""
       },
       "conditional": [
         {
@@ -43,7 +46,7 @@
               "$eq": "1"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W1.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W1.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W1.value}}",
@@ -63,7 +66,7 @@
               },
               {
                 "day": "Day 3",
-                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_WD3.value}}",
+                "date": "{{query.docBeg.docAttributes.PRI_JOURNAL_DATE_W1D3.value}}",
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D3.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D3.value}}"
               },
@@ -79,7 +82,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W1D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W1D5.value}}"
               }
-             
             ]
           }
         },
@@ -89,7 +91,7 @@
               "$eq": "2"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W2.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W2.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W2.value}}",
@@ -125,7 +127,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W2D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W2D5.value}}"
               }
-             
             ]
           }
         },
@@ -135,7 +136,7 @@
               "$eq": "3"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W3.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W3.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W3.value}}",
@@ -171,7 +172,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W3D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W3D5.value}}"
               }
-             
             ]
           }
         },
@@ -181,7 +181,7 @@
               "$eq": "4"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W4.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W4.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W4.value}}",
@@ -217,7 +217,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W4D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W4D5.value}}"
               }
-             
             ]
           }
         },
@@ -227,7 +226,7 @@
               "$eq": "5"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W5.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W5.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W5.value}}",
@@ -263,9 +262,7 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W5D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W5D5.value}}"
               }
-             
             ]
-
           }
         },
         {
@@ -274,7 +271,7 @@
               "$eq": "6"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W6.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W6.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W6.value}}",
@@ -310,9 +307,7 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W6D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W6D5.value}}"
               }
-             
             ]
-
           }
         },
         {
@@ -321,7 +316,7 @@
               "$eq": "7"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W7.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W7.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W7.value}}",
@@ -357,7 +352,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W7D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W7D5.value}}"
               }
-             
             ]
           }
         },
@@ -367,7 +361,7 @@
               "$eq": "8"
             }
           },
-          "then":{
+          "then": {
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W8.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W8.value}}",
             "learnings": "{{query.docBeg.docAttributes.PRI_JOURNAL_LEARNINGS_W8.value}}",
@@ -403,9 +397,7 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W8D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W8D5.value}}"
               }
-             
             ]
-
           }
         },
         {
@@ -414,7 +406,7 @@
               "$eq": "9"
             }
           },
-          "then":{
+          "then": {
             "title": "Week 9",
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W9.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W9.value}}",
@@ -450,7 +442,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W9D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W9D5.value}}"
               }
-             
             ]
           }
         },
@@ -460,7 +451,7 @@
               "$eq": "10"
             }
           },
-          "then":{
+          "then": {
             "title": "Week 10",
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W10.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W10.value}}",
@@ -496,7 +487,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W10D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W10D5.value}}"
               }
-             
             ]
           }
         },
@@ -506,7 +496,7 @@
               "$eq": "11"
             }
           },
-          "then":{
+          "then": {
             "title": "Week 11",
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W11.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W11.value}}",
@@ -542,7 +532,6 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W11D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W11D5.value}}"
               }
-             
             ]
           }
         },
@@ -552,7 +541,7 @@
               "$eq": "12"
             }
           },
-          "then":{
+          "then": {
             "title": "Week 12",
             "totalDays": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_DAYS_W12.value}}",
             "totalHours": "{{query.docBeg.docAttributes.PRI_JOURNAL_TOTAL_HOURS_W12.value}}",
@@ -588,13 +577,11 @@
                 "hoursWorked": "{{query.docBeg.docAttributes.PRI_JOURNAL_HOURS_WORKED_W12D5.value}}",
                 "taskDetails": "{{query.docBeg.docAttributes.PRI_JOURNAL_TASK_DETAILS_W12D5.value}}"
               }
-             
             ]
           }
         }
       ]
     }
-  
   ],
   "query": [
     {
@@ -618,10 +605,10 @@
       "scope": {
         "operator": "findOne",
         "query": {
-            "link.linkValue": {
-                "$eq": "INT_AGMT"
-            }
+          "link.linkValue": {
+            "$eq": "INT_AGMT"
           }
+        }
       }
     },
     {
