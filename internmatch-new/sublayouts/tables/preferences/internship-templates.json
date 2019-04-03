@@ -1,0 +1,193 @@
+{
+  "layout": {
+    "title": "Internships Templates"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "code": "GRP_INTERNSHIP_TEMPLATES",
+            "rootCode": "GRP_INTERNSHIP_TEMPLATES",
+            "data": "_query.tableData",
+            "totalItems": "_query.internshipGroup.totalCount",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                "fakeButton": "View"
+              },
+              {
+                "Header": "Template Name ",
+                "accessor": "templateName",
+                "attributeCode": "PRI_NAME"
+              },
+              {
+                "Header": "Duration",
+                "accessor": "duration",
+                "attributeCode": "LNK_INTERNSHIP_DURATION"
+              },
+              {
+                "Header": "Interns",
+                "accessor": "interns",
+                "attributeCode": "LNK_NO_OF_INTERNS"
+              },
+              {
+                "Header": "Industry",
+                "accessor": "industry",
+                "attributeCode": "LNK_INDUSTRY"
+              },
+              {
+                "Header": "Occupation",
+                "accessor": "occupation",
+                "attributeCode": "LNK_OCCUPATION"
+              },
+              {
+                "Header": "Scope of occupation",
+                "accessor": "scopeoccupation",
+                "attributeCode": "PRI_INTERNSHIP_DESCRIPTION"
+              },
+              {
+                "Header": "Roles and Responsibilities",
+                "accessor": "rolesAndRes",
+                "attributeCode": "PRI_POSITION_DESCRIPTION"
+              },
+              {
+                "Header": "Learning Outcomes",
+                "accessor": "learningOutcomes",
+                "attributeCode": "PRI_INTERNSHIP_LEARNING_OUTCOMES"
+              },
+              {
+                "Header": "Internship Skills",
+                "accessor": "internshipSkills",
+                "attributeCode": "PRI_INTERNSHIP_SKILLS"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_INTERNSHIP_TEMPLATES",
+      "as": "internships"
+    },
+    {
+      "operator": "scope",
+      "path": "internships.links",
+      "as": "internships",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "getBE",
+        "as": "company",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_HOST_COMPANY.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "getBE",
+        "as": "companyRep",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "scope",
+        "path": "companyRep",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internships",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "name": "attributes.PRI_NAME.value",
+          "positionDescription": "attributes.PRI_POSITION_DESCRIPTION.value",
+          "learningOutcomes": "attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value",
+          "internshipSkills": "attributes.PRI_INTERNSHIP_SKILLS.value",
+          "company": "company.name",
+          "companyRep": "companyRep.name",
+          "contactNumber": "companyRep.attributes.PRI_MOBILE.value"
+        }
+      }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
+      "as": "internshipGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData", "internshipGroup"]
+    }
+  ]
+}
