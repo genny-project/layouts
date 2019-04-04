@@ -21,7 +21,37 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "fakeButton": "View"
+                 "renderButton": [{
+                     "component": "EventButton",
+                     "props": {
+                       "height": "30px",
+                       "width": "80px",
+                       "backgroundColor": "blue",
+                       "color": "#5173c6",
+                       "textColor": "#fff",
+                       "text": "Edit",
+                       "buttonCode": "BTN_EDIT_INTERNSHIP_TEMPLATE",
+                       "value": {
+                         "itemCode": "{{code}}"
+                       }
+                     }
+                   },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "80px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Delete",
+                      "buttonCode": "BTN_DELETE_INTERNSHIP_TEMPLATE",
+                      "value": {
+                        "itemCode": "{{code}}"
+                      }
+                    }
+                  }
+                 ]
               },
               {
                 "Header": "Template Name ",
@@ -49,30 +79,9 @@
                 "attributeCode": "LNK_NO_OF_INTERNS"
               },
               {
-                "Header": "Scope of Internship",
+                "Header": "Internship Description",
                 "accessor": "internshipDescription",
                 "attributeCode": "PRI_INTERNSHIP_DESCRIPTION"
-              },
-              {
-                "Header": "Roles and Responsibilities",
-                "accessor": "positionDescription",
-                "attributeCode": "PRI_POSITION_DESCRIPTION",
-                "renderCell":{
-                  "component" : "DisplayHTML",
-                  "props":{
-                    "html": "positionDescription"
-                  }
-                }
-              },
-              {
-                "Header": "Learning Outcomes",
-                "accessor": "learningOutcomes",
-                "attributeCode": "PRI_INTERNSHIP_LEARNING_OUTCOMES"
-              },
-              {
-                "Header": "Internship Skills",
-                "accessor": "internshipSkills",
-                "attributeCode": "PRI_INTERNSHIP_SKILLS"
               }
             ]
           }
@@ -222,10 +231,7 @@
           "occupation": "occupation.name",
           "internshipDuration": "internshipDuration.name",
           "noOfInterns": "noOfInterns.name",
-          "internshipDescription": "attributes.PRI_INTERNSHIP_DESCRIPTION.value",
-          "positionDescription": "attributes.PRI_POSITION_DESCRIPTION.value",
-          "learningOutcomes": "attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value",
-          "internshipSkills": "attributes.PRI_INTERNSHIP_SKILLS.value"
+          "internshipDescription": "attributes.PRI_INTERNSHIP_DESCRIPTION.value"
         }
       }
     },
