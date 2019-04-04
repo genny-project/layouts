@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Internships Templates"
+    "title": "Internship Templates"
   },
   "children": [
     {
@@ -29,16 +29,6 @@
                 "attributeCode": "PRI_NAME"
               },
               {
-                "Header": "Duration",
-                "accessor": "duration",
-                "attributeCode": "LNK_INTERNSHIP_DURATION"
-              },
-              {
-                "Header": "Interns",
-                "accessor": "interns",
-                "attributeCode": "LNK_NO_OF_INTERNS"
-              },
-              {
                 "Header": "Industry",
                 "accessor": "industry",
                 "attributeCode": "LNK_INDUSTRY"
@@ -49,13 +39,23 @@
                 "attributeCode": "LNK_OCCUPATION"
               },
               {
-                "Header": "Scope of occupation",
-                "accessor": "scopeoccupation",
+                "Header": "Duration",
+                "accessor": "internshipDuration",
+                "attributeCode": "LNK_INTERNSHIP_DURATION"
+              },
+              {
+                "Header": "Number of Interns",
+                "accessor": "noOfInterns",
+                "attributeCode": "LNK_NO_OF_INTERNS"
+              },
+              {
+                "Header": "Scope of Internship",
+                "accessor": "internshipDescription",
                 "attributeCode": "PRI_INTERNSHIP_DESCRIPTION"
               },
               {
                 "Header": "Roles and Responsibilities",
-                "accessor": "rolesAndRes",
+                "accessor": "positionDescription",
                 "attributeCode": "PRI_POSITION_DESCRIPTION"
               },
               {
@@ -78,12 +78,12 @@
     {
       "operator": "getBE",
       "id": "GRP_INTERNSHIP_TEMPLATES",
-      "as": "internships"
+      "as": "templates"
     },
     {
       "operator": "scope",
-      "path": "internships.links",
-      "as": "internships",
+      "path": "templates.links",
+      "as": "templates",
       "scope": {
         "operator": "getBE",
         "basePath": "baseEntities.data",
@@ -92,7 +92,7 @@
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "scope": {
         "operator": "populateAttributes",
         "code": "{{code}}",
@@ -101,20 +101,20 @@
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "scope": {
         "operator": "getBE",
-        "as": "company",
+        "as": "industry",
         "basePath": "baseEntities.data",
-        "id": "{{attributes.LNK_HOST_COMPANY.value}}"
+        "id": "{{attributes.LNK_INDUSTRY.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "scope": {
         "operator": "scope",
-        "path": "company",
+        "path": "industry",
         "scope": {
           "operator": "populateAttributes",
           "code": "{{code}}",
@@ -124,20 +124,20 @@
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "scope": {
         "operator": "getBE",
-        "as": "companyRep",
+        "as": "occupation",
         "basePath": "baseEntities.data",
-        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}"
+        "id": "{{attributes.LNK_OCCUPATION.value}}"
       }
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "scope": {
         "operator": "scope",
-        "path": "companyRep",
+        "path": "occupation",
         "scope": {
           "operator": "populateAttributes",
           "code": "{{code}}",
@@ -147,7 +147,53 @@
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "internshipDuration",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "internshipDuration",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "noOfInterns",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_NO_OF_INTERNS.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "noOfInterns",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
       "scope": {
         "operator": "find",
         "query": {
@@ -159,19 +205,21 @@
     },
     {
       "operator": "scope",
-      "path": "internships",
+      "path": "templates",
       "as": "tableData",
       "scope": {
         "operator": "map",
         "fields": {
           "code": "code",
-          "name": "attributes.PRI_NAME.value",
+          "templateName": "attributes.PRI_NAME.value",
+          "industry": "industry.name",
+          "occupation": "occupation.name",
+          "internshipDuration": "internshipDuration.name",
+          "noOfInterns": "noOfInterns.name",
+          "internshipDescription": "attributes.PRI_INTERNSHIP_DESCRIPTION.value",
           "positionDescription": "attributes.PRI_POSITION_DESCRIPTION.value",
           "learningOutcomes": "attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value",
-          "internshipSkills": "attributes.PRI_INTERNSHIP_SKILLS.value",
-          "company": "company.name",
-          "companyRep": "companyRep.name",
-          "contactNumber": "companyRep.attributes.PRI_MOBILE.value"
+          "internshipSkills": "attributes.PRI_INTERNSHIP_SKILLS.value"
         }
       }
     },
@@ -182,7 +230,7 @@
     },
     {
       "operator": "getBE",
-      "id": "GRP_RESULT_AVAILABLE_INTERNSHIPS",
+      "id": "GRP_INTERNSHIP_TEMPLATES",
       "as": "internshipGroup"
     },
     {
