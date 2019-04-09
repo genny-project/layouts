@@ -59,6 +59,11 @@
                   "user.attributes.PRI_IS_BUYER.value": {
                     "$eq": true
                   }
+                },
+                {
+                  "user.attributes.PRI_IS_REFERRER.value": {
+                    "$eq": true
+                  }
                 }
               ]
             },
@@ -142,6 +147,29 @@
                         "buttonCode": "BTN_ADD_PEOPLE"
                       }
                     ]
+                  },
+                  "else": {
+                    "if": {
+                      "user.attributes.PRI_IS_REFERRER.value": {
+                        "$eq": true
+                      }
+                    },
+                    "then": {
+                      "items": [
+                        {
+                          "text": "New internship",
+                          "buttonCode": "BTN_ADD_INTERNSHIP"
+                        },
+                        {
+                          "text": "New company",
+                          "buttonCode": "BTN_ADD_COMPANY"
+                        },
+                        {
+                          "text": "New person",
+                          "buttonCode": "BTN_ADD_PEOPLE"
+                        }
+                      ]
+                    }
                   }
                 }
               }
