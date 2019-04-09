@@ -55,6 +55,29 @@
                   "repeat": "_query",
                   "children": {
                     "component": "List",
+                    "onlyShowIf": {
+                      "$or": [
+                        {
+                          "$and": [
+                            {
+                              "props.rootCode": {
+                                "$ne": "GRP_INTERNS"
+                              }
+                            },
+                            {
+                              "repeater.code": {
+                                "$ne": "GRP_NOT_APPLIED"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "props.rootCode": {
+                            "$eq": "GRP_INTERNS"
+                          }
+                        }
+                      ]
+                    },
                     "props": {
                       "headerText": "{{repeater.name}}",
                       "contentBackground": "#eaeaea",
