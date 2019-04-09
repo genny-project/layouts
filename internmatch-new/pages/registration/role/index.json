@@ -145,7 +145,7 @@
           },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_BUYER",
-            "text": "I am a Host Company Staff",
+            "text": "I am a Host Company",
             "color": "teal",
             "textColor": "#fff",
             "borderWidth": 1,
@@ -204,7 +204,7 @@
           },
           "props": {
             "buttonCode": "BTN_SELECT_ROLE_EDU_PROVIDER_STAFF",
-            "text": "I am an Education Provider Staff",
+            "text": "I am an Education Provider",
             "color": "teal",
             "textColor": "#fff",
             "size": "xl",
@@ -224,123 +224,6 @@
           "component": "Box",
           "props": {
             "height": 10
-          }
-        },
-        {
-          "component": "EventButton",
-          "onlyShowIf": {
-            "$or": [
-              {
-                "query.userBe.attributes.PRI_IS_AGENT.value": {
-                  "$eq": true
-                }
-              },
-              {
-                "$and": [
-                  {
-                    "query.userBe.attributes.PRI_IS_AGENT.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_SELLER.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_BUYER.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_REFERRER.value": {
-                      "$exists": false
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "props": {
-            "buttonCode": "BTN_SELECT_ROLE_AGENT",
-            "text": "I am an Agent",
-            "color": "teal",
-            "textColor": "#fff",
-            "borderWidth": 1,
-            "showSpinnerOnClick": true,
-            "size": "xl",
-            "height": "50px",
-            "width": "300px",
-            "padding": "20px",
-            "hoverProps": {
-              "color": "darkcyan",
-              "textColor": "white"
-            },
-            "testID": "BTN_SELECT_ROLE_AGENT"
-          }
-        },
-        {
-          "component": "Box",
-          "props": {
-            "height": 10
-          }
-        },
-        {
-          "component": "EventButton",
-          "onlyShowIf": {
-            "$or": [
-              {
-                "query.userBe.attributes.PRI_IS_REFERRER.value": {
-                  "$eq": true
-                }
-              },
-              {
-                "$and": [
-                  {
-                    "query.userBe.attributes.PRI_IS_AGENT.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_EDU_PROVIDER_STAFF.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_SELLER.value": {
-                      "$exists": false
-                    }
-                  },
-                  {
-                    "query.userBe.attributes.PRI_IS_BUYER.value": {
-                      "$exists": false
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "props": {
-            "buttonCode": "BTN_SELECT_ROLE_REFERRER",
-            "text": "I am a Referrer",
-            "color": "teal",
-            "textColor": "#fff",
-            "borderWidth": 1,
-            "showSpinnerOnClick": true,
-            "size": "xl",
-            "height": "50px",
-            "width": "300px",
-            "padding": "20px",
-            "hoverProps": {
-              "color": "darkcyan",
-              "textColor": "white"
-            },
-            "testID": "BTN_SELECT_ROLE_REFERRER"
           }
         }
       ]

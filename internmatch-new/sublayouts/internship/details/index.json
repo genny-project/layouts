@@ -262,7 +262,7 @@
                           }
                         },
                         "then": {
-                          "text": "{{props.internship.duration}} long"
+                          "text": "{{props.internship.duration}} longs"
                         }
                       },
                       "props": {
@@ -435,7 +435,7 @@
                   "children": [
                     {
                       "component": "Heading",
-                      "children": "Position description"
+                      "children": "Internship description"
                     }
                   ]
                 },
@@ -443,13 +443,13 @@
                   "component": "DisplayHTML",
                   "conditional": {
                     "if": {
-                      "props.position.description": {
+                      "props.positionDescription": {
                         "$exists": true,
                         "$ne": "undefined"
                       }
                     },
                     "then": {
-                      "html": "{{props.position.description}}"
+                      "html": "{{props.positionDescription}}"
                     }
                   },
                   "props": {

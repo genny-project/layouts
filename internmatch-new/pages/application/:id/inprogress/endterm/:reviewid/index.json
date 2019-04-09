@@ -1,6 +1,6 @@
 {
   "layout": {
-    "title": "Induction Document",
+    "title": "Final term review Document",
     "header": {
       "variant": "default"
     },
@@ -23,6 +23,11 @@
           },
           {
             "user.attributes.PRI_IS_BUYER.value": {
+              "$eq": true
+            }
+          },
+          {
+            "user.attributes.PRI_IS_SELLER.value": {
               "$eq": true
             }
           }
@@ -66,10 +71,10 @@
                     {
                       "component": "DisplayHTML",
                       "props": {
-                        "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value}}"
+                        "html": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_FINAL_REVIEW_HTML.value}}"
                       },
                       "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_HTML.value": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_FINAL_REVIEW_HTML.value": {
                           "$exists": true
                         }
                       }
@@ -77,10 +82,10 @@
                     {
                       "component": "PdfViewer",
                       "props": {
-                        "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value}}"
+                        "file": "{{query.application.linkValues.INT_AGMT.attributes.PRI_S3_FINAL_REVIEW_LINK.value}}"
                       },
                       "onlyShowIf": {
-                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_INDUCTION_LINK.value": {
+                        "query.application.linkValues.INT_AGMT.attributes.PRI_S3_FINAL_REVIEW_LINK.value": {
                           "$exists": false
                         }
                       }
@@ -94,56 +99,9 @@
         {
           "component": "Box",
           "onlyShowIf": {
-            "$or": [
-              {
-                "$and": [
-                  {
-                    "user.attributes.PRI_IS_BUYER.value": {
-                      "$eq": true
-                    }
-                  },
-                  {
-                    "or": [
-                      {
-                        "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
-                          "$exists": false
-                        }
-                      },
-                      {
-                        "query.document.attributes.PRI_SUPERVISOR_INDUCTION_SIGNATURE.value": {
-                          "$eq": "null"
-                        }
-                      }
-                  ]
-                  }
-                ]
-                },
-              {
-                "$and": [
-                  {
-                    "user.attributes.PRI_IS_SELLER.value": {
-                      "$eq": true
-                    }
-                  },
-                  {
-                    "or": [
-                      {
-                        "query.document.attributes.PRI_INTERN_INDUCTION_SIGNATURE.value": {
-                            "$exists": false
-                        }
-                      },
-                      {
-                        "query.document.attributes.PRI_INTERN_INDUCTION_SIGNATURE.value": {
-                            "$eq": "null"
-                        }
-                      }
-                  ]
-                  }
-                ]
-                }
-                  
-                ]
-            
+            "user.attributes.PRI_IS_SELLER.value": {
+              "$eq": true
+            }
           },
           "props": {
             "flexShrink": 0
@@ -152,7 +110,7 @@
             {
               "component": "Form",
               "props": {
-                "questionGroupCode": "{{navigation.offerId}}",
+                "questionGroupCode": "{{navigation.reviewid}}",
                 "style": {
                   "width": "100%"
                 },

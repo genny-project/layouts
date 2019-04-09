@@ -58,7 +58,7 @@
           "skills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
           "description": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
           "learningOutcomes": "{{query.internship.attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value}}",
-          "positionDescription": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
+          "positionDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
           "created": "{{query.internship.created}}"
         },
         "company": {
@@ -66,9 +66,9 @@
           "name": "{{query.internship.company.attributes.PRI_NAME.value}}"
         },
         "supervisor": {
-          "name": "{{query.internship.supervisor.attributes.PRI_NAME.value}}",
-          "email": "{{query.internship.supervisor.attributes.PRI_EMAIL.value}}",
-          "phone": "{{query.internship.supervisor.attributes.PRI_MOBILE.value}}"
+          "name": "{{query.hc.attributes.PRI_NAME.value}}",
+          "email": "{{query.hc.attributes.PRI_EMAIL.value}}",
+          "phone": "{{query.hc.attributes.PRI_MOBILE.value}}"
         }
       }
     }
@@ -113,10 +113,19 @@
     {
       "operator": "scope",
       "path": "internship",
-        "scope": {
-          "operator": "getBE",
-          "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
-          "as": "bes"
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "as": "bes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}",
+        "as": "hc"
       }
     },
     {

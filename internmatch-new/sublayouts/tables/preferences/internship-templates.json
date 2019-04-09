@@ -1,0 +1,254 @@
+{
+  "layout": {
+    "title": "Internship Templates"
+  },
+  "children": [
+    {
+      "component": "Box",
+      "props": {
+        "width": "100%"
+      },
+      "children": [
+        {
+          "component": "Sublayout",
+          "props": {
+            "layoutName": "tables/default",
+            "isSelectable" : false,
+            "code": "GRP_INTERNSHIP_TEMPLATES",
+            "rootCode": "GRP_INTERNSHIP_TEMPLATES",
+            "data": "_query.tableData",
+            "totalItems": "_query.internshipGroup.totalCount",
+            "columns": [
+              {
+                "Header": "Actions",
+                "accessor": "actions",
+                 "renderButton": [{
+                     "component": "EventButton",
+                     "props": {
+                       "height": "30px",
+                       "width": "80px",
+                       "backgroundColor": "blue",
+                       "color": "#5173c6",
+                       "textColor": "#fff",
+                       "text": "Edit",
+                       "buttonCode": "BTN_EDIT_INTERNSHIP_TEMPLATE",
+                       "value": {
+                         "itemCode": "{{code}}"
+                       }
+                     }
+                   },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "30px",
+                      "width": "110px",
+                      "backgroundColor": "red",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Delete",
+                      "buttonCode": "BTN_DELETE_INTERNSHIP_TEMPLATE",
+                      "value": {
+                        "itemCode": "{{code}}"
+                      }
+                    }
+                  }
+                 ]
+              },
+              {
+                "Header": "Template Name ",
+                "accessor": "templateName",
+                "attributeCode": "PRI_NAME"
+              },
+              {
+                "Header": "Industry",
+                "accessor": "industry",
+                "attributeCode": "LNK_INDUSTRY"
+              },
+              {
+                "Header": "Occupation",
+                "accessor": "occupation",
+                "attributeCode": "LNK_OCCUPATION"
+              },
+              {
+                "Header": "Duration",
+                "accessor": "internshipDuration",
+                "attributeCode": "LNK_INTERNSHIP_DURATION"
+              },
+              {
+                "Header": "Number of Interns",
+                "accessor": "noOfInterns",
+                "attributeCode": "LNK_NO_OF_INTERNS"
+              },
+              {
+                "Header": "Internship Description",
+                "accessor": "internshipDescription",
+                "attributeCode": "PRI_INTERNSHIP_DESCRIPTION"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "query": [
+    {
+      "operator": "getBE",
+      "id": "GRP_INTERNSHIP_TEMPLATES",
+      "as": "templates"
+    },
+    {
+      "operator": "scope",
+      "path": "templates.links",
+      "as": "templates",
+      "scope": {
+        "operator": "getBE",
+        "basePath": "baseEntities.data",
+        "id": "{{link.targetCode}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "populateAttributes",
+        "code": "{{code}}",
+        "as": "attributes"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "industry",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_INDUSTRY.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "industry",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "occupation",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_OCCUPATION.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "occupation",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "internshipDuration",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "internshipDuration",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "getBE",
+        "as": "noOfInterns",
+        "basePath": "baseEntities.data",
+        "id": "{{attributes.LNK_NO_OF_INTERNS.value}}"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "scope",
+        "path": "noOfInterns",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "scope": {
+        "operator": "find",
+        "query": {
+          "code": {
+            "$exists": true
+          }
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "templates",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "code": "code",
+          "templateName": "attributes.PRI_NAME.value",
+          "industry": "industry.name",
+          "occupation": "occupation.name",
+          "internshipDuration": "internshipDuration.name",
+          "noOfInterns": "noOfInterns.name",
+          "internshipDescription": "attributes.PRI_INTERNSHIP_DESCRIPTION.value"
+        }
+      }
+    },
+    {
+      "operator": "getFromAlias",
+      "alias": "CURRENT_NOTE",
+      "as": "currentItem"
+    },
+    {
+      "operator": "getBE",
+      "id": "GRP_INTERNSHIP_TEMPLATES",
+      "as": "internshipGroup"
+    },
+    {
+      "operator": "clean",
+      "fields": ["tableData", "internshipGroup"]
+    }
+  ]
+}

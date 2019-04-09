@@ -6,8 +6,8 @@
   "children": [
     {
       "component": "Box",
-      "props" : {
-        "width" : "100%"
+      "props": {
+        "width": "100%"
       },
       "children": [
         {
@@ -25,33 +25,27 @@
                 "fakeButton": "View"
               },
               {
-                "Header": "select",
-                "accessor": "select",
-                "show": false
-              },
-              {
-                "Header": "Provider Name",
+                "Header": "Name",
                 "accessor": "providerName",
+                "attributeCode": "PRI_NAME",
                 "filterType": "string"
               },
               {
                 "Header": "Email",
                 "accessor": "email",
+                "attributeCode": "PRI_EMAIL",
                 "filterType": "string"
               },
               {
                 "Header": "Phone Number",
-                "accessor": "mobilePhone",
+                "accessor": "phoneNumber",
+                "attributeCode": "PRI_LANDLINE",
                 "filterType": "string"
               },
               {
                 "Header": "Address ",
                 "accessor": "address",
-                "filterType": "string"
-              },
-              {
-                "Header": "Selcet",
-                "accessor": "select",
+                "attributeCode": "PRI_ADDRESS_FULL",
                 "filterType": "string"
               }
             ]
@@ -105,7 +99,7 @@
       "scope": {
         "operator": "find",
         "query": {
-          "code": {
+          "be.code": {
             "$exists": true
           }
         }
@@ -118,12 +112,12 @@
       "scope": {
         "operator": "map",
         "fields": {
-          "code": "code",
+          "code": "be.code",
           "providerName": "be.attributes.PRI_NAME.value",
           "email": "be.attributes.PRI_EMAIL.value",
-          "mobilePhone": "be.attributes.PRI_LANDLINE.value",
-          "address": "be.attributes.PRI_ADDRESS_STATE.value",
-          "attributeCode": "code"
+          "phoneNumber": "be.attributes.PRI_LANDLINE.value",
+          "address": "be.attributes.PRI_ADDRESS_FULL.value",
+          "attributeCode": "be.code"
         }
       }
     },

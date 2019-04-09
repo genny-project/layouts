@@ -5,12 +5,14 @@
       "variant": "default"
     }
   },
-  "children": [{
+  "children": [
+    {
       "component": "Box",
       "props": {
         "marginTop": "10px"
       },
-      "children": [{
+      "children": [
+        {
           "component": "Box",
           "props": {
             "backgroundColor": "black",
@@ -22,208 +24,219 @@
             "width": "2px",
             "height": "auto"
           },
-          "children": [{
-            "component": "Box",
-            "props": {
-              "backgroundColor": "black",
-              "width": "2px",
-              "height": "auto"
-            },
-            "children": [{
+          "children": [
+            {
               "component": "Box",
               "props": {
-                "height": "auto",
-                "color": "#444",
-                "width": "100%",
-                "position": "relative",
-                "listStyle": "none"
+                "backgroundColor": "black",
+                "width": "2px",
+                "height": "auto"
               },
-              "children": [{
-                  "component": "Text",
-                  "text": "Compliance Forms"
-                },
+              "children": [
                 {
                   "component": "Box",
                   "props": {
-                    "padding": "2em 2em 0 2em",
+                    "height": "auto",
+                    "color": "#444",
+                    "width": "100%",
                     "position": "relative",
-                    "left": "2em",
-                    "width": "95%",
-                    "display": "flex",
-                    "flexDirection": "column"
+                    "listStyle": "none"
                   },
-                  "children": [{
-                      "name": "single-item",
-                      "component": "Box",
-                      "props": {
-                        "textAlign": "left",
-                        "marginTop": "20px",
-                        "lineHeight": "1.5em",
-                        "width": "200px",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around"
-                      },
-                      "children": [
-
-                        {
-                          "component": "Box",
-                          "props": {
-                            "justifyContent": "space-between",
-                            "alignItems": "center",
-                            "width": "150px"
-                          },
-                          "children": [{
-                            "component": "EventButton",
-                            "props": {
-                              "textColor": "black",
-                              "text": "Agreement",
-                              "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
-                              "value": {
-                                "itemCode": "{{props.navigationId}}"
-                              }
-                            }
-                          }]
-                        },
-                        {
-                          "component": "Box",
-                          "props": {
-                            "transform": "rotate(45deg)",
-                            "display": "block",
-                            "margin": "0.5em 0.5em 0.5em -0.5em",
-                            "position": "absolute",
-                            "top": "0",
-                            "left": "-3.0em"
-                          },
-                          "children": [{
-                            "component": "Icon",
-                            "props": {
-                              "name": "lens",
-                              "size": "md",
-                              "color": "#444"
-                            }
-                          }]
-                        }
-                      ]
+                  "children": [
+                    {
+                      "component": "Text",
+                      "text": "Compliance Forms"
                     },
                     {
-                      "name": "single-item",
                       "component": "Box",
                       "props": {
-                        "textAlign": "left",
-                        "marginTop": "20px",
-                        "lineHeight": "1.5em",
-                        "width": "200px",
+                        "padding": "2em 2em 0 2em",
+                        "position": "relative",
+                        "left": "2em",
+                        "width": "95%",
                         "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around"
+                        "flexDirection": "column"
                       },
                       "children": [
-
                         {
+                          "name": "single-item",
                           "component": "Box",
                           "props": {
-                            "justifyContent": "space-between",
-                            "alignItems": "center",
-                            "width": "150px"
-
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
                           },
-                          "children": [{
-                            "component": "EventButton",
-                            "props": {
-                              "fontSize": "22px",
-                              "textColor": "#444",
-                              "textSize": "md",
-                              "text": "Induction Document",
-                              "buttonCode": "BTN_SHOW_INDUCTION_DOCUMENT",
-                              "value": {
-                                "itemCode": "{{props.navigationId}}"
-                              }
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "justifyContent": "space-between",
+                                "alignItems": "center",
+                                "width": "150px"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "black",
+                                    "text": "Agreement",
+                                    "buttonCode": "BTN_SHOW_COMPLIANCE_DOCUMENT",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "transform": "rotate(45deg)",
+                                "display": "block",
+                                "margin": "0.5em 0.5em 0.5em -0.5em",
+                                "position": "absolute",
+                                "top": "0",
+                                "left": "-3.0em"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "lens",
+                                    "size": "md",
+                                    "color": "#444"
+                                  }
+                                }
+                              ]
                             }
-                          }]
-                        },
-
-                        {
-                          "component": "Box",
-                          "props": {
-                            "transform": "rotate(45deg)",
-                            "display": "block",
-                            "margin": "0.5em 0.5em 0.5em -0.5em",
-                            "position": "absolute",
-                            "top": "0",
-                            "left": "-3.0em"
-                          },
-                          "children": [{
-                            "component": "Icon",
-                            "props": {
-                              "name": "lens",
-                              "size": "md",
-                              "color": "#444"
-                            }
-                          }]
-                        }
-
-                      ]
-                    },
-                    {
-                      "name": "single-item",
-                      "component": "Box",
-                      "props": {
-                        "textAlign": "left",
-                        "marginTop": "20px",
-                        "lineHeight": "1.5em",
-                        "width": "200px",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around"
-                      },
-                      "children": [
-
-                        {
-                          "component": "Box",
-                          "props": {
-                            "justifyContent": "space-between",
-                            "alignItems": "center",
-                            "width": "150px"
-
-                          },
-                          "children": [{
-                            "component": "EventButton",
-                            "props": {
-                              "fontSize": "22px",
-                              "textColor": "#444",
-                              "textSize": "md",
-                              "text": "Internship Journal"
-                            }
-                          }]
+                          ]
                         },
                         {
+                          "name": "single-item",
                           "component": "Box",
                           "props": {
-                            "transform": "rotate(45deg)",
-                            "display": "block",
-                            "margin": "0.5em 0.5em 0.5em -0.5em",
-                            "position": "absolute",
-                            "top": "0",
-                            "left": "-3.0em"
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
                           },
-                          "children": [{
-                            "component": "Icon",
-                            "props": {
-                              "name": "lens",
-                              "size": "md",
-                              "color": "#444"
-                            }
-                          }]
-                        }
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "justifyContent": "space-between",
+                                "alignItems": "center",
+                                "width": "150px"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "fontSize": "22px",
+                                    "textColor": "#444",
+                                    "textSize": "md",
+                                    "text": "Induction Document",
+                                    "buttonCode": "BTN_SHOW_INDUCTION_DOCUMENT",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
 
+                            {
+                              "component": "Box",
+                              "props": {
+                                "transform": "rotate(45deg)",
+                                "display": "block",
+                                "margin": "0.5em 0.5em 0.5em -0.5em",
+                                "position": "absolute",
+                                "top": "0",
+                                "left": "-3.0em"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "lens",
+                                    "size": "md",
+                                    "color": "#444"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "justifyContent": "space-between",
+                                "alignItems": "center",
+                                "width": "150px"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "fontSize": "22px",
+                                    "textColor": "#444",
+                                    "textSize": "md",
+                                    "text": "Internship Journal"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "transform": "rotate(45deg)",
+                                "display": "block",
+                                "margin": "0.5em 0.5em 0.5em -0.5em",
+                                "position": "absolute",
+                                "top": "0",
+                                "left": "-3.0em"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "lens",
+                                    "size": "md",
+                                    "color": "#444"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
                       ]
                     }
                   ]
                 }
               ]
-            }]
-          }]
+            }
+          ]
         },
         {
           "component": "Box",
@@ -235,790 +248,832 @@
             "width": "2px",
             "height": "auto"
           },
-          "children": [{
-            "component": "Box",
-            "props": {
-              "backgroundColor": "black",
-              "width": "2px",
-              "height": "auto"
-            },
-            "children": [{
+          "children": [
+            {
               "component": "Box",
               "props": {
-                "height": "auto",
-                "color": "#444",
-                "width": "100%",
-                "position": "relative",
-                "listStyle": "none"
+                "backgroundColor": "black",
+                "width": "2px",
+                "height": "auto"
               },
-              "children": [{
-                "component": "Box",
-                "props": {
-                  "padding": "2em 2em 0 2em",
-                  "position": "relative",
-                  "left": "2em",
-                  "width": "95%",
-                  "display": "flex",
-                  "flexDirection": "column"
-                },
-                "children": [{
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around",
-                      "alignItems": "center"
-                    },
-                    "children": [{
-                        "component": "EventButtonLink",
-                        "props": {
-                          "textColor": "#444",
-                          "text": "Week 1",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W1",
-                          "to": "/weekly-journals/{{props.navigationId}}/week/1",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W1",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "transform": "rotate(45deg)",
-                          "display": "block",
-                          "margin": "0.5em 0.5em 0.5em -0.5em",
-                          "position": "absolute",
-                          "top": "0",
-                          "left": "-3.0em"
-                        },
-                        "children": [{
-                          "component": "Icon",
-                          "props": {
-                            "name": "lens",
-                            "size": "md",
-                            "color": "#444"
-                          }
-                        }]
-                      }
-                    ]
+              "children": [
+                {
+                  "component": "Box",
+                  "props": {
+                    "height": "auto",
+                    "color": "#444",
+                    "width": "100%",
+                    "position": "relative",
+                    "listStyle": "none"
                   },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 2",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W2",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
+                  "children": [
+                    {
+                      "component": "Box",
+                      "props": {
+                        "padding": "2em 2em 0 2em",
+                        "position": "relative",
+                        "left": "2em",
+                        "width": "95%",
+                        "display": "flex",
+                        "flexDirection": "column"
                       },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
+                      "children": [
+                        {
+                          "name": "single-item",
+                          "component": "Box",
                           "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W2",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around",
+                            "alignItems": "center"
                           },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "textColor": "#444",
+                                "text": "Week 1",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W1",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W1",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "transform": "rotate(45deg)",
+                                "display": "block",
+                                "margin": "0.5em 0.5em 0.5em -0.5em",
+                                "position": "absolute",
+                                "top": "0",
+                                "left": "-3.0em"
+                              },
+                              "children": [
+                                {
+                                  "component": "Icon",
+                                  "props": {
+                                    "name": "lens",
+                                    "size": "md",
+                                    "color": "#444"
+                                  }
+                                }
+                              ]
                             }
-                          }
-                        }]
-                      }
-
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 3",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W3",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 2",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W2",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W2",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 3",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W3",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W3",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 4",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W4",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W4",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 5",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W5",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W5",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 6",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W6",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W6",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around",
+                            "marginLeft": "150px",
+                            "alignItems": "center"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "buttonCode": "BTN_SHOW_MID_WEEK_PERFORMANCE_REVIEW",
+                                "text": "Mid term performance review",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_MID_WEEK_PERFORMANCE_REVIEW_QUESTION",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_BUYER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 7",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W7",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W7",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 8",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W8",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W8",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 9",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W9",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W9",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 10",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W10",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W10",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 11",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W11",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W11",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "width": "200px",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around"
+                          },
+                          "children": [
+                            {
+                              "component": "EventButton",
+                              "props": {
+                                "fontSize": "22px",
+                                "textColor": "#444",
+                                "textSize": "md",
+                                "text": "Week 12",
+                                "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W12",
+                                "value": {
+                                  "itemCode": "{{props.navigationId}}"
+                                }
+                              }
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W12",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "single-item",
+                          "component": "Box",
+                          "props": {
+                            "textAlign": "left",
+                            "marginTop": "20px",
+                            "lineHeight": "1.5em",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "space-around",
+                            "marginLeft": "60px"
+                          },
+                          "children": [
+                            {
+                              "component": "Box",
+                              "props": {
+                                "marginLeft": "150px",
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_BUYER.value": {
+                                      "$eq": true
+                                    }
+                                  },
+                                  "props": {
+                                    "fontSize": "22px",
+                                    "textColor": "#444",
+                                    "textSize": "md",
+                                    "text": "Edit/ADD",
+                                    "buttonCode": "BTN_ASK_FINAL_WEEK_PERFORMANCE_REVIEW_QUESTION",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  }
+                                },
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "fontSize": "22px",
+                                    "textColor": "#444",
+                                    "textSize": "md",
+                                    "text": "Final term performance review",
+                                    "buttonCode": "BTN_SHOW_FINAL_WEEK_PERFORMANCE_REVIEW",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "component": "Box",
+                              "props": {
+                                "alignItems": "center"
+                              },
+                              "children": [
+                                {
+                                  "component": "EventButton",
+                                  "props": {
+                                    "textColor": "#444",
+                                    "text": "Edit / ADD",
+                                    "icon": "edit",
+                                    "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W12",
+                                    "value": {
+                                      "itemCode": "{{props.navigationId}}"
+                                    }
+                                  },
+                                  "onlyShowIf": {
+                                    "user.attributes.PRI_IS_SELLER.value": {
+                                      "$eq": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
                         }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W3",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 4",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W4",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W4",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 5",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W5",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W5",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 6",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W6",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W6",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around",
-                      "marginLeft": "120px"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "conditional": {
-                          "if": {
-                            "user.attributes.PRI_IS_BUYER": {
-                              "$eq": "true"
-                            }
-                          },
-                          "then": {
-                            "buttonCode": "BTN_EDIT_MID_WEEK_PERFORMANCE_REVIEW"
-
-                          },
-                          "else": {
-                            "buttonCode": "BTN_SHOW_MID_WEEK_PERFORMANCE_REVIEW"
-                          }
-                        },
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Mid week performance review",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W6",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 7",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W7",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W7",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 8",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W8",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W8",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 9",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W9",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W9",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 10",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W10",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W10",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 11",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W11",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W11",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around"
-                    },
-                    "children": [{
-                        "component": "EventButton",
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Week 12",
-                          "buttonCode": "BTN_SHOW_LOGBOOK_QUESTION_W12",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W12",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-
-                    ]
-                  },
-                  {
-                    "name": "single-item",
-                    "component": "Box",
-                    "props": {
-                      "textAlign": "left",
-                      "marginTop": "20px",
-                      "lineHeight": "1.5em",
-                      "width": "200px",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "space-around",
-                      "marginLeft": "120px"
-                    },
-                    "children": [
-                      {
-                        "component": "EventButton",
-                        "conditional": {
-                          "if": {
-                            "user.attributes.PRI_IS_BUYER": {
-                              "$eq": "true"
-                            }
-                          },
-                          "then": {
-                              "buttonCode": "BTN_EDIT_FINAL_WEEK_PERFORMANCE_REVIEW"
-
-                          },
-                          "else": {
-                            "buttonCode": "BTN_SHOW_FINAL_WEEK_PERFORMANCE_REVIEW"
-                          }
-                        },
-                        "props": {
-                          "fontSize": "22px",
-                          "textColor": "#444",
-                          "textSize": "md",
-                          "text": "Final week performance review",
-                          "value": {
-                            "itemCode": "{{props.navigationId}}"
-                          }
-                        }
-                      },
-                      {
-                        "component": "Box",
-                        "props": {
-                          "alignItems": "center"
-                        },
-                        "children": [{
-                          "component": "EventButton",
-                          "props": {
-                            "textColor": "#444",
-                            "text": "Edit / ADD",
-                            "icon": "edit",
-                            "buttonCode": "BTN_ASK_LOGBOOK_QUESTION_W12",
-                            "value": {
-                              "itemCode": "{{props.navigationId}}"
-                            }
-                          },
-                          "onlyShowIf": {
-                            "user.attributes.PRI_IS_SELLER.value": {
-                              "$eq": true
-                            }
-                          }
-                        }]
-                      }
-
-                    ]
-                  }
-                ]
-              }]
-            }]
-          }]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
