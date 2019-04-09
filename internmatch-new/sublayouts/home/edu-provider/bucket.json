@@ -27,14 +27,34 @@
             "overflowY": "auto",
             "width": "100%",
             "gutter": 20,
-            "contentProps": {
-              "minWidth": 240
-            },
             "rootCode": "GRP_INTERNS"
           },
           "repeat": "_query",
           "children": {
             "component": "List",
+            "onlyShowIf": {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "props.rootCode": {
+                        "$ne": "GRP_INTERNS"
+                      }
+                    },
+                    {
+                      "repeater.code": {
+                        "$ne": "GRP_NOT_APPLIED"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "props.rootCode": {
+                    "$eq": "GRP_INTERNS"
+                  }
+                }
+              ]
+            },
             "repeat": "_repeater.items",
             "props": {
               "height": "100vh",
