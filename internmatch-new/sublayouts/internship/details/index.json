@@ -262,7 +262,7 @@
                           }
                         },
                         "then": {
-                          "text": "{{props.internship.duration}} longs"
+                          "text": "{{props.internship.duration}} long"
                         }
                       },
                       "props": {
@@ -369,12 +369,12 @@
                   "component": "Text",
                   "conditional": {
                     "if": {
-                      "props.internship.description": {
+                      "props.internship.positionDescription": {
                         "$exists": true
                       }
                     },
                     "then": {
-                      "text": "{{props.internship.description}}"
+                      "text": "{{props.internship.positionDescription}}"
                     }
                   },
                   "props": {
@@ -443,17 +443,17 @@
                   "component": "DisplayHTML",
                   "conditional": {
                     "if": {
-                      "props.positionDescription": {
+                      "props.internship.description": {
                         "$exists": true,
                         "$ne": "undefined"
                       }
                     },
                     "then": {
-                      "html": "{{props.positionDescription}}"
+                      "html": "{{props.internship.description}}"
                     }
                   },
                   "props": {
-                    "html": "No Position Description"
+                    "html": "No Internship Description"
                   }
                 }
               ]

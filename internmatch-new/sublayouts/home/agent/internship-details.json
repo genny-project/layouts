@@ -58,7 +58,7 @@
           "skills": "{{query.internship.attributes.PRI_INTERNSHIP_SKILLS.value}}",
           "description": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
           "learningOutcomes": "{{query.internship.attributes.PRI_INTERNSHIP_LEARNING_OUTCOMES.value}}",
-          "positionDescription": "{{query.internship.attributes.PRI_INTERNSHIP_DESCRIPTION.value}}",
+          "positionDescription": "{{query.internship.attributes.PRI_POSITION_DESCRIPTION.value}}",
           "created": "{{query.internship.created}}"
         },
         "company": {
@@ -66,9 +66,9 @@
           "name": "{{query.internship.company.attributes.PRI_NAME.value}}"
         },
         "supervisor": {
-          "name": "{{query.hc.attributes.PRI_NAME.value}}",
-          "email": "{{query.hc.attributes.PRI_EMAIL.value}}",
-          "phone": "{{query.hc.attributes.PRI_MOBILE.value}}"
+          "name": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_NAME.value}}",
+          "email": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_NAME.value}}",
+          "phone": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_MOBILE.value}}"
         }
       }
     }
@@ -115,8 +115,30 @@
       "path": "internship",
       "scope": {
         "operator": "getBE",
-        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
-        "as": "bes"
+        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}",
+        "as": "hostcompanyRep"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "internship",
+      "scope": {
+        "operator": "scope",
+        "path": "hostcompanyRep",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributesHostCompany"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "hostcompanyRep",
+      "scope": {
+        "operator": "populateAttributes",
+        "as": "attributesHostCompany",
+        "code": "{{code}}"
       }
     },
     {
@@ -124,17 +146,8 @@
       "path": "internship",
       "scope": {
         "operator": "getBE",
-        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}",
-        "as": "hc"
-      }
-    },
-    {
-      "operator": "scope",
-      "path": "hc",
-      "scope": {
-        "operator": "populateAttributes",
-        "code": "{{code}}",
-        "as": "hcAttributes"
+        "id": "{{attributes.LNK_INTERNSHIP_DURATION.value}}",
+        "as": "duration"
       }
     },
     {
