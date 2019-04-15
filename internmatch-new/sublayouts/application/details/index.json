@@ -244,7 +244,7 @@
                   "children": [
                     {
                       "component": "Text",
-                      "text": "Learning outcomes"
+                      "text": "Position Description"
                     }
                   ]
                 },
@@ -252,13 +252,13 @@
                   "component": "DisplayHTML",
                   "conditional": {
                     "if": {
-                      "props.internshipLearningOutcomes": {
+                      "props.positionDesc": {
                         "$exists": true,
                         "$ne": "undefined"
                       }
                     },
                     "then": {
-                      "html": "{{props.internshipLearningOutcomes}}"
+                      "html": "{{props.positionDesc}}"
                     },
                     "else": {
                       "html": "None"
@@ -357,7 +357,7 @@
                           }
                         },
                         "then": {
-                          "text": "Student ID: {{props.application.attributes.PRI_STUDENT_ID.value}}"
+                          "text": "Student ID: {{props.studentID}}"
                         },
                         "else": {
                           "text": "No student ID"
@@ -391,13 +391,13 @@
                       "component": "Text",
                       "conditional": {
                         "if": {
-                          "props.application.attributes.PRI_EMAIL.value": {
+                          "props.studentEmail": {
                             "$exists": true,
                             "$ne": "undefined"
                           }
                         },
                         "then": {
-                          "text": "{{props.application.attributes.PRI_EMAIL.value}}"
+                          "text": "{{props.studentEmail}}"
                         },
                         "else": {
                           "text": "No email"
@@ -519,16 +519,12 @@
                   "onlyShowIf": {
                     "props.occupation": {
                       "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
+                      "$ne": "undefined"
                     }
                   },
                   "props": {
                     "flexDirection": "column"
                   },
-                  "repeat": "_props.occupation",
                   "children": {
                     "component": "Box",
                     "props": {
@@ -537,23 +533,10 @@
                     "children": [
                       {
                         "component": "Text",
-                        "children": "{{repeater}}"
+                        "children": "{{props.occupation}}"
                       }
                     ]
                   }
-                },
-                {
-                  "component": "Text",
-                  "dontShowIf": {
-                    "props.application.attributes.LNK_OCCUPATION.value": {
-                      "$exists": true,
-                      "$ne": "undefined",
-                      "$size": {
-                        "$gt": 0
-                      }
-                    }
-                  },
-                  "children": "No occupation"
                 }
               ]
             },
@@ -686,7 +669,7 @@
               "$ne": "undefined"
             }
           },
-          "children":[
+          "children": [
             {
               "component": "Sublayout",
               "props": {
