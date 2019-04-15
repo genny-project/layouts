@@ -28,10 +28,13 @@
             "internshipLearningOutcomes": "_query.application.internships.PRI_INTERNSHIP_LEARNING_OUTCOMES.value",
             "studentName": "_query.application.attributes.PRI_APPLICANT_FULLNAME.value",
             "mobilePhone": "_query.application.APPLICANT.attributes.PRI_MOBILE.value",
-            "occupation": "_query.application.occupation",
-            "industry": "_query.applicayion.industry.name",
-            "educationProvider": "_query.application.educationProvider.name",
-            "id": "{{query.application.code}}"
+            "occupation": "{{query.application.occupation.name}}",
+            "id": "{{query.application.code}}",
+            "studentID": "{{query.application.APPLICANT.attributes.PRI_STUDENT_ID.value}}",
+            "studentEmail": "{{query.application.APPLICANT.attributes.PRI_USERNAME.value}}",
+            "educationProvider": "{{}}",
+            "industry": "{{query.application.industry.name}}",
+            "positionDesc": "{{query.application.internships.PRI_POSITION_DESCRIPTION.value}}"
           }
         }
       ]
