@@ -68,6 +68,7 @@
         "supervisor": {
           "name": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_NAME.value}}",
           "email": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_USERNAME.value}}",
+
           "phone": "{{query.internship.hostcompanyRep.attributesHostCompany.PRI_MOBILE.value}}"
         }
       }
@@ -115,7 +116,7 @@
       "path": "internship",
       "scope": {
         "operator": "getBE",
-        "id": "{{attributes.LNK_HOST_COMPANY_REP.value}}",
+        "id": "{{attributes.LNK_INTERN_SUPERVISOR.value}}",
         "as": "hostcompanyRep"
       }
     },
@@ -137,7 +138,7 @@
       "path": "hostcompanyRep",
       "scope": {
         "operator": "populateAttributes",
-        "as": "attributesHostCompany",
+        "as": "attributesHostCompanyw",
         "code": "{{code}}"
       }
     },
