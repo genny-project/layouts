@@ -22,7 +22,46 @@
               {
                 "Header": "Actions",
                 "accessor": "actions",
-                "fakeButton": "View"
+                "renderButton": [
+                  {
+                    "component": "Box",
+                    "children": [
+                      {
+                        "component": "Text",
+                        "props": {
+                          "color": "white",
+                          "text": "View Details",
+                          "size": "xxxs"
+                        }
+                      }
+                    ],
+                    "props": {
+                      "backgroundColor": "#5173c6",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "paddingX": 20,
+                      "paddingY": 2,
+                      "width": "100px",
+                      "height": "40px"
+                    }
+                  },
+                  {
+                    "component": "EventButton",
+                    "props": {
+                      "height": "40px",
+                      "width": "90px",
+                      "backgroundColor": "blue",
+                      "color": "#5173c6",
+                      "textColor": "#fff",
+                      "text": "Send Journal ",
+                      "size": "xxs",
+                      "buttonCode": "TRIGER_SEND_WEEKLY_JOURNAL_VIA_EMAIL_TO_SPECIFIC_EDUPROVIDER",
+                      "value": {
+                        "itemCode": "{{code}}"
+                      }
+                    }
+                  }
+                ]
               },
               {
                 "Header": "Name",
