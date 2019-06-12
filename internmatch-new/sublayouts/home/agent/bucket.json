@@ -50,8 +50,8 @@
                     "overflowY": "auto",
                     "width": "100%",
                     "gutter": 20,
-                    "contentProps": {	
-                      "minWidth": 240	
+                    "contentProps": {
+                      "minWidth": 240
                     },
                     "onScroll": "_onScroll"
                   },
@@ -649,9 +649,22 @@
                                   },
                                   "children": [
                                     {
+                                      "conditional": {
+                                        "if": {
+                                          "repeater.applicant.attributes.PRI_IMAGE_URL.value": {
+                                            "$exists": true,
+                                            "$ne": "undefined"
+                                          }
+                                        },
+                                        "then": {
+                                          "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}"
+                                        },
+                                        "else": {
+                                          "source": "{{repeater.attributes.PRI_IMAGE_URL.value}}"
+                                        }
+                                      },
                                       "component": "Image",
                                       "props": {
-                                        "source": "{{repeater.applicant.attributes.PRI_IMAGE_URL.value}}",
                                         "height": 50,
                                         "width": 50
                                       }
@@ -763,21 +776,14 @@
                                       "children": [
                                         {
                                           "component": "Text",
-                                          "conditional": {
-                                            "if": {
-                                              "repeater.attributes.PRI_HOST_COMPANY_NAME.value": {
-                                                "$exists": true
-                                              }
-                                            },
-                                            "then": {
-                                              "text": "{{repeater.attributes.PRI_HOST_COMPANY_NAME.value}}"
-                                            },
-                                            "else": {
-                                              "text": "Company Not provided"
+                                          "onlyShowIf": {
+                                            "repeater.attributes.PRI_COMPANY_CODE.value": {
+                                              "$exists": true
                                             }
                                           },
                                           "props": {
-                                            "size": "xxs"
+                                            "size": "xxs",
+                                            "text": "{{repeater.company.attributes.PRI_NAME.value}}"
                                           }
                                         }
                                       ]
@@ -1035,6 +1041,39 @@
           "attributes.PRI_GRP_APPLIED_DATE.value"
         ],
         "direction": "desc"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "_query",
+      "as": "tableData",
+      "scope": {
+        "operator": "map",
+        "fields": {
+          "companyName": "company.name"
+        }
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "getBE",
+        "id": "{{attributes.PRI_COMPANY_CODE.value}}",
+        "as": "company"
+      }
+    },
+    {
+      "operator": "scope",
+      "path": "items",
+      "scope": {
+        "operator": "scope",
+        "path": "company",
+        "scope": {
+          "operator": "populateAttributes",
+          "code": "{{code}}",
+          "as": "attributes"
+        }
       }
     }
   ]
