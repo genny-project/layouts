@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 10px;
+      font-family: Muli;
+      color: #444;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    div,
+    ul,
+    li,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 0.9em;
+      color: #444;
+      margin: 0;
+    }
+
+    p,
+    ul,
+    li,
+    a {
+      color: #555;
+      font-size: 12px;
+    }
+
+    .table-container {
+      display: flex;
+      flex-direction: column;
+      /* margin-top: 20px; */
+      /* padding: 2px; */
+    }
+
+    .table-container .row .row-item {
+      /* width: 200px; */
+      flex: 1;
+      /* background: red; */
+    }
+
+    .row {
+      display: flex;
+      padding: 0 4px;
+    }
+
+    .row:nth-child(even) {
+      background: #f3f3f3;
+    }
+
+    .row-item,
+    .large-row-item {
+      padding: 4px;
+    }
+
+    .large-row-item {
+      flex: 3;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .weekly-journal {
+      /* margin-top: 20px; */
+      /* background: #f3f3f3; */
+      background-color: white;
+      /* padding: 20px; */
+    }
+
+    .row-title {
+      border-bottom: 1px solid #e3e3e3;
+      /* padding-bottom: 5px; */
+      /* margin-bottom: 10px; */
+    }
+
+    .row-title p {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 12px;
+      /* margin: 20px 0; */
+      padding: 8px 0;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 28px;
+      padding-bottom: 8px;
+      /* padding: 10px 0; */
+    }
+
+    .header-main {
+      display: flex;
+      flex: row;
+      padding: 16px 0;
+      border-bottom: 2px solid white;
+    }
+
+    .header-left {
+      flex-basis: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+      align-items: center;
+      display: flex;
+    }
+
+    .header-right {
+      flex: 1;
+    }
+
+    .primary-color {
+      background-color: #003c8f;
+      color: white;
+    }
+
+    .weekly-journal-header {
+      padding: 8px;
+    }
+  </style>
+
+  <body>
+    <div class="container" style>
+      <div class="weekly-journal">
+        <div class="table-container">
+          <div class="row">
+            <div class="row-item">
+              <p>[JOURNAL.PRI_JOURNAL_DATE]</p>
+            </div>
+
+            <div class="row-item">
+              <p>[JOURNAL.PRI_JOURNAL_HOURS]</p>
+            </div>
+
+            <div class="large-row-item">
+              <p>
+                [JOURNAL.PRI_JOURNAL_TASKS]
+              </p>
+            </div>
+            <div class="large-row-item">
+              <p>[JOURNAL.PRI_JOURNAL_LEARNING_OUTCOMES]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
