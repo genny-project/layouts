@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #ffffff;
+      text-align: center;
+      font-family: Arial;
+      letter-spacing: 0.2px
+    }
+
+    img {
+      width: inherit;
+      height: inherit;
+    }
+
+    .footer{
+        text-align: center;
+        font-size: small;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+    }
+
+    .checkboxes{
+       margin-bottom: 40px;
+    }
+
+    .checkboxes label{
+        margin: 0px 0px 0px 20px;
+    }
+
+    .radios {
+        display: flex; 
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    .logo {
+      height: 100px
+    }
+
+    .description {
+      width: 60%;
+      margin: auto;
+      text-align: left;
+    } 
+
+    .subtitile-description {
+      text-align: center;
+      font-weight: 700;
+    }
+
+
+    .space-between-small {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+
+    .signature-component {
+      max-height: 10vh;
+      width: 20vw;
+      height: 10vh;
+      max-width: 20vw;
+    }
+
+    .card{
+      margin-bottom: 24px;
+      background-color: #ebecf0;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    @media only screen and (max-width: 1500px) and (min-width: 900px) {
+      .description {
+        width: 60%;
+        text-align: left;
+        margin-top:32px
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .description {
+        width: 90%;
+        text-align: left;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+    <div style='margin-top: 48px;'>
+        <img class="logo"
+        src="https://raw.githubusercontent.com/genny-project/layouts/master/internmatch/email_templates/images/LOGO_OUTCOME.png"
+        alt="Outcome Life" />
+    </div>
+
+    <br />
+
+    <div class="description">
+        <div>
+            <h2 class="subtitile-description"> Host Company Validation </h2>
+            <p>In line with requirements of InternMatch the below indicates an employee of InternMatch has validated and verified this host company and environment as a suitable organisation to take internship placements.</p>
+        </div>
+
+        <br />
+
+        <div class='card'>
+            <div class="space-between-small">
+                <span> Legal Name: </span>
+                <span> [APPLICATION.PRI_INTERN_NAME] </span>
+            </div>
+            <div class="space-between-small">
+                <span> ABN: </span>
+                <span> [APPLICATION.PRI_INTERN_MOBILE] </span>
+            </div>
+            <div class="space-between-small">
+                <span> Head Office Address: </span>
+                <span> [APPLICATION.PRI_INTERN_EMAIL] </span>
+            </div>
+            <div class="space-between-small">
+                <span> Company Website: </span>
+                <span> [APPLICATION.PRI_INTERN_STUDENT_ID] </span>
+            </div>
+            <div class="space-between-small">
+                <span> Number of Employees: </span>
+                <span> [APPLICATION.PRI_INTERN_STUDENT_ID] </span>
+            </div>
+            <div class="space-between-small">
+                <span> Year the organisation was incorporated: </span>
+                <span> [APPLICATION.PRI_INTERN_STUDENT_ID] </span>
+            </div>
+            <div class="space-between-small">
+                <span> Company Industry: </span>
+                <span> [APPLICATION.PRI_INTERN_STUDENT_ID] </span>
+            </div>
+        </div> 
+        
+        <div class='radios'>
+            <label>Type of Business Environment:</label>
+            <span>
+              <input type="radio" id="Corporate" name="Type of Business Environment" value="Corporate">
+              <label for="Corporate">Corporate</label>
+            </span>
+            <span>
+              <input type="radio" id="Coworking" name="type of business Environment" value="Coworking">
+              <label for="Coworking">Coworking</label>
+            </span>
+            <span>
+              <input type="radio" id="Field Work" name="type of business Environment" value="Field Work">
+              <label for="Field Work">Field Work</label>
+            </span>
+        </div>
+
+        <div class="checkboxes">
+            <span>
+                <input type="checkbox">
+                <label> Exists are clear & accessible</label><br>
+                <input type="checkbox">
+                <label> Workplace is well organised (no trip hazards etc)</label><br>
+                <input type="checkbox">
+                <label> Work area suitably ventilated, lighted and a comfortable working temperature?</label><br>
+                <input type="checkbox">
+                <label> Suitable work area, seating and equipment for the intern?</label><br>
+                <input type="checkbox">
+                <label> Adequate amenities (toilets, dining area) provided within easy access?</label><br>
+                <input type="checkbox">
+                <label> Walkways and stairs kept clear and safe?</label><br>
+                <input type="checkbox">
+                <label> Did the Host Company show evidence of the availability of an appropriate and professional office</label><br>
+                <input type="checkbox">
+                <label> Is the Host Company aware of all terms and conditions for hosting interns</label><br>
+                <input type="checkbox">
+                <label> Has a site inspection of the Host Company been conducted</label><br>
+            </span>            
+        </div>
+
+        <div style='margin-bottom: 40px;'>
+            <p class="bold"> [APPLICATION.PRI_SUPER_NAME] </p>
+            <div class="signature-component"> <img src="[APPLICATION.PRI_AGR_DOC_HC_SIGNATURE]" /> </div>
+            <p>[APPLICATION.PRI_AGR_DOC_HC_SIGN_DATE]</p>
+        </div>
+
+        <div class='footer'>
+                <label>© 2021 Outcome.life | InternMatch</label>
+                <label>Address (Melbourne): Level-1, 17 Hardware Lane, Melbourne VIC, Australia- 3000</label>
+                <label>Website: <a href="https://outcome.life/">https://outcome.life/</a></label>                
+                <label>Email Address:  hello@outcome.life</label>
+                <label>ABN: 89 608 648 826</label>            
+        </div>        
+  </div>
+</body>
+
+</html>
