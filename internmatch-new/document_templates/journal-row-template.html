@@ -88,8 +88,17 @@
       padding: 4px;
     }
 
+    .row-item-date {
+      min-width: 125px;
+    }
+
+    .row-item-hours {
+      min-width: 100px;
+    }
+
     .large-row-item {
       flex: 3;
+      word-break: break-all;
     }
 
     .container {
@@ -165,18 +174,16 @@
       <div class="weekly-journal">
         <div class="table-container">
           <div class="row">
-            <div class="row-item">
+            <div class="row-item row-item-date">
               <p>[[JOURNAL.PRI_JOURNAL_DATE]]</p>
             </div>
 
-            <div class="row-item">
+            <div class="row-item row-item-hours">
               <p>[[JOURNAL.PRI_JOURNAL_HOURS]]</p>
             </div>
 
             <div class="large-row-item">
-              <p>
-                [[JOURNAL.PRI_JOURNAL_TASKS]]
-              </p>
+              <p>[[JOURNAL.PRI_JOURNAL_TASKS]]</p>
             </div>
             <div class="large-row-item">
               <p>[[JOURNAL.PRI_JOURNAL_LEARNING_OUTCOMES]]</p>
