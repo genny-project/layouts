@@ -93,8 +93,9 @@
     @media print {
       @page {
         size: 'A4';
-        margin: 1cm;
+        margin: 0.75cm;
       }
+      .pagebreak { page-break-before: always; }
     }
   </style>
 </head>
@@ -274,7 +275,7 @@
 
     <p><span class="bold">IN WITNESS WHEREOF</span> this Agreement has been signed on the date signed by the second party below.</p>
     <p>&nbsp;</p>
-
+    <div class="pagebreak">
     <div class="flex-full">
       <div>
         <img src="[[HC.PRI_HCS_AGR_SIGNATURE]]" width="300" />
@@ -310,6 +311,7 @@
         <p class="bold">Date <br /> &nbsp;</p>
       </div>
     </div>
+  </div>
   </div>
 </body>
 </html>
