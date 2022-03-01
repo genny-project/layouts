@@ -81,6 +81,15 @@
       text-align: left;
     }
 
+    .flex-full {
+      display: flex;
+      width: 100%;
+    }
+
+    .flex-full > div {
+      flex: 1;
+    }
+
     @media print {
       @page {
         size: 'A4';
@@ -266,7 +275,7 @@
     <p><span class="bold">IN WITNESS WHEREOF</span> this Agreement has been signed on the date signed by the second party below.</p>
     <p>&nbsp;</p>
 
-    <div class="grid cols-2">
+    <div class="flex-full">
       <div>
         <img src="[[HC.PRI_HCS_AGR_SIGNATURE]]" />
         <p class="bold">
@@ -278,13 +287,15 @@
 
       <div>
         <p>[[HC.PRI_HCS_AGR_SIGN_DATE]]</p>
-        <p class="bold">Date <br /> &nbsp;</p>
+        <p class="bold">
+          Date
+        </p>
       </div>
     </div>
 
     <div class="blank-div"></div>
 
-    <div class="grid cols-2">
+    <div class="flex-full">
       <div>
         <img src="[[AGENT_SIGN]]" />
         <p class="bold">
@@ -296,7 +307,7 @@
 
       <div>
         <p>[[AGENT_SIGN_DATE]]</p>
-        <p class="bold">Date <br /> &nbsp;</p>
+        <p class="bold">Date</p>
       </div>
     </div>
   </div>
